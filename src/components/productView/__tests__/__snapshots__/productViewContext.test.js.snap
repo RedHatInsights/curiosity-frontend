@@ -40,30 +40,31 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
         {
           "color": "#06c",
           "fill": "#8bc1f7",
-          "isOptional": true,
           "metric": "Cores",
           "stroke": "#06c",
         },
         {
           "chartType": "threshold",
-          "isOptional": true,
           "metric": "Cores",
         },
       ],
-      "isOptional": false,
+    },
+    {
+      "filters": [
+        {
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "metric": "Sockets",
+          "stroke": "#06c",
+        },
+        {
+          "chartType": "threshold",
+          "metric": "Sockets",
+        },
+      ],
     },
   ],
   "initialGraphSettings": {
-    "actions": [
-      {
-        "id": "uom",
-        "position": "right",
-      },
-      {
-        "id": "granularity",
-        "position": "right",
-      },
-    ],
     "isCardTitleDescription": true,
   },
   "initialGuestsFilters": [
@@ -90,10 +91,16 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     },
     {
       "cell": [Function],
-      "header": [Function],
       "isSort": true,
       "isWrap": true,
       "metric": "Cores",
+      "width": 15,
+    },
+    {
+      "cell": [Function],
+      "isSort": true,
+      "isWrap": true,
+      "metric": "Sockets",
       "width": 15,
     },
     {
@@ -112,7 +119,6 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     ],
     "guestContent": [Function],
   },
-  "initialOption": "cores",
   "initialSubscriptionsInventoryFilters": [
     {
       "isSort": true,
@@ -130,15 +136,21 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
       "isSort": true,
       "isWrap": true,
       "metric": "quantity",
-      "width": 20,
+      "width": 10,
     },
     {
       "cell": [Function],
       "header": [Function],
-      "isSort": true,
       "isWrap": true,
       "metric": "total_capacity",
-      "width": 15,
+      "width": 10,
+    },
+    {
+      "cell": [Function],
+      "header": [Function],
+      "isWrap": true,
+      "metric": "total_capacity",
+      "width": 10,
     },
     {
       "cell": [Function],
@@ -151,6 +163,11 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   "initialToolbarFilters": [
     {
       "id": "sla",
+    },
+    {
+      "id": "granularity",
+      "isSecondary": true,
+      "position": "right",
     },
   ],
   "inventoryGuestsQuery": {
@@ -177,7 +194,6 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   "query": {
     "beginning": "2019-06-20T00:00:00.000Z",
     "ending": "2019-07-20T23:59:59.999Z",
-    "uom": "cores",
   },
   "viewId": "viewopenshift",
 }
@@ -201,30 +217,31 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
         {
           "color": "#06c",
           "fill": "#8bc1f7",
-          "isOptional": true,
+          "metric": "Cores",
+          "stroke": "#06c",
+        },
+        {
+          "chartType": "threshold",
+          "metric": "Cores",
+        },
+      ],
+    },
+    {
+      "filters": [
+        {
+          "color": "#06c",
+          "fill": "#8bc1f7",
           "metric": "Sockets",
           "stroke": "#06c",
         },
         {
           "chartType": "threshold",
-          "isOptional": true,
           "metric": "Sockets",
         },
       ],
-      "isOptional": false,
     },
   ],
   "initialGraphSettings": {
-    "actions": [
-      {
-        "id": "uom",
-        "position": "right",
-      },
-      {
-        "id": "granularity",
-        "position": "right",
-      },
-    ],
     "isCardTitleDescription": true,
   },
   "initialGuestsFilters": [
@@ -251,10 +268,16 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     },
     {
       "cell": [Function],
-      "header": [Function],
       "isSort": true,
       "isWrap": true,
       "metric": "Cores",
+      "width": 15,
+    },
+    {
+      "cell": [Function],
+      "isSort": true,
+      "isWrap": true,
+      "metric": "Sockets",
       "width": 15,
     },
     {
@@ -273,7 +296,6 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     ],
     "guestContent": [Function],
   },
-  "initialOption": "cores",
   "initialSubscriptionsInventoryFilters": [
     {
       "isSort": true,
@@ -291,15 +313,21 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
       "isSort": true,
       "isWrap": true,
       "metric": "quantity",
-      "width": 20,
+      "width": 10,
     },
     {
       "cell": [Function],
       "header": [Function],
-      "isSort": true,
       "isWrap": true,
       "metric": "total_capacity",
-      "width": 15,
+      "width": 10,
+    },
+    {
+      "cell": [Function],
+      "header": [Function],
+      "isWrap": true,
+      "metric": "total_capacity",
+      "width": 10,
     },
     {
       "cell": [Function],
@@ -312,6 +340,11 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   "initialToolbarFilters": [
     {
       "id": "sla",
+    },
+    {
+      "id": "granularity",
+      "isSecondary": true,
+      "position": "right",
     },
   ],
   "inventoryGuestsQuery": {
@@ -338,7 +371,6 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   "query": {
     "beginning": "2019-06-20T00:00:00.000Z",
     "ending": "2019-07-20T23:59:59.999Z",
-    "uom": "cores",
   },
   "viewId": "viewopenshift",
 }

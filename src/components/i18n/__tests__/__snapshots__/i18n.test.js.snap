@@ -513,10 +513,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests }, [ <PfLabel color="blue" /> ])",
       },
       {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: [uom, productId] })",
-      },
-      {
         "key": "curiosity-inventory.measurement",
         "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
@@ -525,12 +521,28 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
       {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom] })",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', RHSM_API_PATH_METRIC_TYPES.CORES] })",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, uom] })",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, RHSM_API_PATH_METRIC_TYPES.CORES] })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', RHSM_API_PATH_METRIC_TYPES.SOCKETS] })",
+      },
+      {
+        "key": "curiosity-inventory.label",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, RHSM_API_PATH_METRIC_TYPES.SOCKETS] })",
       },
       {
         "key": "curiosity-inventory.measurement",
@@ -730,11 +742,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom] })",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', RHSM_API_PATH_METRIC_TYPES.SOCKETS] })",
       },
       {
-        "key": "",
-        "match": "translate( \`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}\`, { context: uom } )",
+        "key": "curiosity-inventory.label",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, RHSM_API_PATH_METRIC_TYPES.SOCKETS] })",
       },
       {
         "key": "curiosity-inventory.measurement",
@@ -1061,6 +1073,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-inventory.label",
   },
   {
+    "file": "src/config/product.openshiftContainer.js",
+    "key": "curiosity-inventory.label",
+  },
+  {
     "file": "src/config/product.openshiftDedicated.js",
     "key": "curiosity-graph.label_axisY",
   },
@@ -1115,6 +1131,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/config/product.rhel.js",
     "key": "curiosity-inventory.guestsHeader",
+  },
+  {
+    "file": "src/config/product.rhel.js",
+    "key": "curiosity-inventory.label",
   },
   {
     "file": "src/config/product.rhel.js",

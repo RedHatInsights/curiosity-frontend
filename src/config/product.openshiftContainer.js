@@ -14,9 +14,7 @@ import {
   RHSM_API_QUERY_INVENTORY_SORT_TYPES as INVENTORY_SORT_TYPES,
   RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES as SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES,
-  RHSM_API_QUERY_UOM_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
-  RHSM_API_RESPONSE_INSTANCES_META_TYPES as INVENTORY_META_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES,
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
@@ -75,9 +73,8 @@ const config = {
   productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.CAPACITY,
   viewId: `view${productGroup}`,
-  productContextFilterUom: true,
+  productContextFilterUom: false,
   query: {
-    [RHSM_API_QUERY_SET_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES,
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers
       .getRangedDateTime(GRANULARITY_TYPES.DAILY)
       .startDate.toISOString(),
@@ -102,49 +99,38 @@ const config = {
     [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100,
     [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
   },
-  initialOption: RHSM_API_QUERY_UOM_TYPES.CORES,
   initialGraphFilters: [
     {
       filters: [
         {
           metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-          isOptional: true,
           fill: chartColorBlueLight.value,
           stroke: chartColorBlueDark.value,
           color: chartColorBlueDark.value
-        },
-        {
-          metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-          isOptional: true,
-          fill: chartColorBlueLight.value,
-          stroke: chartColorBlueDark.value,
-          color: chartColorBlueDark.value
-        },
-        {
-          metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-          chartType: ChartTypeVariant.threshold,
-          isOptional: true
         },
         {
           metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-          chartType: ChartTypeVariant.threshold,
-          isOptional: true
+          chartType: ChartTypeVariant.threshold
+        }
+      ]
+    },
+    {
+      filters: [
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+          fill: chartColorBlueLight.value,
+          stroke: chartColorBlueDark.value,
+          color: chartColorBlueDark.value
+        },
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+          chartType: ChartTypeVariant.threshold
         }
       ]
     }
   ],
   initialGraphSettings: {
-    isCardTitleDescription: true,
-    actions: [
-      {
-        id: RHSM_API_QUERY_SET_TYPES.UOM,
-        position: SelectPosition.right
-      },
-      {
-        id: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
-        position: SelectPosition.right
-      }
-    ]
+    isCardTitleDescription: true
   },
   initialGuestsFilters: [
     {
@@ -235,16 +221,24 @@ const config = {
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-      header: (data, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) =>
-        translate('curiosity-inventory.header', { context: [uom, productId] }),
-      cell: (data = {}, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) => {
-        const total = data?.[uom];
-        return translate('curiosity-inventory.measurement', {
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
           context: (total && 'value') || undefined,
           total,
-          testId: <span data-test={`instances-cell-${uom}`} data-value={`${total}`} />
-        });
-      },
+          testId: <span data-test={`instances-cell-${RHSM_API_PATH_METRIC_TYPES.CORES}`} data-value={`${total}`} />
+        }),
+      isSort: true,
+      isWrap: true,
+      width: 15
+    },
+    {
+      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total,
+          testId: <span data-test={`instances-cell-${RHSM_API_PATH_METRIC_TYPES.SOCKETS}`} data-value={`${total}`} />
+        }),
       isSort: true,
       isWrap: true,
       width: 15
@@ -292,20 +286,16 @@ const config = {
         }),
       isSort: true,
       isWrap: true,
-      width: 20
+      width: 10
     },
     {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY,
-      header: (data, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) =>
-        translate('curiosity-inventory.header', { context: ['subscriptions', uom] }),
-      cell: ({
-        [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
-        [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: total,
-        [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: uom
-      } = {}) => {
+      header: () =>
+        translate('curiosity-inventory.header', { context: ['subscriptions', RHSM_API_PATH_METRIC_TYPES.CORES] }),
+      cell: ({ hasInfiniteCores: hasInfiniteQuantity, [RHSM_API_PATH_METRIC_TYPES.CORES]: total } = {}) => {
         if (hasInfiniteQuantity === true) {
           const content = translate(`curiosity-inventory.label`, {
-            context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, uom]
+            context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, RHSM_API_PATH_METRIC_TYPES.CORES]
           });
           return (
             <Tooltip content={content}>
@@ -318,15 +308,43 @@ const config = {
           total,
           testId: (
             <span
-              data-test={`subscriptions-cell-${SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY}`}
+              data-test={`subscriptions-cell-${SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY}-${RHSM_API_PATH_METRIC_TYPES.CORES}`}
               data-value={`${total}`}
             />
           )
         });
       },
-      isSort: true,
       isWrap: true,
-      width: 15
+      width: 10
+    },
+    {
+      metric: SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY,
+      header: () =>
+        translate('curiosity-inventory.header', { context: ['subscriptions', RHSM_API_PATH_METRIC_TYPES.SOCKETS] }),
+      cell: ({ hasInfiniteSockets: hasInfiniteQuantity, [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: total } = {}) => {
+        if (hasInfiniteQuantity === true) {
+          const content = translate(`curiosity-inventory.label`, {
+            context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, RHSM_API_PATH_METRIC_TYPES.SOCKETS]
+          });
+          return (
+            <Tooltip content={content}>
+              <ChartIcon symbol="infinity" size="md" aria-label={content} />
+            </Tooltip>
+          );
+        }
+        return translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total,
+          testId: (
+            <span
+              data-test={`subscriptions-cell-${SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY}-${RHSM_API_PATH_METRIC_TYPES.SOCKETS}`}
+              data-value={`${total}`}
+            />
+          )
+        });
+      },
+      isWrap: true,
+      width: 10
     },
     {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE,
@@ -340,6 +358,11 @@ const config = {
   initialToolbarFilters: [
     {
       id: RHSM_API_QUERY_SET_TYPES.SLA
+    },
+    {
+      id: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
+      isSecondary: true,
+      position: SelectPosition.right
     }
   ]
 };
