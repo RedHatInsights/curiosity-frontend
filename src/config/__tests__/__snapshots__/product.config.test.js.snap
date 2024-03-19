@@ -1549,26 +1549,14 @@ exports[`Product specific configurations should apply graph filters and settings
       "filtersSettings": [
         {
           "settings": {
-            "actions": [
-              {
-                "id": "uom",
-                "position": "right",
-              },
-              {
-                "id": "granularity",
-                "position": "right",
-              },
-            ],
             "color": "#06c",
             "fill": "#8bc1f7",
             "groupMetric": [
               "Cores",
-              "Sockets",
             ],
             "isCardTitleDescription": true,
             "isMetricDisplay": false,
             "isMultiMetric": true,
-            "isOptional": true,
             "isStandalone": undefined,
             "metric": undefined,
             "metrics": [
@@ -1578,7 +1566,6 @@ exports[`Product specific configurations should apply graph filters and settings
                 "fill": "#8bc1f7",
                 "id": "Cores_OpenShift Container Platform",
                 "isCapacity": false,
-                "isOptional": true,
                 "isStacked": true,
                 "isThreshold": false,
                 "isToolbarFilter": false,
@@ -1587,12 +1574,42 @@ exports[`Product specific configurations should apply graph filters and settings
                 "strokeWidth": 2,
               },
               {
+                "chartType": "threshold",
+                "id": "threshold_Cores_OpenShift Container Platform",
+                "isCapacity": true,
+                "isStacked": false,
+                "isThreshold": true,
+                "isToolbarFilter": false,
+                "metric": "Cores",
+                "stroke": "#4cb140",
+                "strokeDasharray": "4,3",
+                "strokeWidth": 3,
+              },
+            ],
+            "productId": "OpenShift Container Platform",
+            "stringId": "Cores_OpenShift Container Platform",
+            "stroke": "#06c",
+          },
+        },
+        {
+          "settings": {
+            "color": "#06c",
+            "fill": "#8bc1f7",
+            "groupMetric": [
+              "Sockets",
+            ],
+            "isCardTitleDescription": true,
+            "isMetricDisplay": false,
+            "isMultiMetric": true,
+            "isStandalone": undefined,
+            "metric": undefined,
+            "metrics": [
+              {
                 "chartType": "area",
                 "color": "#06c",
                 "fill": "#8bc1f7",
                 "id": "Sockets_OpenShift Container Platform",
                 "isCapacity": false,
-                "isOptional": true,
                 "isStacked": true,
                 "isThreshold": false,
                 "isToolbarFilter": false,
@@ -1604,7 +1621,6 @@ exports[`Product specific configurations should apply graph filters and settings
                 "chartType": "threshold",
                 "id": "threshold_Sockets_OpenShift Container Platform",
                 "isCapacity": true,
-                "isOptional": true,
                 "isStacked": false,
                 "isThreshold": true,
                 "isToolbarFilter": false,
@@ -1613,22 +1629,9 @@ exports[`Product specific configurations should apply graph filters and settings
                 "strokeDasharray": "4,3",
                 "strokeWidth": 3,
               },
-              {
-                "chartType": "threshold",
-                "id": "threshold_Cores_OpenShift Container Platform",
-                "isCapacity": true,
-                "isOptional": true,
-                "isStacked": false,
-                "isThreshold": true,
-                "isToolbarFilter": false,
-                "metric": "Cores",
-                "stroke": "#4cb140",
-                "strokeDasharray": "4,3",
-                "strokeWidth": 3,
-              },
             ],
             "productId": "OpenShift Container Platform",
-            "stringId": "Cores_Sockets_OpenShift Container Platform",
+            "stringId": "Sockets_OpenShift Container Platform",
             "stroke": "#06c",
           },
         },
@@ -3460,12 +3463,23 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
           "info": undefined,
           "isSort": true,
           "isWrap": true,
           "label": [Function],
           "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
+        },
+        {
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
+          "info": undefined,
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Sockets",
           "modifier": "wrap",
           "width": 15,
         },
@@ -3504,12 +3518,21 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-undefined","data-value":"undefined"},"_owner":null,"_store":{}}})",
-              "dataLabel": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Cores","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isSort": true,
               "isWrap": true,
               "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Sockets",
               "width": 15,
             },
             {
@@ -4467,12 +4490,23 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
           "info": undefined,
           "isSort": true,
           "isWrap": true,
           "label": [Function],
           "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
+        },
+        {
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
+          "info": undefined,
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Sockets",
           "modifier": "wrap",
           "width": 15,
         },
@@ -4504,12 +4538,21 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-undefined","data-value":"undefined"},"_owner":null,"_store":{}}})",
-              "dataLabel": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Cores","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isSort": true,
               "isWrap": true,
               "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Sockets",
               "width": 15,
             },
             {
@@ -5438,18 +5481,29 @@ exports[`Product specific configurations should apply variations in inventory fi
           "label": [Function],
           "metric": "quantity",
           "modifier": "wrap",
-          "width": 20,
+          "width": 10,
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
           "info": undefined,
           "isSort": true,
           "isWrap": true,
           "label": [Function],
-          "metric": "total_capacity",
+          "metric": "Cores",
           "modifier": "wrap",
-          "width": 15,
+          "width": undefined,
+        },
+        {
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
+          "info": undefined,
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Sockets",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
           "cell": [Function],
@@ -5491,11 +5545,11 @@ exports[`Product specific configurations should apply variations in inventory fi
               "isSort": true,
               "isWrap": true,
               "metric": "quantity",
-              "width": 20,
+              "width": 10,
             },
             {
               "content": <Tooltip
-                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Cores"})"
                 distance={15}
                 enableFlip={false}
                 entryDelay={100}
@@ -5504,19 +5558,28 @@ exports[`Product specific configurations should apply variations in inventory fi
                 position="top"
               >
                 <ChartIcon
-                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Cores"})"
                   fill={null}
                   size="md"
                   symbol="infinity"
                   title={null}
                 />
               </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isSort": true,
               "isWrap": true,
-              "metric": "total_capacity",
-              "width": 15,
+              "metric": "Cores",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"subscriptions-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Sockets",
+              "width": undefined,
             },
             {
               "content": "2022-01-01",
@@ -5530,8 +5593,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -5676,8 +5740,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -5731,14 +5796,11 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
           "info": undefined,
-          "isSort": true,
-          "isWrap": true,
           "label": [Function],
-          "metric": "total_capacity",
-          "modifier": "wrap",
-          "width": 10,
+          "metric": "Sockets",
+          "width": undefined,
         },
         {
           "cell": [Function],
@@ -5783,29 +5845,11 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 10,
             },
             {
-              "content": <Tooltip
-                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                distance={15}
-                enableFlip={false}
-                entryDelay={100}
-                exitDelay={0}
-                isNoWrap={false}
-                position="top"
-              >
-                <ChartIcon
-                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                  fill={null}
-                  size="md"
-                  symbol="infinity"
-                  title={null}
-                />
-              </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"subscriptions-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
               "header": [Function],
-              "isSort": true,
-              "isWrap": true,
-              "metric": "total_capacity",
-              "width": 10,
+              "metric": "Sockets",
+              "width": undefined,
             },
             {
               "content": "2022-01-01",
@@ -5819,8 +5863,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -5965,8 +6010,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -6111,8 +6157,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -6198,8 +6245,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -6265,18 +6313,29 @@ exports[`Product specific configurations should apply variations in inventory fi
           "label": [Function],
           "metric": "quantity",
           "modifier": "wrap",
-          "width": 20,
+          "width": 10,
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
           "info": undefined,
           "isSort": true,
           "isWrap": true,
           "label": [Function],
-          "metric": "total_capacity",
+          "metric": "Cores",
           "modifier": "wrap",
-          "width": 15,
+          "width": undefined,
+        },
+        {
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
+          "info": undefined,
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Sockets",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
           "cell": [Function],
@@ -6318,11 +6377,11 @@ exports[`Product specific configurations should apply variations in inventory fi
               "isSort": true,
               "isWrap": true,
               "metric": "quantity",
-              "width": 20,
+              "width": 10,
             },
             {
               "content": <Tooltip
-                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Cores"})"
                 distance={15}
                 enableFlip={false}
                 entryDelay={100}
@@ -6331,19 +6390,28 @@ exports[`Product specific configurations should apply variations in inventory fi
                 position="top"
               >
                 <ChartIcon
-                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Cores"})"
                   fill={null}
                   size="md"
                   symbol="infinity"
                   title={null}
                 />
               </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isSort": true,
               "isWrap": true,
-              "metric": "total_capacity",
-              "width": 15,
+              "metric": "Cores",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"subscriptions-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Sockets",
+              "width": undefined,
             },
             {
               "content": "2022-01-01",
@@ -6357,8 +6425,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -6503,8 +6572,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -6558,14 +6628,11 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
           "info": undefined,
-          "isSort": true,
-          "isWrap": true,
           "label": [Function],
-          "metric": "total_capacity",
-          "modifier": "wrap",
-          "width": 10,
+          "metric": "Sockets",
+          "width": undefined,
         },
         {
           "cell": [Function],
@@ -6610,29 +6677,11 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 10,
             },
             {
-              "content": <Tooltip
-                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                distance={15}
-                enableFlip={false}
-                entryDelay={100}
-                exitDelay={0}
-                isNoWrap={false}
-                position="top"
-              >
-                <ChartIcon
-                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                  fill={null}
-                  size="md"
-                  symbol="infinity"
-                  title={null}
-                />
-              </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"subscriptions-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
               "header": [Function],
-              "isSort": true,
-              "isWrap": true,
-              "metric": "total_capacity",
-              "width": 10,
+              "metric": "Sockets",
+              "width": undefined,
             },
             {
               "content": "2022-01-01",
@@ -6646,8 +6695,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -6792,8 +6842,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -6938,8 +6989,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",
@@ -7025,8 +7077,9 @@ exports[`Product specific configurations should apply variations in inventory fi
           ],
           "expandedContent": undefined,
           "row": {
+            "Cores": 2000,
             "billing_provider": "dolor sit",
-            "has_infinite_quantity": true,
+            "hasInfiniteCores": true,
             "loremIpsum": "hello world",
             "next_event_date": "2022-01-01T00:00:00.000Z",
             "product_name": "lorem",

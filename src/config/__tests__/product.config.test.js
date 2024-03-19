@@ -1,6 +1,7 @@
 import { products } from '../products';
 import { generateChartSettings } from '../../components/graphCard/graphCardHelpers';
 import {
+  RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES
 } from '../../services/rhsm/rhsmConstants';
@@ -244,12 +245,13 @@ describe('Product specific configurations', () => {
           {
             [SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME]: 'lorem',
             [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER]: 'dolor sit',
-            [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: true,
             [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: '2022-01-01T00:00:00.000Z',
             [SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY]: 1,
             [SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL]: 'hello world',
             [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: 2000,
             [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: 'cores',
+            [RHSM_API_PATH_METRIC_TYPES.CORES]: 2000,
+            [`hasInfinite${RHSM_API_PATH_METRIC_TYPES.CORES}`]: true,
             loremIpsum: 'hello world'
           }
         ]
