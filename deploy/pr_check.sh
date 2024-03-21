@@ -18,7 +18,8 @@ COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-fronten
 export COMPONENT_NAME="curiosity-frontend"
 export IQE_RP_ARGS="true"
 export IQE_PARALLEL_ENABLED="false"
-
+# Skips the unit integration tests for pr_checks build, since these are run in GH actions
+export YARN_BUILD_SCRIPT="build:pr_checks"
 # --------------------------------------------
 # Run unit tests, build container and push it to quay
 # --------------------------------------------
