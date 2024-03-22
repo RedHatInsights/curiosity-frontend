@@ -42,6 +42,7 @@ exports[`ChartElements Component should handle basic element settings from conte
           groupComponent={<g />}
           labelComponent={<Unknown />}
           renderInPortal={true}
+          y={0}
         />
       }
       labels={[Function]}
