@@ -14,6 +14,14 @@ import { ChartTypeVariant } from './chartHelpers';
  */
 
 /**
+ * FixMe: Victory Charts v3.8.3+ conversion to TS alters props applied around VictoryTooltip
+ * Recent conversions to TS for Victory Charts has altered the behavior around props
+ * applied to custom label components, specifically for VictoryTooltip and the associated
+ * flyout component. Applying a superfluous y=0 to your custom label component triages the issue.
+ * Attempting to consume the PF version of tooltip instead exposes the exact same Victory Charts issue.
+ * Review this patch for future Victory resolutions or additional Victory Charts errors.
+ */
+/**
  * Aggregate, generate, a compatible Victory chart element/facet component.
  *
  * @param {object} props
@@ -56,6 +64,7 @@ const ChartElements = ({ chartTypeDefaults }) => {
           <ChartCursorTooltip
             dx={0}
             dy={0}
+            y={0}
             centerOffset={{ x: 0, y: 0 }}
             flyoutStyle={{ fill: 'transparent', stroke: 'transparent' }}
             labelComponent={<TooltipLabelComponent />}
