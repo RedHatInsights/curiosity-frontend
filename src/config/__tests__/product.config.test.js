@@ -226,7 +226,8 @@ describe('Product specific configurations', () => {
           {
             [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem',
             [INVENTORY_TYPES.CLOUD_PROVIDER]: 'dolor sit',
-            [INVENTORY_TYPES.INSTANCE_ID]: 'XXXX-XXXX-XXXXX-XXXXX',
+            [INVENTORY_TYPES.INVENTORY_ID]: 'XXXX-XXXX-XXXXX-XXXXX',
+            [INVENTORY_TYPES.INSTANCE_ID]: 'i-XXXXXXXXXX',
             [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z',
             loremIpsum: 'hello world'
           }

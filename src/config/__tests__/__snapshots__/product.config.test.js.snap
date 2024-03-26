@@ -3528,7 +3528,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -3641,7 +3642,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -3734,7 +3736,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -3797,7 +3800,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Button
                 component="a"
-                href="/application-services/acs/instances/instance/XXXX-XXXX-XXXXX-XXXXX"
+                href="/application-services/acs/instances/instance/i-XXXXXXXXXX"
                 isInline={true}
                 variant="link"
               >
@@ -3843,7 +3846,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -3977,7 +3981,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -4076,7 +4081,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -4178,7 +4184,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -4280,7 +4287,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -4414,7 +4422,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -4519,7 +4528,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -4625,7 +4635,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -4711,7 +4722,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -4813,7 +4825,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -4940,7 +4953,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -5039,7 +5053,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -5141,7 +5156,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -5243,7 +5259,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
@@ -5370,7 +5387,8 @@ exports[`Product specific configurations should apply variations in inventory fi
           "row": {
             "cloud_provider": "dolor sit",
             "display_name": "lorem",
-            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "instance_id": "i-XXXXXXXXXX",
+            "inventory_id": "XXXX-XXXX-XXXXX-XXXXX",
             "last_seen": "2022-01-01T00:00:00.000Z",
             "loremIpsum": "hello world",
           },
