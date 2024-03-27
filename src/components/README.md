@@ -144,7 +144,7 @@ recreate the core component.
 <dt><a href="#Table.module_TableSkeleton">TableSkeleton</a></dt>
 <dd></dd>
 <dt><a href="#Components.module_Tabs">Tabs</a></dt>
-<dd><p>PF tabs with state.</p>
+<dd><p>PF tabs with default internal state.</p>
 </dd>
 <dt><a href="#Components.module_Toolbar">Toolbar</a></dt>
 <dd><p>Primary view toolbar.</p>
@@ -3896,7 +3896,7 @@ An inventory tabs component.
 Render inventory tabs using Inventory tab passed props only.
 
 **Kind**: inner method of [<code>InventoryTabs</code>](#Components.module_InventoryTabs)  
-**Emits**: [<code>onTab</code>](#event_onTab)  
+**Emits**: <code>event:onTab</code>  
 <table>
   <thead>
     <tr>
@@ -5964,56 +5964,52 @@ Default props.
 <a name="Components.module_Tabs"></a>
 
 ## Tabs
-PF tabs with state.
+PF tabs with default internal state.
 
 
 * [Tabs](#Components.module_Tabs)
-    * [~Tabs](#Components.module_Tabs..Tabs) ⇐ <code>React.Component</code>
-        * _instance_
-            * [.setTabData()](#Components.module_Tabs..Tabs+setTabData)
-            * [.renderTabs()](#Components.module_Tabs..Tabs+renderTabs) ⇒ <code>React.ReactNode</code>
-            * [.render()](#Components.module_Tabs..Tabs+render) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Components.module_Tabs..Tabs.propTypes) : <code>Object</code>
-            * [.defaultProps](#Components.module_Tabs..Tabs.defaultProps) : <code>Object</code>
-    * ["onTab" (params)](#event_onTab)
+    * [~Tabs(props)](#Components.module_Tabs..Tabs) ⇒ <code>React.ReactNode</code>
+        * [.propTypes](#Components.module_Tabs..Tabs.propTypes) : <code>Object</code>
+        * [.defaultProps](#Components.module_Tabs..Tabs.defaultProps) : <code>Object</code>
+    * ["onSelect" (params)](#event_onSelect)
 
 <a name="Components.module_Tabs..Tabs"></a>
 
-### Tabs~Tabs ⇐ <code>React.Component</code>
+### Tabs~Tabs(props) ⇒ <code>React.ReactNode</code>
 A set of tabs.
 
-**Kind**: inner class of [<code>Tabs</code>](#Components.module_Tabs)  
-**Extends**: <code>React.Component</code>  
-**Emits**: [<code>onTab</code>](#event_onTab)  
+**Kind**: inner method of [<code>Tabs</code>](#Components.module_Tabs)  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>props.defaultActiveTab</td><td><code>number</code></td><td></td>
+    </tr><tr>
+    <td>props.tabs</td><td><code>Array</code></td><td></td>
+    </tr><tr>
+    <td>props.onTab</td><td><code>function</code></td><td><p>A user defined tab handler</p>
+</td>
+    </tr><tr>
+    <td>props.className</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>props.hasOverflowScroll</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>props.activeTab</td><td><code>number</code></td><td></td>
+    </tr>  </tbody>
+</table>
 
-* [~Tabs](#Components.module_Tabs..Tabs) ⇐ <code>React.Component</code>
-    * _instance_
-        * [.setTabData()](#Components.module_Tabs..Tabs+setTabData)
-        * [.renderTabs()](#Components.module_Tabs..Tabs+renderTabs) ⇒ <code>React.ReactNode</code>
-        * [.render()](#Components.module_Tabs..Tabs+render) ⇒ <code>React.ReactNode</code>
-    * _static_
-        * [.propTypes](#Components.module_Tabs..Tabs.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_Tabs..Tabs.defaultProps) : <code>Object</code>
 
-<a name="Components.module_Tabs..Tabs+setTabData"></a>
+* [~Tabs(props)](#Components.module_Tabs..Tabs) ⇒ <code>React.ReactNode</code>
+    * [.propTypes](#Components.module_Tabs..Tabs.propTypes) : <code>Object</code>
+    * [.defaultProps](#Components.module_Tabs..Tabs.defaultProps) : <code>Object</code>
 
-#### tabs.setTabData()
-Convert tab objects into the required PF Tab format.
-
-**Kind**: instance method of [<code>Tabs</code>](#Components.module_Tabs..Tabs)  
-<a name="Components.module_Tabs..Tabs+renderTabs"></a>
-
-#### tabs.renderTabs() ⇒ <code>React.ReactNode</code>
-Apply props to tabs.
-
-**Kind**: instance method of [<code>Tabs</code>](#Components.module_Tabs..Tabs)  
-<a name="Components.module_Tabs..Tabs+render"></a>
-
-#### tabs.render() ⇒ <code>React.ReactNode</code>
-Render tabs.
-
-**Kind**: instance method of [<code>Tabs</code>](#Components.module_Tabs..Tabs)  
 <a name="Components.module_Tabs..Tabs.propTypes"></a>
 
 #### Tabs.propTypes : <code>Object</code>
@@ -6026,10 +6022,10 @@ Prop types.
 Default props.
 
 **Kind**: static property of [<code>Tabs</code>](#Components.module_Tabs..Tabs)  
-<a name="event_onTab"></a>
+<a name="event_onSelect"></a>
 
-### "onTab" (params)
-On tab selected
+### "onSelect" (params)
+Set internal state, call user defined callback.
 
 **Kind**: event emitted by [<code>Tabs</code>](#Components.module_Tabs)  
 <table>
@@ -6334,7 +6330,7 @@ On select update billing provider.
 Display a billing provider field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldBillingProvider</code>](#Toolbar.module_ToolbarFieldBillingProvider)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
@@ -6437,7 +6433,7 @@ On select update.
 Display a category field with generated options.
 
 **Kind**: inner method of [<code>ToolbarFieldCategory</code>](#Toolbar.module_ToolbarFieldCategory)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
@@ -6699,7 +6695,7 @@ On select update export.
 Display an export/download field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldExport</code>](#Toolbar.module_ToolbarFieldExport)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
@@ -6788,7 +6784,7 @@ On select update granularity.
 Display a granularity field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldGranularity</code>](#Toolbar.module_ToolbarFieldGranularity)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
@@ -6893,7 +6889,7 @@ On select update.
 Display a product configuration field with generated options.
 
 **Kind**: inner method of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
@@ -6986,7 +6982,7 @@ On select update granularity.
 Display a granularity field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldRangedMonthly</code>](#Toolbar.module_ToolbarFieldRangedMonthly)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
@@ -7101,7 +7097,7 @@ Return filtered category options, current, and initial value.
 Display a granularity field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldSelectCategory</code>](#Toolbar.module_ToolbarFieldSelectCategory)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
@@ -7184,7 +7180,7 @@ On select update sla.
 Display a sla field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldSla</code>](#Toolbar.module_ToolbarFieldSla)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
@@ -7273,7 +7269,7 @@ On select update uom.
 Display a unit of measure (uom) field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldUom</code>](#Toolbar.module_ToolbarFieldUom)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
@@ -7362,7 +7358,7 @@ On select update usage.
 Display a usage field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldUsage</code>](#Toolbar.module_ToolbarFieldUsage)  
-**Emits**: <code>event:onSelect</code>  
+**Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
