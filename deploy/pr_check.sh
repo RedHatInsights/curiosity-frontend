@@ -61,5 +61,5 @@ source $CICD_ROOT/cji_smoke_test.sh
 # Add link to Ibutsu in GitHub check results
 source $CICD_ROOT/post_test_results.sh
 
-# teardown_docker
+# teardown_container
 exit $BUILD_RESULTS

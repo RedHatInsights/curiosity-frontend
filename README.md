@@ -10,9 +10,7 @@ A web user interface for subscription reporting, based on [Patternfly](https://w
 ### Requirements
 Before developing for Curiosity Frontend
  * Your system needs to be running [NodeJS version 18+ and NPM](https://nodejs.org/)
-    * Yarn install is discouraged. There are dependency install issues with Yarn `1.x.x` versions.  
- * [Docker](https://docs.docker.com/desktop/)
-   * Alternatively, you can try [Podman](https://github.com/containers/podman).
+    * Yarn install is discouraged. There are dependency install issues with Yarn `1.x.x` versions.
 
 For in-depth tooling install guidance see the [contribution guidelines](./CONTRIBUTING.md#install-tooling)
 

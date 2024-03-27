@@ -32,5 +32,5 @@ cat << EOF > $WORKSPACE/artifacts/junit-dummy.xml
 </testsuite>
 EOF
 
-# teardown_docker
+# teardown_container
 exit $BUILD_RESULTS
