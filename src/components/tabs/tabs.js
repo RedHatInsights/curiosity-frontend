@@ -1,152 +1,84 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Tabs as PfTabs, Tab, TabTitleText, Grid, GridItem } from '@patternfly/react-core';
-import _isEqualWith from 'lodash/isEqualWith';
 import { helpers } from '../../common';
 
 /**
- * PF tabs with state.
+ * PF tabs with default internal state.
  *
  * @memberof Components
  * @module Tabs
  */
 
 /**
- * FixMe: PF tabs misinterprets "isElementInView" when tab title nodes are loaded dynamically
- * It appears the use of isElementInView within PF tabs is trying to be predicative in using
- * "getBoundingClientRect" but produces questionable results in scenarios where content is
- * async created. isElementInView assumes some form of the content will always be there
- * instead of scenarios where someone tries to dynamically apply components. It may be good to
- * review using a window.setTimeout(() => handleScrollButtons()) in componentDidMount.
- *
- * Our temporary solution is to simply hide the buttons with a manual set flag affecting the
- * CSS class. This will most likely cause long-term issues.
- */
-/**
- * ToDo: Insights frontend components uses a custom tabs layout, investigate related CSS classes
- * Originally we applied the CSS classes, but they appeared to provide nothing. Since Insights
- * rolled its own tabs we're hesitant to apply said classes without understanding what they provide.
- */
-/**
  * A set of tabs.
  *
- * @augments React.Component
- * @fires onTab
+ * @param {object} props
+ * @param {number} props.defaultActiveTab
+ * @param {Array} props.tabs
+ * @param {Function} props.onTab A user defined tab handler
+ * @param {string} props.className
+ * @param {boolean} props.hasOverflowScroll
+ * @param {number} props.activeTab
+ * @fires onSelect
+ * @returns {React.ReactNode}
  */
-class Tabs extends React.Component {
-  state = {
-    updatedActiveTab: null,
-    updatedTabs: null
-  };
+const Tabs = ({ activeTab, defaultActiveTab, tabs, onTab, className, hasOverflowScroll }) => {
+  // Apply a config driven default or fallback to internal default state.
+  const [updatedActiveTab, setUpdatedActiveTab] = useState(defaultActiveTab);
 
-  componentDidMount() {
-    const { updatedTabs } = this.state;
+  // Override internal state, if available. Avoid potential duplicate tab loading by setting directly
+  const currentActiveTab = activeTab ?? updatedActiveTab;
 
-    if (updatedTabs === null) {
-      this.setTabData();
-    }
-  }
+  const updatedTabs = useMemo(
+    () =>
+      tabs.map(({ active, content, title }, index) => {
+        if (active === true) {
+          setUpdatedActiveTab(index);
+        }
 
-  componentDidUpdate(prevProps) {
-    const { tabs } = this.props;
-    const customizer = (valueA, valueB) => {
-      if (typeof valueA === 'function' && typeof valueB === 'function') {
-        return valueA.toString() === valueB.toString();
-      }
-
-      return undefined;
-    };
-
-    if (!_isEqualWith(prevProps.tabs, tabs, customizer)) {
-      this.setTabData();
-    }
-  }
+        return (
+          <Tab key={title} eventKey={index} title={<TabTitleText>{title}</TabTitleText>}>
+            {content}
+          </Tab>
+        );
+      }),
+    [tabs]
+  );
 
   /**
-   * On tab selected
+   * Set internal state, call user defined callback.
    *
-   * @event onTab
+   * @event onSelect
    * @param {object} params
    * @param {number} params.index
    */
-  onTab = ({ index }) => {
-    const { onTab } = this.props;
-
-    this.setState(
-      {
-        updatedActiveTab: index
-      },
-      () => onTab({ index })
-    );
+  const onSelect = ({ index }) => {
+    setUpdatedActiveTab(index);
+    onTab({ index });
   };
 
-  /**
-   * Convert tab objects into the required PF Tab format.
-   */
-  setTabData() {
-    const { activeTab, defaultActiveTab, tabs } = this.props;
-    let updatedActiveTab = defaultActiveTab;
-
-    const updatedTabs = tabs.map(({ active, content, title }, index) => {
-      updatedActiveTab = active ? index : updatedActiveTab;
-
-      return (
-        <Tab key={title} eventKey={index} title={<TabTitleText>{title}</TabTitleText>}>
-          {content}
-        </Tab>
-      );
-    });
-
-    if (typeof activeTab === 'number') {
-      updatedActiveTab = activeTab;
-    }
-
-    this.setState({
-      updatedActiveTab,
-      updatedTabs
-    });
-  }
-
-  /**
-   * Apply props to tabs.
-   *
-   * @returns {React.ReactNode}
-   */
-  renderTabs() {
-    const { updatedActiveTab, updatedTabs } = this.state;
-    const { className, hasOverflowScroll } = this.props;
-
-    return (
-      <PfTabs
-        className={`curiosity-tabs${(!hasOverflowScroll && '__no-scroll') || ''} ${className || ''}`}
-        activeKey={updatedActiveTab}
-        onSelect={(event, index) => this.onTab({ event, index })}
-        mountOnEnter
-        unmountOnExit
-        id={helpers.generateId()}
-        inset={{
-          default: 'insetNone',
-          md: 'insetLg'
-        }}
-      >
-        {updatedTabs}
-      </PfTabs>
-    );
-  }
-
-  /**
-   * Render tabs.
-   *
-   * @returns {React.ReactNode}
-   */
-  render() {
-    return (
-      <Grid className="curiosity-tabs-container">
-        <GridItem span={12}>{this.renderTabs()}</GridItem>
-      </Grid>
-    );
-  }
-}
+  return (
+    <Grid className="curiosity-tabs-container">
+      <GridItem span={12}>
+        <PfTabs
+          className={`curiosity-tabs${(!hasOverflowScroll && '__no-scroll') || ''} ${className || ''}`}
+          activeKey={currentActiveTab}
+          onSelect={(event, index) => onSelect({ event, index })}
+          mountOnEnter
+          unmountOnExit
+          id={helpers.generateId()}
+          inset={{
+            default: 'insetNone',
+            md: 'insetLg'
+          }}
+        >
+          {updatedTabs}
+        </PfTabs>
+      </GridItem>
+    </Grid>
+  );
+};
 
 /**
  * Prop types.
@@ -173,10 +105,10 @@ Tabs.propTypes = {
  * Default props.
  *
  * @type {{tabs: Array, hasOverflowScroll: boolean, onTab: Function, className: string,
- *     defaultActiveTab: number, activeTab: number}}
+ *     defaultActiveTab: number, activeTab: number|undefined}}
  */
 Tabs.defaultProps = {
-  activeTab: null,
+  activeTab: undefined,
   className: '',
   defaultActiveTab: 0,
   hasOverflowScroll: false,
