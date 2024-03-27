@@ -233,18 +233,18 @@ const config = {
       cell: (
         {
           [INVENTORY_TYPES.DISPLAY_NAME]: displayName,
-          [INVENTORY_TYPES.INSTANCE_ID]: instanceId,
+          [INVENTORY_TYPES.INVENTORY_ID]: inventoryId,
           [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests
         } = {},
         session
       ) => {
         const { inventory: authorized } = session?.authorized || {};
 
-        if (!instanceId) {
+        if (!inventoryId) {
           return displayName;
         }
 
-        let updatedDisplayName = displayName || instanceId;
+        let updatedDisplayName = displayName || inventoryId;
 
         if (authorized) {
           updatedDisplayName = (
@@ -252,7 +252,7 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/openshift/details/${instanceId}`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/openshift/details/${inventoryId}`}
             >
               {updatedDisplayName}
             </Button>
