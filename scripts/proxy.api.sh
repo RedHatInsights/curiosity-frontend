@@ -84,20 +84,6 @@ updateHosts()
 }
 #
 #
-# Check docker permissions
-#
-sudoCheck()
-{
-  local CHECK=$(docker ps || 'SUDO REQUIRED::')
-
-  if [ ! -z "$($CHECK | grep "SUDO REQUIRED:::")" ]; then
-    printf "\n${YELLOW}Container failed to setup, sudo required.${NOCOLOR}\n"
-    printf "  ${YELLOW}Run the platform proxy script.${NOCOLOR}\n\n"
-    exit 0
-  fi
-}
-#
-#
 # main()
 #
 {
@@ -112,12 +98,6 @@ sudoCheck()
   DATADIR_REPO=./.proxy/insights-proxy
   BRANCH="master"
 
-  if [ -z "$(docker -v)" ]; then
-    printf "\n${RED}Docker missing, confirm installation and running.${NOCOLOR}\n"
-    exit 1
-  fi
-
-  sudoCheck
   gitRepo $REPO $DATADIR $DATADIR_REPO $BRANCH
   updateHosts $DATADIR $DATADIR_REPO
   exit 0

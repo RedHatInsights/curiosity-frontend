@@ -33,7 +33,7 @@ When moving between environments notify a specific party
 <!--
 ### Proxy run check
 1. update the NPM packages with `$ npm install`
-1. make sure Docker is running, plus on network, then
+1. make sure you're on network, then
 1. `$ npm run start:proxy`
 1. next...
 -->

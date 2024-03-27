@@ -232,7 +232,7 @@ To update packages in bulk there are 2 pre-defined paths, "basic" and "core".
       $ npm start
       ```
    - Visually confirm that proxy development still functions and can be navigated with...
-      1. Start VPN, and make sure Docker/Podman is running.
+      1. Start VPN
       1. Run
          ```
          $ npm run start:proxy
@@ -257,7 +257,7 @@ To update packages in bulk there are 2 pre-defined paths, "basic" and "core".
       $ npm start
       ```
    - Visually confirm that proxy development still functions and can be navigated with...
-      1. Start VPN, and make sure Docker/Podman is running.
+      1. Start VPN
       1. Run
          ```
          $ npm run start:proxy
@@ -283,7 +283,7 @@ This is the slowest part of package updates. If any packages are skipped during 
    - `$ npm test`, if it fails you'll need to run `$ npm run test:dev` and update the related tests
    - `$ npm run build`, if it fails you'll need to run `$ npm run test:integration-dev` and update the related tests
    - `$ npm start`, confirm that local run is still accessible and that no design alterations have happened. Fix accordingly.
-   - Make sure VPN is active, and Docker/Podman is running, then type `$ npm run start:proxy`. Confirm that proxy run is still accessible and that no design alterations have happened. Fix accordingly.
+   - Make sure VPN is active, then type `$ npm run start:proxy`. Confirm that proxy run is still accessible and that no design alterations have happened. Fix accordingly.
 1. If the package is now working commit the change and move on to the next package.
    - If the package fails, or you want to skip the update, take the minimally easy path and remove/delete `node_modules` then rollback `package-lock.json` **BEFORE** you run the next package update.
 > There are alternatives to resetting `node_modules`, we're providing the most direct path.
@@ -323,9 +323,7 @@ This is the slowest part of package updates. If any packages are skipped during 
 
 Before developing you'll need to install:
  * [NodeJS and NPM](https://nodejs.org/)
-    * Yarn install is now discouraged. There are dependency install issues with Yarn `1.x.x` versions. 
- * [Docker](https://docs.docker.com/desktop/)
-   * Alternatively, you can try [Podman](https://github.com/containers/podman). [Homebrew](https://brew.sh/) can be used for the install `$ brew install podman`
+    * Yarn install is now discouraged. There are dependency install issues with Yarn `1.x.x` versions.
 
 #### OS support
 The tooling for Curiosity is `Mac OS` centered.
@@ -337,21 +335,6 @@ If you are unable to test additional OS support it is imperative that code revie
 
 #### NodeJS and NPM
 The Curiosity build attempts to align to the current NodeJS LTS version. It is possible to test future versions of NodeJS LTS. See CI Testing for more detail. 
-
-#### Docker and Mac
-Setting [Docker](https://docs.docker.com/desktop/) up on a Mac? Install the appropriate package. Confirm everything installed correctly by trying these steps.
-   1. In a terminal instance run
-      ```
-      $ docker run hello-world
-      ```
-
-Reference the Docker documentation for additional installation help.
-
-#### Docker and Linux
-Setting Docker up on a Linux machine may include additional steps.
-  * [Docker on Linux](https://docs.docker.com/desktop/install/linux-install/)
-
-Reference the Docker documentation for additional installation help.
 
 #### NPM
 NPM is automatically packaged with your NodeJS install.
@@ -482,14 +465,12 @@ This is a non-networked local run designed to function with minimal resources an
 This is a networked run that has the ability to proxy prod and stage with a live API.
 
 1. Confirm you've installed all recommended tooling
-1. Confirm the repository name has no blank spaces in it. If it does replace that blank with a dash or underscore, Docker has issues with unescaped parameter strings.
 1. Confirm you've installed resources through npm
 1. Create a local dotenv file called `.env.local` in the root of Curiosity, and add the following contents
     ```
     REACT_APP_DEBUG_MIDDLEWARE=true
     ```
 1. **Confirm you are connected to the network**
-1. Make sure Docker/Podman is running
 1. Open a couple of instances of Terminal and run...
     ```
     $ npm run start:proxy
