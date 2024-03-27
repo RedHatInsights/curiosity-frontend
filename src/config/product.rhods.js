@@ -185,15 +185,15 @@ const config = {
   initialInventoryFilters: [
     {
       metric: INVENTORY_TYPES.DISPLAY_NAME,
-      cell: ({ [INVENTORY_TYPES.DISPLAY_NAME]: displayName, [INVENTORY_TYPES.INSTANCE_ID]: instanceId }) => {
+      cell: ({ [INVENTORY_TYPES.DISPLAY_NAME]: displayName, [INVENTORY_TYPES.INVENTORY_ID]: inventoryId }) => {
         // FixMe: Disabled, see SWATCH-1209 for resolution
         const { inventory: authorized = false } = {};
 
-        if (!instanceId) {
+        if (!inventoryId) {
           return displayName;
         }
 
-        let updatedDisplayName = displayName || instanceId;
+        let updatedDisplayName = displayName || inventoryId;
 
         if (authorized) {
           updatedDisplayName = (
@@ -201,7 +201,7 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${instanceId}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId}/`}
             >
               {updatedDisplayName}
             </Button>
