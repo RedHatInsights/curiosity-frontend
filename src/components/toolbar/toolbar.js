@@ -29,7 +29,6 @@ import { translate } from '../i18n/i18n';
  * @property {module} ToolbarFieldRangedMonthly
  * @property {module} ToolbarFieldSelectCategory
  * @property {module} ToolbarFieldSla
- * @property {module} ToolbarFieldUom
  * @property {module} ToolbarFieldUsage
  * @property {module} ToolbarFieldVariant
  */

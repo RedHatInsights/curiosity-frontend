@@ -177,9 +177,6 @@ recreate the core component.
 <dt><a href="#Toolbar.module_ToolbarFieldSla">ToolbarFieldSla</a></dt>
 <dd><p>A standalone SLA select filter.</p>
 </dd>
-<dt><a href="#Toolbar.module_ToolbarFieldUom">ToolbarFieldUom</a></dt>
-<dd><p>A standalone UOM select filter.</p>
-</dd>
 <dt><a href="#Toolbar.module_ToolbarFieldUsage">ToolbarFieldUsage</a></dt>
 <dd><p>A standalone Usage select filter.</p>
 </dd>
@@ -4959,8 +4956,6 @@ Get a filtered product configuration context.
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.useProductQuery</td><td><code>function</code></td>
-    </tr><tr>
     <td>options.useProductViewContext</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
@@ -6072,8 +6067,6 @@ Primary view toolbar.
     <td>ToolbarFieldSelectCategory</td><td><code>module</code></td>
     </tr><tr>
     <td>ToolbarFieldSla</td><td><code>module</code></td>
-    </tr><tr>
-    <td>ToolbarFieldUom</td><td><code>module</code></td>
     </tr><tr>
     <td>ToolbarFieldUsage</td><td><code>module</code></td>
     </tr><tr>
@@ -7222,95 +7215,6 @@ Prop types.
 Default props.
 
 **Kind**: static property of [<code>ToolbarFieldSla</code>](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla)  
-<a name="Toolbar.module_ToolbarFieldUom"></a>
-
-## ToolbarFieldUom
-A standalone UOM select filter.
-
-
-* [ToolbarFieldUom](#Toolbar.module_ToolbarFieldUom)
-    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldUom..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
-    * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldUom..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldUom(props)](#Toolbar.module_ToolbarFieldUom..ToolbarFieldUom) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldUom..ToolbarFieldUom.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldUom..ToolbarFieldUom.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldUom..toolbarFieldOptions"></a>
-
-### ToolbarFieldUom~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
-Select field options.
-
-**Kind**: inner constant of [<code>ToolbarFieldUom</code>](#Toolbar.module_ToolbarFieldUom)  
-<a name="Toolbar.module_ToolbarFieldUom..useOnSelect"></a>
-
-### ToolbarFieldUom~useOnSelect(options) ⇒ <code>function</code>
-On select update uom.
-
-**Kind**: inner method of [<code>ToolbarFieldUom</code>](#Toolbar.module_ToolbarFieldUom)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Toolbar.module_ToolbarFieldUom..ToolbarFieldUom"></a>
-
-### ToolbarFieldUom~ToolbarFieldUom(props) ⇒ <code>React.ReactNode</code>
-Display a unit of measure (uom) field with options.
-
-**Kind**: inner method of [<code>ToolbarFieldUom</code>](#Toolbar.module_ToolbarFieldUom)  
-**Emits**: [<code>onSelect</code>](#event_onSelect)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>props</td><td><code>object</code></td>
-    </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>props.options</td><td><code>Array</code></td>
-    </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
-    </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useProductQuery</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-
-* [~ToolbarFieldUom(props)](#Toolbar.module_ToolbarFieldUom..ToolbarFieldUom) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldUom..ToolbarFieldUom.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldUom..ToolbarFieldUom.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldUom..ToolbarFieldUom.propTypes"></a>
-
-#### ToolbarFieldUom.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldUom</code>](#Toolbar.module_ToolbarFieldUom..ToolbarFieldUom)  
-<a name="Toolbar.module_ToolbarFieldUom..ToolbarFieldUom.defaultProps"></a>
-
-#### ToolbarFieldUom.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldUom</code>](#Toolbar.module_ToolbarFieldUom..ToolbarFieldUom)  
 <a name="Toolbar.module_ToolbarFieldUsage"></a>
 
 ## ToolbarFieldUsage

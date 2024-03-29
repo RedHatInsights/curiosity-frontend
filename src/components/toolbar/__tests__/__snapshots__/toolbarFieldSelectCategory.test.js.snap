@@ -151,25 +151,6 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
   },
   {
     "component": [Function],
-    "isClearable": false,
-    "options": [
-      {
-        "selected": false,
-        "title": "t(curiosity-toolbar.label_uom, {"context":"cores"})",
-        "value": "cores",
-      },
-      {
-        "selected": false,
-        "title": "t(curiosity-toolbar.label_uom, {"context":"sockets"})",
-        "value": "sockets",
-      },
-    ],
-    "selected": false,
-    "title": "t(curiosity-toolbar.label_filter, {"context":"uom"})",
-    "value": "uom",
-  },
-  {
-    "component": [Function],
     "isClearable": true,
     "options": [
       {
@@ -322,35 +303,6 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
         "options": [
           {
             "selected": false,
-            "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
-            "value": "Premium",
-          },
-          {
-            "selected": false,
-            "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
-            "value": "Standard",
-          },
-          {
-            "selected": false,
-            "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
-            "value": "Self-Support",
-          },
-          {
-            "selected": false,
-            "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
-            "value": "",
-          },
-        ],
-        "selected": false,
-        "title": "t(curiosity-toolbar.label_filter, {"context":"sla"})",
-        "value": "sla",
-      },
-      {
-        "component": [Function],
-        "isClearable": true,
-        "options": [
-          {
-            "selected": false,
             "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
             "value": "Production",
           },
@@ -373,6 +325,14 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
         "selected": false,
         "title": "t(curiosity-toolbar.label_filter, {"context":"usage"})",
         "value": "usage",
+      },
+      {
+        "component": [Function],
+        "isClearable": true,
+        "options": [],
+        "selected": false,
+        "title": "t(curiosity-toolbar.label_filter, {"context":"category"})",
+        "value": "category",
       },
     ]
   }

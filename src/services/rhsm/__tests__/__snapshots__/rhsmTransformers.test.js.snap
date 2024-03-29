@@ -405,71 +405,67 @@ exports[`RHSM Transformers should attempt to parse a subscriptions response: sub
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": "",
   },
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, uom cores 1`] = `
+exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, metric_id cores 1`] = `
 {
   "data": [
     {
       "Cores": undefined,
       "hasInfiniteCores": undefined,
       "has_infinite_quantity": undefined,
+      "metric_id": "Cores",
       "total_capacity": undefined,
-      "uom": "Cores",
     },
   ],
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": "Cores",
   },
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, uom sockets as parameter 1`] = `
+exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, metric_id sockets as parameter 1`] = `
 {
   "data": [
     {
       "Cores": undefined,
       "hasInfiniteCores": undefined,
       "has_infinite_quantity": undefined,
+      "metric_id": "Cores",
       "total_capacity": undefined,
-      "uom": "Cores",
     },
   ],
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": "Sockets",
   },
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, uom sockets, cores response 1`] = `
+exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, metric_id sockets, cores response 1`] = `
 {
   "data": [
     {
       "Cores": undefined,
       "hasInfiniteCores": undefined,
       "has_infinite_quantity": undefined,
+      "metric_id": "Cores",
       "total_capacity": undefined,
-      "uom": "Cores",
     },
     {
       "Sockets": undefined,
       "hasInfiniteSockets": undefined,
       "has_infinite_quantity": undefined,
+      "metric_id": "Sockets",
       "total_capacity": undefined,
-      "uom": "Sockets",
     },
   ],
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": "Sockets-Cores",
   },
 }
 `;
@@ -868,7 +864,6 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": undefined,
   },
 }
 `;
@@ -879,12 +874,11 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": undefined,
   },
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse an instances response: instances, uom cores 1`] = `
+exports[`RHSM Transformers should attempt to parse an instances response: instances, metric_id cores 1`] = `
 {
   "data": [
     {
@@ -898,12 +892,11 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": "Cores",
   },
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse an instances response: instances, uom cores as parameter 1`] = `
+exports[`RHSM Transformers should attempt to parse an instances response: instances, metric_id cores as parameter 1`] = `
 {
   "data": [
     {
@@ -917,12 +910,11 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": "Cores",
   },
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse an instances response: instances, uom sockets 1`] = `
+exports[`RHSM Transformers should attempt to parse an instances response: instances, metric_id sockets 1`] = `
 {
   "data": [
     {
@@ -936,12 +928,11 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": "Sockets",
   },
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse an instances response: instances, uom sockets as parameter 1`] = `
+exports[`RHSM Transformers should attempt to parse an instances response: instances, metric_id sockets as parameter 1`] = `
 {
   "data": [
     {
@@ -955,7 +946,6 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
   "meta": {
     "count": undefined,
     "productId": undefined,
-    "uom": "Sockets",
   },
 }
 `;

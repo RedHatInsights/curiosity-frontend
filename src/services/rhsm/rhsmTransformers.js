@@ -20,19 +20,12 @@ import { dateHelpers } from '../../common';
  */
 
 /**
- * ToDO: remove the UOM fallback if/when the API supports returning some form of the UOM in the response
- * This is a temporary fix that passes the selected _uom from params in the event the API doesn't
- * include it.
- */
-/**
  * Parse RHSM instances response for caching.
  *
  * @param {object} response
- * @param {object} config
- * @param {object} config.params
  * @returns {object}
  */
-const rhsmInstances = (response, { params } = {}) => {
+const rhsmInstances = response => {
   const updatedResponse = {};
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
@@ -58,17 +51,8 @@ const rhsmInstances = (response, { params } = {}) => {
     }
   );
 
-  let normalizedUom = meta?.[INSTANCES_META_TYPES.UOM] ?? params?.[INSTANCES_META_TYPES.UOM];
-
-  if (normalizedUom?.toLowerCase() === RHSM_API_PATH_METRIC_TYPES.SOCKETS.toLowerCase()) {
-    normalizedUom = RHSM_API_PATH_METRIC_TYPES.SOCKETS;
-  } else if (normalizedUom?.toLowerCase() === RHSM_API_PATH_METRIC_TYPES.CORES.toLowerCase()) {
-    normalizedUom = RHSM_API_PATH_METRIC_TYPES.CORES;
-  }
-
   updatedResponse.meta = {
     count: meta[INSTANCES_META_TYPES.COUNT],
-    uom: normalizedUom,
     productId: meta[INSTANCES_META_TYPES.PRODUCT]
   };
 
@@ -121,24 +105,19 @@ const rhsmInstancesGuests = (response, { params, _id } = {}) => {
 
 /**
  * Parse RHSM subscriptions response for caching.
- * The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We
- * attempt to normalize this for both casing, similar to the Instances meta response, BUT we also add a
- * concatenated string uom for responses without the uom query parameter in the form of "Sockets", "Sockets-Cores",
- * or "Cores", dependent on the returned response data.
+ * Attempt to align Instances and Subscriptions responses.
  *
  * @param {object} response
- * @param {object} config
- * @param {object} config.params
  * @returns {object}
  */
-const rhsmSubscriptions = (response, { params } = {}) => {
+const rhsmSubscriptions = response => {
   const updatedResponse = {};
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
 
   updatedResponse.data = data.map(
     ({
-      [SUBSCRIPTIONS_DATA_TYPES.UOM]: uom,
+      [SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: metricId,
       [SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: totalCapacity,
       [SUBSCRIPTIONS_DATA_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
       ...dataResponse
@@ -149,58 +128,19 @@ const rhsmSubscriptions = (response, { params } = {}) => {
         ...dataResponse
       };
 
-      let normalizedUomValue;
-      if (new RegExp(RHSM_API_PATH_METRIC_TYPES.SOCKETS, 'i').test(uom)) {
-        normalizedUomValue = RHSM_API_PATH_METRIC_TYPES.SOCKETS;
-      }
-
-      if (new RegExp(RHSM_API_PATH_METRIC_TYPES.CORES, 'i').test(uom)) {
-        normalizedUomValue = RHSM_API_PATH_METRIC_TYPES.CORES;
-      }
-
-      updatedData[normalizedUomValue] = totalCapacity;
-      updatedData[SUBSCRIPTIONS_DATA_TYPES.UOM] = normalizedUomValue;
-      updatedData[`hasInfinite${normalizedUomValue}`] = hasInfiniteQuantity;
+      const normalizedMetricId = Object.values(RHSM_API_PATH_METRIC_TYPES).find(value =>
+        new RegExp(value, 'i').test(metricId)
+      );
+      updatedData[normalizedMetricId] = totalCapacity;
+      updatedData[SUBSCRIPTIONS_DATA_TYPES.METRIC_ID] = normalizedMetricId;
+      updatedData[`hasInfinite${normalizedMetricId}`] = hasInfiniteQuantity;
 
       return updatedData;
     }
   );
 
-  let normalizedUom = params?.[RHSM_API_QUERY_SET_TYPES.UOM];
-
-  if (!normalizedUom) {
-    const tempUom = [];
-
-    const isSocketsUom =
-      data.find(({ [SUBSCRIPTIONS_DATA_TYPES.UOM]: uom }) =>
-        new RegExp(RHSM_API_PATH_METRIC_TYPES.SOCKETS, 'i').test(uom)
-      ) !== undefined;
-
-    if (isSocketsUom) {
-      tempUom.push(RHSM_API_PATH_METRIC_TYPES.SOCKETS);
-    }
-
-    const isCoresUom =
-      data.find(({ [SUBSCRIPTIONS_DATA_TYPES.UOM]: uom }) =>
-        new RegExp(RHSM_API_PATH_METRIC_TYPES.CORES, 'i').test(uom)
-      ) !== undefined;
-
-    if (isCoresUom) {
-      tempUom.push(RHSM_API_PATH_METRIC_TYPES.CORES);
-    }
-
-    normalizedUom = tempUom.join('-');
-  }
-  if (normalizedUom?.toLowerCase() === RHSM_API_PATH_METRIC_TYPES.SOCKETS.toLowerCase()) {
-    normalizedUom = RHSM_API_PATH_METRIC_TYPES.SOCKETS;
-  } else if (normalizedUom?.toLowerCase() === RHSM_API_PATH_METRIC_TYPES.CORES.toLowerCase()) {
-    normalizedUom = RHSM_API_PATH_METRIC_TYPES.CORES;
-  }
-
   updatedResponse.meta = {
-    ...meta,
     count: meta[SUBSCRIPTIONS_META_TYPES.COUNT],
-    uom: normalizedUom,
     productId: meta[SUBSCRIPTIONS_META_TYPES.PRODUCT]
   };
 
