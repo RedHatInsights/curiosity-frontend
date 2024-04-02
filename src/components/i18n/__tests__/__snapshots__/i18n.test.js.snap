@@ -726,11 +726,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category] })",
-      },
-      {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider] })",
+        "match": "translate('curiosity-inventory.label', { context: (cloudProvider && [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider])",
       },
       {
         "key": "curiosity-inventory.measurement",
@@ -918,11 +914,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category] })",
-      },
-      {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider] })",
+        "match": "translate('curiosity-inventory.label', { context: (cloudProvider && [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider])",
       },
       {
         "key": "curiosity-inventory.measurement",
@@ -1141,10 +1133,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "src/config/product.rhel.js",
-    "key": "curiosity-inventory.label",
-  },
-  {
     "file": "src/config/product.rhelElsPayg.js",
     "key": "curiosity-graph.label_axisY",
   },
@@ -1187,10 +1175,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/config/product.satellite.js",
     "key": "curiosity-inventory.guestsHeader",
-  },
-  {
-    "file": "src/config/product.satellite.js",
-    "key": "curiosity-inventory.label",
   },
   {
     "file": "src/config/product.satellite.js",
