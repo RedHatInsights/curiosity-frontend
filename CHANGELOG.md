@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.0](https://github.com/RedHatInsights/curiosity-frontend/compare/f6dbe0e96bf28baeba6561f6800a8dd5ab1c7a7c...71f214b6e03043ddd116c886ec2af971057b32de) (2024-04-02)
+
+
+### Chores
+* **build** npm updates ([#1284](https://github.com/RedHatInsights/curiosity-frontend/pull/1284)) ([5d6f144](https://github.com/RedHatInsights/curiosity-frontend/commit/5d6f144c7296eca97495b8bc20b89ae24312b34b))
+
+### Builds
+* **pr_check** ephemeral build fix for script failure ([#1290](https://github.com/RedHatInsights/curiosity-frontend/pull/1290)) ([71f214b](https://github.com/RedHatInsights/curiosity-frontend/commit/71f214b6e03043ddd116c886ec2af971057b32de))
+* **deps-dev** bump group with 2 updates ([#1295](https://github.com/RedHatInsights/curiosity-frontend/pull/1295)) ([fef5f36](https://github.com/RedHatInsights/curiosity-frontend/commit/fef5f36f665e82c6c1cf5a9b2e85b5a738365fa0))
+* **deps** bump patch group with 1 update ([#1296](https://github.com/RedHatInsights/curiosity-frontend/pull/1296)) ([7bba957](https://github.com/RedHatInsights/curiosity-frontend/commit/7bba957aa624eaaad13483ad68f04cf005bb774e))
+* **deps-dev** bump group with 8 updates ([#1293](https://github.com/RedHatInsights/curiosity-frontend/pull/1293)) ([eb8870c](https://github.com/RedHatInsights/curiosity-frontend/commit/eb8870cfb5f5ee9740d5ed36207b8dc6d9b39edf))
+* **deps** abstract codecov/codecov-action version ([#1285](https://github.com/RedHatInsights/curiosity-frontend/pull/1285)) ([21644ad](https://github.com/RedHatInsights/curiosity-frontend/commit/21644adede45766b9ebdf2ecd9718aede13b18ea))
+* **deps** dependabot groups ([#1286](https://github.com/RedHatInsights/curiosity-frontend/pull/1286)) ([67d1003](https://github.com/RedHatInsights/curiosity-frontend/commit/67d1003b0703ee3ffcc9f601dd5c8704fb8dcc71))
+
+### Bug Fixes
+* **table** sw-2322 allow selectable links ([#1294](https://github.com/RedHatInsights/curiosity-frontend/pull/1294)) ([7762259](https://github.com/RedHatInsights/curiosity-frontend/commit/77622592359f1eaca9f484841974f5b9f2fa9e11))
+* **inventoryCard** adjust load flash on empty state ([#1292](https://github.com/RedHatInsights/curiosity-frontend/pull/1292)) ([227b8fd](https://github.com/RedHatInsights/curiosity-frontend/commit/227b8fdd2c99ec6afffd6bf4bb41c591a9070e3f))
+* **axios** sw-2256 npm update ([#1288](https://github.com/RedHatInsights/curiosity-frontend/pull/1288)) ([60591f4](https://github.com/RedHatInsights/curiosity-frontend/commit/60591f48c04ad014806e93f031bcea9f4484524b))
+
 ## [4.2.0](https://github.com/RedHatInsights/curiosity-frontend/compare/37074aaa2c6bd1c168d4d13274d0705b171e4f3c...899a410c4b62f5df361b2419454214507acb6151) (2024-03-12)
 
 
