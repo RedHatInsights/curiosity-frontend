@@ -1714,6 +1714,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *           "number_of_guests": 70,
  *           "category": "cloud",
  *           "billing_provider": "red hat",
+ *           "cloud_provider": "aws",
  *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx01",
  *           "inventory_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
  *           "instance_id": "i-831cd53dcacb2da3",
@@ -1731,6 +1732,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *         {
  *           "category": "cloud",
  *           "billing_provider": "azure",
+ *           "cloud_provider": "azure",
  *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx02",
  *           "inventory_id": "XXXXXX-b344-4778-831c-XXXXXXXX",
  *           "instance_id": "i-831cXXXXXXXX",

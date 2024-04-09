@@ -9,7 +9,7 @@ import {
   chart_color_purple_100 as chartColorPurpleLight,
   chart_color_purple_300 as chartColorPurpleDark
 } from '@patternfly/react-tokens';
-import { Button, Label as PfLabel } from '@patternfly/react-core';
+import { Button } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import moment from 'moment';
 import {
@@ -248,21 +248,15 @@ const config = {
     },
     {
       metric: INVENTORY_TYPES.CATEGORY,
-      cell: ({ [INVENTORY_TYPES.CLOUD_PROVIDER]: cloudProvider, [INVENTORY_TYPES.CATEGORY]: category } = {}) => (
-        <React.Fragment>
-          {translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category] })}{' '}
-          {(cloudProvider && (
-            <PfLabel color="purple">
-              {translate('curiosity-inventory.label', {
-                context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider]
-              })}
-            </PfLabel>
-          )) ||
-            ''}
-        </React.Fragment>
-      ),
+      cell: ({ [INVENTORY_TYPES.CLOUD_PROVIDER]: cloudProvider, [INVENTORY_TYPES.CATEGORY]: category } = {}) =>
+        translate('curiosity-inventory.label', {
+          context: (cloudProvider && [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider]) || [
+            INVENTORY_TYPES.CATEGORY,
+            category
+          ]
+        }),
       isSort: true,
-      width: 20
+      width: 15
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
