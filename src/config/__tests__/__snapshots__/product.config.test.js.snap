@@ -3913,7 +3913,7 @@ exports[`Product specific configurations should apply variations in inventory fi
           "isSort": true,
           "label": [Function],
           "metric": "category",
-          "width": 20,
+          "width": 15,
         },
         {
           "cell": [Function],
@@ -3966,20 +3966,12 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": <React.Fragment>
-                t(curiosity-inventory.label, {"context":"category"})
-                 
-                <Label
-                  color="purple"
-                >
-                  t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
-                </Label>
-              </React.Fragment>,
+              "content": "t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})",
               "dataLabel": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"RHEL for x86"})",
               "header": [Function],
               "isSort": true,
               "metric": "category",
-              "width": 20,
+              "width": 15,
             },
             {
               "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
@@ -4354,7 +4346,7 @@ exports[`Product specific configurations should apply variations in inventory fi
           "isSort": true,
           "label": [Function],
           "metric": "category",
-          "width": 20,
+          "width": 15,
         },
         {
           "cell": [Function],
@@ -4407,20 +4399,12 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": <React.Fragment>
-                t(curiosity-inventory.label, {"context":"category"})
-                 
-                <Label
-                  color="purple"
-                >
-                  t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
-                </Label>
-              </React.Fragment>,
+              "content": "t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})",
               "dataLabel": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"Satellite Server"})",
               "header": [Function],
               "isSort": true,
               "metric": "category",
-              "width": 20,
+              "width": 15,
             },
             {
               "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
@@ -4912,7 +4896,7 @@ exports[`Product specific configurations should apply variations in inventory fi
           "isSort": true,
           "label": [Function],
           "metric": "category",
-          "width": 20,
+          "width": 15,
         },
         {
           "cell": [Function],
@@ -4958,20 +4942,12 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": <React.Fragment>
-                t(curiosity-inventory.label, {"context":"category"})
-                 
-                <Label
-                  color="purple"
-                >
-                  t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
-                </Label>
-              </React.Fragment>,
+              "content": "t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})",
               "dataLabel": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"RHEL for x86"})",
               "header": [Function],
               "isSort": true,
               "metric": "category",
-              "width": 20,
+              "width": 15,
             },
             {
               "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
@@ -5346,7 +5322,7 @@ exports[`Product specific configurations should apply variations in inventory fi
           "isSort": true,
           "label": [Function],
           "metric": "category",
-          "width": 20,
+          "width": 15,
         },
         {
           "cell": [Function],
@@ -5392,20 +5368,12 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": <React.Fragment>
-                t(curiosity-inventory.label, {"context":"category"})
-                 
-                <Label
-                  color="purple"
-                >
-                  t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
-                </Label>
-              </React.Fragment>,
+              "content": "t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})",
               "dataLabel": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"Satellite Server"})",
               "header": [Function],
               "isSort": true,
               "metric": "category",
-              "width": 20,
+              "width": 15,
             },
             {
               "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Sockets","data-value":"undefined"},"_owner":null,"_store":{}}})",
