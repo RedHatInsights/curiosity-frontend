@@ -76,7 +76,7 @@
     "postinstall": "ts-patch install"
   },
   "dependencies": {
-    "@joi/date": "^2.1.0",
+    "@joi/date": "^2.1.1",
     "@patternfly/patternfly": "5.2.1",
     "@patternfly/react-charts": "7.2.2",
     "@patternfly/react-core": "5.2.3",
@@ -93,7 +93,7 @@
     "i18next": "^23.10.0",
     "i18next-http-backend": "^2.5.0",
     "iso-639-1": "^3.1.2",
-    "joi": "^17.12.2",
+    "joi": "^17.12.3",
     "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "lru-cache": "^10.2.0",
@@ -103,7 +103,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.0.5",
-    "react-redux": "^9.1.0",
+    "react-redux": "^9.1.1",
     "react-router": "6.22.2",
     "react-router-dom": "6.22.2",
     "react-use": "^17.5.0",
