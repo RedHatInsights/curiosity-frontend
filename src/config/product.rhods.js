@@ -185,7 +185,7 @@ const config = {
   initialInventoryFilters: [
     {
       metric: INVENTORY_TYPES.DISPLAY_NAME,
-      cell: ({ [INVENTORY_TYPES.DISPLAY_NAME]: displayName, [INVENTORY_TYPES.INVENTORY_ID]: inventoryId }) => {
+      cell: ({ [INVENTORY_TYPES.DISPLAY_NAME]: displayName, [INVENTORY_TYPES.INVENTORY_ID]: inventoryId } = {}) => {
         // FixMe: Disabled, see SWATCH-1209 for resolution. Related to SWATCH-2326 and SWATCH-2480
         const { inventory: authorized = false } = {};
 
