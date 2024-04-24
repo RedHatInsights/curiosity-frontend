@@ -4263,7 +4263,14 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cells": [
             {
-              "content": "lorem",
+              "content": <Button
+                component="a"
+                href="/insights/inventory/i-XXXXXXXXXX/"
+                isInline={true}
+                variant="link"
+              >
+                lorem
+              </Button>,
               "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rosa"})",
               "header": [Function],
               "isSort": true,
