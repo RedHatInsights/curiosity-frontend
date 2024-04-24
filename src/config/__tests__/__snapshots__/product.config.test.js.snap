@@ -3618,7 +3618,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "content": <React.Fragment>
                 <Button
                   component="a"
-                  href="/openshift/details/XXXX-XXXX-XXXXX-XXXXX"
+                  href="/openshift/details/i-XXXXXXXXXX"
                   isInline={true}
                   variant="link"
                 >
@@ -3721,7 +3721,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "content": <React.Fragment>
                 <Button
                   component="a"
-                  href="/openshift/details/XXXX-XXXX-XXXXX-XXXXX"
+                  href="/openshift/details/i-XXXXXXXXXX"
                   isInline={true}
                   variant="link"
                 >
