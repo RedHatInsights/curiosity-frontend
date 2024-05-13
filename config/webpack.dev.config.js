@@ -7,7 +7,7 @@ const {
   MiniCssExtractPlugin
 } = require('weldable/lib/packages');
 
-module.exports = ({ SRC_DIR } = {}) => ({
+module.exports = ({ SRC_DIR, MOCK_PORT } = {}) => ({
   module: {
     rules: [
       {
@@ -27,5 +27,14 @@ module.exports = ({ SRC_DIR } = {}) => ({
       context: SRC_DIR,
       failOnError: false
     })
-  ]
+  ],
+  devServer: {
+    proxy: [
+      {
+        context: ['/api'],
+        target: `http://localhost:${MOCK_PORT}`,
+        secure: false
+      }
+    ]
+  }
 });
