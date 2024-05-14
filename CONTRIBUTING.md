@@ -458,6 +458,9 @@ This is a non-networked local run designed to function with minimal resources an
    ```
    $ npm run test:dev
    ```
+   > If issues happen with the mock server port of `3030` you can set a custom port by exporting a parameter when you run start-up
+   > ie. `$ export MOCK_PORT=5000; npm start`    
+
 1. Make sure your browser opened around the domain `https://localhost:3000/`
 1. Start developing...
 
