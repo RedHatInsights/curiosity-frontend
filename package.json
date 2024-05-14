@@ -33,7 +33,7 @@
     ]
   },
   "scripts": {
-    "api:dev": "mock -p 5000 -w ./src/services -w ./src/services/platform -w ./src/services/rhsm",
+    "api:dev": "mock -p $MOCK_PORT -w ./src/services -w ./src/services/platform -w ./src/services/rhsm",
     "api:docs": "node ./scripts/openapi.docs.js",
     "api:proxy-hosts": "bash ./scripts/proxy.api.sh",
     "build": "run-s -l build:pre build:js build:post test:integration",
@@ -52,7 +52,7 @@
     "docs:md": "node ./scripts/readme.docs.js",
     "release": "changelog -c false",
     "release:rc": "changelog --dry-run",
-    "start": "run-p -l api:dev start:standalone",
+    "start": "export MOCK_PORT=${MOCK_PORT:-3030}; run-p -l api:dev start:standalone",
     "start:js-proxy": "export NODE_ENV=development; fec dev",
     "start:proxy": "run-s -l api:proxy-hosts start:js-proxy",
     "start:standalone": "export NODE_ENV=development; weldable -l none -x config/webpack.dev.config.js",
