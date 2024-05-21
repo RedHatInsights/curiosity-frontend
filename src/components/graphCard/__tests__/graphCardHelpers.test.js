@@ -50,16 +50,24 @@ describe('GraphCardHelpers', () => {
    * Now we emulate an API like response with "generateTicks".
    */
   it('xAxisTickFormat should produce consistent x axis tick values', () => {
-    const generateTicks = ({ startDate, endDate, granularity, momentGranularity }) => {
+    const generateTicks = ({ startDate, endDate, granularity, momentGranularity, chartWidth = 940 }) => {
       const endDateStartDateDiff = moment(endDate).diff(startDate, momentGranularity);
       const generatedTicks = [];
 
       for (let i = 0; i <= endDateStartDateDiff; i++) {
         const date = moment.utc(startDate).add(i, momentGranularity).startOf(momentGranularity);
         const previousDate = moment(date).subtract(1, momentGranularity).startOf(momentGranularity);
+        const nextDate = moment(date).add(1, momentGranularity).startOf(momentGranularity);
 
         generatedTicks.push(
-          xAxisTickFormat({ date: date.toISOString(), granularity, tick: i, previousDate: previousDate.toISOString() })
+          xAxisTickFormat({
+            chartWidth,
+            date: date.toISOString(),
+            granularity,
+            nextDate: nextDate.toISOString(),
+            previousDate: previousDate.toISOString(),
+            tick: i
+          })
         );
       }
 
@@ -87,7 +95,14 @@ describe('GraphCardHelpers', () => {
       momentGranularity: 'quarters'
     });
 
-    expect({ daily, weekly, monthly, quarterly }).toMatchSnapshot('x axis tick values');
+    const quarterlySmallGraph = generateTicks({
+      ...dateHelpers.quarterlyDateTime,
+      granularity: GRANULARITY_TYPES.QUARTERLY,
+      momentGranularity: 'quarters',
+      chartWidth: 900
+    });
+
+    expect({ daily, weekly, monthly, quarterly, quarterlySmallGraph }).toMatchSnapshot('x axis tick values');
 
     expect({
       missingDate: xAxisTickFormat({ granularity: GRANULARITY_TYPES.DAILY, tick: 0 }),

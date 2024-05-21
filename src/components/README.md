@@ -902,6 +902,8 @@ Generate X axis props, ticks, tick formatting.
 <tr>
     <td>params</td><td><code>object</code></td>
     </tr><tr>
+    <td>params.chartWidth</td><td><code>number</code></td>
+    </tr><tr>
     <td>params.dataSet</td><td><code>object</code></td>
     </tr><tr>
     <td>params.maxX</td><td><code>number</code></td>
@@ -955,6 +957,8 @@ Generate x,y props.
   <tbody>
 <tr>
     <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.chartWidth</td><td><code>number</code></td>
     </tr><tr>
     <td>params.dataSets</td><td><code>Array</code></td>
     </tr><tr>
@@ -2487,14 +2491,18 @@ Format x-axis ticks.
     </tr><tr>
     <td>params.callback</td><td><code>function</code></td><td></td>
     </tr><tr>
+    <td>params.chartWidth</td><td><code>number</code></td><td></td>
+    </tr><tr>
     <td>params.date</td><td><code>Date</code></td><td></td>
     </tr><tr>
     <td>params.granularity</td><td><code>string</code></td><td><p>See enum of RHSM_API_QUERY_GRANULARITY_TYPES</p>
 </td>
     </tr><tr>
-    <td>params.tick</td><td><code>number</code> | <code>string</code></td><td></td>
+    <td>params.nextDate</td><td><code>Date</code></td><td></td>
     </tr><tr>
     <td>params.previousDate</td><td><code>Date</code></td><td></td>
+    </tr><tr>
+    <td>params.tick</td><td><code>number</code> | <code>string</code></td><td></td>
     </tr>  </tbody>
 </table>
 

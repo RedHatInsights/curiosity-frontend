@@ -19,7 +19,7 @@ exports[`DateHelpers should have specific functions: dateHelpers 1`] = `
   },
   "quarterlyDateTime": {
     "endDate": 2019-07-01T23:59:59.999Z,
-    "startDate": 2016-07-01T00:00:00.000Z,
+    "startDate": 2014-07-01T00:00:00.000Z,
   },
   "rangedYearDateTime": {
     "endDate": 2019-07-31T23:59:59.999Z,
@@ -422,7 +422,7 @@ exports[`DateHelpers should return a predictable range based on granularity: gra
     "granularity": "Quarterly",
     "range": {
       "endDate": 2019-07-01T23:59:59.999Z,
-      "startDate": 2016-07-01T00:00:00.000Z,
+      "startDate": 2014-07-01T00:00:00.000Z,
     },
   },
 ]

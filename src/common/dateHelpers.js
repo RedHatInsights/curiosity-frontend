@@ -125,12 +125,12 @@ const monthlyDateTime = setRangedDateTime({
 });
 
 /**
- *  Generates the date range, starting 36 months prior to getCurrentDate, and ending at the end of getCurrentDate.
+ *  Generates the date range, starting 60 months prior to getCurrentDate, and ending at the end of getCurrentDate.
  *
  * @type {{endDate: Date, startDate: Date}}
  */
 const quarterlyDateTime = setRangedDateTime({
-  subtract: 36,
+  subtract: 60,
   measurement: 'months'
 });
 
