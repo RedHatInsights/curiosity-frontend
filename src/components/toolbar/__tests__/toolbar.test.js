@@ -6,7 +6,7 @@ import { toolbarFieldOptions as selectCategoryOptions } from '../toolbarFieldSel
 describe('Toolbar Component', () => {
   it('should render a basic component', async () => {
     const props = {
-      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4], selectCategoryOptions[5]] })
+      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[3], selectCategoryOptions[4]] })
     };
     const component = await shallowComponent(<Toolbar {...props} />);
 
@@ -37,7 +37,7 @@ describe('Toolbar Component', () => {
 
   it('should hide categories when a single filter is available', async () => {
     const props = {
-      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] })
+      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[3]] })
     };
     const component = await shallowComponent(<Toolbar {...props} />);
 
@@ -46,7 +46,7 @@ describe('Toolbar Component', () => {
 
   it('should handle updating toolbar chips', async () => {
     const props = {
-      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] }),
+      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[3]] }),
       useProductToolbarQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: RHSM_API_QUERY_SLA_TYPES.PREMIUM })
     };
     const component = await shallowComponent(<Toolbar {...props} />);
@@ -54,7 +54,7 @@ describe('Toolbar Component', () => {
     expect(component.find('.pf-v5-c-chip')).toMatchSnapshot('chips');
 
     const componentNotClearable = await component.setProps({
-      useSelectCategoryOptions: () => ({ options: [{ ...selectCategoryOptions[4], isClearable: false }] })
+      useSelectCategoryOptions: () => ({ options: [{ ...selectCategoryOptions[3], isClearable: false }] })
     });
 
     expect(componentNotClearable.find('.pf-v5-c-chip')).toMatchSnapshot('chips, not clearable');
@@ -62,7 +62,7 @@ describe('Toolbar Component', () => {
 
   it('should handle displaying secondary components, fields', async () => {
     const props = {
-      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] }),
+      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[3]] }),
       useToolbarFields: () => ({ itemFields: [], secondaryFields: [<span key="lorem">lorem ipsum</span>] })
     };
     const component = await shallowComponent(<Toolbar {...props} />);
@@ -73,7 +73,7 @@ describe('Toolbar Component', () => {
   it('should handle displaying a group variant field', async () => {
     const props = {
       isGroupVariantDisabled: true,
-      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] }),
+      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[3]] }),
       useToolbarFields: () => ({ itemFields: [], secondaryFields: [<span key="lorem">lorem ipsum</span>] })
     };
     const component = await shallowComponent(<Toolbar {...props} />);

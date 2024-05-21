@@ -233,57 +233,41 @@ describe('RHSM Transformers', () => {
 
     expect(
       rhsmTransformers.instances({
-        ...response,
-        [rhsmConstants.RHSM_API_RESPONSE_META]: {
-          ...response[rhsmConstants.RHSM_API_RESPONSE_META],
-          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: 'sockets'
-        }
+        ...response
       })
-    ).toMatchSnapshot('instances, uom sockets');
+    ).toMatchSnapshot('instances, metric_id sockets');
 
     expect(
       rhsmTransformers.instances(
         {
-          ...response,
-          [rhsmConstants.RHSM_API_RESPONSE_META]: {
-            ...response[rhsmConstants.RHSM_API_RESPONSE_META],
-            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: undefined
-          }
+          ...response
         },
         {
           params: {
-            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: 'sockets'
+            [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.METRIC_ID]: 'Sockets'
           }
         }
       )
-    ).toMatchSnapshot('instances, uom sockets as parameter');
+    ).toMatchSnapshot('instances, metric_id sockets as parameter');
 
     expect(
       rhsmTransformers.instances({
-        ...response,
-        [rhsmConstants.RHSM_API_RESPONSE_META]: {
-          ...response[rhsmConstants.RHSM_API_RESPONSE_META],
-          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: 'cores'
-        }
+        ...response
       })
-    ).toMatchSnapshot('instances, uom cores');
+    ).toMatchSnapshot('instances, metric_id cores');
 
     expect(
       rhsmTransformers.instances(
         {
-          ...response,
-          [rhsmConstants.RHSM_API_RESPONSE_META]: {
-            ...response[rhsmConstants.RHSM_API_RESPONSE_META],
-            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: undefined
-          }
+          ...response
         },
         {
           params: {
-            [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.UOM]: 'cores'
+            [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.METRIC_ID]: 'Cores'
           }
         }
       )
-    ).toMatchSnapshot('instances, uom cores as parameter');
+    ).toMatchSnapshot('instances, metric_id cores as parameter');
   });
 
   it('should attempt to parse a guests response', () => {
@@ -354,13 +338,13 @@ describe('RHSM Transformers', () => {
     const response = {
       [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
         {
-          [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.UOM]: 'Cores'
+          [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: 'Cores'
         }
       ],
       [rhsmConstants.RHSM_API_RESPONSE_META]: {}
     };
 
-    expect(rhsmTransformers.subscriptions(response)).toMatchSnapshot('subscriptions, uom cores');
+    expect(rhsmTransformers.subscriptions(response)).toMatchSnapshot('subscriptions, metric_id cores');
 
     expect(
       rhsmTransformers.subscriptions(
@@ -369,25 +353,25 @@ describe('RHSM Transformers', () => {
         },
         {
           params: {
-            [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.UOM]: 'sockets'
+            [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.METRIC_ID]: 'sockets'
           }
         }
       )
-    ).toMatchSnapshot('subscriptions, uom sockets as parameter');
+    ).toMatchSnapshot('subscriptions, metric_id sockets as parameter');
 
     expect(
       rhsmTransformers.subscriptions({
         [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
           {
-            [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.UOM]: 'Cores'
+            [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: 'Cores'
           },
           {
-            [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.UOM]: 'Sockets'
+            [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: 'Sockets'
           }
         ],
         [rhsmConstants.RHSM_API_RESPONSE_META]: {}
       })
-    ).toMatchSnapshot('subscriptions, uom sockets, cores response');
+    ).toMatchSnapshot('subscriptions, metric_id sockets, cores response');
   });
 
   it('should attempt to parse a tally response', () => {
