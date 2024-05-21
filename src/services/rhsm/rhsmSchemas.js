@@ -190,9 +190,7 @@ const subscriptionsItem = Joi.object({
   quantity: Joi.number().allow(null).default(0),
   service_level: Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_RESPONSE_SLA_TYPES)),
   total_capacity: Joi.number().allow(null).default(0),
-  uom: Joi.string()
-    .lowercase()
-    .valid(...Object.values(rhsmConstants.RHSM_API_RESPONSE_UOM_TYPES))
+  metric_id: Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_METRIC_TYPES))
 })
   .unknown(true)
   .default();

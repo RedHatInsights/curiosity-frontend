@@ -249,7 +249,7 @@ describe('Product specific configurations', () => {
             [SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY]: 1,
             [SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL]: 'hello world',
             [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: 2000,
-            [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: 'cores',
+            [SUBSCRIPTIONS_INVENTORY_TYPES.METRIC_ID]: 'Cores',
             [RHSM_API_PATH_METRIC_TYPES.CORES]: 2000,
             [`hasInfinite${RHSM_API_PATH_METRIC_TYPES.CORES}`]: true,
             loremIpsum: 'hello world'

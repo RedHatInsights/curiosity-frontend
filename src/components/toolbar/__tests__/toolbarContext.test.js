@@ -43,8 +43,7 @@ describe('ToolbarContext', () => {
           [RHSM_API_QUERY_TYPES.CATEGORY]: 'testCategory',
           [RHSM_API_QUERY_TYPES.SLA]: 'testSla',
           [RHSM_API_QUERY_TYPES.USAGE]: 'testUsage',
-          [RHSM_API_QUERY_TYPES.UOM]: 'testUom',
-          [RHSM_API_QUERY_TYPES.VARIANT]: 'testVariant'
+          [RHSM_API_QUERY_TYPES.METRIC_ID]: 'testUomNowMetricId'
         })
       })
     );

@@ -16,7 +16,6 @@ import {
   useProductToolbarConfig
 } from '../productViewContext';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
-import { config as openshiftContainerConfig } from '../../../config/product.openshiftContainer';
 
 describe('ProductViewContext', () => {
   it('should return specific properties', () => {
@@ -91,26 +90,6 @@ describe('ProductViewContext', () => {
       useProductContext({ useProductQuery: () => ({}), useProductViewContext: () => mockContextValue })
     );
     expect(result).toMatchSnapshot('product context, basic');
-
-    const { result: openshiftUomCores } = await renderHook(() =>
-      useProductContext({
-        useProductQuery: () => ({
-          [rhsmConstants.RHSM_API_QUERY_SET_TYPES.UOM]: rhsmConstants.RHSM_API_QUERY_UOM_TYPES.CORES
-        }),
-        useProductViewContext: () => openshiftContainerConfig
-      })
-    );
-    expect(openshiftUomCores).toMatchSnapshot('product context, uom filtering cores');
-
-    const { result: openshiftUomSockets } = await renderHook(() =>
-      useProductContext({
-        useProductQuery: () => ({
-          [rhsmConstants.RHSM_API_QUERY_SET_TYPES.UOM]: rhsmConstants.RHSM_API_QUERY_UOM_TYPES.SOCKETS
-        }),
-        useProductViewContext: () => openshiftContainerConfig
-      })
-    );
-    expect(openshiftUomSockets).toMatchSnapshot('product context, uom filtering sockets');
   });
 
   it('should apply hooks for retrieving specific config filters and settings', async () => {

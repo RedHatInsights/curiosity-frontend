@@ -1856,7 +1856,7 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *           "physical_capacity": 1,
  *           "virtual_capacity": 1,
  *           "total_capacity": 2,
- *           "uom": "Sockets",
+ *           "metric_id": "Sockets",
  *           "has_infinite_quantity": true
  *         },
  *         {
@@ -1872,7 +1872,7 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *           "physical_capacity": 1,
  *           "virtual_capacity": 1,
  *           "total_capacity": 2,
- *           "uom": "Sockets",
+ *           "metric_id": "Sockets",
  *           "has_infinite_quantity": false
  *         },
  *         {
@@ -1890,7 +1890,7 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *           "physical_capacity": 2,
  *           "virtual_capacity": 2,
  *           "total_capacity": 4,
- *           "uom": "Cores",
+ *           "metric_id": "Cores",
  *           "has_infinite_quantity": false
  *         }
  *       ],
