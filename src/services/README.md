@@ -633,7 +633,6 @@ Parse platform getUserPermissions response.
     * [~RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_SLA_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_SLA_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_SUBSCRIPTION_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_SUBSCRIPTION_TYPES) : <code>Object</code>
-    * [~RHSM_API_RESPONSE_UOM_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_UOM_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_USAGE_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_USAGE_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_CATEGORY_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_CATEGORY_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_INVENTORY_SORT_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_SORT_TYPES) : <code>Object</code>
@@ -771,12 +770,6 @@ RHSM response, query parameters for SLA.
 
 ### RhsmConstants~RHSM\_API\_RESPONSE\_SUBSCRIPTION\_TYPES : <code>Object</code>
 RHSM response, general parameters for subscription types
-
-**Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
-<a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_UOM_TYPES"></a>
-
-### RhsmConstants~RHSM\_API\_RESPONSE\_UOM\_TYPES : <code>Object</code>
-RHSM response, query parameters for UOM.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
 <a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_USAGE_TYPES"></a>
@@ -1202,9 +1195,9 @@ Transform RHSM responses. Replaces selector usage.
 
 * [RhsmTransformers](#Rhsm.module_RhsmTransformers)
     * [~rhsmInstancesGuestsCache](#Rhsm.module_RhsmTransformers..rhsmInstancesGuestsCache) : <code>Object</code>
-    * [~rhsmInstances(response, config)](#Rhsm.module_RhsmTransformers..rhsmInstances) ⇒ <code>object</code>
+    * [~rhsmInstances(response)](#Rhsm.module_RhsmTransformers..rhsmInstances) ⇒ <code>object</code>
     * [~rhsmInstancesGuests(response, config)](#Rhsm.module_RhsmTransformers..rhsmInstancesGuests) ⇒ <code>object</code>
-    * [~rhsmSubscriptions(response, config)](#Rhsm.module_RhsmTransformers..rhsmSubscriptions) ⇒ <code>object</code>
+    * [~rhsmSubscriptions(response)](#Rhsm.module_RhsmTransformers..rhsmSubscriptions) ⇒ <code>object</code>
     * [~rhsmTallyCapacity(response, config)](#Rhsm.module_RhsmTransformers..rhsmTallyCapacity) ⇒ <code>object</code>
 
 <a name="Rhsm.module_RhsmTransformers..rhsmInstancesGuestsCache"></a>
@@ -1215,7 +1208,7 @@ Temporary guests response cache.
 **Kind**: inner constant of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
 <a name="Rhsm.module_RhsmTransformers..rhsmInstances"></a>
 
-### RhsmTransformers~rhsmInstances(response, config) ⇒ <code>object</code>
+### RhsmTransformers~rhsmInstances(response) ⇒ <code>object</code>
 Parse RHSM instances response for caching.
 
 **Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
@@ -1228,10 +1221,6 @@ Parse RHSM instances response for caching.
   <tbody>
 <tr>
     <td>response</td><td><code>object</code></td>
-    </tr><tr>
-    <td>config</td><td><code>object</code></td>
-    </tr><tr>
-    <td>config.params</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
@@ -1261,12 +1250,9 @@ Parse RHSM guests instances response. Return an infinite list at the transformer
 
 <a name="Rhsm.module_RhsmTransformers..rhsmSubscriptions"></a>
 
-### RhsmTransformers~rhsmSubscriptions(response, config) ⇒ <code>object</code>
+### RhsmTransformers~rhsmSubscriptions(response) ⇒ <code>object</code>
 Parse RHSM subscriptions response for caching.
-The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We
-attempt to normalize this for both casing, similar to the Instances meta response, BUT we also add a
-concatenated string uom for responses without the uom query parameter in the form of "Sockets", "Sockets-Cores",
-or "Cores", dependent on the returned response data.
+Attempt to align Instances and Subscriptions responses.
 
 **Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
 <table>
@@ -1278,10 +1264,6 @@ or "Cores", dependent on the returned response data.
   <tbody>
 <tr>
     <td>response</td><td><code>object</code></td>
-    </tr><tr>
-    <td>config</td><td><code>object</code></td>
-    </tr><tr>
-    <td>config.params</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 

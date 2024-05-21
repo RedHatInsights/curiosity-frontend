@@ -61,7 +61,7 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT;
  * @type {{productLabel: string, productPath: string, initialOption: string, aliases: string[], productId: string,
  *     inventorySubscriptionsQuery: object, query: object, initialSubscriptionsInventoryFilters: Array,
  *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string,
- *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, productContextFilterUom: boolean,
+ *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string,
  *     initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings:
  *     object, initialInventoryFilters: Array}}
  */
@@ -73,7 +73,6 @@ const config = {
   productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.CAPACITY,
   viewId: `view${productGroup}`,
-  productContextFilterUom: false,
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers
       .getRangedDateTime(GRANULARITY_TYPES.DAILY)

@@ -418,10 +418,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.UOM] })",
-      },
-      {
-        "key": "curiosity-toolbar.label",
         "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER] })",
       },
       {
@@ -456,23 +452,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-toolbar.label",
         "match": "translate('curiosity-toolbar.label', { context: ['sla', (type === '' && 'none')",
-      },
-      {
-        "key": "",
-        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
-      },
-      {
-        "key": "",
-        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
-      },
-    ],
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldUom.js",
-    "keys": [
-      {
-        "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['uom', (type === '' && 'none')",
       },
       {
         "key": "",
@@ -1037,15 +1016,7 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
-    "key": "curiosity-toolbar.label",
-  },
-  {
     "file": "src/components/toolbar/toolbarFieldSla.js",
-    "key": "curiosity-toolbar.label",
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldUom.js",
     "key": "curiosity-toolbar.label",
   },
   {
