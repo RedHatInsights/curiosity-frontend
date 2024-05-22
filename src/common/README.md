@@ -61,7 +61,7 @@ Generates the date range, starting 12 months prior to getCurrentDate, and ending
 <a name="Helpers.module_Dates..quarterlyDateTime"></a>
 
 ### Dates~quarterlyDateTime : <code>Object</code>
-Generates the date range, starting 36 months prior to getCurrentDate, and ending at the end of getCurrentDate.
+Generates the date range, starting 60 months prior to getCurrentDate, and ending at the end of getCurrentDate.
 
 **Kind**: inner constant of [<code>Dates</code>](#Helpers.module_Dates)  
 <a name="Helpers.module_Dates..rangedYearDateTime"></a>

@@ -255,6 +255,7 @@ const generateTooltipData = ({ content = helpers.noop, dataSets = [] } = {}) => 
  * Generate X axis props, ticks, tick formatting.
  *
  * @param {object} params
+ * @param {number} params.chartWidth
  * @param {object} params.dataSet
  * @param {number} params.maxX
  * @param {number} params.xAxisLabelIncrement
@@ -263,6 +264,7 @@ const generateTooltipData = ({ content = helpers.noop, dataSets = [] } = {}) => 
  * @returns {{tickFormat: Function, tickValues: *}}
  */
 const generateXAxisProps = ({
+  chartWidth,
   dataSet = {},
   maxX,
   xAxisLabelIncrement,
@@ -292,7 +294,7 @@ const generateXAxisProps = ({
       const nextItem = { ...data[axisProps.tickValues[tickIndex + 1]] };
       const item = { ...data[tick] };
 
-      return xAxisTickFormat({ tick, previousItem, item, nextItem, maxX });
+      return xAxisTickFormat({ chartWidth, item, maxX, nextItem, previousItem, tick });
     };
   }
 
@@ -362,6 +364,7 @@ const generateYAxisProps = ({ dataSets = [], maxY, yAxisPropDefaults = {}, yAxis
  * Generate x,y props.
  *
  * @param {object} params
+ * @param {number} params.chartWidth
  * @param {Array} params.dataSets
  * @param {object} params.individualMaxY
  * @param {number} params.maxX
@@ -375,6 +378,7 @@ const generateYAxisProps = ({ dataSets = [], maxY, yAxisPropDefaults = {}, yAxis
  * @returns {{xAxisProps: object, yAxisProps: Array}}
  */
 const generateAxisProps = ({
+  chartWidth,
   dataSets = [],
   individualMaxY = {},
   maxX,
@@ -439,6 +443,7 @@ const generateAxisProps = ({
 
   return {
     xAxisProps: generateXAxisProps({
+      chartWidth,
       dataSet: xAxisDataSet,
       maxX,
       xAxisLabelIncrement,

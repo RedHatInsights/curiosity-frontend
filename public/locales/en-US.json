@@ -326,7 +326,7 @@
     "label_granularity_Daily": "Past 30 days (daily)",
     "label_granularity_Weekly": "Past 12 weeks (weekly)",
     "label_granularity_Monthly": "Past year (monthly)",
-    "label_granularity_Quarterly": "Past 3 years (quarterly)",
+    "label_granularity_Quarterly": "Past 5 years (quarterly)",
     "label_granularityRangedMonthly": "{{context}}",
     "label_granularityRangedMonthly_current": "This month",
     "label_groupVariant": "Variant:",
