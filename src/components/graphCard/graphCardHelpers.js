@@ -248,27 +248,24 @@ const xAxisTickFormat = ({ callback, chartWidth, date, granularity, nextDate, pr
   }
 
   const momentDate = moment.utc(date);
-  const isNewYearStart =
-    previousDate && Number.parseInt(momentDate.year(), 10) !== Number.parseInt(moment.utc(previousDate).year(), 10);
+  const getIsNewYear = previousNextDate =>
+    previousDate &&
+    nextDate &&
+    Number.parseInt(momentDate.year(), 10) !== Number.parseInt(moment.utc(previousNextDate).year(), 10);
+  const isYearStart = getIsNewYear(previousDate);
   let formattedDate;
 
   switch (granularity) {
     case GRANULARITY_TYPES.QUARTERLY:
-      let isYearStartEnd = isNewYearStart;
-
-      if (chartWidth < 940) {
-        isYearStartEnd =
-          nextDate && Number.parseInt(momentDate.year(), 10) !== Number.parseInt(moment.utc(nextDate).year(), 10);
-      }
-
-      formattedDate = isYearStartEnd
-        ? momentDate.format(dateHelpers.timestampQuarterFormats.yearShort)
-        : momentDate.format(dateHelpers.timestampQuarterFormats.short);
+      formattedDate =
+        isYearStart || chartWidth < 935
+          ? momentDate.format(dateHelpers.timestampQuarterFormats.yearShort)
+          : momentDate.format(dateHelpers.timestampQuarterFormats.short);
 
       formattedDate = formattedDate.replace(/\s/, '\n');
       break;
     case GRANULARITY_TYPES.MONTHLY:
-      formattedDate = isNewYearStart
+      formattedDate = isYearStart
         ? momentDate.format(dateHelpers.timestampMonthFormats.yearShort)
         : momentDate.format(dateHelpers.timestampMonthFormats.short);
 
@@ -277,7 +274,7 @@ const xAxisTickFormat = ({ callback, chartWidth, date, granularity, nextDate, pr
     case GRANULARITY_TYPES.WEEKLY:
     case GRANULARITY_TYPES.DAILY:
     default:
-      formattedDate = isNewYearStart
+      formattedDate = isYearStart
         ? momentDate.format(dateHelpers.timestampDayFormats.yearShort)
         : momentDate.format(dateHelpers.timestampDayFormats.short);
 

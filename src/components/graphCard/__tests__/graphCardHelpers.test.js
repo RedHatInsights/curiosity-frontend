@@ -50,7 +50,7 @@ describe('GraphCardHelpers', () => {
    * Now we emulate an API like response with "generateTicks".
    */
   it('xAxisTickFormat should produce consistent x axis tick values', () => {
-    const generateTicks = ({ startDate, endDate, granularity, momentGranularity, chartWidth = 940 }) => {
+    const generateTicks = ({ startDate, endDate, granularity, momentGranularity, chartWidth = 935 }) => {
       const endDateStartDateDiff = moment(endDate).diff(startDate, momentGranularity);
       const generatedTicks = [];
 
