@@ -322,6 +322,10 @@ const config = {
       id: 'rangedMonthly',
       isSecondary: true,
       position: SelectPosition.right
+    },
+    {
+      id: 'export',
+      isItem: true
     }
   ]
 };

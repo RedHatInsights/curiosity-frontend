@@ -276,6 +276,10 @@ const config = {
     },
     {
       id: RHSM_API_QUERY_SET_TYPES.CATEGORY
+    },
+    {
+      id: 'export',
+      isItem: true
     }
   ]
 };
