@@ -50,6 +50,8 @@ export {
   reduxMiddleware as default,
   reduxMiddleware,
   createLogger,
+  actionRecordMiddleware,
+  multiActionMiddleware,
   notificationsMiddleware,
   promiseMiddleware,
   statusMiddleware,
