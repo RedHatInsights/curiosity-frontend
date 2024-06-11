@@ -422,6 +422,7 @@ exports[`RHSM Transformers should attempt to parse a subscriptions response: sub
   ],
   "meta": {
     "count": undefined,
+    "lorem": "ipsum",
     "productId": undefined,
   },
 }
@@ -440,6 +441,7 @@ exports[`RHSM Transformers should attempt to parse a subscriptions response: sub
   ],
   "meta": {
     "count": undefined,
+    "lorem": "ipsum",
     "productId": undefined,
   },
 }
@@ -465,6 +467,7 @@ exports[`RHSM Transformers should attempt to parse a subscriptions response: sub
   ],
   "meta": {
     "count": undefined,
+    "lorem": "ipsum",
     "productId": undefined,
   },
 }
