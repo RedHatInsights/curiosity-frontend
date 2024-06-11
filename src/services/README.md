@@ -614,6 +614,7 @@ Parse platform getUserPermissions response.
 
 * [RhsmConstants](#Rhsm.module_RhsmConstants)
     * [~RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES) : <code>Object</code>
+    * [~RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES) : <code>Object</code>
     * [~RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES) : <code>Object</code>
     * [~RHSM_API_PATH_PRODUCT_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_PATH_PRODUCT_TYPES) : <code>Object</code>
     * [~RHSM_API_PATH_METRIC_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_PATH_METRIC_TYPES) : <code>Object</code>
@@ -648,6 +649,12 @@ Parse platform getUserPermissions response.
 
 ### RhsmConstants~RHSM\_API\_PATH\_PRODUCT\_VARIANT\_RHEL\_TYPES : <code>Object</code>
 RHSM path IDs for product RHEL variants.
+
+**Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
+<a name="Rhsm.module_RhsmConstants..RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES"></a>
+
+### RhsmConstants~RHSM\_API\_PATH\_PRODUCT\_VARIANT\_RHEL\_ELS\_TYPES : <code>Object</code>
+RHSM path IDs for product RHEL ELS PAYG variants.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
 <a name="Rhsm.module_RhsmConstants..RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES"></a>

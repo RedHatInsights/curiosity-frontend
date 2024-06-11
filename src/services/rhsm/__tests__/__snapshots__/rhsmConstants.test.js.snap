@@ -24,6 +24,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHEL_WORKSTATION": "RHEL Workstation",
     "RHEL_X86": "RHEL for x86",
     "RHEL_X86_ELS_PAYG": "rhel-for-x86-els-payg",
+    "RHEL_X86_ELS_PAYG_ADDON": "rhel-for-x86-els-payg-addon",
     "RHEL_X86_EUS": "rhel-for-x86-eus",
     "RHEL_X86_HA": "rhel-for-x86-ha",
     "RHEL_X86_RS": "rhel-for-x86-rs",
@@ -32,6 +33,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "ROSA": "rosa",
     "SATELLITE_CAPSULE": "Satellite Capsule",
     "SATELLITE_SERVER": "Satellite Server",
+  },
+  "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES": {
+    "RHEL_X86_ELS_PAYG": "rhel-for-x86-els-payg",
+    "RHEL_X86_ELS_PAYG_ADDON": "rhel-for-x86-els-payg-addon",
   },
   "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
     "RHEL_ARM": "RHEL for ARM",
@@ -282,6 +287,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "RHEL_WORKSTATION": "RHEL Workstation",
       "RHEL_X86": "RHEL for x86",
       "RHEL_X86_ELS_PAYG": "rhel-for-x86-els-payg",
+      "RHEL_X86_ELS_PAYG_ADDON": "rhel-for-x86-els-payg-addon",
       "RHEL_X86_EUS": "rhel-for-x86-eus",
       "RHEL_X86_HA": "rhel-for-x86-ha",
       "RHEL_X86_RS": "rhel-for-x86-rs",
@@ -290,6 +296,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "ROSA": "rosa",
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
+    },
+    "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES": {
+      "RHEL_X86_ELS_PAYG": "rhel-for-x86-els-payg",
+      "RHEL_X86_ELS_PAYG_ADDON": "rhel-for-x86-els-payg-addon",
     },
     "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
       "RHEL_ARM": "RHEL for ARM",
@@ -541,6 +551,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "RHEL_WORKSTATION": "RHEL Workstation",
       "RHEL_X86": "RHEL for x86",
       "RHEL_X86_ELS_PAYG": "rhel-for-x86-els-payg",
+      "RHEL_X86_ELS_PAYG_ADDON": "rhel-for-x86-els-payg-addon",
       "RHEL_X86_EUS": "rhel-for-x86-eus",
       "RHEL_X86_HA": "rhel-for-x86-ha",
       "RHEL_X86_RS": "rhel-for-x86-rs",
@@ -549,6 +560,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "ROSA": "rosa",
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
+    },
+    "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES": {
+      "RHEL_X86_ELS_PAYG": "rhel-for-x86-els-payg",
+      "RHEL_X86_ELS_PAYG_ADDON": "rhel-for-x86-els-payg-addon",
     },
     "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
       "RHEL_ARM": "RHEL for ARM",
@@ -804,6 +819,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "RHEL_WORKSTATION": "RHEL Workstation",
     "RHEL_X86": "RHEL for x86",
     "RHEL_X86_ELS_PAYG": "rhel-for-x86-els-payg",
+    "RHEL_X86_ELS_PAYG_ADDON": "rhel-for-x86-els-payg-addon",
     "RHEL_X86_EUS": "rhel-for-x86-eus",
     "RHEL_X86_HA": "rhel-for-x86-ha",
     "RHEL_X86_RS": "rhel-for-x86-rs",
@@ -812,6 +828,10 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "ROSA": "rosa",
     "SATELLITE_CAPSULE": "Satellite Capsule",
     "SATELLITE_SERVER": "Satellite Server",
+  },
+  "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES": {
+    "RHEL_X86_ELS_PAYG": "rhel-for-x86-els-payg",
+    "RHEL_X86_ELS_PAYG_ADDON": "rhel-for-x86-els-payg-addon",
   },
   "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
     "RHEL_ARM": "RHEL for ARM",

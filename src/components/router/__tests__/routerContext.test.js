@@ -38,6 +38,7 @@ describe('RouterContext', () => {
 
     /**
      * Note: Snapshots for first "mockNavigationSet" are aimed at being what Levenshtein denotes as a "closest match"
+     * It is expected that this will alter as products are added to configuration.
      */
     mockNavigationSet('/dolor/sit');
     mockNavigationSet('rhel');
