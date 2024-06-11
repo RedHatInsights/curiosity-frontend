@@ -140,6 +140,7 @@ const rhsmSubscriptions = response => {
   );
 
   updatedResponse.meta = {
+    ...meta,
     count: meta[SUBSCRIPTIONS_META_TYPES.COUNT],
     productId: meta[SUBSCRIPTIONS_META_TYPES.PRODUCT]
   };
