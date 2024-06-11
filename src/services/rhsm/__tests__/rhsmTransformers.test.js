@@ -225,7 +225,8 @@ describe('RHSM Transformers', () => {
         }
       ],
       [rhsmConstants.RHSM_API_RESPONSE_META]: {
-        [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: ['c', 'a', 'b']
+        [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: ['c', 'a', 'b'],
+        lorem: 'ipsum'
       }
     };
 
@@ -341,7 +342,9 @@ describe('RHSM Transformers', () => {
           [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: 'Cores'
         }
       ],
-      [rhsmConstants.RHSM_API_RESPONSE_META]: {}
+      [rhsmConstants.RHSM_API_RESPONSE_META]: {
+        lorem: 'ipsum'
+      }
     };
 
     expect(rhsmTransformers.subscriptions(response)).toMatchSnapshot('subscriptions, metric_id cores');
@@ -369,7 +372,9 @@ describe('RHSM Transformers', () => {
             [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: 'Sockets'
           }
         ],
-        [rhsmConstants.RHSM_API_RESPONSE_META]: {}
+        [rhsmConstants.RHSM_API_RESPONSE_META]: {
+          lorem: 'ipsum'
+        }
       })
     ).toMatchSnapshot('subscriptions, metric_id sockets, cores response');
   });
