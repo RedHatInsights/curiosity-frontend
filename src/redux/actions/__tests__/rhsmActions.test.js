@@ -1,7 +1,6 @@
-import promiseMiddleware from 'redux-promise-middleware';
 import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
 import moxios from 'moxios';
-import { multiActionMiddleware } from '../../middleware/multiActionMiddleware';
+import { multiActionMiddleware, promiseMiddleware } from '../../middleware';
 import { graphReducer, inventoryReducer, viewReducer } from '../../reducers';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 import { rhsmActions } from '../rhsmActions';
