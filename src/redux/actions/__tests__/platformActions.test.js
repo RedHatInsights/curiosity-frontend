@@ -1,6 +1,6 @@
-import promiseMiddleware from 'redux-promise-middleware';
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
 import moxios from 'moxios';
+import { promiseMiddleware } from '../../middleware';
 import { platformActions, setExportStatus } from '../platformActions';
 import { appReducer } from '../../reducers';
 
