@@ -13,7 +13,7 @@ exports[`RouterContext should apply a hook for useNavigate: navigation dispatch 
 [
   [
     {
-      "config": "rhods",
+      "config": "rhel",
       "type": "SET_PRODUCT",
     },
   ],
@@ -34,7 +34,7 @@ exports[`RouterContext should apply a hook for useNavigate: navigation dispatch 
 
 exports[`RouterContext should apply a hook for useNavigate: navigation push 1`] = `
 [
-  "./rhods?lorem=ipsum",
+  "./rhel?lorem=ipsum",
   "./rhel?lorem=ipsum",
   "./rhel?lorem=ipsum",
 ]
