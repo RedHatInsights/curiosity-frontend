@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.4.0](https://github.com/RedHatInsights/curiosity-frontend/compare/e4e2f7ea7da3507f18e796e813dab8860ca65593...c554a6f9bf52e673c820ba7330f44b3cf30d18c2) (2024-06-14)
+
+
+### Documentation
+*  remove unused image, container references ([#1303](https://github.com/RedHatInsights/curiosity-frontend/pull/1303)) ([012b355](https://github.com/RedHatInsights/curiosity-frontend/commit/012b35580f821fb1724a0d96081421b2a61004c1))
+
+### Code Refactoring
+* **config** sw-2319 separate cores, sockets display ([#1297](https://github.com/RedHatInsights/curiosity-frontend/pull/1297)) ([49c7ed1](https://github.com/RedHatInsights/curiosity-frontend/commit/49c7ed1a2dab95f907d6a265546dca7a0ed04eb5))
+
+### Builds
+*  update changelog release script ([#1323](https://github.com/RedHatInsights/curiosity-frontend/pull/1323)) ([c554a6f](https://github.com/RedHatInsights/curiosity-frontend/commit/c554a6f9bf52e673c820ba7330f44b3cf30d18c2))
+*  local dev, allow custom mock port ([#1322](https://github.com/RedHatInsights/curiosity-frontend/pull/1322)) ([86e9eba](https://github.com/RedHatInsights/curiosity-frontend/commit/86e9eba6607624d95c3f5629765a1fa19ffc88d5))
+* **deps-dev** bump group with 3 updates ([#1320](https://github.com/RedHatInsights/curiosity-frontend/pull/1320)) ([d79e63a](https://github.com/RedHatInsights/curiosity-frontend/commit/d79e63aab62ef11a25775a753a8ffaa2c0289e84))
+* **deps** bump deps-patch group with 2 updates ([#1318](https://github.com/RedHatInsights/curiosity-frontend/pull/1318)) ([c3ba992](https://github.com/RedHatInsights/curiosity-frontend/commit/c3ba9920f6631b10cfe39e4ed09aa3a434118789))
+* **deps-dev** bump group with 8 updates ([#1319](https://github.com/RedHatInsights/curiosity-frontend/pull/1319)) ([5442406](https://github.com/RedHatInsights/curiosity-frontend/commit/54424065742f3fd5b44e1af7c8f2e8a45985125b))
+* **deps-dev** bump group with 13 updates ([#1312](https://github.com/RedHatInsights/curiosity-frontend/pull/1312)) ([aabf71f](https://github.com/RedHatInsights/curiosity-frontend/commit/aabf71f5526c8b874eb7635aa0fabef6fe8476e3))
+* **deps** bump deps-patch group with 3 updates ([#1311](https://github.com/RedHatInsights/curiosity-frontend/pull/1311)) ([3089fb1](https://github.com/RedHatInsights/curiosity-frontend/commit/3089fb1d039aaa43bd23b48c9320f485305b5bf9))
+* **deps** bump core with 12 updates ([#1298](https://github.com/RedHatInsights/curiosity-frontend/pull/1298)) ([c4a467b](https://github.com/RedHatInsights/curiosity-frontend/commit/c4a467bdd9c950d2673e2216a905064ab2f51046))
+
+### Bug Fixes
+* **config** sw-2480 link rosa to openshift details ([#1315](https://github.com/RedHatInsights/curiosity-frontend/pull/1315)) ([eeb6a8c](https://github.com/RedHatInsights/curiosity-frontend/commit/eeb6a8c23b45ece5d84b6e7ec991d9861df468e5))
+* **config** sw-2480 activate rosa instance_id ([#1314](https://github.com/RedHatInsights/curiosity-frontend/pull/1314)) ([6b6429c](https://github.com/RedHatInsights/curiosity-frontend/commit/6b6429c8936c67ed52107a6f6077ba14d417d621))
+* **config** sw-2480 revert inventory_id to instance_id ([#1313](https://github.com/RedHatInsights/curiosity-frontend/pull/1313)) ([9a3fed3](https://github.com/RedHatInsights/curiosity-frontend/commit/9a3fed3e91bf595cbf423704d0cbecc7adf5aab1))
+* **config** sw-2357 replace public cloud display copy ([#1306](https://github.com/RedHatInsights/curiosity-frontend/pull/1306)) ([386475e](https://github.com/RedHatInsights/curiosity-frontend/commit/386475e70b72bc6babd15c74e0102cc2ab59ad60))
+* **tabs** sw-2371 avoid redundant tab loads ([#1297](https://github.com/RedHatInsights/curiosity-frontend/pull/1297)) ([112e8c0](https://github.com/RedHatInsights/curiosity-frontend/commit/112e8c09a1508bba3109fbcbae3ef8dcf9b8011f))
+* **config** sw-2326 use inventory_id instead of instance_id ([#1302](https://github.com/RedHatInsights/curiosity-frontend/pull/1302)) ([cf6eadb](https://github.com/RedHatInsights/curiosity-frontend/commit/cf6eadb3a25d94ba96c99913361730936001c9d5))
+* **chartElements** victory charts props alteration ([#1300](https://github.com/RedHatInsights/curiosity-frontend/pull/1300)) ([74dc90f](https://github.com/RedHatInsights/curiosity-frontend/commit/74dc90f0e52551c3306db4e673214c2b74316a46))
+
 ## [4.3.0](https://github.com/RedHatInsights/curiosity-frontend/compare/f6dbe0e96bf28baeba6561f6800a8dd5ab1c7a7c...71f214b6e03043ddd116c886ec2af971057b32de) (2024-04-02)
 
 
