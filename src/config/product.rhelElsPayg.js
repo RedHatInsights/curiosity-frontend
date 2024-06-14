@@ -17,7 +17,8 @@ import {
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_META_TYPES as SUBSCRIPTIONS_INVENTORY_META_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
-  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
+  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES,
+  RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { ChartTypeVariant } from '../components/chart/chart';
 import { dateHelpers, helpers } from '../common';
@@ -50,7 +51,7 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86_ELS_PAYG;
  *
  * @type {string}
  */
-const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86_ELS_PAYG;
+const productLabel = 'RHEL';
 
 /**
  * Product configuration
@@ -58,17 +59,18 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86_ELS_PAYG;
  * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery:
  *     object, query: object, initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, viewId:
  *     string, initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object, inventoryHostsQuery:
- *     object, productDisplay: string, initialGraphFilters: Array, initialGraphSettings: object,
- *     initialInventoryFilters: Array}}
+ *     object, productDisplay: string, productVariants: string[], initialGraphFilters: Array, initialGraphSettings:
+ *     object, initialInventoryFilters: Array}}
  */
 const config = {
-  aliases: [],
+  aliases: ['els'],
   productGroup,
   productId,
   productLabel,
   productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.HOURLY,
   viewId: `view${productGroup}-${productId}`,
+  productVariants: [...Object.values(RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES)],
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
     [RHSM_API_QUERY_SET_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()
