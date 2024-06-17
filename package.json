@@ -72,7 +72,7 @@
     "test:spell-support": "cspell ./README.md ./config/README.md ./CONTRIBUTING.md --config ./config/cspell.config.json",
     "test:spell": "cspell './public/locales/**/en*json' './src/**/*.js' --config ./config/cspell.config.json",
     "test:local": "jest --roots=./src --watch",
-    "verify": "run-s test:ephemeral build:ephemeral",
+    "verify": "run-s test:ephemeral build:pr_checks",
     "postinstall": "ts-patch install"
   },
   "dependencies": {
