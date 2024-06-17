@@ -40,7 +40,7 @@
     "build:deps": "bash ./scripts/dependencies.sh --doctor -u --doctorTest \"npm run test:deps\" --reject \"@patternfly/*, @redhat-cloud-services/frontend*, react-router, victory*\"",
     "build:deps-core": "bash ./scripts/dependencies.sh --doctor -u --doctorTest \"npm run test:deps\" --filter \"@patternfly/*, @redhat-cloud-services/frontend*, victory*\"",
     "build:docs": "run-s -l test:docs docs:md",
-    "build:ephemeral": "run-s -l build:pr_checks",
+    "build:ephemeral": "run-s -l build:pre build:js build:post test:integration-ephemeral",
     "build:pr_checks": "run-s -l build:pre build:js build:post",
     "build:js": "export NODE_ENV=production; fec build",
     "build:post": "bash ./scripts/post.sh",
@@ -72,7 +72,7 @@
     "test:spell-support": "cspell ./README.md ./config/README.md ./CONTRIBUTING.md --config ./config/cspell.config.json",
     "test:spell": "cspell './public/locales/**/en*json' './src/**/*.js' --config ./config/cspell.config.json",
     "test:local": "jest --roots=./src --watch",
-    "verify": "run-s test:ephemeral build:ephemeral",
+    "verify": "run-s test:ephemeral build:pr_checks",
     "postinstall": "ts-patch install"
   },
   "dependencies": {
