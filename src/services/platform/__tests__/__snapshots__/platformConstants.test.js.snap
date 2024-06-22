@@ -6,10 +6,18 @@ exports[`Platform Constants should have specific properties: all exported consta
     "SUBSCRIPTIONS": "subscriptions",
   },
   "PLATFORM_API_EXPORT_CONTENT_TYPES": {
-    "CSV": "csv",
     "JSON": "json",
   },
   "PLATFORM_API_EXPORT_FILENAME_PREFIX": "swatch",
+  "PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES": {
+    "BILLING_ACCOUNT_ID": "billing_account_id",
+    "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
+    "METRIC_ID": "metric_id",
+    "PRODUCT_ID": "product_id",
+    "SLA": "sla",
+    "USAGE": "usage",
+  },
   "PLATFORM_API_EXPORT_POST_TYPES": {
     "EXPIRES_AT": "expires_at",
     "FORMAT": "format",
@@ -35,7 +43,7 @@ exports[`Platform Constants should have specific properties: all exported consta
     "RESOURCE": "resource",
   },
   "PLATFORM_API_EXPORT_STATUS_TYPES": {
-    "COMPLETED": "completed",
+    "COMPLETE": "complete",
     "FAILED": "failed",
     "PARTIAL": "partial",
     "PENDING": "pending",
@@ -72,10 +80,18 @@ exports[`Platform Constants should have specific properties: all exported consta
       "SUBSCRIPTIONS": "subscriptions",
     },
     "PLATFORM_API_EXPORT_CONTENT_TYPES": {
-      "CSV": "csv",
       "JSON": "json",
     },
     "PLATFORM_API_EXPORT_FILENAME_PREFIX": "swatch",
+    "PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES": {
+      "BILLING_ACCOUNT_ID": "billing_account_id",
+      "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
+      "METRIC_ID": "metric_id",
+      "PRODUCT_ID": "product_id",
+      "SLA": "sla",
+      "USAGE": "usage",
+    },
     "PLATFORM_API_EXPORT_POST_TYPES": {
       "EXPIRES_AT": "expires_at",
       "FORMAT": "format",
@@ -101,7 +117,7 @@ exports[`Platform Constants should have specific properties: all exported consta
       "RESOURCE": "resource",
     },
     "PLATFORM_API_EXPORT_STATUS_TYPES": {
-      "COMPLETED": "completed",
+      "COMPLETE": "complete",
       "FAILED": "failed",
       "PARTIAL": "partial",
       "PENDING": "pending",
@@ -139,10 +155,18 @@ exports[`Platform Constants should have specific properties: all exported consta
       "SUBSCRIPTIONS": "subscriptions",
     },
     "PLATFORM_API_EXPORT_CONTENT_TYPES": {
-      "CSV": "csv",
       "JSON": "json",
     },
     "PLATFORM_API_EXPORT_FILENAME_PREFIX": "swatch",
+    "PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES": {
+      "BILLING_ACCOUNT_ID": "billing_account_id",
+      "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
+      "METRIC_ID": "metric_id",
+      "PRODUCT_ID": "product_id",
+      "SLA": "sla",
+      "USAGE": "usage",
+    },
     "PLATFORM_API_EXPORT_POST_TYPES": {
       "EXPIRES_AT": "expires_at",
       "FORMAT": "format",
@@ -168,7 +192,7 @@ exports[`Platform Constants should have specific properties: all exported consta
       "RESOURCE": "resource",
     },
     "PLATFORM_API_EXPORT_STATUS_TYPES": {
-      "COMPLETED": "completed",
+      "COMPLETE": "complete",
       "FAILED": "failed",
       "PARTIAL": "partial",
       "PENDING": "pending",
@@ -210,10 +234,18 @@ exports[`Platform Constants should have specific properties: specific constants 
     "SUBSCRIPTIONS": "subscriptions",
   },
   "PLATFORM_API_EXPORT_CONTENT_TYPES": {
-    "CSV": "csv",
     "JSON": "json",
   },
   "PLATFORM_API_EXPORT_FILENAME_PREFIX": "swatch",
+  "PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES": {
+    "BILLING_ACCOUNT_ID": "billing_account_id",
+    "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
+    "METRIC_ID": "metric_id",
+    "PRODUCT_ID": "product_id",
+    "SLA": "sla",
+    "USAGE": "usage",
+  },
   "PLATFORM_API_EXPORT_POST_TYPES": {
     "EXPIRES_AT": "expires_at",
     "FORMAT": "format",
@@ -239,7 +271,7 @@ exports[`Platform Constants should have specific properties: specific constants 
     "RESOURCE": "resource",
   },
   "PLATFORM_API_EXPORT_STATUS_TYPES": {
-    "COMPLETED": "completed",
+    "COMPLETE": "complete",
     "FAILED": "failed",
     "PARTIAL": "partial",
     "PENDING": "pending",

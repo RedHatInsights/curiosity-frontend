@@ -43,10 +43,31 @@ describe('UserReducer', () => {
     });
   });
 
+  it('should handle specific defined types', () => {
+    const specificTypes = [platformTypes.SET_PLATFORM_EXPORT_STATUS];
+
+    specificTypes.forEach(value => {
+      if (!value) {
+        return;
+      }
+
+      const dispatched = {
+        type: value,
+        id: 'test_id',
+        isPending: true,
+        pending: []
+      };
+
+      const resultState = appReducer(undefined, dispatched);
+
+      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+    });
+  });
+
   it('should handle all defined error types', () => {
     const specificTypes = [
       platformTypes.PLATFORM_USER_AUTH,
-      platformTypes.SET_PLATFORM_EXPORT_STATUS,
+      platformTypes.SET_PLATFORM_EXPORT_EXISTING_STATUS,
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
@@ -80,7 +101,7 @@ describe('UserReducer', () => {
   it('should handle all defined pending types', () => {
     const specificTypes = [
       platformTypes.PLATFORM_USER_AUTH,
-      platformTypes.SET_PLATFORM_EXPORT_STATUS,
+      platformTypes.SET_PLATFORM_EXPORT_EXISTING_STATUS,
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
@@ -103,7 +124,7 @@ describe('UserReducer', () => {
   it('should handle all defined fulfilled types', () => {
     const specificTypes = [
       platformTypes.PLATFORM_USER_AUTH,
-      platformTypes.SET_PLATFORM_EXPORT_STATUS,
+      platformTypes.SET_PLATFORM_EXPORT_EXISTING_STATUS,
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,

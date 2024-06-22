@@ -19,6 +19,13 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
 }
 `;
 
+exports[`ProductViewContext should apply hooks for retrieving specific api queries: exportQuery 1`] = `
+{
+  "product_id": undefined,
+  "sla": "testSla",
+}
+`;
+
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: graphTallyQuery 1`] = `
 {
   "granularity": "testGranularity",
@@ -177,6 +184,7 @@ exports[`ProductViewContext should return specific properties: specific properti
   "useInventorySubscriptionsQuery": [Function],
   "useProduct": [Function],
   "useProductContext": [Function],
+  "useProductExportQuery": [Function],
   "useQuery": [Function],
   "useQueryFactory": [Function],
   "useToolbarConfig": [Function],
