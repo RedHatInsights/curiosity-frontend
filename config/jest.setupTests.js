@@ -291,9 +291,11 @@ global.renderHook = async (useHook = Function.prototype, options = {}) => {
   let result;
   let spyUseSelector;
   let unmountHook;
+  let rerenderHook;
 
-  const Hook = () => {
-    result = useHook();
+  // eslint-disable-next-line react/prop-types
+  const Hook = ({ args = [] }) => {
+    result = useHook(...args);
     return null;
   };
 
@@ -301,12 +303,15 @@ global.renderHook = async (useHook = Function.prototype, options = {}) => {
     await act(async () => unmountHook());
   };
 
+  const rerender = (...args) => rerenderHook(<Hook args={args} />);
+
   await act(async () => {
     if (updatedOptions.state) {
       spyUseSelector = jest.spyOn(reactRedux, 'useSelector').mockImplementation(_ => _(updatedOptions.state));
     }
-    const { unmount: unmountRender } = await render(<Hook />);
+    const { unmount: unmountRender, rerender: rerenderRender } = await render(<Hook />);
     unmountHook = unmountRender;
+    rerenderHook = rerenderRender;
   });
 
   if (updatedOptions.state) {
@@ -333,7 +338,7 @@ global.renderHook = async (useHook = Function.prototype, options = {}) => {
     });
   }
 
-  return { unmount, result: updatedResult, act };
+  return { unmount, rerender, result: updatedResult, act };
 };
 
 /**
