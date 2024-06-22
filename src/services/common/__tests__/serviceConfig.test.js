@@ -268,7 +268,7 @@ describe('ServiceConfig', () => {
       { pollInterval: 1 }
     );
 
-    expect(basicPollValidator).toHaveBeenCalledTimes(2);
+    expect(basicPollValidator).toHaveBeenCalledTimes(3);
     expect({
       validator: basicPollValidator.mock.calls.map(([response, count]) => ({
         success: {
@@ -298,7 +298,7 @@ describe('ServiceConfig', () => {
       { pollInterval: 1 }
     );
 
-    expect(specificPollValidator).toHaveBeenCalledTimes(2);
+    expect(specificPollValidator).toHaveBeenCalledTimes(3);
     expect({
       validator: specificPollValidator.mock.calls.map(([response, count]) => ({
         success: {
@@ -333,12 +333,12 @@ describe('ServiceConfig', () => {
       setTimeout(() => resolve(), 25);
     });
 
-    expect(statusPoll).toHaveBeenCalledTimes(2);
+    expect(statusPoll).toHaveBeenCalledTimes(4);
     expect({
       status: statusPoll.mock.calls.map(([success, err, count]) => ({
         success: {
-          data: success.data,
-          pollConfig: success.config.poll
+          data: success?.data,
+          pollConfig: success?.config.poll
         },
         err,
         count
@@ -362,7 +362,7 @@ describe('ServiceConfig', () => {
       { pollInterval: 1 }
     );
 
-    expect(mockLocation).toHaveBeenCalledTimes(2);
+    expect(mockLocation).toHaveBeenCalledTimes(3);
     expect({
       validator: mockLocation.mock.calls.map(([success, count]) => ({
         success: {
@@ -438,12 +438,12 @@ describe('ServiceConfig', () => {
       setTimeout(() => resolve(), 50);
     });
 
-    expect(statusErrorPoll).toHaveBeenCalledTimes(1);
+    expect(statusErrorPoll).toHaveBeenCalledTimes(2);
     expect({
       status: statusErrorPoll.mock.calls.map(([success, err, count]) => ({
         error: {
-          data: err.response.data,
-          pollConfig: err.config.poll
+          data: err?.response.data,
+          pollConfig: err?.config.poll
         },
         success,
         count
@@ -494,12 +494,12 @@ describe('ServiceConfig', () => {
       setTimeout(() => resolve(), 25);
     });
 
-    expect(statusStatusErrorPoll).toHaveBeenCalledTimes(1);
+    expect(statusStatusErrorPoll).toHaveBeenCalledTimes(2);
     expect({
       status: statusStatusErrorPoll.mock.calls.map(([success, err, count]) => ({
         error: {
-          data: err.response.data,
-          pollConfig: err.config.poll
+          data: err?.response.data,
+          pollConfig: err?.config.poll
         },
         success,
         count

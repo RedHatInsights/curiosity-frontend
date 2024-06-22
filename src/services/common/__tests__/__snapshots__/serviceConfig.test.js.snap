@@ -324,11 +324,20 @@ exports[`ServiceConfig should handle polling service call errors: location error
   [
     [Error: location string error],
   ],
+  [
+    [Error: location string error],
+  ],
 ]
 `;
 
 exports[`ServiceConfig should handle polling service call errors: status error 1`] = `
 [
+  [
+    [Error: status error],
+  ],
+  [
+    [Error: status error],
+  ],
   [
     [Error: status error],
   ],
@@ -345,12 +354,23 @@ exports[`ServiceConfig should handle polling service call errors: status error p
 {
   "status": [
     {
+      "count": -1,
+      "error": {
+        "data": undefined,
+        "pollConfig": undefined,
+      },
+      "success": undefined,
+    },
+    {
       "count": 0,
       "error": {
         "data": "error",
         "pollConfig": {
-          "__retryCount": 1,
-          "location": "/pollError",
+          "__retryCount": 0,
+          "location": {
+            "config": undefined,
+            "url": "/pollError",
+          },
           "pollInterval": 1,
           "status": [Function],
           "validate": [Function],
@@ -367,6 +387,9 @@ exports[`ServiceConfig should handle polling service call errors: status of a st
   [
     [Error: status error],
   ],
+  [
+    [Error: status error],
+  ],
 ]
 `;
 
@@ -374,12 +397,23 @@ exports[`ServiceConfig should handle polling service call errors: status of a st
 {
   "status": [
     {
+      "count": -1,
+      "error": {
+        "data": undefined,
+        "pollConfig": undefined,
+      },
+      "success": undefined,
+    },
+    {
       "count": 0,
       "error": {
         "data": "error",
         "pollConfig": {
-          "__retryCount": 1,
-          "location": "/pollError",
+          "__retryCount": 0,
+          "location": {
+            "config": undefined,
+            "url": "/pollError",
+          },
           "pollInterval": 1,
           "status": [Function],
           "validate": [Function],
@@ -405,17 +439,35 @@ exports[`ServiceConfig should handle polling service calls: basic polling valida
     "data": "success",
     "pollConfig": {
       "__retryCount": 1,
-      "location": "/test/",
+      "location": {
+        "config": undefined,
+        "url": "/test/",
+      },
       "pollInterval": 1,
       "validate": [Function],
     },
   },
   "validator": [
     {
-      "count": 0,
+      "count": -1,
       "success": {
         "data": "success",
         "pollConfig": [Function],
+      },
+    },
+    {
+      "count": 0,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "__retryCount": 0,
+          "location": {
+            "config": undefined,
+            "url": "/test/",
+          },
+          "pollInterval": 1,
+          "validate": [Function],
+        },
       },
     },
     {
@@ -424,7 +476,10 @@ exports[`ServiceConfig should handle polling service calls: basic polling valida
         "data": "success",
         "pollConfig": {
           "__retryCount": 1,
-          "location": "/test/",
+          "location": {
+            "config": undefined,
+            "url": "/test/",
+          },
           "pollInterval": 1,
           "validate": [Function],
         },
@@ -447,7 +502,7 @@ exports[`ServiceConfig should handle polling service calls: custom location 1`] 
   },
   "validator": [
     {
-      "count": 0,
+      "count": -1,
       "success": {
         "data": "success",
         "pollConfig": {
@@ -455,6 +510,19 @@ exports[`ServiceConfig should handle polling service calls: custom location 1`] 
           "validate": [Function],
         },
         "url": "/test/",
+      },
+    },
+    {
+      "count": 0,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "__retryCount": 0,
+          "location": [Function],
+          "pollInterval": 1,
+          "validate": [Function],
+        },
+        "url": "/pollSuccess/",
       },
     },
     {
@@ -480,17 +548,35 @@ exports[`ServiceConfig should handle polling service calls: specific polling val
     "data": "success",
     "pollConfig": {
       "__retryCount": 1,
-      "location": "/test/",
+      "location": {
+        "config": undefined,
+        "url": "/test/",
+      },
       "pollInterval": 1,
       "validate": [Function],
     },
   },
   "validator": [
     {
+      "count": -1,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "validate": [Function],
+        },
+      },
+    },
+    {
       "count": 0,
       "success": {
         "data": "success",
         "pollConfig": {
+          "__retryCount": 0,
+          "location": {
+            "config": undefined,
+            "url": "/test/",
+          },
+          "pollInterval": 1,
           "validate": [Function],
         },
       },
@@ -501,7 +587,10 @@ exports[`ServiceConfig should handle polling service calls: specific polling val
         "data": "success",
         "pollConfig": {
           "__retryCount": 1,
-          "location": "/test/",
+          "location": {
+            "config": undefined,
+            "url": "/test/",
+          },
           "pollInterval": 1,
           "validate": [Function],
         },
@@ -522,13 +611,24 @@ exports[`ServiceConfig should handle polling service calls: status polling 1`] =
   },
   "status": [
     {
+      "count": -1,
+      "err": undefined,
+      "success": {
+        "data": undefined,
+        "pollConfig": undefined,
+      },
+    },
+    {
       "count": 0,
       "err": undefined,
       "success": {
         "data": "success",
         "pollConfig": {
-          "__retryCount": 1,
-          "location": "/test/",
+          "__retryCount": 0,
+          "location": {
+            "config": undefined,
+            "url": "/test/",
+          },
           "pollInterval": 1,
           "status": [Function],
           "validate": [Function],
@@ -541,8 +641,28 @@ exports[`ServiceConfig should handle polling service calls: status polling 1`] =
       "success": {
         "data": "success",
         "pollConfig": {
+          "__retryCount": 1,
+          "location": {
+            "config": undefined,
+            "url": "/test/",
+          },
+          "pollInterval": 1,
+          "status": [Function],
+          "validate": [Function],
+        },
+      },
+    },
+    {
+      "count": 2,
+      "err": undefined,
+      "success": {
+        "data": "success",
+        "pollConfig": {
           "__retryCount": 2,
-          "location": "/test/",
+          "location": {
+            "config": undefined,
+            "url": "/test/",
+          },
           "pollInterval": 1,
           "status": [Function],
           "validate": [Function],
