@@ -12,9 +12,10 @@ exports[`General code checks should only have specific console.[warn|log|info|er
   "services/common/helpers.js:105:    console.error(",
   "services/common/serviceConfig.js:155:          console.warn(normalizeError);",
   "services/common/serviceConfig.js:179:          console.warn(normalizeError);",
-  "services/common/serviceConfig.js:263:          console.error(err);",
-  "services/common/serviceConfig.js:277:            console.error(err);",
-  "services/common/serviceConfig.js:308:                console.error(err);",
+  "services/common/serviceConfig.js:277:          console.error(err);",
+  "services/common/serviceConfig.js:291:            console.error(err);",
   "services/common/serviceConfig.js:320:                console.error(err);",
+  "services/common/serviceConfig.js:336:                console.error(err);",
+  "services/common/serviceConfig.js:348:                console.error(err);",
 ]
 `;
