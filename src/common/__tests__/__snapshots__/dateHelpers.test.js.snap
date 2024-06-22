@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DateHelpers should add milliseconds from date: add milliseconds 1`] = `2019-07-21T00:00:00.000Z`;
+
 exports[`DateHelpers should have specific functions: dateHelpers 1`] = `
 {
   "currentDateTime": {
@@ -27,6 +29,7 @@ exports[`DateHelpers should have specific functions: dateHelpers 1`] = `
   },
   "setEndOfDay": [Function],
   "setEndOfMonth": [Function],
+  "setMillisecondsFromDate": [Function],
   "setRangedDateTime": [Function],
   "setStartOfDay": [Function],
   "timestampDayFormats": {
