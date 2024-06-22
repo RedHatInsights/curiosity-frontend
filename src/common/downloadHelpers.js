@@ -38,8 +38,8 @@ const downloadData = options => {
         anchorTag.click();
 
         setTimeout(() => {
+          URL.revokeObjectURL(anchorTag.href);
           document.body.removeChild(anchorTag);
-          URL.revokeObjectURL(blob);
           resolve({ fileName, data });
         }, 250);
       }

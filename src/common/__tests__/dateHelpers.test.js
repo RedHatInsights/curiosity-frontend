@@ -101,4 +101,8 @@ describe('DateHelpers', () => {
 
     expect(dateHelpers.setEndOfMonth(startDate).getTime()).toEqual(expectedDate.getTime());
   });
+
+  it('should add milliseconds from date', () => {
+    expect(dateHelpers.setMillisecondsFromDate({ ms: 86400000 })).toMatchSnapshot('add milliseconds');
+  });
 });
