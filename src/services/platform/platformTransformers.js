@@ -1,12 +1,13 @@
+import moment from 'moment';
+import _snakeCase from 'lodash/snakeCase';
 import { rbacConfig } from '../../config';
 import {
   platformConstants,
   PLATFORM_API_EXPORT_STATUS_TYPES,
-  PLATFORM_API_EXPORT_FILENAME_PREFIX as EXPORT_PREFIX,
   PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES as OPERATION_TYPES,
   PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES as RESOURCE_TYPES
 } from './platformConstants';
-import { helpers } from '../../common';
+import { helpers, dateHelpers } from '../../common';
 
 /**
  * Transform export responses. Combines multiple exports, or a single export,
@@ -32,6 +33,12 @@ const exports = response => {
     [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.STATUS]: status
   } = response || {};
 
+  updatedResponse.data.isAnythingPending = false;
+  updatedResponse.data.isAnythingCompleted = false;
+  updatedResponse.data.pending ??= [];
+  updatedResponse.data.completed ??= [];
+  updatedResponse.data.products = {};
+
   /**
    * Pull a product id from an export name. Fallback filtering for product identifiers.
    *
@@ -40,7 +47,7 @@ const exports = response => {
    */
   const getProductId = str => {
     const updatedStr = str;
-    const attemptId = updatedStr?.replace(`${EXPORT_PREFIX}-`, '')?.trim();
+    const attemptId = updatedStr?.replace(`${helpers.CONFIG_EXPORT_SERVICE_NAME_PREFIX}-`, '')?.trim();
 
     if (attemptId === updatedStr) {
       return undefined;
@@ -61,7 +68,7 @@ const exports = response => {
 
     if (
       updatedStr === PLATFORM_API_EXPORT_STATUS_TYPES.FAILED ||
-      updatedStr === PLATFORM_API_EXPORT_STATUS_TYPES.COMPLETED
+      updatedStr === PLATFORM_API_EXPORT_STATUS_TYPES.COMPLETE
     ) {
       updatedStatus = updatedStr;
     }
@@ -82,23 +89,32 @@ const exports = response => {
     const productId = getProductId(exportName);
     const focusedStatus = getStatus(exportStatus);
 
-    if (updatedResponse.data.isAnythingPending !== true) {
-      updatedResponse.data.isAnythingPending = focusedStatus === PLATFORM_API_EXPORT_STATUS_TYPES.PENDING;
-    }
-
-    updatedResponse.data[productId] ??= [];
-    updatedResponse.data[productId].push({
+    const updatedExportData = {
+      fileName: `${moment.utc(dateHelpers.getCurrentDate()).format('YYYYMMDD_HHmmss')}_${helpers.CONFIG_EXPORT_FILENAME.replace('{0}', _snakeCase(productId))}`,
       format: exportFormat,
       id: exportId,
       name: exportName,
+      productId,
       status: focusedStatus
-    });
+    };
+
+    updatedResponse.data.products[productId] ??= {};
+    updatedResponse.data.products[productId].pending ??= [];
+    updatedResponse.data.products[productId].completed ??= [];
+
+    if (focusedStatus === PLATFORM_API_EXPORT_STATUS_TYPES.PENDING) {
+      updatedResponse.data.pending.push(updatedExportData);
+      updatedResponse.data.products[productId].pending.push(updatedExportData);
+    } else if (focusedStatus === PLATFORM_API_EXPORT_STATUS_TYPES.COMPLETE) {
+      updatedResponse.data.completed.push(updatedExportData);
+      updatedResponse.data.products[productId].completed.push(updatedExportData);
+    }
   };
 
   if (Array.isArray(data)) {
     data
       .filter(({ [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.NAME]: exportName }) =>
-        new RegExp(`^${EXPORT_PREFIX}`, 'i').test(exportName)
+        new RegExp(`^${helpers.CONFIG_EXPORT_SERVICE_NAME_PREFIX}`, 'i').test(exportName)
       )
       .forEach(
         ({
@@ -110,9 +126,17 @@ const exports = response => {
           restructureResponse({ exportName, exportStatus, exportFormat, exportId });
         }
       );
-  } else if (id && status && new RegExp(`^${EXPORT_PREFIX}`, 'i').test(name)) {
+  } else if (id && status && new RegExp(`^${helpers.CONFIG_EXPORT_SERVICE_NAME_PREFIX}`, 'i').test(name)) {
     restructureResponse({ exportName: name, exportStatus: status, exportFormat: format, exportId: id });
   }
+
+  updatedResponse.data.isAnythingPending = updatedResponse.data.pending.length > 0;
+  updatedResponse.data.isAnythingCompleted = updatedResponse.data.completed.length > 0;
+
+  Object.entries(updatedResponse.data.products).forEach(([productId, { pending, completed }]) => {
+    updatedResponse.data.products[productId].isPending = pending.length > 0;
+    updatedResponse.data.products[productId].isCompleted = completed.length > 0;
+  });
 
   return updatedResponse;
 };

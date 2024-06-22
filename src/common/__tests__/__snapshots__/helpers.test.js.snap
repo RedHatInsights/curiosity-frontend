@@ -8,6 +8,9 @@ G {
 
 exports[`Helpers should expose a window object: limited window object 1`] = `
 {
+  "CONFIG_EXPORT_EXPIRE": "86400000",
+  "CONFIG_EXPORT_FILENAME": "swatch_report_{0}",
+  "CONFIG_EXPORT_SERVICE_NAME_PREFIX": "swatch",
   "DEV_MODE": false,
   "PROD_MODE": false,
   "REVIEW_MODE": false,
@@ -55,6 +58,9 @@ exports[`Helpers should expose a window object: limited window object 1`] = `
 
 exports[`Helpers should expose a window object: window object 1`] = `
 {
+  "CONFIG_EXPORT_EXPIRE": "86400000",
+  "CONFIG_EXPORT_FILENAME": "swatch_report_{0}",
+  "CONFIG_EXPORT_SERVICE_NAME_PREFIX": "swatch",
   "DEV_MODE": false,
   "PROD_MODE": false,
   "REVIEW_MODE": false,
@@ -114,6 +120,9 @@ exports[`Helpers should handle use aggregate error, or fallback: emulated aggreg
 
 exports[`Helpers should have specific functions: helpers 1`] = `
 {
+  "CONFIG_EXPORT_EXPIRE": "86400000",
+  "CONFIG_EXPORT_FILENAME": "swatch_report_{0}",
+  "CONFIG_EXPORT_SERVICE_NAME_PREFIX": "swatch",
   "DEV_MODE": false,
   "PROD_MODE": false,
   "REVIEW_MODE": false,

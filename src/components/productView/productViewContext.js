@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { reduxHelpers } from '../../redux/common';
 import { storeHooks } from '../../redux/hooks';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
+import { platformConstants } from '../../services/platform/platformConstants';
 import { helpers } from '../../common/helpers';
 
 /**
@@ -308,6 +309,32 @@ const useProductToolbarConfig = ({ useProductContext: useAliasProductContext = u
   };
 };
 
+/**
+ * Return an export query for subscriptions.
+ *
+ * @param {object} options
+ * @param {Function} options.useProduct
+ * @param {object} options.schemaCheck
+ * @param {Function} options.useProductToolbarQuery
+ * @param {object} options.options
+ * @returns {{}}
+ */
+const useProductExportQuery = ({
+  useProduct: useAliasProduct = useProduct,
+  schemaCheck = platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES,
+  useProductToolbarQuery: useAliasProductToolbarQuery = useProductToolbarQuery,
+  options
+} = {}) => {
+  const { productId } = useAliasProduct();
+  return reduxHelpers.setApiQuery(
+    {
+      ...useAliasProductToolbarQuery({ options }),
+      [platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES.PRODUCT_ID]: productId
+    },
+    schemaCheck
+  );
+};
+
 const context = {
   ProductViewContext,
   DEFAULT_CONTEXT,
@@ -319,6 +346,7 @@ const context = {
   useInventoryHostsQuery: useProductInventoryHostsQuery,
   useInventorySubscriptionsQuery: useProductInventorySubscriptionsQuery,
   useProduct,
+  useProductExportQuery,
   useGraphConfig: useProductGraphConfig,
   useInventoryGuestsConfig: useProductInventoryGuestsConfig,
   useInventoryHostsConfig: useProductInventoryHostsConfig,
@@ -340,6 +368,7 @@ export {
   useProductInventoryHostsQuery,
   useProductInventorySubscriptionsQuery,
   useProduct,
+  useProductExportQuery,
   useProductGraphConfig,
   useProductInventoryGuestsConfig,
   useProductInventoryHostsConfig,

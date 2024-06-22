@@ -42,7 +42,7 @@ const PLATFORM_API_EXPORT_RESOURCE_TYPES = {
  * @type {{CSV: string, JSON: string}}
  */
 const PLATFORM_API_EXPORT_CONTENT_TYPES = {
-  CSV: 'csv',
+  // CSV: 'csv',
   JSON: 'json'
 };
 
@@ -56,11 +56,11 @@ const PLATFORM_API_EXPORT_FILENAME_PREFIX = 'swatch';
 /**
  * Platform Export, available status types.
  *
- * @type {{COMPLETED: string, FAILED: string, RUNNING: string, PARTIAL: string, PENDING: string}}
+ * @type {{COMPLETE: string, FAILED: string, RUNNING: string, PARTIAL: string, PENDING: string}}
  */
 const PLATFORM_API_EXPORT_STATUS_TYPES = {
   FAILED: 'failed',
-  COMPLETED: 'completed',
+  COMPLETE: 'complete',
   PARTIAL: 'partial',
   PENDING: 'pending',
   RUNNING: 'running'
@@ -87,6 +87,22 @@ const PLATFORM_API_EXPORT_POST_TYPES = {
   FORMAT: 'format',
   NAME: 'name',
   SOURCES: 'sources'
+};
+
+/**
+ * Platform Export, available SUBSCRIPTION FILTER POST types.
+ *
+ * @type {{BILLING_ACCOUNT_ID: string, USAGE: string, CATEGORY: string, METRIC_ID: string, SLA: string,
+ *     BILLING_PROVIDER: string, PRODUCT_ID: string}}
+ */
+const PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES = {
+  BILLING_PROVIDER: 'billing_provider',
+  BILLING_ACCOUNT_ID: 'billing_account_id',
+  CATEGORY: 'category',
+  METRIC_ID: 'metric_id',
+  PRODUCT_ID: 'product_id',
+  SLA: 'sla',
+  USAGE: 'usage'
 };
 
 /**
@@ -177,6 +193,7 @@ const platformConstants = {
   PLATFORM_API_EXPORT_CONTENT_TYPES,
   PLATFORM_API_EXPORT_FILENAME_PREFIX,
   PLATFORM_API_EXPORT_POST_TYPES,
+  PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES,
   PLATFORM_API_EXPORT_RESOURCE_TYPES,
   PLATFORM_API_EXPORT_RESPONSE_DATA,
   PLATFORM_API_EXPORT_RESPONSE_META,
@@ -201,6 +218,7 @@ export {
   PLATFORM_API_EXPORT_CONTENT_TYPES,
   PLATFORM_API_EXPORT_FILENAME_PREFIX,
   PLATFORM_API_EXPORT_POST_TYPES,
+  PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES,
   PLATFORM_API_EXPORT_RESOURCE_TYPES,
   PLATFORM_API_EXPORT_RESPONSE_DATA,
   PLATFORM_API_EXPORT_RESPONSE_META,

@@ -239,6 +239,27 @@ const REVIEW_MODE = process.env.REACT_APP_ENV === 'review';
 const TEST_MODE = process.env.REACT_APP_ENV === 'test';
 
 /**
+ * CONFIG export download file expiration.
+ *
+ * @type {string}
+ */
+const CONFIG_EXPORT_EXPIRE = process.env.REACT_APP_CONFIG_EXPORT_EXPIRE;
+
+/**
+ * CONFIG export download file name. Extension is handled at the service level.
+ *
+ * @type {string}
+ */
+const CONFIG_EXPORT_FILENAME = process.env.REACT_APP_CONFIG_EXPORT_FILENAME;
+
+/**
+ * CONFIG export "post" download name prefix, for consistency.
+ *
+ * @type {string}
+ */
+const CONFIG_EXPORT_SERVICE_NAME_PREFIX = process.env.REACT_APP_CONFIG_EXPORT_SERVICE_NAME_PREFIX;
+
+/**
  * Apply a path prefix for routing.
  * Typically associated with applying a "beta" path prefix. See dotenv config files for updating.
  * See build scripts for generated prefix.
@@ -463,6 +484,9 @@ const helpers = {
   PROD_MODE,
   REVIEW_MODE,
   TEST_MODE,
+  CONFIG_EXPORT_EXPIRE,
+  CONFIG_EXPORT_FILENAME,
+  CONFIG_EXPORT_SERVICE_NAME_PREFIX,
   UI_DEPLOY_PATH_PREFIX,
   UI_DEPLOY_PATH_LINK_PREFIX,
   UI_DISABLED,

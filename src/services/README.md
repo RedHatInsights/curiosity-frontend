@@ -253,6 +253,7 @@ page or wait the "maxAge".
     * [~PLATFORM_API_EXPORT_STATUS_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_STATUS_TYPES) : <code>Object</code>
     * [~PLATFORM_API_EXPORT_SOURCE_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_SOURCE_TYPES) : <code>Object</code>
     * [~PLATFORM_API_EXPORT_POST_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_POST_TYPES) : <code>Object</code>
+    * [~PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES) : <code>Object</code>
     * [~PLATFORM_API_EXPORT_RESPONSE_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESPONSE_TYPES) : <code>Object</code>
     * [~PLATFORM_API_RESPONSE_USER_ENTITLEMENTS](#Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_ENTITLEMENTS) : <code>string</code>
     * [~PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES) : <code>Object</code>
@@ -313,6 +314,12 @@ Platform Export, available response, POST source types.
 
 ### PlatformConstants~PLATFORM\_API\_EXPORT\_POST\_TYPES : <code>Object</code>
 Platform Export, available POST types.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_POST\_SUBSCRIPTIONS\_FILTER\_TYPES : <code>Object</code>
+Platform Export, available SUBSCRIPTION FILTER POST types.
 
 **Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
 <a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESPONSE_TYPES"></a>
@@ -419,8 +426,10 @@ Emulated service calls for platform globals.
     * [~getUser(options)](#Platform.module_PlatformServices..getUser) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getUserPermissions(appName, options)](#Platform.module_PlatformServices..getUserPermissions) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~hideGlobalFilter(isHidden)](#Platform.module_PlatformServices..hideGlobalFilter) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~deleteExport(id, options)](#Platform.module_PlatformServices..deleteExport) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~getExistingExportsStatus(id, params, options)](#Platform.module_PlatformServices..getExistingExportsStatus) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getExport(id, options)](#Platform.module_PlatformServices..getExport) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * [~getExportStatus(id, params, options)](#Platform.module_PlatformServices..getExportStatus) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~getExistingExports(idList, params, options)](#Platform.module_PlatformServices..getExistingExports) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~postExport(data, options)](#Platform.module_PlatformServices..postExport) ⇒ <code>Promise.&lt;\*&gt;</code>
 
 <a name="Platform.module_PlatformServices..getUser"></a>
@@ -479,10 +488,10 @@ Disables the Platform's global filter display.
     </tr>  </tbody>
 </table>
 
-<a name="Platform.module_PlatformServices..getExport"></a>
+<a name="Platform.module_PlatformServices..deleteExport"></a>
 
-### PlatformServices~getExport(id, options) ⇒ <code>Promise.&lt;\*&gt;</code>
-Get an export after setup.
+### PlatformServices~deleteExport(id, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Delete an export. Useful for clean up. Helps avoid having to deal with export lists and most recent exports.
 
 **Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
 <table>
@@ -493,7 +502,7 @@ Get an export after setup.
   </thead>
   <tbody>
 <tr>
-    <td>id</td><td><code>string</code></td><td><p>Export ID</p>
+    <td>id</td><td><code>string</code></td><td><p>ID of export to delete</p>
 </td>
     </tr><tr>
     <td>options</td><td><code>object</code></td><td></td>
@@ -504,9 +513,9 @@ Get an export after setup.
     </tr>  </tbody>
 </table>
 
-<a name="Platform.module_PlatformServices..getExportStatus"></a>
+<a name="Platform.module_PlatformServices..getExistingExportsStatus"></a>
 
-### PlatformServices~getExportStatus(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+### PlatformServices~getExistingExportsStatus(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
 Get multiple export status, or a single status after setup.
 
 **Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
@@ -531,10 +540,66 @@ Get multiple export status, or a single status after setup.
     </tr>  </tbody>
 </table>
 
+<a name="Platform.module_PlatformServices..getExport"></a>
+
+### PlatformServices~getExport(id, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Get an export after setup.
+
+**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code></td><td><p>Export ID</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>options.fileName</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>options.fileType</td><td><code>string</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Platform.module_PlatformServices..getExistingExports"></a>
+
+### PlatformServices~getExistingExports(idList, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Convenience wrapper for setting up global export status with status polling, and download with clean-up.
+
+**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>idList</td><td><code>Array.&lt;{id: string, fileName: string}&gt;</code></td><td><p>A list of export IDs to finish</p>
+</td>
+    </tr><tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Platform.module_PlatformServices..postExport"></a>
 
 ### PlatformServices~postExport(data, options) ⇒ <code>Promise.&lt;\*&gt;</code>
-Post to create an export.
+Convenience wrapper for posting to create an export with status polling, then performing a download with clean-up.
 
 **Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
 <table>

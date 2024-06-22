@@ -7,23 +7,58 @@ exports[`PlatformActions Should return a dispatch object for the hideGlobalFilte
 }
 `;
 
-exports[`PlatformActions Should return response content for getExport method: dispatch object 1`] = `
+exports[`PlatformActions Should return response content for createExport method: dispatch object 1`] = `
 [
   [
     {
+      "meta": {
+        "id": undefined,
+        "notifications": {},
+      },
       "payload": Promise {},
-      "type": "GET_PLATFORM_EXPORT",
+      "type": "SET_PLATFORM_EXPORT_CREATE",
     },
   ],
 ]
 `;
 
-exports[`PlatformActions Should return response content for setExportStatus method: dispatch object 1`] = `
+exports[`PlatformActions Should return response content for getExistingExports method: dispatch object 1`] = `
 [
   [
     {
+      "meta": {
+        "notifications": {},
+      },
       "payload": Promise {},
-      "type": "SET_PLATFORM_EXPORT_STATUS",
+      "type": "GET_PLATFORM_EXPORT_EXISTING",
+    },
+  ],
+]
+`;
+
+exports[`PlatformActions Should return response content for getExistingExportsStatus method: dispatch object 1`] = `
+[
+  [
+    {
+      "meta": {
+        "notifications": undefined,
+      },
+      "payload": Promise {},
+      "type": "SET_PLATFORM_EXPORT_EXISTING_STATUS",
+    },
+  ],
+]
+`;
+
+exports[`PlatformActions Should return response content for removeExistingExports method: dispatch object 1`] = `
+[
+  [
+    {
+      "meta": {
+        "notifications": undefined,
+      },
+      "payload": Promise {},
+      "type": "DELETE_PLATFORM_EXPORT_EXISTING",
     },
   ],
 ]

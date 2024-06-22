@@ -306,6 +306,9 @@ Download the debug log file.
     * [~PROD_MODE](#Helpers.module_General..PROD_MODE) : <code>boolean</code>
     * [~REVIEW_MODE](#Helpers.module_General..REVIEW_MODE) : <code>boolean</code>
     * [~TEST_MODE](#Helpers.module_General..TEST_MODE) : <code>boolean</code>
+    * [~CONFIG_EXPORT_EXPIRE](#Helpers.module_General..CONFIG_EXPORT_EXPIRE) : <code>string</code>
+    * [~CONFIG_EXPORT_FILENAME](#Helpers.module_General..CONFIG_EXPORT_FILENAME) : <code>string</code>
+    * [~CONFIG_EXPORT_SERVICE_NAME_PREFIX](#Helpers.module_General..CONFIG_EXPORT_SERVICE_NAME_PREFIX) : <code>string</code>
     * [~UI_DEPLOY_PATH_PREFIX](#Helpers.module_General..UI_DEPLOY_PATH_PREFIX) : <code>string</code>
     * [~UI_DEPLOY_PATH_LINK_PREFIX](#Helpers.module_General..UI_DEPLOY_PATH_LINK_PREFIX) : <code>string</code>
     * [~UI_DISABLED](#Helpers.module_General..UI_DISABLED) : <code>boolean</code>
@@ -422,6 +425,24 @@ Associated with using the NPM script "start:proxy". See dotenv config files for 
 ### General~TEST\_MODE : <code>boolean</code>
 Is test mode active.
 Associated with running unit tests. See dotenv config files for activation.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..CONFIG_EXPORT_EXPIRE"></a>
+
+### General~CONFIG\_EXPORT\_EXPIRE : <code>string</code>
+CONFIG export download file expiration.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..CONFIG_EXPORT_FILENAME"></a>
+
+### General~CONFIG\_EXPORT\_FILENAME : <code>string</code>
+CONFIG export download file name. Extension is handled at the service level.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..CONFIG_EXPORT_SERVICE_NAME_PREFIX"></a>
+
+### General~CONFIG\_EXPORT\_SERVICE\_NAME\_PREFIX : <code>string</code>
+CONFIG export "post" download name prefix, for consistency.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..UI_DEPLOY_PATH_PREFIX"></a>

@@ -5,6 +5,7 @@ import {
 } from '@redhat-cloud-services/frontend-components-notifications';
 import { platformTypes } from '../types';
 import { platformServices } from '../../services/platform/platformServices';
+import { helpers } from '../../common';
 
 /**
  * Platform service wrappers for dispatch, state update.
@@ -14,12 +15,23 @@ import { platformServices } from '../../services/platform/platformServices';
  */
 
 /**
- * Add a platform plugin toast notification.
+ * Add a platform plugin toast notification. Generate an id if one doesn't exist. The default generated id is
+ * random when testing.
  *
  * @param {object} data
  * @returns {*}
  */
-const addNotification = data => RcsAddNotification(data);
+const addNotification = data => dispatch => {
+  const updatedData = { ...data };
+
+  if (updatedData.id) {
+    dispatch(RcsRemoveNotification(updatedData.id));
+  } else {
+    updatedData.id = helpers.generateId();
+  }
+
+  return dispatch(RcsAddNotification(updatedData));
+};
 
 /**
  * Remove a platform plugin toast notification.
@@ -27,14 +39,14 @@ const addNotification = data => RcsAddNotification(data);
  * @param {string} id
  * @returns {*}
  */
-const removeNotification = id => RcsRemoveNotification(id);
+const removeNotification = id => dispatch => dispatch(RcsRemoveNotification(id));
 
 /**
  * Clear all platform plugin toast notifications.
  *
  * @returns {*}
  */
-const clearNotifications = () => RcsClearNotifications();
+const clearNotifications = () => dispatch => dispatch(RcsClearNotifications());
 
 /**
  * Get an emulated and combined API response from the platforms "getUser" and "getUserPermissions" global methods.
@@ -49,64 +61,74 @@ const authorizeUser = appName => dispatch =>
   });
 
 /**
- * Get a specific export download package.
+ * Get all existing exports, if pending poll, and when complete download. Includes toast notifications.
  *
- * @param {string} id
+ * @param {Array} existingExports
+ * @param {object} notifications Apply notification options
  * @returns {Function}
  */
-const getExport = id => dispatch =>
+const getExistingExports =
+  (existingExports, notifications = {}) =>
+  dispatch =>
+    dispatch({
+      type: platformTypes.GET_PLATFORM_EXPORT_EXISTING,
+      payload: platformServices.getExistingExports(existingExports),
+      meta: {
+        notifications
+      }
+    });
+
+/**
+ * Delete all existing exports. Includes toast notifications.
+ *
+ * @param {Array<{ id: string }>} existingExports
+ * @param {object} notifications
+ * @returns {Function}
+ */
+const deleteExistingExports = (existingExports, notifications) => dispatch =>
   dispatch({
-    type: platformTypes.GET_PLATFORM_EXPORT,
-    payload: platformServices.getExport(id)
+    type: platformTypes.DELETE_PLATFORM_EXPORT_EXISTING,
+    payload: Promise.all(existingExports.map(({ id }) => platformServices.deleteExport(id))),
+    meta: {
+      notifications
+    }
   });
 
 /**
- * Return a "dispatch ready" export poll status check.
+ * Get a status from any existing exports. Display a confirmation for downloading, or ignoring, the exports.
+ * Includes toast notifications.
  *
- * @param {Function} dispatch
+ * @param {object} notifications
  * @returns {Function}
  */
-const setExportStatus =
-  dispatch =>
-  (success = {}, error) =>
-    dispatch({
-      type: platformTypes.SET_PLATFORM_EXPORT_STATUS,
-      payload: (error && Promise.reject(error)) || Promise.resolve(success)
-    });
+const getExistingExportsStatus = notifications => dispatch =>
+  dispatch({
+    type: platformTypes.SET_PLATFORM_EXPORT_EXISTING_STATUS,
+    payload: platformServices.getExistingExportsStatus(),
+    meta: {
+      notifications
+    }
+  });
 
 /**
- * Get a specific, or all, export status.
+ * Create an export for download. Includes toast notifications.
  *
- * @param {object} options Apply polling options
- * @returns {Function}
- */
-const getExportStatus =
-  (options = {}) =>
-  dispatch =>
-    dispatch({
-      type: platformTypes.SET_PLATFORM_EXPORT_STATUS,
-      payload: platformServices.getExportStatus(undefined, undefined, {
-        ...options,
-        poll: { ...options.poll, status: setExportStatus(dispatch) }
-      })
-    });
-
-/**
- * Create an export for download.
- *
+ * @param {string} id
  * @param {object} data
  * @param {object} options Apply polling options
+ * @param {object} notifications
  * @returns {Function}
  */
 const createExport =
-  (data = {}, options = {}) =>
+  (id, data = {}, options = {}, notifications = {}) =>
   dispatch =>
     dispatch({
-      type: platformTypes.SET_PLATFORM_EXPORT_STATUS,
-      payload: platformServices.postExport(data, {
-        ...options,
-        poll: { ...options.poll, status: setExportStatus(dispatch) }
-      })
+      type: platformTypes.SET_PLATFORM_EXPORT_CREATE,
+      payload: platformServices.postExport(data, options),
+      meta: {
+        id,
+        notifications
+      }
     });
 
 /**
@@ -126,9 +148,9 @@ const platformActions = {
   clearNotifications,
   authorizeUser,
   createExport,
-  getExport,
-  setExportStatus,
-  getExportStatus,
+  deleteExistingExports,
+  getExistingExports,
+  getExistingExportsStatus,
   hideGlobalFilter
 };
 
@@ -140,8 +162,8 @@ export {
   clearNotifications,
   authorizeUser,
   createExport,
-  getExport,
-  setExportStatus,
-  getExportStatus,
+  deleteExistingExports,
+  getExistingExports,
+  getExistingExportsStatus,
   hideGlobalFilter
 };
