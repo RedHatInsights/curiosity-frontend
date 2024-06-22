@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PlatformServices should export a specific  properties, methods and classes: properties 1`] = `
+{
+  "deleteExport": [Function],
+  "getExistingExports": [Function],
+  "getExistingExportsStatus": [Function],
+  "getExport": [Function],
+  "getUser": [Function],
+  "getUserPermissions": [Function],
+  "hideGlobalFilter": [Function],
+  "postExport": [Function],
+}
+`;
+
 exports[`PlatformServices should return a failed getUser: failed authorized user 1`] = `
 {
   "data": undefined,

@@ -69,7 +69,13 @@ exports[`Platform Transformers should attempt to parse a user response: user, pa
 
 exports[`Platform Transformers should attempt to parse an exports response: exports, default 1`] = `
 {
-  "data": {},
+  "data": {
+    "completed": [],
+    "isAnythingCompleted": false,
+    "isAnythingPending": false,
+    "pending": [],
+    "products": {},
+  },
   "meta": {},
 }
 `;
@@ -77,15 +83,36 @@ exports[`Platform Transformers should attempt to parse an exports response: expo
 exports[`Platform Transformers should attempt to parse an exports response: exports, parsed single 1`] = `
 {
   "data": {
-    "RHEL for x86": [
+    "completed": [],
+    "isAnythingCompleted": false,
+    "isAnythingPending": true,
+    "pending": [
       {
+        "fileName": "20190720_000000_swatch_report_rhel_for_x_86",
         "format": undefined,
         "id": "0123456789",
         "name": "swatch-RHEL for x86",
+        "productId": "RHEL for x86",
         "status": "pending",
       },
     ],
-    "isAnythingPending": true,
+    "products": {
+      "RHEL for x86": {
+        "completed": [],
+        "isCompleted": false,
+        "isPending": true,
+        "pending": [
+          {
+            "fileName": "20190720_000000_swatch_report_rhel_for_x_86",
+            "format": undefined,
+            "id": "0123456789",
+            "name": "swatch-RHEL for x86",
+            "productId": "RHEL for x86",
+            "status": "pending",
+          },
+        ],
+      },
+    },
   },
   "meta": {},
 }

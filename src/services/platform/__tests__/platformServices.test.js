@@ -29,25 +29,24 @@ describe('PlatformServices', () => {
     moxios.uninstall();
   });
 
-  it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(platformServices)).toHaveLength(6);
-  });
-
-  it('should have specific methods', () => {
-    expect(platformServices.getUser).toBeDefined();
-    expect(platformServices.getUserPermissions).toBeDefined();
-    expect(platformServices.hideGlobalFilter).toBeDefined();
-    expect(platformServices.postExport).toBeDefined();
-    expect(platformServices.getExport).toBeDefined();
-    expect(platformServices.getExportStatus).toBeDefined();
+  it('should export a specific  properties, methods and classes', () => {
+    expect(platformServices).toMatchSnapshot('properties');
   });
 
   /**
-   *  timeout errors associated with this test sometimes stem from endpoint
-   *  settings or missing globals, see "before" above, or the "setupTests" config
+   *  Notes:
+   *  - Timeout errors associated with this test sometimes stem from endpoint
+   *      settings or missing globals, see "before" above, or the "setupTests" config
+   *  - Reset polling for testing
    */
   it('should return async for most methods and resolve successfully', async () => {
-    const promises = Object.keys(platformServices).map(value => platformServices[value]());
+    const promises = Object.keys(platformServices).map(value =>
+      platformServices[value](
+        undefined,
+        { poll: { location: undefined, status: undefined, validate: undefined } },
+        { poll: { location: undefined, status: undefined, validate: undefined } }
+      )
+    );
     const response = await Promise.all(promises);
 
     expect(response.length).toEqual(Object.keys(platformServices).length);

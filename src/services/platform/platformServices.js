@@ -109,21 +109,15 @@ const hideGlobalFilter = async (isHidden = true) => {
 };
 
 /**
- * @api {get} /api/export/v1/exports/:id
- * @apiDescription Get an export by id
+ * @apiMock {ForceStatus} 202
+ * @api {delete} /api/export/v1/exports/:id
+ * @apiDescription Create an export
  *
  * Reference [EXPORTS API](https://github.com/RedHatInsights/export-service-go/blob/main/static/spec/openapi.yaml)
  *
- * @apiSuccessExample {zip} Success-Response:
- *     HTTP/1.1 200 OK
- *     Success
- *
- * @apiErrorExample {json} Error-Response:
- *     HTTP/1.1 400 Bad Request
- *     {
- *       message: "'---' is not a valid export UUID",
- *       code: 400
- *     }
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 202 OK
+ *     {}
  *
  * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 500 Internal Server Error
@@ -131,31 +125,23 @@ const hideGlobalFilter = async (isHidden = true) => {
  *     }
  */
 /**
- * Get an export after setup.
+ * Delete an export. Useful for clean up. Helps avoid having to deal with export lists and most recent exports.
  *
- * @param {string} id Export ID
+ * @param {string} id ID of export to delete
  * @param {object} options
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
  * @returns {Promise<*>}
  */
-const getExport = (id, options = {}) => {
+const deleteExport = (id, options = {}) => {
   const { cache = false, cancel = true, cancelId } = options;
   return axiosServiceCall({
     url: `${process.env.REACT_APP_SERVICES_PLATFORM_EXPORT}/${id}`,
-    responseType: 'blob',
+    method: 'delete',
     cache,
     cancel,
     cancelId
-  }).then(
-    success =>
-      (helpers.TEST_MODE && success.data) ||
-      downloadHelpers.downloadData({
-        data: success.data,
-        fileName: `swatch_report_${id}.tar.gz`,
-        fileType: 'application/gzip'
-      })
-  );
+  });
 };
 
 /**
@@ -177,16 +163,7 @@ const getExport = (id, options = {}) => {
  *           "completed_at": "2024-01-24T16:20:31.229Z",
  *           "expires_at": "2024-01-24T16:20:31.229Z",
  *           "format": "json",
- *           "status": "partial",
- *           "sources": [
- *             {
- *               "application": "subscriptions",
- *               "resource": "instances",
- *               "filters": {},
- *               "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
- *               "status": "pending"
- *             }
- *           ]
+ *           "status": "pending"
  *         },
  *         {
  *           "id": "x123456-5717-4562-b3fc-2c963f66afa6",
@@ -195,16 +172,7 @@ const getExport = (id, options = {}) => {
  *           "completed_at": "2024-01-24T16:20:31.229Z",
  *           "expires_at": "2024-01-24T16:20:31.229Z",
  *           "format": "json",
- *           "status": "completed",
- *           "sources": [
- *             {
- *               "application": "subscriptions",
- *               "resource": "subscriptions",
- *               "filters": {},
- *               "id": "x123456-5717-4562-b3fc-2c963f66afa6",
- *               "status": "completed"
- *             }
- *           ]
+ *           "status": "complete"
  *         }
  *       ]
  *     }
@@ -220,16 +188,7 @@ const getExport = (id, options = {}) => {
  *           "completed_at": "2024-01-24T16:20:31.229Z",
  *           "expires_at": "2024-01-24T16:20:31.229Z",
  *           "format": "json",
- *           "status": "partial",
- *           "sources": [
- *             {
- *               "application": "subscriptions",
- *               "resource": "instances",
- *               "filters": {},
- *               "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
- *               "status": "pending"
- *             }
- *           ]
+ *           "status": "pending"
  *         },
  *         {
  *           "id": "x123456-5717-4562-b3fc-2c963f66afa6",
@@ -238,16 +197,7 @@ const getExport = (id, options = {}) => {
  *           "completed_at": "2024-01-24T16:20:31.229Z",
  *           "expires_at": "2024-01-24T16:20:31.229Z",
  *           "format": "json",
- *           "status": "partial",
- *           "sources": [
- *             {
- *               "application": "subscriptions",
- *               "resource": "subscriptions",
- *               "filters": {},
- *               "id": "x123456-5717-4562-b3fc-2c963f66afa6",
- *               "status": "pending"
- *             }
- *           ]
+ *           "status": "pending"
  *         }
  *       ]
  *     }
@@ -263,16 +213,7 @@ const getExport = (id, options = {}) => {
  *           "completed_at": "2024-01-24T16:20:31.229Z",
  *           "expires_at": "2024-01-24T16:20:31.229Z",
  *           "format": "json",
- *           "status": "completed",
- *           "sources": [
- *             {
- *               "application": "subscriptions",
- *               "resource": "instances",
- *               "filters": {},
- *               "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
- *               "status": "completed"
- *             }
- *           ]
+ *           "status": "complete"
  *         },
  *         {
  *           "id": "x123456-5717-4562-b3fc-2c963f66afa6",
@@ -281,16 +222,7 @@ const getExport = (id, options = {}) => {
  *           "completed_at": "2024-01-24T16:20:31.229Z",
  *           "expires_at": "2024-01-24T16:20:31.229Z",
  *           "format": "json",
- *           "status": "completed",
- *           "sources": [
- *             {
- *               "application": "subscriptions",
- *               "resource": "subscriptions",
- *               "filters": {},
- *               "id": "x123456-5717-4562-b3fc-2c963f66afa6",
- *               "status": "completed"
- *             }
- *           ]
+ *           "status": "complete"
  *         },
  *         {
  *           "id": "x123456-5717-4562-b3fc-2c963f66afa6",
@@ -299,16 +231,7 @@ const getExport = (id, options = {}) => {
  *           "completed_at": "2024-01-24T16:20:31.229Z",
  *           "expires_at": "2024-01-24T16:20:31.229Z",
  *           "format": "json",
- *           "status": "partial",
- *           "sources": [
- *             {
- *               "application": "subscriptions",
- *               "resource": "subscriptions",
- *               "filters": {},
- *               "id": "x123456-5717-4562-b3fc-2c963f66afa6",
- *               "status": "pending"
- *             }
- *           ]
+ *           "status": "partial"
  *         }
  *       ]
  *     }
@@ -340,16 +263,7 @@ const getExport = (id, options = {}) => {
  *       "completed_at": "2024-01-24T16:20:31.229Z",
  *       "expires_at": "2024-01-24T16:20:31.229Z",
  *       "format": "json",
- *       "status": "partial",
- *       "sources": [
- *         {
- *           "application": "subscriptions",
- *           "resource": "instances",
- *           "filters": {},
- *           "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
- *           "status": "pending"
- *         }
- *       ]
+ *       "status": "partial"
  *     }
  *
  * @apiErrorExample {json} Error-Response:
@@ -374,11 +288,10 @@ const getExport = (id, options = {}) => {
  * @param {string} options.cancelId
  * @returns {Promise<*>}
  */
-const getExportStatus = (id, params = {}, options = {}) => {
+const getExistingExportsStatus = (id, params = {}, options = {}) => {
   const {
     cache = false,
     cancel = true,
-    // cancelId = 'export-status',
     cancelId,
     schema = [platformSchemas.exports],
     transform = [platformTransformers.exports],
@@ -398,6 +311,122 @@ const getExportStatus = (id, params = {}, options = {}) => {
   });
 };
 
+/**
+ * @api {get} /api/export/v1/exports/:id
+ * @apiDescription Get an export by id
+ *
+ * Reference [EXPORTS API](https://github.com/RedHatInsights/export-service-go/blob/main/static/spec/openapi.yaml)
+ *
+ * @apiSuccessExample {zip} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     Success
+ *
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 400 Bad Request
+ *     {
+ *       message: "'---' is not a valid export UUID",
+ *       code: 400
+ *     }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *     }
+ */
+/**
+ * Get an export after setup.
+ *
+ * @param {string} id Export ID
+ * @param {object} options
+ * @param {boolean} options.cancel
+ * @param {string} options.cancelId
+ * @param {string} options.fileName
+ * @param {string} options.fileType
+ * @returns {Promise<*>}
+ */
+const getExport = (id, options = {}) => {
+  const {
+    cache = false,
+    cancel = true,
+    cancelId,
+    fileName = `swatch_report_${id}`,
+    fileType = 'application/gzip'
+  } = options;
+  return axiosServiceCall({
+    url: `${process.env.REACT_APP_SERVICES_PLATFORM_EXPORT}/${id}`,
+    responseType: 'blob',
+    cache,
+    cancel,
+    cancelId
+  })
+    .then(
+      success =>
+        (helpers.TEST_MODE && success.data) ||
+        downloadHelpers.downloadData({
+          data: success.data,
+          fileName: `${fileName}.tar.gz`,
+          fileType
+        })
+    )
+    .then(() => deleteExport(id));
+};
+
+/**
+ * Convenience wrapper for setting up global export status with status polling, and download with clean-up.
+ *
+ * @param {Array<{id: string, fileName: string}>} idList A list of export IDs to finish
+ * @param {object} params
+ * @param {object} options
+ * @param {boolean} options.cancel
+ * @param {string} options.cancelId
+ * @returns {Promise<*>}
+ */
+const getExistingExports = (idList, params = {}, options = {}) => {
+  const {
+    cache = false,
+    cancel = true,
+    cancelId = 'all-exports',
+    poll,
+    schema = [platformSchemas.exports],
+    transform = [platformTransformers.exports],
+    ...restOptions
+  } = options;
+
+  return axiosServiceCall({
+    ...restOptions,
+    poll: {
+      location: {
+        url: process.env.REACT_APP_SERVICES_PLATFORM_EXPORT,
+        ...poll?.location
+      },
+      validate: response => {
+        const completedResults = response?.data?.data?.completed;
+        const isIdListCompleted =
+          idList.filter(({ id }) => completedResults.find(({ id: completedId }) => completedId === id) !== undefined)
+            .length === idList.length;
+
+        if (isIdListCompleted && completedResults.length > 0) {
+          Promise.all(idList.map(({ id, fileName }) => getExport(id, { fileName })));
+        }
+
+        return isIdListCompleted;
+      },
+      ...poll
+    },
+    url: process.env.REACT_APP_SERVICES_PLATFORM_EXPORT,
+    params,
+    cache,
+    cancel,
+    cancelId,
+    schema,
+    transform
+  });
+};
+
+/**
+ * Note: 202 status appears to be only response that returns a sources list, OR it's variable depending on
+ *     partial/pending status.
+ */
 /**
  * @apiMock {ForceStatus} 202
  * @api {post} /api/export/v1/exports
@@ -432,7 +461,7 @@ const getExportStatus = (id, params = {}, options = {}) => {
  *     }
  */
 /**
- * Post to create an export.
+ * Convenience wrapper for posting to create an export with status polling, then performing a download with clean-up.
  *
  * @param {object} data JSON data to submit
  * @param {object} options
@@ -440,17 +469,50 @@ const getExportStatus = (id, params = {}, options = {}) => {
  * @param {string} options.cancelId
  * @returns {Promise<*>}
  */
-const postExport = (data = {}, options = {}) => {
+const postExport = async (data = {}, options = {}) => {
   const {
     cache = false,
-    cancel = true,
-    cancelId, // = 'export-status',
+    cancel = false,
+    cancelId,
+    poll,
     schema = [platformSchemas.exports],
-    transform = [platformTransformers.exports],
+    transform = [],
     ...restOptions
   } = options;
-  return axiosServiceCall({
+
+  let downloadId;
+  const postResponse = await axiosServiceCall({
     ...restOptions,
+    poll: {
+      ...poll,
+      location: {
+        url: process.env.REACT_APP_SERVICES_PLATFORM_EXPORT,
+        config: {
+          cache: false,
+          cancel: false,
+          schema: [platformSchemas.exports],
+          transform: [platformTransformers.exports]
+        },
+        ...poll?.location
+      },
+      status: (successResponse, ...args) => {
+        if (typeof poll?.status === 'function') {
+          poll.status.call(null, successResponse, ...args);
+        }
+      },
+      validate: response => {
+        const foundDownload = response?.data?.data?.completed.find(
+          ({ id }) => downloadId !== undefined && id === downloadId
+        );
+
+        if (foundDownload) {
+          const { id, fileName } = foundDownload;
+          getExport(id, { fileName });
+        }
+
+        return foundDownload !== undefined;
+      }
+    },
     method: 'post',
     url: process.env.REACT_APP_SERVICES_PLATFORM_EXPORT,
     data,
@@ -460,11 +522,16 @@ const postExport = (data = {}, options = {}) => {
     schema,
     transform
   });
+
+  downloadId = postResponse.data.id;
+  return postResponse;
 };
 
 const platformServices = {
+  deleteExport,
+  getExistingExports,
+  getExistingExportsStatus,
   getExport,
-  getExportStatus,
   getUser,
   getUserPermissions,
   hideGlobalFilter,
@@ -479,8 +546,10 @@ helpers.browserExpose({ platformServices });
 export {
   platformServices as default,
   platformServices,
+  deleteExport,
+  getExistingExports,
+  getExistingExportsStatus,
   getExport,
-  getExportStatus,
   getUser,
   getUserPermissions,
   hideGlobalFilter,

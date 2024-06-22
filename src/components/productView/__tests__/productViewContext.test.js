@@ -2,6 +2,7 @@ import {
   context,
   useProductQueryFactory,
   useProductQuery,
+  useProductExportQuery,
   useProductGraphTallyQuery,
   useProductInventoryGuestsQuery,
   useProductInventoryHostsQuery,
@@ -76,6 +77,11 @@ describe('ProductViewContext', () => {
       useProductToolbarQuery({ options: { useProductViewContext: () => mockContextValue } })
     );
     expect(toolbarQuery).toMatchSnapshot('toolbarQuery');
+
+    const { result: exportQuery } = await renderHook(() =>
+      useProductExportQuery({ options: { useProductViewContext: () => mockContextValue } })
+    );
+    expect(exportQuery).toMatchSnapshot('exportQuery');
   });
 
   it('should apply a hook for retrieving product context', async () => {
