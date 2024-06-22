@@ -30,6 +30,7 @@
     * [~setStartOfDay(date)](#Helpers.module_Dates..setStartOfDay) ⇒ <code>Date</code>
     * [~setEndOfMonth(date)](#Helpers.module_Dates..setEndOfMonth) ⇒ <code>Date</code>
     * [~setRangedDateTime(params)](#Helpers.module_Dates..setRangedDateTime) ⇒ <code>Object</code>
+    * [~setMillisecondsFromDate(params)](#Helpers.module_Dates..setMillisecondsFromDate) ⇒ <code>Date</code>
     * [~getRangedDateTime(granularity)](#Helpers.module_Dates..getRangedDateTime) ⇒ <code>Object</code>
     * [~getRangedMonthDateTime(month, defaultLocale)](#Helpers.module_Dates..getRangedMonthDateTime) ⇒ <code>Object</code> \| <code>\*</code> \| <code>undefined</code>
 
@@ -190,6 +191,29 @@ Set a date range based on a granularity type.
     </tr><tr>
     <td>params.measurement</td><td><code>&#x27;days&#x27;</code> | <code>&#x27;weeks&#x27;</code> | <code>&#x27;months&#x27;</code> | <code>&#x27;years&#x27;</code></td><td><p>Granularity type .</p>
 </td>
+    </tr>  </tbody>
+</table>
+
+<a name="Helpers.module_Dates..setMillisecondsFromDate"></a>
+
+### Dates~setMillisecondsFromDate(params) ⇒ <code>Date</code>
+Set milliseconds from date. Defaults to internal current date.
+
+**Kind**: inner method of [<code>Dates</code>](#Helpers.module_Dates)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>params.date</td><td><code>Date</code></td><td><p>The date to add milliseconds towards. Defaults to current date.</p>
+</td>
+    </tr><tr>
+    <td>params.ms</td><td><code>number</code></td><td></td>
     </tr>  </tbody>
 </table>
 
