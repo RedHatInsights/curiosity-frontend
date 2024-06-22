@@ -84,6 +84,17 @@ const setRangedDateTime = ({ date = getCurrentDate(), subtract = 0, measurement 
 };
 
 /**
+ * Set milliseconds from date. Defaults to internal current date.
+ *
+ * @param {object} params
+ * @param {Date} params.date The date to add milliseconds towards. Defaults to current date.
+ * @param {number} params.ms
+ * @returns {Date}
+ */
+const setMillisecondsFromDate = ({ date = getCurrentDate(), ms = 0 } = {}) =>
+  new Date(new Date(date).setUTCMilliseconds(ms));
+
+/**
  * Generates the date range, starting at the beginning of getCurrentDate, and ending at the end of getCurrentDate.
  *
  * @type {{endDate: Date, startDate: Date}}
@@ -288,6 +299,7 @@ const dateHelpers = {
   setStartOfDay,
   setEndOfDay,
   setEndOfMonth,
+  setMillisecondsFromDate,
   getRangedMonthDateTime,
   getRangedDateTime,
   setRangedDateTime,
@@ -310,6 +322,7 @@ export {
   setStartOfDay,
   setEndOfDay,
   setEndOfMonth,
+  setMillisecondsFromDate,
   getRangedMonthDateTime,
   getRangedDateTime,
   setRangedDateTime,
