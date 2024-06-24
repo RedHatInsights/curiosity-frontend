@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.5.0](https://github.com/RedHatInsights/curiosity-frontend/compare/17b57dc8aaf56194ae56f33eeeb8d801e76f73ee...d337db99018809fc92a8ff2bb235293bf0f59d3e) (2024-06-24)
+
+
+### Tests
+*  consistent redux createStore import ([#1336](https://github.com/RedHatInsights/curiosity-frontend/pull/1336)) ([4879813](https://github.com/RedHatInsights/curiosity-frontend/commit/4879813d31730822e35ba9c3a18a5c36185551f1))
+
+### Features
+* **config** sw-2402 activate rhel for x86 payg addon ([#1335](https://github.com/RedHatInsights/curiosity-frontend/pull/1335)) ([d66edfa](https://github.com/RedHatInsights/curiosity-frontend/commit/d66edfaa93c4242ed6ea042350c9cee74565a614))
+
+### Continuous Integrations
+*  consistent ephemeral integration checks ([#1339](https://github.com/RedHatInsights/curiosity-frontend/pull/1339)) ([2beff9c](https://github.com/RedHatInsights/curiosity-frontend/commit/2beff9cfd710052ef722209b999d08149b149808))
+
+### Code Refactoring
+*  sw-1594 expand quarterly range to 5 years ([#1327](https://github.com/RedHatInsights/curiosity-frontend/pull/1327)) ([3b6d7db](https://github.com/RedHatInsights/curiosity-frontend/commit/3b6d7db3882e046eb26f3b8e8420b70e8fc5f0e5))
+*  sw-1232 replace uom with metric_id ([#1305](https://github.com/RedHatInsights/curiosity-frontend/pull/1305)) ([bfe4f03](https://github.com/RedHatInsights/curiosity-frontend/commit/bfe4f03ca8c3a42fa05308ec539c15fe1a978471))
+
+### Builds
+* **deps** update group with 12 updates ([#1340](https://github.com/RedHatInsights/curiosity-frontend/pull/1340)) ([d337db9](https://github.com/RedHatInsights/curiosity-frontend/commit/d337db99018809fc92a8ff2bb235293bf0f59d3e))
+* **deps-dev** bump group with 4 updates ([#1337](https://github.com/RedHatInsights/curiosity-frontend/pull/1337)) ([a8b3b88](https://github.com/RedHatInsights/curiosity-frontend/commit/a8b3b884582dfeb86d59362e8d9fdb031e0834ad))
+* **deps-dev** bump weldable from 0.5.0 to 1.0.0 ([#1333](https://github.com/RedHatInsights/curiosity-frontend/pull/1333)) ([9bf79e7](https://github.com/RedHatInsights/curiosity-frontend/commit/9bf79e7ab3a690cd929ed989a6aa021baafb7560))
+* **deps-dev** bump group with 8 updates ([#1332](https://github.com/RedHatInsights/curiosity-frontend/pull/1332)) ([9cfc39d](https://github.com/RedHatInsights/curiosity-frontend/commit/9cfc39d7a6d11c88754b085a60cc20afff33759f))
+* **deps-dev** bump group with 11 updates ([#1331](https://github.com/RedHatInsights/curiosity-frontend/pull/1331)) ([4f31aee](https://github.com/RedHatInsights/curiosity-frontend/commit/4f31aee796b1a67adcba68eec70243ccd854192b))
+* **deps** bump deps-minor group with 2 updates ([#1321](https://github.com/RedHatInsights/curiosity-frontend/pull/1321)) ([6343d5f](https://github.com/RedHatInsights/curiosity-frontend/commit/6343d5f07631ded01fda3a81dc80929bd50fd0c5))
+
+### Bug Fixes
+* **rhsmTransformers** sw-2627 restore subscriptions meta spread ([#1334](https://github.com/RedHatInsights/curiosity-frontend/pull/1334)) ([7fba742](https://github.com/RedHatInsights/curiosity-frontend/commit/7fba74232a844994e1b9387804069f4314efbf2c))
+
 ## [4.4.0](https://github.com/RedHatInsights/curiosity-frontend/compare/e4e2f7ea7da3507f18e796e813dab8860ca65593...c554a6f9bf52e673c820ba7330f44b3cf30d18c2) (2024-06-14)
 
 
