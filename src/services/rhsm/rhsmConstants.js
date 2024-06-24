@@ -6,8 +6,8 @@
 /**
  * RHSM path IDs for product RHEL variants.
  *
- * @type {{RHEL_ARM: string, RHEL_X86_SAP: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHEL_X86: string,
- *     RHEL_X86_EUS: string, RHEL_X86_HA: string, RHEL_X86_RS: string}}
+ * @type {{RHEL_ARM: string, RHEL_X86_RS: string, RHEL_X86_ELS_UNCONVERTED: string, RHEL_X86_EUS: string,
+ *     RHEL_X86_HA: string, RHEL_X86_SAP: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHEL_X86: string}}
  */
 const RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES = {
   RHEL_ARM: 'RHEL for ARM',
@@ -17,6 +17,7 @@ const RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES = {
   RHEL_X86_EUS: 'rhel-for-x86-eus',
   RHEL_X86_HA: 'rhel-for-x86-ha',
   RHEL_X86_RS: 'rhel-for-x86-rs',
+  RHEL_X86_ELS_UNCONVERTED: 'rhel-for-x86-els-unconverted',
   RHEL_X86_SAP: 'rhel-for-sap-x86'
 };
 
@@ -50,11 +51,11 @@ const RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES = {
  * dissimilar graph and inventory displays. Force grouped product ids are grouped with the
  * [product configuration property "productGroup"]{@link ../config/}, i.e. OpenShift et all.
  *
- * @type {{RHEL_ARM: string, OPENSHIFT_METRICS: string, RHEL_X86_EUS: string, RHEL_WORKSTATION: string,
- *     RHEL_X86_SAP: string, RHODS: string, ROSA: string, RHEL_X86: string, RHEL_COMPUTE_NODE: string,
- *     RHEL_X86_ELS_PAYG: string, OPENSHIFT: string, RHEL_X86_RS: string, SATELLITE_SERVER: string,
- *     RHEL_X86_ELS_PAYG_ADDON: string, OPENSHIFT_DEDICATED_METRICS: string, RHEL_X86_HA: string, SATELLITE_CAPSULE:
- *     string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHACS:
+ * @type {{RHEL_ARM: string, OPENSHIFT_METRICS: string, RHEL_X86_ELS_UNCONVERTED: string, RHEL_X86_EUS: string,
+ *     RHEL_WORKSTATION: string, RHEL_X86_SAP: string, RHODS: string, ROSA: string, RHEL_X86: string,
+ *     RHEL_COMPUTE_NODE: string, RHEL_X86_ELS_PAYG: string, OPENSHIFT: string, RHEL_X86_RS: string, SATELLITE_SERVER:
+ *     string, RHEL_X86_ELS_PAYG_ADDON: string, OPENSHIFT_DEDICATED_METRICS: string, RHEL_X86_HA: string,
+ *     SATELLITE_CAPSULE: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHACS:
  *     string}}
  */
 const RHSM_API_PATH_PRODUCT_TYPES = {
@@ -443,13 +444,13 @@ const RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES = {
  *     string}, RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES: {RHEL_X86_ELS_PAYG_ADDON: string, RHEL_X86_ELS_PAYG:
  *     string}, RHSM_API_RESPONSE_META_TYPES: {PRODUCT: string, COUNT: string}, RHSM_API_RESPONSE_ERRORS_CODE_TYPES:
  *     {GENERIC: string, OPTIN: string}, RHSM_API_QUERY_GRANULARITY_TYPES: {WEEKLY: string, QUARTERLY: string, DAILY:
- *     string, MONTHLY: string}, RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES: {RHEL_ARM: string, RHEL_X86_SAP: string,
- *     RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHEL_X86: string, RHEL_X86_EUS: string, RHEL_X86_HA: string,
- *     RHEL_X86_RS: string}, RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES: {BILLING_ACCOUNT_ID: string, QUANTITY: string,
- *     SUBSCRIPTION_MANAGER_ID: string, INVENTORY_ID: string, NUMBER_OF_GUESTS: string, METRIC_ID: string,
- *     HAS_INFINITE_QUANTITY: string, TOTAL_CAPACITY: string, PRODUCT_NAME: string, SERVICE_LEVEL: string,
- *     DISPLAY_NAME: string, INSTANCE_ID: string, MEASUREMENTS: string, CATEGORY: string, NEXT_EVENT_DATE: string,
- *     BILLING_PROVIDER: string, CLOUD_PROVIDER: string, LAST_SEEN: string},
+ *     string, MONTHLY: string}, RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES: {RHEL_ARM: string, RHEL_X86_RS: string,
+ *     RHEL_X86_ELS_UNCONVERTED: string, RHEL_X86_EUS: string, RHEL_X86_HA: string, RHEL_X86_SAP: string, RHEL_IBM_Z:
+ *     string, RHEL_IBM_POWER: string, RHEL_X86: string}, RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES:
+ *     {BILLING_ACCOUNT_ID: string, QUANTITY: string, SUBSCRIPTION_MANAGER_ID: string, INVENTORY_ID: string,
+ *     NUMBER_OF_GUESTS: string, METRIC_ID: string, HAS_INFINITE_QUANTITY: string, TOTAL_CAPACITY: string,
+ *     PRODUCT_NAME: string, SERVICE_LEVEL: string, DISPLAY_NAME: string, INSTANCE_ID: string, MEASUREMENTS: string,
+ *     CATEGORY: string, NEXT_EVENT_DATE: string, BILLING_PROVIDER: string, CLOUD_PROVIDER: string, LAST_SEEN: string},
  *     RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES: {ASCENDING: string, DESCENDING: string},
  *     RHSM_API_RESPONSE_SUBSCRIPTION_TYPES: {ANNUAL: string, ON_DEMAND: string}, RHSM_API_QUERY_INVENTORY_SORT_TYPES:
  *     {CORES: string, SOCKETS: string, INSTANCE_HOURS: string, NUMBER_OF_GUESTS: string, CORE_SECONDS: string, NAME:
