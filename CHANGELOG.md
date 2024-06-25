@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.6.0](https://github.com/RedHatInsights/curiosity-frontend/compare/86622b073ecdaa78520a5f89af880f4bc76d8f27...bd534990f5f6c2bcf44eaa1c113cde11959c0d14) (2024-06-25)
+
+
+### Tests
+*  expand jest renderHook, allow rerender, updated args ([#1342](https://github.com/RedHatInsights/curiosity-frontend/pull/1342)) ([201a0c0](https://github.com/RedHatInsights/curiosity-frontend/commit/201a0c0b99f369452d80656645788190a93d2793))
+
+### Features
+* **config** sw-2405 activate rhel for x86 els unconverted ([#1346](https://github.com/RedHatInsights/curiosity-frontend/pull/1346)) ([bd53499](https://github.com/RedHatInsights/curiosity-frontend/commit/bd534990f5f6c2bcf44eaa1c113cde11959c0d14))
+* **dateHelpers** sw-2353 added setMillisecondsFromDate ([#1342](https://github.com/RedHatInsights/curiosity-frontend/pull/1342)) ([72ae725](https://github.com/RedHatInsights/curiosity-frontend/commit/72ae7252e5e0b9aafa299bdd026fc3d9b9605e68))
+
 ## [4.5.0](https://github.com/RedHatInsights/curiosity-frontend/compare/17b57dc8aaf56194ae56f33eeeb8d801e76f73ee...d337db99018809fc92a8ff2bb235293bf0f59d3e) (2024-06-24)
 
 
