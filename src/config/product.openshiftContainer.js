@@ -362,6 +362,10 @@ const config = {
       id: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
       isSecondary: true,
       position: SelectPosition.right
+    },
+    {
+      id: 'export',
+      isItem: true
     }
   ]
 };
