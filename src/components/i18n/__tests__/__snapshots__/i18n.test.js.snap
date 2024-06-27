@@ -363,31 +363,15 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.notifications",
+        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'pending', 'title'] })",
+      },
+      {
+        "key": "curiosity-toolbar.notifications",
         "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'title'] })",
       },
       {
         "key": "curiosity-toolbar.notifications",
         "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'description'], fileName: completed?.[0]?.fileName })",
-      },
-      {
-        "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'error', 'title'] })",
-      },
-      {
-        "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'error', 'description'] })",
-      },
-      {
-        "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'pending', 'title', id] })",
-      },
-      {
-        "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'error', 'title'] })",
-      },
-      {
-        "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'error', 'description'] })",
       },
       {
         "key": "curiosity-toolbar.notifications",
@@ -408,14 +392,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-toolbar.notifications",
         "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'descriptionGlobal'], count: allResults.length })",
-      },
-      {
-        "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'error', 'title'] })",
-      },
-      {
-        "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'error', 'description'] })",
       },
       {
         "key": "curiosity-toolbar.notifications",
@@ -1059,30 +1035,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/components/toolbar/toolbarFieldExport.js",
     "key": "curiosity-toolbar.label",
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldExportContext.js",
-    "key": "curiosity-toolbar.notifications",
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldExportContext.js",
-    "key": "curiosity-toolbar.notifications",
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldExportContext.js",
-    "key": "curiosity-toolbar.notifications",
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldExportContext.js",
-    "key": "curiosity-toolbar.notifications",
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldExportContext.js",
-    "key": "curiosity-toolbar.notifications",
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldExportContext.js",
-    "key": "curiosity-toolbar.notifications",
   },
   {
     "file": "src/components/toolbar/toolbarFieldExportContext.js",

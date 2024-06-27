@@ -400,6 +400,11 @@ const getExistingExports = (idList, params = {}, options = {}) => {
         ...poll?.location
       },
       validate: response => {
+        // FixMe: replace classic querySelector logic for "does the ui wrapper exist?" with external service cancel
+        if (!document.querySelector('.curiosity')) {
+          return true;
+        }
+
         const completedResults = response?.data?.data?.completed;
         const isIdListCompleted =
           idList.filter(({ id }) => completedResults.find(({ id: completedId }) => completedId === id) !== undefined)
@@ -496,11 +501,17 @@ const postExport = async (data = {}, options = {}) => {
         ...poll?.location
       },
       status: (successResponse, ...args) => {
-        if (typeof poll?.status === 'function') {
+        // FixMe: replace classic querySelector logic for "does the ui wrapper exist?" with external service cancel
+        if (document.querySelector('.curiosity') && typeof poll?.status === 'function') {
           poll.status.call(null, successResponse, ...args);
         }
       },
       validate: response => {
+        // FixMe: replace classic querySelector logic for "does the ui wrapper exist?" with external service cancel
+        if (!document.querySelector('.curiosity')) {
+          return true;
+        }
+
         const foundDownload = response?.data?.data?.completed.find(
           ({ id }) => downloadId !== undefined && id === downloadId
         );

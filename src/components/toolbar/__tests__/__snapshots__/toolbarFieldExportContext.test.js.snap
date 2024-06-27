@@ -27,14 +27,7 @@ exports[`ToolbarFieldExport Component should allow export service calls on exist
 [
   {
     "type": "return",
-    "value": {
-      "rejected": {
-        "description": "t(curiosity-toolbar.notifications_export_error, {"context":"description"})",
-        "dismissable": true,
-        "title": "t(curiosity-toolbar.notifications_export_error, {"context":"title"})",
-        "variant": "warning",
-      },
-    },
+    "value": undefined,
   },
   {
     "type": "return",
@@ -84,6 +77,10 @@ exports[`ToolbarFieldExport Component should allow export service calls on exist
       "type": "@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION",
     },
   },
+  {
+    "type": "return",
+    "value": [Function],
+  },
 ]
 `;
 
@@ -101,6 +98,19 @@ exports[`ToolbarFieldExport Component should allow export service calls: createE
     "type": "return",
     "value": "mock-product-id",
   },
+  {
+    "type": "return",
+    "value": [Function],
+  },
+  {
+    "type": "return",
+    "value": {
+      "id": undefined,
+      "isPending": false,
+      "pending": [],
+      "type": "SET_PLATFORM_EXPORT_STATUS",
+    },
+  },
 ]
 `;
 
@@ -108,19 +118,9 @@ exports[`ToolbarFieldExport Component should allow service calls on user confirm
 [
   [
     [
-      "lorem",
-      "ipsum",
       "dolor",
       "sit",
     ],
-    {
-      "rejected": {
-        "description": "t(curiosity-toolbar.notifications_export_error, {"context":"description"})",
-        "dismissable": true,
-        "title": "t(curiosity-toolbar.notifications_export_error, {"context":"title"})",
-        "variant": "warning",
-      },
-    },
   ],
   [
     [
@@ -130,22 +130,11 @@ exports[`ToolbarFieldExport Component should allow service calls on user confirm
       "sit",
     ],
     {
-      "fulfilled": {
-        "description": "t(curiosity-toolbar.notifications_export_completed, {"context":"descriptionGlobal","count":4})",
-        "dismissable": true,
-        "title": "t(curiosity-toolbar.notifications_export_completed, {"context":"titleGlobal","count":4})",
-        "variant": "success",
-      },
       "pending": {
         "dismissable": true,
+        "id": "swatch-exports-existing-confirmation",
         "title": "t(curiosity-toolbar.notifications_export_pending, {"context":"titleGlobal"})",
         "variant": "info",
-      },
-      "rejected": {
-        "description": "t(curiosity-toolbar.notifications_export_error, {"context":"description"})",
-        "dismissable": true,
-        "title": "t(curiosity-toolbar.notifications_export_error, {"context":"title"})",
-        "variant": "warning",
       },
     },
   ],
@@ -157,10 +146,17 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
   {
     "type": "return",
     "value": {
+      "payload": "swatch-exports-individual-status",
+      "type": "@@INSIGHTS-CORE/NOTIFICATIONS/REMOVE_NOTIFICATION",
+    },
+  },
+  {
+    "type": "return",
+    "value": {
       "payload": {
         "description": "t(curiosity-toolbar.notifications_export_completed, {"context":"description","fileName":"helloWorldFileName"})",
         "dismissable": true,
-        "id": "generatedid-",
+        "id": "swatch-exports-individual-status",
         "title": "t(curiosity-toolbar.notifications_export_completed, {"context":"title"})",
         "variant": "success",
       },
@@ -178,6 +174,19 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
           "id": "dolorSit",
         },
       ],
+      "type": "SET_PLATFORM_EXPORT_STATUS",
+    },
+  },
+  {
+    "type": "return",
+    "value": [Function],
+  },
+  {
+    "type": "return",
+    "value": {
+      "id": "loremIpsum",
+      "isPending": false,
+      "pending": [],
       "type": "SET_PLATFORM_EXPORT_STATUS",
     },
   },
