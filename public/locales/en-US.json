@@ -386,7 +386,7 @@
     "notifications_export_completed_titleGlobal": "Existing report(s) ready",
     "notifications_export_completed_titleGlobal_one": "Existing report ready",
     "notifications_export_completed_titleGlobal_other": "Existing reports ready",
-    "notifications_export_error_description": "Closing report generator",
+    "notifications_export_error_description": "Closing report generator. Please try again.",
     "notifications_export_error_title": "Report failed",
     "notifications_export_pending_title": "Generating report in progress",
     "notifications_export_pending_titleGlobal": "Continuing reports download",

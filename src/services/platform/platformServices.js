@@ -496,11 +496,17 @@ const postExport = async (data = {}, options = {}) => {
         ...poll?.location
       },
       status: (successResponse, ...args) => {
-        if (typeof poll?.status === 'function') {
+        // classic querySelector logic for "does the ui wrapper exist?"
+        if (document.querySelector('.curiosity') && typeof poll?.status === 'function') {
           poll.status.call(null, successResponse, ...args);
         }
       },
-      validate: response => {
+      validate: (response, retryCount) => {
+        // classic querySelector logic for "does the ui wrapper exist?"
+        if (retryCount > -1 && !document.querySelector('.curiosity')) {
+          return true;
+        }
+
         const foundDownload = response?.data?.data?.completed.find(
           ({ id }) => downloadId !== undefined && id === downloadId
         );
