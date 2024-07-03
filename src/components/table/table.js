@@ -44,7 +44,8 @@ import { tableHelpers } from './tableHelpers';
  * @fires onSelectTable
  * @fires onSortTable
  * @param {object} props
- * @param {string} props.ariaLabel
+ * @param {string} props.ariaLabelSelectTheadColumn
+ * @param {string} props.ariaLabelTable
  * @param {React.ReactNode} props.children
  * @param {string} props.className
  * @param {Array} props.columnHeaders
@@ -62,7 +63,8 @@ import { tableHelpers } from './tableHelpers';
  * @returns {React.ReactNode}
  */
 const Table = ({
-  ariaLabel,
+  ariaLabelSelectTheadColumn,
+  ariaLabelTable,
   children,
   className,
   columnHeaders,
@@ -275,6 +277,7 @@ const Table = ({
             key="select-cell"
             className={`${componentClassNames.th} ${componentClassNames.tdSelect}`}
             select={updatedHeaderAndRows.headerSelectProps}
+            aria-label={ariaLabelSelectTheadColumn}
           />
         )}
         {updatedHeaderAndRows?.headerRow.map(({ key: cellKey, content, props, sort }) => (
@@ -386,14 +389,14 @@ const Table = ({
    * @returns {React.ReactNode}
    */
   const renderEmpty = () =>
-    children || <TableEmpty aria-label={ariaLabel} className={className} summary={summary} {...emptyTable} />;
+    children || <TableEmpty aria-label={ariaLabelTable} className={className} summary={summary} {...emptyTable} />;
 
   return (
     <Grid>
       <GridItem span={12}>
         {(updatedHeaderAndRows?.bodyRows?.length && (
           <PfTable
-            aria-label={ariaLabel}
+            aria-label={ariaLabelTable}
             borders={isBorders}
             className={`${componentClassNames.table} ${className}`}
             isStriped={isStriped}
@@ -414,12 +417,13 @@ const Table = ({
  * Prop types
  *
  * @type {{componentClassNames: object, summary: string, onSort: Function, onExpand: Function, className: string,
- *     isStriped: boolean, rows: Array, isBorders: boolean, ariaLabel: string, onSelect: Function, columnHeaders:
- *     Array, children: React.ReactNode, isHeader: boolean, variant: string, emptyTable: {className: string, title:
- *     React.ReactNode, message: React.ReactNode}}}
+ *     isStriped: boolean, rows: Array, isBorders: boolean, ariaLabelSelectTheadColumn: string, ariaLabelTable: string,
+ *     onSelect: Function, columnHeaders: Array, children: React.ReactNode, isHeader: boolean, variant: string,
+ *     emptyTable: {className: string, title: React.ReactNode, message: React.ReactNode}}}
  */
 Table.propTypes = {
-  ariaLabel: PropTypes.string,
+  ariaLabelSelectTheadColumn: PropTypes.string,
+  ariaLabelTable: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   columnHeaders: PropTypes.arrayOf(
@@ -491,12 +495,13 @@ Table.propTypes = {
  * @type {{componentClassNames: {tdExpanded: string, trExpand: string, trExpandedContent: string,
  *     tdExpandedWrapper: string, tdAction: string, tdExpand: string, td: string, trExpanded: string, th: string,
  *     tdSelect: string, tdExpandedContent: string, table: string, tr: string}, summary: null, onSort: null, onExpand:
- *     null, className: string, isStriped: boolean, rows: any[], isBorders: boolean, ariaLabel: null, onSelect: null,
- *     columnHeaders: any[], children: null, isHeader: boolean, variant: TableVariant.compact, emptyTable: {title:
- *     string, message: string}}}
+ *     null, className: string, isStriped: boolean, rows: any[], isBorders: boolean, ariaLabelSelectTheadColumn: string,
+ *     ariaLabelTable: null, onSelect: null, columnHeaders: any[], children: null, isHeader: boolean,
+ *     variant: TableVariant.compact, emptyTable: {title: string, message: string}}}
  */
 Table.defaultProps = {
-  ariaLabel: null,
+  ariaLabelSelectTheadColumn: 'Select row column',
+  ariaLabelTable: null,
   children: null,
   className: '',
   columnHeaders: [],

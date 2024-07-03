@@ -37,7 +37,8 @@ exports[`InventoryGuests Component should handle multiple display states, error,
       onScroll={[Function]}
     >
       <Table
-        ariaLabel={null}
+        ariaLabelSelectTheadColumn="Select row column"
+        ariaLabelTable={null}
         className="curiosity-guests-list"
         columnHeaders={
           [
