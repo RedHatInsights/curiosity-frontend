@@ -63,7 +63,8 @@ exports[`InventoryCard Component should handle multiple display states, error, p
         className="blur"
       >
         <Table
-          ariaLabel="t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})"
+          ariaLabelSelectTheadColumn="Select row column"
+          ariaLabelTable="t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})"
           className="curiosity-inventory-list"
           columnHeaders={[]}
           componentClassNames={
@@ -197,7 +198,8 @@ exports[`InventoryCard Component should handle multiple display states, error, p
         className=""
       >
         <Table
-          ariaLabel="t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})"
+          ariaLabelSelectTheadColumn="Select row column"
+          ariaLabelTable="t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})"
           className="curiosity-inventory-list"
           columnHeaders={[]}
           componentClassNames={

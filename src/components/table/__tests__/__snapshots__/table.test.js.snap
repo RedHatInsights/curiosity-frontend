@@ -82,7 +82,8 @@ exports[`Table Component should allow expandable row content: expandable content
       ]
     }
   ],
-  "ariaLabel": null,
+  "ariaLabelSelectTheadColumn": "Select row column",
+  "ariaLabelTable": null,
   "children": [],
   "className": "",
   "columnHeaders": [],
@@ -604,7 +605,8 @@ exports[`Table Component should pass child components, nodes when there are no r
     "lorem ipsum"
   ],
   "rows": [],
-  "ariaLabel": null,
+  "ariaLabelSelectTheadColumn": "Select row column",
+  "ariaLabelTable": null,
   "className": "",
   "componentClassNames": {
     "table": "curiosity-table",
@@ -655,7 +657,8 @@ exports[`Table Component should pass child components, nodes when there are no r
     "lorem ipsum"
   ],
   "rows": [],
-  "ariaLabel": "Dolor sit label",
+  "ariaLabelSelectTheadColumn": "Select row column",
+  "ariaLabelTable": "Dolor sit label",
   "className": "",
   "componentClassNames": {
     "table": "curiosity-table",
@@ -759,7 +762,8 @@ exports[`Table Component should render a basic component: basic 1`] = `
     "dolor",
     "sit"
   ],
-  "ariaLabel": null,
+  "ariaLabelSelectTheadColumn": "Select row column",
+  "ariaLabelTable": null,
   "children": [],
   "className": "",
   "componentClassNames": {

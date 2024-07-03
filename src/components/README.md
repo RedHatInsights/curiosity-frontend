@@ -5628,7 +5628,9 @@ A PF Composable table wrapper
 <tr>
     <td>props</td><td><code>object</code></td>
     </tr><tr>
-    <td>props.ariaLabel</td><td><code>string</code></td>
+    <td>props.ariaLabelSelectTheadColumn</td><td><code>string</code></td>
+    </tr><tr>
+    <td>props.ariaLabelTable</td><td><code>string</code></td>
     </tr><tr>
     <td>props.children</td><td><code>React.ReactNode</code></td>
     </tr><tr>

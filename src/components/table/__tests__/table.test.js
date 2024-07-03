@@ -30,7 +30,7 @@ describe('Table Component', () => {
     expect(componentNoBordersHeader.find('table')).toMatchSnapshot('borders and table header removed');
 
     const componentAriaTableSummary = component.setProps({
-      ariaLabel: 'lorem ipsum aria-label',
+      ariaLabelTable: 'lorem ipsum aria-label',
       summary: 'lorem ipsum summary'
     });
     expect(componentAriaTableSummary.find('table')).toMatchSnapshot('ariaLabel and summary');
@@ -104,6 +104,7 @@ describe('Table Component', () => {
   it('should allow selectable row content', () => {
     const mockOnSelect = jest.fn();
     const props = {
+      ariaLabelSelectTheadColumn: 'dolor sit row label',
       isHeader: true,
       columnHeaders: ['lorem ipsum'],
       onSelect: mockOnSelect,
@@ -134,7 +135,7 @@ describe('Table Component', () => {
     expect(component).toMatchSnapshot('children');
 
     const componentEmptyDefault = component.setProps({
-      ariaLabel: 'Dolor sit label',
+      ariaLabelTable: 'Dolor sit label',
       children: null,
       summary: 'Lorem ipsum summary'
     });

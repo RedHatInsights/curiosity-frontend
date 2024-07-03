@@ -51,7 +51,7 @@ const TableSkeleton = ({ ariaLabel, borders, className, colCount, colWidth, isHe
 
   return (
     <Table
-      ariaLabel={ariaLabel}
+      ariaLabelTable={ariaLabel}
       isBorders={borders}
       className={`curiosity-skeleton-table${(!rowCount && ' curiosity-skeleton-table__hidden-rows') || ''} ${
         className || ''

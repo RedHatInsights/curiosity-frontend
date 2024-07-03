@@ -150,7 +150,7 @@ const InventoryCard = ({
             )) || (
               <Table
                 key="inventory-table"
-                ariaLabel={tableAriaLabel}
+                ariaLabelTable={tableAriaLabel}
                 className={tableClassName}
                 emptyTable={{
                   ariaLabel: tableAriaLabel,
