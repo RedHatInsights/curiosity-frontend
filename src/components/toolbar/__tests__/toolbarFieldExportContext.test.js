@@ -42,6 +42,7 @@ describe('ToolbarFieldExport Component', () => {
     statusConfirmation({
       data: {
         data: {
+          completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],
           products: {
             loremIpsum: {
               completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],

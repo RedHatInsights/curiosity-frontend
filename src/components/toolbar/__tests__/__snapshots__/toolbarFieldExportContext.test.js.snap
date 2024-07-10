@@ -154,7 +154,7 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
     "type": "return",
     "value": {
       "payload": {
-        "description": "t(curiosity-toolbar.notifications_export_completed, {"context":"description","fileName":"helloWorldFileName"})",
+        "description": "t(curiosity-toolbar.notifications_export_completed, {"context":"description","count":1,"fileName":"helloWorldFileName"})",
         "dismissable": true,
         "id": "swatch-exports-individual-status",
         "title": "t(curiosity-toolbar.notifications_export_completed, {"context":"title"})",

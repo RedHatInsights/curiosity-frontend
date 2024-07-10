@@ -47,6 +47,7 @@ const useExportConfirmation = ({
 
   return useCallback(
     (successResponse, errorResponse, retryCount) => {
+      const allCompleted = successResponse?.data?.data?.completed || [];
       const { completed = [], isCompleted, pending = [] } = successResponse?.data?.data?.products?.[productId] || {};
       const isPending = !isCompleted;
 
@@ -74,6 +75,7 @@ const useExportConfirmation = ({
           }),
           description: t('curiosity-toolbar.notifications', {
             context: ['export', 'completed', 'description'],
+            count: allCompleted.length,
             fileName: completed?.[0]?.fileName
           }),
           dismissable: true
