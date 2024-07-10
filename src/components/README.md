@@ -6739,7 +6739,11 @@ Return a polling status callback. Used when creating an export.
     </tr><tr>
     <td>options.addNotification</td><td><code>function</code></td>
     </tr><tr>
+    <td>options.removeNotification</td><td><code>function</code></td>
+    </tr><tr>
     <td>options.t</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.useAppLoad</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useDispatch</td><td><code>function</code></td>
     </tr><tr>
@@ -6789,6 +6793,8 @@ User confirmation results when existing exports are detected.
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
+    <td>options.addNotification</td><td><code>function</code></td>
+    </tr><tr>
     <td>options.deleteExistingExports</td><td><code>function</code></td>
     </tr><tr>
     <td>options.getExistingExports</td><td><code>function</code></td>
@@ -6796,6 +6802,8 @@ User confirmation results when existing exports are detected.
     <td>options.removeNotification</td><td><code>function</code></td>
     </tr><tr>
     <td>options.t</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.useAppLoad</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useDispatch</td><td><code>function</code></td>
     </tr>  </tbody>
@@ -6820,6 +6828,8 @@ Apply an existing exports hook for user abandoned reports. Allow bulk polling st
     <td>options.addNotification</td><td><code>function</code></td>
     </tr><tr>
     <td>options.getExistingExportsStatus</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.removeNotification</td><td><code>function</code></td>
     </tr><tr>
     <td>options.t</td><td><code>function</code></td>
     </tr><tr>
