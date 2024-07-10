@@ -62,7 +62,7 @@ exports[`ToolbarFieldExport Component should allow export service calls on exist
             </Button>
              
             <Button
-              data-test="exportButtonConfirm"
+              data-test="exportButtonCancel"
               onClick={[Function]}
               variant="plain"
             >

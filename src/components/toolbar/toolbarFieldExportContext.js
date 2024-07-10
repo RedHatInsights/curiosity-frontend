@@ -289,7 +289,7 @@ const useExistingExports = ({
                 {t('curiosity-toolbar.button', { context: 'yes' })}
               </Button>{' '}
               <Button
-                data-test="exportButtonConfirm"
+                data-test="exportButtonCancel"
                 variant="plain"
                 onClick={() => onConfirmation('no', [...completed, ...pending])}
               >
