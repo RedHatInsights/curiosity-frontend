@@ -444,6 +444,20 @@ exports[`UserReducer should handle all defined pending types: pending types USER
 }
 `;
 
+exports[`UserReducer should handle specific defined types: defined type SET_PLATFORM_EXPORT_RESET 1`] = `
+{
+  "result": {
+    "auth": {},
+    "errors": {},
+    "exports": {},
+    "exportsExisting": {},
+    "locale": {},
+    "optin": {},
+  },
+  "type": "SET_PLATFORM_EXPORT_RESET",
+}
+`;
+
 exports[`UserReducer should handle specific defined types: defined type SET_PLATFORM_EXPORT_STATUS 1`] = `
 {
   "result": {
@@ -451,8 +465,10 @@ exports[`UserReducer should handle specific defined types: defined type SET_PLAT
     "errors": {},
     "exports": {
       "test_id": {
+        "id": "test_id",
         "isPending": true,
         "pending": [],
+        "type": "SET_PLATFORM_EXPORT_STATUS",
       },
     },
     "exportsExisting": {},
