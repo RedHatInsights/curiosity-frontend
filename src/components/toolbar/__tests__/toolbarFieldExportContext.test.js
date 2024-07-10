@@ -23,7 +23,7 @@ describe('ToolbarFieldExport Component', () => {
     mockService = jest.fn().mockImplementation(
       (...args) =>
         dispatch =>
-          dispatch(...args)
+          Promise.resolve(dispatch(...args))
     );
   });
 
@@ -34,6 +34,7 @@ describe('ToolbarFieldExport Component', () => {
   it('should expose an export polling status confirmation', async () => {
     const { result: statusConfirmation, unmount } = await renderHook(() =>
       useExportConfirmation({
+        useAppLoad: () => () => true,
         useProduct: () => ({ productId: 'loremIpsum' })
       })
     );
@@ -41,6 +42,7 @@ describe('ToolbarFieldExport Component', () => {
     statusConfirmation({
       data: {
         data: {
+          completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],
           products: {
             loremIpsum: {
               completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],
@@ -87,10 +89,11 @@ describe('ToolbarFieldExport Component', () => {
     const { result: onConfirmation, unmount } = await renderHook(() =>
       useExistingExportsConfirmation({
         deleteExistingExports: mockService,
-        getExistingExports: mockService
+        getExistingExports: mockService,
+        useAppLoad: () => () => true
       })
     );
-    onConfirmation('no', ['lorem', 'ipsum', 'dolor', 'sit']);
+    onConfirmation('no', ['dolor', 'sit']);
     onConfirmation('yes', ['lorem', 'ipsum', 'dolor', 'sit']);
     await unmount();
     expect(mockService.mock.calls).toMatchSnapshot('confirmation');
