@@ -25,68 +25,44 @@ exports[`ToolbarFieldExport Component should aggregate export status, polling st
 
 exports[`ToolbarFieldExport Component should allow export service calls on existing exports: existingExports 1`] = `
 [
-  {
-    "type": "return",
-    "value": undefined,
-  },
-  {
-    "type": "return",
-    "value": {
-      "payload": "swatch-exports-status",
-      "type": "@@INSIGHTS-CORE/NOTIFICATIONS/REMOVE_NOTIFICATION",
-    },
-  },
-  {
-    "type": "return",
-    "value": {
-      "payload": {
-        "autoDismiss": false,
-        "description": <div
-          aria-live="polite"
-        >
-          t(curiosity-toolbar.notifications_export_completed_description_existing, {"context":"pending","count":1,"completed":0,"pending":1})
-          <div
-            style={
-              {
-                "paddingTop": "0.5rem",
-              }
+  [],
+  [
+    {
+      "autoDismiss": false,
+      "description": <div
+        aria-live="polite"
+      >
+        t(curiosity-toolbar.notifications_export_completed_description_existing, {"context":"pending","count":1,"completed":0,"pending":1})
+        <div
+          style={
+            {
+              "paddingTop": "0.5rem",
             }
+          }
+        >
+          <Button
+            autoFocus={true}
+            data-test="exportButtonConfirm"
+            onClick={[Function]}
+            variant="primary"
           >
-            <Button
-              autoFocus={true}
-              data-test="exportButtonConfirm"
-              onClick={[Function]}
-              variant="primary"
-            >
-              t(curiosity-toolbar.button, {"context":"yes"})
-            </Button>
-             
-            <Button
-              data-test="exportButtonCancel"
-              onClick={[Function]}
-              variant="plain"
-            >
-              t(curiosity-toolbar.button, {"context":"no"})
-            </Button>
-          </div>
-        </div>,
-        "dismissable": false,
-        "id": "swatch-exports-status",
-        "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":1})",
-      },
-      "type": "@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION",
+            t(curiosity-toolbar.button, {"context":"yes"})
+          </Button>
+           
+          <Button
+            data-test="exportButtonCancel"
+            onClick={[Function]}
+            variant="plain"
+          >
+            t(curiosity-toolbar.button, {"context":"no"})
+          </Button>
+        </div>
+      </div>,
+      "dismissable": false,
+      "id": "swatch-exports-status",
+      "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":1})",
     },
-  },
-  {
-    "type": "return",
-    "value": [Function],
-  },
-  {
-    "type": "return",
-    "value": {
-      "type": "SET_PLATFORM_EXPORT_RESET",
-    },
-  },
+  ],
 ]
 `;
 
@@ -94,15 +70,14 @@ exports[`ToolbarFieldExport Component should allow export service calls: createE
 [
   {
     "type": "return",
-    "value": {
-      "id": "mock-product-id",
-      "isPending": true,
-      "type": "SET_PLATFORM_EXPORT_STATUS",
-    },
-  },
-  {
-    "type": "return",
-    "value": "mock-product-id",
+    "value": [
+      {
+        "id": "mock-product-id",
+        "isPending": true,
+        "type": "SET_PLATFORM_EXPORT_STATUS",
+      },
+      "dispatch => Promise.resolve(dispatch(...args))",
+    ],
   },
   {
     "type": "return",
@@ -140,43 +115,24 @@ exports[`ToolbarFieldExport Component should allow service calls on user confirm
 
 exports[`ToolbarFieldExport Component should expose an export polling status confirmation: statusConfirmation 1`] = `
 [
-  {
-    "type": "return",
-    "value": {
-      "payload": "swatch-exports-individual-status",
-      "type": "@@INSIGHTS-CORE/NOTIFICATIONS/REMOVE_NOTIFICATION",
-    },
-  },
-  {
-    "type": "return",
-    "value": {
-      "payload": {
-        "description": "t(curiosity-toolbar.notifications_export_completed, {"context":"description","count":1,"fileName":"helloWorldFileName"})",
-        "dismissable": true,
-        "id": "swatch-exports-individual-status",
-        "title": "t(curiosity-toolbar.notifications_export_completed, {"context":"title"})",
-        "variant": "success",
+  [
+    [
+      [Function],
+      {
+        "id": "loremIpsum",
+        "isPending": false,
+        "pending": [
+          {
+            "fileName": "dolorSitFileName",
+            "id": "dolorSit",
+          },
+        ],
+        "type": "SET_PLATFORM_EXPORT_STATUS",
       },
-      "type": "@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION",
-    },
-  },
-  {
-    "type": "return",
-    "value": {
-      "id": "loremIpsum",
-      "isPending": false,
-      "pending": [
-        {
-          "fileName": "dolorSitFileName",
-          "id": "dolorSit",
-        },
-      ],
-      "type": "SET_PLATFORM_EXPORT_STATUS",
-    },
-  },
-  {
-    "type": "return",
-    "value": [Function],
-  },
+    ],
+  ],
+  [
+    [Function],
+  ],
 ]
 `;
