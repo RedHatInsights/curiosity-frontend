@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useMount, useUnmount } from 'react-use';
+import React, { useCallback, useEffect } from 'react';
+import { useEffectOnce, useUnmount } from 'react-use';
 import { Button } from '@patternfly/react-core';
 import { reduxActions, reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
@@ -41,27 +41,27 @@ const useExportConfirmation = ({
 
   return useCallback(
     (successResponse, errorResponse, retryCount) => {
-      const allCompleted = successResponse?.data?.data?.completed || [];
       const { completed = [], isCompleted, pending = [] } = successResponse?.data?.data?.products?.[productId] || {};
       const isPending = !isCompleted;
+      let notification;
 
       if (!confirmAppLoaded()) {
         return;
       }
 
       if (retryCount === -1) {
-        addAliasNotification({
+        notification = {
           id: 'swatch-exports-individual-status',
           variant: 'info',
           title: t('curiosity-toolbar.notifications', {
             context: ['export', 'pending', 'title']
           }),
           dismissable: true
-        })(dispatch);
+        };
       }
 
       if (isCompleted) {
-        addAliasNotification({
+        notification = {
           id: 'swatch-exports-individual-status',
           variant: 'success',
           title: t('curiosity-toolbar.notifications', {
@@ -69,19 +69,24 @@ const useExportConfirmation = ({
           }),
           description: t('curiosity-toolbar.notifications', {
             context: ['export', 'completed', 'description'],
-            count: allCompleted.length,
+            count: completed.length,
             fileName: completed?.[0]?.fileName
           }),
           dismissable: true
-        })(dispatch);
+        };
       }
 
-      dispatch({
-        type: reduxTypes.platform.SET_PLATFORM_EXPORT_STATUS,
-        id: productId,
-        isPending,
-        pending
-      });
+      if (notification) {
+        dispatch([
+          addAliasNotification(notification),
+          {
+            type: reduxTypes.platform.SET_PLATFORM_EXPORT_STATUS,
+            id: productId,
+            isPending,
+            pending
+          }
+        ]);
+      }
     },
     [addAliasNotification, confirmAppLoaded, dispatch, productId, t]
   );
@@ -108,29 +113,30 @@ const useExport = ({
 
   return useCallback(
     (id, data) => {
-      dispatch({
-        type: reduxTypes.platform.SET_PLATFORM_EXPORT_STATUS,
-        id,
-        isPending: true
-      });
-
-      createAliasExport(
-        id,
-        data,
-        { poll: { status: statusConfirmation } },
+      dispatch([
         {
-          rejected: {
-            variant: 'warning',
-            title: t('curiosity-toolbar.notifications', {
-              context: ['export', 'error', 'title']
-            }),
-            description: t('curiosity-toolbar.notifications', {
-              context: ['export', 'error', 'description']
-            }),
-            dismissable: true
+          type: reduxTypes.platform.SET_PLATFORM_EXPORT_STATUS,
+          id,
+          isPending: true
+        },
+        createAliasExport(
+          id,
+          data,
+          { poll: { status: statusConfirmation } },
+          {
+            rejected: {
+              variant: 'warning',
+              title: t('curiosity-toolbar.notifications', {
+                context: ['export', 'error', 'title']
+              }),
+              description: t('curiosity-toolbar.notifications', {
+                context: ['export', 'error', 'description']
+              }),
+              dismissable: true
+            }
           }
-        }
-      )(dispatch);
+        )
+      ]);
     },
     [createAliasExport, dispatch, statusConfirmation, t]
   );
@@ -166,7 +172,7 @@ const useExistingExportsConfirmation = ({
       dispatch(removeAliasNotification('swatch-exports-status'));
 
       if (confirmation === 'no') {
-        return deleteAliasExistingExports(allResults)(dispatch);
+        return dispatch(deleteAliasExistingExports(allResults));
       }
 
       return getAliasExistingExports(allResults, {
@@ -178,19 +184,21 @@ const useExistingExportsConfirmation = ({
         }
       })(dispatch).then(() => {
         if (confirmAppLoaded()) {
-          addAliasNotification({
-            id: 'swatch-exports-existing-confirmation',
-            variant: 'success',
-            title: t('curiosity-toolbar.notifications', {
-              context: ['export', 'completed', 'titleGlobal'],
-              count: allResults.length
-            }),
-            description: t('curiosity-toolbar.notifications', {
-              context: ['export', 'completed', 'descriptionGlobal'],
-              count: allResults.length
-            }),
-            dismissable: true
-          })(dispatch);
+          dispatch(
+            addAliasNotification({
+              id: 'swatch-exports-existing-confirmation',
+              variant: 'success',
+              title: t('curiosity-toolbar.notifications', {
+                context: ['export', 'completed', 'titleGlobal'],
+                count: allResults.length
+              }),
+              description: t('curiosity-toolbar.notifications', {
+                context: ['export', 'completed', 'descriptionGlobal'],
+                count: allResults.length
+              }),
+              dismissable: true
+            })
+          );
         }
       });
     },
@@ -227,77 +235,73 @@ const useExistingExports = ({
   useExistingExportsConfirmation: useAliasExistingExportsConfirmation = useExistingExportsConfirmation,
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
-  const [isConfirmation, setIsConfirmation] = useState(false);
   const dispatch = useAliasDispatch();
   const onConfirmation = useAliasExistingExportsConfirmation();
   const { data, fulfilled } = useAliasSelectorsResponse(({ app }) => app?.exportsExisting);
   const { completed = [], isAnythingPending, isAnythingCompleted, pending = [] } = data?.[0]?.data || {};
 
-  useMount(() => {
-    if (!isConfirmation) {
-      getAliasExistingExportsStatus()(dispatch);
-    }
-  });
+  useEffectOnce(() => {
+    dispatch(getAliasExistingExportsStatus());
 
-  useUnmount(() => {
-    dispatch(removeAliasNotification('swatch-exports-status'));
-    dispatch({ type: reduxTypes.platform.SET_PLATFORM_EXPORT_RESET });
+    return () => {
+      dispatch([
+        removeAliasNotification('swatch-exports-status'),
+        { type: reduxTypes.platform.SET_PLATFORM_EXPORT_RESET }
+      ]);
+    };
   });
 
   useEffect(() => {
-    if (!fulfilled || isConfirmation) {
-      return;
-    }
-
     const isAnythingAvailable = isAnythingPending || isAnythingCompleted || false;
     const totalResults = completed.length + pending.length;
 
     if (isAnythingAvailable && totalResults) {
-      addAliasNotification({
-        id: 'swatch-exports-status',
-        title: t('curiosity-toolbar.notifications', {
-          context: ['export', 'completed', 'title', 'existing'],
-          count: totalResults
-        }),
-        description: (
-          <div aria-live="polite">
-            {t('curiosity-toolbar.notifications', {
-              context: [
-                'export',
-                'completed',
-                'description',
-                'existing',
-                completed.length && 'completed',
-                pending.length && 'pending'
-              ],
-              count: totalResults,
-              completed: completed.length,
-              pending: pending.length
-            })}
-            <div style={{ paddingTop: '0.5rem' }}>
-              <Button
-                data-test="exportButtonConfirm"
-                variant="primary"
-                onClick={() => onConfirmation('yes', [...completed, ...pending])}
-                autoFocus
-              >
-                {t('curiosity-toolbar.button', { context: 'yes' })}
-              </Button>{' '}
-              <Button
-                data-test="exportButtonCancel"
-                variant="plain"
-                onClick={() => onConfirmation('no', [...completed, ...pending])}
-              >
-                {t('curiosity-toolbar.button', { context: 'no' })}
-              </Button>
+      dispatch([
+        addAliasNotification({
+          id: 'swatch-exports-status',
+          title: t('curiosity-toolbar.notifications', {
+            context: ['export', 'completed', 'title', 'existing'],
+            count: totalResults
+          }),
+          description: (
+            <div aria-live="polite">
+              {t('curiosity-toolbar.notifications', {
+                context: [
+                  'export',
+                  'completed',
+                  'description',
+                  'existing',
+                  completed.length && 'completed',
+                  pending.length && 'pending'
+                ],
+                count: totalResults,
+                completed: completed.length,
+                pending: pending.length
+              })}
+              <div style={{ paddingTop: '0.5rem' }}>
+                <Button
+                  data-test="exportButtonConfirm"
+                  variant="primary"
+                  onClick={() => onConfirmation('yes', [...completed, ...pending])}
+                  autoFocus
+                >
+                  {t('curiosity-toolbar.button', { context: 'yes' })}
+                </Button>{' '}
+                <Button
+                  data-test="exportButtonCancel"
+                  variant="plain"
+                  onClick={() => onConfirmation('no', [...completed, ...pending])}
+                >
+                  {t('curiosity-toolbar.button', { context: 'no' })}
+                </Button>
+              </div>
             </div>
-          </div>
-        ),
-        autoDismiss: false,
-        dismissable: false
-      })(dispatch);
-
-      setIsConfirmation(true);
+          ),
+          autoDismiss: false,
+          dismissable: false
+        }),
+        { type: reduxTypes.platform.SET_PLATFORM_EXPORT_RESET }
+      ]);
     }
   }, [
     addAliasNotification,
@@ -306,7 +310,6 @@ const useExistingExports = ({
     fulfilled,
     isAnythingCompleted,
     isAnythingPending,
-    isConfirmation,
     onConfirmation,
     pending,
     t
