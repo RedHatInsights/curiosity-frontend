@@ -44,7 +44,7 @@ describe('UserReducer', () => {
   });
 
   it('should handle specific defined types', () => {
-    const specificTypes = [platformTypes.SET_PLATFORM_EXPORT_STATUS];
+    const specificTypes = [platformTypes.SET_PLATFORM_EXPORT_STATUS, platformTypes.SET_PLATFORM_EXPORT_RESET];
 
     specificTypes.forEach(value => {
       if (!value) {
