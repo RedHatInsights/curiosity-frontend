@@ -81,6 +81,12 @@ exports[`ToolbarFieldExport Component should allow export service calls on exist
     "type": "return",
     "value": [Function],
   },
+  {
+    "type": "return",
+    "value": {
+      "type": "SET_PLATFORM_EXPORT_RESET",
+    },
+  },
 ]
 `;
 
@@ -101,15 +107,6 @@ exports[`ToolbarFieldExport Component should allow export service calls: createE
   {
     "type": "return",
     "value": [Function],
-  },
-  {
-    "type": "return",
-    "value": {
-      "id": undefined,
-      "isPending": false,
-      "pending": [],
-      "type": "SET_PLATFORM_EXPORT_STATUS",
-    },
   },
 ]
 `;
@@ -180,15 +177,6 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
   {
     "type": "return",
     "value": [Function],
-  },
-  {
-    "type": "return",
-    "value": {
-      "id": "loremIpsum",
-      "isPending": false,
-      "pending": [],
-      "type": "SET_PLATFORM_EXPORT_STATUS",
-    },
   },
 ]
 `;

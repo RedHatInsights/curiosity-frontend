@@ -61,9 +61,21 @@ const appReducer = (state = initialState, action) => {
         'exports',
         {
           [action.id]: {
-            isPending: action.isPending,
-            pending: action.pending
+            ...action
           }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case platformTypes.SET_PLATFORM_EXPORT_RESET:
+      return reduxHelpers.setStateProp(
+        null,
+        {
+          ...state,
+          exports: {},
+          exportsExisting: {}
         },
         {
           state,

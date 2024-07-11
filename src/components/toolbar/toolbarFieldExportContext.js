@@ -37,12 +37,6 @@ const useExportConfirmation = ({
 
   useUnmount(() => {
     dispatch(removeAliasNotification('swatch-exports-individual-status'));
-    dispatch({
-      type: reduxTypes.platform.SET_PLATFORM_EXPORT_STATUS,
-      id: productId,
-      isPending: false,
-      pending: []
-    });
   });
 
   return useCallback(
@@ -247,6 +241,7 @@ const useExistingExports = ({
 
   useUnmount(() => {
     dispatch(removeAliasNotification('swatch-exports-status'));
+    dispatch({ type: reduxTypes.platform.SET_PLATFORM_EXPORT_RESET });
   });
 
   useEffect(() => {
