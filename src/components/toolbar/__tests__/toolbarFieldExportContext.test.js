@@ -55,7 +55,7 @@ describe('ToolbarFieldExport Component', () => {
     });
 
     await unmount();
-    expect(mockDispatch.mock.results).toMatchSnapshot('statusConfirmation');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('statusConfirmation');
   });
 
   it('should allow export service calls', async () => {
@@ -70,6 +70,7 @@ describe('ToolbarFieldExport Component', () => {
   it('should allow export service calls on existing exports', async () => {
     const { unmount } = await renderHook((...args) => {
       useExistingExports({
+        addNotification: mockService,
         getExistingExports: mockService,
         getExistingExportsStatus: mockService,
         deleteExistingExports: mockService,
@@ -82,7 +83,7 @@ describe('ToolbarFieldExport Component', () => {
     });
 
     await unmount();
-    expect(mockDispatch.mock.results).toMatchSnapshot('existingExports');
+    expect(mockService.mock.calls).toMatchSnapshot('existingExports');
   });
 
   it('should allow service calls on user confirmation', async () => {
