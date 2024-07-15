@@ -60,7 +60,7 @@ exports[`ToolbarFieldExport Component should allow export service calls on exist
       </div>,
       "dismissable": false,
       "id": "swatch-exports-status",
-      "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":1})",
+      "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":1,"testId":"exportNotification-existing-confirmation"})",
     },
   ],
 ]
@@ -105,7 +105,7 @@ exports[`ToolbarFieldExport Component should allow service calls on user confirm
       "pending": {
         "dismissable": true,
         "id": "swatch-exports-existing-confirmation",
-        "title": "t(curiosity-toolbar.notifications_export_pending, {"context":"titleGlobal"})",
+        "title": "t(curiosity-toolbar.notifications_export_pending, {"context":"titleGlobal","testId":"exportNotification-existing-pending"})",
         "variant": "info",
       },
     },

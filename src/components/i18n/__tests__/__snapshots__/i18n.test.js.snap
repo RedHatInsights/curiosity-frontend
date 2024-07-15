@@ -363,11 +363,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'pending', 'title'] })",
+        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'pending', 'title'], testId: 'exportNotification-individual-pending' })",
       },
       {
         "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'title'] })",
+        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'title'], testId: 'exportNotification-individual-completed' })",
       },
       {
         "key": "curiosity-toolbar.notifications",
@@ -375,7 +375,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'error', 'title'] })",
+        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'error', 'title'], testId: 'exportNotification-individual-error' })",
       },
       {
         "key": "curiosity-toolbar.notifications",
@@ -383,11 +383,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'pending', 'titleGlobal'] })",
+        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'pending', 'titleGlobal'], testId: 'exportNotification-existing-pending' })",
       },
       {
         "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'titleGlobal'], count: allResults.length })",
+        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'titleGlobal'], count: allResults.length, testId: 'exportNotification-existing-completed' })",
       },
       {
         "key": "curiosity-toolbar.notifications",
@@ -395,7 +395,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'title', 'existing'], count: totalResults })",
+        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'title', 'existing'], count: totalResults, testId: 'exportNotification-existing-confirmation' })",
       },
       {
         "key": "curiosity-toolbar.notifications",
