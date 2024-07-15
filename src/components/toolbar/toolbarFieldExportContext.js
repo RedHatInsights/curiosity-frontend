@@ -54,7 +54,8 @@ const useExportConfirmation = ({
           id: 'swatch-exports-individual-status',
           variant: 'info',
           title: t('curiosity-toolbar.notifications', {
-            context: ['export', 'pending', 'title']
+            context: ['export', 'pending', 'title'],
+            testId: 'exportNotification-individual-pending'
           }),
           dismissable: true
         };
@@ -65,7 +66,8 @@ const useExportConfirmation = ({
           id: 'swatch-exports-individual-status',
           variant: 'success',
           title: t('curiosity-toolbar.notifications', {
-            context: ['export', 'completed', 'title']
+            context: ['export', 'completed', 'title'],
+            testId: 'exportNotification-individual-completed'
           }),
           description: t('curiosity-toolbar.notifications', {
             context: ['export', 'completed', 'description'],
@@ -127,7 +129,8 @@ const useExport = ({
             rejected: {
               variant: 'warning',
               title: t('curiosity-toolbar.notifications', {
-                context: ['export', 'error', 'title']
+                context: ['export', 'error', 'title'],
+                testId: 'exportNotification-individual-error'
               }),
               description: t('curiosity-toolbar.notifications', {
                 context: ['export', 'error', 'description']
@@ -179,7 +182,10 @@ const useExistingExportsConfirmation = ({
         pending: {
           id: 'swatch-exports-existing-confirmation',
           variant: 'info',
-          title: t('curiosity-toolbar.notifications', { context: ['export', 'pending', 'titleGlobal'] }),
+          title: t('curiosity-toolbar.notifications', {
+            context: ['export', 'pending', 'titleGlobal'],
+            testId: 'exportNotification-existing-pending'
+          }),
           dismissable: true
         }
       })(dispatch).then(() => {
@@ -190,7 +196,8 @@ const useExistingExportsConfirmation = ({
               variant: 'success',
               title: t('curiosity-toolbar.notifications', {
                 context: ['export', 'completed', 'titleGlobal'],
-                count: allResults.length
+                count: allResults.length,
+                testId: 'exportNotification-existing-completed'
               }),
               description: t('curiosity-toolbar.notifications', {
                 context: ['export', 'completed', 'descriptionGlobal'],
@@ -261,7 +268,8 @@ const useExistingExports = ({
           id: 'swatch-exports-status',
           title: t('curiosity-toolbar.notifications', {
             context: ['export', 'completed', 'title', 'existing'],
-            count: totalResults
+            count: totalResults,
+            testId: 'exportNotification-existing-confirmation'
           }),
           description: (
             <div aria-live="polite">
