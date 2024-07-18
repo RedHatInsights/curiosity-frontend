@@ -176,6 +176,12 @@
   }
 
   &__tooltip {
+    transition: width 1s ease-in-out, left 1s ease-in-out;
+    background-color: var(--pf-global--palette--black-1000);
+    color: var(--pf-global--Color--light-100);
+    margin-left: 10px;
+    margin-right: 15px;
+
     &-container {
       margin: auto;
       max-width: 300px;
@@ -183,12 +189,6 @@
       overflow: hidden;
       position: relative;
     }
-
-    transition: width 1s ease-in-out, left 1s ease-in-out;
-    background-color: var(--pf-global--palette--black-1000);
-    color: var(--pf-global--Color--light-100);
-    margin-left: 10px;
-    margin-right: 15px;
 
     &-left:before,
     &-right:after {
