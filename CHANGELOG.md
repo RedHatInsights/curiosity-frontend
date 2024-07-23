@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.7.0](https://github.com/RedHatInsights/curiosity-frontend/compare/6fc10826e649645970fdfabfe6963268092e2cc1...7c0c950df6916836ea7f622883681552b53c66cf) (2024-07-23)
+
+
+### Tests
+* **toolbarFieldContext** sw-2353 add notification testIds ([#1358](https://github.com/RedHatInsights/curiosity-frontend/pull/1358)) ([7c0c950](https://github.com/RedHatInsights/curiosity-frontend/commit/7c0c950df6916836ea7f622883681552b53c66cf))
+*  sw-2729 export data-test identifier updated ([#1353](https://github.com/RedHatInsights/curiosity-frontend/pull/1353)) ([b42650e](https://github.com/RedHatInsights/curiosity-frontend/commit/b42650eedd651a35663fec247e42e2d692a4a1c1))
+
+### Features
+* **config** sw-2353 activate json export for products ([#1328](https://github.com/RedHatInsights/curiosity-frontend/pull/1328)) ([3504a4b](https://github.com/RedHatInsights/curiosity-frontend/commit/3504a4b0a676d6062aa6d520eb80ca23c2b2b5c4))
+
+### Code Refactoring
+* **redux** sw-2353 export mount, multi-action dispatch ([#1355](https://github.com/RedHatInsights/curiosity-frontend/pull/1355)) ([b980b37](https://github.com/RedHatInsights/curiosity-frontend/commit/b980b37606d8386b2137816af81470faca5fe639))
+* **toolbarFieldExport** sw-2353 move notifications to hooks ([#1343](https://github.com/RedHatInsights/curiosity-frontend/pull/1343)) ([d56c03c](https://github.com/RedHatInsights/curiosity-frontend/commit/d56c03ce84540d6241c22a69ab92a238d0ccfb71))
+* **serviceConfig** sw-2353 start poll retryCount earlier ([#1343](https://github.com/RedHatInsights/curiosity-frontend/pull/1343)) ([f7eb1a9](https://github.com/RedHatInsights/curiosity-frontend/commit/f7eb1a927d6bba373d72365a2e278ad3715da87a))
+
+### Builds
+* **deps-dev** bump group with 4 updates ([#1352](https://github.com/RedHatInsights/curiosity-frontend/pull/1352)) ([7a19aa9](https://github.com/RedHatInsights/curiosity-frontend/commit/7a19aa9deb960630fa1c4d4b260111accfc26b95))
+* **deps** bump joi from 17.13.1 to 17.13.3 ([#1345](https://github.com/RedHatInsights/curiosity-frontend/pull/1345)) ([88afb8d](https://github.com/RedHatInsights/curiosity-frontend/commit/88afb8d1fa47960ec98e1b76714ce9119d659be7))
+* **deps-dev** bump group with 4 updates ([#1350](https://github.com/RedHatInsights/curiosity-frontend/pull/1350)) ([a654193](https://github.com/RedHatInsights/curiosity-frontend/commit/a654193807515b98e1f2cbcb2ff348b18edc48f3))
+* **deps** bump group with 3 updates, reset lock ([#1350](https://github.com/RedHatInsights/curiosity-frontend/pull/1350)) ([80ede7a](https://github.com/RedHatInsights/curiosity-frontend/commit/80ede7a497cb4f1a16b0d5c23d7d8a2bebc85c8d))
+
+### Bug Fixes
+* **redux** sw-2353 reset export state ([#1354](https://github.com/RedHatInsights/curiosity-frontend/pull/1354)) ([849e8ab](https://github.com/RedHatInsights/curiosity-frontend/commit/849e8ab4274eab147b76628759cb12357f23d491))
+*  sw-2353 cancel export on left navigation ([#1348](https://github.com/RedHatInsights/curiosity-frontend/pull/1348)) ([a3e65e6](https://github.com/RedHatInsights/curiosity-frontend/commit/a3e65e6c9e74ebeb6cd85cd36d8c0c9a078ff4fd))
+* **table** aria-label for thead-th checkbox columns ([#1350](https://github.com/RedHatInsights/curiosity-frontend/pull/1350)) ([e3377ac](https://github.com/RedHatInsights/curiosity-frontend/commit/e3377ac06ffcc45a1ec9fc3e339b187472041ed7))
+
 ## [4.6.0](https://github.com/RedHatInsights/curiosity-frontend/compare/86622b073ecdaa78520a5f89af880f4bc76d8f27...bd534990f5f6c2bcf44eaa1c113cde11959c0d14) (2024-06-25)
 
 
