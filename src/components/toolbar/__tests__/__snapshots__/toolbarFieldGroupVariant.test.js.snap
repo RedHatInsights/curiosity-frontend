@@ -81,6 +81,7 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
   <Select
     aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
     ariaLabel="Select option"
+    buttonContent={null}
     className=""
     data-test="toolbarFieldGroupVariant"
     direction="down"
@@ -93,7 +94,7 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
     maxHeight={310}
     name={null}
     onSelect={[Function]}
-    onSplitButton={[Function]}
+    onSplitButton={null}
     options={
       [
         {
@@ -121,6 +122,7 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
     placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
     position="left"
     selectedOptions={null}
+    splitButtonAllowDualButtonToggle={true}
     splitButtonVariant={null}
     toggleIcon={null}
     variant="single"
@@ -148,6 +150,7 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
     <Select
       aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
       ariaLabel="Select option"
+      buttonContent={null}
       className=""
       data-test="toolbarFieldGroupVariant"
       direction="down"
@@ -160,7 +163,7 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
       maxHeight={310}
       name={null}
       onSelect={[Function]}
-      onSplitButton={[Function]}
+      onSplitButton={null}
       options={
         [
           {
@@ -178,6 +181,7 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
       placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
       position="left"
       selectedOptions={null}
+      splitButtonAllowDualButtonToggle={true}
       splitButtonVariant={null}
       toggleIcon={null}
       variant="single"
