@@ -24,6 +24,11 @@ exports[`ToolbarFieldExport Component should handle updating export through redu
           "filters": {},
           "resource": "subscriptions",
         },
+        {
+          "application": "subscriptions",
+          "filters": {},
+          "resource": "instances",
+        },
       ],
     },
   ],

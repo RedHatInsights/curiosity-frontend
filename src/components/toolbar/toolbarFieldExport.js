@@ -58,6 +58,13 @@ const useOnSelect = ({
         [SOURCE_TYPES.FILTERS]: {
           ...exportQuery
         }
+      },
+      {
+        [SOURCE_TYPES.APPLICATION]: APP_TYPES.SUBSCRIPTIONS,
+        [SOURCE_TYPES.RESOURCE]: RESOURCE_TYPES.INSTANCES,
+        [SOURCE_TYPES.FILTERS]: {
+          ...exportQuery
+        }
       }
     ];
 
