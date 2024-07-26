@@ -118,6 +118,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   ariaLabel="Select option"
+  buttonContent={null}
   className=""
   data-test="toolbarFieldRangeGranularity"
   direction="down"
@@ -130,7 +131,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
   maxHeight={250}
   name={null}
   onSelect={[Function]}
-  onSplitButton={[Function]}
+  onSplitButton={null}
   options={
     [
       {
@@ -247,6 +248,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
   placeholder="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   position="left"
   selectedOptions={null}
+  splitButtonAllowDualButtonToggle={true}
   splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
@@ -319,6 +321,7 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   ariaLabel="Select option"
+  buttonContent={null}
   className=""
   data-test="toolbarFieldRangeGranularity"
   direction="down"
@@ -331,7 +334,7 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
   maxHeight={250}
   name={null}
   onSelect={[Function]}
-  onSplitButton={[Function]}
+  onSplitButton={null}
   options={
     [
       {
@@ -448,6 +451,7 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
   placeholder="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   position="left"
   selectedOptions={null}
+  splitButtonAllowDualButtonToggle={true}
   splitButtonVariant={null}
   toggleIcon={null}
   variant="single"

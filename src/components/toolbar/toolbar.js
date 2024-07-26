@@ -120,33 +120,35 @@ const Toolbar = ({
     >
       {!isGroupVariantDisabled && <ToolbarFieldGroupVariant />}
       <ToolbarContent className="curiosity-toolbar__content">
-        <ToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
-          <ToolbarGroup variant="filter-group">
-            {options.length > 1 && (
-              <ToolbarItem>
-                <ToolbarFieldSelectCategory />
-              </ToolbarItem>
-            )}
-            {options.map(({ title, value: filterName, component: OptionComponent, isClearable }) => {
-              const chipProps = { categoryName: title };
+        {options.length > 0 && (
+          <ToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
+            <ToolbarGroup variant="filter-group">
+              {options.length > 1 && (
+                <ToolbarItem>
+                  <ToolbarFieldSelectCategory />
+                </ToolbarItem>
+              )}
+              {options.map(({ title, value: filterName, component: OptionComponent, isClearable }) => {
+                const chipProps = { categoryName: title };
 
-              if (isClearable !== false) {
-                chipProps.chips = setSelectedOptions({ value: filterName });
-                chipProps.deleteChip = () => onClearFilter({ value: filterName });
-              }
+                if (isClearable !== false) {
+                  chipProps.chips = setSelectedOptions({ value: filterName });
+                  chipProps.deleteChip = () => onClearFilter({ value: filterName });
+                }
 
-              return (
-                <ToolbarFilter
-                  key={filterName}
-                  showToolbarItem={currentCategory === filterName || options.length === 1}
-                  {...chipProps}
-                >
-                  <OptionComponent isFilter />
-                </ToolbarFilter>
-              );
-            })}
-          </ToolbarGroup>
-        </ToolbarToggleGroup>
+                return (
+                  <ToolbarFilter
+                    key={filterName}
+                    showToolbarItem={currentCategory === filterName || options.length === 1}
+                    {...chipProps}
+                  >
+                    <OptionComponent isFilter />
+                  </ToolbarFilter>
+                );
+              })}
+            </ToolbarGroup>
+          </ToolbarToggleGroup>
+        )}
         <ToolbarGroup key="itemFields">{itemFields}</ToolbarGroup>
         <ToolbarGroup key="secondaryFields" align={{ default: 'alignRight' }}>
           {secondaryFields}

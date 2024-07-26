@@ -358,14 +358,6 @@ exports[`Toolbar Component should return an empty render, or variant filter, whe
     isExpanded={false}
     showClearFiltersButton={false}
   >
-    <ToolbarToggleGroup
-      breakpoint="md"
-      toggleIcon={<FilterIcon />}
-    >
-      <ForwardRef
-        variant="filter-group"
-      />
-    </ToolbarToggleGroup>
     <ForwardRef />
     <ForwardRef
       align={
