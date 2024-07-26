@@ -39,7 +39,8 @@ exports[`ToolbarFieldExport Component should render a basic component: basic 1`]
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"export"})"
   ariaLabel="Select option"
-  buttonVariant="plain"
+  buttonContent="t(curiosity-toolbar.label, {"context":"export"})"
+  buttonVariant="secondary"
   className=""
   data-test="toolbarFieldExport"
   direction="down"
@@ -52,7 +53,7 @@ exports[`ToolbarFieldExport Component should render a basic component: basic 1`]
   maxHeight={null}
   name={null}
   onSelect={[Function]}
-  onSplitButton={[Function]}
+  onSplitButton={null}
   options={
     [
       {
@@ -66,9 +67,10 @@ exports[`ToolbarFieldExport Component should render a basic component: basic 1`]
   placeholder="t(curiosity-toolbar.placeholder, {"context":"export"})"
   position="left"
   selectedOptions={null}
+  splitButtonAllowDualButtonToggle={true}
   splitButtonVariant={null}
   title="t(curiosity-toolbar.placeholder, {"context":"export"})"
-  toggleIcon={<ExportIcon />}
+  toggleIcon={null}
   variant="single"
 />
 `;

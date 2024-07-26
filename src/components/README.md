@@ -1469,11 +1469,13 @@ Format consistent dropdown button props.
     </tr><tr>
     <td>params.options</td><td><code>Array</code></td>
     </tr><tr>
+    <td>params.buttonContent</td><td><code>React.ReactNode</code></td>
+    </tr><tr>
     <td>params.buttonVariant</td><td><code>string</code></td>
     </tr><tr>
     <td>params.onSplitButton</td><td><code>function</code></td>
     </tr><tr>
-    <td>params.splitButtonCopy</td><td><code>string</code></td>
+    <td>params.placeholder</td><td><code>string</code></td>
     </tr><tr>
     <td>params.splitButtonVariant</td><td><code>string</code></td>
     </tr>  </tbody>
@@ -1548,6 +1550,8 @@ callback for both select and dropdown.
     </tr><tr>
     <td>props.ariaLabel</td><td><code>string</code></td>
     </tr><tr>
+    <td>props.buttonContent</td><td><code>React.ReactNode</code></td>
+    </tr><tr>
     <td>props.buttonVariant</td><td><code>string</code></td>
     </tr><tr>
     <td>props.className</td><td><code>string</code></td>
@@ -1581,6 +1585,8 @@ callback for both select and dropdown.
     <td>props.position</td><td><code>string</code></td>
     </tr><tr>
     <td>props.selectedOptions</td><td><code>number</code> | <code>string</code> | <code>Array</code></td>
+    </tr><tr>
+    <td>props.splitButtonAllowDualButtonToggle</td><td><code>boolean</code></td>
     </tr><tr>
     <td>props.splitButtonVariant</td><td><code>string</code></td>
     </tr><tr>
