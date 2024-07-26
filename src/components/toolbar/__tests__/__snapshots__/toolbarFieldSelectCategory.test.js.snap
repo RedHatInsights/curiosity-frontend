@@ -290,6 +290,7 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"filter"})"
   ariaLabel="Select option"
+  buttonContent={null}
   className=""
   data-test="toolbarFieldCategory"
   direction="down"
@@ -302,7 +303,7 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
   maxHeight={null}
   name={null}
   onSelect={[Function]}
-  onSplitButton={[Function]}
+  onSplitButton={null}
   options={
     [
       {
@@ -347,6 +348,7 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
   placeholder="t(curiosity-toolbar.placeholder, {"context":"filter"})"
   position="left"
   selectedOptions="sla"
+  splitButtonAllowDualButtonToggle={true}
   splitButtonVariant={null}
   toggleIcon={<FilterIcon />}
   variant="single"

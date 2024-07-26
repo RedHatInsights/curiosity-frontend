@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ExportIcon } from '@patternfly/react-icons';
 import { useProduct, useProductExportQuery } from '../productView/productViewContext';
 import { useExport, useExistingExports, useExportStatus } from './toolbarFieldExportContext';
 import { Select, SelectPosition, SelectButtonVariant } from '../form/select';
@@ -131,8 +130,8 @@ const ToolbarFieldExport = ({
       placeholder={t('curiosity-toolbar.placeholder', { context: 'export' })}
       position={position}
       data-test="toolbarFieldExport"
-      toggleIcon={<ExportIcon />}
-      buttonVariant={SelectButtonVariant.plain}
+      buttonVariant={SelectButtonVariant.secondary}
+      buttonContent={t('curiosity-toolbar.label', { context: 'export' })}
     />
   );
 };
