@@ -40,12 +40,12 @@ const useExportConfirmation = ({
   });
 
   return useCallback(
-    (successResponse, errorResponse, retryCount) => {
-      const { completed = [], isCompleted, pending = [] } = successResponse?.data?.data?.products?.[productId] || {};
+    ({ error, data } = {}, retryCount) => {
+      const { completed = [], isCompleted, pending = [] } = data?.data?.products?.[productId] || {};
       const isPending = !isCompleted;
       let notification;
 
-      if (!confirmAppLoaded()) {
+      if (error || !confirmAppLoaded()) {
         return;
       }
 

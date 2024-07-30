@@ -320,9 +320,7 @@ describe('ServiceConfig', () => {
         url: '/test/',
         poll: {
           validate: (response, count) => count === 2,
-          status: (success, err, count) => {
-            statusPoll(success, err, count);
-          }
+          status: (...args) => statusPoll(...args)
         }
       },
       { pollInterval: 1 }
@@ -334,13 +332,14 @@ describe('ServiceConfig', () => {
     });
 
     expect(statusPoll).toHaveBeenCalledTimes(4);
+
     expect({
-      status: statusPoll.mock.calls.map(([success, err, count]) => ({
-        success: {
-          data: success?.data,
-          pollConfig: success?.config.poll
+      status: statusPoll.mock.calls.map(([response, count]) => ({
+        response: {
+          error: response?.error,
+          data: response?.data,
+          pollConfig: response?.config.poll
         },
-        err,
         count
       })),
       output: {
@@ -425,9 +424,7 @@ describe('ServiceConfig', () => {
         poll: {
           location: '/pollError',
           validate: (response, count) => count === 5,
-          status: (success, err, count) => {
-            statusErrorPoll(success, err, count);
-          }
+          status: (...args) => statusErrorPoll(...args)
         }
       },
       { pollInterval: 1 }
@@ -440,12 +437,12 @@ describe('ServiceConfig', () => {
 
     expect(statusErrorPoll).toHaveBeenCalledTimes(2);
     expect({
-      status: statusErrorPoll.mock.calls.map(([success, err, count]) => ({
-        error: {
-          data: err?.response.data,
-          pollConfig: err?.config.poll
+      status: statusErrorPoll.mock.calls.map(([response, count]) => ({
+        response: {
+          error: response?.error,
+          data: response?.data,
+          pollConfig: response?.config.poll
         },
-        success,
         count
       }))
     }).toMatchSnapshot('status error polling');
@@ -480,8 +477,8 @@ describe('ServiceConfig', () => {
         poll: {
           location: '/pollError',
           validate: (response, count) => count === 5,
-          status: (success, err, count) => {
-            statusStatusErrorPoll(success, err, count);
+          status: (...args) => {
+            statusStatusErrorPoll(...args);
             throw new Error('status error');
           }
         }
@@ -496,12 +493,12 @@ describe('ServiceConfig', () => {
 
     expect(statusStatusErrorPoll).toHaveBeenCalledTimes(2);
     expect({
-      status: statusStatusErrorPoll.mock.calls.map(([success, err, count]) => ({
-        error: {
-          data: err?.response.data,
-          pollConfig: err?.config.poll
+      status: statusStatusErrorPoll.mock.calls.map(([response, count]) => ({
+        response: {
+          error: response?.error,
+          data: response?.data,
+          pollConfig: response?.config.poll
         },
-        success,
         count
       }))
     }).toMatchSnapshot('status of a status error polling');
