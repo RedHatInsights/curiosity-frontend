@@ -315,7 +315,7 @@ const axiosServiceCall = async (
           if (updatedPoll.__retryCount < 0) {
             if (typeof updatedPoll.status === 'function') {
               try {
-                updatedPoll.status.call(null, undefined, undefined, updatedPoll.__retryCount);
+                updatedPoll.status.call(null, undefined, updatedPoll.__retryCount);
               } catch (err) {
                 console.error(err);
               }
@@ -331,7 +331,11 @@ const axiosServiceCall = async (
           pollResponse.then(
             resolved => {
               try {
-                updatedPoll.status.call(null, resolved, undefined, updatedPoll.__retryCount);
+                updatedPoll.status.call(
+                  null,
+                  { ...resolved, error: false, status: resolved?.response?.status },
+                  updatedPoll.__retryCount
+                );
               } catch (err) {
                 console.error(err);
               }
@@ -340,7 +344,6 @@ const axiosServiceCall = async (
               try {
                 updatedPoll.status.call(
                   null,
-                  undefined,
                   { ...resolved, error: true, status: resolved?.response?.status },
                   updatedPoll.__retryCount
                 );
