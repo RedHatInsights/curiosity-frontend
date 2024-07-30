@@ -355,16 +355,17 @@ exports[`ServiceConfig should handle polling service call errors: status error p
   "status": [
     {
       "count": -1,
-      "error": {
+      "response": {
         "data": undefined,
+        "error": undefined,
         "pollConfig": undefined,
       },
-      "success": undefined,
     },
     {
       "count": 0,
-      "error": {
-        "data": "error",
+      "response": {
+        "data": undefined,
+        "error": true,
         "pollConfig": {
           "__retryCount": 0,
           "location": {
@@ -376,7 +377,6 @@ exports[`ServiceConfig should handle polling service call errors: status error p
           "validate": [Function],
         },
       },
-      "success": undefined,
     },
   ],
 }
@@ -398,16 +398,17 @@ exports[`ServiceConfig should handle polling service call errors: status of a st
   "status": [
     {
       "count": -1,
-      "error": {
+      "response": {
         "data": undefined,
+        "error": undefined,
         "pollConfig": undefined,
       },
-      "success": undefined,
     },
     {
       "count": 0,
-      "error": {
-        "data": "error",
+      "response": {
+        "data": undefined,
+        "error": true,
         "pollConfig": {
           "__retryCount": 0,
           "location": {
@@ -419,7 +420,6 @@ exports[`ServiceConfig should handle polling service call errors: status of a st
           "validate": [Function],
         },
       },
-      "success": undefined,
     },
   ],
 }
@@ -612,17 +612,17 @@ exports[`ServiceConfig should handle polling service calls: status polling 1`] =
   "status": [
     {
       "count": -1,
-      "err": undefined,
-      "success": {
+      "response": {
         "data": undefined,
+        "error": undefined,
         "pollConfig": undefined,
       },
     },
     {
       "count": 0,
-      "err": undefined,
-      "success": {
+      "response": {
         "data": "success",
+        "error": false,
         "pollConfig": {
           "__retryCount": 0,
           "location": {
@@ -637,9 +637,9 @@ exports[`ServiceConfig should handle polling service calls: status polling 1`] =
     },
     {
       "count": 1,
-      "err": undefined,
-      "success": {
+      "response": {
         "data": "success",
+        "error": false,
         "pollConfig": {
           "__retryCount": 1,
           "location": {
@@ -654,9 +654,9 @@ exports[`ServiceConfig should handle polling service calls: status polling 1`] =
     },
     {
       "count": 2,
-      "err": undefined,
-      "success": {
+      "response": {
         "data": "success",
+        "error": false,
         "pollConfig": {
           "__retryCount": 2,
           "location": {
