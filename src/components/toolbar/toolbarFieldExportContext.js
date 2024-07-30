@@ -3,7 +3,6 @@ import { useEffectOnce, useUnmount } from 'react-use';
 import { Button } from '@patternfly/react-core';
 import { reduxActions, reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
-import { PLATFORM_API_EXPORT_POST_TYPES as POST_TYPES } from '../../services/platform/platformConstants';
 import { translate } from '../i18n/i18n';
 import { useAppLoad } from '../../hooks/useApp';
 
@@ -120,8 +119,7 @@ const useExport = ({
         {
           type: reduxTypes.platform.SET_PLATFORM_EXPORT_STATUS,
           id,
-          isPending: true,
-          pending: [{ format: data?.[POST_TYPES.FORMAT] }]
+          isPending: true
         },
         createAliasExport(
           id,
