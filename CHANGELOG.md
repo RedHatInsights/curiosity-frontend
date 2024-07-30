@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8.0](https://github.com/RedHatInsights/curiosity-frontend/compare/c0e3cb11e71b8c738f73b024b2bb47748cd38dbb...03f29992378c1194f6e66975e6d3a4722a217c07) (2024-07-30)
+
+
+### Features
+* **toolbarFieldExport** sw-2768 activate instances data ([#1367](https://github.com/RedHatInsights/curiosity-frontend/pull/1367)) ([03f2999](https://github.com/RedHatInsights/curiosity-frontend/commit/03f29992378c1194f6e66975e6d3a4722a217c07))
+
+### Continuous Integrations
+*  schedule Jenkins pipelines in rhel8 nodes ([#1361](https://github.com/RedHatInsights/curiosity-frontend/pull/1361)) ([0ae5550](https://github.com/RedHatInsights/curiosity-frontend/commit/0ae5550a362b4aaa9cd2abc09b5e31c4fa0f4aa2))
+
+### Builds
+* **deps** bump react-use from 17.5.0 to 17.5.1 ([#1364](https://github.com/RedHatInsights/curiosity-frontend/pull/1364)) ([297dd43](https://github.com/RedHatInsights/curiosity-frontend/commit/297dd439c54351d5e3f71adf002262dd6dc95680))
+* **deps-dev** bump the group with 2 updates ([#1362](https://github.com/RedHatInsights/curiosity-frontend/pull/1362)) ([daceb27](https://github.com/RedHatInsights/curiosity-frontend/commit/daceb27279a9d9a681629ac763f02c5df453079a))
+* **deps-dev** bump group with 5 updates ([#1360](https://github.com/RedHatInsights/curiosity-frontend/pull/1360)) ([c6b2e09](https://github.com/RedHatInsights/curiosity-frontend/commit/c6b2e094b4ad8823d0106f0b3ca7fd0dc7a7f355))
+
 ## [4.7.0](https://github.com/RedHatInsights/curiosity-frontend/compare/6fc10826e649645970fdfabfe6963268092e2cc1...7c0c950df6916836ea7f622883681552b53c66cf) (2024-07-23)
 
 
