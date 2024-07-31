@@ -4,6 +4,11 @@ exports[`ToolbarFieldExport Component should export select options: toolbarField
 [
   {
     "selected": false,
+    "title": "t(curiosity-toolbar.label_export, {"context":"csv"})",
+    "value": "csv",
+  },
+  {
+    "selected": false,
     "title": "t(curiosity-toolbar.label_export, {"context":"json"})",
     "value": "json",
   },
@@ -56,6 +61,12 @@ exports[`ToolbarFieldExport Component should render a basic component: basic 1`]
   onSplitButton={null}
   options={
     [
+      {
+        "isDisabled": false,
+        "selected": false,
+        "title": "t(curiosity-toolbar.label_export, {"context":"csv"})",
+        "value": "csv",
+      },
       {
         "isDisabled": false,
         "selected": false,

@@ -106,13 +106,11 @@ const ToolbarFieldExport = ({
   const updatedOptions = options.map(option => ({
     ...option,
     title:
-      (((isProductPending && !pendingProductFormats?.length) ||
-        (isProductPending && pendingProductFormats?.includes(option.value))) &&
+      (isProductPending &&
+        pendingProductFormats?.includes(option.value) &&
         t('curiosity-toolbar.label', { context: ['export', 'loading'] })) ||
       option.title,
-    selected:
-      (isProductPending && !pendingProductFormats?.length) ||
-      (isProductPending && pendingProductFormats?.includes(option.value)),
+    selected: isProductPending && pendingProductFormats?.includes(option.value),
     isDisabled:
       (isProductPending && !pendingProductFormats?.length) ||
       (isProductPending && pendingProductFormats?.includes(option.value))

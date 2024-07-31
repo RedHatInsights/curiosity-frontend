@@ -42,7 +42,7 @@ const PLATFORM_API_EXPORT_RESOURCE_TYPES = {
  * @type {{CSV: string, JSON: string}}
  */
 const PLATFORM_API_EXPORT_CONTENT_TYPES = {
-  // CSV: 'csv',
+  CSV: 'csv',
   JSON: 'json'
 };
 
