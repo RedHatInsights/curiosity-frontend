@@ -61,7 +61,12 @@ const appReducer = (state = initialState, action) => {
         'exports',
         {
           [action.id]: {
-            ...action
+            ...action,
+            pending: [
+              // Only a selected format updates/reuses the pending list
+              ...((action.isSelectUpdated === true && state?.exports?.[action.id]?.pending) || []),
+              ...((Array.isArray(action.pending) && action.pending) || (action.pending && [action.pending]) || [])
+            ]
           }
         },
         {
