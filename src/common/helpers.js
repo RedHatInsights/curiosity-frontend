@@ -278,19 +278,17 @@ const CONFIG_EXPORT_SERVICE_NAME_PREFIX = process.env.REACT_APP_CONFIG_EXPORT_SE
  * Typically associated with applying a "beta" path prefix. See dotenv config files for updating.
  * See build scripts for generated prefix.
  *
+ * @deprecated
  * @type {string}
  */
 const UI_DEPLOY_PATH_PREFIX = process.env.REACT_APP_UI_DEPLOY_PATH_PREFIX;
 
 /**
- * FixMe: Replace, or alias towards UI_DEPLOY_PATH_PREFIX, this dotenv parameter if/when "beta" and "preview" are
- * normalized.
- */
-/**
  * Patch for compensating for platform updates where a mismatch between "beta" and "preview" for redirects means
  * that the same prefix can no longer be used for both additional remote resources and links.
  * See build scripts for generated prefix.
  *
+ * @deprecated
  * @type {string}
  */
 const UI_DEPLOY_PATH_LINK_PREFIX = process.env.REACT_APP_UI_DEPLOY_PATH_LINK_PREFIX;

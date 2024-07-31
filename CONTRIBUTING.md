@@ -13,14 +13,12 @@ Curiosity makes use of
 
 #### Main repository branches and continuous integration
 Curiosity makes use of the branches `main`, `stable`.
-- `main` branch is a representation of development and `stage-beta/preview`.
-   - When a branch push happens the `main` branch is automatically deployed for `https://console.stage.redhat.com/preview`
-- `stable` branch is a representation of 3 environments `stage-stable`, `prod-beta/preview`, and `prod-stable`.
-   - When a branch push happens the `stable` branch is automatically deployed for `https://console.stage.redhat.com/`
-   - To release to `prod-beta/preview` a Git hash is submitted with a GitLab Merge Request within the `app-interface` repository. This will be deployed to `https://console.redhat.com/preview`
-      - It is preferable if ONLY releasing to `prod-beta/preview` that a release candidate tag is created for the latest commit.
-   - To release to `prod-stable` a Git hash is submitted with a GitLab Merge Request within the `app-interface` repository. This will be deployed to `https://console.redhat.com/`
-      - It is preferable if releasing to `prod-stable` that a tag is created for the latest commit. The commit message should use
+- `main` branch is a representation of development, `stage`.
+   - When a branch push happens the `main` branch is automatically deployed for `https://console.stage.redhat.com/`
+- `stable` branch is a representation of a single environment, `prod`.
+   - Commits can be parked on `stable`. We no longer automatically deploy commits on the `stable` branch.
+   - To release to `prod` a Git hash is submitted with a GitLab Merge Request within the `app-interface` repository. This will be deployed to `https://console.redhat.com`
+      - It is preferable if releasing to `prod` that a tag is created for the latest commit. The commit message should use
         the form `chore(release): [version number]`
 
 #### Branch syncing
@@ -131,43 +129,24 @@ clicking the `checks` tab on the related pull request.
 <summary><h3 style="display: inline-block">Releasing code for all environments</h3></summary>
 
 Curiosity releases code to the following environments
-   - stage preview
-   - stage stable
-   - production preview
-   - production stable
+   - stage
+   - production
 
 > After pushing code, or tagging, a repository hook notifies continuous integration and starts the process of
 > environment updates.
 
-#### Release for stage preview
-Merging code into stage preview is simplistic
+#### Release for stage
+Merging code into stage is simplistic
 1. Merge a pull request into `main`
    ```
-   pull-request -> main -> stage preview
+   pull-request -> main -> stage
    ```
-
-#### Release for stage stable
-To merge code into stage stable
-1. Open a pull request from `main` to `stable` and merge using the `rebase` button.
-   ```
-   main -> pull-request -> stable -> stage stable
-   ```
-
-#### Release for production preview
-To merge code into production preview
-1. Tag the most recent commit on `main` as a release candidate using the format `v[x].[x].[x]-rc.[x]`
-   ```
-   stable -> release candidate tag -> `app-interface` merge request -> production preview
-   ```
-   > `rc.0` zero index is a typical starting point for release candidates
-1. Finally, submit a merge request to update the `app-interface` deployment yaml
-   - Copy the tagged Git hash and update the `app-interface` configuration hash within `[app-interface-insights-rhsm]/deploy-clowder.yml`
 
 #### Release for production stable
 To merge code into production stable a maintainer must run the release commit process locally.
 
    ```
-   local main repo, stable branch -> release commit -> push to stable -> release tag -> `app-interface` merge request -> production stable
+   local main repo, stable branch -> create a release commit -> push/merge commit to stable -> release tag on commit -> `app-interface` merge request on commit hash -> production release
    ```
 
 1. Clone the main repository, within the repo confirm you're on the `stable` branch and **SYNCED** with `origin` `stable`
@@ -376,7 +355,7 @@ The dotenv files are structured to cascade each additional dotenv file settings 
 | dotenv parameter                   | definition                                                                                                                                                                     |
 |------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DEV_PORT                           | A local proxy build modification for running against a custom port                                                                                                             |
-| DEV_BRANCH                         | A local proxy build modification for running against a custom environment branch. Available options include `stage-beta`, `stage-stable`, `prod-beta`, `prod-stable`           |
+| DEV_BRANCH                         | A local proxy build modification for running against a custom environment branch. Available options include `stage*`, `prod*`                                                  |
 | GENERATE_SOURCEMAP                 | A static boolean that disables local run source map generation only. May speed up local development re-compiles. May eventually be moved into `.env.development`.              | 
 | REACT_APP_DEBUG_DEFAULT_DATETIME   | A static string associated with overriding the assumed UI/application date in the form of `YYYY-MM-DD`                                                                         |
 | REACT_APP_DEBUG_MIDDLEWARE         | A static boolean that activates the console state debugging messages associated with Redux.                                                                                    |
@@ -388,15 +367,15 @@ The dotenv files are structured to cascade each additional dotenv file settings 
 
 > Technically all dotenv parameters come across as strings when imported through `process.env`. It is important to cast them accordingly if "type" is required.
 
-| dotenv parameter                                  | definition                                                                                                                                                     |
-|---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| REACT_APP_UI_VERSION                              | A dynamically build populated package.json version reference                                                                                                   |
-| REACT_APP_UI_NAME                                 | A static string populated reference similar to the consoledot application name                                                                                 |
+ | dotenv parameter                                  | definition                                                                                                                                                     |
+ |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ | REACT_APP_UI_VERSION                              | A dynamically build populated package.json version reference                                                                                                   |
+ | REACT_APP_UI_NAME                                 | A static string populated reference similar to the consoledot application name                                                                                 |
  | REACT_APP_UI_DISPLAY_NAME                         | A static string populated reference to the display version of the application name                                                                             |
  | REACT_APP_UI_DISPLAY_CONFIG_NAME                  | A static string populated reference to the configuration version of the application name                                                                       |
  | REACT_APP_UI_DISPLAY_START_NAME                   | A static string populated reference to the "sentence start" application name                                                                                   |
- | REACT_APP_UI_DEPLOY_PATH_PREFIX                   | A dynamically build populated beta/preview environment path reference                                                                                          |                                                               
- | REACT_APP_UI_DEPLOY_PATH_LINK_PREFIX              | A dynamically build populated beta/preview environment path reference that may or may not be equivalent to `REACT_APP_UI_DEPLOY_PATH_PREFIX`                   |
+ | ~~REACT_APP_UI_DEPLOY_PATH_PREFIX~~               | A legacy parameter. Originally, a dynamically build populated beta/preview environment path reference                                                                                          |                                                               
+ | ~~REACT_APP_UI_DEPLOY_PATH_LINK_PREFIX~~          | A legacy parameter. Originally, a dynamically build populated beta/preview environment path reference that may or may not be equivalent to `REACT_APP_UI_DEPLOY_PATH_PREFIX`                   |
  | PUBLIC_URL                                        | A dynamically prefix populated reference to where the application lives on consoledot                                                                          |                                                                                                           
  | REACT_APP_UI_LINK_CONTACT_US                      | A static contact us link for populating a link reference NOT directly controlled by the application and subject to randomly changing.                          |
  | REACT_APP_UI_LINK_LEARN_MORE                      | A static learn more link for populating a link reference NOT directly controlled by the application and subject to randomly changing.                          |

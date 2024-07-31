@@ -11,7 +11,7 @@ deployPaths()
   DEPLOY_PATH_PREFIX=""
   DEPLOY_STAGE="Stable"
 
-  # Note: allow Container build
+  # Note: Deprecated beta-preview prefixes. Temporarily left because they provide an alternative for prefixing paths.
   if [[ $CONTAINER_BUILD_ENV == "true" ]]; then
     DEPLOY_STAGE="Preview"
     DEPLOY_PATH_PREFIX=/beta
