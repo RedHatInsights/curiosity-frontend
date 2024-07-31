@@ -88,8 +88,8 @@ exports[`Platform Transformers should attempt to parse an exports response: expo
     "isAnythingPending": true,
     "pending": [
       {
-        "fileName": "20190720_000000_swatch_report_rhel_for_x_86",
-        "format": undefined,
+        "fileName": "20190720_000000_csv_swatch_report_rhel_for_x_86",
+        "format": "csv",
         "id": "0123456789",
         "name": "swatch-RHEL for x86",
         "productId": "RHEL for x86",
@@ -103,8 +103,8 @@ exports[`Platform Transformers should attempt to parse an exports response: expo
         "isPending": true,
         "pending": [
           {
-            "fileName": "20190720_000000_swatch_report_rhel_for_x_86",
-            "format": undefined,
+            "fileName": "20190720_000000_csv_swatch_report_rhel_for_x_86",
+            "format": "csv",
             "id": "0123456789",
             "name": "swatch-RHEL for x86",
             "productId": "RHEL for x86",
