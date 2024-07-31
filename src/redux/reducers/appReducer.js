@@ -57,15 +57,23 @@ const appReducer = (state = initialState, action) => {
 
       return state;
     case platformTypes.SET_PLATFORM_EXPORT_STATUS:
+      // Reset pending list on status response
+      let updatedPending = action.pending;
+
+      // Only a selected format updates the pending list
+      if (action.isSelectUpdated === true) {
+        updatedPending = [
+          ...(state?.exports?.[action.id]?.pending || []),
+          ...((Array.isArray(action.pending) && action.pending) || (action.pending && [action.pending]) || [])
+        ];
+      }
+
       return reduxHelpers.setStateProp(
         'exports',
         {
           [action.id]: {
             ...action,
-            pending: [
-              ...(state?.exports?.[action.id]?.pending || []),
-              ...((Array.isArray(action.pending) && action.pending) || (action.pending && [action.pending]) || [])
-            ]
+            pending: updatedPending
           }
         },
         {
