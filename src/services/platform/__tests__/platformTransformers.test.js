@@ -22,7 +22,9 @@ describe('Platform Transformers', () => {
       [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.EXPIRES_AT]: '2019-07-14T00:00:00Z',
       [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.ID]: '0123456789',
       [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.STATUS]:
-        platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES.PENDING
+        platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES.PENDING,
+      [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.FORMAT]:
+        platformConstants.PLATFORM_API_EXPORT_CONTENT_TYPES.CSV
     });
 
     const parsedArray = platformTransformers.exports({
@@ -33,7 +35,9 @@ describe('Platform Transformers', () => {
           [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.EXPIRES_AT]: '2019-07-14T00:00:00Z',
           [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.ID]: '0123456789',
           [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.STATUS]:
-            platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES.PENDING
+            platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES.PENDING,
+          [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.FORMAT]:
+            platformConstants.PLATFORM_API_EXPORT_CONTENT_TYPES.CSV
         }
       ]
     });
