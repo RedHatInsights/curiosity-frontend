@@ -47,6 +47,7 @@ describe('ToolbarFieldExport Component', () => {
             loremIpsum: {
               completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],
               isCompleted: true,
+              isPending: false,
               pending: [{ id: 'dolorSit', fileName: 'dolorSitFileName' }]
             }
           }

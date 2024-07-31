@@ -74,6 +74,12 @@ exports[`ToolbarFieldExport Component should allow export service calls: createE
       {
         "id": "mock-product-id",
         "isPending": true,
+        "isSelectUpdated": true,
+        "pending": [
+          {
+            "format": undefined,
+          },
+        ],
         "type": "SET_PLATFORM_EXPORT_STATUS",
       },
       "dispatch => Promise.resolve(dispatch(...args))",
