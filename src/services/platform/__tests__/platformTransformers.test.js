@@ -3,7 +3,8 @@ import {
   platformConstants,
   PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES as USER_PERMISSION_TYPES,
   PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES as OPERATION_TYPES,
-  PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES as RESOURCE_TYPES
+  PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES as RESOURCE_TYPES,
+  PLATFORM_API_EXPORT_CONTENT_TYPES
 } from '../platformConstants';
 import { helpers } from '../../../common';
 import rhsmConstants from '../../rhsm/rhsmConstants';
@@ -22,7 +23,9 @@ describe('Platform Transformers', () => {
       [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.EXPIRES_AT]: '2019-07-14T00:00:00Z',
       [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.ID]: '0123456789',
       [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.STATUS]:
-        platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES.PENDING
+        platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES.PENDING,
+      [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.FORMAT]:
+        platformConstants.PLATFORM_API_EXPORT_CONTENT_TYPES.CSV
     });
 
     const parsedArray = platformTransformers.exports({
@@ -33,7 +36,9 @@ describe('Platform Transformers', () => {
           [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.EXPIRES_AT]: '2019-07-14T00:00:00Z',
           [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.ID]: '0123456789',
           [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.STATUS]:
-            platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES.PENDING
+            platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES.PENDING,
+          [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.FORMAT]:
+            platformConstants.PLATFORM_API_EXPORT_CONTENT_TYPES.CSV
         }
       ]
     });
