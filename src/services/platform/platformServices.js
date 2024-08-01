@@ -350,7 +350,7 @@ const getExport = (id, options = {}) => {
     cancel = true,
     cancelId,
     fileName = `swatch_report_${id}`,
-    fileType = 'application/gzip'
+    fileType = helpers.CONFIG_EXPORT_FILE_TYPE
   } = options;
   return axiosServiceCall({
     url: `${process.env.REACT_APP_SERVICES_PLATFORM_EXPORT}/${id}`,
@@ -364,7 +364,7 @@ const getExport = (id, options = {}) => {
         (helpers.TEST_MODE && success.data) ||
         downloadHelpers.downloadData({
           data: success.data,
-          fileName: `${fileName}.tar.gz`,
+          fileName: `${fileName}.${helpers.CONFIG_EXPORT_FILE_EXT}`,
           fileType
         })
     )

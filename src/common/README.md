@@ -307,6 +307,8 @@ Download the debug log file.
     * [~REVIEW_MODE](#Helpers.module_General..REVIEW_MODE) : <code>boolean</code>
     * [~TEST_MODE](#Helpers.module_General..TEST_MODE) : <code>boolean</code>
     * [~CONFIG_EXPORT_EXPIRE](#Helpers.module_General..CONFIG_EXPORT_EXPIRE) : <code>string</code>
+    * [~CONFIG_EXPORT_FILE_EXT](#Helpers.module_General..CONFIG_EXPORT_FILE_EXT) : <code>string</code>
+    * [~CONFIG_EXPORT_FILE_TYPE](#Helpers.module_General..CONFIG_EXPORT_FILE_TYPE) : <code>string</code>
     * [~CONFIG_EXPORT_FILENAME](#Helpers.module_General..CONFIG_EXPORT_FILENAME) : <code>string</code>
     * [~CONFIG_EXPORT_SERVICE_NAME_PREFIX](#Helpers.module_General..CONFIG_EXPORT_SERVICE_NAME_PREFIX) : <code>string</code>
     * [~UI_DEPLOY_PATH_PREFIX](#Helpers.module_General..UI_DEPLOY_PATH_PREFIX) : <code>string</code>
@@ -433,10 +435,22 @@ Associated with running unit tests. See dotenv config files for activation.
 CONFIG export download file expiration.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..CONFIG_EXPORT_FILE_EXT"></a>
+
+### General~CONFIG\_EXPORT\_FILE\_EXT : <code>string</code>
+CONFIG export download file extension.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..CONFIG_EXPORT_FILE_TYPE"></a>
+
+### General~CONFIG\_EXPORT\_FILE\_TYPE : <code>string</code>
+CONFIG export download file mime type.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..CONFIG_EXPORT_FILENAME"></a>
 
 ### General~CONFIG\_EXPORT\_FILENAME : <code>string</code>
-CONFIG export download file name. Extension is handled at the service level.
+CONFIG export download file name.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..CONFIG_EXPORT_SERVICE_NAME_PREFIX"></a>

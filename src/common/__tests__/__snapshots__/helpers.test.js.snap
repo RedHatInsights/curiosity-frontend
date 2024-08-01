@@ -10,6 +10,8 @@ exports[`Helpers should expose a window object: limited window object 1`] = `
 {
   "CONFIG_EXPORT_EXPIRE": "86400000",
   "CONFIG_EXPORT_FILENAME": "swatch_report_{0}",
+  "CONFIG_EXPORT_FILE_EXT": "zip",
+  "CONFIG_EXPORT_FILE_TYPE": "application/gzip",
   "CONFIG_EXPORT_SERVICE_NAME_PREFIX": "swatch",
   "DEV_MODE": false,
   "PROD_MODE": false,
@@ -60,6 +62,8 @@ exports[`Helpers should expose a window object: window object 1`] = `
 {
   "CONFIG_EXPORT_EXPIRE": "86400000",
   "CONFIG_EXPORT_FILENAME": "swatch_report_{0}",
+  "CONFIG_EXPORT_FILE_EXT": "zip",
+  "CONFIG_EXPORT_FILE_TYPE": "application/gzip",
   "CONFIG_EXPORT_SERVICE_NAME_PREFIX": "swatch",
   "DEV_MODE": false,
   "PROD_MODE": false,
@@ -122,6 +126,8 @@ exports[`Helpers should have specific functions: helpers 1`] = `
 {
   "CONFIG_EXPORT_EXPIRE": "86400000",
   "CONFIG_EXPORT_FILENAME": "swatch_report_{0}",
+  "CONFIG_EXPORT_FILE_EXT": "zip",
+  "CONFIG_EXPORT_FILE_TYPE": "application/gzip",
   "CONFIG_EXPORT_SERVICE_NAME_PREFIX": "swatch",
   "DEV_MODE": false,
   "PROD_MODE": false,
