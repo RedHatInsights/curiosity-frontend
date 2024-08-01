@@ -246,7 +246,21 @@ const TEST_MODE = process.env.REACT_APP_ENV === 'test';
 const CONFIG_EXPORT_EXPIRE = process.env.REACT_APP_CONFIG_EXPORT_EXPIRE;
 
 /**
- * CONFIG export download file name. Extension is handled at the service level.
+ * CONFIG export download file extension.
+ *
+ * @type {string}
+ */
+const CONFIG_EXPORT_FILE_EXT = process.env.REACT_APP_CONFIG_EXPORT_FILE_EXT;
+
+/**
+ * CONFIG export download file mime type.
+ *
+ * @type {string}
+ */
+const CONFIG_EXPORT_FILE_TYPE = process.env.REACT_APP_CONFIG_EXPORT_FILE_TYPE;
+
+/**
+ * CONFIG export download file name.
  *
  * @type {string}
  */
@@ -485,6 +499,8 @@ const helpers = {
   REVIEW_MODE,
   TEST_MODE,
   CONFIG_EXPORT_EXPIRE,
+  CONFIG_EXPORT_FILE_EXT,
+  CONFIG_EXPORT_FILE_TYPE,
   CONFIG_EXPORT_FILENAME,
   CONFIG_EXPORT_SERVICE_NAME_PREFIX,
   UI_DEPLOY_PATH_PREFIX,
