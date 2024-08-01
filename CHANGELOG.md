@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8.1](https://github.com/RedHatInsights/curiosity-frontend/compare/568ec094bae2975ef317e2690bfe5057a2fcc309...55dc9a18a7101f5f4bb4ac8c2277d769c01c4c05) (2024-08-01)
+
+
+### Code Refactoring
+* **serviceConfig** sw-2353 unified status response ([#1365](https://github.com/RedHatInsights/curiosity-frontend/pull/1365)) ([7908293](https://github.com/RedHatInsights/curiosity-frontend/commit/790829382362c43830b86e216e62d1a12bfc135c))
+
+### Builds
+* **deps** bump group with 16 updates ([#1372](https://github.com/RedHatInsights/curiosity-frontend/pull/1372)) ([15eae92](https://github.com/RedHatInsights/curiosity-frontend/commit/15eae92502796e429a9cd03417f3e67d3b823412))
+* **deps-dev** bump group with 7 updates ([#1371](https://github.com/RedHatInsights/curiosity-frontend/pull/1371)) ([2c0d099](https://github.com/RedHatInsights/curiosity-frontend/commit/2c0d0995661ba4e53d6e056d5e82344572b098c4))
+
+### Bug Fixes
+*  sw-2353 export extension, tar to zip ([#1377](https://github.com/RedHatInsights/curiosity-frontend/pull/1377)) ([55dc9a1](https://github.com/RedHatInsights/curiosity-frontend/commit/55dc9a18a7101f5f4bb4ac8c2277d769c01c4c05))
+* **toolbarFieldExport** sw-117 apply export label ([#1369](https://github.com/RedHatInsights/curiosity-frontend/pull/1369)) ([cbc5710](https://github.com/RedHatInsights/curiosity-frontend/commit/cbc5710829cc82a19bbe7459f42eca59553833de))
+
 ## [4.8.0](https://github.com/RedHatInsights/curiosity-frontend/compare/c0e3cb11e71b8c738f73b024b2bb47748cd38dbb...03f29992378c1194f6e66975e6d3a4722a217c07) (2024-07-30)
 
 
