@@ -40,11 +40,6 @@ jobs:
         uses: codecov/codecov-action@v4
         env:
           CODECOV_TOKEN: ${{ secrets.COV_TOKEN }}
-      - name: Confirm preview integration
-        if: ${{ success() }}
-        run: npm run build
-        env:
-          BETA: true
-      - name: Confirm stable integration
+      - name: Confirm integration
         if: ${{ success() }}
         run: npm run build

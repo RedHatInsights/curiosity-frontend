@@ -311,8 +311,8 @@ Download the debug log file.
     * [~CONFIG_EXPORT_FILE_TYPE](#Helpers.module_General..CONFIG_EXPORT_FILE_TYPE) : <code>string</code>
     * [~CONFIG_EXPORT_FILENAME](#Helpers.module_General..CONFIG_EXPORT_FILENAME) : <code>string</code>
     * [~CONFIG_EXPORT_SERVICE_NAME_PREFIX](#Helpers.module_General..CONFIG_EXPORT_SERVICE_NAME_PREFIX) : <code>string</code>
-    * [~UI_DEPLOY_PATH_PREFIX](#Helpers.module_General..UI_DEPLOY_PATH_PREFIX) : <code>string</code>
-    * [~UI_DEPLOY_PATH_LINK_PREFIX](#Helpers.module_General..UI_DEPLOY_PATH_LINK_PREFIX) : <code>string</code>
+    * <del>[~UI_DEPLOY_PATH_PREFIX](#Helpers.module_General..UI_DEPLOY_PATH_PREFIX) : <code>string</code></del>
+    * <del>[~UI_DEPLOY_PATH_LINK_PREFIX](#Helpers.module_General..UI_DEPLOY_PATH_LINK_PREFIX) : <code>string</code></del>
     * [~UI_DISABLED](#Helpers.module_General..UI_DISABLED) : <code>boolean</code>
     * [~UI_DISABLED_GRAPH](#Helpers.module_General..UI_DISABLED_GRAPH) : <code>boolean</code>
     * [~UI_DISABLED_NOTIFICATIONS](#Helpers.module_General..UI_DISABLED_NOTIFICATIONS) : <code>boolean</code>
@@ -461,7 +461,9 @@ CONFIG export "post" download name prefix, for consistency.
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..UI_DEPLOY_PATH_PREFIX"></a>
 
-### General~UI\_DEPLOY\_PATH\_PREFIX : <code>string</code>
+### <del>General~UI\_DEPLOY\_PATH\_PREFIX : <code>string</code></del>
+***Deprecated***
+
 Apply a path prefix for routing.
 Typically associated with applying a "beta" path prefix. See dotenv config files for updating.
 See build scripts for generated prefix.
@@ -469,7 +471,9 @@ See build scripts for generated prefix.
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..UI_DEPLOY_PATH_LINK_PREFIX"></a>
 
-### General~UI\_DEPLOY\_PATH\_LINK\_PREFIX : <code>string</code>
+### <del>General~UI\_DEPLOY\_PATH\_LINK\_PREFIX : <code>string</code></del>
+***Deprecated***
+
 Patch for compensating for platform updates where a mismatch between "beta" and "preview" for redirects means
 that the same prefix can no longer be used for both additional remote resources and links.
 See build scripts for generated prefix.
