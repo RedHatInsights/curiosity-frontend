@@ -399,6 +399,28 @@ exports[`RHSM Transformers should attempt to parse a guests response: guests, fa
 }
 `;
 
+exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions 1`] = `
+{
+  "data": [
+    {
+      "a": 0.0003456,
+      "b": 2,
+      "c": 1000,
+    },
+  ],
+  "meta": {
+    "count": undefined,
+    "lorem": "ipsum",
+    "measurements": [
+      "c",
+      "a",
+      "b",
+    ],
+    "productId": undefined,
+  },
+}
+`;
+
 exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, failed 1`] = `
 {
   "data": [],
@@ -413,61 +435,35 @@ exports[`RHSM Transformers should attempt to parse a subscriptions response: sub
 {
   "data": [
     {
-      "Cores": undefined,
-      "hasInfiniteCores": undefined,
-      "has_infinite_quantity": undefined,
-      "metric_id": "Cores",
-      "total_capacity": undefined,
+      "Cores": 2000,
     },
   ],
   "meta": {
     "count": undefined,
-    "lorem": "ipsum",
+    "measurements": [
+      [
+        "Cores",
+      ],
+    ],
     "productId": undefined,
   },
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, metric_id sockets as parameter 1`] = `
+exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, metric_id sockets 1`] = `
 {
   "data": [
     {
-      "Cores": undefined,
-      "hasInfiniteCores": undefined,
-      "has_infinite_quantity": undefined,
-      "metric_id": "Cores",
-      "total_capacity": undefined,
+      "Sockets": 1000,
     },
   ],
   "meta": {
     "count": undefined,
-    "lorem": "ipsum",
-    "productId": undefined,
-  },
-}
-`;
-
-exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, metric_id sockets, cores response 1`] = `
-{
-  "data": [
-    {
-      "Cores": undefined,
-      "hasInfiniteCores": undefined,
-      "has_infinite_quantity": undefined,
-      "metric_id": "Cores",
-      "total_capacity": undefined,
-    },
-    {
-      "Sockets": undefined,
-      "hasInfiniteSockets": undefined,
-      "has_infinite_quantity": undefined,
-      "metric_id": "Sockets",
-      "total_capacity": undefined,
-    },
-  ],
-  "meta": {
-    "count": undefined,
-    "lorem": "ipsum",
+    "measurements": [
+      [
+        "Sockets",
+      ],
+    ],
     "productId": undefined,
   },
 }
@@ -885,27 +881,7 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
 {
   "data": [
     {
-      "a": 0.0003456,
-      "b": 2,
-      "c": 1000,
-      "numberOfGuests": undefined,
-      "number_of_guests": undefined,
-    },
-  ],
-  "meta": {
-    "count": undefined,
-    "productId": undefined,
-  },
-}
-`;
-
-exports[`RHSM Transformers should attempt to parse an instances response: instances, metric_id cores as parameter 1`] = `
-{
-  "data": [
-    {
-      "a": 0.0003456,
-      "b": 2,
-      "c": 1000,
+      "Cores": 2000,
       "numberOfGuests": undefined,
       "number_of_guests": undefined,
     },
@@ -921,27 +897,7 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
 {
   "data": [
     {
-      "a": 0.0003456,
-      "b": 2,
-      "c": 1000,
-      "numberOfGuests": undefined,
-      "number_of_guests": undefined,
-    },
-  ],
-  "meta": {
-    "count": undefined,
-    "productId": undefined,
-  },
-}
-`;
-
-exports[`RHSM Transformers should attempt to parse an instances response: instances, metric_id sockets as parameter 1`] = `
-{
-  "data": [
-    {
-      "a": 0.0003456,
-      "b": 2,
-      "c": 1000,
+      "Sockets": 1000,
       "numberOfGuests": undefined,
       "number_of_guests": undefined,
     },

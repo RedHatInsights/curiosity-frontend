@@ -46,7 +46,7 @@ const getLocale = () => {
  * @api {delete} /api/rhsm-subscriptions/v1/opt-in
  * @apiDescription Delete a RHSM account opt-in config
  *
- * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
+ * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-v1-spec.yaml)
  *
  * @apiSuccessExample {text} Success-Response:
  *     HTTP/1.1 204 OK
@@ -122,7 +122,7 @@ const deleteAccountOptIn = () =>
  * @api {get} /api/rhsm-subscriptions/v1/opt-in
  * @apiDescription Get a RHSM account opt-in config
  *
- * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
+ * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-v1-spec.yaml)
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -189,7 +189,7 @@ const getAccountOptIn = (options = {}) => {
  * @apiDescription Create/Update an account's opt-in configuration. Account and Org ID are defined by
  * the identity header. If no parameters are specified, everything will be enabled.
  *
- * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
+ * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-v1-spec.yaml)
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK

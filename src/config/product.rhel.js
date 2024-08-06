@@ -315,10 +315,13 @@ const config = {
       width: 10
     },
     {
-      metric: SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY,
+      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
       header: () =>
         translate('curiosity-inventory.header', { context: ['subscriptions', RHSM_API_PATH_METRIC_TYPES.SOCKETS] }),
-      cell: ({ hasInfiniteSockets: hasInfiniteQuantity, [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: total } = {}) => {
+      cell: ({
+        [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
+        [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: total
+      } = {}) => {
         if (hasInfiniteQuantity === true) {
           const content = translate(`curiosity-inventory.label`, {
             context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, RHSM_API_PATH_METRIC_TYPES.SOCKETS]
@@ -333,10 +336,7 @@ const config = {
           context: (total && 'value') || undefined,
           total,
           testId: (
-            <span
-              data-test={`subscriptions-cell-${SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY}-${RHSM_API_PATH_METRIC_TYPES.SOCKETS}`}
-              data-value={`${total}`}
-            />
+            <span data-test={`subscriptions-cell-${RHSM_API_PATH_METRIC_TYPES.SOCKETS}`} data-value={`${total}`} />
           )
         });
       },

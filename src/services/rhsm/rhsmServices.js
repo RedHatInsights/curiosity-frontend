@@ -14,7 +14,7 @@ import { rhsmTransformers } from './rhsmTransformers';
  * @api {get} /api/rhsm-subscriptions/v1/version
  * @apiDescription Retrieve API version information
  *
- * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
+ * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-v1-spec.yaml)
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -1231,7 +1231,7 @@ const getGraphTally = (id, params = {}, options = {}) => {
  * @api {get} /api/rhsm-subscriptions/v1/capacity/products/:product_id/:metric_id Get RHSM graph capacity data
  * @apiDescription Retrieve graph capacity data, such as thresholds.
  *
- * Reference [RHSM for capacity params and commands](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
+ * Reference [RHSM for capacity params and commands](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-v1-spec.yaml)
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -1529,7 +1529,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  * @api {get} /api/rhsm-subscriptions/v1/instances/:instance_id/guests Get RHSM instances/systems inventory guests data
  * @apiDescription Retrieve instances/systems table/inventory guests data.
  *
- * Reference [RHSM for instances guests](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
+ * Reference [RHSM for instances guests](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-v1-spec.yaml)
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -1672,7 +1672,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  * @api {get} /api/rhsm-subscriptions/v1/instances/products/:product_id Get RHSM instances table/inventory data
  * @apiDescription Retrieve instances table/inventory data.
  *
- * Reference [RHSM for instances table/inventory](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
+ * Reference [RHSM for instances table/inventory](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-v1-spec.yaml)
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -1830,10 +1830,10 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
 
 /**
  * @apiMock {DelayResponse} 0
- * @api {get} /api/rhsm-subscriptions/v1/subscriptions/products/:product_id Get RHSM subscriptions table/inventory data
+ * @api {get} /api/rhsm-subscriptions/v2/subscriptions/products/:product_id Get RHSM subscriptions table/inventory data
  * @apiDescription Retrieve subscriptions table/inventory data.
  *
- * Reference [RHSM for subscriptions table/inventory](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
+ * Reference [RHSM for subscriptions table/inventory](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-v2-spec.yaml)
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -1853,10 +1853,11 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *           "next_event_date": "2020-04-01T00:00:00Z",
  *           "next_event_type": "Subscription Begin",
  *           "quantity": 1,
- *           "physical_capacity": 1,
- *           "virtual_capacity": 1,
- *           "total_capacity": 2,
- *           "metric_id": "Sockets",
+ *           "measurements": [
+ *             1,
+ *             1,
+ *             2
+ *           ],
  *           "has_infinite_quantity": true
  *         },
  *         {
@@ -1869,10 +1870,11 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *           "next_event_date": "2020-04-02T00:00:00Z",
  *           "next_event_type": "Subscription Begin",
  *           "quantity": 15,
- *           "physical_capacity": 1,
- *           "virtual_capacity": 1,
- *           "total_capacity": 2,
- *           "metric_id": "Sockets",
+ *           "measurements": [
+ *             1,
+ *             null,
+ *             2
+ *           ],
  *           "has_infinite_quantity": false
  *         },
  *         {
@@ -1887,16 +1889,22 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *           "next_event_date": "2020-04-01T00:00:00Z",
  *           "next_event_type": "Subscription End",
  *           "quantity": 3000,
- *           "physical_capacity": 2,
- *           "virtual_capacity": 2,
- *           "total_capacity": 4,
- *           "metric_id": "Cores",
+ *           "measurements": [
+ *             2,
+ *             2,
+ *             4
+ *           ],
  *           "has_infinite_quantity": false
  *         }
  *       ],
  *       "links": {},
  *       "meta": {
  *         "count": 3,
+ *         "measurements": [
+ *           "Cores",
+ *           "Sockets",
+ *           "Instance-hours"
+ *         ],
  *         "subscription_type": "On-demand"
  *       }
  *     }
