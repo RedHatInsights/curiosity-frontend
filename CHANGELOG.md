@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.9.0](https://github.com/RedHatInsights/curiosity-frontend/compare/ff58e71c8ed6dc4d34db96573bd5a4d4bf507be3...3865a4ee750d03e8a791c4c79f8d0038f2b55d38) (2024-08-06)
+
+
+### Features
+* **toolbarFieldExport** sw-2769 activate csv export ([#1373](https://github.com/RedHatInsights/curiosity-frontend/pull/1373)) ([386175a](https://github.com/RedHatInsights/curiosity-frontend/commit/386175a0822c4824708428c0b2b6148a9854d91e))
+
+### Builds
+*  sw-2778 deprecate, remove, clean preview-beta refs ([#1376](https://github.com/RedHatInsights/curiosity-frontend/pull/1376)) ([3865a4e](https://github.com/RedHatInsights/curiosity-frontend/commit/3865a4ee750d03e8a791c4c79f8d0038f2b55d38))
+
+### Bug Fixes
+* **platformTransformers** sw-2769 add format to export filename ([#1375](https://github.com/RedHatInsights/curiosity-frontend/pull/1375)) ([9e8ef0b](https://github.com/RedHatInsights/curiosity-frontend/commit/9e8ef0b481b09f7ba6da271aa59a3ca0222a89c8))
+
 ## [4.8.1](https://github.com/RedHatInsights/curiosity-frontend/compare/568ec094bae2975ef317e2690bfe5057a2fcc309...55dc9a18a7101f5f4bb4ac8c2277d769c01c4c05) (2024-08-01)
 
 
