@@ -5462,7 +5462,7 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header_subscriptions, {"context":"Cores"})",
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
           "info": undefined,
           "isWrap": true,
           "label": [Function],
@@ -5472,7 +5472,7 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header_subscriptions, {"context":"Sockets"})",
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
           "info": undefined,
           "isWrap": true,
           "label": [Function],
@@ -5540,7 +5540,7 @@ exports[`Product specific configurations should apply variations in inventory fi
                   title={null}
                 />
               </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header_subscriptions, {"context":"Cores"})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isWrap": true,
               "metric": "Cores",
@@ -5564,7 +5564,7 @@ exports[`Product specific configurations should apply variations in inventory fi
                   title={null}
                 />
               </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header_subscriptions, {"context":"Sockets"})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isWrap": true,
               "metric": "Sockets",
@@ -5781,9 +5781,8 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header_subscriptions, {"context":"Sockets"})",
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
           "info": undefined,
-          "isSort": true,
           "isWrap": true,
           "label": [Function],
           "metric": "Sockets",
@@ -5850,9 +5849,8 @@ exports[`Product specific configurations should apply variations in inventory fi
                   title={null}
                 />
               </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header_subscriptions, {"context":"Sockets"})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
               "header": [Function],
-              "isSort": true,
               "isWrap": true,
               "metric": "Sockets",
               "width": undefined,
@@ -6315,7 +6313,7 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header_subscriptions, {"context":"Cores"})",
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
           "info": undefined,
           "isWrap": true,
           "label": [Function],
@@ -6325,7 +6323,7 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header_subscriptions, {"context":"Sockets"})",
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
           "info": undefined,
           "isWrap": true,
           "label": [Function],
@@ -6393,7 +6391,7 @@ exports[`Product specific configurations should apply variations in inventory fi
                   title={null}
                 />
               </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header_subscriptions, {"context":"Cores"})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isWrap": true,
               "metric": "Cores",
@@ -6417,7 +6415,7 @@ exports[`Product specific configurations should apply variations in inventory fi
                   title={null}
                 />
               </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header_subscriptions, {"context":"Sockets"})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isWrap": true,
               "metric": "Sockets",
@@ -6634,9 +6632,8 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
-          "content": "t(curiosity-inventory.header_subscriptions, {"context":"Sockets"})",
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
           "info": undefined,
-          "isSort": true,
           "isWrap": true,
           "label": [Function],
           "metric": "Sockets",
@@ -6703,9 +6700,8 @@ exports[`Product specific configurations should apply variations in inventory fi
                   title={null}
                 />
               </Tooltip>,
-              "dataLabel": "t(curiosity-inventory.header_subscriptions, {"context":"Sockets"})",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
               "header": [Function],
-              "isSort": true,
               "isWrap": true,
               "metric": "Sockets",
               "width": undefined,

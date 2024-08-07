@@ -289,8 +289,6 @@ const config = {
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-      header: () =>
-        translate('curiosity-inventory.header', { context: ['subscriptions', RHSM_API_PATH_METRIC_TYPES.CORES] }),
       cell: ({
         [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
         [RHSM_API_PATH_METRIC_TYPES.CORES]: total
@@ -316,8 +314,6 @@ const config = {
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-      header: () =>
-        translate('curiosity-inventory.header', { context: ['subscriptions', RHSM_API_PATH_METRIC_TYPES.SOCKETS] }),
       cell: ({
         [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
         [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: total
