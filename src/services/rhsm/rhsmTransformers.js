@@ -1,7 +1,6 @@
 import moment from 'moment';
 import {
   RHSM_API_QUERY_SET_TYPES,
-  RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INSTANCES_DATA_TYPES,
   RHSM_API_RESPONSE_INSTANCES_META_TYPES as INSTANCES_META_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_DATA_TYPES,
@@ -104,6 +103,9 @@ const rhsmInstancesGuests = (response, { params, _id } = {}) => {
 };
 
 /**
+ * Note: The "has_infinite_quantity" bool response property applies to ALL measurements!
+ */
+/**
  * Parse RHSM subscriptions response for caching.
  * Attempt to align Instances and Subscriptions responses.
  *
@@ -114,30 +116,19 @@ const rhsmSubscriptions = response => {
   const updatedResponse = {};
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
+  const metaMeasurements = meta[INSTANCES_META_TYPES.MEASUREMENTS];
 
-  updatedResponse.data = data.map(
-    ({
-      [SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: metricId,
-      [SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: totalCapacity,
-      [SUBSCRIPTIONS_DATA_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
+  updatedResponse.data = data.map(({ [SUBSCRIPTIONS_DATA_TYPES.MEASUREMENTS]: measurements, ...dataResponse }) => {
+    const updatedData = {
       ...dataResponse
-    }) => {
-      const updatedData = {
-        [SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: totalCapacity,
-        [SUBSCRIPTIONS_DATA_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
-        ...dataResponse
-      };
+    };
 
-      const normalizedMetricId = Object.values(RHSM_API_PATH_METRIC_TYPES).find(value =>
-        new RegExp(value, 'i').test(metricId)
-      );
-      updatedData[normalizedMetricId] = totalCapacity;
-      updatedData[SUBSCRIPTIONS_DATA_TYPES.METRIC_ID] = normalizedMetricId;
-      updatedData[`hasInfinite${normalizedMetricId}`] = hasInfiniteQuantity;
+    metaMeasurements?.forEach((measurement, index) => {
+      updatedData[measurement] = measurements[index];
+    });
 
-      return updatedData;
-    }
-  );
+    return updatedData;
+  });
 
   updatedResponse.meta = {
     ...meta,

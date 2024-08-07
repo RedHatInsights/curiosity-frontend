@@ -218,57 +218,49 @@ describe('RHSM Transformers', () => {
   it('should attempt to parse an instances response', () => {
     expect(rhsmTransformers.instances(undefined)).toMatchSnapshot('instances, failed');
 
-    const response = {
-      [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
-        {
-          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [1000, 0.0003456, 2]
+    expect(
+      rhsmTransformers.instances({
+        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+          {
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [1000, 0.0003456, 2]
+          }
+        ],
+        [rhsmConstants.RHSM_API_RESPONSE_META]: {
+          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: ['c', 'a', 'b'],
+          lorem: 'ipsum'
         }
-      ],
-      [rhsmConstants.RHSM_API_RESPONSE_META]: {
-        [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: ['c', 'a', 'b'],
-        lorem: 'ipsum'
-      }
-    };
-
-    expect(rhsmTransformers.instances(response)).toMatchSnapshot('instances');
+      })
+    ).toMatchSnapshot('instances');
 
     expect(
       rhsmTransformers.instances({
-        ...response
+        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+          {
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [1000]
+          }
+        ],
+        [rhsmConstants.RHSM_API_RESPONSE_META]: {
+          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: [
+            [rhsmConstants.RHSM_API_PATH_METRIC_TYPES.SOCKETS]
+          ]
+        }
       })
     ).toMatchSnapshot('instances, metric_id sockets');
 
     expect(
-      rhsmTransformers.instances(
-        {
-          ...response
-        },
-        {
-          params: {
-            [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.METRIC_ID]: 'Sockets'
-          }
-        }
-      )
-    ).toMatchSnapshot('instances, metric_id sockets as parameter');
-
-    expect(
       rhsmTransformers.instances({
-        ...response
+        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+          {
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [2000]
+          }
+        ],
+        [rhsmConstants.RHSM_API_RESPONSE_META]: {
+          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: [
+            [rhsmConstants.RHSM_API_PATH_METRIC_TYPES.CORES]
+          ]
+        }
       })
     ).toMatchSnapshot('instances, metric_id cores');
-
-    expect(
-      rhsmTransformers.instances(
-        {
-          ...response
-        },
-        {
-          params: {
-            [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.METRIC_ID]: 'Cores'
-          }
-        }
-      )
-    ).toMatchSnapshot('instances, metric_id cores as parameter');
   });
 
   it('should attempt to parse a guests response', () => {
@@ -336,47 +328,49 @@ describe('RHSM Transformers', () => {
   it('should attempt to parse a subscriptions response', () => {
     expect(rhsmTransformers.subscriptions(undefined)).toMatchSnapshot('subscriptions, failed');
 
-    const response = {
-      [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
-        {
-          [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: 'Cores'
-        }
-      ],
-      [rhsmConstants.RHSM_API_RESPONSE_META]: {
-        lorem: 'ipsum'
-      }
-    };
-
-    expect(rhsmTransformers.subscriptions(response)).toMatchSnapshot('subscriptions, metric_id cores');
-
     expect(
-      rhsmTransformers.subscriptions(
-        {
-          ...response
-        },
-        {
-          params: {
-            [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.METRIC_ID]: 'sockets'
+      rhsmTransformers.subscriptions({
+        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+          {
+            [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.MEASUREMENTS]: [1000, 0.0003456, 2]
           }
+        ],
+        [rhsmConstants.RHSM_API_RESPONSE_META]: {
+          [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_META_TYPES.MEASUREMENTS]: ['c', 'a', 'b'],
+          lorem: 'ipsum'
         }
-      )
-    ).toMatchSnapshot('subscriptions, metric_id sockets as parameter');
+      })
+    ).toMatchSnapshot('subscriptions');
 
     expect(
       rhsmTransformers.subscriptions({
         [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
           {
-            [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: 'Cores'
-          },
-          {
-            [rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES.METRIC_ID]: 'Sockets'
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [1000]
           }
         ],
         [rhsmConstants.RHSM_API_RESPONSE_META]: {
-          lorem: 'ipsum'
+          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: [
+            [rhsmConstants.RHSM_API_PATH_METRIC_TYPES.SOCKETS]
+          ]
         }
       })
-    ).toMatchSnapshot('subscriptions, metric_id sockets, cores response');
+    ).toMatchSnapshot('subscriptions, metric_id sockets');
+
+    expect(
+      rhsmTransformers.subscriptions({
+        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+          {
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [2000]
+          }
+        ],
+        [rhsmConstants.RHSM_API_RESPONSE_META]: {
+          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: [
+            [rhsmConstants.RHSM_API_PATH_METRIC_TYPES.CORES]
+          ]
+        }
+      })
+    ).toMatchSnapshot('subscriptions, metric_id cores');
   });
 
   it('should attempt to parse a tally response', () => {
