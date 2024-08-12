@@ -123,10 +123,10 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
-    "apidoc-mock": "^5.0.1",
+    "apidoc-mock": "^5.0.2",
     "babel-jest": "^29.7.0",
     "changelog-light": "^2.0.1",
-    "cspell": "^8.13.1",
+    "cspell": "^8.13.2",
     "eslint": "8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
@@ -153,7 +153,7 @@
     "redux-mock-store": "^1.5.4",
     "ts-patch": "^3.2.1",
     "typescript": "^5.5.4",
-    "weldable": "^3.1.0",
+    "weldable": "^3.1.1",
     "yamljs": "^0.3.0"
   }
 }
