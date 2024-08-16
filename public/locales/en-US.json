@@ -353,6 +353,8 @@
     "label_groupVariant_rhel-for-x86-rs": "RHEL for x86 Resilient Storage",
     "label_groupVariant_rhel-for-sap-x86": "RHEL for SAP x86",
     "label_groupVariant_rosa": "ROSA Hosted Control Planes",
+    "label_groupVariant_rhods": "Red Hat OpenShift AI",
+    "label_groupVariant_rhacs": "Advanced Cluster Security",
     "label_groupVariant_Satellite Capsule": "Satellite Capsule",
     "label_groupVariant_Satellite Server": "Satellite Server",
     "label_sla": "",

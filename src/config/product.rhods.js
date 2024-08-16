@@ -36,7 +36,7 @@ import { translate, EMPTY_CONTEXT } from '../components/i18n/i18n';
  *
  * @type {string}
  */
-const productGroup = RHSM_API_PATH_PRODUCT_TYPES.RHODS;
+const productGroup = 'openshift';
 
 /**
  * Product ID. The identifier used when querying the API.
@@ -69,7 +69,7 @@ const config = {
   productLabel,
   productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.HOURLY,
-  viewId: `view${productGroup}`,
+  viewId: `view${productGroup}-${productId}`,
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
     [RHSM_API_QUERY_SET_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()
