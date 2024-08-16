@@ -54,14 +54,15 @@ const RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES = {
  * @type {{RHEL_ARM: string, OPENSHIFT_METRICS: string, RHEL_X86_ELS_UNCONVERTED: string, RHEL_X86_EUS: string,
  *     RHEL_WORKSTATION: string, RHEL_X86_SAP: string, RHODS: string, ROSA: string, RHEL_X86: string,
  *     RHEL_COMPUTE_NODE: string, RHEL_X86_ELS_PAYG: string, OPENSHIFT: string, RHEL_X86_RS: string, SATELLITE_SERVER:
- *     string, RHEL_X86_ELS_PAYG_ADDON: string, OPENSHIFT_DEDICATED_METRICS: string, RHEL_X86_HA: string,
- *     SATELLITE_CAPSULE: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHACS:
+ *     string, RHEL_X86_ELS_PAYG_ADDON: string, OPENSHIFT_DEDICATED_METRICS: string, RHEL_X86_HA: string, ANSIBLE:
+ *     string, SATELLITE_CAPSULE: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHACS:
  *     string}}
  */
 const RHSM_API_PATH_PRODUCT_TYPES = {
   ...RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES,
   ...RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES,
   ...RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES,
+  ANSIBLE: 'ansible-aap-managed',
   RHACS: 'rhacs',
   RHEL_COMPUTE_NODE: 'RHEL Compute Node',
   RHEL_WORKSTATION: 'RHEL Workstation',
@@ -75,14 +76,15 @@ const RHSM_API_PATH_PRODUCT_TYPES = {
 /**
  * RHSM path IDs for metrics.
  *
- * @type {{CORES: string, STORAGE_GIBIBYTES: string, SOCKETS: string, INSTANCE_HOURS: string,
+ * @type {{CORES: string, STORAGE_GIBIBYTES: string, INSTANCE_HOURS: string, SOCKETS: string, MANAGED_NODES: string,
  *     TRANSFER_GIBIBYTES: string, VCPUS: string, CORE_SECONDS: string, STORAGE_GIBIBYTE_MONTHS: string}}
  */
 const RHSM_API_PATH_METRIC_TYPES = {
   CORES: 'Cores',
-  SOCKETS: 'Sockets',
   CORE_SECONDS: 'Core-seconds',
   INSTANCE_HOURS: 'Instance-hours',
+  MANAGED_NODES: 'Managed-nodes',
+  SOCKETS: 'Sockets',
   STORAGE_GIBIBYTES: 'Storage-gibibytes',
   STORAGE_GIBIBYTE_MONTHS: 'Storage-gibibyte-months',
   TRANSFER_GIBIBYTES: 'Transfer-gibibytes',
@@ -433,9 +435,9 @@ const RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES = {
  *     BILLING_CATEGORY: string}, RHSM_API_RESPONSE_DATA: string, RHSM_API_RESPONSE_SUBSCRIPTIONS_META_TYPES:
  *     {MEASUREMENTS: string, PRODUCT: string, SUBSCRIPTION_TYPE: string, COUNT: string},
  *     RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES: {SATELLITE_SERVER: string, SATELLITE_CAPSULE: string},
- *     RHSM_API_PATH_METRIC_TYPES: {CORES: string, STORAGE_GIBIBYTES: string, SOCKETS: string, INSTANCE_HOURS: string,
- *     TRANSFER_GIBIBYTES: string, VCPUS: string, CORE_SECONDS: string, STORAGE_GIBIBYTE_MONTHS: string},
- *     RHSM_API_RESPONSE_INSTANCES_META_TYPES: {MEASUREMENTS: string, PRODUCT: string, COUNT: string},
+ *     RHSM_API_PATH_METRIC_TYPES: {CORES: string, STORAGE_GIBIBYTES: string, INSTANCE_HOURS: string, SOCKETS: string,
+ *     MANAGED_NODES: string, TRANSFER_GIBIBYTES: string, VCPUS: string, CORE_SECONDS: string, STORAGE_GIBIBYTE_MONTHS:
+ *     string}, RHSM_API_RESPONSE_INSTANCES_META_TYPES: {MEASUREMENTS: string, PRODUCT: string, COUNT: string},
  *     RHSM_API_RESPONSE_INSTANCES_DATA_TYPES: {MEASUREMENTS: string, BILLING_ACCOUNT_ID: string, CATEGORY: string,
  *     SUBSCRIPTION_MANAGER_ID: string, INVENTORY_ID: string, NUMBER_OF_GUESTS: string, BILLING_PROVIDER: string,
  *     DISPLAY_NAME: string, CLOUD_PROVIDER: string, INSTANCE_ID: string, LAST_SEEN: string},
@@ -458,8 +460,8 @@ const RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES = {
  *     {RHEL_ARM: string, OPENSHIFT_METRICS: string, RHEL_X86_ELS_UNCONVERTED: string, RHEL_X86_EUS: string,
  *     RHEL_WORKSTATION: string, RHEL_X86_SAP: string, RHODS: string, ROSA: string, RHEL_X86: string,
  *     RHEL_COMPUTE_NODE: string, RHEL_X86_ELS_PAYG: string, OPENSHIFT: string, RHEL_X86_RS: string, SATELLITE_SERVER:
- *     string, RHEL_X86_ELS_PAYG_ADDON: string, OPENSHIFT_DEDICATED_METRICS: string, RHEL_X86_HA: string,
- *     SATELLITE_CAPSULE: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHACS: string},
+ *     string, RHEL_X86_ELS_PAYG_ADDON: string, OPENSHIFT_DEDICATED_METRICS: string, RHEL_X86_HA: string, ANSIBLE:
+ *     string, SATELLITE_CAPSULE: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHACS: string},
  *     RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string, RED_HAT: string, NONE: string, AWS:
  *     string, ORACLE: string}, RHSM_API_RESPONSE_ERRORS_TYPES: {CODE: string},
  *     RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES: {DATE: string, HAS_DATA: string, VALUE: string,
