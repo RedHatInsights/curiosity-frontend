@@ -104,17 +104,9 @@ const config = {
           fill: chartColorBlueLight.value,
           stroke: chartColorBlueDark.value,
           color: chartColorBlueDark.value,
+          chartType: ChartTypeVariant.line,
           query: {
             [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.PREPAID
-          }
-        },
-        {
-          metric: RHSM_API_PATH_METRIC_TYPES.MANAGED_NODES,
-          fill: chartColorGoldLight.value,
-          stroke: chartColorGoldDark.value,
-          color: chartColorGoldDark.value,
-          query: {
-            [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.ON_DEMAND
           }
         },
         {
@@ -130,17 +122,9 @@ const config = {
           fill: chartColorBlueLight.value,
           stroke: chartColorBlueDark.value,
           color: chartColorBlueDark.value,
+          chartType: ChartTypeVariant.line,
           query: {
             [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.PREPAID
-          }
-        },
-        {
-          metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
-          fill: chartColorGoldLight.value,
-          stroke: chartColorGoldDark.value,
-          color: chartColorGoldDark.value,
-          query: {
-            [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.ON_DEMAND
           }
         },
         {
@@ -279,6 +263,7 @@ const config = {
       },
       isSort: true
     },
+    /*
     {
       metric: RHSM_API_PATH_METRIC_TYPES.MANAGED_NODES,
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.MANAGED_NODES]: total } = {}) =>
@@ -307,6 +292,7 @@ const config = {
       isWrap: true,
       width: 15
     },
+    */
     {
       metric: INVENTORY_TYPES.LAST_SEEN,
       cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen }) => (lastSeen && <DateFormat date={lastSeen} />) || '',
@@ -356,9 +342,6 @@ const config = {
     }
   ],
   initialToolbarFilters: [
-    {
-      id: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER
-    },
     {
       id: 'rangedMonthly',
       isSecondary: true,
