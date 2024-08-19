@@ -25,10 +25,10 @@ import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
 /**
- * ANSIBLE
+ * Ansible
  *
  * @memberof Products
- * @module ANSIBLE
+ * @module Ansible
  */
 
 /**
