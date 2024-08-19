@@ -546,6 +546,35 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/config/product.ansible.js",
+    "keys": [
+      {
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['remainingCapacity', dataSets?.[0]?.display?.chartId], testId: 'graphRemainingCapacityCard-header' })",
+      },
+      {
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.remainingCapacityHasData && dataSets?.[0]?.display?.chartId], testId: 'graphRemainingCapacityCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.remainingCapacity)",
+      },
+      {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.dailyDate)",
+      },
+      {
+        "key": "curiosity-graph.label_axisX",
+        "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
+      },
+      {
+        "key": "curiosity-inventory.guestsHeader",
+        "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+    ],
+  },
+  {
     "file": "src/config/product.openshiftContainer.js",
     "keys": [
       {
@@ -1131,6 +1160,14 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/components/toolbar/toolbarFieldUsage.js",
     "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "src/config/product.ansible.js",
+    "key": "curiosity-graph.label_axisX",
+  },
+  {
+    "file": "src/config/product.ansible.js",
+    "key": "curiosity-inventory.guestsHeader",
   },
   {
     "file": "src/config/product.openshiftContainer.js",

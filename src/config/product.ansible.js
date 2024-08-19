@@ -1,9 +1,7 @@
 import React from 'react';
 import {
   chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark,
-  chart_color_gold_400 as chartColorGoldLight,
-  chart_color_gold_400 as chartColorGoldDark
+  chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
 import { Button } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
@@ -263,36 +261,6 @@ const config = {
       },
       isSort: true
     },
-    /*
-    {
-      metric: RHSM_API_PATH_METRIC_TYPES.MANAGED_NODES,
-      cell: ({ [RHSM_API_PATH_METRIC_TYPES.MANAGED_NODES]: total } = {}) =>
-        translate('curiosity-inventory.measurement', {
-          context: (total && 'value') || undefined,
-          total: (total && Number.parseFloat(total).toFixed(2)) || undefined,
-          testId: (
-            <span data-test={`instances-cell-${RHSM_API_PATH_METRIC_TYPES.MANAGED_NODES}`} data-value={`${total}`} />
-          )
-        }),
-      isSort: true,
-      isWrap: true,
-      width: 15
-    },
-    {
-      metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
-      cell: ({ [RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS]: total } = {}) =>
-        translate('curiosity-inventory.measurement', {
-          context: (total && 'value') || undefined,
-          total: (total && Number.parseFloat(total).toFixed(2)) || undefined,
-          testId: (
-            <span data-test={`instances-cell-${RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS}`} data-value={`${total}`} />
-          )
-        }),
-      isSort: true,
-      isWrap: true,
-      width: 15
-    },
-    */
     {
       metric: INVENTORY_TYPES.LAST_SEEN,
       cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen }) => (lastSeen && <DateFormat date={lastSeen} />) || '',

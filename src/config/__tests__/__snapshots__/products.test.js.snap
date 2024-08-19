@@ -386,6 +386,7 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
 exports[`Product configurations should return specific methods and properties: products 1`] = `
 {
   "configs": [
+    "ansible-aap-managed",
     "OpenShift Container Platform",
     "OpenShift-dedicated-metrics",
     "OpenShift-metrics",

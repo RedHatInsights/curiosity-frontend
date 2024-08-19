@@ -53,7 +53,7 @@ exports[`RouterHelpers should return product configuration details from a url, p
 
 exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: closest match 1`] = `
 {
-  "productId": "RHEL for x86",
+  "productId": "ansible-aap-managed",
 }
 `;
 
