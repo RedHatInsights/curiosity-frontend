@@ -133,7 +133,6 @@
     "legendTooltip_Instance-hours_on-demand": "Monthly <0>On-Demand</0> control plane hour usage.",
     "legendTooltip_Instance-hours_prepaid": "Monthly <0>pre-paid</0> control plane hour usage.",
     "legendTooltip_Instance-hours_prepaid_ansible-aap-managed": "Monthly <0>pre-paid</0> infrastructure hour usage.",
-    "legendTooltip_Managed-nodes_on-demand": "Monthly <0>On-Demand</0> vCPU hours usage.",
     "legendTooltip_Managed-nodes_prepaid": "Monthly <0>pre-paid</0> managed active nodes usage.",
     "legendTooltip_Sockets": "{{product}} CPU usage, per CPU socket pair.",
     "legendTooltip_Sockets_cloud": "Public cloud {{product}} CPU usage, per socket. Each instance is considered a single socket.",
