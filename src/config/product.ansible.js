@@ -284,7 +284,7 @@ const config = {
         }),
       isSort: true,
       isWrap: true,
-      width: 15
+      width: 20
     },
     {
       metric: INVENTORY_TYPES.LAST_SEEN,

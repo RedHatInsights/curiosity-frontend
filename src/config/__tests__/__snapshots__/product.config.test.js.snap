@@ -4042,7 +4042,7 @@ exports[`Product specific configurations should apply variations in inventory fi
           "label": [Function],
           "metric": "Instance-hours",
           "modifier": "wrap",
-          "width": 15,
+          "width": 20,
         },
         {
           "cell": [Function],
@@ -4083,7 +4083,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "isSort": true,
               "isWrap": true,
               "metric": "Instance-hours",
-              "width": 15,
+              "width": 20,
             },
             {
               "content": <DateFormat
@@ -5164,7 +5164,7 @@ exports[`Product specific configurations should apply variations in inventory fi
           "label": [Function],
           "metric": "Instance-hours",
           "modifier": "wrap",
-          "width": 15,
+          "width": 20,
         },
         {
           "cell": [Function],
@@ -5205,7 +5205,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "isSort": true,
               "isWrap": true,
               "metric": "Instance-hours",
-              "width": 15,
+              "width": 20,
             },
             {
               "content": <DateFormat
