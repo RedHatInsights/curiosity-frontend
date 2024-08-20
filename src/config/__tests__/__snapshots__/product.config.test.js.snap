@@ -4024,6 +4024,28 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
+          "content": "t([curiosity-inventory.header_Managed-nodes,curiosity-inventory.guestsHeader_Managed-nodes], {"context":"ansible-aap-managed"})",
+          "info": undefined,
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Managed-nodes",
+          "modifier": "wrap",
+          "width": 15,
+        },
+        {
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"ansible-aap-managed"})",
+          "info": undefined,
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Instance-hours",
+          "modifier": "wrap",
+          "width": 15,
+        },
+        {
+          "cell": [Function],
           "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"ansible-aap-managed"})",
           "info": undefined,
           "isSort": true,
@@ -4038,19 +4060,30 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cells": [
             {
-              "content": <Button
-                component="a"
-                href="/openshift/details/i-XXXXXXXXXX/"
-                isInline={true}
-                variant="link"
-              >
-                lorem
-              </Button>,
+              "content": "lorem",
               "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"ansible-aap-managed"})",
               "header": [Function],
               "isSort": true,
               "metric": "display_name",
               "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Managed-nodes","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Managed-nodes,curiosity-inventory.guestsHeader_Managed-nodes], {"context":"ansible-aap-managed"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Managed-nodes",
+              "width": 15,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Instance-hours","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"ansible-aap-managed"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Instance-hours",
+              "width": 15,
             },
             {
               "content": <DateFormat
@@ -5113,6 +5146,28 @@ exports[`Product specific configurations should apply variations in inventory fi
         },
         {
           "cell": [Function],
+          "content": "t([curiosity-inventory.header_Managed-nodes,curiosity-inventory.guestsHeader_Managed-nodes], {"context":"ansible-aap-managed"})",
+          "info": undefined,
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Managed-nodes",
+          "modifier": "wrap",
+          "width": 15,
+        },
+        {
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"ansible-aap-managed"})",
+          "info": undefined,
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Instance-hours",
+          "modifier": "wrap",
+          "width": 15,
+        },
+        {
+          "cell": [Function],
           "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"ansible-aap-managed"})",
           "info": undefined,
           "isSort": true,
@@ -5133,6 +5188,24 @@ exports[`Product specific configurations should apply variations in inventory fi
               "isSort": true,
               "metric": "display_name",
               "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Managed-nodes","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Managed-nodes,curiosity-inventory.guestsHeader_Managed-nodes], {"context":"ansible-aap-managed"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Managed-nodes",
+              "width": 15,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"testId":{"type":"span","key":null,"ref":null,"props":{"data-test":"instances-cell-Instance-hours","data-value":"undefined"},"_owner":null,"_store":{}}})",
+              "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"ansible-aap-managed"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Instance-hours",
+              "width": 15,
             },
             {
               "content": <DateFormat
