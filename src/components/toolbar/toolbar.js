@@ -8,7 +8,7 @@ import {
   ToolbarToggleGroup
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
-import { useProductToolbarQuery } from '../productView/productViewContext';
+import { useProductToolbarQuery, useProduct } from '../productView/productViewContext';
 import { useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFields } from './toolbarContext';
 import { ToolbarFilter } from './toolbarFilter';
 import { ToolbarFieldGroupVariant } from './toolbarFieldGroupVariant';
@@ -61,6 +61,7 @@ const Toolbar = ({
   useToolbarFieldClearAll: useAliasToolbarFieldClearAll,
   useToolbarFields: useAliasToolbarFields
 }) => {
+  const { productGroup } = useProduct();
   const toolbarFieldQueries = useAliasProductToolbarQuery();
   const { currentCategory, options } = useAliasSelectCategoryOptions();
   const clearField = useAliasToolbarFieldClear();
@@ -113,6 +114,7 @@ const Toolbar = ({
   return (
     <PfToolbar
       id="curiosity-toolbar"
+      key={productGroup}
       className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
       collapseListedFiltersBreakpoint="sm"
       clearAllFilters={onClearAll}
