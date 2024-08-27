@@ -43,6 +43,7 @@ import { translate } from '../i18n/i18n';
  * @param {boolean} props.isDisabled
  * @param {boolean} props.isGroupVariantDisabled
  * @param {Function} props.t
+ * @param {Function} props.useProduct
  * @param {Function} props.useProductToolbarQuery
  * @param {Function} props.useSelectCategoryOptions
  * @param {Function} props.useToolbarFieldClear
@@ -55,13 +56,14 @@ const Toolbar = ({
   isDisabled,
   isGroupVariantDisabled,
   t,
+  useProduct: useAliasProduct,
   useProductToolbarQuery: useAliasProductToolbarQuery,
   useSelectCategoryOptions: useAliasSelectCategoryOptions,
   useToolbarFieldClear: useAliasToolbarFieldClear,
   useToolbarFieldClearAll: useAliasToolbarFieldClearAll,
   useToolbarFields: useAliasToolbarFields
 }) => {
-  const { productGroup } = useProduct();
+  const { productGroup } = useAliasProduct();
   const toolbarFieldQueries = useAliasProductToolbarQuery();
   const { currentCategory, options } = useAliasSelectCategoryOptions();
   const clearField = useAliasToolbarFieldClear();
@@ -165,13 +167,15 @@ const Toolbar = ({
  *
  * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function,
  *     hardFilterReset: boolean, useToolbarFields: Function, isGroupVariantDisabled: boolean,
- *     useProductToolbarQuery: Function, isDisabled: boolean, useToolbarFieldClearAll: Function}}
+ *     useProduct: Function, useProductToolbarQuery: Function, isDisabled: boolean,
+ *     useToolbarFieldClearAll: Function}}
  */
 Toolbar.propTypes = {
   hardFilterReset: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isGroupVariantDisabled: PropTypes.bool,
   t: PropTypes.func,
+  useProduct: PropTypes.func,
   useProductToolbarQuery: PropTypes.func,
   useSelectCategoryOptions: PropTypes.func,
   useToolbarFieldClear: PropTypes.func,
@@ -184,13 +188,15 @@ Toolbar.propTypes = {
  *
  * @type {{useToolbarFieldClear: Function, t: translate, useSelectCategoryOptions: Function,
  *     hardFilterReset: boolean, useToolbarFields: Function, isGroupVariantDisabled: boolean,
- *     useProductToolbarQuery: Function, isDisabled: boolean, useToolbarFieldClearAll: Function}}
+ *     useProduct: Function, useProductToolbarQuery: Function, isDisabled: boolean,
+ *     useToolbarFieldClearAll: Function}}
  */
 Toolbar.defaultProps = {
   hardFilterReset: false,
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
   isGroupVariantDisabled: helpers.UI_DISABLED_TOOLBAR_GROUP_VARIANT,
   t: translate,
+  useProduct,
   useProductToolbarQuery,
   useSelectCategoryOptions,
   useToolbarFieldClear,
