@@ -6156,6 +6156,8 @@ Application filter toolbar.
     </tr><tr>
     <td>props.t</td><td><code>function</code></td><td></td>
     </tr><tr>
+    <td>props.useProduct</td><td><code>function</code></td><td></td>
+    </tr><tr>
     <td>props.useProductToolbarQuery</td><td><code>function</code></td><td></td>
     </tr><tr>
     <td>props.useSelectCategoryOptions</td><td><code>function</code></td><td></td>
