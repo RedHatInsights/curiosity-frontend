@@ -40,6 +40,7 @@ exports[`ProductView Component should allow custom inventory displays via config
           isDisabled={false}
           isGroupVariantDisabled={false}
           t={[Function]}
+          useProduct={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
@@ -142,6 +143,7 @@ exports[`ProductView Component should allow custom inventory displays via config
           isDisabled={false}
           isGroupVariantDisabled={false}
           t={[Function]}
+          useProduct={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
@@ -230,6 +232,7 @@ exports[`ProductView Component should allow custom inventory displays via config
           isDisabled={false}
           isGroupVariantDisabled={false}
           t={[Function]}
+          useProduct={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
@@ -317,6 +320,7 @@ exports[`ProductView Component should allow custom product views via productDisp
           isDisabled={false}
           isGroupVariantDisabled={false}
           t={[Function]}
+          useProduct={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
@@ -389,6 +393,7 @@ exports[`ProductView Component should allow custom product views via productDisp
           isDisabled={false}
           isGroupVariantDisabled={false}
           t={[Function]}
+          useProduct={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
@@ -461,6 +466,7 @@ exports[`ProductView Component should allow custom product views via productDisp
           isDisabled={false}
           isGroupVariantDisabled={false}
           t={[Function]}
+          useProduct={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
@@ -533,6 +539,7 @@ exports[`ProductView Component should allow custom product views via productDisp
           isDisabled={false}
           isGroupVariantDisabled={false}
           t={[Function]}
+          useProduct={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
@@ -605,6 +612,7 @@ exports[`ProductView Component should allow custom product views via productDisp
           isDisabled={false}
           isGroupVariantDisabled={false}
           t={[Function]}
+          useProduct={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
@@ -676,6 +684,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
           isDisabled={false}
           isGroupVariantDisabled={false}
           t={[Function]}
+          useProduct={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
