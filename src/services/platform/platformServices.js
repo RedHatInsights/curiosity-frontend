@@ -23,8 +23,11 @@ import {
  * @returns {Promise<*>}
  */
 const getUser = async (options = {}) => {
-  const { schema = [platformSchemas.user], transform = [platformTransformers.user] } = options;
-  const { insights } = window;
+  const {
+    schema = [platformSchemas.user],
+    transform = [platformTransformers.user],
+    getUser: aliasGetUser = window?.insights?.chrome?.auth?.getUser
+  } = options;
   return axiosServiceCall({
     url: async () => {
       try {
@@ -39,7 +42,7 @@ const getUser = async (options = {}) => {
               ],
               process.env.REACT_APP_DEBUG_ORG_ADMIN === 'true'
             )) ||
-          (await insights.chrome.auth.getUser())
+          (await aliasGetUser())
         );
       } catch (e) {
         throw new Error(`{ getUser } = insights.chrome.auth, ${e.message}`);
@@ -58,9 +61,12 @@ const getUser = async (options = {}) => {
  * @returns {Promise<*>}
  */
 const getUserPermissions = (appName = Object.keys(rbacConfig), options = {}) => {
-  const { schema = [platformSchemas.permissions], transform = [platformTransformers.permissions] } = options;
+  const {
+    schema = [platformSchemas.permissions],
+    transform = [platformTransformers.permissions],
+    getUserPermissions: aliasGetUserPermissions = window?.insights?.chrome?.getUserPermissions
+  } = options;
   const updatedAppName = (Array.isArray(appName) && appName) || [appName];
-  const { insights } = window;
   const platformMethod = name =>
     (helpers.DEV_MODE && [
       {
@@ -70,7 +76,7 @@ const getUserPermissions = (appName = Object.keys(rbacConfig), options = {}) => 
         [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_TWO
       }
     ]) ||
-    insights.chrome.getUserPermissions(name);
+    aliasGetUserPermissions(name);
 
   return axiosServiceCall({
     url: async () => {
