@@ -32,7 +32,6 @@ const useAuthContext = () => useContext(AuthenticationContext);
  * @param {object} options
  * @param {string} options.appName
  * @param {Function} options.authorizeUser
- * @param {Function} options.hideGlobalFilter
  * @param {Function} options.useChrome
  * @param {Function} options.useDispatch
  * @param {Function} options.useSelectorsResponse
@@ -41,13 +40,12 @@ const useAuthContext = () => useContext(AuthenticationContext);
 const useGetAuthorization = ({
   appName = routerHelpers.appName,
   authorizeUser = reduxActions.platform.authorizeUser,
-  hideGlobalFilter = reduxActions.platform.hideGlobalFilter,
   useChrome: useAliasChrome = useChrome,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
   const dispatch = useAliasDispatch();
-  const { updateDocumentTitle = helpers.noop } = useAliasChrome();
+  const { updateDocumentTitle = helpers.noop, hideGlobalFilter = helpers.noop } = useAliasChrome();
   const { data, error, fulfilled, pending, responses } = useAliasSelectorsResponse([
     { id: 'auth', selector: ({ app }) => app?.auth },
     { id: 'locale', selector: ({ app }) => app?.locale },
@@ -60,7 +58,7 @@ const useGetAuthorization = ({
   useMount(async () => {
     await dispatch(authorizeUser());
     updateDocumentTitle(appName);
-    dispatch([hideGlobalFilter()]);
+    hideGlobalFilter();
   });
 
   const [user = {}, app = {}] = (Array.isArray(data.auth) && data.auth) || [];
