@@ -1,7 +1,7 @@
 import { createLogger } from 'redux-logger';
-import promiseMiddleware from 'redux-promise-middleware';
 import { thunk as thunkMiddleware } from 'redux-thunk';
 import { notificationsMiddleware } from '@redhat-cloud-services/frontend-components-notifications';
+import { promiseMiddleware } from './promiseMiddleware';
 import { multiActionMiddleware } from './multiActionMiddleware';
 import { statusMiddleware } from './statusMiddleware';
 import { actionRecordMiddleware } from './actionRecordMiddleware';
@@ -34,7 +34,7 @@ const reduxMiddleware = [
   thunkMiddleware,
   statusMiddleware(),
   multiActionMiddleware,
-  promiseMiddleware,
+  promiseMiddleware({ isCatchRejection: true }),
   actionRecordMiddleware({
     id: process.env.REACT_APP_UI_LOGGER_ID,
     app: { version: process.env.REACT_APP_UI_VERSION }
