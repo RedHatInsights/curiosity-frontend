@@ -110,7 +110,6 @@
     "react-use": "^17.5.1",
     "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
-    "redux-promise-middleware": "^6.2.0",
     "redux-thunk": "^3.1.0",
     "victory": "37.0.2",
     "victory-create-container": "37.0.2"

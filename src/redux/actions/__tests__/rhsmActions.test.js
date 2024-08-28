@@ -6,7 +6,7 @@ import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 import { rhsmActions } from '../rhsmActions';
 
 describe('RhsmActions', () => {
-  const middleware = [multiActionMiddleware, promiseMiddleware];
+  const middleware = [multiActionMiddleware, promiseMiddleware()];
   const generateStore = () =>
     createStore(
       combineReducers({

@@ -19,6 +19,8 @@
 <dd></dd>
 <dt><a href="#Middleware.module_MultiActionMiddleware">MultiActionMiddleware</a></dt>
 <dd></dd>
+<dt><a href="#Middleware.module_PromiseMiddleware">PromiseMiddleware</a></dt>
+<dd></dd>
 <dt><a href="#Middleware.module_StatusMiddleware">StatusMiddleware</a></dt>
 <dd></dd>
 <dt><a href="#Reducers.module_AppReducer">AppReducer</a></dt>
@@ -1059,6 +1061,82 @@ Allow passing an array of actions for batch dispatch.
   <tbody>
 <tr>
     <td>store</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Middleware.module_PromiseMiddleware"></a>
+
+## PromiseMiddleware
+
+* [PromiseMiddleware](#Middleware.module_PromiseMiddleware)
+    * [~ActionType](#Middleware.module_PromiseMiddleware..ActionType) : <code>Object</code>
+    * [~createPromise(config)](#Middleware.module_PromiseMiddleware..createPromise) ⇒ <code>function</code>
+    * [~promiseMiddleware(config)](#Middleware.module_PromiseMiddleware..promiseMiddleware) ⇒ <code>function</code>
+
+<a name="Middleware.module_PromiseMiddleware..ActionType"></a>
+
+### PromiseMiddleware~ActionType : <code>Object</code>
+Redux default action types for promiseMiddleware
+
+**Kind**: inner constant of [<code>PromiseMiddleware</code>](#Middleware.module_PromiseMiddleware)  
+<a name="Middleware.module_PromiseMiddleware..createPromise"></a>
+
+### PromiseMiddleware~createPromise(config) ⇒ <code>function</code>
+Function: createPromise
+Description: The main createPromise accepts a configuration
+object and returns the middleware.
+
+**Kind**: inner method of [<code>PromiseMiddleware</code>](#Middleware.module_PromiseMiddleware)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>config</td><td><code>object</code></td>
+    </tr><tr>
+    <td>config.isCatchRejection</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>config.promiseTypeDelimiter</td><td><code>string</code></td>
+    </tr><tr>
+    <td>config.promiseTypeSuffixPending</td><td><code>string</code></td>
+    </tr><tr>
+    <td>config.promiseTypeSuffixFulfilled</td><td><code>string</code></td>
+    </tr><tr>
+    <td>config.promiseTypeSuffixRejected</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Middleware.module_PromiseMiddleware..promiseMiddleware"></a>
+
+### PromiseMiddleware~promiseMiddleware(config) ⇒ <code>function</code>
+Promise middleware
+Base code, https://github.com/pburtchaell/redux-promise-middleware
+Modified to allow configuration and "isCatchRejection".
+
+**Kind**: inner method of [<code>PromiseMiddleware</code>](#Middleware.module_PromiseMiddleware)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>config</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>config.isCatchRejection</td><td><code>boolean</code></td><td><p>Catch the returned promise. Helps avoid the &quot;[uncaught in promise]&quot; error</p>
+</td>
+    </tr><tr>
+    <td>config.promiseTypeDelimiter</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>config.promiseTypeSuffixPending</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>config.promiseTypeSuffixFulfilled</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>config.promiseTypeSuffixRejected</td><td><code>string</code></td><td></td>
     </tr>  </tbody>
 </table>
 
