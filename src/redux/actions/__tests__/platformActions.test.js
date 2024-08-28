@@ -5,7 +5,7 @@ import { platformActions } from '../platformActions';
 import { appReducer } from '../../reducers';
 
 describe('PlatformActions', () => {
-  const middleware = [promiseMiddleware];
+  const middleware = [promiseMiddleware()];
   const generateStore = () =>
     createStore(
       combineReducers({
