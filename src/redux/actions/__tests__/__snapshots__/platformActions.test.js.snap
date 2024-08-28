@@ -1,12 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlatformActions Should return a dispatch object for the hideGlobalFilter method: dispatch object 1`] = `
-{
-  "payload": Promise {},
-  "type": "PLATFORM_GLOBAL_FILTER_HIDE",
-}
-`;
-
 exports[`PlatformActions Should return response content for createExport method: dispatch object 1`] = `
 [
   [

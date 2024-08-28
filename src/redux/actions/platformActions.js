@@ -131,17 +131,6 @@ const createExport =
       }
     });
 
-/**
- * Hide platform global filter.
- *
- * @param {boolean} isHidden
- * @returns {{Function}}
- */
-const hideGlobalFilter = isHidden => ({
-  type: platformTypes.PLATFORM_GLOBAL_FILTER_HIDE,
-  payload: platformServices.hideGlobalFilter(isHidden)
-});
-
 const platformActions = {
   addNotification,
   removeNotification,
@@ -150,8 +139,7 @@ const platformActions = {
   createExport,
   deleteExistingExports,
   getExistingExports,
-  getExistingExportsStatus,
-  hideGlobalFilter
+  getExistingExportsStatus
 };
 
 export {
@@ -164,6 +152,5 @@ export {
   createExport,
   deleteExistingExports,
   getExistingExports,
-  getExistingExportsStatus,
-  hideGlobalFilter
+  getExistingExportsStatus
 };

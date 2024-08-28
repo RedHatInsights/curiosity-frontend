@@ -425,7 +425,6 @@ Emulated service calls for platform globals.
 * [PlatformServices](#Platform.module_PlatformServices)
     * [~getUser(options)](#Platform.module_PlatformServices..getUser) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getUserPermissions(appName, options)](#Platform.module_PlatformServices..getUserPermissions) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * [~hideGlobalFilter(isHidden)](#Platform.module_PlatformServices..hideGlobalFilter) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~deleteExport(id, options)](#Platform.module_PlatformServices..deleteExport) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getExistingExportsStatus(id, params, options)](#Platform.module_PlatformServices..getExistingExportsStatus) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getExport(id, options)](#Platform.module_PlatformServices..getExport) ⇒ <code>Promise.&lt;\*&gt;</code>
@@ -467,24 +466,6 @@ Basic user permissions.
     <td>appName</td><td><code>string</code></td>
     </tr><tr>
     <td>options</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Platform.module_PlatformServices..hideGlobalFilter"></a>
-
-### PlatformServices~hideGlobalFilter(isHidden) ⇒ <code>Promise.&lt;\*&gt;</code>
-Disables the Platform's global filter display.
-
-**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>isHidden</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr>  </tbody>
 </table>
 

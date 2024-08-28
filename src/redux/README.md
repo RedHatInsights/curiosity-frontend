@@ -69,7 +69,6 @@ Platform service wrappers for dispatch, state update.
     * [~deleteExistingExports(existingExports, notifications)](#Actions.module_PlatformActions..deleteExistingExports) ⇒ <code>function</code>
     * [~getExistingExportsStatus(notifications)](#Actions.module_PlatformActions..getExistingExportsStatus) ⇒ <code>function</code>
     * [~createExport(id, data, options, notifications)](#Actions.module_PlatformActions..createExport) ⇒ <code>function</code>
-    * [~hideGlobalFilter(isHidden)](#Actions.module_PlatformActions..hideGlobalFilter) ⇒ <code>Object</code>
 
 <a name="Actions.module_PlatformActions..addNotification"></a>
 
@@ -214,24 +213,6 @@ Create an export for download. Includes toast notifications.
 </td>
     </tr><tr>
     <td>notifications</td><td><code>object</code></td><td></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Actions.module_PlatformActions..hideGlobalFilter"></a>
-
-### PlatformActions~hideGlobalFilter(isHidden) ⇒ <code>Object</code>
-Hide platform global filter.
-
-**Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>isHidden</td><td><code>boolean</code></td>
     </tr>  </tbody>
 </table>
 
