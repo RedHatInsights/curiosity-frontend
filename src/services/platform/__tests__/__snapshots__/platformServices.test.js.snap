@@ -15,7 +15,7 @@ exports[`PlatformServices should export a specific  properties, methods and clas
 exports[`PlatformServices should return a failed getUser: failed authorized user 1`] = `
 {
   "data": undefined,
-  "message": "{ getUser } = insights.chrome.auth, insights.chrome.auth.getUser is not a function",
+  "message": "{ getUser } = insights.chrome.auth, aliasGetUser is not a function",
   "status": 418,
   "statusText": undefined,
 }
@@ -24,7 +24,7 @@ exports[`PlatformServices should return a failed getUser: failed authorized user
 exports[`PlatformServices should return a failed getUserPermissions: failed user permissions 1`] = `
 {
   "data": undefined,
-  "message": "{ getUserPermissions } = insights.chrome, insights.chrome.getUserPermissions is not a function",
+  "message": "{ getUserPermissions } = insights.chrome, aliasGetUserPermissions is not a function",
   "status": 418,
   "statusText": undefined,
 }
