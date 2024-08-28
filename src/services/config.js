@@ -1,5 +1,5 @@
+import { authInterceptor } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 import { axiosServiceCall } from './common/serviceConfig';
-import { platformServices } from './platform/platformServices';
 
 /**
  * @namespace Services
@@ -34,7 +34,7 @@ const serviceConfig = (passedConfig = {}) => ({
  * @returns {Promise<*>}
  */
 const serviceCall = async config => {
-  await platformServices.getUser();
+  await authInterceptor();
   return axiosServiceCall(serviceConfig(config));
 };
 

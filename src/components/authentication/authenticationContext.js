@@ -45,7 +45,12 @@ const useGetAuthorization = ({
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
   const dispatch = useAliasDispatch();
-  const { updateDocumentTitle = helpers.noop, hideGlobalFilter = helpers.noop } = useAliasChrome();
+  const {
+    auth = { getUser: helpers.noop },
+    getUserPermissions = helpers.noop,
+    hideGlobalFilter = helpers.noop,
+    updateDocumentTitle = helpers.noop
+  } = useAliasChrome();
   const { data, error, fulfilled, pending, responses } = useAliasSelectorsResponse([
     { id: 'auth', selector: ({ app }) => app?.auth },
     { id: 'locale', selector: ({ app }) => app?.locale },
@@ -56,7 +61,7 @@ const useGetAuthorization = ({
   ]);
 
   useMount(async () => {
-    await dispatch(authorizeUser());
+    await dispatch(authorizeUser({ getUser: auth?.getUser, getUserPermissions }));
     updateDocumentTitle(appName);
     hideGlobalFilter();
   });

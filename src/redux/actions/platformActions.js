@@ -51,14 +51,22 @@ const clearNotifications = () => dispatch => dispatch(RcsClearNotifications());
 /**
  * Get an emulated and combined API response from the platforms "getUser" and "getUserPermissions" global methods.
  *
- * @param {string|Array} appName
+ * @param {object} params
+ * @param {string|Array} params.appName
+ * @param {Function} params.getUser
+ * @param {Function} params.getUserPermissions
  * @returns {Function}
  */
-const authorizeUser = appName => dispatch =>
-  dispatch({
-    type: platformTypes.PLATFORM_USER_AUTH,
-    payload: Promise.all([platformServices.getUser(), platformServices.getUserPermissions(appName)])
-  });
+const authorizeUser =
+  ({ appName, getUser, getUserPermissions } = {}) =>
+  dispatch =>
+    dispatch({
+      type: platformTypes.PLATFORM_USER_AUTH,
+      payload: Promise.all([
+        platformServices.getUser({ getUser }),
+        platformServices.getUserPermissions(appName, { getUserPermissions })
+      ])
+    });
 
 /**
  * Get all existing exports, if pending poll, and when complete download. Includes toast notifications.
