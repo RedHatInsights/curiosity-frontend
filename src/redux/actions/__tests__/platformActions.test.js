@@ -63,10 +63,6 @@ describe('PlatformActions', () => {
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch object');
   });
 
-  it('Should return a dispatch object for the hideGlobalFilter method', () => {
-    expect(platformActions.hideGlobalFilter()).toMatchSnapshot('dispatch object');
-  });
-
   it('Should return response content for removeExistingExports method', () => {
     const mockDispatch = jest.fn();
     platformActions.deleteExistingExports([])(mockDispatch);
