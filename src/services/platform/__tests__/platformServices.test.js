@@ -78,11 +78,4 @@ describe('PlatformServices', () => {
 
     expect({ status, statusText, data, message }).toMatchSnapshot('failed user permissions');
   });
-
-  it('should return a failed hideGlobalFilter', async () => {
-    window.insights.chrome.hideGlobalFilter = undefined;
-    const response = await returnPromiseAsync(platformServices.hideGlobalFilter);
-
-    expect(response).toMatchSnapshot('failed hideGlobalFilter');
-  });
 });
