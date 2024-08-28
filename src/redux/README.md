@@ -64,7 +64,7 @@ Platform service wrappers for dispatch, state update.
     * [~addNotification(data)](#Actions.module_PlatformActions..addNotification) ⇒ <code>\*</code>
     * [~removeNotification(id)](#Actions.module_PlatformActions..removeNotification) ⇒ <code>\*</code>
     * [~clearNotifications()](#Actions.module_PlatformActions..clearNotifications) ⇒ <code>\*</code>
-    * [~authorizeUser(appName)](#Actions.module_PlatformActions..authorizeUser) ⇒ <code>function</code>
+    * [~authorizeUser(params)](#Actions.module_PlatformActions..authorizeUser) ⇒ <code>function</code>
     * [~getExistingExports(existingExports, notifications)](#Actions.module_PlatformActions..getExistingExports) ⇒ <code>function</code>
     * [~deleteExistingExports(existingExports, notifications)](#Actions.module_PlatformActions..deleteExistingExports) ⇒ <code>function</code>
     * [~getExistingExportsStatus(notifications)](#Actions.module_PlatformActions..getExistingExportsStatus) ⇒ <code>function</code>
@@ -115,7 +115,7 @@ Clear all platform plugin toast notifications.
 **Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
 <a name="Actions.module_PlatformActions..authorizeUser"></a>
 
-### PlatformActions~authorizeUser(appName) ⇒ <code>function</code>
+### PlatformActions~authorizeUser(params) ⇒ <code>function</code>
 Get an emulated and combined API response from the platforms "getUser" and "getUserPermissions" global methods.
 
 **Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
@@ -127,7 +127,13 @@ Get an emulated and combined API response from the platforms "getUser" and "getU
   </thead>
   <tbody>
 <tr>
-    <td>appName</td><td><code>string</code> | <code>Array</code></td>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.appName</td><td><code>string</code> | <code>Array</code></td>
+    </tr><tr>
+    <td>params.getUser</td><td><code>function</code></td>
+    </tr><tr>
+    <td>params.getUserPermissions</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
