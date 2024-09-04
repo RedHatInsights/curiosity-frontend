@@ -1,0 +1,8 @@
+# Each line is a file pattern followed by one or more owners.
+
+# CODEOWNERS permissions
+/.github/CODEOWNERS @barnabycourt @cdcabrera
+
+# Default owner(s) for everything. Will be requested for
+# review when a pull request is opened.
+* @cdcabrera
