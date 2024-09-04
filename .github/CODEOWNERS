@@ -1,0 +1,9 @@
+# Each line is a file pattern followed by one or more owners.
+# Order is important. Last matching pattern has the most
+# precedence
+
+# Default owner(s) for everything. Added to PR reviews
+* @cdcabrera
+
+# CODEOWNERS permissions
+/.github/CODEOWNERS @barnabycourt @cdcabrera
