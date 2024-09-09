@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.10.0](https://github.com/RedHatInsights/curiosity-frontend/compare/4cefd3026b125e3eb05e4e6eb3a0c45669347464...a4485c8f5e45482567b3b1732022d2ffece81b7b) (2024-09-09)
+
+
+### Code Refactoring
+*  sw-2410 api v2 for subscriptions inventory ([#1383](https://github.com/RedHatInsights/curiosity-frontend/pull/1383)) ([ec48c58](https://github.com/RedHatInsights/curiosity-frontend/commit/ec48c58047c7183d9d17fc1b8ff9838105e47257))
+
+### Builds
+* **deps** bump group with 7 updates ([#1386](https://github.com/RedHatInsights/curiosity-frontend/pull/1386)) ([a4485c8](https://github.com/RedHatInsights/curiosity-frontend/commit/a4485c8f5e45482567b3b1732022d2ffece81b7b))
+* **deps-dev** bump group with 3 updates ([#1384](https://github.com/RedHatInsights/curiosity-frontend/pull/1384)) ([25e1943](https://github.com/RedHatInsights/curiosity-frontend/commit/25e194316699fa07bfb970b6f52454a66b3a36b4))
+*  sw-2410 migrate spec viewer to npm script ([#1382](https://github.com/RedHatInsights/curiosity-frontend/pull/1382)) ([507e37a](https://github.com/RedHatInsights/curiosity-frontend/commit/507e37a530fcd1d5bd579694d43aff58b60cd788))
+* **deps** bump axios from 1.7.2 to 1.7.3 ([#1381](https://github.com/RedHatInsights/curiosity-frontend/pull/1381)) ([3b5d195](https://github.com/RedHatInsights/curiosity-frontend/commit/3b5d19572e120f7fdf0da07efc4cfd7ddb9be076))
+* **deps-dev** bump group with 4 updates ([#1380](https://github.com/RedHatInsights/curiosity-frontend/pull/1380)) ([cb20e90](https://github.com/RedHatInsights/curiosity-frontend/commit/cb20e9019b1e977025f56dfd2ef778309b3f4121))
+*  nodejs 18 to 20 ([#1379](https://github.com/RedHatInsights/curiosity-frontend/pull/1379)) ([c48f1c3](https://github.com/RedHatInsights/curiosity-frontend/commit/c48f1c39aa923f063218798a65617d3ff7c3ef12))
+
 ## [4.9.0](https://github.com/RedHatInsights/curiosity-frontend/compare/ff58e71c8ed6dc4d34db96573bd5a4d4bf507be3...3865a4ee750d03e8a791c4c79f8d0038f2b55d38) (2024-08-06)
 
 
