@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.11.0](https://github.com/RedHatInsights/curiosity-frontend/compare/e90c3b4765114a182136327e9088a0261d722f5a...2e8838f884b224e7a990bb7ecd52337b6affe4dc) (2024-09-10)
+
+
+### Continuous Integrations
+*  update konflux references to fd1fda0 ([#1406](https://github.com/RedHatInsights/curiosity-frontend/pull/1406)) ([dd3cc98](https://github.com/RedHatInsights/curiosity-frontend/commit/dd3cc982244b04c72d6db4289649a22c24e41725))
+*  update konflux references to a523f60 ([#1402](https://github.com/RedHatInsights/curiosity-frontend/pull/1402)) ([4bc6c8f](https://github.com/RedHatInsights/curiosity-frontend/commit/4bc6c8f0a8f753b707300fa4d6c1b7988dd26b1d))
+*  update konflux references ([#1399](https://github.com/RedHatInsights/curiosity-frontend/pull/1399)) ([f54ff4d](https://github.com/RedHatInsights/curiosity-frontend/commit/f54ff4d069009f236ad6030ecf9e8b5011477c39))
+*  red hat konflux update for curiosity-frontend ([#1398](https://github.com/RedHatInsights/curiosity-frontend/pull/1398)) ([be2c6c3](https://github.com/RedHatInsights/curiosity-frontend/commit/be2c6c39489db35340cf64700d1af5c4e5430413))
+
+### Code Refactoring
+*  sw-2479 promiseMiddleware, catch rejections ([#1397](https://github.com/RedHatInsights/curiosity-frontend/pull/1397)) ([57ac411](https://github.com/RedHatInsights/curiosity-frontend/commit/57ac411ea84b02042d4744db0fa9e846e6afe6d6))
+*  sw-2861 getUser, Permissions legacy chrome methods ([#1396](https://github.com/RedHatInsights/curiosity-frontend/pull/1396)) ([d0cb5c8](https://github.com/RedHatInsights/curiosity-frontend/commit/d0cb5c8caef623f08a24e9962b8decb58df73279))
+*  sw-2861 hideGlobalFilter legacy chrome method ([#1395](https://github.com/RedHatInsights/curiosity-frontend/pull/1395)) ([288ce86](https://github.com/RedHatInsights/curiosity-frontend/commit/288ce865bf5e511359c0d886094daf64e3a26991))
+* **config** sw-2396, sw-2397 update openshift variants ([#1388](https://github.com/RedHatInsights/curiosity-frontend/pull/1388)) ([358c9da](https://github.com/RedHatInsights/curiosity-frontend/commit/358c9da6475993d481b70099aeafc78aaef8587f))
+
+### Builds
+* **deps-dev** bump group with 3 updates ([#1407](https://github.com/RedHatInsights/curiosity-frontend/pull/1407)) ([2e8838f](https://github.com/RedHatInsights/curiosity-frontend/commit/2e8838f884b224e7a990bb7ecd52337b6affe4dc))
+*  renovate commit message prefix ([#1405](https://github.com/RedHatInsights/curiosity-frontend/pull/1405)) ([0fe1f4c](https://github.com/RedHatInsights/curiosity-frontend/commit/0fe1f4ca18ab6adfd25e9a28c94c5befb34c8402))
+*  add codeowners, pr reviews ([#1404](https://github.com/RedHatInsights/curiosity-frontend/pull/1404)) ([e774609](https://github.com/RedHatInsights/curiosity-frontend/commit/e774609c19f0393d6fe4670645ea619e90a78ec3))
+* **deps-dev** bump group with 6 updates ([#1403](https://github.com/RedHatInsights/curiosity-frontend/pull/1403)) ([68fad1d](https://github.com/RedHatInsights/curiosity-frontend/commit/68fad1d2e53357b48a23078256b3ceed61684f8c))
+* **deps** bump group with 10 updates ([#1400](https://github.com/RedHatInsights/curiosity-frontend/pull/1400)) ([607426f](https://github.com/RedHatInsights/curiosity-frontend/commit/607426f6aad3c1078a04631d31b3c24c6694f320))
+* **deps-dev** bump group with 3 updates ([#1393](https://github.com/RedHatInsights/curiosity-frontend/pull/1393)) ([f1fccfd](https://github.com/RedHatInsights/curiosity-frontend/commit/f1fccfd127faa61ac5d2ad993d738882ad20d7b6))
+* **deps** bump group with 3 updates ([#1392](https://github.com/RedHatInsights/curiosity-frontend/pull/1392)) ([40b4828](https://github.com/RedHatInsights/curiosity-frontend/commit/40b482886afed9f21f05a0f87588e8871a9e2d63))
+* **deps-dev** bump cspell from 8.13.3 to 8.14.1 ([#1390](https://github.com/RedHatInsights/curiosity-frontend/pull/1390)) ([76ee5fb](https://github.com/RedHatInsights/curiosity-frontend/commit/76ee5fb22c8caf3295b257455b29cecfeb1b1eb3))
+
+### Bug Fixes
+* **toolbar** sw-2856 hide residual reset filters link ([#1394](https://github.com/RedHatInsights/curiosity-frontend/pull/1394)) ([096933f](https://github.com/RedHatInsights/curiosity-frontend/commit/096933f8fc29f39807459e676a686f6568abf343))
+
 ## [4.10.0](https://github.com/RedHatInsights/curiosity-frontend/compare/4cefd3026b125e3eb05e4e6eb3a0c45669347464...a4485c8f5e45482567b3b1732022d2ffece81b7b) (2024-09-09)
 
 
