@@ -1,3 +1,6 @@
 {
-  "commitMessagePrefix": "ci:"
+  "commitMessagePrefix": "ci:",
+  "commitMessageLowerCase": "auto",
+  "labels": ["build"],
+  "rebaseWhen": "auto"
 }
