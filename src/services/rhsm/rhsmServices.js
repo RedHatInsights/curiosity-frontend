@@ -438,6 +438,186 @@ const getApiVersion = (options = {}) => {
  *     }
  */
 /**
+ * @apiMock {DelayResponse} 250
+ * @apiMock {RandomSuccess}
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Managed-nodes Get RHSM graph data
+ * @apiDescription Retrieve graph data.
+ *
+ * @apiSuccessExample {json} DAILY, Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2020-07-01T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-02T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-03T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-04T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-05T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-06T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-07T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-08T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-09T00:00:00Z",
+ *           "value": 1000,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-10T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-11T00:00:00Z",
+ *           "value": 50.090125,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-12T00:00:00Z",
+ *           "has_data": null
+ *         },
+ *         {
+ *           "date": "2020-07-13T00:00:00Z",
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-14T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-15T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-16T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-17T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-18T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-19T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-20T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-21T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-22T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-23T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-24T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-25T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-26T00:00:00Z",
+ *           "value": 104,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-27T00:00:00Z",
+ *           "value": 70,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-28T00:00:00Z",
+ *           "value": 82,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-29T00:00:00Z",
+ *           "value": 86,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-30T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 144,
+ *           "has_data": true
+ *         }
+ *       ],
+ *       "links": {},
+ *       "meta": {
+ *         "granularity": "daily",
+ *         "has_cloudigrade_data": false,
+ *         "has_cloudigrade_mismatch": true,
+ *         "metric_id": "Managed-nodes",
+ *         "product": "ansible-aap-managed",
+ *         "service_level": "",
+ *         "total_monthly": {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": true
+ *         },
+ *         "usage": ""
+ *       }
+ *     }
+/**
  * @apiMock {DelayResponse} 1000
  * @apiMock {RandomSuccess}
  * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Transfer-gibibytes Get RHSM graph data

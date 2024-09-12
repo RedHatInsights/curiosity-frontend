@@ -3,6 +3,17 @@
 exports[`Build distribution should have a predictable ephemeral navigation based on route configuration: GUI routes expected covered, missing routes 1`] = `
 [
   {
+    "coverage": "FALSE",
+    "path": "/ansible-aap-managed",
+    "productGroup": [
+      "ansible-aap-managed",
+    ],
+    "productId": [
+      "ansible-aap-managed",
+    ],
+    "productVariants": [],
+  },
+  {
     "coverage": "TRUE",
     "path": "/openshift",
     "productGroup": [

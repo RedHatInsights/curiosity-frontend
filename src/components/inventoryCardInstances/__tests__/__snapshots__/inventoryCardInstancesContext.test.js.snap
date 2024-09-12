@@ -21,6 +21,7 @@ exports[`InventoryCardInstancesContext should expect specific sort properties: s
   "CORE_SECONDS": "Core-seconds",
   "INSTANCE_HOURS": "Instance-hours",
   "LAST_SEEN": "last_seen",
+  "MANAGED_NODES": "Managed-nodes",
   "NAME": "display_name",
   "NUMBER_OF_GUESTS": "number_of_guests",
   "SOCKETS": "Sockets",

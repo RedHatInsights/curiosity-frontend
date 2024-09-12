@@ -1,6 +1,9 @@
 ## Modules
 
 <dl>
+<dt><a href="#Products.module_Ansible">Ansible</a></dt>
+<dd><p>Ansible</p>
+</dd>
 <dt><a href="#Products.module_OpenShiftContainer">OpenShiftContainer</a></dt>
 <dd><p>OpenShift Container</p>
 </dd>
@@ -36,6 +39,42 @@
 </dd>
 </dl>
 
+<a name="Products.module_Ansible"></a>
+
+## Ansible
+Ansible
+
+
+* [Ansible](#Products.module_Ansible)
+    * [~productGroup](#Products.module_Ansible..productGroup) : <code>string</code>
+    * [~productId](#Products.module_Ansible..productId) : <code>string</code>
+    * [~productLabel](#Products.module_Ansible..productLabel) : <code>string</code>
+    * [~config](#Products.module_Ansible..config) : <code>Object</code>
+
+<a name="Products.module_Ansible..productGroup"></a>
+
+### Ansible~productGroup : <code>string</code>
+Product group. A variant and dissimilar product configuration grouping identifier.
+
+**Kind**: inner constant of [<code>Ansible</code>](#Products.module_Ansible)  
+<a name="Products.module_Ansible..productId"></a>
+
+### Ansible~productId : <code>string</code>
+Product ID. The identifier used when querying the API.
+
+**Kind**: inner constant of [<code>Ansible</code>](#Products.module_Ansible)  
+<a name="Products.module_Ansible..productLabel"></a>
+
+### Ansible~productLabel : <code>string</code>
+Product label. An identifier used for display strings.
+
+**Kind**: inner constant of [<code>Ansible</code>](#Products.module_Ansible)  
+<a name="Products.module_Ansible..config"></a>
+
+### Ansible~config : <code>Object</code>
+Product configuration
+
+**Kind**: inner constant of [<code>Ansible</code>](#Products.module_Ansible)  
 <a name="Products.module_OpenShiftContainer"></a>
 
 ## OpenShiftContainer
