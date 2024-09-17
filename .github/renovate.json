@@ -2,5 +2,9 @@
   "commitMessagePrefix": "ci:",
   "commitMessageLowerCase": "auto",
   "labels": ["build"],
-  "rebaseWhen": "auto"
+  "rebaseWhen": "auto",
+  "schedule": [
+    "on Tuesday after 3am and before 10am"
+  ],
+  "timezone": "America/New_York"
 }
