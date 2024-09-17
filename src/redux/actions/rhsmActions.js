@@ -43,7 +43,10 @@ const getGraphMetrics =
         ),
         meta: {
           id: generatedId,
+          productId: id,
           query: { ...query, ...metricQuery },
+          action: 'getGraphMetrics',
+          service: methodService.name,
           notifications: {}
         }
       });
@@ -67,7 +70,10 @@ const getInstancesInventory =
       payload: rhsmServices.getInstancesInventory(id, query),
       meta: {
         id,
+        productId: id,
         query,
+        action: 'getInstancesInventory',
+        service: rhsmServices.getInstancesInventory.name,
         notifications: {}
       }
     });
@@ -87,7 +93,10 @@ const getInstancesInventoryGuests =
       payload: rhsmServices.getInstancesInventoryGuests(id, query),
       meta: {
         id,
+        productId: id,
         query,
+        action: 'getInstancesInventoryGuests',
+        service: rhsmServices.getInstancesInventoryGuests.name,
         notifications: {}
       }
     });
@@ -107,7 +116,10 @@ const getSubscriptionsInventory =
       payload: rhsmServices.getSubscriptionsInventory(id, query),
       meta: {
         id,
+        productId: id,
         query,
+        action: 'getSubscriptionsInventory',
+        service: rhsmServices.getSubscriptionsInventory.name,
         notifications: {}
       }
     });

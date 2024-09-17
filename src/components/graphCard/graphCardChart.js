@@ -20,6 +20,7 @@ import { GraphCardChartTitleTooltip } from './graphCardChartTitleTooltip';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { MinHeight } from '../minHeight/minHeight';
 import { Loader } from '../loader/loader';
+import { ErrorMessage } from '../errorMessage/errorMessage';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -50,13 +51,13 @@ const GraphCardChart = ({
   const { stringId } = settings;
 
   const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
-  const { pending, error, dataSets = [] } = useAliasGetMetrics();
+  const { pending, error, message, dataSets = [] } = useAliasGetMetrics();
 
   const cardHeaderProps = {};
 
   if (updatedActionDisplay) {
     cardHeaderProps.actions = {
-      className: `curiosity-card__actions ${(error && 'blur') || ''}`,
+      className: `curiosity-card__actions ${(error && 'hidden') || ''}`,
       actions: (
         <Toolbar className="curiosity-toolbar" collapseListedFiltersBreakpoint="sm">
           <ToolbarContent className="curiosity-toolbar__content">
@@ -79,17 +80,19 @@ const GraphCardChart = ({
       </CardHeader>
       <MinHeight key="bodyMinHeight">
         <CardBody className="curiosity-card__body">
-          <div className={(error && 'blur') || (pending && 'fadein') || ''}>
-            {pending && <Loader variant="graph" />}
-            {!pending && (
-              <Chart
-                {...graphCardHelpers.generateExtendedChartSettings({ settings, granularity })}
-                dataSets={dataSets}
-                chartLegend={({ chart, datum }) => <GraphCardChartLegend chart={chart} datum={datum} />}
-                chartTooltip={({ datum }) => <GraphCardChartTooltip datum={datum} />}
-              />
-            )}
-          </div>
+          {(error && <ErrorMessage message={message} title={t('curiosity-graph.error_title')} />) || (
+            <div className={(pending && 'fadein') || ''}>
+              {pending && <Loader variant="graph" />}
+              {!pending && (
+                <Chart
+                  {...graphCardHelpers.generateExtendedChartSettings({ settings, granularity })}
+                  dataSets={dataSets}
+                  chartLegend={({ chart, datum }) => <GraphCardChartLegend chart={chart} datum={datum} />}
+                  chartTooltip={({ datum }) => <GraphCardChartTooltip datum={datum} />}
+                />
+              )}
+            </div>
+          )}
         </CardBody>
       </MinHeight>
     </Card>

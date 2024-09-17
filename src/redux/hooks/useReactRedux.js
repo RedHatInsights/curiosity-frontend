@@ -284,7 +284,16 @@ const useSelectorsResponse = (selectors, { useSelectors: useAliasSelectors = use
   }
 
   if (errorByList.length) {
-    response.message = new Error(errorByList[0]?.message || `useSelectorsResponse, ${JSON.stringify(errorByList[0])}`);
+    response.message = new Error(
+      `useSelectorsResponse, aggregated response error:\n${JSON.stringify(
+        errorByList.map(({ message, errorMessage }) => `${message || errorMessage}`),
+        null,
+        2
+      )}`,
+      {
+        cause: errorByList
+      }
+    );
     response.error = true;
     response.data = (isById && errorDataById) || errorDataByList;
     return response;

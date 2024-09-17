@@ -5,6 +5,7 @@
   },
   "curiosity-banner": {},
   "curiosity-graph": {
+    "error_title": "Graph display is unavailable",
     "cardActionTotal": "{{total}} used",
     "cardActionTotal_Cores": "{{total}} core hours used",
     "cardHeading": "Usage",
@@ -198,6 +199,7 @@
     "tooltipSummary": "Your subscription data facets. With one level of column and row headers."
   },
   "curiosity-inventory": {
+    "error_title": "Inventory display is unavailable",
     "cardHeading": "Current systems",
     "tabHeading": "Inventory tabs",
     "tabSubHeading": "Tab {{count}}",

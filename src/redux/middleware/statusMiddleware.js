@@ -34,6 +34,7 @@ const statusMiddleware = (config = {}) => {
 
         if (httpStatus > 99) {
           const message = reduxHelpers.getMessageFromResults({ ...action });
+          const meta = { ...(action.meta || {}) };
           const data = reduxHelpers.getDataFromResults({ ...action });
           const payloadConfig = { ...(action.payload.config || {}) };
           const range = `${Math.floor(httpStatus / 100)}${rangeFiller}`;
@@ -44,6 +45,7 @@ const statusMiddleware = (config = {}) => {
               config: payloadConfig,
               data,
               message,
+              meta,
               range,
               status: httpStatus
             });
