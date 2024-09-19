@@ -1808,7 +1808,6 @@ exports[`Product specific configurations should apply graph filters and settings
                 "header": [Function],
               },
             ],
-            "chartType": "line",
             "color": "#06c",
             "fill": "#8bc1f7",
             "groupMetric": [
@@ -1821,7 +1820,7 @@ exports[`Product specific configurations should apply graph filters and settings
             "metric": undefined,
             "metrics": [
               {
-                "chartType": "line",
+                "chartType": "area",
                 "color": "#06c",
                 "fill": "#8bc1f7",
                 "id": "Managed-nodes_prepaid_ansible-aap-managed",
@@ -1834,6 +1833,22 @@ exports[`Product specific configurations should apply graph filters and settings
                   "billing_category": "prepaid",
                 },
                 "stroke": "#06c",
+                "strokeWidth": 2,
+              },
+              {
+                "chartType": "area",
+                "color": "#f0ab00",
+                "fill": "#f0ab00",
+                "id": "Managed-nodes_on-demand_ansible-aap-managed",
+                "isCapacity": false,
+                "isStacked": true,
+                "isThreshold": false,
+                "isToolbarFilter": false,
+                "metric": "Managed-nodes",
+                "query": {
+                  "billing_category": "on-demand",
+                },
+                "stroke": "#f0ab00",
                 "strokeWidth": 2,
               },
               {
@@ -1876,7 +1891,6 @@ exports[`Product specific configurations should apply graph filters and settings
                 "header": [Function],
               },
             ],
-            "chartType": "line",
             "color": "#06c",
             "fill": "#8bc1f7",
             "groupMetric": [
@@ -1889,7 +1903,7 @@ exports[`Product specific configurations should apply graph filters and settings
             "metric": undefined,
             "metrics": [
               {
-                "chartType": "line",
+                "chartType": "area",
                 "color": "#06c",
                 "fill": "#8bc1f7",
                 "id": "Instance-hours_prepaid_ansible-aap-managed",
@@ -1902,6 +1916,22 @@ exports[`Product specific configurations should apply graph filters and settings
                   "billing_category": "prepaid",
                 },
                 "stroke": "#06c",
+                "strokeWidth": 2,
+              },
+              {
+                "chartType": "area",
+                "color": "#f0ab00",
+                "fill": "#f0ab00",
+                "id": "Instance-hours_on-demand_ansible-aap-managed",
+                "isCapacity": false,
+                "isStacked": true,
+                "isThreshold": false,
+                "isToolbarFilter": false,
+                "metric": "Instance-hours",
+                "query": {
+                  "billing_category": "on-demand",
+                },
+                "stroke": "#f0ab00",
                 "strokeWidth": 2,
               },
               {
