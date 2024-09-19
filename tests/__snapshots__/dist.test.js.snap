@@ -14,6 +14,17 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     "productVariants": [],
   },
   {
+    "coverage": "FALSE",
+    "path": "/ansible",
+    "productGroup": [
+      "ansible-aap-managed",
+    ],
+    "productId": [
+      "ansible-aap-managed",
+    ],
+    "productVariants": [],
+  },
+  {
     "coverage": "TRUE",
     "path": "/openshift",
     "productGroup": [
