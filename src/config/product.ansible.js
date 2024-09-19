@@ -1,7 +1,9 @@
 import React from 'react';
 import {
   chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark
+  chart_color_blue_300 as chartColorBlueDark,
+  chart_color_gold_400 as chartColorGoldDark,
+  chart_color_gold_400 as chartColorGoldLight
 } from '@patternfly/react-tokens';
 import { Button } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
@@ -63,7 +65,7 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.ANSIBLE;
  *     initialInventoryFilters: Array}}
  */
 const config = {
-  aliases: [],
+  aliases: ['ansible'],
   productGroup,
   productId,
   productLabel,
@@ -102,9 +104,17 @@ const config = {
           fill: chartColorBlueLight.value,
           stroke: chartColorBlueDark.value,
           color: chartColorBlueDark.value,
-          chartType: ChartTypeVariant.line,
           query: {
             [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.PREPAID
+          }
+        },
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.MANAGED_NODES,
+          fill: chartColorGoldLight.value,
+          stroke: chartColorGoldDark.value,
+          color: chartColorGoldDark.value,
+          query: {
+            [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.ON_DEMAND
           }
         },
         {
@@ -120,9 +130,17 @@ const config = {
           fill: chartColorBlueLight.value,
           stroke: chartColorBlueDark.value,
           color: chartColorBlueDark.value,
-          chartType: ChartTypeVariant.line,
           query: {
             [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.PREPAID
+          }
+        },
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
+          fill: chartColorGoldLight.value,
+          stroke: chartColorGoldDark.value,
+          color: chartColorGoldDark.value,
+          query: {
+            [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.ON_DEMAND
           }
         },
         {
