@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.12.0](https://github.com/RedHatInsights/curiosity-frontend/compare/82b0c51096ee94327d9e9b80bd81b238f0f15acf...6e0bf3d6ca04635e1d41b0a58c7433eacf9ef147) (2024-09-24)
+
+
+### Features
+* **config** sw-2822 activate ansible aap managed ([#1389](https://github.com/RedHatInsights/curiosity-frontend/pull/1389)) ([fedcd0c](https://github.com/RedHatInsights/curiosity-frontend/commit/fedcd0cd3509296edcde3300c91d6578817e2eb5))
+
+### Continuous Integrations
+*  update konflux references ([#1422](https://github.com/RedHatInsights/curiosity-frontend/pull/1422)) ([36af7c8](https://github.com/RedHatInsights/curiosity-frontend/commit/36af7c841f31b5098fb7ad43a6975ee525e78a53))
+*  update konflux references ([#1415](https://github.com/RedHatInsights/curiosity-frontend/pull/1415)) ([1f677a4](https://github.com/RedHatInsights/curiosity-frontend/commit/1f677a46f1ae4980cf5f458028a69944a7408f6d))
+*  update konflux references ([#1412](https://github.com/RedHatInsights/curiosity-frontend/pull/1412)) ([0cdff72](https://github.com/RedHatInsights/curiosity-frontend/commit/0cdff7244313f8c26fe5078fed40bfad1d1f3df7))
+*  update konflux references ([#1410](https://github.com/RedHatInsights/curiosity-frontend/pull/1410)) ([10df40a](https://github.com/RedHatInsights/curiosity-frontend/commit/10df40a98b91de6d351090ae2d8efba650a95d6f))
+
+### Builds
+* **deps-dev** bump group with 4 updates ([#1421](https://github.com/RedHatInsights/curiosity-frontend/pull/1421)) ([f094f22](https://github.com/RedHatInsights/curiosity-frontend/commit/f094f22761eab77d5d9e04b507faa50248832115))
+*  fix renovate schedule ([#1417](https://github.com/RedHatInsights/curiosity-frontend/pull/1417)) ([898f553](https://github.com/RedHatInsights/curiosity-frontend/commit/898f55352129c6ec8294f79f0d625b54ce0def8b))
+* **deps-dev** bump group with 3 updates ([#1413](https://github.com/RedHatInsights/curiosity-frontend/pull/1413)) ([f2f8101](https://github.com/RedHatInsights/curiosity-frontend/commit/f2f81014d0bfc5f1a98a93279f8b4d957310c61f))
+*  renovate requests, commits ([#1411](https://github.com/RedHatInsights/curiosity-frontend/pull/1411)) ([bb2a9b4](https://github.com/RedHatInsights/curiosity-frontend/commit/bb2a9b4634bdd845c2be1488e07c9d6af43e749a))
+* **deps** bump group with 6 updates ([#1409](https://github.com/RedHatInsights/curiosity-frontend/pull/1409)) ([6d724b5](https://github.com/RedHatInsights/curiosity-frontend/commit/6d724b578df545ee67a064e399cdb564eb955939))
+
+### Bug Fixes
+* **config** sw-2956 display ints for ansible inventory ([#1425](https://github.com/RedHatInsights/curiosity-frontend/pull/1425)) ([6e0bf3d](https://github.com/RedHatInsights/curiosity-frontend/commit/6e0bf3d6ca04635e1d41b0a58c7433eacf9ef147))
+* **locale** sw-2953 ansible missing graph tooltips ([#1423](https://github.com/RedHatInsights/curiosity-frontend/pull/1423)) ([68bf3a8](https://github.com/RedHatInsights/curiosity-frontend/commit/68bf3a8f3c221eece559c02b8097e58dcfe17c1f))
+* **config** sw-2932 ansible, on-demand graph displays ([#1419](https://github.com/RedHatInsights/curiosity-frontend/pull/1419)) ([9016c07](https://github.com/RedHatInsights/curiosity-frontend/commit/9016c07d7d2735a458940a22171c481fe6cfc2c8))
+
 ## [4.11.0](https://github.com/RedHatInsights/curiosity-frontend/compare/e90c3b4765114a182136327e9088a0261d722f5a...2e8838f884b224e7a990bb7ecd52337b6affe4dc) (2024-09-10)
 
 
