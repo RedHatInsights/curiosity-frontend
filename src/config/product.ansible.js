@@ -281,7 +281,7 @@ const config = {
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.MANAGED_NODES]: total } = {}) =>
         translate('curiosity-inventory.measurement', {
           context: (total && 'value') || undefined,
-          total: (total && Number.parseFloat(total).toFixed(2)) || undefined,
+          total,
           testId: (
             <span data-test={`instances-cell-${RHSM_API_PATH_METRIC_TYPES.MANAGED_NODES}`} data-value={`${total}`} />
           )
@@ -295,7 +295,7 @@ const config = {
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS]: total } = {}) =>
         translate('curiosity-inventory.measurement', {
           context: (total && 'value') || undefined,
-          total: (total && Number.parseFloat(total).toFixed(2)) || undefined,
+          total,
           testId: (
             <span data-test={`instances-cell-${RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS}`} data-value={`${total}`} />
           )
