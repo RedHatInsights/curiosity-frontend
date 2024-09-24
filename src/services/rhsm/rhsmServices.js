@@ -1935,7 +1935,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *           "subscription_manager_id": "BBBBB-5b00-42fa-BBBBB-75801d45cc6d",
  *           "display_name": "lorem.example.com",
  *           "measurements": [
- *              4000,
+ *              0,
  *              50,
  *              10000.0000345678,
  *              3000,
