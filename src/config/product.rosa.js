@@ -193,7 +193,6 @@ const config = {
     isCardTitleDescription: true,
     xAxisLabelIncrement: 1,
     xAxisChartLabel: () => translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY }),
-    xAxisTickFormat: ({ tick }) => Number.parseInt(tick, 10) + 1 || tick,
     yAxisTickFormat: ({ tick } = {}) => {
       if (tick > 1) {
         return helpers
