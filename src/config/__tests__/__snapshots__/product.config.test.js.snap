@@ -6,7 +6,6 @@ exports[`Product specific configurations should apply graph filters and settings
     "ansible-aap-managed": {
       "xAxisChartLabel": "t(curiosity-graph.label_axisX, {"context":"Daily"})",
       "xAxisLabelIncrement": 1,
-      "xAxisTickFormatAvailable": true,
       "yAxisTickFormat": {
         "0.00001345": "0.00001",
         "0.0000269": "0.00003",
@@ -1459,7 +1458,6 @@ exports[`Product specific configurations should apply graph filters and settings
     "rosa": {
       "xAxisChartLabel": "t(curiosity-graph.label_axisX, {"context":"Daily"})",
       "xAxisLabelIncrement": 1,
-      "xAxisTickFormatAvailable": true,
       "yAxisTickFormat": {
         "0.00001345": "0.00001",
         "0.0000269": "0.00003",
@@ -1878,7 +1876,6 @@ exports[`Product specific configurations should apply graph filters and settings
             "stroke": "#06c",
             "xAxisChartLabel": [Function],
             "xAxisLabelIncrement": 1,
-            "xAxisTickFormat": [Function],
             "yAxisTickFormat": [Function],
           },
         },
@@ -1961,7 +1958,6 @@ exports[`Product specific configurations should apply graph filters and settings
             "stroke": "#06c",
             "xAxisChartLabel": [Function],
             "xAxisLabelIncrement": 1,
-            "xAxisTickFormat": [Function],
             "yAxisTickFormat": [Function],
           },
         },
@@ -2620,7 +2616,6 @@ exports[`Product specific configurations should apply graph filters and settings
             "stroke": "#06c",
             "xAxisChartLabel": [Function],
             "xAxisLabelIncrement": 1,
-            "xAxisTickFormat": [Function],
             "yAxisTickFormat": [Function],
           },
         },
@@ -2703,7 +2698,6 @@ exports[`Product specific configurations should apply graph filters and settings
             "stroke": "#06c",
             "xAxisChartLabel": [Function],
             "xAxisLabelIncrement": 1,
-            "xAxisTickFormat": [Function],
             "yAxisTickFormat": [Function],
           },
         },
