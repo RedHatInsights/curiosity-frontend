@@ -1,6 +1,7 @@
 const path = require('path');
 const { webpack, CopyWebpackPlugin } = require('weldable/lib/packages');
 const { dotenv } = require('weldable');
+const { dependencies } = require('./package.json');
 
 const {
   // DEV_BRANCH,
@@ -32,13 +33,13 @@ module.exports = {
     return undefined;
   })(),
   moduleFederation: {
-    exclude: ['react-router-dom'],
+    // exclude: ['react-router-dom'],
     shared: [
       {
         'react-router-dom': {
           singleton: true,
           import: false,
-          version: '^6.3.0'
+          version: dependencies['react-router-dom']
         }
       }
     ]
