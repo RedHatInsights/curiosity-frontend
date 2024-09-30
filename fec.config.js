@@ -32,15 +32,7 @@ module.exports = {
     return undefined;
   })(),
   moduleFederation: {
-    exclude: ['react-router-dom'],
-    shared: [
-      {
-        'react-router-dom': {
-          singleton: true,
-          import: false,
-          version: '^6.3.0'
-        }
-      }
-    ]
+    exclude: [],
+    shared: []
   }
 };

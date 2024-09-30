@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router-dom';
 import { ProductViewMissing } from '../productViewMissing';
 import { store } from '../../../redux';
 
@@ -12,9 +11,7 @@ describe('ProductViewMissing Component', () => {
 
     const component = renderComponent(
       <Provider store={store}>
-        <MemoryRouter initialEntries={['/']}>
-          <ProductViewMissing {...props} />
-        </MemoryRouter>
+        <ProductViewMissing {...props} />
       </Provider>
     );
 

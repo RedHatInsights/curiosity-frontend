@@ -1,42 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RouterContext should apply a hook for useLocation: location 1`] = `
-{
-  "_id": "c-679636502",
-  "hash": "",
-  "lorem": "ipsum",
-  "search": "?lorem=ipsum",
-}
-`;
-
-exports[`RouterContext should apply a hook for useNavigate: navigation dispatch 1`] = `
-[
-  [
-    {
-      "config": "rhel",
-      "type": "SET_PRODUCT",
-    },
-  ],
-  [
-    {
-      "config": "rhel",
-      "type": "SET_PRODUCT",
-    },
-  ],
-  [
-    {
-      "config": "rhel",
-      "type": "SET_PRODUCT",
-    },
-  ],
-]
-`;
-
 exports[`RouterContext should apply a hook for useNavigate: navigation push 1`] = `
 [
-  "./rhel?lorem=ipsum",
-  "./rhel?lorem=ipsum",
-  "./rhel?lorem=ipsum",
+  [
+    {},
+    "",
+    "/subscriptions/rhel?lorem=ipsum",
+    undefined,
+  ],
+  [
+    {},
+    "",
+    "/subscriptions/rhel?lorem=ipsum",
+    undefined,
+  ],
+  [
+    {},
+    "",
+    "/subscriptions/rhel?lorem=ipsum",
+    undefined,
+  ],
 ]
 `;
 
@@ -49,19 +32,18 @@ exports[`RouterContext should apply a hook for useRouteDetail: document title 1`
 ]
 `;
 
-exports[`RouterContext should apply a hook for useRouteDetail: route details, closest 1`] = `
+exports[`RouterContext should apply a hook for useSetRouteProduct: route details, closest 1`] = `
 {
   "detailProps": [
-    "_passed",
     "allConfigs",
     "availableVariants",
     "firstMatch",
-    "errorRoute",
     "isClosest",
     "productGroup",
     "productConfig",
     "productPath",
     "productVariant",
+    "disableIsClosestMatch",
   ],
   "firstMatch": [
     "aliases",
@@ -91,19 +73,18 @@ exports[`RouterContext should apply a hook for useRouteDetail: route details, cl
 }
 `;
 
-exports[`RouterContext should apply a hook for useRouteDetail: route details, match 1`] = `
+exports[`RouterContext should apply a hook for useSetRouteProduct: route details, match 1`] = `
 {
   "detailProps": [
-    "_passed",
     "allConfigs",
     "availableVariants",
     "firstMatch",
-    "errorRoute",
     "isClosest",
     "productGroup",
     "productConfig",
     "productPath",
     "productVariant",
+    "disableIsClosestMatch",
   ],
   "firstMatch": [
     "aliases",
@@ -133,29 +114,10 @@ exports[`RouterContext should apply a hook for useRouteDetail: route details, ma
 }
 `;
 
-exports[`RouterContext should apply a hook for useSearchParams: initial params 1`] = `
-{
-  "lorem": "ipsum",
-}
-`;
-
-exports[`RouterContext should apply a hook for useSetRouteDetail: dispatch route config path 1`] = `
-[
-  [
-    {
-      "config": "dolor-sit",
-      "type": "SET_PRODUCT",
-    },
-  ],
-]
-`;
-
 exports[`RouterContext should return specific properties: specific properties 1`] = `
 {
-  "useLocation": [Function],
   "useNavigate": [Function],
   "useRouteDetail": [Function],
-  "useSearchParams": [Function],
-  "useSetRouteDetail": [Function],
+  "useSetRouteProduct": [Function],
 }
 `;

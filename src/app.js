@@ -4,9 +4,10 @@ import { useMount } from 'react-use';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
 import { reduxActions, storeHooks } from './redux';
 import { I18n } from './components/i18n/i18n';
-import { Router } from './components/router';
 import Authentication from './components/authentication/authentication';
 import { helpers } from './common';
+import { Loader } from './components/loader/loader';
+const ProductView = React.lazy(() => import('./components/productView/productView'));
 
 /**
  * @memberof Base
@@ -47,7 +48,9 @@ const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSe
     <I18n locale={locale}>
       {platformNotifications}
       <Authentication>
-        <Router />
+        <React.Suspense fallback={<Loader variant="title" />}>
+          <ProductView />
+        </React.Suspense>
       </Authentication>
     </I18n>
   );
