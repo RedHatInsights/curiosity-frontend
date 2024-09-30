@@ -127,9 +127,6 @@ recreate the core component.
 <dd></dd>
 <dt><a href="#ProductView.module_ProductViewMissing">ProductViewMissing</a></dt>
 <dd></dd>
-<dt><a href="#Components.module_Router">Router</a></dt>
-<dd><p>Route component loader.</p>
-</dd>
 <dt><a href="#Router.module_RouterContext">RouterContext</a></dt>
 <dd></dd>
 <dt><a href="#Router.module_RouterHelpers">RouterHelpers</a></dt>
@@ -5193,108 +5190,14 @@ On click, update history.
     </tr>  </tbody>
 </table>
 
-<a name="Components.module_Router"></a>
-
-## Router
-Route component loader.
-
-**Properties**
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>RouterContext</td><td><code>module</code></td>
-    </tr><tr>
-    <td>RouterHelpers</td><td><code>module</code></td>
-    </tr>  </tbody>
-</table>
-
-
-* [Router](#Components.module_Router)
-    * [~Router(props)](#Components.module_Router..Router) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Components.module_Router..Router.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_Router..Router.defaultProps) : <code>Object</code>
-
-<a name="Components.module_Router..Router"></a>
-
-### Router~Router(props) ⇒ <code>React.ReactNode</code>
-Create and load routes. Start cycle for loading product configuration via hook by setting route details.
-
-**Kind**: inner method of [<code>Router</code>](#Components.module_Router)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>props</td><td><code>object</code></td>
-    </tr><tr>
-    <td>props.redirectRoute</td><td><code>object</code></td>
-    </tr><tr>
-    <td>props.routes</td><td><code>Array</code></td>
-    </tr><tr>
-    <td>props.useSetRouteDetail</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-
-* [~Router(props)](#Components.module_Router..Router) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Components.module_Router..Router.propTypes) : <code>Object</code>
-    * [.defaultProps](#Components.module_Router..Router.defaultProps) : <code>Object</code>
-
-<a name="Components.module_Router..Router.propTypes"></a>
-
-#### Router.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>Router</code>](#Components.module_Router..Router)  
-<a name="Components.module_Router..Router.defaultProps"></a>
-
-#### Router.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>Router</code>](#Components.module_Router..Router)  
 <a name="Router.module_RouterContext"></a>
 
 ## RouterContext
 
 * [RouterContext](#Router.module_RouterContext)
-    * [~useLocation(options)](#Router.module_RouterContext..useLocation) ⇒ <code>Object</code>
     * [~useNavigate(options)](#Router.module_RouterContext..useNavigate) ⇒ <code>function</code>
+    * [~useSetRouteProduct(options)](#Router.module_RouterContext..useSetRouteProduct) ⇒ <code>Object</code>
     * [~useRouteDetail(options)](#Router.module_RouterContext..useRouteDetail) ⇒ <code>Object</code>
-    * [~useSearchParams(options)](#Router.module_RouterContext..useSearchParams) ⇒ <code>Array</code>
-        * [~setSearchParams](#Router.module_RouterContext..useSearchParams..setSearchParams)
-    * [~useSetRouteDetail(options)](#Router.module_RouterContext..useSetRouteDetail) ⇒ <code>\*</code> \| <code>string</code>
-
-<a name="Router.module_RouterContext..useLocation"></a>
-
-### RouterContext~useLocation(options) ⇒ <code>Object</code>
-Combine react-router-dom useLocation with actual window location.
-Focused on exposing replace and href.
-
-**Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.useLocation</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.windowLocation</td><td><code>*</code></td>
-    </tr>  </tbody>
-</table>
 
 <a name="Router.module_RouterContext..useNavigate"></a>
 
@@ -5313,21 +5216,46 @@ update. Dispatches the same type leveraged by the initialize hook, useSetRouteDe
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>options.useLocation</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.windowHistory</td><td><code>*</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterContext..useSetRouteProduct"></a>
+
+### RouterContext~useSetRouteProduct(options) ⇒ <code>Object</code>
+Initialize and store a product path, parameter, in a "state" update parallel to variant detail.
+We're opting to use "window.location.pathname" directly because its faster.
+and returns a similar structured value as useParam.
+
+**Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.disableIsClosestMatch</td><td><code>boolean</code></td>
     </tr><tr>
     <td>options.useLocation</td><td><code>function</code></td>
     </tr><tr>
-    <td>options.useNavigate</td><td><code>function</code></td>
+    <td>options.useSelector</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Router.module_RouterContext..useRouteDetail"></a>
 
 ### RouterContext~useRouteDetail(options) ⇒ <code>Object</code>
-Get a route detail from "state". Consume useSetRouteDetail and set basis for product
-configuration context.
+Aggregate display settings and configuration. Get a product route detail.
+Consumes useSetRouteProduct to return a display configuration for use in productView context.
 
 **Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
+**Returns**: <code>Object</code> - }  
 <table>
   <thead>
     <tr>
@@ -5342,82 +5270,7 @@ configuration context.
     </tr><tr>
     <td>options.useChrome</td><td><code>function</code></td>
     </tr><tr>
-    <td>options.useSelectors</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Router.module_RouterContext..useSearchParams"></a>
-
-### RouterContext~useSearchParams(options) ⇒ <code>Array</code>
-Search parameter, return
-
-**Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.useLocation</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useSearchParams</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Router.module_RouterContext..useSearchParams..setSearchParams"></a>
-
-#### useSearchParams~setSearchParams
-Alias returned React Router Dom useSearchParams hook to something expected.
-This hook defaults to merging search objects instead of overwriting them.
-
-**Kind**: inner constant of [<code>useSearchParams</code>](#Router.module_RouterContext..useSearchParams)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>updatedQuery</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>options.isMerged</td><td><code>boolean</code></td><td><p>Merge search with existing search, or don&#39;t</p>
-</td>
-    </tr><tr>
-    <td>options.currentSearch</td><td><code>string</code> | <code>*</code></td><td><p>search returned from useLocation</p>
-</td>
-    </tr>  </tbody>
-</table>
-
-<a name="Router.module_RouterContext..useSetRouteDetail"></a>
-
-### RouterContext~useSetRouteDetail(options) ⇒ <code>\*</code> \| <code>string</code>
-Initialize and store product path, parameter, in a "state" update parallel to routing.
-We're opting to use "window.location.pathname" directly since it appears to be quicker,
-and returns a similar structured value as useParam.
-
-**Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.useSelector</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.windowLocation</td><td><code>*</code></td>
+    <td>options.useSetRouteProduct</td><td><code>useSetRouteProduct</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5427,31 +5280,18 @@ and returns a similar structured value as useParam.
 
 * [RouterHelpers](#Router.module_RouterHelpers)
     * [~appName](#Router.module_RouterHelpers..appName) : <code>string</code>
-    * [~redirectRoute](#Router.module_RouterHelpers..redirectRoute) : <code>object</code>
-    * [~routes](#Router.module_RouterHelpers..routes) ⇒ <code>Array</code>
     * [~getRouteConfigByPath](#Router.module_RouterHelpers..getRouteConfigByPath) ⇒ <code>Object</code>
     * [~parseSearchParams](#Router.module_RouterHelpers..parseSearchParams) ⇒ <code>Object</code>
     * [~pathJoin](#Router.module_RouterHelpers..pathJoin) ⇒ <code>string</code>
     * [~dynamicBaseName(params)](#Router.module_RouterHelpers..dynamicBaseName) ⇒ <code>string</code>
     * [~dynamicBasePath(params)](#Router.module_RouterHelpers..dynamicBasePath) ⇒ <code>string</code>
-    * [~importView(component)](#Router.module_RouterHelpers..importView) ⇒ <code>Node</code>
+    * [~dynamicPath(params)](#Router.module_RouterHelpers..dynamicPath) ⇒ <code>string</code>
+    * [~cleanPath(params)](#Router.module_RouterHelpers..cleanPath) ⇒ <code>string</code> \| <code>undefined</code>
 
 <a name="Router.module_RouterHelpers..appName"></a>
 
 ### RouterHelpers~appName : <code>string</code>
 Platform name/id.
-
-**Kind**: inner constant of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
-<a name="Router.module_RouterHelpers..redirectRoute"></a>
-
-### RouterHelpers~redirectRoute : <code>object</code>
-The first redirect route.
-
-**Kind**: inner constant of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
-<a name="Router.module_RouterHelpers..routes"></a>
-
-### RouterHelpers~routes ⇒ <code>Array</code>
-Return array of objects that describes routing.
 
 **Kind**: inner constant of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
 <a name="Router.module_RouterHelpers..getRouteConfigByPath"></a>
@@ -5474,7 +5314,9 @@ given the appropriate alias, group, product, and/or path identifiers provided wi
     </tr><tr>
     <td>params.pathName</td><td><code>string</code></td>
     </tr><tr>
-    <td>params.configs</td><td><code>Array</code></td>
+    <td>[params.configs]</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>[params.cleanPath]</td><td><code>cleanPath</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5560,10 +5402,10 @@ App basePath. Return a base path.
     </tr>  </tbody>
 </table>
 
-<a name="Router.module_RouterHelpers..importView"></a>
+<a name="Router.module_RouterHelpers..dynamicPath"></a>
 
-### RouterHelpers~importView(component) ⇒ <code>Node</code>
-Import a route component.
+### RouterHelpers~dynamicPath(params) ⇒ <code>string</code>
+App basePath. Return a base path.
 
 **Kind**: inner method of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
 <table>
@@ -5574,7 +5416,33 @@ Import a route component.
   </thead>
   <tbody>
 <tr>
-    <td>component</td><td><code>Node</code></td>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.pathName</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.appName</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterHelpers..cleanPath"></a>
+
+### RouterHelpers~cleanPath(params) ⇒ <code>string</code> \| <code>undefined</code>
+Trim, clean, and remove irrelevant strings to help provide more exact product configuration matches.
+
+**Kind**: inner method of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.pathName</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.appName</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 

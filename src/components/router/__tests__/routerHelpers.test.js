@@ -10,9 +10,7 @@ import { helpers } from '../../../common';
 
 describe('RouterHelpers', () => {
   it('should return specific properties', () => {
-    const { routes, ...rest } = routerHelpers;
-    expect(routes.map(value => value.path)).toMatchSnapshot('routerHelpers: routes');
-    expect(rest).toMatchSnapshot('routerHelpers');
+    expect(routerHelpers).toMatchSnapshot('routerHelpers');
   });
 
   it('should return a generated baseName using NO path prefix', () => {

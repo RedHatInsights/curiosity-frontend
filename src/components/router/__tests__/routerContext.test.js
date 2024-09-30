@@ -1,38 +1,18 @@
-import {
-  context,
-  useLocation,
-  useNavigate,
-  useRouteDetail,
-  useSearchParams,
-  useSetRouteDetail
-} from '../routerContext';
+import { context, useNavigate, useRouteDetail, useSetRouteProduct } from '../routerContext';
 
 describe('RouterContext', () => {
   it('should return specific properties', () => {
     expect(context).toMatchSnapshot('specific properties');
   });
 
-  it('should apply a hook for useLocation', async () => {
-    const mockLocation = {
-      search: '?lorem=ipsum'
-    };
-
-    const { result: mockUseLocation } = await renderHook(() =>
-      useLocation({ useLocation: () => mockLocation, windowLocation: { lorem: 'ipsum' } })
-    );
-    expect(mockUseLocation).toMatchSnapshot('location');
-  });
-
   it('should apply a hook for useNavigate', async () => {
-    const mockDispatch = jest.fn();
-    const updatedCalls = [];
+    const mockWindowHistory = jest.fn();
     const { result: mockNavigationSet } = await renderHook(() =>
       useNavigate({
-        useDispatch: () => mockDispatch,
         useLocation: () => ({
           search: '?lorem=ipsum'
         }),
-        useNavigate: () => value => updatedCalls.push(value)
+        windowHistory: { pushState: mockWindowHistory }
       })
     );
 
@@ -44,19 +24,16 @@ describe('RouterContext', () => {
     mockNavigationSet('rhel');
     mockNavigationSet('insights');
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('navigation dispatch');
-    expect(updatedCalls).toMatchSnapshot('navigation push');
+    expect(mockWindowHistory.mock.calls).toMatchSnapshot('navigation push');
   });
 
-  it('should apply a hook for useRouteDetail', async () => {
-    const mockUpdateDocumentTitle = jest.fn();
+  it('should apply a hook for useSetRouteProduct', async () => {
     const { result: exactMatch } = await renderHook(() =>
-      useRouteDetail({
-        useChrome: () => ({ updateDocumentTitle: mockUpdateDocumentTitle }),
-        useSelectors: () => ['rhel']
+      useSetRouteProduct({
+        useLocation: () => ({ pathname: 'rhel' })
       })
     );
-    expect(mockUpdateDocumentTitle.mock.calls).toMatchSnapshot('document title');
+
     expect({
       detailProps: Object.keys(exactMatch),
       isClosest: exactMatch.isClosest,
@@ -65,7 +42,9 @@ describe('RouterContext', () => {
       firstMatch: Object.keys(exactMatch.firstMatch)
     }).toMatchSnapshot('route details, match');
 
-    const { result: closestMatch } = await renderHook(() => useRouteDetail({ useSelectors: () => ['l'] }));
+    const { result: closestMatch } = await renderHook(() =>
+      useSetRouteProduct({ useLocation: () => ({ pathname: 'l' }) })
+    );
     expect({
       detailProps: Object.keys(closestMatch),
       isClosest: closestMatch.isClosest,
@@ -75,32 +54,16 @@ describe('RouterContext', () => {
     }).toMatchSnapshot('route details, closest');
   });
 
-  it('should apply a hook for useSearchParams', async () => {
-    const mockSetParams = jest.fn();
-    const { result } = await renderHook(() =>
-      useSearchParams({
-        useLocation: () => ({ search: '?lorem=ipsum' }),
-        useSearchParams: () => [undefined, mockSetParams]
-      })
-    );
-
-    const [value, setValue] = result;
-    expect(value).toMatchSnapshot('initial params');
-    setValue({ dolor: 'sit' });
-    expect(mockSetParams).toHaveBeenCalledTimes(1);
-  });
-
-  it('should apply a hook for useSetRouteDetail', async () => {
-    const mockDispatch = jest.fn();
+  it('should apply a hook for useRouteDetail', async () => {
+    const mockUpdateDocumentTitle = jest.fn();
 
     await renderHook(() =>
-      useSetRouteDetail({
-        useDispatch: () => mockDispatch,
-        useSelector: () => ['lorem-ipsum'],
-        windowLocation: { pathname: 'dolor-sit' }
+      useRouteDetail({
+        useChrome: () => ({ updateDocumentTitle: mockUpdateDocumentTitle }),
+        useSetRouteProduct: () => ({ productGroup: 'rhel' })
       })
     );
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch route config path');
+    expect(mockUpdateDocumentTitle.mock.calls).toMatchSnapshot('document title');
   });
 });

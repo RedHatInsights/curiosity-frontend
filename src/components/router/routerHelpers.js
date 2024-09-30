@@ -1,7 +1,6 @@
-import React from 'react';
 import { closest } from 'fastest-levenshtein';
 import { helpers } from '../../common/helpers';
-import { routesConfig, productConfig } from '../../config';
+import { productConfig } from '../../config';
 
 /**
  * @memberof Router
@@ -40,18 +39,36 @@ const dynamicBasePath = ({ pathName = window.location.pathname, appName: applica
   pathName.split(applicationName)[0];
 
 /**
- * The first redirect route.
+ * App basePath. Return a base path.
  *
- * @type {object}
+ * @param {object} params
+ * @param {string} params.pathName
+ * @param {string} params.appName
+ * @returns {string}
  */
-const redirectRoute = routesConfig.find(({ disabled, redirect }) => !disabled && redirect);
+const dynamicPath = ({ pathName = window.location.pathname, appName: applicationName = helpers.UI_NAME } = {}) =>
+  pathName.split(applicationName)[1];
 
 /**
- * Return array of objects that describes routing.
+ * Trim, clean, and remove irrelevant strings to help provide more exact product configuration matches.
  *
- * @returns {Array}
+ * @param {object} params
+ * @param {string} params.pathName
+ * @param {string} params.appName
+ * @returns {string | undefined}
  */
-const routes = routesConfig.filter(item => !item.disabled);
+const cleanPath = ({ pathName, appName: applicationName = helpers.UI_NAME } = {}) => {
+  const updatedPathName =
+    (/^http/i.test(pathName) && new URL(pathName).pathname) || (typeof pathName === 'string' && pathName) || undefined;
+
+  return updatedPathName
+    ?.toLowerCase()
+    ?.split('#')?.[0]
+    ?.split('?')?.[0]
+    ?.replace(/^\/*|\/*$/g, '')
+    ?.replace(new RegExp(applicationName, 'i'), '')
+    ?.replace(/\/\//g, '/');
+};
 
 /**
  * Match pre-sorted route config entries with a path, or match with a fallback.
@@ -60,51 +77,32 @@ const routes = routesConfig.filter(item => !item.disabled);
  *
  * @param {object} params
  * @param {string} params.pathName
- * @param {Array} params.configs
+ * @param {Array} [params.configs]
+ * @param {cleanPath} [params.cleanPath]
  * @returns {{configs: *, firstMatch: *, isClosest: boolean, allConfigs: Array}}
  */
-const getRouteConfigByPath = helpers.memo(({ pathName, configs = productConfig.sortedConfigs } = {}) => {
-  const { byAnything, byAnythingPathIds, byAnythingVariants, byProductIdConfigs } = configs();
-  const updatedPathName =
-    (/^http/i.test(pathName) && new URL(pathName).pathname) || (typeof pathName === 'string' && pathName) || undefined;
-  const trimmedPathName = updatedPathName
-    ?.toLowerCase()
-    ?.split('#')?.[0]
-    ?.split('?')?.[0]
-    ?.replace(/^\/*|\/*$/g, '')
-    ?.replace(new RegExp(helpers.UI_DISPLAY_NAME, 'i'), '')
-    ?.replace(/\/\//g, '/');
+const getRouteConfigByPath = helpers.memo(
+  ({ pathName, configs = productConfig.sortedConfigs, cleanPath: aliasCleanPath = cleanPath } = {}) => {
+    const { byAnything, byAnythingPathIds, byAnythingVariants, byProductIdConfigs } = configs();
+    const trimmedPathName = aliasCleanPath({ pathName });
 
-  // Do a known comparison against alias, group, product, path identifiers
-  const focusedStr = byAnythingPathIds.find(value => value.toLowerCase() === trimmedPathName?.split('/')?.pop());
+    // Do a known comparison against alias, group, product, path identifiers
+    const focusedStr = byAnythingPathIds.find(value => value.toLowerCase() === trimmedPathName?.split('/')?.pop());
 
-  // Fallback attempt, match pathName with the closest string
-  const closestStr = trimmedPathName && closest(trimmedPathName, byAnythingPathIds);
-  const configsByAnything = byAnything?.[focusedStr || closestStr];
-  const availableVariants = byAnythingVariants?.[focusedStr || closestStr];
+    // Fallback attempt, match pathName with the closest string
+    const closestStr = trimmedPathName && closest(trimmedPathName, byAnythingPathIds);
+    const configsByAnything = byAnything?.[focusedStr || closestStr];
+    const availableVariants = byAnythingVariants?.[focusedStr || closestStr];
 
-  return {
-    isClosest: !focusedStr,
-    allConfigs: Object.values(byProductIdConfigs),
-    availableVariants,
-    configs: configsByAnything,
-    firstMatch: configsByAnything?.[0]
-  };
-});
-
-/**
- * Import a route component.
- *
- * @param {Node} component
- * @returns {Node}
- */
-const importView = component => {
-  if (!helpers.TEST_MODE) {
-    return React.lazy(() => import(/* webpackExclude: /\.test\.js$/ */ `../${component}.js`));
+    return {
+      isClosest: !focusedStr,
+      allConfigs: Object.values(byProductIdConfigs),
+      availableVariants,
+      configs: configsByAnything,
+      firstMatch: configsByAnything?.[0]
+    };
   }
-
-  return p => <React.Fragment>{JSON.stringify({ ...p, component }, null, 2)}</React.Fragment>;
-};
+);
 
 /**
  * Parse search parameters from a string, using a set for "uniqueness"
@@ -152,26 +150,24 @@ const pathJoin = helpers.memo((...paths) => {
 
 const routerHelpers = {
   appName,
+  cleanPath,
   dynamicBaseName,
   dynamicBasePath,
-  redirectRoute,
+  dynamicPath,
   getRouteConfigByPath,
-  importView,
   parseSearchParams,
-  pathJoin,
-  routes
+  pathJoin
 };
 
 export {
   routerHelpers as default,
   routerHelpers,
   appName,
+  cleanPath,
   dynamicBaseName,
   dynamicBasePath,
-  redirectRoute,
+  dynamicPath,
   getRouteConfigByPath,
-  importView,
   parseSearchParams,
-  pathJoin,
-  routes
+  pathJoin
 };
