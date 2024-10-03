@@ -3713,6 +3713,8 @@ A system inventory guests component.
     <td>props.useGetInventory</td><td><code>function</code></td>
     </tr><tr>
     <td>props.useOnScroll</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.t</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 

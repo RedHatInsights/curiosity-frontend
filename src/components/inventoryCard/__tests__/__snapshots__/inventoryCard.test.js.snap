@@ -59,51 +59,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     <CardBody
       className="curiosity-card__body"
     >
-      <div
-        className="blur"
-      >
-        <Table
-          ariaLabelSelectTheadColumn="Select row column"
-          ariaLabelTable="t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})"
-          className="curiosity-inventory-list"
-          columnHeaders={[]}
-          componentClassNames={
-            {
-              "table": "curiosity-table",
-              "td": "curiosity-table__td",
-              "tdAction": "curiosity-table__td-action",
-              "tdExpand": "curiosity-table__td-expand",
-              "tdExpanded": "curiosity-table__td-expand-expanded",
-              "tdExpandedContent": "curiosity-table__td-expand-content",
-              "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
-              "tdSelect": "curiosity-table__td-select",
-              "th": "curiosity-table__th",
-              "tr": "curiosity-table__tr",
-              "trExpand": "curiosity-table__tr-expand",
-              "trExpanded": "curiosity-table__tr-expand-expanded",
-              "trExpandedContent": "curiosity-table__tr-expand-content",
-            }
-          }
-          emptyTable={
-            {
-              "ariaLabel": "t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})",
-              "className": "curiosity-inventory-list",
-              "message": "t(curiosity-inventory.table_emptyState, {"context":"description"})",
-              "summary": "t(curiosity-inventory.table, {"context":"summary"})",
-              "title": "t(curiosity-inventory.table_emptyState, {"context":"title"})",
-            }
-          }
-          isBorders={true}
-          isHeader={true}
-          isStriped={false}
-          onExpand={null}
-          onSelect={null}
-          onSort={null}
-          rows={[]}
-          summary="t(curiosity-inventory.table, {"context":"summary"})"
-          variant="compact"
-        />
-      </div>
+      <ErrorMessage
+        title="t(curiosity-inventory.error_title)"
+      />
     </CardBody>
   </MinHeight>
   <MinHeight

@@ -60,6 +60,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "key": "curiosity-graph.cardHeading",
         "match": "t('curiosity-graph.cardHeading', { context: stringId })",
       },
+      {
+        "key": "curiosity-graph.error_title",
+        "match": "t('curiosity-graph.error_title')",
+      },
     ],
   },
   {
@@ -142,6 +146,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-inventory.table', { context: ['summary'] })",
       },
       {
+        "key": "curiosity-inventory.error_title",
+        "match": "t('curiosity-inventory.error_title')",
+      },
+      {
         "key": "curiosity-inventory.table",
         "match": "translate('curiosity-inventory.table', { context: ['emptyState', 'title'] })",
       },
@@ -157,6 +165,15 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-inventory.header",
         "match": "translate([\`curiosity-inventory.header\`, \`curiosity-inventory.guestsHeader\`], { context: [metric, productId] })",
+      },
+    ],
+  },
+  {
+    "file": "src/components/inventoryGuests/inventoryGuests.js",
+    "keys": [
+      {
+        "key": "curiosity-inventory.error_title",
+        "match": "t('curiosity-inventory.error_title')",
       },
     ],
   },
