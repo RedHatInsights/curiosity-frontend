@@ -15,7 +15,11 @@ exports[`InventoryGuests Component should handle multiple display states, error,
     <div
       className="curiosity-table-scroll-list"
       onScroll={[Function]}
-    />
+    >
+      <ErrorMessage
+        title="t(curiosity-inventory.error_title)"
+      />
+    </div>
   </div>
 </div>
 `;

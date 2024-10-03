@@ -31,32 +31,9 @@ exports[`GraphCardChart Component should handle API response states: error 1`] =
     <CardBody
       className="curiosity-card__body"
     >
-      <div
-        className="blur"
-      >
-        <Chart
-          chartLegend={[Function]}
-          chartTooltip={[Function]}
-          dataSets={[]}
-          padding={
-            {
-              "bottom": 75,
-              "left": 55,
-              "right": 55,
-              "top": 50,
-            }
-          }
-          themeColor="blue"
-          xAxisChartLabel={null}
-          xAxisFixLabelOverlap={true}
-          xAxisLabelIncrement={1}
-          xAxisTickFormat={[Function]}
-          xValueFormat={null}
-          yAxisChartLabel={null}
-          yAxisTickFormat={[Function]}
-          yValueFormat={null}
-        />
-      </div>
+      <ErrorMessage
+        title="t(curiosity-graph.error_title)"
+      />
     </CardBody>
   </MinHeight>
 </Card>

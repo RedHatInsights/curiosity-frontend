@@ -617,6 +617,7 @@ const getApiVersion = (options = {}) => {
  *         "usage": ""
  *       }
  *     }
+ */
 /**
  * @apiMock {DelayResponse} 1000
  * @apiMock {RandomSuccess}

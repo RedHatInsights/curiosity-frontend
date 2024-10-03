@@ -87,7 +87,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
     ],
     "error": true,
     "fulfilled": false,
-    "message": [Error: useSelectorsResponse, {"error":true}],
+    "message": [Error: useSelectorsResponse, aggregated response error:
+[
+  "undefined"
+]],
     "pending": false,
     "responses": {
       "id": {},
@@ -113,7 +116,11 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
     ],
     "error": true,
     "fulfilled": false,
-    "message": [Error: useSelectorsResponse, {"error":true}],
+    "message": [Error: useSelectorsResponse, aggregated response error:
+[
+  "undefined",
+  "undefined"
+]],
     "pending": false,
     "responses": {
       "id": {},
@@ -141,7 +148,11 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
     },
     "error": true,
     "fulfilled": false,
-    "message": [Error: useSelectorsResponse, {"error":true,"id":"lorem"}],
+    "message": [Error: useSelectorsResponse, aggregated response error:
+[
+  "undefined",
+  "undefined"
+]],
     "pending": false,
     "responses": {
       "id": {
@@ -201,7 +212,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
     ],
     "error": true,
     "fulfilled": false,
-    "message": [Error: useSelectorsResponse, {"error":true}],
+    "message": [Error: useSelectorsResponse, aggregated response error:
+[
+  "undefined"
+]],
     "pending": false,
     "responses": {
       "id": {},
@@ -327,7 +341,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
     ],
     "error": true,
     "fulfilled": false,
-    "message": [Error: useSelectorsResponse, {"error":true}],
+    "message": [Error: useSelectorsResponse, aggregated response error:
+[
+  "undefined"
+]],
     "pending": false,
     "responses": {
       "id": {},
