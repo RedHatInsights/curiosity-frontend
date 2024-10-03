@@ -537,6 +537,7 @@
     "description_rosa": "Monitor your Red Hat OpenShift Service on AWS Hosted Control Planes usage for monthly pre-paid and On-Demand subscriptions.",
     "title_Satellite": "Red Hat Satellite",
     "title_Satellite Capsule": "$t(curiosity-view.title_Satellite)",
-    "title_Satellite Server": "$t(curiosity-view.title_Satellite)"
+    "title_Satellite Server": "$t(curiosity-view.title_Satellite)",
+    "version": "gui {{guiVersion}}"
   }
 }

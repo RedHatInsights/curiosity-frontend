@@ -1,11 +1,7 @@
 .curiosity {
   .curiosity-error {
     &__link {
-      color: var(--pf-global--palette--black-400) !important;
-
-      &:hover {
-        color: var(--pf-global--palette--black-900) !important;
-      }
+      @extend .curiosity-page-section__version-link;
     }
 
     &__textarea {

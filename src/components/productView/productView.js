@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '@patternfly/react-core';
 import { routerContext } from '../router';
 import { ProductViewContext } from './productViewContext';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages, PageColumns } from '../pageLayout/pageLayout';
@@ -94,9 +95,21 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
     (productGroup && (
       <PageLayout>
         <PageHeader productLabel={productGroup}>
-          {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productGroup })}
+          {t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: productGroup })}
         </PageHeader>
         <PageColumns>{renderProduct()}</PageColumns>
+        <div className="curiosity-page-section__version">
+          <Button
+            className="curiosity-page-section__version-link"
+            isInline
+            component="a"
+            variant="link"
+            target="_blank"
+            href={helpers.UI_LINK_CHANGELOG}
+          >
+            {t('curiosity-view.version', { guiVersion: helpers.UI_VERSION })}
+          </Button>
+        </div>
       </PageLayout>
     )) ||
     null
