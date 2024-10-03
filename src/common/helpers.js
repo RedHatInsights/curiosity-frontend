@@ -382,21 +382,32 @@ const UI_DISPLAY_CONFIG_NAME = process.env.REACT_APP_UI_DISPLAY_CONFIG_NAME;
 const UI_DISPLAY_START_NAME = process.env.REACT_APP_UI_DISPLAY_START_NAME;
 
 /**
- * A url, or uri, for "contact us".
+ * Url, or uri, for "contact us".
+ * See dotenv config files for updating.
  *
  * @type {string}
  */
 const UI_LINK_CONTACT_US = process.env.REACT_APP_UI_LINK_CONTACT_US;
 
 /**
- * A url, or uri, for "learn more".
+ * Url, or uri, for "learn more".
+ * See dotenv config files for updating.
  *
  * @type {string}
  */
 const UI_LINK_LEARN_MORE = process.env.REACT_APP_UI_LINK_LEARN_MORE;
 
 /**
- * A url, or uri, for "recommend actions"
+ * Url, or uri, for platform level status
+ * See dotenv config files for updating.
+ *
+ * @type {string}
+ */
+const UI_LINK_PLATFORM_STATUS = process.env.REACT_APP_UI_LINK_PLATFORM_STATUS;
+
+/**
+ * Url, or uri, for "recommend actions"
+ * See dotenv config files for updating.
  *
  * @type {string}
  */
@@ -404,6 +415,7 @@ const UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS = process.env.REACT_APP_UI_LINK_RE
 
 /**
  * UI locale default.
+ * See dotenv config files for updating.
  *
  * @type {string}
  */
@@ -411,6 +423,7 @@ const UI_LOCALE_DEFAULT = process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_L
 
 /**
  * UI locale default description.
+ * See dotenv config files for updating.
  *
  * @type {string}
  */
@@ -426,6 +439,7 @@ const UI_LOGGER_ID = process.env.REACT_APP_UI_LOGGER_ID || 'GUI';
 
 /**
  * UI state logging file name.
+ * See dotenv config files for updating.
  *
  * @type {string}
  */
@@ -438,6 +452,14 @@ const UI_LOGGER_FILE = process.env.REACT_APP_UI_LOGGER_FILE || 'debug_log_{0}.js
  * @type {string}
  */
 const UI_NAME = process.env.REACT_APP_UI_NAME;
+
+/**
+ * UI internal application name.
+ * See dotenv config files for updating.
+ *
+ * @type {string}
+ */
+const UI_INTERNAL_NAME = process.env.REACT_APP_UI_INTERNAL_NAME;
 
 /**
  * UI packaged application path, with generated prefix.
@@ -514,8 +536,10 @@ const helpers = {
   UI_DISPLAY_NAME,
   UI_DISPLAY_CONFIG_NAME,
   UI_DISPLAY_START_NAME,
+  UI_INTERNAL_NAME,
   UI_LINK_CONTACT_US,
   UI_LINK_LEARN_MORE,
+  UI_LINK_PLATFORM_STATUS,
   UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS,
   UI_LOCALE_DEFAULT,
   UI_LOCALE_DEFAULT_DESC,

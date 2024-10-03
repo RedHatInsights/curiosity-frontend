@@ -15,6 +15,7 @@ $pf-global--breakpoint--lg: $pf-v5-global--breakpoint--lg;
   --pf-global--Color--light-100: var(--pf-v5-global--Color--light-100);
 
   --pf-global--palette--blue-300: var(--pf-v5-global--palette--blue-300);
+  --pf-global--palette--black-400: var(--pf-v5-global--palette--black-400);
   --pf-global--palette--black-500: var(--pf-v5-global--palette--black-500);
   --pf-global--palette--black-900: var(--pf-v5-global--palette--black-900);
   --pf-global--palette--black-1000: var(--pf-v5-global--palette--black-1000);
@@ -53,3 +54,4 @@ $pf-global--breakpoint--lg: $pf-v5-global--breakpoint--lg;
 @import 'graph';
 @import 'inventory';
 @import 'optin';
+@import 'errors';
