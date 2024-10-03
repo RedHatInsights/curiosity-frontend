@@ -29,6 +29,31 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/components/errorMessage/errorMessage.js",
+    "keys": [
+      {
+        "key": "curiosity-view.error",
+        "match": "t('curiosity-view.error', { context: 'debug' })",
+      },
+      {
+        "key": "curiosity-view.error",
+        "match": "t('curiosity-view.error', { context: 'debug' })",
+      },
+      {
+        "key": "curiosity-view.error",
+        "match": "t('curiosity-view.error', { context: 'download' })",
+      },
+      {
+        "key": "curiosity-view.error",
+        "match": "t('curiosity-view.error', { context: 'title', appName: helpers.UI_INTERNAL_NAME })",
+      },
+      {
+        "key": "curiosity-view.error",
+        "match": "t('curiosity-view.error', { context: 'description' }, [ <Button isInline component="a" variant="link" target="_blank" href={helpers.UI_LINK_PLATFORM_STATUS} /> ])",
+      },
+    ],
+  },
+  {
     "file": "src/components/graphCard/graphCardChart.js",
     "keys": [
       {

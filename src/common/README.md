@@ -326,12 +326,14 @@ Download the debug log file.
     * [~UI_DISPLAY_START_NAME](#Helpers.module_General..UI_DISPLAY_START_NAME) : <code>string</code>
     * [~UI_LINK_CONTACT_US](#Helpers.module_General..UI_LINK_CONTACT_US) : <code>string</code>
     * [~UI_LINK_LEARN_MORE](#Helpers.module_General..UI_LINK_LEARN_MORE) : <code>string</code>
+    * [~UI_LINK_PLATFORM_STATUS](#Helpers.module_General..UI_LINK_PLATFORM_STATUS) : <code>string</code>
     * [~UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS](#Helpers.module_General..UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS) : <code>string</code>
     * [~UI_LOCALE_DEFAULT](#Helpers.module_General..UI_LOCALE_DEFAULT) : <code>string</code>
     * [~UI_LOCALE_DEFAULT_DESC](#Helpers.module_General..UI_LOCALE_DEFAULT_DESC) : <code>string</code>
     * [~UI_LOGGER_ID](#Helpers.module_General..UI_LOGGER_ID) : <code>string</code>
     * [~UI_LOGGER_FILE](#Helpers.module_General..UI_LOGGER_FILE) : <code>string</code>
     * [~UI_NAME](#Helpers.module_General..UI_NAME) : <code>string</code>
+    * [~UI_INTERNAL_NAME](#Helpers.module_General..UI_INTERNAL_NAME) : <code>string</code>
     * [~UI_PATH](#Helpers.module_General..UI_PATH) : <code>string</code>
     * [~UI_VERSION](#Helpers.module_General..UI_VERSION) : <code>string</code>
     * [~UI_WINDOW_ID](#Helpers.module_General..UI_WINDOW_ID) : <code>string</code>
@@ -559,31 +561,43 @@ See dotenv config files for updating.
 <a name="Helpers.module_General..UI_LINK_CONTACT_US"></a>
 
 ### General~UI\_LINK\_CONTACT\_US : <code>string</code>
-A url, or uri, for "contact us".
+Url, or uri, for "contact us".
+See dotenv config files for updating.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..UI_LINK_LEARN_MORE"></a>
 
 ### General~UI\_LINK\_LEARN\_MORE : <code>string</code>
-A url, or uri, for "learn more".
+Url, or uri, for "learn more".
+See dotenv config files for updating.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..UI_LINK_PLATFORM_STATUS"></a>
+
+### General~UI\_LINK\_PLATFORM\_STATUS : <code>string</code>
+Url, or uri, for platform level status
+See dotenv config files for updating.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS"></a>
 
 ### General~UI\_LINK\_REPORT\_ACCURACY\_RECOMMENDATIONS : <code>string</code>
-A url, or uri, for "recommend actions"
+Url, or uri, for "recommend actions"
+See dotenv config files for updating.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..UI_LOCALE_DEFAULT"></a>
 
 ### General~UI\_LOCALE\_DEFAULT : <code>string</code>
 UI locale default.
+See dotenv config files for updating.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..UI_LOCALE_DEFAULT_DESC"></a>
 
 ### General~UI\_LOCALE\_DEFAULT\_DESC : <code>string</code>
 UI locale default description.
+See dotenv config files for updating.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..UI_LOGGER_ID"></a>
@@ -597,12 +611,20 @@ See dotenv config files for updating.
 
 ### General~UI\_LOGGER\_FILE : <code>string</code>
 UI state logging file name.
+See dotenv config files for updating.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <a name="Helpers.module_General..UI_NAME"></a>
 
 ### General~UI\_NAME : <code>string</code>
 UI packaged application name.
+See dotenv config files for updating.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..UI_INTERNAL_NAME"></a>
+
+### General~UI\_INTERNAL\_NAME : <code>string</code>
+UI internal application name.
 See dotenv config files for updating.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  

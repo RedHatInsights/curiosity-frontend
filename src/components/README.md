@@ -28,6 +28,9 @@
 <dd></dd>
 <dt><a href="#Chart.module_ChartTooltip">ChartTooltip</a></dt>
 <dd></dd>
+<dt><a href="#Components.module_ErrorMessage">ErrorMessage</a></dt>
+<dd><p>Error message component wrapper.</p>
+</dd>
 <dt><a href="#Form.module_Checkbox">Checkbox</a></dt>
 <dd><p>A checkbox with state.</p>
 </dd>
@@ -1215,6 +1218,80 @@ Return a tooltip tail position CSS class.
     <td>params.padding</td><td><code>number</code></td>
     </tr><tr>
     <td>params.minWidth</td><td><code>number</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Components.module_ErrorMessage"></a>
+
+## ErrorMessage
+Error message component wrapper.
+
+
+* [ErrorMessage](#Components.module_ErrorMessage)
+    * [~ErrorMessage(props)](#Components.module_ErrorMessage..ErrorMessage) ⇒ <code>JSX.Element</code>
+    * ["onClickShowErrorDisplay"](#event_onClickShowErrorDisplay)
+    * ["onClickDownloadLog"](#event_onClickDownloadLog)
+    * ["onKeyUpEvent" (event)](#event_onKeyUpEvent)
+
+<a name="Components.module_ErrorMessage..ErrorMessage"></a>
+
+### ErrorMessage~ErrorMessage(props) ⇒ <code>JSX.Element</code>
+Display 4xx, 5xx level error messages for components.
+
+**Kind**: inner method of [<code>ErrorMessage</code>](#Components.module_ErrorMessage)  
+**Emits**: [<code>onClickShowErrorDisplay</code>](#event_onClickShowErrorDisplay), [<code>onClickDownloadLog</code>](#event_onClickDownloadLog), [<code>onKeyUpEvent</code>](#event_onKeyUpEvent)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.description]</td><td><code>string</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.keyCode]</td><td><code>Array.&lt;number&gt;</code></td><td><code>[68, 69, 66, 85, 71]</code></td><td><p>Key code defaults to &quot;debug&quot;</p>
+</td>
+    </tr><tr>
+    <td>[props.getDebugLog]</td><td><code>downloadHelpers.debugLog</code></td><td><code>downloadHelpers.debugLog</code></td><td></td>
+    </tr><tr>
+    <td>[props.message]</td><td><code>string</code> | <code>Error</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.title]</td><td><code>string</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="event_onClickShowErrorDisplay"></a>
+
+### "onClickShowErrorDisplay"
+Flip display to show generalized errors
+
+**Kind**: event emitted by [<code>ErrorMessage</code>](#Components.module_ErrorMessage)  
+<a name="event_onClickDownloadLog"></a>
+
+### "onClickDownloadLog"
+Download an error log
+
+**Kind**: event emitted by [<code>ErrorMessage</code>](#Components.module_ErrorMessage)  
+<a name="event_onKeyUpEvent"></a>
+
+### "onKeyUpEvent" (event)
+Type and confirm a keyword
+
+**Kind**: event emitted by [<code>ErrorMessage</code>](#Components.module_ErrorMessage)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>event</td><td><code>event</code></td>
     </tr>  </tbody>
 </table>
 

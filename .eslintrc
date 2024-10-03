@@ -110,6 +110,7 @@
         ]
       }
     ],
+    "jsdoc/no-defaults": 0,
     "jsdoc/no-undefined-types": 0,
     "jsdoc/require-jsdoc": 2,
     "jsdoc/require-param": 2,
@@ -176,9 +177,10 @@
     "react/jsx-props-no-spreading": 0,
     "react/jsx-one-expression-per-line": 0,
     "react/jsx-no-constructed-context-values": 1,
+    "react/jsx-no-useless-fragment": 1,
     "react/no-unused-prop-types": 1,
     "react/no-unstable-nested-components": 0,
-    "react/jsx-no-useless-fragment": 1,
+    "react/prop-types": 0,
     "react/state-in-constructor": [ 1, "never" ],
     "space-before-function-paren": 0,
     "jsx-a11y/anchor-is-valid": 1,
