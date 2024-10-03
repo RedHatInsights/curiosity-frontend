@@ -460,6 +460,12 @@
     "tourDescription": "We'll walk you through each step, and include insight into how Red Hat collects and uses subscription data."
   },
   "curiosity-view": {
+    "error": "...",
+    "error_debug": "View error",
+    "error_description": "Try refreshing the page. If the problem persists, contact your organization administrator or visit our <0>status page</0> for known outages.",
+    "error_download": "Download UI state log",
+    "error_pageTitle": "Subscriptions Usage",
+    "error_title": "{{appName}} is temporarily unavailable",
     "title": "{{appName}}",
     "subtitle": "Monitor your usage based on your subscription terms. <0>Learn more about {{appName}} reporting</0>",
     "description": "Monitor your usage based on your subscription terms.",

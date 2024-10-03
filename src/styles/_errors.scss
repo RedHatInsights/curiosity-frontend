@@ -1,0 +1,19 @@
+.curiosity {
+  .curiosity-error {
+    &__link {
+      color: var(--pf-global--palette--black-400) !important;
+
+      &:hover {
+        color: var(--pf-global--palette--black-900) !important;
+      }
+    }
+
+    &__textarea {
+      display: block;
+      resize: vertical;
+      width: 100%;
+      white-space: pre-wrap;
+      border-color: var(--pf-global--palette--black-400);
+    }
+  }
+}
