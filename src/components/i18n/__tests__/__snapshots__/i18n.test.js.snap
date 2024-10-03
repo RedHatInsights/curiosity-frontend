@@ -19,12 +19,12 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/components/authentication/authentication.js",
     "keys": [
       {
-        "key": "curiosity-auth.maintenanceCopy",
-        "match": "t('curiosity-auth.maintenanceCopy', '...')",
+        "key": "curiosity-auth.maintenance",
+        "match": "t('curiosity-auth.maintenance', { context: 'description' })",
       },
       {
         "key": "curiosity-auth.pending",
-        "match": "t('curiosity-auth.pending', '...')",
+        "match": "t('curiosity-auth.pending', { context: 'description' })",
       },
     ],
   },

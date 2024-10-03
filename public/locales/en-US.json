@@ -1,7 +1,9 @@
 {
   "curiosity-auth": {
-    "pending": "Authenticating...",
-    "maintenanceCopy": "We are currently undergoing scheduled maintenance and will be back shortly. Thank you for your patience."
+    "pending": "...",
+    "pending_description": "Authenticating...",
+    "maintenance": "...",
+    "maintenance_description": "We are currently undergoing scheduled maintenance and will be back shortly. Thank you for your patience."
   },
   "curiosity-banner": {},
   "curiosity-graph": {
