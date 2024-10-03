@@ -382,6 +382,14 @@ const UI_DISPLAY_CONFIG_NAME = process.env.REACT_APP_UI_DISPLAY_CONFIG_NAME;
 const UI_DISPLAY_START_NAME = process.env.REACT_APP_UI_DISPLAY_START_NAME;
 
 /**
+ * Url, or uri, for the UI changelog.
+ * See dotenv config files for updating.
+ *
+ * @type {string}
+ */
+const UI_LINK_CHANGELOG = process.env.REACT_APP_UI_LINK_CHANGELOG;
+
+/**
  * Url, or uri, for "contact us".
  * See dotenv config files for updating.
  *
@@ -537,6 +545,7 @@ const helpers = {
   UI_DISPLAY_CONFIG_NAME,
   UI_DISPLAY_START_NAME,
   UI_INTERNAL_NAME,
+  UI_LINK_CHANGELOG,
   UI_LINK_CONTACT_US,
   UI_LINK_LEARN_MORE,
   UI_LINK_PLATFORM_STATUS,

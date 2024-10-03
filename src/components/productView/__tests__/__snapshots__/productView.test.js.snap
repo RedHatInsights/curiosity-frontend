@@ -100,6 +100,20 @@ exports[`ProductView Component should allow custom inventory displays via config
       </PageSection>
     </Context.Provider>
   </PageColumns>
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;
 
@@ -189,6 +203,20 @@ exports[`ProductView Component should allow custom inventory displays via config
       </PageSection>
     </Context.Provider>
   </PageColumns>
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;
 
@@ -278,6 +306,20 @@ exports[`ProductView Component should allow custom inventory displays via config
       </PageSection>
     </Context.Provider>
   </PageColumns>
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;
 
@@ -351,6 +393,20 @@ exports[`ProductView Component should allow custom product views via productDisp
       </PageSection>
     </Context.Provider>
   </PageColumns>
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;
 
@@ -424,6 +480,20 @@ exports[`ProductView Component should allow custom product views via productDisp
       </PageSection>
     </Context.Provider>
   </PageColumns>
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;
 
@@ -497,6 +567,20 @@ exports[`ProductView Component should allow custom product views via productDisp
       </PageSection>
     </Context.Provider>
   </PageColumns>
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;
 
@@ -570,6 +654,20 @@ exports[`ProductView Component should allow custom product views via productDisp
       </PageSection>
     </Context.Provider>
   </PageColumns>
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;
 
@@ -643,6 +741,20 @@ exports[`ProductView Component should allow custom product views via productDisp
       </PageSection>
     </Context.Provider>
   </PageColumns>
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;
 
@@ -715,6 +827,20 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
       </PageSection>
     </Context.Provider>
   </PageColumns>
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;
 
@@ -733,5 +859,19 @@ exports[`ProductView Component should render nothing if productGroup, and produc
   <PageColumns
     className=""
   />
+  <div
+    className="curiosity-page-section__version"
+  >
+    <Button
+      className="curiosity-page-section__version-link"
+      component="a"
+      href="https://github.com/RedHatInsights/curiosity-frontend/blob/main/CHANGELOG.md"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      t(curiosity-view.version, {"guiVersion":"0.0.0.0000000"})
+    </Button>
+  </div>
 </PageLayout>
 `;

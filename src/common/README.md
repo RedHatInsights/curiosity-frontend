@@ -324,6 +324,7 @@ Download the debug log file.
     * [~UI_DISPLAY_NAME](#Helpers.module_General..UI_DISPLAY_NAME) : <code>string</code>
     * [~UI_DISPLAY_CONFIG_NAME](#Helpers.module_General..UI_DISPLAY_CONFIG_NAME) : <code>string</code>
     * [~UI_DISPLAY_START_NAME](#Helpers.module_General..UI_DISPLAY_START_NAME) : <code>string</code>
+    * [~UI_LINK_CHANGELOG](#Helpers.module_General..UI_LINK_CHANGELOG) : <code>string</code>
     * [~UI_LINK_CONTACT_US](#Helpers.module_General..UI_LINK_CONTACT_US) : <code>string</code>
     * [~UI_LINK_LEARN_MORE](#Helpers.module_General..UI_LINK_LEARN_MORE) : <code>string</code>
     * [~UI_LINK_PLATFORM_STATUS](#Helpers.module_General..UI_LINK_PLATFORM_STATUS) : <code>string</code>
@@ -555,6 +556,13 @@ See dotenv config files for updating.
 
 ### General~UI\_DISPLAY\_START\_NAME : <code>string</code>
 UI application sentence start name.
+See dotenv config files for updating.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..UI_LINK_CHANGELOG"></a>
+
+### General~UI\_LINK\_CHANGELOG : <code>string</code>
+Url, or uri, for the UI changelog.
 See dotenv config files for updating.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
