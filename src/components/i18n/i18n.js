@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import XHR from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
@@ -20,12 +19,17 @@ import { EMPTY_CONTEXT, translate, translateComponent } from './i18nHelpers';
  *
  * @param {object} props
  * @param {React.ReactNode} props.children
- * @param {string} props.fallbackLng
- * @param {string} props.loadPath
- * @param {string} props.locale
- * @returns {React.ReactNode}
+ * @param {string} [props.fallbackLng=process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG]
+ * @param {string} [props.loadPath=process.env.REACT_APP_CONFIG_SERVICE_LOCALES_PATH]
+ * @param {string} [props.locale=null]
+ * @returns {JSX.Element}
  */
-const I18n = ({ children, fallbackLng, loadPath, locale }) => {
+const I18n = ({
+  children,
+  fallbackLng = process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG,
+  loadPath = process.env.REACT_APP_CONFIG_SERVICE_LOCALES_PATH,
+  locale
+}) => {
   const [initialized, setInitialized] = useState(false);
 
   /**
@@ -71,29 +75,6 @@ const I18n = ({ children, fallbackLng, loadPath, locale }) => {
 
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return (initialized && children) || <React.Fragment />;
-};
-
-/**
- * Prop types.
- *
- * @type {{loadPath: string, children: React.ReactNode, locale: string, fallbackLng: string}}
- */
-I18n.propTypes = {
-  children: PropTypes.node.isRequired,
-  fallbackLng: PropTypes.string,
-  loadPath: PropTypes.string,
-  locale: PropTypes.string
-};
-
-/**
- * Default props.
- *
- * @type {{loadPath: string, locale: null, fallbackLng: string}}
- */
-I18n.defaultProps = {
-  fallbackLng: process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG,
-  loadPath: process.env.REACT_APP_CONFIG_SERVICE_LOCALES_PATH,
-  locale: null
 };
 
 export { I18n as default, I18n, i18next, translate, translateComponent, EMPTY_CONTEXT };

@@ -27,10 +27,7 @@ exports[`ProductView Component should allow custom inventory displays via config
       <PageMessages
         className=""
       >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
+        <BannerMessages />
       </PageMessages>
       <PageToolbar
         className=""
@@ -144,10 +141,7 @@ exports[`ProductView Component should allow custom inventory displays via config
       <PageMessages
         className=""
       >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
+        <BannerMessages />
       </PageMessages>
       <PageToolbar
         className=""
@@ -247,10 +241,7 @@ exports[`ProductView Component should allow custom inventory displays via config
       <PageMessages
         className=""
       >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
+        <BannerMessages />
       </PageMessages>
       <PageToolbar
         className=""
@@ -349,10 +340,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageMessages
         className=""
       >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
+        <BannerMessages />
       </PageMessages>
       <PageToolbar
         className=""
@@ -436,10 +424,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageMessages
         className=""
       >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
+        <BannerMessages />
       </PageMessages>
       <PageToolbar
         className=""
@@ -523,10 +508,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageMessages
         className=""
       >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
+        <BannerMessages />
       </PageMessages>
       <PageToolbar
         className=""
@@ -610,10 +592,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageMessages
         className=""
       >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
+        <BannerMessages />
       </PageMessages>
       <PageToolbar
         className=""
@@ -697,10 +676,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageMessages
         className=""
       >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
+        <BannerMessages />
       </PageMessages>
       <PageToolbar
         className=""
@@ -783,10 +759,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
       <PageMessages
         className=""
       >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
+        <BannerMessages />
       </PageMessages>
       <PageToolbar
         className=""

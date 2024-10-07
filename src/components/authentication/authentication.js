@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { BinocularsIcon } from '@patternfly/react-icons';
 import { Maintenance } from '@redhat-cloud-services/frontend-components/Maintenance';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
@@ -23,14 +22,20 @@ import { AuthenticationContext, useGetAuthorization } from './authenticationCont
  * An authentication pass-through component.
  *
  * @param {object} props
- * @param {string} props.appName
+ * @param {string} [props.appName=routerHelpers.appName]
  * @param {React.ReactNode} props.children
- * @param {boolean} props.isDisabled
- * @param {Function} props.t
- * @param {Function} props.useGetAuthorization
- * @returns {React.ReactNode}
+ * @param {boolean} [props.isDisabled=helpers.UI_DISABLED]
+ * @param {translate} [props.t=translate]
+ * @param {useGetAuthorization} [props.useGetAuthorization=useGetAuthorization]
+ * @returns {JSX.Element}
  */
-const Authentication = ({ appName, children, isDisabled, t, useGetAuthorization: useAliasGetAuthorization }) => {
+const Authentication = ({
+  appName = routerHelpers.appName,
+  children,
+  isDisabled = helpers.UI_DISABLED,
+  t = translate,
+  useGetAuthorization: useAliasGetAuthorization = useGetAuthorization
+}) => {
   const { pending, data = {} } = useAliasGetAuthorization();
   const { authorized = {}, errorCodes, errorStatus } = data;
   const { [appName]: isAuthorized } = authorized;
@@ -73,31 +78,6 @@ const Authentication = ({ appName, children, isDisabled, t, useGetAuthorization:
   };
 
   return <AuthenticationContext.Provider value={data}>{renderContent()}</AuthenticationContext.Provider>;
-};
-
-/**
- * Prop types.
- *
- * @type {{useGetAuthorization: Function, children: React.ReactNode, appName: string, isDisabled: boolean}}
- */
-Authentication.propTypes = {
-  appName: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  isDisabled: PropTypes.bool,
-  t: PropTypes.func,
-  useGetAuthorization: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useGetAuthorization: Function, t: Function, appName: string, isDisabled: boolean}}
- */
-Authentication.defaultProps = {
-  appName: routerHelpers.appName,
-  isDisabled: helpers.UI_DISABLED,
-  t: translate,
-  useGetAuthorization
 };
 
 export { Authentication as default, Authentication };
