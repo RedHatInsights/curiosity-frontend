@@ -4,11 +4,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 <Card
   className="curiosity-card curiosity-inventory-card"
 >
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardHeader
       actions={
         {
@@ -51,11 +47,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       className="curiosity-card__header hidden"
     />
   </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardBody
       className="curiosity-card__body"
     >
@@ -64,11 +56,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       />
     </CardBody>
   </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardFooter
       aria-hidden={true}
       className="curiosity-card__footer hidden"
@@ -97,11 +85,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 <Card
   className="curiosity-card curiosity-inventory-card"
 >
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardHeader
       actions={
         {
@@ -144,11 +128,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       className="curiosity-card__header "
     />
   </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardBody
       className="curiosity-card__body"
     >
@@ -199,11 +179,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       </div>
     </CardBody>
   </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardFooter
       aria-hidden={true}
       className="curiosity-card__footer transparent"
@@ -232,11 +208,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 <Card
   className="curiosity-card curiosity-inventory-card"
 >
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardHeader
       actions={
         {
@@ -279,11 +251,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       className="curiosity-card__header "
     />
   </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardBody
       className="curiosity-card__body"
     >
@@ -308,11 +276,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       </div>
     </CardBody>
   </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardFooter
       aria-hidden={true}
       className="curiosity-card__footer transparent"
@@ -341,11 +305,7 @@ exports[`InventoryCard Component should render a basic component: basic render 1
 <Card
   className="curiosity-card curiosity-inventory-card"
 >
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardHeader
       actions={
         {
@@ -388,11 +348,7 @@ exports[`InventoryCard Component should render a basic component: basic render 1
       className="curiosity-card__header "
     />
   </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardBody
       className="curiosity-card__body"
     >
@@ -417,11 +373,7 @@ exports[`InventoryCard Component should render a basic component: basic render 1
       </div>
     </CardBody>
   </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
+  <MinHeight>
     <CardFooter
       aria-hidden={true}
       className="curiosity-card__footer transparent"

@@ -3940,55 +3940,32 @@ Note: PF EmptyStateIcon registers as function, we compensate for PF by allowing 
 ## MinHeight
 Normalize component height on page loads and updates.
 
-
-* [MinHeight](#Components.module_MinHeight)
-    * [~MinHeight(props)](#Components.module_MinHeight..MinHeight) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Components.module_MinHeight..MinHeight.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_MinHeight..MinHeight.defaultProps) : <code>Object</code>
-
 <a name="Components.module_MinHeight..MinHeight"></a>
 
-### MinHeight~MinHeight(props) ⇒ <code>React.ReactNode</code>
-Set a min-height to prevent page jump component.
+### MinHeight~MinHeight(props) ⇒ <code>JSX.Element</code>
+Set a min-height to prevent page jump.
 
 **Kind**: inner method of [<code>MinHeight</code>](#Components.module_MinHeight)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.isOnLoad</td><td><code>boolean</code></td>
+    <td>[props.isOnLoad]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.minHeight</td><td><code>number</code></td>
+    <td>[props.minHeight]</td><td><code>number</code></td><td><code>0</code></td>
     </tr><tr>
-    <td>props.useResizeObserver</td><td><code>function</code></td>
+    <td>[props.useResizeObserver]</td><td><code>useResizeObserver</code></td><td><code>useResizeObserver</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~MinHeight(props)](#Components.module_MinHeight..MinHeight) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Components.module_MinHeight..MinHeight.propTypes) : <code>Object</code>
-    * [.defaultProps](#Components.module_MinHeight..MinHeight.defaultProps) : <code>Object</code>
-
-<a name="Components.module_MinHeight..MinHeight.propTypes"></a>
-
-#### MinHeight.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
-<a name="Components.module_MinHeight..MinHeight.defaultProps"></a>
-
-#### MinHeight.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
 <a name="Components.module_OptinView"></a>
 
 ## OptinView
@@ -3996,18 +3973,14 @@ Opt-in view
 
 
 * [OptinView](#Components.module_OptinView)
-    * [~OptinView(props)](#Components.module_OptinView..OptinView) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Components.module_OptinView..OptinView.propTypes) : <code>Object</code>
-            * [.defaultProps](#Components.module_OptinView..OptinView.defaultProps) : <code>Object</code>
-        * _inner_
-            * [~renderOptinForm()](#Components.module_OptinView..OptinView..renderOptinForm) ⇒ <code>React.ReactNode</code>
-            * [~renderTour()](#Components.module_OptinView..OptinView..renderTour) ⇒ <code>React.ReactNode</code>
+    * [~OptinView(props)](#Components.module_OptinView..OptinView) ⇒ <code>JSX.Element</code>
+        * [~renderOptinForm()](#Components.module_OptinView..OptinView..renderOptinForm) ⇒ <code>React.ReactNode</code>
+        * [~renderTour()](#Components.module_OptinView..OptinView..renderTour) ⇒ <code>React.ReactNode</code>
     * ["onSubmitOptIn"](#event_onSubmitOptIn) ⇒ <code>void</code>
 
 <a name="Components.module_OptinView..OptinView"></a>
 
-### OptinView~OptinView(props) ⇒ <code>React.ReactNode</code>
+### OptinView~OptinView(props) ⇒ <code>JSX.Element</code>
 An account opt-in view.
 
 **Kind**: inner method of [<code>OptinView</code>](#Components.module_OptinView)  
@@ -4015,46 +3988,30 @@ An account opt-in view.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.updateAccountOptIn</td><td><code>function</code></td>
+    <td>[props.updateAccountOptIn]</td><td><code>reduxActions.user.updateAccountOptIn</code></td><td><code>reduxActions.user.updateAccountOptIn</code></td>
     </tr><tr>
-    <td>props.useDispatch</td><td><code>function</code></td>
+    <td>[props.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>props.useSelectorsResponse</td><td><code>function</code></td>
+    <td>[props.useSelectorsResponse]</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td>
     </tr><tr>
-    <td>props.useSession</td><td><code>function</code></td>
+    <td>[props.useSession]</td><td><code>useSession</code></td><td><code>useSession</code></td>
     </tr>  </tbody>
 </table>
 
 
-* [~OptinView(props)](#Components.module_OptinView..OptinView) ⇒ <code>React.ReactNode</code>
-    * _static_
-        * [.propTypes](#Components.module_OptinView..OptinView.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_OptinView..OptinView.defaultProps) : <code>Object</code>
-    * _inner_
-        * [~renderOptinForm()](#Components.module_OptinView..OptinView..renderOptinForm) ⇒ <code>React.ReactNode</code>
-        * [~renderTour()](#Components.module_OptinView..OptinView..renderTour) ⇒ <code>React.ReactNode</code>
+* [~OptinView(props)](#Components.module_OptinView..OptinView) ⇒ <code>JSX.Element</code>
+    * [~renderOptinForm()](#Components.module_OptinView..OptinView..renderOptinForm) ⇒ <code>React.ReactNode</code>
+    * [~renderTour()](#Components.module_OptinView..OptinView..renderTour) ⇒ <code>React.ReactNode</code>
 
-<a name="Components.module_OptinView..OptinView.propTypes"></a>
-
-#### OptinView.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>OptinView</code>](#Components.module_OptinView..OptinView)  
-<a name="Components.module_OptinView..OptinView.defaultProps"></a>
-
-#### OptinView.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>OptinView</code>](#Components.module_OptinView..OptinView)  
 <a name="Components.module_OptinView..OptinView..renderOptinForm"></a>
 
 #### OptinView~renderOptinForm() ⇒ <code>React.ReactNode</code>

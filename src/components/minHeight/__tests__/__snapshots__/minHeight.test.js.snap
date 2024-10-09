@@ -6,8 +6,7 @@ exports[`MinHeight Component should allow override of minHeight: override 1`] = 
   "minHeight": 1001,
   "children": [
     {}
-  ],
-  "isOnLoad": false
+  ]
 }"
 >
   <div
@@ -28,9 +27,7 @@ exports[`MinHeight Component should render a basic component: basic 1`] = `
   props="{
   "children": [
     {}
-  ],
-  "isOnLoad": false,
-  "minHeight": 0
+  ]
 }"
 >
   <div
