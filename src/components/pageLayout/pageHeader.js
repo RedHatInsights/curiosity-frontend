@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { PageHeader as RcsPageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { Button, Flex, FlexItem } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
@@ -16,11 +15,11 @@ import { translate } from '../i18n/i18n';
  *
  * @param {object} props
  * @param {React.ReactNode} props.children
- * @param {string} props.productLabel
- * @param {Function} props.t
- * @returns {React.ReactNode}
+ * @param {string} [props.productLabel]
+ * @param {translate} [props.t=translate]
+ * @returns {JSX.Element}
  */
-const PageHeader = ({ children, productLabel, t }) => (
+const PageHeader = ({ children, productLabel, t = translate }) => (
   <RcsPageHeader>
     <Flex justifyContent={{ sm: 'justifyContentSpaceBetween' }}>
       <FlexItem>
@@ -44,26 +43,5 @@ const PageHeader = ({ children, productLabel, t }) => (
     )}
   </RcsPageHeader>
 );
-
-/**
- * Prop types.
- *
- * @type {{children: React.ReactNode, productLabel: string, t: Function}}
- */
-PageHeader.propTypes = {
-  children: PropTypes.node.isRequired,
-  productLabel: PropTypes.string,
-  t: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{includeTour: boolean, productLabel: null, t: translate}}
- */
-PageHeader.defaultProps = {
-  productLabel: null,
-  t: translate
-};
 
 export { PageHeader as default, PageHeader };
