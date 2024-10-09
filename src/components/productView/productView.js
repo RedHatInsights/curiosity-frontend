@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@patternfly/react-core';
 import { routerContext } from '../router';
 import { ProductViewContext } from './productViewContext';
@@ -30,11 +29,11 @@ import { ProductViewMissing } from './productViewMissing';
  * Display products.
  *
  * @param {object} props
- * @param {Function} props.t
- * @param {Function} props.useRouteDetail
- * @returns {React.ReactNode}
+ * @param {translate} [props.t=translate]
+ * @param {routerContext.useRouteDetail} [props.useRouteDetail=routerContext.useRouteDetail]
+ * @returns {JSX.Element}
  */
-const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
+const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = routerContext.useRouteDetail }) => {
   const { disableIsClosestMatch, firstMatch, productGroup } = useAliasRouteDetail();
 
   const renderProduct = useCallback(() => {
@@ -114,26 +113,6 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
     )) ||
     null
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{t: translate, useRouteDetail: Function}}
- */
-ProductView.propTypes = {
-  t: PropTypes.func,
-  useRouteDetail: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{t: translate, useRouteDetail: Function}}
- */
-ProductView.defaultProps = {
-  t: translate,
-  useRouteDetail: routerContext.useRouteDetail
 };
 
 export { ProductView as default, ProductView };

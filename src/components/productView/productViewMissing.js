@@ -1,5 +1,4 @@
 import React, { useLayoutEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Button, Card, CardBody, CardFooter, CardTitle, Gallery, Title, PageSection } from '@patternfly/react-core';
 import { ArrowRightIcon } from '@patternfly/react-icons';
 import { PageLayout, PageHeader } from '../pageLayout/pageLayout';
@@ -15,19 +14,19 @@ import { translate } from '../i18n/i18n';
 /**
  * Render a missing product view.
  *
- * @fires onNavigate
  * @param {object} props
- * @param {number} props.availableProductsRedirect
- * @param {Function} props.t
- * @param {Function} props.useNavigate
- * @param {Function} props.useRouteDetail
- * @returns {React.ReactNode}
+ * @param {number} [props.availableProductsRedirect=4]
+ * @param {translate} [props.t=translate]
+ * @param {routerContext.useNavigate} [props.useNavigate=routerContext.useNavigate]
+ * @param {routerContext.useRouteDetail} [props.useRouteDetail=routerContext.useRouteDetail]
+ * @fires onNavigate
+ * @returns {JSX.Element}
  */
 const ProductViewMissing = ({
-  availableProductsRedirect,
-  t,
-  useNavigate: useAliasNavigate,
-  useRouteDetail: useAliasRouteDetail
+  availableProductsRedirect = 4,
+  t = translate,
+  useNavigate: useAliasNavigate = routerContext.useNavigate,
+  useRouteDetail: useAliasRouteDetail = routerContext.useRouteDetail
 }) => {
   const navigate = useAliasNavigate();
   const { firstMatch, allConfigs } = useAliasRouteDetail();
@@ -103,30 +102,6 @@ const ProductViewMissing = ({
       </PageSection>
     </PageLayout>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useNavigate: Function, availableProductsRedirect: number, t: Function, useRouteDetail: Function}}
- */
-ProductViewMissing.propTypes = {
-  availableProductsRedirect: PropTypes.number,
-  t: PropTypes.func,
-  useNavigate: PropTypes.func,
-  useRouteDetail: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useNavigate: Function, availableProductsRedirect: number, t: translate, useRouteDetail: Function}}
- */
-ProductViewMissing.defaultProps = {
-  availableProductsRedirect: 4,
-  t: translate,
-  useNavigate: routerContext.useNavigate,
-  useRouteDetail: routerContext.useRouteDetail
 };
 
 export { ProductViewMissing as default, ProductViewMissing };

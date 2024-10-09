@@ -26,6 +26,5 @@ exports[`Pagination Component should render a basic component: basic 1`] = `
   onSetPage={[Function]}
   page={1}
   perPage={20}
-  variant={null}
 />
 `;
