@@ -117,11 +117,6 @@ exports[`InventoryGuests Component should handle multiple display states, error,
         className="curiosity-table-scroll-loader__custom"
       >
         <Loader
-          skeletonProps={
-            {
-              "size": "sm",
-            }
-          }
           tableProps={
             {
               "borders": false,
@@ -161,11 +156,6 @@ exports[`InventoryGuests Component should render a basic component: basic 1`] = 
         className="curiosity-table-scroll-loader__custom"
       >
         <Loader
-          skeletonProps={
-            {
-              "size": "sm",
-            }
-          }
           tableProps={
             {
               "borders": false,
