@@ -57,41 +57,17 @@ exports[`ProductView Component should allow custom inventory displays via config
         className="curiosity-page-section__tabs"
       >
         <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
           isDisabled={false}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
         >
           <InventoryTab
-            active={false}
             title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
           >
-            <InventoryCardInstances
-              isDisabled={false}
-              t={[Function]}
-              useGetInventory={[Function]}
-              useInventoryCardActions={[Function]}
-              useOnColumnSort={[Function]}
-              useOnPage={[Function]}
-              useParseFiltersSettings={[Function]}
-            />
+            <InventoryCardInstances />
           </InventoryTab>
           <InventoryTab
-            active={false}
             title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
           >
-            <InventoryCardSubscriptions
-              isDisabled={false}
-              t={[Function]}
-              useGetInventory={[Function]}
-              useInventoryCardActions={[Function]}
-              useOnColumnSort={[Function]}
-              useOnPage={[Function]}
-              useParseFiltersSettings={[Function]}
-            />
+            <InventoryCardSubscriptions />
           </InventoryTab>
         </InventoryTabs>
       </PageSection>
@@ -171,27 +147,12 @@ exports[`ProductView Component should allow custom inventory displays via config
         className="curiosity-page-section__tabs"
       >
         <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
           isDisabled={false}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
         >
           <InventoryTab
-            active={false}
             title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
           >
-            <InventoryCardSubscriptions
-              isDisabled={false}
-              t={[Function]}
-              useGetInventory={[Function]}
-              useInventoryCardActions={[Function]}
-              useOnColumnSort={[Function]}
-              useOnPage={[Function]}
-              useParseFiltersSettings={[Function]}
-            />
+            <InventoryCardSubscriptions />
           </InventoryTab>
         </InventoryTabs>
       </PageSection>
@@ -271,27 +232,12 @@ exports[`ProductView Component should allow custom inventory displays via config
         className="curiosity-page-section__tabs"
       >
         <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
           isDisabled={false}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
         >
           <InventoryTab
-            active={false}
             title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
           >
-            <InventoryCardInstances
-              isDisabled={false}
-              t={[Function]}
-              useGetInventory={[Function]}
-              useInventoryCardActions={[Function]}
-              useOnColumnSort={[Function]}
-              useOnPage={[Function]}
-              useParseFiltersSettings={[Function]}
-            />
+            <InventoryCardInstances />
           </InventoryTab>
         </InventoryTabs>
       </PageSection>
@@ -370,13 +316,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         className="curiosity-page-section__tabs"
       >
         <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
           isDisabled={true}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
         />
       </PageSection>
     </Context.Provider>
@@ -454,13 +394,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         className="curiosity-page-section__tabs"
       >
         <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
           isDisabled={true}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
         />
       </PageSection>
     </Context.Provider>
@@ -538,13 +472,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         className="curiosity-page-section__tabs"
       >
         <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
           isDisabled={true}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
         />
       </PageSection>
     </Context.Provider>
@@ -622,13 +550,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         className="curiosity-page-section__tabs"
       >
         <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
           isDisabled={true}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
         />
       </PageSection>
     </Context.Provider>
@@ -706,13 +628,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         className="curiosity-page-section__tabs"
       >
         <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
           isDisabled={true}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
         />
       </PageSection>
     </Context.Provider>
@@ -789,13 +705,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
         className="curiosity-page-section__tabs"
       >
         <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
           isDisabled={true}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
         />
       </PageSection>
     </Context.Provider>

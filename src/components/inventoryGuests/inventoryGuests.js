@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Loader } from '../loader/loader';
 import { Table, TableVariant } from '../table/table';
 import { useGetGuestsInventory, useOnScroll } from './inventoryGuestsContext'; // eslint-disable-line
@@ -18,22 +17,22 @@ import { translate } from '../i18n/i18n';
  * A system inventory guests component.
  *
  * @param {object} props
- * @param {number} props.defaultPerPage
+ * @param {number} [props.defaultPerPage=5]
  * @param {string} props.id
  * @param {number} props.numberOfGuests
- * @param {Function} props.useGetInventory
- * @param {Function} props.useOnScroll
- * @param {Function} props.t
+ * @param {useGetGuestsInventory} [props.useGetInventory=useGetGuestsInventory]
+ * @param {useOnScroll} [props.useOnScroll=useOnScroll]
+ * @param {translate} [props.t=translate]
  * @fires onScroll
- * @returns {React.ReactNode}
+ * @returns {JSX.Element}
  */
 const InventoryGuests = ({
-  defaultPerPage,
+  defaultPerPage = 5,
   id,
   numberOfGuests,
-  t,
-  useGetInventory: useAliasGetInventory,
-  useOnScroll: useAliasOnScroll
+  t = translate,
+  useGetInventory: useAliasGetInventory = useGetGuestsInventory,
+  useOnScroll: useAliasOnScroll = useOnScroll
 }) => {
   const {
     error,
@@ -89,33 +88,6 @@ const InventoryGuests = ({
       </div>
     </div>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{numberOfGuests: number, id: string, t: Function, useOnScroll: Function, useGetInventory: Function,
- *     defaultPerPage: number}}
- */
-InventoryGuests.propTypes = {
-  defaultPerPage: PropTypes.number,
-  id: PropTypes.string.isRequired,
-  numberOfGuests: PropTypes.number.isRequired,
-  t: PropTypes.func,
-  useGetInventory: PropTypes.func,
-  useOnScroll: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{t: translate, useOnScroll: Function, useGetInventory: Function, defaultPerPage: number}}
- */
-InventoryGuests.defaultProps = {
-  t: translate,
-  defaultPerPage: 5,
-  useGetInventory: useGetGuestsInventory,
-  useOnScroll
 };
 
 export { InventoryGuests as default, InventoryGuests };

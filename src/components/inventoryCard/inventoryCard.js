@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { TableVariant } from '@patternfly/react-table';
 import {
   Bullseye,
@@ -34,23 +33,58 @@ import { helpers } from '../../common';
  */
 
 /**
+ * @callback useGetInventory
+ * @returns {{
+ *     error: boolean,
+ *     message: string,
+ *     pending: boolean,
+ *     dataSetColumnHeaders: Array,
+ *     dataSetRows: Array,
+ *     resultsColumnCountAndWidths: { count: number, widths: Array },
+ *     resultsCount,
+ *     resultsOffset,
+ *     resultsPerPage
+ *   }}
+ */
+
+/**
+ * @callback useInventoryCardActions
+ * @returns {React.ReactNode}
+ */
+
+/**
+ * @callback useParseFiltersSettings
+ * @returns {{ filters: Array }}
+ */
+
+/**
+ * @callback useOnPage
+ * @returns {Function}
+ */
+
+/**
+ * @callback useOnColumnSort
+ * @returns {Function}
+ */
+
+/**
  * Set up inventory cards. Expand filters with base settings.
  *
  * @param {object} props
- * @param {boolean} props.isDisabled
- * @param {Function} props.t
- * @param {Function} props.useGetInventory
- * @param {Function} props.useInventoryCardActions
- * @param {Function} props.useParseFiltersSettings
- * @param {Function} props.useOnPage
- * @param {Function} props.useOnColumnSort
+ * @param {boolean} [props.isDisabled=false]
+ * @param {translate} [props.t=translate]
+ * @param {useGetInventory} props.useGetInventory
+ * @param {useInventoryCardActions} props.useInventoryCardActions
+ * @param {useParseFiltersSettings} props.useParseFiltersSettings
+ * @param {useOnPage} props.useOnPage
+ * @param {useOnColumnSort} props.useOnColumnSort
  * @fires onColumnSort
  * @fires onPage
- * @returns {React.ReactNode}
+ * @returns {JSX.Element}
  */
 const InventoryCard = ({
-  isDisabled,
-  t,
+  isDisabled = false,
+  t = translate,
   useGetInventory: useAliasGetInventory,
   useInventoryCardActions: useAliasInventoryCardActions,
   useOnPage: useAliasOnPage,
@@ -194,32 +228,6 @@ const InventoryCard = ({
       </MinHeight>
     </Card>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useOnPage: Function, useParseFiltersSettings: Function, t: Function, useInventoryCardActions: Function,
- *     isDisabled: boolean, useGetInventory: Function, useOnColumnSort: Function}}
- */
-InventoryCard.propTypes = {
-  isDisabled: PropTypes.bool,
-  t: PropTypes.func,
-  useGetInventory: PropTypes.func.isRequired,
-  useInventoryCardActions: PropTypes.func.isRequired,
-  useOnPage: PropTypes.func.isRequired,
-  useOnColumnSort: PropTypes.func.isRequired,
-  useParseFiltersSettings: PropTypes.func.isRequired
-};
-
-/**
- * Default props.
- *
- * @type {{t: translate, isDisabled: boolean}}
- */
-InventoryCard.defaultProps = {
-  isDisabled: false,
-  t: translate
 };
 
 export { InventoryCard as default, InventoryCard };
