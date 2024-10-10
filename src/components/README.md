@@ -5293,12 +5293,6 @@ Apply an onSort handler.
 <a name="Table.module_TableEmpty"></a>
 
 ## TableEmpty
-
-* [TableEmpty](#Table.module_TableEmpty)
-    * [~TableEmpty(props)](#Table.module_TableEmpty..TableEmpty) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Table.module_TableEmpty..TableEmpty.propTypes) : <code>Object</code>
-        * [.defaultProps](#Table.module_TableEmpty..TableEmpty.defaultProps) : <code>Object</code>
-
 <a name="Table.module_TableEmpty..TableEmpty"></a>
 
 ### TableEmpty~TableEmpty(props) ⇒ <code>React.ReactNode</code>
@@ -5308,44 +5302,27 @@ Render an empty table component. Apply an empty version of an actual HTML table 
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.ariaLabel</td><td><code>string</code></td>
+    <td>[props.ariaLabel]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.icon</td><td><code>React.ReactNode</code> | <code>function</code></td>
+    <td>[props.icon]</td><td><code>React.ReactNode</code> | <code>function</code></td><td></td>
     </tr><tr>
-    <td>props.message</td><td><code>React.ReactNode</code></td>
+    <td>props.message</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.tableHeading</td><td><code>string</code></td>
+    <td>[props.tableHeading]</td><td><code>string</code></td><td><code>&quot;&#x27;h2&#x27;&quot;</code></td>
     </tr><tr>
-    <td>props.title</td><td><code>React.ReactNode</code></td>
+    <td>props.title</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.variant</td><td><code>string</code></td>
+    <td>[props.variant]</td><td><code>EmptyStateVariant</code></td><td><code>EmptyStateVariant.sm</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~TableEmpty(props)](#Table.module_TableEmpty..TableEmpty) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Table.module_TableEmpty..TableEmpty.propTypes) : <code>Object</code>
-    * [.defaultProps](#Table.module_TableEmpty..TableEmpty.defaultProps) : <code>Object</code>
-
-<a name="Table.module_TableEmpty..TableEmpty.propTypes"></a>
-
-#### TableEmpty.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>TableEmpty</code>](#Table.module_TableEmpty..TableEmpty)  
-<a name="Table.module_TableEmpty..TableEmpty.defaultProps"></a>
-
-#### TableEmpty.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>TableEmpty</code>](#Table.module_TableEmpty..TableEmpty)  
 <a name="Table.module_TableHelpers"></a>
 
 ## TableHelpers
@@ -5444,65 +5421,42 @@ Parse table body settings, props.
 <a name="Table.module_TableSkeleton"></a>
 
 ## TableSkeleton
-
-* [TableSkeleton](#Table.module_TableSkeleton)
-    * [~TableSkeleton(props)](#Table.module_TableSkeleton..TableSkeleton) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Table.module_TableSkeleton..TableSkeleton.propTypes) : <code>Object</code>
-        * [.defaultProps](#Table.module_TableSkeleton..TableSkeleton.defaultProps) : <code>Object</code>
-
 <a name="Table.module_TableSkeleton..TableSkeleton"></a>
 
-### TableSkeleton~TableSkeleton(props) ⇒ <code>React.ReactNode</code>
+### TableSkeleton~TableSkeleton(props) ⇒ <code>JSX.Element</code>
 Render a table with skeleton loaders.
 
 **Kind**: inner method of [<code>TableSkeleton</code>](#Table.module_TableSkeleton)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.ariaLabel</td><td><code>string</code></td>
+    <td>[props.ariaLabel]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.borders</td><td><code>boolean</code></td>
+    <td>[props.borders]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
+    <td>[props.className]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.colCount</td><td><code>number</code></td>
+    <td>[props.colCount]</td><td><code>number</code></td><td><code>1</code></td>
     </tr><tr>
-    <td>props.colWidth</td><td><code>Array</code></td>
+    <td>[props.colWidth]</td><td><code>Array.&lt;number&gt;</code></td><td><code>[]</code></td>
     </tr><tr>
-    <td>props.isHeader</td><td><code>boolean</code></td>
+    <td>[props.isHeader]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.rowCount</td><td><code>number</code></td>
+    <td>[props.rowCount]</td><td><code>number</code></td><td><code>5</code></td>
     </tr><tr>
-    <td>props.summary</td><td><code>string</code></td>
+    <td>[props.summary]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.variant</td><td><code>string</code></td>
+    <td>[props.variant]</td><td><code>TableVariant</code></td><td></td>
     </tr>  </tbody>
 </table>
 
-
-* [~TableSkeleton(props)](#Table.module_TableSkeleton..TableSkeleton) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Table.module_TableSkeleton..TableSkeleton.propTypes) : <code>Object</code>
-    * [.defaultProps](#Table.module_TableSkeleton..TableSkeleton.defaultProps) : <code>Object</code>
-
-<a name="Table.module_TableSkeleton..TableSkeleton.propTypes"></a>
-
-#### TableSkeleton.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>TableSkeleton</code>](#Table.module_TableSkeleton..TableSkeleton)  
-<a name="Table.module_TableSkeleton..TableSkeleton.defaultProps"></a>
-
-#### TableSkeleton.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>TableSkeleton</code>](#Table.module_TableSkeleton..TableSkeleton)  
 <a name="Components.module_Tabs"></a>
 
 ## Tabs

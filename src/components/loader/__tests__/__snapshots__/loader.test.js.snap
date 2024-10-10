@@ -55,19 +55,7 @@ exports[`Loader Component should handle variant loader components: variant: skel
 
 exports[`Loader Component should handle variant loader components: variant: spinner 1`] = `<Spinner />`;
 
-exports[`Loader Component should handle variant loader components: variant: table 1`] = `
-<TableSkeleton
-  ariaLabel={null}
-  borders={true}
-  className={null}
-  colCount={1}
-  colWidth={[]}
-  isHeader={false}
-  rowCount={5}
-  summary={null}
-  variant={null}
-/>
-`;
+exports[`Loader Component should handle variant loader components: variant: table 1`] = `<TableSkeleton />`;
 
 exports[`Loader Component should handle variant loader components: variant: title 1`] = `
 <PageLayout>

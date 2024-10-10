@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
 import {
   EmptyState,
@@ -19,50 +18,33 @@ import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/
  * Render an empty table component. Apply an empty version of an actual HTML table to help with testing.
  *
  * @param {object} props
- * @param {string} props.ariaLabel
- * @param {React.ReactNode|Function} props.icon
+ * @param {string} [props.ariaLabel]
+ * @param {React.ReactNode|Function} [props.icon]
  * @param {React.ReactNode} props.message
- * @param {string} props.tableHeading
+ * @param {string} [props.tableHeading='h2']
  * @param {React.ReactNode} props.title
- * @param {string} props.variant
+ * @param {EmptyStateVariant} [props.variant=EmptyStateVariant.sm]
  * @returns {React.ReactNode}
  */
-const TableEmpty = ({ ariaLabel, icon, message, tableHeading, title, variant, ...props }) => (
+const TableEmpty = ({
+  ariaLabel,
+  icon = SearchIcon,
+  message,
+  tableHeading = 'h2',
+  title,
+  variant = EmptyStateVariant.sm,
+  ...props
+}) => (
   <PlatformEmptyTableWrapper>
     <table aria-label={ariaLabel} {...props} />
-    <EmptyState className="fadein" variant={variant}>
-      {icon && <EmptyStateIcon icon={icon} />}
+    <EmptyState variant={variant} className="fadein">
+      {(typeof icon === 'function' && <EmptyStateIcon icon={icon} />) ||
+        (icon && <EmptyStateIcon icon={() => icon} />) ||
+        null}
       <EmptyStateHeader titleText={title} headingLevel={tableHeading} />
       <EmptyStateBody>{message}</EmptyStateBody>
     </EmptyState>
   </PlatformEmptyTableWrapper>
 );
-
-/**
- * Prop types.
- *
- * @type {{icon: React.ReactNode|Function, variant: string, message: React.ReactNode, title: React.ReactNode,
- *     tableHeading: string, ariaLabel: string}}
- */
-TableEmpty.propTypes = {
-  ariaLabel: PropTypes.string,
-  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  message: PropTypes.node.isRequired,
-  tableHeading: PropTypes.string,
-  title: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(Object.keys(EmptyStateVariant))
-};
-
-/**
- * Default props.
- *
- * @type {{icon: null, variant: EmptyStateVariant.small, tableHeading: string, ariaLabel: null}}
- */
-TableEmpty.defaultProps = {
-  ariaLabel: null,
-  icon: SearchIcon,
-  tableHeading: 'h2',
-  variant: EmptyStateVariant.sm
-};
 
 export { TableEmpty as default, TableEmpty };

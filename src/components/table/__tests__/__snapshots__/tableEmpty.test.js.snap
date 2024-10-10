@@ -2,9 +2,7 @@
 
 exports[`TableEmpty Component should have fallback checks for certain props: fallback display 1`] = `
 <EmptyTable>
-  <table
-    aria-label={null}
-  />
+  <table />
   <EmptyState
     className="fadein"
     variant="sm"
@@ -25,9 +23,7 @@ exports[`TableEmpty Component should have fallback checks for certain props: fal
 
 exports[`TableEmpty Component should render a basic component: basic 1`] = `
 <EmptyTable>
-  <table
-    aria-label={null}
-  />
+  <table />
   <EmptyState
     className="fadein"
     variant="sm"
