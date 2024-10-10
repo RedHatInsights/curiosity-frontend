@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { EyeIcon, EyeSlashIcon, SquareIcon } from '@patternfly/react-icons';
 
 /**
@@ -13,6 +12,20 @@ import { EyeIcon, EyeSlashIcon, SquareIcon } from '@patternfly/react-icons';
  * @type {{xl, md: string, sm: string, lg: string}}
  */
 const IconSize = { sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' };
+
+/**
+ * Consistent icon symbols
+ *
+ * @type {{eye: string, square: string, eyeSlash: string, infinity: string, threshold: string, dash: string}}
+ */
+const IconSymbol = {
+  dash: 'dash',
+  eye: 'eye',
+  eyeSlash: 'eyeSlash',
+  infinity: 'infinity',
+  square: 'square',
+  threshold: 'threshold'
+};
 
 /**
  * Emulate pf icon sizing for custom SVGs
@@ -42,13 +55,13 @@ const getSize = size => {
  * Render an icon for use outside of Victory charts.
  *
  * @param {object} props
- * @param {string} props.fill
- * @param {string} props.symbol
- * @param {string} props.size
- * @param {string} props.title
- * @returns {React.ReactNode}
+ * @param {string} [props.fill]
+ * @param {string|IconSymbol} [props.symbol=IconSymbol.square]
+ * @param {string|IconSize} [props.size=IconSize.sm]
+ * @param {string} [props.title]
+ * @returns {JSX.Element}
  */
-const ChartIcon = ({ fill, symbol, size, title, ...props }) => {
+const ChartIcon = ({ fill, symbol = IconSymbol.square, size = IconSize.sm, title, ...props }) => {
   const svgProps = { ...props };
   const iconProps = { size, title, ...props };
   const fontProps = { style: { fontSize: getSize(size) }, title, ...props };
@@ -122,28 +135,4 @@ const ChartIcon = ({ fill, symbol, size, title, ...props }) => {
   return <span className={`curiosity-chartarea__icon curiosity-chartarea__icon-${symbol}`}>{setIcon()}</span>;
 };
 
-/**
- * Prop types.
- *
- * @type {{symbol: string, size: string, fill: string, title: string}}
- */
-ChartIcon.propTypes = {
-  fill: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([...Object.keys(IconSize)])]),
-  symbol: PropTypes.oneOf(['dash', 'eye', 'eyeSlash', 'infinity', 'square', 'threshold']),
-  title: PropTypes.string
-};
-
-/**
- * Default props.
- *
- * @type {{symbol: string, size: string, fill: null, title: null}}
- */
-ChartIcon.defaultProps = {
-  fill: null,
-  size: IconSize.sm,
-  symbol: 'square',
-  title: null
-};
-
-export { ChartIcon as default, ChartIcon, IconSize };
+export { ChartIcon as default, ChartIcon, IconSize, IconSymbol };

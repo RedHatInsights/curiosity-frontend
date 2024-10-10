@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { VictoryStack as ChartStack, VictoryTooltip as ChartCursorTooltip } from 'victory';
 import { createContainer } from 'victory-create-container';
 import { Chart, ChartArea, ChartAxis, ChartContainer, ChartLine, ChartThreshold } from '@patternfly/react-charts';
@@ -14,6 +13,55 @@ import { ChartTypeVariant } from './chartHelpers';
  */
 
 /**
+ * Available chart interpolation types
+ *
+ * @type {{monotoneX: string, step: string}}
+ */
+const InterpolationTypes = {
+  monotoneX: 'monotoneX',
+  step: 'step'
+};
+
+/**
+ * @typedef {object} ChartTypeDefault
+ * @property {(ChartArea|ChartLine|ChartThreshold)} component
+ * @property {InterpolationTypes} [interpolation]
+ * @property {{ duration: number, onLoad: { duration: number } }} [animate]
+ */
+
+/**
+ * Chart elements default prop settings
+ *
+ * @type {{ChartTypeVariant: ChartTypeDefault}}
+ */
+const chartElementsDefaults = {
+  [ChartTypeVariant.area]: {
+    component: ChartArea,
+    animate: {
+      duration: 250,
+      onLoad: { duration: 250 }
+    },
+    interpolation: InterpolationTypes.monotoneX
+  },
+  [ChartTypeVariant.line]: {
+    component: ChartLine,
+    animate: {
+      duration: 250,
+      onLoad: { duration: 250 }
+    },
+    interpolation: InterpolationTypes.monotoneX
+  },
+  [ChartTypeVariant.threshold]: {
+    component: ChartThreshold,
+    animate: {
+      duration: 100,
+      onLoad: { duration: 100 }
+    },
+    interpolation: InterpolationTypes.step
+  }
+};
+
+/**
  * FixMe: Victory Charts v3.8.3+ conversion to TS alters props applied around VictoryTooltip
  * Recent conversions to TS for Victory Charts has altered the behavior around props
  * applied to custom label components, specifically for VictoryTooltip and the associated
@@ -25,10 +73,10 @@ import { ChartTypeVariant } from './chartHelpers';
  * Aggregate, generate, a compatible Victory chart element/facet component.
  *
  * @param {object} props
- * @param {object} props.chartTypeDefaults
- * @returns {React.ReactNode}
+ * @param {chartElementsDefaults} [props.chartTypeDefaults=chartElementsDefaults]
+ * @returns {JSX.Element}
  */
-const ChartElements = ({ chartTypeDefaults }) => {
+const ChartElements = ({ chartTypeDefaults = chartElementsDefaults }) => {
   const { chartSettings = {}, chartContainerRef, chartTooltipRef } = useChartContext();
   const {
     chartDomain,
@@ -134,53 +182,4 @@ const ChartElements = ({ chartTypeDefaults }) => {
   );
 };
 
-/**
- * Prop types
- *
- * @type {{chartTypeDefaults:{}}}
- */
-ChartElements.propTypes = {
-  chartTypeDefaults: PropTypes.objectOf(
-    PropTypes.shape({
-      component: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
-      animate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-      interpolation: PropTypes.oneOf(['monotoneX', 'step'])
-    })
-  )
-};
-
-/**
- * Default props
- *
- * @type {{chartTypeDefaults:{}}}
- */
-ChartElements.defaultProps = {
-  chartTypeDefaults: {
-    [ChartTypeVariant.area]: {
-      component: ChartArea,
-      animate: {
-        duration: 250,
-        onLoad: { duration: 250 }
-      },
-      interpolation: 'monotoneX'
-    },
-    [ChartTypeVariant.line]: {
-      component: ChartLine,
-      animate: {
-        duration: 250,
-        onLoad: { duration: 250 }
-      },
-      interpolation: 'monotoneX'
-    },
-    [ChartTypeVariant.threshold]: {
-      component: ChartThreshold,
-      animate: {
-        duration: 100,
-        onLoad: { duration: 100 }
-      },
-      interpolation: 'step'
-    }
-  }
-};
-
-export { ChartElements as default, ChartElements };
+export { ChartElements as default, ChartElements, chartElementsDefaults, InterpolationTypes };

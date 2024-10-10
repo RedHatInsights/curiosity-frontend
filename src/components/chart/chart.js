@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import { ChartThemeColor } from '@patternfly/react-charts';
 import { useShallowCompareEffect } from 'react-use';
 import { ChartContext } from './chartContext';
@@ -23,34 +22,68 @@ import { useResizeObserver } from '../../hooks/useWindow';
  */
 
 /**
+ * @typedef {object} ChartPadding
+ * @property {number} bottom
+ * @property {number} left
+ * @property {number} right
+ * @property {number} top
+ */
+
+/**
+ * @typedef {object} ChartDataSet
+ * @property {Array<{x: number, y: (number|undefined), xAxisLabel: (number|string|Date|undefined)}>} data
+ * @property {boolean|object} [animate]
+ * @property {ChartTypeVariant} [chartType]
+ * @property {string} [fill]
+ * @property {string} [stroke]
+ * @property {number} [strokeWidth]
+ * @property {string} [strokeDasharray]
+ * @property {string} [themeColor]
+ * @property {string} [themeVariant]
+ * @property {string} id
+ * @property {string} [interpolation]
+ * @property {object} [style]
+ * @property {boolean} [isStacked]
+ * @property {React.ReactNode|Function} [xAxisChartLabel]
+ * @property {React.ReactNode|Function} [yAxisChartLabel]
+ * @property {boolean} [xAxisUseDataSet]
+ * @property {boolean} [yAxisUseDataSet]
+ */
+
+/**
  * Return a chart and elements with a context provider.
  *
  * @param {object} props
- * @param {React.ReactNode|Function} props.chartLegend
- * @param {React.ReactNode|Function} props.chartTooltip
- * @param {Array} props.dataSets
- * @param {object} props.padding
- * @param {string} props.themeColor
- * @param {React.ReactNode|Function} props.xAxisChartLabel
- * @param {React.ReactNode|Function} props.yAxisChartLabel
- * @param {boolean} props.xAxisFixLabelOverlap
- * @param {number} props.xAxisLabelIncrement
- * @param {Function} props.xAxisTickFormat
- * @param {Function} props.yAxisTickFormat
- * @param {Function} props.xValueFormat
- * @param {Function} props.yValueFormat
- * @returns {React.ReactNode}
+ * @param {React.ReactNode|Function} [props.chartLegend]
+ * @param {React.ReactNode|Function} [props.chartTooltip]
+ * @param {Array<ChartDataSet>} [props.dataSets=[]]
+ * @param {ChartPadding} [props.padding={bottom:75, left:55, right:55, top:50 }]
+ * @param {string|ChartThemeColor} [props.themeColor=ChartThemeColor.blue]
+ * @param {React.ReactNode|Function} [props.xAxisChartLabel]
+ * @param {React.ReactNode|Function} [props.yAxisChartLabel]
+ * @param {boolean} [props.xAxisFixLabelOverlap=true]
+ * @param {number} [props.xAxisLabelIncrement=1]
+ * @param {Function} [props.xAxisTickFormat]
+ * @param {Function} [props.yAxisTickFormat]
+ * @param {Function} [props.xValueFormat]
+ * @param {Function} [props.yValueFormat]
+ * @returns {JSX.Element}
  */
 const Chart = ({
   chartLegend,
   chartTooltip,
-  dataSets,
-  padding,
-  themeColor,
+  dataSets = [],
+  padding = {
+    bottom: 75,
+    left: 55,
+    right: 55,
+    top: 50
+  },
+  themeColor = ChartThemeColor.blue,
   xAxisChartLabel,
   yAxisChartLabel,
   xAxisFixLabelOverlap,
-  xAxisLabelIncrement,
+  xAxisLabelIncrement = 1,
   xAxisTickFormat,
   yAxisTickFormat,
   xValueFormat,
@@ -169,90 +202,6 @@ const Chart = ({
       </div>
     </ChartContext.Provider>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{chartTooltip: React.ReactNode|Function, xValueFormat: Function, padding: {top: number, left: number,
- *     bottom: number, right: number}, xAxisTickFormat: Function, themeColor: string, chartLegend:
- *     React.ReactNode|Function, yAxisTickFormat: Function, dataSets: Array, xAxisFixLabelOverlap: boolean,
- *     xAxisLabelIncrement: number, yValueFormat: Function}}
- */
-Chart.propTypes = {
-  chartLegend: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  chartTooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  dataSets: PropTypes.arrayOf(
-    PropTypes.shape({
-      data: PropTypes.arrayOf(
-        PropTypes.shape({
-          x: PropTypes.number.isRequired,
-          y: PropTypes.number,
-          xAxisLabel: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)])
-        })
-      ),
-      animate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-      chartType: PropTypes.oneOf([...Object.values(ChartTypeVariant)]),
-      fill: PropTypes.string,
-      stroke: PropTypes.string,
-      strokeWidth: PropTypes.number,
-      strokeDasharray: PropTypes.string,
-      themeColor: PropTypes.string,
-      themeVariant: PropTypes.string,
-      id: PropTypes.string.isRequired,
-      interpolation: PropTypes.string,
-      style: PropTypes.object,
-      isStacked: PropTypes.bool,
-      xAxisChartLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-      yAxisChartLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-      xAxisUseDataSet: PropTypes.bool,
-      yAxisUseDataSet: PropTypes.bool
-    })
-  ),
-  padding: PropTypes.shape({
-    bottom: PropTypes.number,
-    left: PropTypes.number,
-    right: PropTypes.number,
-    top: PropTypes.number
-  }),
-  themeColor: PropTypes.oneOf(Object.values(ChartThemeColor)),
-  xAxisChartLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  yAxisChartLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  xAxisFixLabelOverlap: PropTypes.bool,
-  xAxisLabelIncrement: PropTypes.number,
-  xAxisTickFormat: PropTypes.func,
-  yAxisTickFormat: PropTypes.func,
-  xValueFormat: PropTypes.func,
-  yValueFormat: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{chartTooltip: React.ReactNode|Function, xValueFormat: Function, padding: {top: number, left: number,
- *     bottom: number, right: number}, xAxisTickFormat: Function, themeColor: string, chartLegend:
- *     React.ReactNode|Function, yAxisTickFormat: Function, dataSets: Array, xAxisFixLabelOverlap: boolean,
- *     xAxisLabelIncrement: number, yValueFormat: Function}}
- */
-Chart.defaultProps = {
-  chartLegend: null,
-  chartTooltip: null,
-  dataSets: [],
-  padding: {
-    bottom: 75,
-    left: 55,
-    right: 55,
-    top: 50
-  },
-  themeColor: 'blue',
-  xAxisChartLabel: null,
-  yAxisChartLabel: null,
-  xAxisFixLabelOverlap: true,
-  xAxisLabelIncrement: 1,
-  xAxisTickFormat: null,
-  yAxisTickFormat: null,
-  xValueFormat: null,
-  yValueFormat: null
 };
 
 export { Chart as default, Chart, ChartTypeVariant };

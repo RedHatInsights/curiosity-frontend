@@ -141,7 +141,6 @@ exports[`ChartIcon Component should render a basic component: basic 1`] = `
 >
   <SquareIcon
     size="sm"
-    title={null}
   />
 </span>
 `;
