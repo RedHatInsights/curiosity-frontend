@@ -5425,14 +5425,12 @@ PF tabs with default internal state.
 
 
 * [Tabs](#Components.module_Tabs)
-    * [~Tabs(props)](#Components.module_Tabs..Tabs) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Components.module_Tabs..Tabs.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_Tabs..Tabs.defaultProps) : <code>Object</code>
+    * [~Tabs(props)](#Components.module_Tabs..Tabs) ⇒ <code>JSX.Element</code>
     * ["onSelect" (params)](#event_onSelect)
 
 <a name="Components.module_Tabs..Tabs"></a>
 
-### Tabs~Tabs(props) ⇒ <code>React.ReactNode</code>
+### Tabs~Tabs(props) ⇒ <code>JSX.Element</code>
 A set of tabs.
 
 **Kind**: inner method of [<code>Tabs</code>](#Components.module_Tabs)  
@@ -5440,45 +5438,28 @@ A set of tabs.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td><td></td>
+    <td>props</td><td><code>object</code></td><td></td><td></td>
     </tr><tr>
-    <td>props.defaultActiveTab</td><td><code>number</code></td><td></td>
+    <td>[props.activeTab]</td><td><code>number</code></td><td></td><td></td>
     </tr><tr>
-    <td>props.tabs</td><td><code>Array</code></td><td></td>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td><td></td>
     </tr><tr>
-    <td>props.onTab</td><td><code>function</code></td><td><p>A user defined tab handler</p>
+    <td>[props.defaultActiveTab]</td><td><code>number</code></td><td><code>0</code></td><td></td>
+    </tr><tr>
+    <td>[props.hasOverflowScroll]</td><td><code>boolean</code></td><td><code>false</code></td><td></td>
+    </tr><tr>
+    <td>[props.onTab]</td><td><code>function</code></td><td><code>helpers.noop</code></td><td><p>A user defined tab handler</p>
 </td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td><td></td>
-    </tr><tr>
-    <td>props.hasOverflowScroll</td><td><code>boolean</code></td><td></td>
-    </tr><tr>
-    <td>props.activeTab</td><td><code>number</code></td><td></td>
+    <td>[props.tabs]</td><td><code>Array.&lt;{active: (boolean|undefined), content: React.ReactNode, title: React.ReactNode}&gt;</code></td><td><code>[]</code></td><td></td>
     </tr>  </tbody>
 </table>
 
-
-* [~Tabs(props)](#Components.module_Tabs..Tabs) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Components.module_Tabs..Tabs.propTypes) : <code>Object</code>
-    * [.defaultProps](#Components.module_Tabs..Tabs.defaultProps) : <code>Object</code>
-
-<a name="Components.module_Tabs..Tabs.propTypes"></a>
-
-#### Tabs.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>Tabs</code>](#Components.module_Tabs..Tabs)  
-<a name="Components.module_Tabs..Tabs.defaultProps"></a>
-
-#### Tabs.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>Tabs</code>](#Components.module_Tabs..Tabs)  
 <a name="event_onSelect"></a>
 
 ### "onSelect" (params)
