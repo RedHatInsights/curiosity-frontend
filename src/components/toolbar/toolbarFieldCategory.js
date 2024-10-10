@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useProduct, useProductGraphConfig, useProductToolbarQuery } from '../productView/productViewContext';
 import { reduxTypes, storeHooks } from '../../redux';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
@@ -18,7 +17,7 @@ import { translate } from '../i18n/i18n';
  * Generate select field options from nested product graph configuration.
  *
  * @param {object} options
- * @param {Function} options.useProductGraphConfig
+ * @param {Function} [options.useProductGraphConfig=useProductGraphConfig]
  * @returns {Function}
  */
 const useToolbarFieldOptions = ({ useProductGraphConfig: useAliasProductGraphConfig = useProductGraphConfig } = {}) => {
@@ -66,8 +65,8 @@ const useToolbarFieldOptions = ({ useProductGraphConfig: useAliasProductGraphCon
  * On select update.
  *
  * @param {object} options
- * @param {Function} options.useDispatch
- * @param {Function} options.useProduct
+ * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {useProduct} [options.useProduct=useProduct]
  * @returns {Function}
  */
 const useOnSelect = ({
@@ -111,23 +110,23 @@ const useOnSelect = ({
 /**
  * Display a category field with generated options.
  *
- * @fires onSelect
  * @param {object} props
- * @param {boolean} props.isFilter
- * @param {string} props.position
- * @param {Function} props.t
- * @param {Function} props.useOnSelect
- * @param {Function} props.useProductToolbarQuery
- * @param {Function} props.useToolbarFieldOptions
- * @returns {React.ReactNode}
+ * @param {boolean} [props.isFilter=false]
+ * @param {SelectPosition} [props.position=SelectPosition.left]
+ * @param {translate} [props.t=translate]
+ * @param {useOnSelect} [props.useOnSelect=useOnSelect]
+ * @param {useProductToolbarQuery} [props.useProductToolbarQuery=useProductToolbarQuery]
+ * @param {useToolbarFieldOptions} [props.useToolbarFieldOptions=useToolbarFieldOptions]
+ * @fires onSelect
+ * @returns {JSX.Element}
  */
 const ToolbarFieldCategory = ({
-  isFilter,
-  position,
-  t,
-  useOnSelect: useAliasOnSelect,
-  useProductToolbarQuery: useAliasProductToolbarQuery,
-  useToolbarFieldOptions: useAliasToolbarFieldOptions
+  isFilter = false,
+  position = SelectPosition.left,
+  t = translate,
+  useOnSelect: useAliasOnSelect = useOnSelect,
+  useProductToolbarQuery: useAliasProductToolbarQuery = useProductToolbarQuery,
+  useToolbarFieldOptions: useAliasToolbarFieldOptions = useToolbarFieldOptions
 }) => {
   const { [RHSM_API_QUERY_SET_TYPES.CATEGORY]: updatedValue } = useAliasProductToolbarQuery();
   const onSelect = useAliasOnSelect();
@@ -146,36 +145,6 @@ const ToolbarFieldCategory = ({
       data-test="toolbarFieldCategory"
     />
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useOnSelect: Function, t: Function, useProductToolbarQuery: Function, isFilter: boolean,
- *     position: string, useToolbarFieldOptions: Function}}
- */
-ToolbarFieldCategory.propTypes = {
-  isFilter: PropTypes.bool,
-  position: PropTypes.string,
-  t: PropTypes.func,
-  useOnSelect: PropTypes.func,
-  useProductToolbarQuery: PropTypes.func,
-  useToolbarFieldOptions: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useOnSelect: Function, t: translate, useProductToolbarQuery: Function, isFilter: boolean,
- *     position: string, useToolbarFieldOptions: Function}}
- */
-ToolbarFieldCategory.defaultProps = {
-  isFilter: false,
-  position: SelectPosition.left,
-  t: translate,
-  useOnSelect,
-  useProductToolbarQuery,
-  useToolbarFieldOptions
 };
 
 export { ToolbarFieldCategory as default, ToolbarFieldCategory, useOnSelect, useToolbarFieldOptions };

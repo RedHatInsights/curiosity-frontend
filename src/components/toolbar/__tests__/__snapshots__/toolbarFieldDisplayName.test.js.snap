@@ -6,13 +6,13 @@ exports[`ToolbarFieldDisplayName Component should handle clearing display name t
     [
       {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
-        "viewId": "loremIpsum",
+        "viewId": undefined,
       },
       {
         "filter": "display_name_contains",
         "type": "SET_QUERY_INVENTORY_INSTANCES",
         "value": null,
-        "viewId": "loremIpsum",
+        "viewId": undefined,
       },
     ],
   ],
@@ -25,13 +25,13 @@ exports[`ToolbarFieldDisplayName Component should handle updating display name t
     [
       {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
-        "viewId": "loremIpsum",
+        "viewId": undefined,
       },
       {
         "filter": "display_name_contains",
         "type": "SET_QUERY_INVENTORY_INSTANCES",
         "value": "dolor sit",
-        "viewId": "loremIpsum",
+        "viewId": undefined,
       },
     ],
   ],
@@ -44,13 +44,13 @@ exports[`ToolbarFieldDisplayName Component should handle updating display name u
     [
       {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
-        "viewId": "loremIpsum",
+        "viewId": undefined,
       },
       {
         "filter": "display_name_contains",
         "type": "SET_QUERY_INVENTORY_INSTANCES",
         "value": "dolor sit",
-        "viewId": "loremIpsum",
+        "viewId": undefined,
       },
     ],
   ],
