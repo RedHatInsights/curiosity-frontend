@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Tooltip as PfTooltip, TooltipPosition } from '@patternfly/react-core';
 
 /**
@@ -14,50 +13,38 @@ import { Tooltip as PfTooltip, TooltipPosition } from '@patternfly/react-core';
  *
  * @param {object} props
  * @param {React.ReactNode} props.children
- * @param {React.ReactNode} props.content
- * @param {boolean} props.isNoWrap
- * @param {object} props.props
- * @returns {React.ReactNode}
+ * @param {React.ReactNode} [props.content='...']
+ * @param {boolean} [props.isNoWrap=false]
+ * @param {number} [props.distance=15]
+ * @param {boolean} [props.enableFlip=false]
+ * @param {number} [props.entryDelay=100]
+ * @param {number} [props.exitDelay=0]
+ * @param {TooltipPosition} [props.position=TooltipPosition.top]
+ * @returns {JSX.Element}
  */
-const Tooltip = ({ children, content, isNoWrap, ...props }) => (
+const Tooltip = ({
+  children,
+  content = '...',
+  isNoWrap = false,
+  distance = 15,
+  enableFlip = false,
+  entryDelay = 100,
+  exitDelay = 0,
+  position = TooltipPosition.top,
+  ...props
+}) => (
   <PfTooltip
     className={`curiosity-tooltip${(isNoWrap && '__nowrap') || ''}`}
     content={(React.isValidElement(content) && content) || <p>{content || ''}</p>}
+    distance={distance}
+    enableFlip={enableFlip}
+    entryDelay={entryDelay}
+    exitDelay={exitDelay}
+    position={position}
     {...props}
   >
     {(React.isValidElement(children) && children) || <span className="curiosity-tooltip-children">{children}</span>}
   </PfTooltip>
 );
-
-/**
- * Prop types.
- *
- * @type {{children: React.ReactNode, content: React.ReactNode}}
- */
-Tooltip.propTypes = {
-  children: PropTypes.node.isRequired,
-  content: PropTypes.node,
-  distance: PropTypes.number,
-  enableFlip: PropTypes.bool,
-  entryDelay: PropTypes.number,
-  exitDelay: PropTypes.number,
-  isNoWrap: PropTypes.bool,
-  position: PropTypes.string
-};
-
-/**
- * Default props.
- *
- * @type {{content: string}}
- */
-Tooltip.defaultProps = {
-  content: '...',
-  distance: 15,
-  enableFlip: false,
-  entryDelay: 100,
-  exitDelay: 0,
-  isNoWrap: false,
-  position: TooltipPosition.top
-};
 
 export { Tooltip as default, Tooltip };
