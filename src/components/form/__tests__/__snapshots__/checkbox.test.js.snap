@@ -5,14 +5,7 @@ exports[`Checkbox Component should handle children as a label: children label ch
   props="{
   "children": [
     {}
-  ],
-  "ariaLabel": null,
-  "id": null,
-  "isChecked": false,
-  "isDisabled": false,
-  "isReadOnly": false,
-  "label": "",
-  "name": null
+  ]
 }"
 >
   <div
@@ -106,14 +99,7 @@ exports[`Checkbox Component should handle readOnly, disabled, checked: readOnly 
 exports[`Checkbox Component should render a basic component: basic component 1`] = `
 <checkbox
   props="{
-  "ariaLabel": null,
-  "children": [],
-  "id": null,
-  "isChecked": false,
-  "isDisabled": false,
-  "isReadOnly": false,
-  "label": "",
-  "name": null
+  "children": []
 }"
 >
   <div
