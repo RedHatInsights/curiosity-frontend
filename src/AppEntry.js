@@ -17,7 +17,7 @@ import '@patternfly/react-styles/css/components/Select/select.css';
  * Application entry.
  * - A platform required file, including how it's cased.
  *
- * @returns {React.ReactNode}
+ * @returns {JSX.Element}
  */
 const AppEntry = () => (
   <Provider store={store}>

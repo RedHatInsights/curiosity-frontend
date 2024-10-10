@@ -12,15 +12,9 @@
 <a name="Base.module_App"></a>
 
 ## App
-
-* [App](#Base.module_App)
-    * [~App(props)](#Base.module_App..App) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Base.module_App..App.propTypes) : <code>Object</code>
-        * [.defaultProps](#Base.module_App..App.defaultProps) : <code>Object</code>
-
 <a name="Base.module_App..App"></a>
 
-### App~App(props) ⇒ <code>React.ReactNode</code>
+### App~App(props) ⇒ <code>JSX.Element</code>
 Curiosity application start.
 - Loads locale
 - Provides authentication
@@ -29,44 +23,27 @@ Curiosity application start.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.getLocale</td><td><code>function</code></td>
+    <td>[props.getLocale]</td><td><code>reduxActions.user.getLocale</code></td><td><code>reduxActions.user.getLocale</code></td>
     </tr><tr>
-    <td>props.useDispatch</td><td><code>function</code></td>
+    <td>[props.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>props.useSelector</td><td><code>function</code></td>
+    <td>[props.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~App(props)](#Base.module_App..App) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Base.module_App..App.propTypes) : <code>Object</code>
-    * [.defaultProps](#Base.module_App..App.defaultProps) : <code>Object</code>
-
-<a name="Base.module_App..App.propTypes"></a>
-
-#### App.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>App</code>](#Base.module_App..App)  
-<a name="Base.module_App..App.defaultProps"></a>
-
-#### App.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>App</code>](#Base.module_App..App)  
 <a name="Base.module_AppEntry"></a>
 
 ## AppEntry
 <a name="Base.module_AppEntry..AppEntry"></a>
 
-### AppEntry~AppEntry() ⇒ <code>React.ReactNode</code>
+### AppEntry~AppEntry() ⇒ <code>JSX.Element</code>
 Application entry.
 - A platform required file, including how it's cased.
 
