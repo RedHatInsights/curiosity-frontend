@@ -28,10 +28,7 @@ exports[`ProductView Component should allow custom inventory displays via config
       <PageSection
         className="curiosity-page-section__graphs"
       >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
+        <GraphCard />
       </PageSection>
       <PageSection
         className="curiosity-page-section__tabs"
@@ -98,10 +95,7 @@ exports[`ProductView Component should allow custom inventory displays via config
       <PageSection
         className="curiosity-page-section__graphs"
       >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
+        <GraphCard />
       </PageSection>
       <PageSection
         className="curiosity-page-section__tabs"
@@ -163,10 +157,7 @@ exports[`ProductView Component should allow custom inventory displays via config
       <PageSection
         className="curiosity-page-section__graphs"
       >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
+        <GraphCard />
       </PageSection>
       <PageSection
         className="curiosity-page-section__tabs"
@@ -227,10 +218,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageSection
         className="curiosity-page-section__graphs"
       >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
+        <GraphCard />
       </PageSection>
       <PageSection
         className="curiosity-page-section__tabs"
@@ -285,10 +273,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageSection
         className="curiosity-page-section__graphs"
       >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
+        <GraphCard />
       </PageSection>
       <PageSection
         className="curiosity-page-section__tabs"
@@ -343,10 +328,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageSection
         className="curiosity-page-section__graphs"
       >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
+        <GraphCard />
       </PageSection>
       <PageSection
         className="curiosity-page-section__tabs"
@@ -401,10 +383,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageSection
         className="curiosity-page-section__graphs"
       >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
+        <GraphCard />
       </PageSection>
       <PageSection
         className="curiosity-page-section__tabs"
@@ -459,10 +438,7 @@ exports[`ProductView Component should allow custom product views via productDisp
       <PageSection
         className="curiosity-page-section__graphs"
       >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
+        <GraphCard />
       </PageSection>
       <PageSection
         className="curiosity-page-section__tabs"
@@ -516,10 +492,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
       <PageSection
         className="curiosity-page-section__graphs"
       >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
+        <GraphCard />
       </PageSection>
       <PageSection
         className="curiosity-page-section__tabs"

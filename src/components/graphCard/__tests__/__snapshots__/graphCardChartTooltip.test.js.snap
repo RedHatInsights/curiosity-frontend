@@ -3,7 +3,6 @@
 exports[`GraphCardChartTooltip Component should render a basic component: basic 1`] = `
 <graphcardcharttooltip
   props="{
-  "datum": {},
   "children": []
 }"
 >

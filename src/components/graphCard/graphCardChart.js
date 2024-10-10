@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Card,
   CardBody,
@@ -32,19 +31,19 @@ import { translate } from '../i18n/i18n';
  * A chart/graph card.
  *
  * @param {object} props
- * @param {Function} props.t
- * @param {Function} props.useGetMetrics
- * @param {Function} props.useGraphCardActions
- * @param {Function} props.useGraphCardContext
- * @param {Function} props.useProductGraphTallyQuery
- * @returns {React.ReactNode}
+ * @param {translate} [props.t=translate]
+ * @param {useGetMetrics} [props.useGetMetrics=useGetMetrics]
+ * @param {useGraphCardActions} [props.useGraphCardActions=useGraphCardActions]
+ * @param {useGraphCardContext} [props.useGraphCardContext=useGraphCardContext]
+ * @param {useProductGraphTallyQuery} [props.useProductGraphTallyQuery=useProductGraphTallyQuery]
+ * @returns {JSX.Element}
  */
 const GraphCardChart = ({
-  t,
-  useGetMetrics: useAliasGetMetrics,
-  useGraphCardActions: useAliasGraphCardActions,
-  useGraphCardContext: useAliasGraphCardContext,
-  useProductGraphTallyQuery: useAliasProductGraphTallyQuery
+  t = translate,
+  useGetMetrics: useAliasGetMetrics = useGetMetrics,
+  useGraphCardActions: useAliasGraphCardActions = useGraphCardActions,
+  useGraphCardContext: useAliasGraphCardContext = useGraphCardContext,
+  useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery
 }) => {
   const updatedActionDisplay = useAliasGraphCardActions();
   const { settings = {} } = useAliasGraphCardContext();
@@ -97,34 +96,6 @@ const GraphCardChart = ({
       </MinHeight>
     </Card>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useGraphCardContext: Function, useProductGraphTallyQuery: Function, t: Function,
- *     useGetMetrics: Function, useGraphCardActions: Function}}
- */
-GraphCardChart.propTypes = {
-  t: PropTypes.func,
-  useGetMetrics: PropTypes.func,
-  useGraphCardActions: PropTypes.func,
-  useGraphCardContext: PropTypes.func,
-  useProductGraphTallyQuery: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useGraphCardContext: Function, useProductGraphTallyQuery: Function, t: translate,
- *     useGetMetrics: Function, useGraphCardActions: Function}}
- */
-GraphCardChart.defaultProps = {
-  t: translate,
-  useGetMetrics,
-  useGraphCardActions,
-  useGraphCardContext,
-  useProductGraphTallyQuery
 };
 
 export { GraphCardChart as default, GraphCardChart };
