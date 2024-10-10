@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.13.0](https://github.com/RedHatInsights/curiosity-frontend/compare/0554de3ff7b2e5b9753de15af80283e7067501de...dd6f15033597f51507d291ae07023c41e11dd780) (2024-10-10)
+
+
+### Features
+* **productView** sw-2479 display gui version ([#1433](https://github.com/RedHatInsights/curiosity-frontend/pull/1433)) ([4ba482b](https://github.com/RedHatInsights/curiosity-frontend/commit/4ba482bf09bffb667563955e7a86789718e32820))
+* **errorMessage** sw-2479 component error display ([#1432](https://github.com/RedHatInsights/curiosity-frontend/pull/1432)) ([5eb8a70](https://github.com/RedHatInsights/curiosity-frontend/commit/5eb8a70cd37d480b3d835faa2f506d5cf65bddc1))
+
+### Continuous Integrations
+*  update konflux references to 37b9187 ([#1436](https://github.com/RedHatInsights/curiosity-frontend/pull/1436)) ([dd6f150](https://github.com/RedHatInsights/curiosity-frontend/commit/dd6f15033597f51507d291ae07023c41e11dd780))
+*  update konflux references ([#1431](https://github.com/RedHatInsights/curiosity-frontend/pull/1431)) ([11e6de7](https://github.com/RedHatInsights/curiosity-frontend/commit/11e6de799765fb907cb4319dda60fa8d0ab9f2eb))
+
+### Code Refactoring
+*  sw-2479 replace blur with 5xx error display ([#1416](https://github.com/RedHatInsights/curiosity-frontend/pull/1416)) ([bd3030f](https://github.com/RedHatInsights/curiosity-frontend/commit/bd3030f3c51e82b0aa763d3728f8f2b75eef967a))
+*  sw-2981 remove react-router ([#1429](https://github.com/RedHatInsights/curiosity-frontend/pull/1429)) ([bf584cd](https://github.com/RedHatInsights/curiosity-frontend/commit/bf584cd9ff33f4d0feeca2c82334dc8136caa87e))
+
+### Builds
+* **deps-dev** bump group with 5 updates ([#1435](https://github.com/RedHatInsights/curiosity-frontend/pull/1435)) ([60326a1](https://github.com/RedHatInsights/curiosity-frontend/commit/60326a120af88a36c0acb1f9ec400c26137031c3))
+* **deps-dev** bump group with 5 updates ([#1428](https://github.com/RedHatInsights/curiosity-frontend/pull/1428)) ([9230a11](https://github.com/RedHatInsights/curiosity-frontend/commit/9230a11b85ddf5ca098b69b625d737b62d76902d))
+* **deps** sw-2981 bump group with 2 updates ([#1430](https://github.com/RedHatInsights/curiosity-frontend/pull/1430)) ([b86c003](https://github.com/RedHatInsights/curiosity-frontend/commit/b86c003a6ff9f12e7e8209dbd58732a3c5acd331))
+
+### Bug Fixes
+* **authentication** consistent locale keys ([#1434](https://github.com/RedHatInsights/curiosity-frontend/pull/1434)) ([61e9d45](https://github.com/RedHatInsights/curiosity-frontend/commit/61e9d452a9632da93d3c477d2a952e5ba806e81e))
+* **config** sw-2966 remove single day x-axis increments ([#1426](https://github.com/RedHatInsights/curiosity-frontend/pull/1426)) ([831dbb5](https://github.com/RedHatInsights/curiosity-frontend/commit/831dbb59b0ba2535ad377fe018ad6e6cba1e2421))
+
 ## [4.12.0](https://github.com/RedHatInsights/curiosity-frontend/compare/82b0c51096ee94327d9e9b80bd81b238f0f15acf...6e0bf3d6ca04635e1d41b0a58c7433eacf9ef147) (2024-09-24)
 
 
