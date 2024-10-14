@@ -20,6 +20,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "OPENSHIFT_METRICS": "OpenShift-metrics",
     "RHACS": "rhacs",
     "RHEL_ARM": "RHEL for ARM",
+    "RHEL_AUS_ADDON": "rhel-aus-addon",
     "RHEL_COMPUTE_NODE": "RHEL Compute Node",
     "RHEL_IBM_POWER": "RHEL for IBM Power",
     "RHEL_IBM_Z": "RHEL for IBM z",
@@ -43,6 +44,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   },
   "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
     "RHEL_ARM": "RHEL for ARM",
+    "RHEL_AUS_ADDON": "rhel-aus-addon",
     "RHEL_IBM_POWER": "RHEL for IBM Power",
     "RHEL_IBM_Z": "RHEL for IBM z",
     "RHEL_X86": "RHEL for x86",
@@ -287,6 +289,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "OPENSHIFT_METRICS": "OpenShift-metrics",
       "RHACS": "rhacs",
       "RHEL_ARM": "RHEL for ARM",
+      "RHEL_AUS_ADDON": "rhel-aus-addon",
       "RHEL_COMPUTE_NODE": "RHEL Compute Node",
       "RHEL_IBM_POWER": "RHEL for IBM Power",
       "RHEL_IBM_Z": "RHEL for IBM z",
@@ -310,6 +313,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     },
     "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
       "RHEL_ARM": "RHEL for ARM",
+      "RHEL_AUS_ADDON": "rhel-aus-addon",
       "RHEL_IBM_POWER": "RHEL for IBM Power",
       "RHEL_IBM_Z": "RHEL for IBM z",
       "RHEL_X86": "RHEL for x86",
@@ -555,6 +559,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "OPENSHIFT_METRICS": "OpenShift-metrics",
       "RHACS": "rhacs",
       "RHEL_ARM": "RHEL for ARM",
+      "RHEL_AUS_ADDON": "rhel-aus-addon",
       "RHEL_COMPUTE_NODE": "RHEL Compute Node",
       "RHEL_IBM_POWER": "RHEL for IBM Power",
       "RHEL_IBM_Z": "RHEL for IBM z",
@@ -578,6 +583,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     },
     "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
       "RHEL_ARM": "RHEL for ARM",
+      "RHEL_AUS_ADDON": "rhel-aus-addon",
       "RHEL_IBM_POWER": "RHEL for IBM Power",
       "RHEL_IBM_Z": "RHEL for IBM z",
       "RHEL_X86": "RHEL for x86",
@@ -827,6 +833,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "OPENSHIFT_METRICS": "OpenShift-metrics",
     "RHACS": "rhacs",
     "RHEL_ARM": "RHEL for ARM",
+    "RHEL_AUS_ADDON": "rhel-aus-addon",
     "RHEL_COMPUTE_NODE": "RHEL Compute Node",
     "RHEL_IBM_POWER": "RHEL for IBM Power",
     "RHEL_IBM_Z": "RHEL for IBM z",
@@ -850,6 +857,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   },
   "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
     "RHEL_ARM": "RHEL for ARM",
+    "RHEL_AUS_ADDON": "rhel-aus-addon",
     "RHEL_IBM_POWER": "RHEL for IBM Power",
     "RHEL_IBM_Z": "RHEL for IBM z",
     "RHEL_X86": "RHEL for x86",
