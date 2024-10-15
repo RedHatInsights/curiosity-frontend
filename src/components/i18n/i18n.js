@@ -21,7 +21,7 @@ import { EMPTY_CONTEXT, translate, translateComponent } from './i18nHelpers';
  * @param {React.ReactNode} props.children
  * @param {string} [props.fallbackLng=process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG]
  * @param {string} [props.loadPath=process.env.REACT_APP_CONFIG_SERVICE_LOCALES_PATH]
- * @param {string} [props.locale=null]
+ * @param {string} [props.locale]
  * @returns {JSX.Element}
  */
 const I18n = ({

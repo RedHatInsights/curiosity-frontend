@@ -2681,7 +2681,7 @@ Load I18n.
     </tr><tr>
     <td>[props.loadPath]</td><td><code>string</code></td><td><code>&quot;process.env.REACT_APP_CONFIG_SERVICE_LOCALES_PATH&quot;</code></td>
     </tr><tr>
-    <td>[props.locale]</td><td><code>string</code></td><td><code>null</code></td>
+    <td>[props.locale]</td><td><code>string</code></td><td></td>
     </tr>  </tbody>
 </table>
 
