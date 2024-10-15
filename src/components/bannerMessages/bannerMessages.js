@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Alert, AlertActionCloseButton, AlertGroup, AlertVariant } from '@patternfly/react-core';
 import { useBannerMessages, useRemoveBannerMessages } from './bannerMessagesContext';
 
@@ -23,13 +22,13 @@ const BannerMessageVariant = { ...AlertVariant };
  * Render banner messages.
  *
  * @param {object} props
- * @param {Function} props.useBannerMessages
- * @param {Function} props.useRemoveBannerMessages
- * @returns {React.ReactNode}
+ * @param {useBannerMessages} [props.useBannerMessages=useBannerMessages]
+ * @param {useRemoveBannerMessages} [props.useRemoveBannerMessages=useRemoveBannerMessages]
+ * @returns {JSX.Element}
  */
 const BannerMessages = ({
-  useBannerMessages: useAliasBannerMessages,
-  useRemoveBannerMessages: useAliasRemoveBannerMessages
+  useBannerMessages: useAliasBannerMessages = useBannerMessages,
+  useRemoveBannerMessages: useAliasRemoveBannerMessages = useRemoveBannerMessages
 }) => {
   const bannerMessages = useAliasBannerMessages();
   const removeBannerMessages = useAliasRemoveBannerMessages();
@@ -53,26 +52,6 @@ const BannerMessages = ({
   }
 
   return null;
-};
-
-/**
- * Prop types.
- *
- * @type {{useBannerMessages: Function, useRemoveBannerMessages: Function}}
- */
-BannerMessages.propTypes = {
-  useBannerMessages: PropTypes.func,
-  useRemoveBannerMessages: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useBannerMessages: Function, useRemoveBannerMessages: Function}}
- */
-BannerMessages.defaultProps = {
-  useBannerMessages,
-  useRemoveBannerMessages
 };
 
 export { BannerMessages as default, BannerMessages, BannerMessageVariant };
