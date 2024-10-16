@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Title } from '@patternfly/react-core';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
@@ -21,8 +20,8 @@ import { InventoryTab } from './inventoryTab';
  * Update tab state.
  *
  * @param {object} options
- * @param {Function} options.useDispatch
- * @param {Function} options.useProduct
+ * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {useProduct} [options.useProduct=useProduct]
  * @returns {Function}
  */
 const useOnTab = ({
@@ -46,27 +45,27 @@ const useOnTab = ({
  * An inventory tabs component.
  * Render inventory tabs using Inventory tab passed props only.
  *
- * @fires onTab
  * @param {object} props
- * @param {number} props.activeTab
+ * @param {number} [props.activeTab=0]
  * @param {React.ReactNode} props.children
- * @param {number} props.defaultActiveTab
- * @param {boolean} props.isDisabled
- * @param {Function} props.t
- * @param {Function} props.useOnTab
- * @param {Function} props.useProduct
- * @param {Function} props.useSelector
- * @returns {React.ReactNode|null}
+ * @param {number} [props.defaultActiveTab=0]
+ * @param {boolean} [props.isDisabled=helpers.UI_DISABLED_TABLE]
+ * @param {translate} [props.t=translate]
+ * @param {useOnTab} [props.useOnTab=useOnTab]
+ * @param {useProduct} [props.useProduct=useProduct]
+ * @param {storeHooks.reactRedux.useSelector} [props.useSelector=storeHooks.reactRedux.useSelector]
+ * @fires onTab
+ * @returns {JSX.Element|null}
  */
 const InventoryTabs = ({
-  activeTab,
+  activeTab = 0,
   children,
-  defaultActiveTab,
-  isDisabled,
-  t,
-  useOnTab: useAliasOnTab,
-  useProduct: useAliasProduct,
-  useSelector: useAliasSelector
+  defaultActiveTab = 0,
+  isDisabled = helpers.UI_DISABLED_TABLE,
+  t = translate,
+  useOnTab: useAliasOnTab = useOnTab,
+  useProduct: useAliasProduct = useProduct,
+  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector
 }) => {
   const { productId } = useAliasProduct();
   const updatedActiveTab = useAliasSelector(({ inventory }) => inventory.tabs?.[productId], activeTab);
@@ -94,39 +93,6 @@ const InventoryTabs = ({
       <Tabs activeTab={updatedActiveTab} defaultActiveTab={defaultActiveTab} onTab={onTab} tabs={updatedChildren} />
     </React.Fragment>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useOnTab: Function, useProduct: Function, t: Function, children: React.ReactNode,
- *     useSelector: Function, defaultActiveTab: number, isDisabled: boolean, activeTab: number}}
- */
-InventoryTabs.propTypes = {
-  activeTab: PropTypes.number,
-  children: PropTypes.node.isRequired,
-  defaultActiveTab: PropTypes.number,
-  isDisabled: PropTypes.bool,
-  t: PropTypes.func,
-  useOnTab: PropTypes.func,
-  useProduct: PropTypes.func,
-  useSelector: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useOnTab: Function, useProduct: Function, t: translate, useSelector: Function,
- *     defaultActiveTab: number, isDisabled: boolean, activeTab: number}}
- */
-InventoryTabs.defaultProps = {
-  activeTab: 0,
-  defaultActiveTab: 0,
-  isDisabled: helpers.UI_DISABLED_TABLE,
-  t: translate,
-  useOnTab,
-  useProduct,
-  useSelector: storeHooks.reactRedux.useSelector
 };
 
 export { InventoryTabs as default, InventoryTabs, InventoryTab, useOnTab };

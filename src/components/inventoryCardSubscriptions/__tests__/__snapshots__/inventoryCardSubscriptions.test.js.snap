@@ -3,13 +3,10 @@
 exports[`InventoryCardSubscriptions Component should render a basic component: basic 1`] = `
 <InventoryCard
   isDisabled={false}
-  t={[Function]}
   useGetInventory={[Function]}
   useInventoryCardActions={[Function]}
   useOnColumnSort={[Function]}
   useOnPage={[Function]}
   useParseFiltersSettings={[Function]}
-  useProductInventoryConfig={[Function]}
-  useProductInventoryQuery={[Function]}
 />
 `;
