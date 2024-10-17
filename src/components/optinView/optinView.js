@@ -1,5 +1,5 @@
+/* eslint-disable max-len */
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Brand,
   Button,
@@ -34,20 +34,20 @@ import graphPng4x from '../../images/graph4x.png';
  * An account opt-in view.
  *
  * @param {object} props
- * @param {Function} props.t
- * @param {Function} props.updateAccountOptIn
- * @param {Function} props.useDispatch
- * @param {Function} props.useSelectorsResponse
- * @param {Function} props.useSession
+ * @param {translate} [props.t=translate]
+ * @param {reduxActions.user.updateAccountOptIn} [props.updateAccountOptIn=reduxActions.user.updateAccountOptIn]
+ * @param {storeHooks.reactRedux.useDispatch} [props.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {storeHooks.reactRedux.useSelectorsResponse} [props.useSelectorsResponse=storeHooks.reactRedux.useSelectorsResponse]
+ * @param {useSession} [props.useSession=useSession]
  * @fires onSubmitOptIn
- * @returns {React.ReactNode}
+ * @returns {JSX.Element}
  */
 const OptinView = ({
-  t,
-  updateAccountOptIn,
-  useDispatch: useAliasDispatch,
-  useSelectorsResponse: useAliasSelectorsResponse,
-  useSession: useAliasSession
+  t = translate,
+  updateAccountOptIn = reduxActions.user.updateAccountOptIn,
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse,
+  useSession: useAliasSession = useSession
 }) => {
   const dispatch = useAliasDispatch();
   const { errorStatus } = useAliasSession();
@@ -197,34 +197,6 @@ const OptinView = ({
       </Card>
     </PageLayout>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useSession: Function, t: Function, updateAccountOptIn: Function, useDispatch: Function,
- *     useSelectorsResponse: Function}}
- */
-OptinView.propTypes = {
-  t: PropTypes.func,
-  updateAccountOptIn: PropTypes.func,
-  useDispatch: PropTypes.func,
-  useSelectorsResponse: PropTypes.func,
-  useSession: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useSession: Function, t: Function, updateAccountOptIn: Function, useDispatch: Function,
- *     useSelectorsResponse: Function}}
- */
-OptinView.defaultProps = {
-  t: translate,
-  updateAccountOptIn: reduxActions.user.updateAccountOptIn,
-  useDispatch: storeHooks.reactRedux.useDispatch,
-  useSelectorsResponse: storeHooks.reactRedux.useSelectorsResponse,
-  useSession
 };
 
 export { OptinView as default, OptinView };
