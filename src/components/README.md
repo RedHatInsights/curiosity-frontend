@@ -3868,66 +3868,49 @@ Loading display for charts, copy, tables, etc.
 
 
 * [Loader](#Components.module_Loader)
-    * [~Loader(props)](#Components.module_Loader..Loader) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Components.module_Loader..Loader.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_Loader..Loader.defaultProps) : <code>Object</code>
+    * [~LoaderTypeVariants](#Components.module_Loader..LoaderTypeVariants) : <code>Object</code>
+    * [~Loader(props)](#Components.module_Loader..Loader) ⇒ <code>JSX.Element</code>
 
+<a name="Components.module_Loader..LoaderTypeVariants"></a>
+
+### Loader~LoaderTypeVariants : <code>Object</code>
+Available loader types
+
+**Kind**: inner constant of [<code>Loader</code>](#Components.module_Loader)  
 <a name="Components.module_Loader..Loader"></a>
 
-### Loader~Loader(props) ⇒ <code>React.ReactNode</code>
+### Loader~Loader(props) ⇒ <code>JSX.Element</code>
 Render skeleton and spinner loaders.
 
 **Kind**: inner method of [<code>Loader</code>](#Components.module_Loader)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.skeletonProps</td><td><code>string</code></td>
+    <td>[props.skeletonProps]</td><td><code>Object</code></td><td><code>{ size: SkeletonSize.sm }</code></td>
     </tr><tr>
-    <td>props.tableProps</td><td><code>object</code></td>
+    <td>[props.tableProps]</td><td><code>Object</code></td><td><code>{}</code></td>
     </tr><tr>
-    <td>props.variant</td><td><code>string</code></td>
+    <td>[props.variant]</td><td><code>LoaderTypeVariants</code></td><td><code>LoaderTypeVariants.spinner</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~Loader(props)](#Components.module_Loader..Loader) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Components.module_Loader..Loader.propTypes) : <code>Object</code>
-    * [.defaultProps](#Components.module_Loader..Loader.defaultProps) : <code>Object</code>
-
-<a name="Components.module_Loader..Loader.propTypes"></a>
-
-#### Loader.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>Loader</code>](#Components.module_Loader..Loader)  
-<a name="Components.module_Loader..Loader.defaultProps"></a>
-
-#### Loader.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>Loader</code>](#Components.module_Loader..Loader)  
 <a name="Components.module_MessageView"></a>
 
 ## MessageView
 Page empty state message display.
 
-
-* [MessageView](#Components.module_MessageView)
-    * [~MessageView(props)](#Components.module_MessageView..MessageView) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Components.module_MessageView..MessageView.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_MessageView..MessageView.defaultProps) : <code>Object</code>
-
 <a name="Components.module_MessageView..MessageView"></a>
 
-### MessageView~MessageView(props) ⇒ <code>React.ReactNode</code>
+### MessageView~MessageView(props) ⇒ <code>JSX.Element</code>
 Render a message view, page empty state.
+Note: PF EmptyStateIcon registers as function, we compensate for PF by allowing a ReactNode or Function.
 
 **Kind**: inner method of [<code>MessageView</code>](#Components.module_MessageView)  
 <table>
@@ -3940,35 +3923,18 @@ Render a message view, page empty state.
 <tr>
     <td>props</td><td><code>object</code></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>[props.children]</td><td><code>React.ReactNode</code></td>
     </tr><tr>
-    <td>props.icon</td><td><code>React.ReactNode</code> | <code>function</code></td>
+    <td>[props.icon]</td><td><code>React.ReactNode</code> | <code>function</code></td>
     </tr><tr>
-    <td>props.message</td><td><code>string</code></td>
+    <td>[props.message]</td><td><code>string</code></td>
     </tr><tr>
-    <td>props.pageTitle</td><td><code>string</code></td>
+    <td>[props.pageTitle]</td><td><code>string</code></td>
     </tr><tr>
-    <td>props.title</td><td><code>string</code></td>
+    <td>[props.title]</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~MessageView(props)](#Components.module_MessageView..MessageView) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Components.module_MessageView..MessageView.propTypes) : <code>Object</code>
-    * [.defaultProps](#Components.module_MessageView..MessageView.defaultProps) : <code>Object</code>
-
-<a name="Components.module_MessageView..MessageView.propTypes"></a>
-
-#### MessageView.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>MessageView</code>](#Components.module_MessageView..MessageView)  
-<a name="Components.module_MessageView..MessageView.defaultProps"></a>
-
-#### MessageView.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>MessageView</code>](#Components.module_MessageView..MessageView)  
 <a name="Components.module_MinHeight"></a>
 
 ## MinHeight

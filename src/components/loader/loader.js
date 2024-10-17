@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/Skeleton';
 import { Spinner } from '@redhat-cloud-services/frontend-components/Spinner';
 import { TableVariant } from '@patternfly/react-table';
@@ -14,15 +13,40 @@ import { TableSkeleton } from '../table/tableSkeleton';
  */
 
 /**
+ * Available loader types
+ *
+ * @type {{paragraph: string, skeleton: string, title: string, chart: string, graph: string, table: string,
+ *     spinner: string}}
+ */
+const LoaderTypeVariants = {
+  chart: 'chart',
+  graph: 'graph',
+  paragraph: 'paragraph',
+  skeleton: 'skeleton',
+  spinner: 'spinner',
+  table: 'table',
+  title: 'title'
+};
+
+/**
  * Render skeleton and spinner loaders.
  *
  * @param {object} props
- * @param {string} props.skeletonProps
- * @param {object} props.tableProps
- * @param {string} props.variant
- * @returns {React.ReactNode}
+ * @param {{ size: SkeletonSize }} [props.skeletonProps={ size: SkeletonSize.sm }]
+ * @param {{ borders: boolean,
+ *     className: string,
+ *     colCount: number,
+ *     colWidth: Array,
+ *     rowCount: number,
+ *     variant: TableVariant }} [props.tableProps={}]
+ * @param {LoaderTypeVariants} [props.variant=LoaderTypeVariants.spinner]
+ * @returns {JSX.Element}
  */
-const Loader = ({ skeletonProps, tableProps, variant }) => {
+const Loader = ({
+  skeletonProps = { size: SkeletonSize.sm },
+  tableProps = {},
+  variant = LoaderTypeVariants.spinner
+}) => {
   switch (variant) {
     case 'chart':
     case 'graph':
@@ -59,37 +83,4 @@ const Loader = ({ skeletonProps, tableProps, variant }) => {
   }
 };
 
-/**
- * Prop types.
- *
- * @type {{variant: string, skeletonProps: object, tableProps: object}}
- */
-Loader.propTypes = {
-  skeletonProps: PropTypes.shape({
-    size: PropTypes.oneOf([...Object.values(SkeletonSize)])
-  }),
-  tableProps: PropTypes.shape({
-    borders: PropTypes.bool,
-    className: PropTypes.string,
-    colCount: PropTypes.number,
-    colWidth: PropTypes.array,
-    rowCount: PropTypes.number,
-    variant: PropTypes.oneOf([...Object.values(TableVariant)])
-  }),
-  variant: PropTypes.oneOf(['chart', 'graph', 'paragraph', 'skeleton', 'spinner', 'table', 'title'])
-};
-
-/**
- * Default props.
- *
- * @type {{skeletonProps: {size: *}, variant: string, tableProps: {}}}
- */
-Loader.defaultProps = {
-  skeletonProps: {
-    size: SkeletonSize.sm
-  },
-  tableProps: {},
-  variant: 'spinner'
-};
-
-export { Loader as default, Loader, SkeletonSize };
+export { Loader as default, Loader, LoaderTypeVariants, SkeletonSize, TableVariant };

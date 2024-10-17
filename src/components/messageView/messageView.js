@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
 import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
@@ -12,18 +11,16 @@ import { helpers } from '../../common';
  */
 
 /**
- * FixMe: Patternfly EmptyStateIcon PropType registers as function?
- */
-/**
  * Render a message view, page empty state.
+ * Note: PF EmptyStateIcon registers as function, we compensate for PF by allowing a ReactNode or Function.
  *
  * @param {object} props
- * @param {React.ReactNode} props.children
- * @param {React.ReactNode|Function} props.icon
- * @param {string} props.message
- * @param {string} props.pageTitle
- * @param {string} props.title
- * @returns {React.ReactNode}
+ * @param {React.ReactNode} [props.children]
+ * @param {React.ReactNode|Function} [props.icon]
+ * @param {string} [props.message]
+ * @param {string} [props.pageTitle]
+ * @param {string} [props.title]
+ * @returns {JSX.Element}
  */
 const MessageView = ({ children, icon, message, pageTitle, title }) => (
   <PageLayout>
@@ -45,32 +42,5 @@ const MessageView = ({ children, icon, message, pageTitle, title }) => (
     </PageSection>
   </PageLayout>
 );
-
-/**
- * Prop types.
- *
- * @type {{children: React.ReactNode, icon: React.ReactNode|Function, message: string, pageTitle: string,
- *     title: string}}
- */
-MessageView.propTypes = {
-  children: PropTypes.node,
-  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  message: PropTypes.string,
-  pageTitle: PropTypes.string,
-  title: PropTypes.string
-};
-
-/**
- * Default props.
- *
- * @type {{children: null, icon: null, message: null, pageTitle: null, title: null}}
- */
-MessageView.defaultProps = {
-  children: null,
-  icon: null,
-  message: null,
-  pageTitle: null,
-  title: null
-};
 
 export { MessageView as default, MessageView };
