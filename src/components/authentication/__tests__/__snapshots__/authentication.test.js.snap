@@ -12,12 +12,7 @@ exports[`Authentication Component should allow being disabled: disabled 1`] = `
     }
   }
 >
-  <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
-    title={null}
-  >
+  <MessageView>
     <Maintenance
       description="t(curiosity-auth.maintenance, {"context":"description"})"
     />
@@ -35,12 +30,7 @@ exports[`Authentication Component should render a basic component: basic 1`] = `
     }
   }
 >
-  <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
-    title={null}
-  >
+  <MessageView>
     <NotAuthorized
       serviceName="Subscriptions"
     />
@@ -78,12 +68,7 @@ exports[`Authentication Component should render a component error: error 1`] = `
     }
   }
 >
-  <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
-    title={null}
-  >
+  <MessageView>
     <NotAuthorized
       serviceName="Subscriptions"
     />
@@ -105,7 +90,6 @@ exports[`Authentication Component should render a component pending: pending 1`]
     icon={<BinocularsIcon />}
     message="t(curiosity-auth.pending, {"context":"description"})"
     pageTitle=" "
-    title={null}
   />
 </Context.Provider>
 `;
@@ -120,12 +104,7 @@ exports[`Authentication Component should return a message on 401 error: 401 erro
     }
   }
 >
-  <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
-    title={null}
-  >
+  <MessageView>
     <NotAuthorized
       serviceName="Subscriptions"
     />
@@ -163,12 +142,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
     }
   }
 >
-  <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
-    title={null}
-  >
+  <MessageView>
     <NotAuthorized
       serviceName="Subscriptions"
     />

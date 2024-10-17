@@ -291,11 +291,6 @@ exports[`InventoryCard Component should handle multiple display states, error, p
         className="fadein"
       >
         <Loader
-          skeletonProps={
-            {
-              "size": "sm",
-            }
-          }
           tableProps={
             {
               "ariaLabel": "t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})",
@@ -405,11 +400,6 @@ exports[`InventoryCard Component should render a basic component: basic render 1
         className="fadein"
       >
         <Loader
-          skeletonProps={
-            {
-              "size": "sm",
-            }
-          }
           tableProps={
             {
               "ariaLabel": "t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})",

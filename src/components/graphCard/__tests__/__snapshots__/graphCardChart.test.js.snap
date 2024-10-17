@@ -136,12 +136,6 @@ exports[`GraphCardChart Component should handle API response states: pending 1`]
         className="fadein"
       >
         <Loader
-          skeletonProps={
-            {
-              "size": "sm",
-            }
-          }
-          tableProps={{}}
           variant="graph"
         />
       </div>

@@ -294,7 +294,6 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
                     "size": "lg",
                   }
                 }
-                tableProps={{}}
                 variant="skeleton"
               />
             </Title>
@@ -311,7 +310,6 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
                   "size": "lg",
                 }
               }
-              tableProps={{}}
               variant="skeleton"
             />
           </div>
@@ -326,7 +324,6 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
                   "size": "lg",
                 }
               }
-              tableProps={{}}
               variant="skeleton"
             />
           </div>
