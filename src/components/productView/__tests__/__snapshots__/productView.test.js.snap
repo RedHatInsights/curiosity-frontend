@@ -1,18 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductView Component should allow custom inventory displays via config: custom tabs, basic inventory tables 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  >
+  <PageColumns>
     <Context.Provider
       value={
         {
@@ -24,14 +19,10 @@ exports[`ProductView Component should allow custom inventory displays via config
         }
       }
     >
-      <PageMessages
-        className=""
-      >
+      <PageMessages>
         <BannerMessages />
       </PageMessages>
-      <PageToolbar
-        className=""
-      >
+      <PageToolbar>
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
@@ -91,18 +82,13 @@ exports[`ProductView Component should allow custom inventory displays via config
 `;
 
 exports[`ProductView Component should allow custom inventory displays via config: custom tabs, missing inventory 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  >
+  <PageColumns>
     <Context.Provider
       value={
         {
@@ -114,14 +100,10 @@ exports[`ProductView Component should allow custom inventory displays via config
         }
       }
     >
-      <PageMessages
-        className=""
-      >
+      <PageMessages>
         <BannerMessages />
       </PageMessages>
-      <PageToolbar
-        className=""
-      >
+      <PageToolbar>
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
@@ -176,18 +158,13 @@ exports[`ProductView Component should allow custom inventory displays via config
 `;
 
 exports[`ProductView Component should allow custom inventory displays via config: custom tabs, missing subscriptions inventory 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  >
+  <PageColumns>
     <Context.Provider
       value={
         {
@@ -199,14 +176,10 @@ exports[`ProductView Component should allow custom inventory displays via config
         }
       }
     >
-      <PageMessages
-        className=""
-      >
+      <PageMessages>
         <BannerMessages />
       </PageMessages>
-      <PageToolbar
-        className=""
-      >
+      <PageToolbar>
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
@@ -261,18 +234,13 @@ exports[`ProductView Component should allow custom inventory displays via config
 `;
 
 exports[`ProductView Component should allow custom product views via productDisplay types: custom view, capacity 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  >
+  <PageColumns>
     <Context.Provider
       value={
         {
@@ -283,14 +251,10 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       }
     >
-      <PageMessages
-        className=""
-      >
+      <PageMessages>
         <BannerMessages />
       </PageMessages>
-      <PageToolbar
-        className=""
-      >
+      <PageToolbar>
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
@@ -339,18 +303,13 @@ exports[`ProductView Component should allow custom product views via productDisp
 `;
 
 exports[`ProductView Component should allow custom product views via productDisplay types: custom view, dual axes 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  >
+  <PageColumns>
     <Context.Provider
       value={
         {
@@ -361,14 +320,10 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       }
     >
-      <PageMessages
-        className=""
-      >
+      <PageMessages>
         <BannerMessages />
       </PageMessages>
-      <PageToolbar
-        className=""
-      >
+      <PageToolbar>
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
@@ -417,18 +372,13 @@ exports[`ProductView Component should allow custom product views via productDisp
 `;
 
 exports[`ProductView Component should allow custom product views via productDisplay types: custom view, hourly 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  >
+  <PageColumns>
     <Context.Provider
       value={
         {
@@ -439,14 +389,10 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       }
     >
-      <PageMessages
-        className=""
-      >
+      <PageMessages>
         <BannerMessages />
       </PageMessages>
-      <PageToolbar
-        className=""
-      >
+      <PageToolbar>
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
@@ -495,18 +441,13 @@ exports[`ProductView Component should allow custom product views via productDisp
 `;
 
 exports[`ProductView Component should allow custom product views via productDisplay types: custom view, legacy 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  >
+  <PageColumns>
     <Context.Provider
       value={
         {
@@ -517,14 +458,10 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       }
     >
-      <PageMessages
-        className=""
-      >
+      <PageMessages>
         <BannerMessages />
       </PageMessages>
-      <PageToolbar
-        className=""
-      >
+      <PageToolbar>
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
@@ -573,18 +510,13 @@ exports[`ProductView Component should allow custom product views via productDisp
 `;
 
 exports[`ProductView Component should allow custom product views via productDisplay types: custom view, partial 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  >
+  <PageColumns>
     <Context.Provider
       value={
         {
@@ -595,14 +527,10 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       }
     >
-      <PageMessages
-        className=""
-      >
+      <PageMessages>
         <BannerMessages />
       </PageMessages>
-      <PageToolbar
-        className=""
-      >
+      <PageToolbar>
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
@@ -651,18 +579,13 @@ exports[`ProductView Component should allow custom product views via productDisp
 `;
 
 exports[`ProductView Component should render a basic component: basic 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  >
+  <PageColumns>
     <Context.Provider
       value={
         {
@@ -672,14 +595,10 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
         }
       }
     >
-      <PageMessages
-        className=""
-      >
+      <PageMessages>
         <BannerMessages />
       </PageMessages>
-      <PageToolbar
-        className=""
-      >
+      <PageToolbar>
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
@@ -730,18 +649,13 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
 exports[`ProductView Component should render nothing if productGroup, and product parameters are empty: empty, productGroup 1`] = `null`;
 
 exports[`ProductView Component should render nothing if productGroup, and product parameters are empty: empty, productId and viewId 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <PageHeader
     productLabel="lorem ipsum"
-    t={[Function]}
   >
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
-  <PageColumns
-    className=""
-  />
+  <PageColumns />
   <div
     className="curiosity-page-section__version"
   >

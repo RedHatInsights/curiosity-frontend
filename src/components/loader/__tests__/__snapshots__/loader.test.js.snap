@@ -70,13 +70,8 @@ exports[`Loader Component should handle variant loader components: variant: tabl
 `;
 
 exports[`Loader Component should handle variant loader components: variant: title 1`] = `
-<PageLayout
-  className=""
->
-  <PageHeader
-    productLabel={null}
-    t={[Function]}
-  >
+<PageLayout>
+  <PageHeader>
     <Skeleton
       size="sm"
     />

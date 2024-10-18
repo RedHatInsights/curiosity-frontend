@@ -4033,101 +4033,55 @@ Submit and update account opt-in.
 <a name="PageLayout.module_PageColumns"></a>
 
 ## PageColumns
-
-* [PageColumns](#PageLayout.module_PageColumns)
-    * [~PageColumns(props)](#PageLayout.module_PageColumns..PageColumns) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#PageLayout.module_PageColumns..PageColumns.propTypes) : <code>Object</code>
-        * [.defaultProps](#PageLayout.module_PageColumns..PageColumns.defaultProps) : <code>Object</code>
-
 <a name="PageLayout.module_PageColumns..PageColumns"></a>
 
-### PageColumns~PageColumns(props) ⇒ <code>React.ReactNode</code>
+### PageColumns~PageColumns(props) ⇒ <code>JSX.Element</code>
 Render page columns based on children.
 
 **Kind**: inner method of [<code>PageColumns</code>](#PageLayout.module_PageColumns)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>[props.children]</td><td><code>React.ReactNode</code></td><td><code>[]</code></td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~PageColumns(props)](#PageLayout.module_PageColumns..PageColumns) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#PageLayout.module_PageColumns..PageColumns.propTypes) : <code>Object</code>
-    * [.defaultProps](#PageLayout.module_PageColumns..PageColumns.defaultProps) : <code>Object</code>
-
-<a name="PageLayout.module_PageColumns..PageColumns.propTypes"></a>
-
-#### PageColumns.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>PageColumns</code>](#PageLayout.module_PageColumns..PageColumns)  
-<a name="PageLayout.module_PageColumns..PageColumns.defaultProps"></a>
-
-#### PageColumns.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>PageColumns</code>](#PageLayout.module_PageColumns..PageColumns)  
 <a name="PageLayout.module_PageHeader"></a>
 
 ## PageHeader
-
-* [PageHeader](#PageLayout.module_PageHeader)
-    * [~PageHeader(props)](#PageLayout.module_PageHeader..PageHeader) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#PageLayout.module_PageHeader..PageHeader.propTypes) : <code>Object</code>
-        * [.defaultProps](#PageLayout.module_PageHeader..PageHeader.defaultProps) : <code>Object</code>
-
 <a name="PageLayout.module_PageHeader..PageHeader"></a>
 
-### PageHeader~PageHeader(props) ⇒ <code>React.ReactNode</code>
+### PageHeader~PageHeader(props) ⇒ <code>JSX.Element</code>
 Render a platform page header.
 
 **Kind**: inner method of [<code>PageHeader</code>](#PageLayout.module_PageHeader)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.productLabel</td><td><code>string</code></td>
+    <td>[props.productLabel]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~PageHeader(props)](#PageLayout.module_PageHeader..PageHeader) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#PageLayout.module_PageHeader..PageHeader.propTypes) : <code>Object</code>
-    * [.defaultProps](#PageLayout.module_PageHeader..PageHeader.defaultProps) : <code>Object</code>
-
-<a name="PageLayout.module_PageHeader..PageHeader.propTypes"></a>
-
-#### PageHeader.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>PageHeader</code>](#PageLayout.module_PageHeader..PageHeader)  
-<a name="PageLayout.module_PageHeader..PageHeader.defaultProps"></a>
-
-#### PageHeader.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>PageHeader</code>](#PageLayout.module_PageHeader..PageHeader)  
 <a name="Components.module_PageLayout"></a>
 
 ## PageLayout
@@ -4155,195 +4109,103 @@ Page layout, organize header, columns, messages, sections, and toolbar.
     </tr>  </tbody>
 </table>
 
-
-* [PageLayout](#Components.module_PageLayout)
-    * [~PageLayout(props)](#Components.module_PageLayout..PageLayout) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Components.module_PageLayout..PageLayout.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_PageLayout..PageLayout.defaultProps) : <code>Object</code>
-
 <a name="Components.module_PageLayout..PageLayout"></a>
 
-### PageLayout~PageLayout(props) ⇒ <code>React.ReactNode</code>
+### PageLayout~PageLayout(props) ⇒ <code>JSX.Element</code>
 Render a platform page layout.
 
 **Kind**: inner method of [<code>PageLayout</code>](#Components.module_PageLayout)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~PageLayout(props)](#Components.module_PageLayout..PageLayout) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Components.module_PageLayout..PageLayout.propTypes) : <code>Object</code>
-    * [.defaultProps](#Components.module_PageLayout..PageLayout.defaultProps) : <code>Object</code>
-
-<a name="Components.module_PageLayout..PageLayout.propTypes"></a>
-
-#### PageLayout.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>PageLayout</code>](#Components.module_PageLayout..PageLayout)  
-<a name="Components.module_PageLayout..PageLayout.defaultProps"></a>
-
-#### PageLayout.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>PageLayout</code>](#Components.module_PageLayout..PageLayout)  
 <a name="PageLayout.module_PageMessages"></a>
 
 ## PageMessages
-
-* [PageMessages](#PageLayout.module_PageMessages)
-    * [~PageMessages(props)](#PageLayout.module_PageMessages..PageMessages) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#PageLayout.module_PageMessages..PageMessages.propTypes) : <code>Object</code>
-        * [.defaultProps](#PageLayout.module_PageMessages..PageMessages.defaultProps) : <code>Object</code>
-
 <a name="PageLayout.module_PageMessages..PageMessages"></a>
 
-### PageMessages~PageMessages(props) ⇒ <code>React.ReactNode</code>
+### PageMessages~PageMessages(props) ⇒ <code>JSX.Element</code>
 Render a platform toolbar section.
 
 **Kind**: inner method of [<code>PageMessages</code>](#PageLayout.module_PageMessages)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~PageMessages(props)](#PageLayout.module_PageMessages..PageMessages) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#PageLayout.module_PageMessages..PageMessages.propTypes) : <code>Object</code>
-    * [.defaultProps](#PageLayout.module_PageMessages..PageMessages.defaultProps) : <code>Object</code>
-
-<a name="PageLayout.module_PageMessages..PageMessages.propTypes"></a>
-
-#### PageMessages.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>PageMessages</code>](#PageLayout.module_PageMessages..PageMessages)  
-<a name="PageLayout.module_PageMessages..PageMessages.defaultProps"></a>
-
-#### PageMessages.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>PageMessages</code>](#PageLayout.module_PageMessages..PageMessages)  
 <a name="PageLayout.module_PageSection"></a>
 
 ## PageSection
-
-* [PageSection](#PageLayout.module_PageSection)
-    * [~PageSection(props)](#PageLayout.module_PageSection..PageSection) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#PageLayout.module_PageSection..PageSection.propTypes) : <code>Object</code>
-        * [.defaultProps](#PageLayout.module_PageSection..PageSection.defaultProps) : <code>Object</code>
-
 <a name="PageLayout.module_PageSection..PageSection"></a>
 
-### PageSection~PageSection(props) ⇒ <code>React.ReactNode</code>
+### PageSection~PageSection(props) ⇒ <code>JSX.Element</code>
 Render a platform page section.
 
 **Kind**: inner method of [<code>PageSection</code>](#PageLayout.module_PageSection)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~PageSection(props)](#PageLayout.module_PageSection..PageSection) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#PageLayout.module_PageSection..PageSection.propTypes) : <code>Object</code>
-    * [.defaultProps](#PageLayout.module_PageSection..PageSection.defaultProps) : <code>Object</code>
-
-<a name="PageLayout.module_PageSection..PageSection.propTypes"></a>
-
-#### PageSection.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>PageSection</code>](#PageLayout.module_PageSection..PageSection)  
-<a name="PageLayout.module_PageSection..PageSection.defaultProps"></a>
-
-#### PageSection.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>PageSection</code>](#PageLayout.module_PageSection..PageSection)  
 <a name="PageLayout.module_PageToolbar"></a>
 
 ## PageToolbar
-
-* [PageToolbar](#PageLayout.module_PageToolbar)
-    * [~PageToolbar(props)](#PageLayout.module_PageToolbar..PageToolbar) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#PageLayout.module_PageToolbar..PageToolbar.propTypes) : <code>Object</code>
-        * [.defaultProps](#PageLayout.module_PageToolbar..PageToolbar.defaultProps) : <code>Object</code>
-
 <a name="PageLayout.module_PageToolbar..PageToolbar"></a>
 
-### PageToolbar~PageToolbar(props) ⇒ <code>React.ReactNode</code>
+### PageToolbar~PageToolbar(props) ⇒ <code>JSX.Element</code>
 Render a platform toolbar section.
 
 **Kind**: inner method of [<code>PageToolbar</code>](#PageLayout.module_PageToolbar)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~PageToolbar(props)](#PageLayout.module_PageToolbar..PageToolbar) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#PageLayout.module_PageToolbar..PageToolbar.propTypes) : <code>Object</code>
-    * [.defaultProps](#PageLayout.module_PageToolbar..PageToolbar.defaultProps) : <code>Object</code>
-
-<a name="PageLayout.module_PageToolbar..PageToolbar.propTypes"></a>
-
-#### PageToolbar.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>PageToolbar</code>](#PageLayout.module_PageToolbar..PageToolbar)  
-<a name="PageLayout.module_PageToolbar..PageToolbar.defaultProps"></a>
-
-#### PageToolbar.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>PageToolbar</code>](#PageLayout.module_PageToolbar..PageToolbar)  
 <a name="Components.module_Pagination"></a>
 
 ## Pagination
