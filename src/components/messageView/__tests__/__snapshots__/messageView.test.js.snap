@@ -1,18 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MessageView Component should have fallback conditions for all props: fallback display 1`] = `
-<PageLayout
-  className=""
->
-  <PageHeader
-    productLabel={null}
-    t={[Function]}
-  >
+<PageLayout>
+  <PageHeader>
     Subscriptions
   </PageHeader>
-  <PageSection
-    className=""
-  >
+  <PageSection>
     <EmptyState
       className="fadein"
       variant="full"
@@ -22,18 +15,11 @@ exports[`MessageView Component should have fallback conditions for all props: fa
 `;
 
 exports[`MessageView Component should render a basic component: basic 1`] = `
-<PageLayout
-  className=""
->
-  <PageHeader
-    productLabel={null}
-    t={[Function]}
-  >
+<PageLayout>
+  <PageHeader>
     Subscriptions
   </PageHeader>
-  <PageSection
-    className=""
-  >
+  <PageSection>
     <EmptyState
       className="fadein"
       variant="full"
@@ -56,18 +42,11 @@ exports[`MessageView Component should render a basic component: basic 1`] = `
 `;
 
 exports[`MessageView Component should render children when provided: children display 1`] = `
-<PageLayout
-  className=""
->
-  <PageHeader
-    productLabel={null}
-    t={[Function]}
-  >
+<PageLayout>
+  <PageHeader>
     Subscriptions
   </PageHeader>
-  <PageSection
-    className=""
-  >
+  <PageSection>
     child content
   </PageSection>
 </PageLayout>

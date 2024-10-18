@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Flex, FlexItem } from '@patternfly/react-core';
 import { helpers } from '../../common';
 
@@ -12,11 +11,11 @@ import { helpers } from '../../common';
  * Render page columns based on children.
  *
  * @param {object} props
- * @param {React.ReactNode} props.children
- * @param {string} props.className
- * @returns {React.ReactNode}
+ * @param {React.ReactNode} [props.children=[]]
+ * @param {string} [props.className='']
+ * @returns {JSX.Element}
  */
-const PageColumns = ({ children, className }) => (
+const PageColumns = ({ children = [], className = '' }) => (
   <Flex
     alignItems={{ sm: 'alignItemsStretch' }}
     spaceItems={{ sm: 'spaceItemsNone' }}
@@ -35,25 +34,5 @@ const PageColumns = ({ children, className }) => (
       ))}
   </Flex>
 );
-
-/**
- * Prop types.
- *
- * @type {{children: React.ReactNode, className: string}}
- */
-PageColumns.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string
-};
-
-/**
- * Default props.
- *
- * @type {{children: React.ReactNode, className: string}}
- */
-PageColumns.defaultProps = {
-  children: [],
-  className: ''
-};
 
 export { PageColumns as default, PageColumns };

@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OptinView Component should render a basic component: basic 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <Card
     data-test="optinView"
   >
@@ -331,9 +329,7 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
 `;
 
 exports[`OptinView Component should render an API state driven view: initial view 1`] = `
-<PageLayout
-  className=""
->
+<PageLayout>
   <Card
     data-test="optinView"
   >

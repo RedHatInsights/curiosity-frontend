@@ -26,19 +26,16 @@ exports[`PageLayout Component should render header and section children: multipl
     {
       "displayName": "PageSection",
       "props": {
-        "children": "ipsum",
-        "className": ""
+        "children": "ipsum"
       }
     },
     {
       "displayName": "PageHeader",
       "props": {
-        "children": "lorem",
-        "productLabel": null
+        "children": "lorem"
       }
     }
-  ],
-  "className": ""
+  ]
 }"
 >
   <section
