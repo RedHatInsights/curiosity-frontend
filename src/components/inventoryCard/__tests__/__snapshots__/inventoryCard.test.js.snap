@@ -27,15 +27,8 @@ exports[`InventoryCard Component should handle multiple display states, error, p
                 className="curiosity-toolbar__group transparent"
               >
                 <Pagination
-                  dropDirection="down"
                   isCompact={true}
                   isDisabled={true}
-                  itemCount={0}
-                  offset={0}
-                  onPage={[Function]}
-                  onPerPage={[Function]}
-                  perPage={10}
-                  variant={null}
                 />
               </ForwardRef>
             </ToolbarContent>
@@ -66,14 +59,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       >
         <Pagination
           dropDirection="up"
-          isCompact={false}
           isDisabled={true}
-          itemCount={0}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
         />
       </TableToolbar>
     </CardFooter>
@@ -108,15 +94,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
                 className="curiosity-toolbar__group transparent"
               >
                 <Pagination
-                  dropDirection="down"
                   isCompact={true}
-                  isDisabled={false}
-                  itemCount={0}
-                  offset={0}
-                  onPage={[Function]}
-                  onPerPage={[Function]}
-                  perPage={10}
-                  variant={null}
                 />
               </ForwardRef>
             </ToolbarContent>
@@ -189,14 +167,6 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       >
         <Pagination
           dropDirection="up"
-          isCompact={false}
-          isDisabled={false}
-          itemCount={0}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
         />
       </TableToolbar>
     </CardFooter>
@@ -231,15 +201,8 @@ exports[`InventoryCard Component should handle multiple display states, error, p
                 className="curiosity-toolbar__group transparent"
               >
                 <Pagination
-                  dropDirection="down"
                   isCompact={true}
                   isDisabled={true}
-                  itemCount={0}
-                  offset={0}
-                  onPage={[Function]}
-                  onPerPage={[Function]}
-                  perPage={10}
-                  variant={null}
                 />
               </ForwardRef>
             </ToolbarContent>
@@ -286,14 +249,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       >
         <Pagination
           dropDirection="up"
-          isCompact={false}
           isDisabled={true}
-          itemCount={0}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
         />
       </TableToolbar>
     </CardFooter>
@@ -328,15 +284,8 @@ exports[`InventoryCard Component should render a basic component: basic render 1
                 className="curiosity-toolbar__group transparent"
               >
                 <Pagination
-                  dropDirection="down"
                   isCompact={true}
                   isDisabled={true}
-                  itemCount={0}
-                  offset={0}
-                  onPage={[Function]}
-                  onPerPage={[Function]}
-                  perPage={10}
-                  variant={null}
                 />
               </ForwardRef>
             </ToolbarContent>
@@ -383,14 +332,7 @@ exports[`InventoryCard Component should render a basic component: basic render 1
       >
         <Pagination
           dropDirection="up"
-          isCompact={false}
           isDisabled={true}
-          itemCount={0}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
         />
       </TableToolbar>
     </CardFooter>

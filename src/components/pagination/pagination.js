@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Pagination as PfPagination } from '@patternfly/react-core';
 import { helpers } from '../../common';
 import { paginationHelpers } from './paginationHelpers';
@@ -11,6 +10,16 @@ import { paginationHelpers } from './paginationHelpers';
  * @module Pagination
  * @property {module} PaginationHelpers
  */
+
+/**
+ * Available pagination dropdown direction types
+ *
+ * @type {{up: string, down: string}}
+ */
+const PaginationDirectionType = {
+  down: 'down',
+  up: 'up'
+};
 
 /**
  * ToDo: Apply locale/translation to the PF Pagination "titles" prop.
@@ -26,26 +35,26 @@ import { paginationHelpers } from './paginationHelpers';
  * Pagination component.
  *
  * @param {object} props
- * @param {string} props.dropDirection
- * @param {boolean} props.isDisabled
- * @param {boolean} props.isCompact
- * @param {number} props.itemCount
- * @param {number} props.offset
- * @param {Function} props.onPage
- * @param {Function} props.onPerPage
- * @param {number} props.perPage
- * @param {string} props.variant
- * @returns {React.ReactNode}
+ * @param {PaginationDirectionType} [props.dropDirection=PaginationDirectionType.down]
+ * @param {boolean} [props.isDisabled=false]
+ * @param {boolean} [props.isCompact=false]
+ * @param {number} [props.itemCount=0]
+ * @param {number} [props.offset=0]
+ * @param {Function} [props.onPage=helpers.noop]
+ * @param {Function} [props.onPerPage=helpers.noop]
+ * @param {number} [props.perPage=10]
+ * @param {string} [props.variant]
+ * @returns {JSX.Element}
  */
 const Pagination = ({
-  dropDirection,
-  isDisabled,
-  isCompact,
-  itemCount,
-  offset,
-  onPage,
-  onPerPage,
-  perPage,
+  dropDirection = PaginationDirectionType.down,
+  isDisabled = false,
+  isCompact = false,
+  itemCount = 0,
+  offset = 0,
+  onPage = helpers.noop,
+  onPerPage = helpers.noop,
+  perPage = 10,
   variant
 }) => (
   <PfPagination
@@ -56,49 +65,11 @@ const Pagination = ({
     onSetPage={(event, page, limit) =>
       onPage({ event, perPage: limit, offset: paginationHelpers.calculateOffsetFromPage(page, limit) })
     }
-    onPerPageSelect={(event, limit) => onPerPage({ event, perPage: limit, offset: Pagination.defaultProps.offset })}
-    page={paginationHelpers.calculatePageFromOffset(offset || Pagination.defaultProps.offset, perPage)}
+    onPerPageSelect={(event, limit) => onPerPage({ event, perPage: limit, offset })}
+    page={paginationHelpers.calculatePageFromOffset(offset, perPage)}
     perPage={perPage}
     variant={variant}
   />
 );
 
-/**
- * Prop types
- *
- * @type {{isCompact: boolean, onPage: Function, perPage: number, offset: number,
- *     dropDirection: string, onPerPage: Function, variant: null, isDisabled: boolean,
- *     itemCount: number}}
- */
-Pagination.propTypes = {
-  dropDirection: PropTypes.oneOf(['up', 'down']),
-  isCompact: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  itemCount: PropTypes.number,
-  offset: PropTypes.number,
-  onPage: PropTypes.func,
-  onPerPage: PropTypes.func,
-  perPage: PropTypes.number,
-  variant: PropTypes.string
-};
-
-/**
- * Default props.
- *
- * @type {{isCompact: boolean, onPage: Function, perPage: number, offset: number,
- *     dropDirection: string, onPerPage: Function, variant: null, isDisabled: boolean,
- *     itemCount: number}}
- */
-Pagination.defaultProps = {
-  dropDirection: 'down',
-  isCompact: false,
-  isDisabled: false,
-  itemCount: 0,
-  offset: 0,
-  onPage: helpers.noop,
-  onPerPage: helpers.noop,
-  perPage: 10,
-  variant: null
-};
-
-export { Pagination as default, Pagination };
+export { Pagination as default, Pagination, PaginationDirectionType };
