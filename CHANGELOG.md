@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.14.0](https://github.com/RedHatInsights/curiosity-frontend/compare/a6f3617c4f3ba93d3bdc38c49f5360cdb5b191ab...d94383c578f8942ae6fbce9f705aaefb86dc8b68) (2024-10-22)
+
+
+### Features
+* **config** sw-2797 activate rhel-aus-addon ([#1439](https://github.com/RedHatInsights/curiosity-frontend/pull/1439)) ([7e5fe66](https://github.com/RedHatInsights/curiosity-frontend/commit/7e5fe666e104bddfd1ff91a22619332407ba147b))
+
+### Continuous Integrations
+*  update konflux references ([#1442](https://github.com/RedHatInsights/curiosity-frontend/pull/1442)) ([ed3881b](https://github.com/RedHatInsights/curiosity-frontend/commit/ed3881b1166ca74c4dd3a7dc3bdda5840a2ae908))
+
+### Code Refactoring
+* **pageLayout** sw-2707 remove deprecated react ([#1448](https://github.com/RedHatInsights/curiosity-frontend/pull/1448)) ([31852e8](https://github.com/RedHatInsights/curiosity-frontend/commit/31852e83e4ec2405b196b5b8b75c4fdcea06aa67))
+* **minHeight,optinView** sw-2707 remove deprecated react ([#1447](https://github.com/RedHatInsights/curiosity-frontend/pull/1447)) ([6455634](https://github.com/RedHatInsights/curiosity-frontend/commit/64556344d8d7b6be1b60b7cc9b60e35ed6629070))
+* **loader,messageView** sw-2707 remove deprecated react ([#1446](https://github.com/RedHatInsights/curiosity-frontend/pull/1446)) ([1786c22](https://github.com/RedHatInsights/curiosity-frontend/commit/1786c22d7d4d4bfc16efebd11ff99be37a305f6a))
+* **inventoryCards,tabs** sw-2707 remove deprecated react ([#1445](https://github.com/RedHatInsights/curiosity-frontend/pull/1445)) ([bded596](https://github.com/RedHatInsights/curiosity-frontend/commit/bded596f589b4fd674641c968afe613a6ac8923f))
+* **auth,banner,i18n** sw-2707 remove deprecated react ([#1444](https://github.com/RedHatInsights/curiosity-frontend/pull/1444)) ([f3e4502](https://github.com/RedHatInsights/curiosity-frontend/commit/f3e4502429a9463a798d499b056515ef82eeaa92))
+
+### Builds
+* **deps-dev** bump group with 6 updates ([#1449](https://github.com/RedHatInsights/curiosity-frontend/pull/1449)) ([d94383c](https://github.com/RedHatInsights/curiosity-frontend/commit/d94383c578f8942ae6fbce9f705aaefb86dc8b68))
+* **deps-dev** bump group with 3 updates ([#1443](https://github.com/RedHatInsights/curiosity-frontend/pull/1443)) ([1b16c4d](https://github.com/RedHatInsights/curiosity-frontend/commit/1b16c4db4fb945cba09e446bacb302049e541985))
+* **deps** bump group with 3 updates ([#1441](https://github.com/RedHatInsights/curiosity-frontend/pull/1441)) ([3e35425](https://github.com/RedHatInsights/curiosity-frontend/commit/3e35425a94ccac4103ab1b97c92c248ea4e119f6))
+* **deps** bump group with 2 updates ([#1440](https://github.com/RedHatInsights/curiosity-frontend/pull/1440)) ([ab48242](https://github.com/RedHatInsights/curiosity-frontend/commit/ab48242a39815f2dc8add0bcfa05e566134664bf))
+* **deps-dev** bump group with 5 updates ([#1438](https://github.com/RedHatInsights/curiosity-frontend/pull/1438)) ([a857987](https://github.com/RedHatInsights/curiosity-frontend/commit/a857987130447b4676c85fa54ab731203b15d12b))
+
 ## [4.13.0](https://github.com/RedHatInsights/curiosity-frontend/compare/0554de3ff7b2e5b9753de15af80283e7067501de...dd6f15033597f51507d291ae07023c41e11dd780) (2024-10-10)
 
 
