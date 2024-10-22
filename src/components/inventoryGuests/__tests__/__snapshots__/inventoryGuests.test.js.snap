@@ -41,8 +41,6 @@ exports[`InventoryGuests Component should handle multiple display states, error,
       onScroll={[Function]}
     >
       <Table
-        ariaLabelSelectTheadColumn="Select row column"
-        ariaLabelTable={null}
         className="curiosity-guests-list"
         columnHeaders={
           [
@@ -50,35 +48,8 @@ exports[`InventoryGuests Component should handle multiple display states, error,
             "dolor",
           ]
         }
-        componentClassNames={
-          {
-            "table": "curiosity-table",
-            "td": "curiosity-table__td",
-            "tdAction": "curiosity-table__td-action",
-            "tdExpand": "curiosity-table__td-expand",
-            "tdExpanded": "curiosity-table__td-expand-expanded",
-            "tdExpandedContent": "curiosity-table__td-expand-content",
-            "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
-            "tdSelect": "curiosity-table__td-select",
-            "th": "curiosity-table__th",
-            "tr": "curiosity-table__tr",
-            "trExpand": "curiosity-table__tr-expand",
-            "trExpanded": "curiosity-table__tr-expand-expanded",
-            "trExpandedContent": "curiosity-table__tr-expand-content",
-          }
-        }
-        emptyTable={
-          {
-            "message": "Clear all filters and try again",
-            "title": "No results found",
-          }
-        }
         isBorders={false}
         isHeader={true}
-        isStriped={false}
-        onExpand={null}
-        onSelect={null}
-        onSort={null}
         rows={
           [
             {
@@ -89,8 +60,6 @@ exports[`InventoryGuests Component should handle multiple display states, error,
             },
           ]
         }
-        summary={null}
-        variant="compact"
       />
     </div>
   </div>

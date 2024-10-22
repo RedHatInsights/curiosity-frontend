@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useShallowCompareEffect } from 'react-use';
 import _cloneDeep from 'lodash/cloneDeep';
 import { Grid, GridItem } from '@patternfly/react-core';
@@ -28,6 +27,39 @@ import { tableHelpers } from './tableHelpers';
  */
 
 /**
+ * Available table class names used as defaults.
+ *
+ * @type {{tdExpanded: string, trExpand: string, trExpandedContent: string, tdExpandedWrapper: string,
+ *     tdAction: string, tdExpand: string, td: string, trExpanded: string, th: string, tdSelect: string,
+ *     tdExpandedContent: string, table: string, tr: string}}
+ */
+const TableClassNames = {
+  table: 'curiosity-table',
+  td: 'curiosity-table__td',
+  tdAction: 'curiosity-table__td-action',
+  tdSelect: 'curiosity-table__td-select',
+  th: 'curiosity-table__th',
+  tr: 'curiosity-table__tr',
+  trExpand: 'curiosity-table__tr-expand',
+  trExpanded: 'curiosity-table__tr-expand-expanded',
+  trExpandedContent: 'curiosity-table__tr-expand-content',
+  tdExpand: 'curiosity-table__td-expand',
+  tdExpanded: 'curiosity-table__td-expand-expanded',
+  tdExpandedWrapper: 'curiosity-table__td-expand-wrapper',
+  tdExpandedContent: 'curiosity-table__td-expand-content'
+};
+
+/**
+ * Default empty table props
+ *
+ * @type {{className: (string|undefined), title: React.ReactNode, message: React.ReactNode}}
+ */
+const TableEmptyProps = {
+  title: 'No results found',
+  message: 'Clear all filters and try again'
+};
+
+/**
  * FixMe: PF bug for select column. PF requires a Th used for select field in the primary Thead...
  * BUT also allows a partially working Td. Any attempt to update the Td selected object props is
  * met with a partially-functioning field, hair pulling, and the question "is my state working?"
@@ -40,45 +72,57 @@ import { tableHelpers } from './tableHelpers';
 /**
  * A PF Composable table wrapper
  *
+ * @param {object} props
+ * @param {string} [props.ariaLabelSelectTheadColumn='Select row column']
+ * @param {string} [props.ariaLabelTable]
+ * @param {React.ReactNode} props.children
+ * @param {string} [props.className]
+ * @param {Array<(Function|React.ReactNode|{ content: (Function|React.ReactNode),
+ *     isSort: (boolean|undefined), isSortActive: (boolean|undefined),
+ *     sortDirection: (SortByDirection|undefined) })>} [props.columnHeaders=[]]
+ * @param {TableClassNames} [props.componentClassNames=TableClassNames]
+ * @param {TableEmptyProps} [props.emptyTable=TableEmptyProps]
+ * @param {boolean} [props.isBorders=true]
+ * @param {boolean} [props.isHeader=false]
+ * @param {boolean} [props.isStriped=false]
+ * @param {Function} [props.onExpand]
+ * @param {Function} [props.onSelect]
+ * @param {Function} [props.onSort]
+ * @param {Array<{
+ *     cells: (React.ReactNode|Function|Date|{
+ *         content: (React.ReactNode|Function|Date),
+ *         isTHeader: (boolean|undefined),
+ *         isExpanded: (boolean|undefined),
+ *         expandedContent: (React.ReactNode|Function|undefined)
+ *     }),
+ *     isDisabled: (boolean|undefined),
+ *     isExpanded: (boolean|undefined),
+ *     isSelected: (boolean|undefined),
+ *     expandedContent: (React.ReactNode|Function|undefined) }>} props.rows
+ * @param {string} props.summary
+ * @param {TableVariant} [props.variant=TableVariant.compact]
  * @fires onExpandTable
  * @fires onSelectTable
  * @fires onSortTable
- * @param {object} props
- * @param {string} props.ariaLabelSelectTheadColumn
- * @param {string} props.ariaLabelTable
- * @param {React.ReactNode} props.children
- * @param {string} props.className
- * @param {Array} props.columnHeaders
- * @param {object} props.componentClassNames
- * @param {object} props.emptyTable
- * @param {boolean} props.isBorders
- * @param {boolean} props.isHeader
- * @param {boolean} props.isStriped
- * @param {Function} props.onSelect
- * @param {Function} props.onSort
- * @param {Function} props.onExpand
- * @param {Array} props.rows
- * @param {string} props.summary
- * @param {string} props.variant
  * @returns {React.ReactNode}
  */
 const Table = ({
-  ariaLabelSelectTheadColumn,
+  ariaLabelSelectTheadColumn = 'Select row column',
   ariaLabelTable,
   children,
-  className,
-  columnHeaders,
-  componentClassNames,
-  emptyTable,
-  isBorders,
-  isHeader,
-  isStriped,
+  className = '',
+  columnHeaders = [],
+  componentClassNames = TableClassNames,
+  emptyTable = TableEmptyProps,
+  isBorders = true,
+  isHeader = false,
+  isStriped = false,
+  onExpand,
   onSelect,
   onSort,
-  onExpand,
   rows,
   summary,
-  variant
+  variant = TableVariant.compact
 }) => {
   const [updatedHeaderAndRows, setUpdatedHeaderAndRows] = useState({});
   const [updatedIsExpandableRow, setUpdatedIsExpandableRow] = useState(false);
@@ -185,12 +229,14 @@ const Table = ({
       });
     }
 
-    onSelect({
-      type,
-      rowIndex,
-      isSelected,
-      data: _cloneDeep(data)
-    });
+    if (typeof onSelect === 'function') {
+      onSelect({
+        type,
+        rowIndex,
+        isSelected,
+        data: _cloneDeep(data)
+      });
+    }
   };
 
   /**
@@ -226,11 +272,13 @@ const Table = ({
       };
     });
 
-    onSort({
-      cellIndex: originalIndex,
-      direction,
-      data: _cloneDeep(data)
-    });
+    if (typeof onSort === 'function') {
+      onSort({
+        cellIndex: originalIndex,
+        direction,
+        data: _cloneDeep(data)
+      });
+    }
   };
 
   useShallowCompareEffect(() => {
@@ -413,123 +461,4 @@ const Table = ({
   );
 };
 
-/**
- * Prop types
- *
- * @type {{componentClassNames: object, summary: string, onSort: Function, onExpand: Function, className: string,
- *     isStriped: boolean, rows: Array, isBorders: boolean, ariaLabelSelectTheadColumn: string, ariaLabelTable: string,
- *     onSelect: Function, columnHeaders: Array, children: React.ReactNode, isHeader: boolean, variant: string,
- *     emptyTable: {className: string, title: React.ReactNode, message: React.ReactNode}}}
- */
-Table.propTypes = {
-  ariaLabelSelectTheadColumn: PropTypes.string,
-  ariaLabelTable: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  columnHeaders: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.node,
-      PropTypes.shape({
-        content: PropTypes.oneOfType([PropTypes.func, PropTypes.node]).isRequired,
-        isSort: PropTypes.bool,
-        isSortActive: PropTypes.bool,
-        sortDirection: PropTypes.oneOf([...Object.values(SortByDirection)])
-      })
-    ])
-  ),
-  componentClassNames: PropTypes.shape({
-    table: PropTypes.string,
-    td: PropTypes.string,
-    tdAction: PropTypes.string,
-    tdSelect: PropTypes.string,
-    th: PropTypes.string,
-    tr: PropTypes.string,
-    trExpand: PropTypes.string,
-    trExpanded: PropTypes.string,
-    trExpandedContent: PropTypes.string,
-    tdExpand: PropTypes.string,
-    tdExpanded: PropTypes.string,
-    tdExpandedWrapper: PropTypes.string,
-    tdExpandedContent: PropTypes.string
-  }),
-  emptyTable: PropTypes.shape({
-    className: PropTypes.string,
-    title: PropTypes.node,
-    message: PropTypes.node
-  }),
-  isBorders: PropTypes.bool,
-  isHeader: PropTypes.bool,
-  isStriped: PropTypes.bool,
-  onExpand: PropTypes.func,
-  onSelect: PropTypes.func,
-  onSort: PropTypes.func,
-  rows: PropTypes.arrayOf(
-    PropTypes.shape({
-      cells: PropTypes.arrayOf(
-        PropTypes.oneOfType([
-          PropTypes.func,
-          PropTypes.node,
-          PropTypes.instanceOf(Date),
-          PropTypes.shape({
-            content: PropTypes.oneOfType([PropTypes.func, PropTypes.node, PropTypes.instanceOf(Date)]).isRequired,
-            isTHeader: PropTypes.bool,
-            isExpanded: PropTypes.bool,
-            expandedContent: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
-          })
-        ])
-      ),
-      isDisabled: PropTypes.bool,
-      isExpanded: PropTypes.bool,
-      isSelected: PropTypes.bool,
-      expandedContent: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
-    })
-  ),
-  summary: PropTypes.string,
-  variant: PropTypes.oneOf([...Object.values(TableVariant)])
-};
-
-/**
- * Default props
- *
- * @type {{componentClassNames: {tdExpanded: string, trExpand: string, trExpandedContent: string,
- *     tdExpandedWrapper: string, tdAction: string, tdExpand: string, td: string, trExpanded: string, th: string,
- *     tdSelect: string, tdExpandedContent: string, table: string, tr: string}, summary: null, onSort: null, onExpand:
- *     null, className: string, isStriped: boolean, rows: any[], isBorders: boolean, ariaLabelSelectTheadColumn: string,
- *     ariaLabelTable: null, onSelect: null, columnHeaders: any[], children: null, isHeader: boolean,
- *     variant: TableVariant.compact, emptyTable: {title: string, message: string}}}
- */
-Table.defaultProps = {
-  ariaLabelSelectTheadColumn: 'Select row column',
-  ariaLabelTable: null,
-  children: null,
-  className: '',
-  columnHeaders: [],
-  componentClassNames: {
-    table: 'curiosity-table',
-    td: 'curiosity-table__td',
-    tdAction: 'curiosity-table__td-action',
-    tdSelect: 'curiosity-table__td-select',
-    th: 'curiosity-table__th',
-    tr: 'curiosity-table__tr',
-    trExpand: 'curiosity-table__tr-expand',
-    trExpanded: 'curiosity-table__tr-expand-expanded',
-    trExpandedContent: 'curiosity-table__tr-expand-content',
-    tdExpand: 'curiosity-table__td-expand',
-    tdExpanded: 'curiosity-table__td-expand-expanded',
-    tdExpandedWrapper: 'curiosity-table__td-expand-wrapper',
-    tdExpandedContent: 'curiosity-table__td-expand-content'
-  },
-  emptyTable: { title: 'No results found', message: 'Clear all filters and try again' },
-  isBorders: true,
-  isHeader: false,
-  isStriped: false,
-  onExpand: null,
-  onSelect: null,
-  onSort: null,
-  rows: [],
-  summary: null,
-  variant: TableVariant.compact
-};
-
-export { Table as default, Table, TableVariant, tableHelpers };
+export { Table as default, Table, TableVariant, TableClassNames, TableEmptyProps, tableHelpers, SortByDirection };
