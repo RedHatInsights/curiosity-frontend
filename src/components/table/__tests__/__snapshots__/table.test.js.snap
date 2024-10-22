@@ -82,37 +82,7 @@ exports[`Table Component should allow expandable row content: expandable content
       ]
     }
   ],
-  "ariaLabelSelectTheadColumn": "Select row column",
-  "ariaLabelTable": null,
-  "children": [],
-  "className": "",
-  "columnHeaders": [],
-  "componentClassNames": {
-    "table": "curiosity-table",
-    "td": "curiosity-table__td",
-    "tdAction": "curiosity-table__td-action",
-    "tdSelect": "curiosity-table__td-select",
-    "th": "curiosity-table__th",
-    "tr": "curiosity-table__tr",
-    "trExpand": "curiosity-table__tr-expand",
-    "trExpanded": "curiosity-table__tr-expand-expanded",
-    "trExpandedContent": "curiosity-table__tr-expand-content",
-    "tdExpand": "curiosity-table__td-expand",
-    "tdExpanded": "curiosity-table__td-expand-expanded",
-    "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
-    "tdExpandedContent": "curiosity-table__td-expand-content"
-  },
-  "emptyTable": {
-    "title": "No results found",
-    "message": "Clear all filters and try again"
-  },
-  "isBorders": true,
-  "isHeader": false,
-  "isStriped": false,
-  "onSelect": null,
-  "onSort": null,
-  "summary": null,
-  "variant": "compact"
+  "children": []
 }"
 >
   <div
@@ -604,36 +574,7 @@ exports[`Table Component should pass child components, nodes when there are no r
   "columnHeaders": [
     "lorem ipsum"
   ],
-  "rows": [],
-  "ariaLabelSelectTheadColumn": "Select row column",
-  "ariaLabelTable": null,
-  "className": "",
-  "componentClassNames": {
-    "table": "curiosity-table",
-    "td": "curiosity-table__td",
-    "tdAction": "curiosity-table__td-action",
-    "tdSelect": "curiosity-table__td-select",
-    "th": "curiosity-table__th",
-    "tr": "curiosity-table__tr",
-    "trExpand": "curiosity-table__tr-expand",
-    "trExpanded": "curiosity-table__tr-expand-expanded",
-    "trExpandedContent": "curiosity-table__tr-expand-content",
-    "tdExpand": "curiosity-table__td-expand",
-    "tdExpanded": "curiosity-table__td-expand-expanded",
-    "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
-    "tdExpandedContent": "curiosity-table__td-expand-content"
-  },
-  "emptyTable": {
-    "title": "No results found",
-    "message": "Clear all filters and try again"
-  },
-  "isBorders": true,
-  "isStriped": false,
-  "onExpand": null,
-  "onSelect": null,
-  "onSort": null,
-  "summary": null,
-  "variant": "compact"
+  "rows": []
 }"
 >
   <div
@@ -657,35 +598,8 @@ exports[`Table Component should pass child components, nodes when there are no r
     "lorem ipsum"
   ],
   "rows": [],
-  "ariaLabelSelectTheadColumn": "Select row column",
   "ariaLabelTable": "Dolor sit label",
-  "className": "",
-  "componentClassNames": {
-    "table": "curiosity-table",
-    "td": "curiosity-table__td",
-    "tdAction": "curiosity-table__td-action",
-    "tdSelect": "curiosity-table__td-select",
-    "th": "curiosity-table__th",
-    "tr": "curiosity-table__tr",
-    "trExpand": "curiosity-table__tr-expand",
-    "trExpanded": "curiosity-table__tr-expand-expanded",
-    "trExpandedContent": "curiosity-table__tr-expand-content",
-    "tdExpand": "curiosity-table__td-expand",
-    "tdExpanded": "curiosity-table__td-expand-expanded",
-    "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
-    "tdExpandedContent": "curiosity-table__td-expand-content"
-  },
-  "emptyTable": {
-    "title": "No results found",
-    "message": "Clear all filters and try again"
-  },
-  "isBorders": true,
-  "isStriped": false,
-  "onExpand": null,
-  "onSelect": null,
-  "onSort": null,
-  "summary": "Lorem ipsum summary",
-  "variant": "compact"
+  "summary": "Lorem ipsum summary"
 }"
 >
   <div
@@ -762,37 +676,7 @@ exports[`Table Component should render a basic component: basic 1`] = `
     "dolor",
     "sit"
   ],
-  "ariaLabelSelectTheadColumn": "Select row column",
-  "ariaLabelTable": null,
-  "children": [],
-  "className": "",
-  "componentClassNames": {
-    "table": "curiosity-table",
-    "td": "curiosity-table__td",
-    "tdAction": "curiosity-table__td-action",
-    "tdSelect": "curiosity-table__td-select",
-    "th": "curiosity-table__th",
-    "tr": "curiosity-table__tr",
-    "trExpand": "curiosity-table__tr-expand",
-    "trExpanded": "curiosity-table__tr-expand-expanded",
-    "trExpandedContent": "curiosity-table__tr-expand-content",
-    "tdExpand": "curiosity-table__td-expand",
-    "tdExpanded": "curiosity-table__td-expand-expanded",
-    "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
-    "tdExpandedContent": "curiosity-table__td-expand-content"
-  },
-  "emptyTable": {
-    "title": "No results found",
-    "message": "Clear all filters and try again"
-  },
-  "isBorders": true,
-  "isStriped": false,
-  "onExpand": null,
-  "onSelect": null,
-  "onSort": null,
-  "rows": [],
-  "summary": null,
-  "variant": "compact"
+  "children": []
 }"
 >
   <div

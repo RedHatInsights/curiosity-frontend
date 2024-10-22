@@ -5113,18 +5113,28 @@ PF table wrapper, normalize table use.
 
 
 * [Table](#Components.module_Table)
+    * [~TableClassNames](#Components.module_Table..TableClassNames) : <code>Object</code>
+    * [~TableEmptyProps](#Components.module_Table..TableEmptyProps) : <code>Object</code>
     * [~Table(props)](#Components.module_Table..Table) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Components.module_Table..Table.propTypes) : <code>Object</code>
-            * [.defaultProps](#Components.module_Table..Table.defaultProps) : <code>Object</code>
-        * _inner_
-            * [~renderHeader()](#Components.module_Table..Table..renderHeader) ⇒ <code>React.ReactNode</code>
-            * [~renderBody()](#Components.module_Table..Table..renderBody) ⇒ <code>React.ReactNode</code>
-            * [~renderEmpty()](#Components.module_Table..Table..renderEmpty) ⇒ <code>React.ReactNode</code>
+        * [~renderHeader()](#Components.module_Table..Table..renderHeader) ⇒ <code>React.ReactNode</code>
+        * [~renderBody()](#Components.module_Table..Table..renderBody) ⇒ <code>React.ReactNode</code>
+        * [~renderEmpty()](#Components.module_Table..Table..renderEmpty) ⇒ <code>React.ReactNode</code>
     * ["onExpandTable" (params)](#event_onExpandTable)
     * ["onSelectTable" (params)](#event_onSelectTable)
     * ["onSortTable" (params)](#event_onSortTable)
 
+<a name="Components.module_Table..TableClassNames"></a>
+
+### Table~TableClassNames : <code>Object</code>
+Available table class names used as defaults.
+
+**Kind**: inner constant of [<code>Table</code>](#Components.module_Table)  
+<a name="Components.module_Table..TableEmptyProps"></a>
+
+### Table~TableEmptyProps : <code>Object</code>
+Default empty table props
+
+**Kind**: inner constant of [<code>Table</code>](#Components.module_Table)  
 <a name="Components.module_Table..Table"></a>
 
 ### Table~Table(props) ⇒ <code>React.ReactNode</code>
@@ -5135,69 +5145,53 @@ A PF Composable table wrapper
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.ariaLabelSelectTheadColumn</td><td><code>string</code></td>
+    <td>[props.ariaLabelSelectTheadColumn]</td><td><code>string</code></td><td><code>&quot;&#x27;Select row column&#x27;&quot;</code></td>
     </tr><tr>
-    <td>props.ariaLabelTable</td><td><code>string</code></td>
+    <td>[props.ariaLabelTable]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
+    <td>[props.className]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.columnHeaders</td><td><code>Array</code></td>
+    <td>[props.columnHeaders]</td><td><code>Array.&lt;(function()|React.ReactNode|{content: (function()|React.ReactNode), isSort: (boolean|undefined), isSortActive: (boolean|undefined), sortDirection: (SortByDirection|undefined)})&gt;</code></td><td><code>[]</code></td>
     </tr><tr>
-    <td>props.componentClassNames</td><td><code>object</code></td>
+    <td>[props.componentClassNames]</td><td><code>TableClassNames</code></td><td><code>TableClassNames</code></td>
     </tr><tr>
-    <td>props.emptyTable</td><td><code>object</code></td>
+    <td>[props.emptyTable]</td><td><code>TableEmptyProps</code></td><td><code>TableEmptyProps</code></td>
     </tr><tr>
-    <td>props.isBorders</td><td><code>boolean</code></td>
+    <td>[props.isBorders]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr><tr>
-    <td>props.isHeader</td><td><code>boolean</code></td>
+    <td>[props.isHeader]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.isStriped</td><td><code>boolean</code></td>
+    <td>[props.isStriped]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.onSelect</td><td><code>function</code></td>
+    <td>[props.onExpand]</td><td><code>function</code></td><td></td>
     </tr><tr>
-    <td>props.onSort</td><td><code>function</code></td>
+    <td>[props.onSelect]</td><td><code>function</code></td><td></td>
     </tr><tr>
-    <td>props.onExpand</td><td><code>function</code></td>
+    <td>[props.onSort]</td><td><code>function</code></td><td></td>
     </tr><tr>
-    <td>props.rows</td><td><code>Array</code></td>
+    <td>props.rows</td><td><code>Array.&lt;{cells: (React.ReactNode|function()|Date|{content: (React.ReactNode|function()|Date), isTHeader: (boolean|undefined), isExpanded: (boolean|undefined), expandedContent: (React.ReactNode|function()|undefined)}), isDisabled: (boolean|undefined), isExpanded: (boolean|undefined), isSelected: (boolean|undefined), expandedContent: (React.ReactNode|function()|undefined)}&gt;</code></td><td></td>
     </tr><tr>
-    <td>props.summary</td><td><code>string</code></td>
+    <td>props.summary</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.variant</td><td><code>string</code></td>
+    <td>[props.variant]</td><td><code>TableVariant</code></td><td><code>TableVariant.compact</code></td>
     </tr>  </tbody>
 </table>
 
 
 * [~Table(props)](#Components.module_Table..Table) ⇒ <code>React.ReactNode</code>
-    * _static_
-        * [.propTypes](#Components.module_Table..Table.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_Table..Table.defaultProps) : <code>Object</code>
-    * _inner_
-        * [~renderHeader()](#Components.module_Table..Table..renderHeader) ⇒ <code>React.ReactNode</code>
-        * [~renderBody()](#Components.module_Table..Table..renderBody) ⇒ <code>React.ReactNode</code>
-        * [~renderEmpty()](#Components.module_Table..Table..renderEmpty) ⇒ <code>React.ReactNode</code>
+    * [~renderHeader()](#Components.module_Table..Table..renderHeader) ⇒ <code>React.ReactNode</code>
+    * [~renderBody()](#Components.module_Table..Table..renderBody) ⇒ <code>React.ReactNode</code>
+    * [~renderEmpty()](#Components.module_Table..Table..renderEmpty) ⇒ <code>React.ReactNode</code>
 
-<a name="Components.module_Table..Table.propTypes"></a>
-
-#### Table.propTypes : <code>Object</code>
-Prop types
-
-**Kind**: static property of [<code>Table</code>](#Components.module_Table..Table)  
-<a name="Components.module_Table..Table.defaultProps"></a>
-
-#### Table.defaultProps : <code>Object</code>
-Default props
-
-**Kind**: static property of [<code>Table</code>](#Components.module_Table..Table)  
 <a name="Components.module_Table..Table..renderHeader"></a>
 
 #### Table~renderHeader() ⇒ <code>React.ReactNode</code>
