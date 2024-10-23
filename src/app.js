@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useMount } from 'react-use';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
 import { reduxActions, storeHooks } from './redux';
 import { I18n } from './components/i18n/i18n';
-import Authentication from './components/authentication/authentication';
-import { helpers } from './common';
+import { Authentication } from './components/authentication/authentication';
 import { Loader } from './components/loader/loader';
+import { helpers } from './common';
 const ProductView = React.lazy(() => import('./components/productView/productView'));
 
 /**
@@ -24,14 +23,18 @@ const ProductView = React.lazy(() => import('./components/productView/productVie
  * - Provides authentication
  *
  * @param {object} props
- * @param {Function} props.getLocale
- * @param {Function} props.useDispatch
- * @param {Function} props.useSelector
- * @returns {React.ReactNode}
+ * @param {reduxActions.user.getLocale} [props.getLocale=reduxActions.user.getLocale]
+ * @param {storeHooks.reactRedux.useDispatch} [props.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {storeHooks.reactRedux.useSelector} [props.useSelector=storeHooks.reactRedux.useSelector]
+ * @returns {JSX.Element}
  */
-const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSelector }) => {
-  const dispatch = useAliasDispatch();
-  const { value: locale } = useAliasSelector(({ app }) => app?.locale?.data, {});
+const App = ({
+  getLocale = reduxActions.user.getLocale,
+  useDispatch = storeHooks.reactRedux.useDispatch,
+  useSelector = storeHooks.reactRedux.useSelector
+}) => {
+  const dispatch = useDispatch();
+  const { value: locale } = useSelector(({ app }) => app?.locale?.data, {});
   let platformNotifications = null;
 
   useMount(() => {
@@ -54,28 +57,6 @@ const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSe
       </Authentication>
     </I18n>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useSelector: Function, useDispatch: Function, getLocale: Function}}
- */
-App.propTypes = {
-  getLocale: PropTypes.func,
-  useDispatch: PropTypes.func,
-  useSelector: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useSelector: Function, useDispatch: Function, getLocale: Function}}
- */
-App.defaultProps = {
-  getLocale: reduxActions.user.getLocale,
-  useDispatch: storeHooks.reactRedux.useDispatch,
-  useSelector: storeHooks.reactRedux.useSelector
 };
 
 export { App as default, App };
