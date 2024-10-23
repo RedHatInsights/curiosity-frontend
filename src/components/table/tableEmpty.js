@@ -19,12 +19,12 @@ import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/
  *
  * @param {object} props
  * @param {string} [props.ariaLabel]
- * @param {React.ReactNode|Function} [props.icon]
+ * @param {React.ReactNode|Function} [props.icon=SearchIcon]
  * @param {React.ReactNode} props.message
  * @param {string} [props.tableHeading='h2']
  * @param {React.ReactNode} props.title
  * @param {EmptyStateVariant} [props.variant=EmptyStateVariant.sm]
- * @returns {React.ReactNode}
+ * @returns {JSX.Element}
  */
 const TableEmpty = ({
   ariaLabel,

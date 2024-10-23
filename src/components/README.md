@@ -5295,7 +5295,7 @@ Apply an onSort handler.
 ## TableEmpty
 <a name="Table.module_TableEmpty..TableEmpty"></a>
 
-### TableEmpty~TableEmpty(props) ⇒ <code>React.ReactNode</code>
+### TableEmpty~TableEmpty(props) ⇒ <code>JSX.Element</code>
 Render an empty table component. Apply an empty version of an actual HTML table to help with testing.
 
 **Kind**: inner method of [<code>TableEmpty</code>](#Table.module_TableEmpty)  
@@ -5311,7 +5311,7 @@ Render an empty table component. Apply an empty version of an actual HTML table 
     </tr><tr>
     <td>[props.ariaLabel]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>[props.icon]</td><td><code>React.ReactNode</code> | <code>function</code></td><td></td>
+    <td>[props.icon]</td><td><code>React.ReactNode</code> | <code>function</code></td><td><code>SearchIcon</code></td>
     </tr><tr>
     <td>props.message</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
@@ -5441,7 +5441,7 @@ Render a table with skeleton loaders.
     </tr><tr>
     <td>[props.borders]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr><tr>
-    <td>[props.className]</td><td><code>string</code></td><td></td>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
     </tr><tr>
     <td>[props.colCount]</td><td><code>number</code></td><td><code>1</code></td>
     </tr><tr>

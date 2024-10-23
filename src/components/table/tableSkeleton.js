@@ -14,7 +14,7 @@ import { Table } from './table';
  * @param {object} props
  * @param {string} [props.ariaLabel]
  * @param {boolean} [props.borders=true]
- * @param {string} [props.className]
+ * @param {string} [props.className='']
  * @param {number} [props.colCount=1]
  * @param {Array<number>} [props.colWidth=[]]
  * @param {boolean} [props.isHeader=false]
