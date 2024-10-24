@@ -1260,14 +1260,12 @@ A checkbox with state.
 
 
 * [Checkbox](#Form.module_Checkbox)
-    * [~Checkbox(props)](#Form.module_Checkbox..Checkbox) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Form.module_Checkbox..Checkbox.propTypes) : <code>Object</code>
-        * [.defaultProps](#Form.module_Checkbox..Checkbox.defaultProps) : <code>Object</code>
+    * [~Checkbox(props)](#Form.module_Checkbox..Checkbox) ⇒ <code>JSX.Element</code>
     * ["onCheckboxChange" (checked, event)](#event_onCheckboxChange)
 
 <a name="Form.module_Checkbox..Checkbox"></a>
 
-### Checkbox~Checkbox(props) ⇒ <code>React.ReactNode</code>
+### Checkbox~Checkbox(props) ⇒ <code>JSX.Element</code>
 Render a checkbox form element. Provides restructured event data.
 
 **Kind**: inner method of [<code>Checkbox</code>](#Form.module_Checkbox)  
@@ -1275,52 +1273,35 @@ Render a checkbox form element. Provides restructured event data.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.ariaLabel</td><td><code>string</code></td>
+    <td>[props.ariaLabel]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>[props.children]</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.id</td><td><code>string</code></td>
+    <td>[props.id]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.isChecked</td><td><code>*</code></td>
+    <td>[props.isChecked]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.isDisabled</td><td><code>boolean</code></td>
+    <td>[props.isDisabled]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.isReadOnly</td><td><code>boolean</code></td>
+    <td>[props.isReadOnly]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.label</td><td><code>React.ReactNode</code></td>
+    <td>[props.label]</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.name</td><td><code>string</code></td>
+    <td>[props.name]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.onChange</td><td><code>function</code></td>
+    <td>[props.onChange]</td><td><code>function</code></td><td><code>helpers.noop</code></td>
     </tr><tr>
-    <td>props.value</td><td><code>*</code></td>
+    <td>[props.value]</td><td><code>string</code></td><td></td>
     </tr>  </tbody>
 </table>
 
-
-* [~Checkbox(props)](#Form.module_Checkbox..Checkbox) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Form.module_Checkbox..Checkbox.propTypes) : <code>Object</code>
-    * [.defaultProps](#Form.module_Checkbox..Checkbox.defaultProps) : <code>Object</code>
-
-<a name="Form.module_Checkbox..Checkbox.propTypes"></a>
-
-#### Checkbox.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>Checkbox</code>](#Form.module_Checkbox..Checkbox)  
-<a name="Form.module_Checkbox..Checkbox.defaultProps"></a>
-
-#### Checkbox.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>Checkbox</code>](#Form.module_Checkbox..Checkbox)  
 <a name="event_onCheckboxChange"></a>
 
 ### "onCheckboxChange" (checked, event)
