@@ -149,7 +149,7 @@
     "prettier": "^3.3.3",
     "ts-patch": "^3.2.1",
     "typescript": "^5.6.3",
-    "weldable": "^3.1.4",
+    "weldable": "^3.2.0",
     "yamljs": "^0.3.0"
   }
 }
