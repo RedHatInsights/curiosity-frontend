@@ -8,19 +8,8 @@ exports[`ChartElements Component should handle basic element settings from conte
     }
   }
   containerComponent={
-    <VictoryVoronoiCursorContainer
-      activateData={true}
-      activateLabels={true}
-      className="VictoryContainer"
-      cursorComponent={<LineSegment />}
+    <VictoryvoronoicursorContainer
       cursorDimension="x"
-      cursorLabelComponent={<VictoryLabel />}
-      cursorLabelOffset={
-        {
-          "x": 5,
-          "y": -10,
-        }
-      }
       labelComponent={
         <VictoryTooltip
           active={false}
@@ -47,10 +36,6 @@ exports[`ChartElements Component should handle basic element settings from conte
       }
       labels={[Function]}
       mouseFollowTooltips={true}
-      portalComponent={<Portal />}
-      portalZIndex={99}
-      responsive={true}
-      role="img"
       voronoiDimension="x"
       voronoiPadding={50}
     />
@@ -218,7 +203,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
     <svg
       height="300"
       role="img"
-      style="pointer-events: all; width: 100%; height: 100%;"
+      style="width: 100%; height: 100%; pointer-events: all;"
       viewBox="0 0 450 300"
       width="450"
     >
@@ -563,11 +548,11 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
       </g>
     </svg>
     <div
-      style="z-index: 99; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
+      style="width: 100%; height: 100%; z-index: 99; position: absolute; top: 0px; left: 0px;"
     >
       <svg
         height="300"
-        style="overflow: visible; width: 100%; height: 100%;"
+        style="width: 100%; height: 100%; overflow: visible;"
         viewBox="0 0 450 300"
         width="450"
       />
