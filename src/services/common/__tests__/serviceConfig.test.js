@@ -265,7 +265,7 @@ describe('ServiceConfig', () => {
           return count === 1;
         }
       },
-      { pollInterval: 1 }
+      { pollInterval: 0 }
     );
 
     expect(basicPollValidator).toHaveBeenCalledTimes(3);
@@ -295,7 +295,7 @@ describe('ServiceConfig', () => {
           }
         }
       },
-      { pollInterval: 1 }
+      { pollInterval: 0 }
     );
 
     expect(specificPollValidator).toHaveBeenCalledTimes(3);
@@ -323,7 +323,7 @@ describe('ServiceConfig', () => {
           status: (...args) => statusPoll(...args)
         }
       },
-      { pollInterval: 1 }
+      { pollInterval: 0 }
     );
 
     // delay to give the internal status promise time to unwrap
@@ -358,7 +358,7 @@ describe('ServiceConfig', () => {
           validate: (response, count) => count === 2
         }
       },
-      { pollInterval: 1 }
+      { pollInterval: 0 }
     );
 
     expect(mockLocation).toHaveBeenCalledTimes(3);
@@ -389,7 +389,7 @@ describe('ServiceConfig', () => {
           throw new Error('basic validation error');
         }
       },
-      { pollInterval: 1 }
+      { pollInterval: 0 }
     );
     expect(consoleSpyError.mock.calls).toMatchSnapshot('validation error');
     consoleSpyError.mockClear();
@@ -405,7 +405,7 @@ describe('ServiceConfig', () => {
           }
         }
       },
-      { pollInterval: 1 }
+      { pollInterval: 0 }
     );
 
     // delay to give the internal status promise time to unwrap
@@ -427,7 +427,7 @@ describe('ServiceConfig', () => {
           status: (...args) => statusErrorPoll(...args)
         }
       },
-      { pollInterval: 1 }
+      { pollInterval: 0 }
     );
 
     // delay to give the internal status promise time to unwrap
@@ -458,7 +458,7 @@ describe('ServiceConfig', () => {
           }
         }
       },
-      { pollInterval: 1 }
+      { pollInterval: 0 }
     );
 
     // delay to give the internal status promise time to unwrap
@@ -483,7 +483,7 @@ describe('ServiceConfig', () => {
           }
         }
       },
-      { pollInterval: 1 }
+      { pollInterval: 0 }
     );
 
     // delay to give the internal status promise time to unwrap
