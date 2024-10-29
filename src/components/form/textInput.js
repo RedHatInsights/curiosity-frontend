@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useCallback, useState } from 'react';
 import { TextInput as PfTextInput } from '@patternfly/react-core';
 import { createMockEvent } from './formHelpers';
 import { helpers } from '../../common';
@@ -15,15 +14,38 @@ import { helpers } from '../../common';
  * A wrapper for Patternfly TextInput. Provides restructured event data,
  * and an onClear event for the search type.
  *
- * @augments React.Component
+ * @param {object} props
+ * @param {string} [props.className='']
+ * @param {string} [props.id]
+ * @param {boolean} [props.isDisabled=false]
+ * @param {boolean} [props.isReadOnly=false]
+ * @param {string} [props.name=helpers.generateId()]
+ * @param {Function} [props.onChange=helpers.noop]
+ * @param {Function} [props.onClear=helpers.noop]
+ * @param {Function} [props.onKeyUp=helpers.noop]
+ * @param {Function} [props.onMouseUp=helpers.noop]
+ * @param {string} [props.type='text']
+ * @param {string} [props.value='']
  * @fires onKeyUp
  * @fires onMouseUp
  * @fires onChange
+ * @returns {JSX.Element}
  */
-class TextInput extends React.Component {
-  state = {
-    updatedValue: null
-  };
+const TextInput = ({
+  className = '',
+  id,
+  isDisabled = false,
+  isReadOnly = false,
+  name = helpers.generateId(),
+  onChange: onChangeCallback = helpers.noop,
+  onClear: onClearCallback = helpers.noop,
+  onKeyUp: onKeyUpCallback = helpers.noop,
+  onMouseUp: onMouseUpCallback = helpers.noop,
+  type = 'text',
+  value: initialValue = '',
+  ...props
+}) => {
+  const [updatedValue, setUpdatedValue] = useState(initialValue);
 
   /**
    * onKeyUp event, provide additional functionality for onClear event.
@@ -31,25 +53,26 @@ class TextInput extends React.Component {
    * @event onKeyUp
    * @param {object} event
    */
-  onKeyUp = event => {
-    const { onClear, onKeyUp, type } = this.props;
-    const { currentTarget, keyCode } = event;
-    const clonedEvent = { ...event };
+  const onKeyUp = useCallback(
+    event => {
+      const { currentTarget, keyCode } = event;
+      const clonedEvent = { ...event };
 
-    onKeyUp(createMockEvent(event, true));
+      onKeyUpCallback(createMockEvent(event, true));
 
-    if (keyCode === 27) {
-      if (type === 'search' && currentTarget.value === '') {
-        onClear(createMockEvent(clonedEvent));
-      } else {
-        this.setState({ updatedValue: '' }, () => {
-          onClear(
+      if (keyCode === 27) {
+        if (type === 'search' && currentTarget.value === '') {
+          onClearCallback(createMockEvent(clonedEvent));
+        } else {
+          setUpdatedValue('');
+          onClearCallback(
             createMockEvent({ ...clonedEvent, ...{ currentTarget: { ...clonedEvent.currentTarget, value: '' } } })
           );
-        });
+        }
       }
-    }
-  };
+    },
+    [onKeyUpCallback, onClearCallback, type]
+  );
 
   /**
    * onMouseUp event, provide additional functionality for onClear event.
@@ -57,23 +80,23 @@ class TextInput extends React.Component {
    * @event onMouseUp
    * @param {object} event
    */
-  onMouseUp = event => {
-    const { onClear, onMouseUp, type } = this.props;
-    const { currentTarget } = event;
-    const clonedEvent = { ...event };
+  const onMouseUp = useCallback(
+    event => {
+      const { currentTarget } = event;
+      const clonedEvent = { ...event };
 
-    onMouseUp(createMockEvent(event, true));
+      onMouseUpCallback(createMockEvent(event, true));
 
-    if (type !== 'search' || currentTarget.value === '') {
-      return;
-    }
-
-    setTimeout(() => {
-      if (currentTarget.value === '') {
-        onClear(createMockEvent(clonedEvent));
+      if (type !== 'search' || currentTarget.value === '') {
+        return;
       }
-    });
-  };
+
+      if (currentTarget.value === '') {
+        onClearCallback(createMockEvent(clonedEvent));
+      }
+    },
+    [onMouseUpCallback, onClearCallback, type]
+  );
 
   /**
    * onChange event, provide restructured event.
@@ -82,97 +105,30 @@ class TextInput extends React.Component {
    * @param {object} event
    * @param {string} value
    */
-  onChange = (event, value) => {
-    const { onChange } = this.props;
-    const clonedEvent = { ...event };
+  const onChange = useCallback(
+    (event, value) => {
+      const clonedEvent = { ...event };
+      setUpdatedValue(value);
+      onChangeCallback(createMockEvent(clonedEvent));
+    },
+    [onChangeCallback]
+  );
 
-    this.setState({ updatedValue: value }, () => {
-      onChange(createMockEvent(clonedEvent));
-    });
-  };
-
-  /**
-   * Render a text input.
-   *
-   * @returns {React.ReactNode}
-   */
-  render() {
-    const { updatedValue } = this.state;
-    const {
-      className,
-      id,
-      isDisabled,
-      name,
-      onChange,
-      onClear,
-      onKeyUp,
-      onMouseUp,
-      isReadOnly,
-      type,
-      value,
-      ...props
-    } = this.props;
-    const updatedName = name || helpers.generateId();
-    const updatedId = id || updatedName;
-
-    return (
-      <PfTextInput
-        id={updatedId}
-        name={updatedName}
-        className={`curiosity-text-input ${className}`}
-        isDisabled={isDisabled || false}
-        onChange={this.onChange}
-        onKeyUp={this.onKeyUp}
-        onMouseUp={this.onMouseUp}
-        readOnlyVariant={(isReadOnly && 'default') || undefined}
-        type={type}
-        value={updatedValue ?? value ?? ''}
-        {...props}
-      />
-    );
-  }
-}
-
-/**
- * Prop types.
- *
- * @type {{onKeyUp: Function, isReadOnly: boolean, onChange: Function, onClear: Function,
- *     name: string, className: string, id: string, isDisabled: boolean, onMouseUp: Function,
- *     type: string, value: string}}
- */
-TextInput.propTypes = {
-  className: PropTypes.string,
-  id: PropTypes.string,
-  isDisabled: PropTypes.bool,
-  isReadOnly: PropTypes.bool,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  onClear: PropTypes.func,
-  onKeyUp: PropTypes.func,
-  onMouseUp: PropTypes.func,
-  type: PropTypes.string,
-  value: PropTypes.string
-};
-
-/**
- * Default props.
- *
- * @type {{onKeyUp: Function, isReadOnly: boolean, onChange: Function, onClear: Function,
- *     name: string, className: string, id: string, isDisabled: boolean, onMouseUp: Function,
- *     type: string, value: string}}
- */
-TextInput.defaultProps = {
-  className: '',
-  id: null,
-  isDisabled: false,
-  isReadOnly: false,
-  name: null,
-  onChange: helpers.noop,
-  onClear: helpers.noop,
-  onKeyUp: helpers.noop,
-  onMouseUp: helpers.noop,
-  type: 'text',
-  value: ''
+  return (
+    <PfTextInput
+      id={id || name}
+      name={name}
+      className={`curiosity-text-input ${className}`}
+      isDisabled={isDisabled}
+      onChange={onChange}
+      onKeyUp={onKeyUp}
+      onMouseUp={onMouseUp}
+      readOnlyVariant={(isReadOnly && 'default') || undefined}
+      type={type}
+      value={updatedValue}
+      {...props}
+    />
+  );
 };
 
 export { TextInput as default, TextInput };

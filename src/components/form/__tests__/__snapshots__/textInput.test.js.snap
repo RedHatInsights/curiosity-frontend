@@ -4,12 +4,7 @@ exports[`TextInput Component should handle readOnly, disabled: active 1`] = `
 <textinput
   props="{
   "isReadOnly": false,
-  "className": "",
-  "id": null,
   "isDisabled": false,
-  "name": null,
-  "type": "text",
-  "value": "",
   "children": []
 }"
 >
@@ -34,12 +29,7 @@ exports[`TextInput Component should handle readOnly, disabled: disabled 1`] = `
 <textinput
   props="{
   "isReadOnly": false,
-  "className": "",
-  "id": null,
   "isDisabled": true,
-  "name": null,
-  "type": "text",
-  "value": "",
   "children": []
 }"
 >
@@ -65,12 +55,6 @@ exports[`TextInput Component should handle readOnly, disabled: readOnly 1`] = `
 <textinput
   props="{
   "isReadOnly": true,
-  "className": "",
-  "id": null,
-  "isDisabled": false,
-  "name": null,
-  "type": "text",
-  "value": "",
   "children": []
 }"
 >
@@ -95,13 +79,6 @@ exports[`TextInput Component should handle readOnly, disabled: readOnly 1`] = `
 exports[`TextInput Component should render a basic component: basic component 1`] = `
 <textinput
   props="{
-  "className": "",
-  "id": null,
-  "isDisabled": false,
-  "isReadOnly": false,
-  "name": null,
-  "type": "text",
-  "value": "",
   "children": []
 }"
 >
