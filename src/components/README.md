@@ -1705,51 +1705,53 @@ Text input with state.
 
 
 * [TextInput](#Form.module_TextInput)
-    * [~TextInput](#Form.module_TextInput..TextInput) ⇐ <code>React.Component</code>
-        * _instance_
-            * [.render()](#Form.module_TextInput..TextInput+render) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Form.module_TextInput..TextInput.propTypes) : <code>Object</code>
-            * [.defaultProps](#Form.module_TextInput..TextInput.defaultProps) : <code>Object</code>
+    * [~TextInput(props)](#Form.module_TextInput..TextInput) ⇒ <code>JSX.Element</code>
     * ["onKeyUp" (event)](#event_onKeyUp)
     * ["onMouseUp" (event)](#event_onMouseUp)
     * ["onChange" (event, value)](#event_onChange)
 
 <a name="Form.module_TextInput..TextInput"></a>
 
-### TextInput~TextInput ⇐ <code>React.Component</code>
+### TextInput~TextInput(props) ⇒ <code>JSX.Element</code>
 A wrapper for Patternfly TextInput. Provides restructured event data,
 and an onClear event for the search type.
 
-**Kind**: inner class of [<code>TextInput</code>](#Form.module_TextInput)  
-**Extends**: <code>React.Component</code>  
+**Kind**: inner method of [<code>TextInput</code>](#Form.module_TextInput)  
 **Emits**: [<code>onKeyUp</code>](#event_onKeyUp), [<code>onMouseUp</code>](#event_onMouseUp), [<code>onChange</code>](#event_onChange)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[props.id]</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>[props.isDisabled]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.isReadOnly]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.name]</td><td><code>string</code></td><td><code>&quot;helpers.generateId()&quot;</code></td>
+    </tr><tr>
+    <td>[props.onChange]</td><td><code>function</code></td><td><code>helpers.noop</code></td>
+    </tr><tr>
+    <td>[props.onClear]</td><td><code>function</code></td><td><code>helpers.noop</code></td>
+    </tr><tr>
+    <td>[props.onKeyUp]</td><td><code>function</code></td><td><code>helpers.noop</code></td>
+    </tr><tr>
+    <td>[props.onMouseUp]</td><td><code>function</code></td><td><code>helpers.noop</code></td>
+    </tr><tr>
+    <td>[props.type]</td><td><code>string</code></td><td><code>&quot;&#x27;text&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[props.value]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
+    </tr>  </tbody>
+</table>
 
-* [~TextInput](#Form.module_TextInput..TextInput) ⇐ <code>React.Component</code>
-    * _instance_
-        * [.render()](#Form.module_TextInput..TextInput+render) ⇒ <code>React.ReactNode</code>
-    * _static_
-        * [.propTypes](#Form.module_TextInput..TextInput.propTypes) : <code>Object</code>
-        * [.defaultProps](#Form.module_TextInput..TextInput.defaultProps) : <code>Object</code>
-
-<a name="Form.module_TextInput..TextInput+render"></a>
-
-#### textInput.render() ⇒ <code>React.ReactNode</code>
-Render a text input.
-
-**Kind**: instance method of [<code>TextInput</code>](#Form.module_TextInput..TextInput)  
-<a name="Form.module_TextInput..TextInput.propTypes"></a>
-
-#### TextInput.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>TextInput</code>](#Form.module_TextInput..TextInput)  
-<a name="Form.module_TextInput..TextInput.defaultProps"></a>
-
-#### TextInput.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>TextInput</code>](#Form.module_TextInput..TextInput)  
 <a name="event_onKeyUp"></a>
 
 ### "onKeyUp" (event)

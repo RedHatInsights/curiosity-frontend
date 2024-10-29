@@ -65,17 +65,10 @@ exports[`ToolbarFieldDisplayName Component should render a basic component: basi
       className="curiosity-input__display-name"
       customIcon={<SearchIcon />}
       data-test="toolbarFieldDisplayName"
-      id={null}
-      isDisabled={false}
-      isReadOnly={false}
       maxLength={255}
-      name={null}
-      onChange={[Function]}
       onClear={[Function]}
       onKeyUp={[Function]}
-      onMouseUp={[Function]}
       placeholder="t(curiosity-toolbar.placeholder_filter, {"context":"displayName"})"
-      type="text"
       value="lorem ipsum"
     />
   </InputGroupItem>
