@@ -61,21 +61,8 @@ exports[`ToolbarFieldBillingProvider Component should handle updating sla throug
 exports[`ToolbarFieldBillingProvider Component should render a basic component: basic 1`] = `
 <Select
   aria-label="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
-  ariaLabel="Select option"
-  buttonContent={null}
-  className=""
   data-test="toolbarFieldBillingProvider"
-  direction="down"
-  id="generatedid-"
-  isDisabled={false}
-  isDropdownButton={false}
-  isFlipEnabled={false}
-  isInline={true}
-  isToggleText={true}
-  maxHeight={null}
-  name={null}
   onSelect={[Function]}
-  onSplitButton={null}
   options={
     [
       {
@@ -98,9 +85,5 @@ exports[`ToolbarFieldBillingProvider Component should render a basic component: 
   placeholder="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
   position="left"
   selectedOptions="aws"
-  splitButtonAllowDualButtonToggle={true}
-  splitButtonVariant={null}
-  toggleIcon={null}
-  variant="single"
 />
 `;

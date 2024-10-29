@@ -66,21 +66,8 @@ exports[`ToolbarFieldSla Component should handle updating usage through redux st
 exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = `
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"usage"})"
-  ariaLabel="Select option"
-  buttonContent={null}
-  className=""
   data-test="toolbarFieldUsage"
-  direction="down"
-  id="generatedid-"
-  isDisabled={false}
-  isDropdownButton={false}
-  isFlipEnabled={false}
-  isInline={true}
-  isToggleText={true}
-  maxHeight={null}
-  name={null}
   onSelect={[Function]}
-  onSplitButton={null}
   options={
     [
       {
@@ -108,9 +95,5 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
   placeholder="t(curiosity-toolbar.placeholder, {"context":"usage"})"
   position="left"
   selectedOptions="Development/Test"
-  splitButtonAllowDualButtonToggle={true}
-  splitButtonVariant={null}
-  toggleIcon={null}
-  variant="single"
 />
 `;

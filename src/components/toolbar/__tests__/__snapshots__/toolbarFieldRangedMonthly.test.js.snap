@@ -117,21 +117,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
 exports[`ToolbarFieldRangedMonthly Component should handle selecting an option directly: selected option 1`] = `
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
-  ariaLabel="Select option"
-  buttonContent={null}
-  className=""
   data-test="toolbarFieldRangeGranularity"
-  direction="down"
-  id="generatedid-"
-  isDisabled={false}
-  isDropdownButton={false}
-  isFlipEnabled={false}
-  isInline={true}
-  isToggleText={true}
   maxHeight={250}
-  name={null}
   onSelect={[Function]}
-  onSplitButton={null}
   options={
     [
       {
@@ -247,11 +235,6 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
   }
   placeholder="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   position="left"
-  selectedOptions={null}
-  splitButtonAllowDualButtonToggle={true}
-  splitButtonVariant={null}
-  toggleIcon={null}
-  variant="single"
 />
 `;
 
@@ -320,21 +303,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle updating granularity 
 exports[`ToolbarFieldRangedMonthly Component should render a basic component: basic 1`] = `
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
-  ariaLabel="Select option"
-  buttonContent={null}
-  className=""
   data-test="toolbarFieldRangeGranularity"
-  direction="down"
-  id="generatedid-"
-  isDisabled={false}
-  isDropdownButton={false}
-  isFlipEnabled={false}
-  isInline={true}
-  isToggleText={true}
   maxHeight={250}
-  name={null}
   onSelect={[Function]}
-  onSplitButton={null}
   options={
     [
       {
@@ -450,10 +421,5 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
   }
   placeholder="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   position="left"
-  selectedOptions={null}
-  splitButtonAllowDualButtonToggle={true}
-  splitButtonVariant={null}
-  toggleIcon={null}
-  variant="single"
 />
 `;
