@@ -34,13 +34,13 @@ describe('ServiceConfig', () => {
     moxios.stubRequest(/\/(test|pollSuccess).*?/, {
       status: 200,
       responseText: 'success',
-      timeout: 1
+      timeout: 0
     });
 
     moxios.stubRequest(/\/(error|pollError).*?/, {
       status: 404,
       responseText: 'error',
-      timeout: 1
+      timeout: 0
     });
   });
 
