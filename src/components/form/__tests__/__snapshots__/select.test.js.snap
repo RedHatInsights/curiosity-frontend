@@ -99,26 +99,6 @@ exports[`Select Component should allow being disabled with missing options: no o
 <select
   props="{
   "id": "test",
-  "options": [],
-  "ariaLabel": "Select option",
-  "buttonContent": null,
-  "className": "",
-  "direction": "down",
-  "isDisabled": false,
-  "isDropdownButton": false,
-  "isFlipEnabled": false,
-  "isInline": true,
-  "isToggleText": true,
-  "maxHeight": null,
-  "name": null,
-  "onSplitButton": null,
-  "placeholder": "Select option",
-  "position": "left",
-  "selectedOptions": null,
-  "splitButtonAllowDualButtonToggle": true,
-  "splitButtonVariant": null,
-  "toggleIcon": null,
-  "variant": "single",
   "children": []
 }"
 >
@@ -183,25 +163,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     "hello",
     "world"
   ],
-  "ariaLabel": "Select option",
-  "buttonContent": null,
-  "className": "",
-  "direction": "down",
   "isDisabled": true,
-  "isDropdownButton": false,
-  "isFlipEnabled": false,
-  "isInline": true,
-  "isToggleText": true,
-  "maxHeight": null,
-  "name": null,
-  "onSplitButton": null,
-  "placeholder": "Select option",
-  "position": "left",
-  "selectedOptions": null,
-  "splitButtonAllowDualButtonToggle": true,
-  "splitButtonVariant": null,
-  "toggleIcon": null,
-  "variant": "single",
   "children": []
 }"
 >
@@ -261,25 +223,7 @@ exports[`Select Component should allow being disabled with missing options: opti
   props="{
   "id": "test",
   "options": [],
-  "ariaLabel": "Select option",
-  "buttonContent": null,
-  "className": "",
-  "direction": "down",
   "isDisabled": false,
-  "isDropdownButton": false,
-  "isFlipEnabled": false,
-  "isInline": true,
-  "isToggleText": true,
-  "maxHeight": null,
-  "name": null,
-  "onSplitButton": null,
-  "placeholder": "Select option",
-  "position": "left",
-  "selectedOptions": null,
-  "splitButtonAllowDualButtonToggle": true,
-  "splitButtonVariant": null,
-  "toggleIcon": null,
-  "variant": "single",
   "children": []
 }"
 >
@@ -336,32 +280,9 @@ exports[`Select Component should allow being disabled with missing options: opti
 
 exports[`Select Component should allow data- props: data- attributes 1`] = `
 {
-  "ariaLabel": "Select option",
-  "buttonContent": null,
-  "buttonVariant": undefined,
   "children": [],
-  "className": "",
   "data-dolor-sit": "dolor sit",
   "data-lorem": "ipsum",
-  "direction": "down",
-  "id": "generatedid-",
-  "isDisabled": false,
-  "isDropdownButton": false,
-  "isFlipEnabled": false,
-  "isInline": true,
-  "isToggleText": true,
-  "maxHeight": null,
-  "name": null,
-  "onSelect": [Function],
-  "onSplitButton": null,
-  "options": [],
-  "placeholder": "Select option",
-  "position": "left",
-  "selectedOptions": null,
-  "splitButtonAllowDualButtonToggle": true,
-  "splitButtonVariant": null,
-  "toggleIcon": null,
-  "variant": "single",
 }
 `;
 
@@ -572,25 +493,6 @@ exports[`Select Component should emulate pf dropdown: emulated dropdown 1`] = `
     "hello",
     "world"
   ],
-  "ariaLabel": "Select option",
-  "buttonContent": null,
-  "className": "",
-  "direction": "down",
-  "id": "generatedid-",
-  "isDisabled": false,
-  "isFlipEnabled": false,
-  "isInline": true,
-  "isToggleText": true,
-  "maxHeight": null,
-  "name": null,
-  "onSplitButton": null,
-  "placeholder": "Select option",
-  "position": "left",
-  "selectedOptions": null,
-  "splitButtonAllowDualButtonToggle": true,
-  "splitButtonVariant": null,
-  "toggleIcon": null,
-  "variant": "single",
   "children": []
 }"
 >
@@ -657,25 +559,6 @@ exports[`Select Component should render a basic component: basic component 1`] =
       "selected": true
     }
   ],
-  "ariaLabel": "Select option",
-  "buttonContent": null,
-  "className": "",
-  "direction": "down",
-  "isDisabled": false,
-  "isDropdownButton": false,
-  "isFlipEnabled": false,
-  "isInline": true,
-  "isToggleText": true,
-  "maxHeight": null,
-  "name": null,
-  "onSplitButton": null,
-  "placeholder": "Select option",
-  "position": "left",
-  "selectedOptions": null,
-  "splitButtonAllowDualButtonToggle": true,
-  "splitButtonVariant": null,
-  "toggleIcon": null,
-  "variant": "single",
   "children": []
 }"
 >
@@ -750,22 +633,6 @@ exports[`Select Component should render a checkbox select: checkbox select 1`] =
   ],
   "variant": "checkbox",
   "placeholder": "multiselect test",
-  "ariaLabel": "Select option",
-  "buttonContent": null,
-  "className": "",
-  "direction": "down",
-  "isDisabled": false,
-  "isDropdownButton": false,
-  "isFlipEnabled": false,
-  "isInline": true,
-  "isToggleText": true,
-  "maxHeight": null,
-  "name": null,
-  "onSplitButton": null,
-  "position": "left",
-  "splitButtonAllowDualButtonToggle": true,
-  "splitButtonVariant": null,
-  "toggleIcon": null,
   "children": []
 }"
 >

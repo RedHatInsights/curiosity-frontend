@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useShallowCompareEffect, useUnmount } from 'react-use';
 import { ButtonVariant as PfButtonVariant } from '@patternfly/react-core';
 import {
@@ -278,60 +277,73 @@ const formatButtonParentProps = (formattedButtonProps = {}) => {
  * A wrapper for Pf Select, and emulator for Pf Dropdown. Provides consistent restructured event data for onSelect
  * callback for both select and dropdown.
  *
+ * @param {object} props
+ * @param {string} [props.ariaLabel='Select option']
+ * @param {React.ReactNode} [props.buttonContent]
+ * @param {ButtonVariant} [props.buttonVariant=ButtonVariant.default]
+ * @param {string} [props.className='']
+ * @param {SelectDirection} [props.direction=SelectDirection.down]
+ * @param {string} [props.id=helpers.generateId()]
+ * @param {boolean} [props.isDisabled=false]
+ * @param {boolean} [props.isDropdownButton=false]
+ * @param {boolean} [props.isFlipEnabled=false]
+ * @param {boolean} [props.isInline=true]
+ * @param {boolean} [props.isToggleText=true]
+ * @param {number} [props.maxHeight]
+ * @param {string} [props.name]
+ * @param {Function} [props.onSelect=helpers.noop]
+ * @param {Function} [props.onSplitButton]
+ * @param {{
+ *     description: (unknown|undefined),
+ *     selected: (boolean|undefined),
+ *     isDisabledAllowEvent: (boolean|undefined),
+ *     isDisabled: (boolean|undefined),
+ *     title: (string|undefined),
+ *     value: unknown
+ *     }|Array<{
+ *     description: (unknown|undefined),
+ *     selected: (boolean|undefined),
+ *     isDisabledAllowEvent: (boolean|undefined),
+ *     isDisabled: (boolean|undefined),
+ *     title: (string|undefined),
+ *     value: unknown
+ *     }>|Array<{string}>} [props.options=[]]
+ * @param {string} [props.placeholder='Select option']
+ * @param {SelectPosition} [props.position=SelectPosition.left]
+ * @param {number|string|Array<(number|string)>} [props.selectedOptions]
+ * @param {boolean} [props.splitButtonAllowDualButtonToggle=true]
+ * @param {SplitButtonVariant} [props.splitButtonVariant]
+ * @param {React.ReactNode|Function} [props.toggleIcon]
+ * @param {SelectVariant} [props.variant=SelectVariant.single]
  * @fires onDropdownSelect
  * @fires onSplitButton
  * @fires onToggle
- * @param {object} props
- * @param {string} props.ariaLabel
- * @param {React.ReactNode} props.buttonContent
- * @param {string} props.buttonVariant
- * @param {string} props.className
- * @param {string} props.direction
- * @param {string} props.id
- * @param {boolean} props.isDisabled
- * @param {boolean} props.isDropdownButton
- * @param {boolean} props.isFlipEnabled
- * @param {boolean} props.isInline
- * @param {boolean} props.isToggleText
- * @param {number} props.maxHeight
- * @param {string} props.name
- * @param {Function} props.onSelect
- * @param {Function} props.onSplitButton
- * @param {object|Array} props.options
- * @param {string} props.placeholder
- * @param {string} props.position
- * @param {number|string|Array} props.selectedOptions
- * @param {boolean} props.splitButtonAllowDualButtonToggle
- * @param {string} props.splitButtonVariant
- * @param {React.ReactNode|Function} props.toggleIcon
- * @param {string} props.variant
- * @param {object} props.props
- * @returns {React.ReactNode}
+ * @returns {JSX.Element}
  */
 const Select = ({
-  ariaLabel,
+  ariaLabel = 'Select option',
   buttonContent,
-  buttonVariant,
-  className,
-  direction,
-  id,
-  isDisabled,
-  isDropdownButton,
-  isFlipEnabled,
-  isInline,
-  isToggleText,
+  buttonVariant = ButtonVariant.default,
+  className = '',
+  direction = SelectDirection.down,
+  id = helpers.generateId(),
+  isDisabled = false,
+  isDropdownButton = false,
+  isFlipEnabled = false,
+  isInline = true,
+  isToggleText = true,
   maxHeight,
   name,
-  onSelect,
+  onSelect = helpers.noop,
   onSplitButton,
-  options: baseOptions,
-  placeholder,
-  position,
+  options: baseOptions = [],
+  placeholder = 'Select option',
+  position = SelectPosition.left,
   selectedOptions,
-  splitButtonAllowDualButtonToggle,
+  splitButtonAllowDualButtonToggle = true,
   splitButtonVariant,
   toggleIcon,
-  variant,
+  variant = SelectVariant.single,
   ...props
 }) => {
   const [isMounted, setIsMounted] = useState();
@@ -567,102 +579,6 @@ const Select = ({
       {(isDropdownButton && renderDropdownButton()) || renderSelect()}
     </div>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{isFlipEnabled: boolean, toggleIcon: (React.ReactNode|Function), className: string, onSplitButton: Function,
- *     ariaLabel: string, onSelect: Function, isToggleText: boolean, isDropdownButton: boolean, maxHeight: number,
- *     buttonVariant: string, name: string, options: Array|object, selectedOptions: Array|number|string,
- *     variant: string, isInline: boolean, id: string, isDisabled: boolean, placeholder: string, position: string,
- *     buttonContent: React.ReactNode, splitButtonVariant: string, direction: string,
- *     splitButtonAllowDualButtonToggle: boolean}}
- */
-Select.propTypes = {
-  ariaLabel: PropTypes.string,
-  buttonContent: PropTypes.node,
-  buttonVariant: PropTypes.oneOf(Object.values(ButtonVariant)),
-  className: PropTypes.string,
-  direction: PropTypes.oneOf(Object.values(SelectDirection)),
-  id: PropTypes.string,
-  isDisabled: PropTypes.bool,
-  isDropdownButton: PropTypes.bool,
-  isFlipEnabled: PropTypes.bool,
-  isInline: PropTypes.bool,
-  isToggleText: PropTypes.bool,
-  maxHeight: PropTypes.number,
-  name: PropTypes.string,
-  onSelect: PropTypes.func,
-  onSplitButton: PropTypes.func,
-  options: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.string),
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        description: PropTypes.any,
-        selected: PropTypes.bool,
-        isDisabled: PropTypes.bool,
-        isDisabledAllowEvent: PropTypes.bool,
-        title: PropTypes.any,
-        value: PropTypes.any.isRequired
-      })
-    ),
-    PropTypes.shape({
-      description: PropTypes.any,
-      selected: PropTypes.bool,
-      isDisabledAllowEvent: PropTypes.bool,
-      isDisabled: PropTypes.bool,
-      title: PropTypes.any,
-      value: PropTypes.any.isRequired
-    }),
-    PropTypes.object
-  ]),
-  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.any]),
-  position: PropTypes.oneOf(Object.values(SelectPosition)),
-  selectedOptions: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string]))
-  ]),
-  splitButtonAllowDualButtonToggle: PropTypes.bool,
-  splitButtonVariant: PropTypes.oneOf(Object.values(SplitButtonVariant)),
-  toggleIcon: PropTypes.element,
-  variant: PropTypes.oneOf([...Object.values(SelectVariant)])
-};
-
-/**
- * Default props.
- *
- * @type {{isFlipEnabled: boolean, toggleIcon: null, className: string, onSplitButton: Function, ariaLabel: string,
- *     onSelect: Function, isToggleText: boolean, isDropdownButton: boolean, maxHeight: null, buttonVariant: string,
- *     name: null, options: Array, selectedOptions: null, variant: SelectVariant.single, isInline: boolean, id: string,
- *     isDisabled: boolean, placeholder: string, position: string, buttonContent: null, splitButtonVariant: null,
- *     direction: string, splitButtonAllowDualButtonToggle: boolean}}
- */
-Select.defaultProps = {
-  ariaLabel: 'Select option',
-  buttonContent: null,
-  buttonVariant: ButtonVariant.default,
-  className: '',
-  direction: SelectDirection.down,
-  id: helpers.generateId(),
-  isDisabled: false,
-  isDropdownButton: false,
-  isFlipEnabled: false,
-  isInline: true,
-  isToggleText: true,
-  maxHeight: null,
-  name: null,
-  onSelect: helpers.noop,
-  onSplitButton: null,
-  options: [],
-  placeholder: 'Select option',
-  position: SelectPosition.left,
-  selectedOptions: null,
-  splitButtonAllowDualButtonToggle: true,
-  splitButtonVariant: null,
-  toggleIcon: null,
-  variant: SelectVariant.single
 };
 
 export {

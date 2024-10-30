@@ -80,21 +80,9 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
   </ToolbarItem>
   <Select
     aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-    ariaLabel="Select option"
-    buttonContent={null}
-    className=""
     data-test="toolbarFieldGroupVariant"
-    direction="down"
-    id="generatedid-"
-    isDisabled={false}
-    isDropdownButton={false}
-    isFlipEnabled={false}
-    isInline={true}
-    isToggleText={true}
     maxHeight={310}
-    name={null}
     onSelect={[Function]}
-    onSplitButton={null}
     options={
       [
         {
@@ -122,10 +110,6 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
     placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
     position="left"
     selectedOptions={null}
-    splitButtonAllowDualButtonToggle={true}
-    splitButtonVariant={null}
-    toggleIcon={null}
-    variant="single"
   />
 </ToolbarContent>
 `;
@@ -149,21 +133,9 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
     </ToolbarItem>
     <Select
       aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-      ariaLabel="Select option"
-      buttonContent={null}
-      className=""
       data-test="toolbarFieldGroupVariant"
-      direction="down"
-      id="generatedid-"
-      isDisabled={false}
-      isDropdownButton={false}
-      isFlipEnabled={false}
-      isInline={true}
-      isToggleText={true}
       maxHeight={310}
-      name={null}
       onSelect={[Function]}
-      onSplitButton={null}
       options={
         [
           {
@@ -181,10 +153,6 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
       placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
       position="left"
       selectedOptions={null}
-      splitButtonAllowDualButtonToggle={true}
-      splitButtonVariant={null}
-      toggleIcon={null}
-      variant="single"
     />
   </ToolbarContent>
 </Toolbar>

@@ -289,21 +289,8 @@ exports[`ToolbarFieldSelectCategory Component should handle updating categories 
 exports[`ToolbarFieldSelectCategory Component should render a basic component: basic 1`] = `
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"filter"})"
-  ariaLabel="Select option"
-  buttonContent={null}
-  className=""
   data-test="toolbarFieldCategory"
-  direction="down"
-  id="generatedid-"
-  isDisabled={false}
-  isDropdownButton={false}
-  isFlipEnabled={false}
-  isInline={true}
-  isToggleText={true}
-  maxHeight={null}
-  name={null}
   onSelect={[Function]}
-  onSplitButton={null}
   options={
     [
       {
@@ -346,12 +333,8 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {"context":"filter"})"
-  position="left"
   selectedOptions="sla"
-  splitButtonAllowDualButtonToggle={true}
-  splitButtonVariant={null}
   toggleIcon={<FilterIcon />}
-  variant="single"
 />
 `;
 

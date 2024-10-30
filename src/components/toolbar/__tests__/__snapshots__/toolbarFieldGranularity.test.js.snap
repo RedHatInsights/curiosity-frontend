@@ -90,21 +90,8 @@ exports[`ToolbarFieldGranularity Component should handle updating granularity th
 exports[`ToolbarFieldGranularity Component should render a basic component: basic 1`] = `
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"granularity"})"
-  ariaLabel="Select option"
-  buttonContent={null}
-  className=""
   data-test="toolbarFieldGranularity"
-  direction="down"
-  id="generatedid-"
-  isDisabled={false}
-  isDropdownButton={false}
-  isFlipEnabled={false}
-  isInline={true}
-  isToggleText={true}
-  maxHeight={null}
-  name={null}
   onSelect={[Function]}
-  onSplitButton={null}
   options={
     [
       {
@@ -132,9 +119,5 @@ exports[`ToolbarFieldGranularity Component should render a basic component: basi
   placeholder="t(curiosity-toolbar.placeholder, {"context":"granularity"})"
   position="left"
   selectedOptions="Weekly"
-  splitButtonAllowDualButtonToggle={true}
-  splitButtonVariant={null}
-  toggleIcon={null}
-  variant="single"
 />
 `;
