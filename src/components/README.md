@@ -1389,13 +1389,9 @@ A bundled wrapper for PF Select, Dropdown.
     * [~formatButtonProps](#Form.module_Select..formatButtonProps) ⇒ <code>\*</code>
     * [~formatOptions(params)](#Form.module_Select..formatOptions) ⇒ <code>Object</code>
     * [~formatButtonParentProps(formattedButtonProps)](#Form.module_Select..formatButtonParentProps) ⇒ <code>\*</code>
-    * [~Select(props)](#Form.module_Select..Select) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Form.module_Select..Select.propTypes) : <code>Object</code>
-            * [.defaultProps](#Form.module_Select..Select.defaultProps) : <code>Object</code>
-        * _inner_
-            * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
-            * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
+    * [~Select(props)](#Form.module_Select..Select) ⇒ <code>JSX.Element</code>
+        * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
+        * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
     * ["onToggle" (expanded)](#event_onToggle)
     * ["onSplitButton" (event)](#event_onSplitButton)
     * ["onDropdownSelect" (event, titleSelection)](#event_onDropdownSelect)
@@ -1543,7 +1539,7 @@ Fix pf props inconsistency for dropdown button props.
 
 <a name="Form.module_Select..Select"></a>
 
-### Select~Select(props) ⇒ <code>React.ReactNode</code>
+### Select~Select(props) ⇒ <code>JSX.Element</code>
 A wrapper for Pf Select, and emulator for Pf Dropdown. Provides consistent restructured event data for onSelect
 callback for both select and dropdown.
 
@@ -1552,84 +1548,66 @@ callback for both select and dropdown.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.ariaLabel</td><td><code>string</code></td>
+    <td>[props.ariaLabel]</td><td><code>string</code></td><td><code>&quot;&#x27;Select option&#x27;&quot;</code></td>
     </tr><tr>
-    <td>props.buttonContent</td><td><code>React.ReactNode</code></td>
+    <td>[props.buttonContent]</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.buttonVariant</td><td><code>string</code></td>
+    <td>[props.buttonVariant]</td><td><code>ButtonVariant</code></td><td><code>ButtonVariant.default</code></td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
     </tr><tr>
-    <td>props.direction</td><td><code>string</code></td>
+    <td>[props.direction]</td><td><code>SelectDirection</code></td><td><code>SelectDirection.down</code></td>
     </tr><tr>
-    <td>props.id</td><td><code>string</code></td>
+    <td>[props.id]</td><td><code>string</code></td><td><code>&quot;helpers.generateId()&quot;</code></td>
     </tr><tr>
-    <td>props.isDisabled</td><td><code>boolean</code></td>
+    <td>[props.isDisabled]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.isDropdownButton</td><td><code>boolean</code></td>
+    <td>[props.isDropdownButton]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.isFlipEnabled</td><td><code>boolean</code></td>
+    <td>[props.isFlipEnabled]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.isInline</td><td><code>boolean</code></td>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr><tr>
-    <td>props.isToggleText</td><td><code>boolean</code></td>
+    <td>[props.isToggleText]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr><tr>
-    <td>props.maxHeight</td><td><code>number</code></td>
+    <td>[props.maxHeight]</td><td><code>number</code></td><td></td>
     </tr><tr>
-    <td>props.name</td><td><code>string</code></td>
+    <td>[props.name]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.onSelect</td><td><code>function</code></td>
+    <td>[props.onSelect]</td><td><code>function</code></td><td><code>helpers.noop</code></td>
     </tr><tr>
-    <td>props.onSplitButton</td><td><code>function</code></td>
+    <td>[props.onSplitButton]</td><td><code>function</code></td><td></td>
     </tr><tr>
-    <td>props.options</td><td><code>object</code> | <code>Array</code></td>
+    <td>[props.options]</td><td><code>Object</code> | <code>Array.&lt;{description: (unknown|undefined), selected: (boolean|undefined), isDisabledAllowEvent: (boolean|undefined), isDisabled: (boolean|undefined), title: (string|undefined), value: unknown}&gt;</code> | <code>Array.&lt;{string}&gt;</code></td><td><code>[]</code></td>
     </tr><tr>
-    <td>props.placeholder</td><td><code>string</code></td>
+    <td>[props.placeholder]</td><td><code>string</code></td><td><code>&quot;&#x27;Select option&#x27;&quot;</code></td>
     </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
-    <td>props.selectedOptions</td><td><code>number</code> | <code>string</code> | <code>Array</code></td>
+    <td>[props.selectedOptions]</td><td><code>number</code> | <code>string</code> | <code>Array.&lt;(number|string)&gt;</code></td><td></td>
     </tr><tr>
-    <td>props.splitButtonAllowDualButtonToggle</td><td><code>boolean</code></td>
+    <td>[props.splitButtonAllowDualButtonToggle]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr><tr>
-    <td>props.splitButtonVariant</td><td><code>string</code></td>
+    <td>[props.splitButtonVariant]</td><td><code>SplitButtonVariant</code></td><td></td>
     </tr><tr>
-    <td>props.toggleIcon</td><td><code>React.ReactNode</code> | <code>function</code></td>
+    <td>[props.toggleIcon]</td><td><code>React.ReactNode</code> | <code>function</code></td><td></td>
     </tr><tr>
-    <td>props.variant</td><td><code>string</code></td>
-    </tr><tr>
-    <td>props.props</td><td><code>object</code></td>
+    <td>[props.variant]</td><td><code>SelectVariant</code></td><td><code>SelectVariant.single</code></td>
     </tr>  </tbody>
 </table>
 
 
-* [~Select(props)](#Form.module_Select..Select) ⇒ <code>React.ReactNode</code>
-    * _static_
-        * [.propTypes](#Form.module_Select..Select.propTypes) : <code>Object</code>
-        * [.defaultProps](#Form.module_Select..Select.defaultProps) : <code>Object</code>
-    * _inner_
-        * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
-        * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
+* [~Select(props)](#Form.module_Select..Select) ⇒ <code>JSX.Element</code>
+    * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
+    * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
 
-<a name="Form.module_Select..Select.propTypes"></a>
-
-#### Select.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>Select</code>](#Form.module_Select..Select)  
-<a name="Form.module_Select..Select.defaultProps"></a>
-
-#### Select.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>Select</code>](#Form.module_Select..Select)  
 <a name="Form.module_Select..Select..renderDropdownButton"></a>
 
 #### Select~renderDropdownButton() ⇒ <code>React.ReactNode</code>
