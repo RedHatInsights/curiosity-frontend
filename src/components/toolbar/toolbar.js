@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Toolbar as PfToolbar,
   ToolbarContent,
@@ -36,32 +35,32 @@ import { translate } from '../i18n/i18n';
 /**
  * Application filter toolbar.
  *
+ * @param {object} props
+ * @param {boolean} [props.hardFilterReset=false] On clearing all fields allow the category to reset as well.
+ * @param {boolean} [props.isDisabled=helpers.UI_DISABLED_TOOLBAR]
+ * @param {boolean} [props.isGroupVariantDisabled=helpers.UI_DISABLED_TOOLBAR_GROUP_VARIANT]
+ * @param {translate} [props.t=translate]
+ * @param {useProduct} [props.useProduct=useProduct]
+ * @param {useProductToolbarQuery} [props.useProductToolbarQuery=useProductToolbarQuery]
+ * @param {useSelectCategoryOptions} [props.useSelectCategoryOptions=useSelectCategoryOptions]
+ * @param {useToolbarFieldClear} [props.useToolbarFieldClear=useToolbarFieldClear]
+ * @param {useToolbarFieldClearAll} [props.useToolbarFieldClearAll=useToolbarFieldClearAll]
+ * @param {useToolbarFields} [props.useToolbarFields=useToolbarFields]
  * @fires onClearFilter
  * @fires onClearAll
- * @param {object} props
- * @param {boolean} props.hardFilterReset On clearing all fields allow the category to reset as well.
- * @param {boolean} props.isDisabled
- * @param {boolean} props.isGroupVariantDisabled
- * @param {Function} props.t
- * @param {Function} props.useProduct
- * @param {Function} props.useProductToolbarQuery
- * @param {Function} props.useSelectCategoryOptions
- * @param {Function} props.useToolbarFieldClear
- * @param {Function} props.useToolbarFieldClearAll
- * @param {Function} props.useToolbarFields
- * @returns {React.ReactNode}
+ * @returns {JSX.Element}
  */
 const Toolbar = ({
-  hardFilterReset,
-  isDisabled,
-  isGroupVariantDisabled,
-  t,
-  useProduct: useAliasProduct,
-  useProductToolbarQuery: useAliasProductToolbarQuery,
-  useSelectCategoryOptions: useAliasSelectCategoryOptions,
-  useToolbarFieldClear: useAliasToolbarFieldClear,
-  useToolbarFieldClearAll: useAliasToolbarFieldClearAll,
-  useToolbarFields: useAliasToolbarFields
+  hardFilterReset = false,
+  isDisabled = helpers.UI_DISABLED_TOOLBAR,
+  isGroupVariantDisabled = helpers.UI_DISABLED_TOOLBAR_GROUP_VARIANT,
+  t = translate,
+  useProduct: useAliasProduct = useProduct,
+  useProductToolbarQuery: useAliasProductToolbarQuery = useProductToolbarQuery,
+  useSelectCategoryOptions: useAliasSelectCategoryOptions = useSelectCategoryOptions,
+  useToolbarFieldClear: useAliasToolbarFieldClear = useToolbarFieldClear,
+  useToolbarFieldClearAll: useAliasToolbarFieldClearAll = useToolbarFieldClearAll,
+  useToolbarFields: useAliasToolbarFields = useToolbarFields
 }) => {
   const { productGroup } = useAliasProduct();
   const toolbarFieldQueries = useAliasProductToolbarQuery();
@@ -160,48 +159,6 @@ const Toolbar = ({
       </ToolbarContent>
     </PfToolbar>
   );
-};
-
-/**
- * Prop types
- *
- * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function,
- *     hardFilterReset: boolean, useToolbarFields: Function, isGroupVariantDisabled: boolean,
- *     useProduct: Function, useProductToolbarQuery: Function, isDisabled: boolean,
- *     useToolbarFieldClearAll: Function}}
- */
-Toolbar.propTypes = {
-  hardFilterReset: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  isGroupVariantDisabled: PropTypes.bool,
-  t: PropTypes.func,
-  useProduct: PropTypes.func,
-  useProductToolbarQuery: PropTypes.func,
-  useSelectCategoryOptions: PropTypes.func,
-  useToolbarFieldClear: PropTypes.func,
-  useToolbarFieldClearAll: PropTypes.func,
-  useToolbarFields: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useToolbarFieldClear: Function, t: translate, useSelectCategoryOptions: Function,
- *     hardFilterReset: boolean, useToolbarFields: Function, isGroupVariantDisabled: boolean,
- *     useProduct: Function, useProductToolbarQuery: Function, isDisabled: boolean,
- *     useToolbarFieldClearAll: Function}}
- */
-Toolbar.defaultProps = {
-  hardFilterReset: false,
-  isDisabled: helpers.UI_DISABLED_TOOLBAR,
-  isGroupVariantDisabled: helpers.UI_DISABLED_TOOLBAR_GROUP_VARIANT,
-  t: translate,
-  useProduct,
-  useProductToolbarQuery,
-  useSelectCategoryOptions,
-  useToolbarFieldClear,
-  useToolbarFieldClearAll,
-  useToolbarFields
 };
 
 export { Toolbar as default, Toolbar };

@@ -23,18 +23,7 @@ exports[`ProductView Component should allow custom inventory displays via config
         <BannerMessages />
       </PageMessages>
       <PageToolbar>
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProduct={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
+        <Toolbar />
       </PageToolbar>
       <PageSection
         className="curiosity-page-section__graphs"
@@ -104,18 +93,7 @@ exports[`ProductView Component should allow custom inventory displays via config
         <BannerMessages />
       </PageMessages>
       <PageToolbar>
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProduct={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
+        <Toolbar />
       </PageToolbar>
       <PageSection
         className="curiosity-page-section__graphs"
@@ -180,18 +158,7 @@ exports[`ProductView Component should allow custom inventory displays via config
         <BannerMessages />
       </PageMessages>
       <PageToolbar>
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProduct={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
+        <Toolbar />
       </PageToolbar>
       <PageSection
         className="curiosity-page-section__graphs"
@@ -255,18 +222,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <BannerMessages />
       </PageMessages>
       <PageToolbar>
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProduct={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
+        <Toolbar />
       </PageToolbar>
       <PageSection
         className="curiosity-page-section__graphs"
@@ -324,18 +280,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <BannerMessages />
       </PageMessages>
       <PageToolbar>
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProduct={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
+        <Toolbar />
       </PageToolbar>
       <PageSection
         className="curiosity-page-section__graphs"
@@ -393,18 +338,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <BannerMessages />
       </PageMessages>
       <PageToolbar>
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProduct={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
+        <Toolbar />
       </PageToolbar>
       <PageSection
         className="curiosity-page-section__graphs"
@@ -462,18 +396,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <BannerMessages />
       </PageMessages>
       <PageToolbar>
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProduct={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
+        <Toolbar />
       </PageToolbar>
       <PageSection
         className="curiosity-page-section__graphs"
@@ -531,18 +454,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <BannerMessages />
       </PageMessages>
       <PageToolbar>
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProduct={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
+        <Toolbar />
       </PageToolbar>
       <PageSection
         className="curiosity-page-section__graphs"
@@ -599,18 +511,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
         <BannerMessages />
       </PageMessages>
       <PageToolbar>
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProduct={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
+        <Toolbar />
       </PageToolbar>
       <PageSection
         className="curiosity-page-section__graphs"

@@ -5538,18 +5538,14 @@ Primary view toolbar.
 
 
 * [Toolbar](#Components.module_Toolbar)
-    * [~Toolbar(props)](#Components.module_Toolbar..Toolbar) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Components.module_Toolbar..Toolbar.propTypes) : <code>Object</code>
-            * [.defaultProps](#Components.module_Toolbar..Toolbar.defaultProps) : <code>Object</code>
-        * _inner_
-            * [~setSelectedOptions(params)](#Components.module_Toolbar..Toolbar..setSelectedOptions) ⇒ <code>Array</code>
+    * [~Toolbar(props)](#Components.module_Toolbar..Toolbar) ⇒ <code>JSX.Element</code>
+        * [~setSelectedOptions(params)](#Components.module_Toolbar..Toolbar..setSelectedOptions) ⇒ <code>Array</code>
     * ["onClearFilter" (params)](#event_onClearFilter) ⇒ <code>void</code>
     * ["onClearAll"](#event_onClearAll) ⇒ <code>void</code>
 
 <a name="Components.module_Toolbar..Toolbar"></a>
 
-### Toolbar~Toolbar(props) ⇒ <code>React.ReactNode</code>
+### Toolbar~Toolbar(props) ⇒ <code>JSX.Element</code>
 Application filter toolbar.
 
 **Kind**: inner method of [<code>Toolbar</code>](#Components.module_Toolbar)  
@@ -5557,56 +5553,36 @@ Application filter toolbar.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td><td></td>
+    <td>props</td><td><code>object</code></td><td></td><td></td>
     </tr><tr>
-    <td>props.hardFilterReset</td><td><code>boolean</code></td><td><p>On clearing all fields allow the category to reset as well.</p>
+    <td>[props.hardFilterReset]</td><td><code>boolean</code></td><td><code>false</code></td><td><p>On clearing all fields allow the category to reset as well.</p>
 </td>
     </tr><tr>
-    <td>props.isDisabled</td><td><code>boolean</code></td><td></td>
+    <td>[props.isDisabled]</td><td><code>boolean</code></td><td><code>helpers.UI_DISABLED_TOOLBAR</code></td><td></td>
     </tr><tr>
-    <td>props.isGroupVariantDisabled</td><td><code>boolean</code></td><td></td>
+    <td>[props.isGroupVariantDisabled]</td><td><code>boolean</code></td><td><code>helpers.UI_DISABLED_TOOLBAR_GROUP_VARIANT</code></td><td></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td><td></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td><td></td>
     </tr><tr>
-    <td>props.useProduct</td><td><code>function</code></td><td></td>
+    <td>[props.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td><td></td>
     </tr><tr>
-    <td>props.useProductToolbarQuery</td><td><code>function</code></td><td></td>
+    <td>[props.useProductToolbarQuery]</td><td><code>useProductToolbarQuery</code></td><td><code>useProductToolbarQuery</code></td><td></td>
     </tr><tr>
-    <td>props.useSelectCategoryOptions</td><td><code>function</code></td><td></td>
+    <td>[props.useSelectCategoryOptions]</td><td><code>useSelectCategoryOptions</code></td><td><code>useSelectCategoryOptions</code></td><td></td>
     </tr><tr>
-    <td>props.useToolbarFieldClear</td><td><code>function</code></td><td></td>
+    <td>[props.useToolbarFieldClear]</td><td><code>useToolbarFieldClear</code></td><td><code>useToolbarFieldClear</code></td><td></td>
     </tr><tr>
-    <td>props.useToolbarFieldClearAll</td><td><code>function</code></td><td></td>
+    <td>[props.useToolbarFieldClearAll]</td><td><code>useToolbarFieldClearAll</code></td><td><code>useToolbarFieldClearAll</code></td><td></td>
     </tr><tr>
-    <td>props.useToolbarFields</td><td><code>function</code></td><td></td>
+    <td>[props.useToolbarFields]</td><td><code>useToolbarFields</code></td><td><code>useToolbarFields</code></td><td></td>
     </tr>  </tbody>
 </table>
 
-
-* [~Toolbar(props)](#Components.module_Toolbar..Toolbar) ⇒ <code>React.ReactNode</code>
-    * _static_
-        * [.propTypes](#Components.module_Toolbar..Toolbar.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_Toolbar..Toolbar.defaultProps) : <code>Object</code>
-    * _inner_
-        * [~setSelectedOptions(params)](#Components.module_Toolbar..Toolbar..setSelectedOptions) ⇒ <code>Array</code>
-
-<a name="Components.module_Toolbar..Toolbar.propTypes"></a>
-
-#### Toolbar.propTypes : <code>Object</code>
-Prop types
-
-**Kind**: static property of [<code>Toolbar</code>](#Components.module_Toolbar..Toolbar)  
-<a name="Components.module_Toolbar..Toolbar.defaultProps"></a>
-
-#### Toolbar.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>Toolbar</code>](#Components.module_Toolbar..Toolbar)  
 <a name="Components.module_Toolbar..Toolbar..setSelectedOptions"></a>
 
 #### Toolbar~setSelectedOptions(params) ⇒ <code>Array</code>
