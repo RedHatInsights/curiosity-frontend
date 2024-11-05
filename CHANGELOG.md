@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.14.1](https://github.com/RedHatInsights/curiosity-frontend/compare/14438ba02a4ce22d504946edc0c866f13d1642f4...3fe20cb5382d6af438a66139d42f62fd172c244a) (2024-11-05)
+
+
+### Tests
+* **serviceConfig** reduce mock response interval ([#1464](https://github.com/RedHatInsights/curiosity-frontend/pull/1464)) ([1b3d39b](https://github.com/RedHatInsights/curiosity-frontend/commit/1b3d39b729bba2b9de66d79617cd1a00b93fcc0f))
+* **serviceConfig** reduce polling interval ([#1459](https://github.com/RedHatInsights/curiosity-frontend/pull/1459)) ([5828056](https://github.com/RedHatInsights/curiosity-frontend/commit/582805639b5a90be7cc72d55e4401ebe47ff8f7b))
+
+### Continuous Integrations
+*  update konflux references ([#1463](https://github.com/RedHatInsights/curiosity-frontend/pull/1463)) ([1a65d04](https://github.com/RedHatInsights/curiosity-frontend/commit/1a65d045df15e23b2721ded488b73d21a2842ee4))
+*  update konflux references ([#1452](https://github.com/RedHatInsights/curiosity-frontend/pull/1452)) ([1cc5736](https://github.com/RedHatInsights/curiosity-frontend/commit/1cc57364adafc0ef54b5b23be48d80a3ee9e9b3e))
+
+### Code Refactoring
+* **toolbar** sw-2707 remove deprecated react ([#1467](https://github.com/RedHatInsights/curiosity-frontend/pull/1467)) ([3fe20cb](https://github.com/RedHatInsights/curiosity-frontend/commit/3fe20cb5382d6af438a66139d42f62fd172c244a))
+* **select** sw-2707 remove deprecated react ([#1465](https://github.com/RedHatInsights/curiosity-frontend/pull/1465)) ([64ec035](https://github.com/RedHatInsights/curiosity-frontend/commit/64ec035162017eba9e880faf4b8dcd43415c21fc))
+* **textInput** sw-2707, class to func, deprecated react ([#1462](https://github.com/RedHatInsights/curiosity-frontend/pull/1462)) ([6016de9](https://github.com/RedHatInsights/curiosity-frontend/commit/6016de930cd39c239d9b7515c99bb86d66f151d7))
+* **checkbox** sw-2707 remove deprecated react ([#1458](https://github.com/RedHatInsights/curiosity-frontend/pull/1458)) ([c603988](https://github.com/RedHatInsights/curiosity-frontend/commit/c6039888323c845f2e2253b404c8d8464ec35791))
+* **app** sw-2707 remove deprecated react ([#1455](https://github.com/RedHatInsights/curiosity-frontend/pull/1455)) ([5af9a05](https://github.com/RedHatInsights/curiosity-frontend/commit/5af9a0586acc8fe36a114bd4f5c36523f0c05b1a))
+* **tableEmpty,skeleton** sw-2707 remove deprecated react ([#1454](https://github.com/RedHatInsights/curiosity-frontend/pull/1454)) ([93c2e1a](https://github.com/RedHatInsights/curiosity-frontend/commit/93c2e1aaf8670678740d595405ca779d32185493))
+* **table** sw-2707 remove deprecated react ([#1453](https://github.com/RedHatInsights/curiosity-frontend/pull/1453)) ([bfc5eb0](https://github.com/RedHatInsights/curiosity-frontend/commit/bfc5eb09ead2457456a9aa41ef35071aeb97f589))
+* **pagination,productView** sw-2707 remove deprecated react ([#1451](https://github.com/RedHatInsights/curiosity-frontend/pull/1451)) ([57a4598](https://github.com/RedHatInsights/curiosity-frontend/commit/57a45981cdc32563be0ff0b8066be92d3d7689d1))
+
+### Builds
+* **deps-dev** bump group with 5 updates ([#1461](https://github.com/RedHatInsights/curiosity-frontend/pull/1461)) ([0c027ee](https://github.com/RedHatInsights/curiosity-frontend/commit/0c027ee191921000317189657e38c6c20fda31ac))
+* **deps** lock reset, bump group with 9 updates ([#1457](https://github.com/RedHatInsights/curiosity-frontend/pull/1457)) ([1dac88a](https://github.com/RedHatInsights/curiosity-frontend/commit/1dac88a897e5f15aa19caeb5668923672c6f7144))
+* **deps** bump weldable from 3.1.4 to 3.2.0 ([#1456](https://github.com/RedHatInsights/curiosity-frontend/pull/1456)) ([1267ee1](https://github.com/RedHatInsights/curiosity-frontend/commit/1267ee1e44a7be6f2b58a1b72998a77df830e53b))
+
+### Bug Fixes
+*  sw-2177 rosa variant display copy ([#1466](https://github.com/RedHatInsights/curiosity-frontend/pull/1466)) ([961871c](https://github.com/RedHatInsights/curiosity-frontend/commit/961871cd00973388ae4fff8aeeeaf4bd9b831f39))
+
 ## [4.14.0](https://github.com/RedHatInsights/curiosity-frontend/compare/a6f3617c4f3ba93d3bdc38c49f5360cdb5b191ab...d94383c578f8942ae6fbce9f705aaefb86dc8b68) (2024-10-22)
 
 
