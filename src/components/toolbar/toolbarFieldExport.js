@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useProduct, useProductExportQuery } from '../productView/productViewContext';
 import { useExport, useExistingExports, useExportStatus } from './toolbarFieldExportContext';
 import { Select, SelectPosition, SelectButtonVariant } from '../form/select';
@@ -35,9 +34,9 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
  * On select create/post an export.
  *
  * @param {object} options
- * @param {Function} options.useExport
- * @param {Function} options.useProduct
- * @param {Function} options.useProductExportQuery
+ * @param {useExport} [options.useExport=useExport]
+ * @param {useProduct} [options.useProduct=useProduct]
+ * @param {useProductExportQuery} [options.useProductExportQuery=useProductExportQuery]
  * @returns {Function}
  */
 const useOnSelect = ({
@@ -83,23 +82,23 @@ const useOnSelect = ({
 /**
  * Display an export/download field with options. Check and download available exports.
  *
- * @fires onSelect
  * @param {object} props
- * @param {Array} props.options
- * @param {string} props.position
- * @param {Function} props.t
- * @param {Function} props.useExistingExports
- * @param {Function} props.useExportStatus
- * @param {Function} props.useOnSelect
- * @returns {React.ReactNode}
+ * @param {toolbarFieldOptions} [props.options=toolbarFieldOptions]
+ * @param {SelectPosition} [props.position=SelectPosition.left]
+ * @param {translate} [props.t=translate]
+ * @param {useExistingExports} [props.useExistingExports=useExistingExports]
+ * @param {useExportStatus} [props.useExportStatus=useExportStatus]
+ * @param {useOnSelect} [props.useOnSelect=useOnSelect]
+ * @fires onSelect
+ * @returns {JSX.Element}
  */
 const ToolbarFieldExport = ({
-  options,
-  position,
-  t,
-  useExistingExports: useAliasExistingExports,
-  useExportStatus: useAliasExportStatus,
-  useOnSelect: useAliasOnSelect
+  options = toolbarFieldOptions,
+  position = SelectPosition.left,
+  t = translate,
+  useExistingExports: useAliasExistingExports = useExistingExports,
+  useExportStatus: useAliasExportStatus = useExportStatus,
+  useOnSelect: useAliasOnSelect = useOnSelect
 }) => {
   const { isProductPending, pendingProductFormats = [] } = useAliasExportStatus();
   const onSelect = useAliasOnSelect();
@@ -132,42 +131,6 @@ const ToolbarFieldExport = ({
       buttonContent={t('curiosity-toolbar.label', { context: 'export' })}
     />
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useExistingExports: useExistingExports, useOnSelect: Function, t: Function, options: Array, position: string,
- *     useExportStatus: Function}}
- */
-ToolbarFieldExport.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.node,
-      value: PropTypes.any,
-      selected: PropTypes.bool
-    })
-  ),
-  position: PropTypes.string,
-  t: PropTypes.func,
-  useExistingExports: PropTypes.func,
-  useExportStatus: PropTypes.func,
-  useOnSelect: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useExistingExports: useExistingExports, useOnSelect: Function, t: Function, options: Array, position: string,
- *     useExportStatus: Function}}
- */
-ToolbarFieldExport.defaultProps = {
-  options: toolbarFieldOptions,
-  position: SelectPosition.left,
-  t: translate,
-  useExistingExports,
-  useExportStatus,
-  useOnSelect
 };
 
 export { ToolbarFieldExport as default, ToolbarFieldExport, toolbarFieldOptions, useOnSelect };

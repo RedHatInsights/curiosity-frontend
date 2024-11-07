@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 import { useMount } from 'react-use';
 import { ToolbarContentContext, ToolbarContext } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
 import { ToolbarItem, Chip, ChipGroup } from '@patternfly/react-core';
@@ -38,29 +37,29 @@ const useToolbarContext = () => useContext(ToolbarContext);
  * Converted PF ToolbarFilter replacement with conditional "firstElementChild".
  *
  * @param {object} props
- * @param {string|object} props.categoryName
- * @param {string} props.chipGroupCollapsedText
- * @param {string} props.chipGroupExpandedText
- * @param {Array} props.chips
+ * @param {string|{key: string, name: string}} props.categoryName
+ * @param {string} [props.chipGroupCollapsedText]
+ * @param {string} [props.chipGroupExpandedText]
+ * @param {Array<(string |{ key: string, node: string })>} props.chips
  * @param {React.ReactNode} props.children
- * @param {Function} props.deleteChip
- * @param {Function} props.deleteChipGroup
- * @param {boolean} props.showToolbarItem
- * @param {Function} props.useToolbarContentContext
- * @param {Function} props.useToolbarContext
- * @returns {React.ReactNode}
+ * @param {Function} [props.deleteChip=helpers.noop]
+ * @param {Function} [props.deleteChipGroup]
+ * @param {boolean} [props.showToolbarItem=true]
+ * @param {useToolbarContentContext} [props.useToolbarContentContext=useToolbarContentContext]
+ * @param {useToolbarContext} [props.useToolbarContext=useToolbarContext]
+ * @returns {JSX.Element}
  */
 const ToolbarFilter = ({
   categoryName,
   chipGroupCollapsedText,
   chipGroupExpandedText,
-  chips,
+  chips = [],
   children,
-  deleteChip,
+  deleteChip = helpers.noop,
   deleteChipGroup,
-  showToolbarItem,
-  useToolbarContentContext: useAliasToolbarContentContext,
-  useToolbarContext: useAliasToolbarContext,
+  showToolbarItem = true,
+  useToolbarContentContext: useAliasToolbarContentContext = useToolbarContentContext,
+  useToolbarContext: useAliasToolbarContext = useToolbarContext,
   ...props
 }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -120,46 +119,6 @@ const ToolbarFilter = ({
       {portalRef && createPortal(chipGroup, portalRef)}
     </React.Fragment>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{deleteChip: Function, chips: Array, deleteChipGroup: Function, children: React.ReactNode,
- *     chipGroupCollapsedText: string, useToolbarContext: Function, categoryName: string|object,
- *     chipGroupExpandedText: string, showToolbarItem: boolean, useToolbarContentContext: Function}}
- */
-ToolbarFilter.propTypes = {
-  categoryName: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]).isRequired,
-  chipGroupCollapsedText: PropTypes.string,
-  chipGroupExpandedText: PropTypes.string,
-  chips: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.shape({ key: PropTypes.string, node: PropTypes.string })])
-  ),
-  deleteChip: PropTypes.func,
-  deleteChipGroup: PropTypes.func,
-  showToolbarItem: PropTypes.bool,
-  useToolbarContentContext: PropTypes.func,
-  useToolbarContext: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{deleteChip: Function, chips: Array, deleteChipGroup: Function, chipGroupCollapsedText: null,
- *     useToolbarContext: Function, chipGroupExpandedText: null, showToolbarItem: boolean,
- *     useToolbarContentContext: Function}}
- */
-ToolbarFilter.defaultProps = {
-  chipGroupCollapsedText: null,
-  chipGroupExpandedText: null,
-  chips: [],
-  deleteChip: helpers.noop,
-  deleteChipGroup: null,
-  showToolbarItem: true,
-  useToolbarContentContext,
-  useToolbarContext
 };
 
 export { ToolbarFilter as default, ToolbarFilter, useToolbarContentContext, useToolbarContext };
