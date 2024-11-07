@@ -16,21 +16,39 @@ import { translate } from '../i18n/i18n';
  */
 
 /**
- * On submit, dispatch type.
- *
- * @param {object} options
- * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
- * @param {useProduct} [options.useProduct=useProduct]
- * @returns {Function}
+ * ToDo: evaluate the debounce milliseconds, currently based off platforms default 800 ms
  */
-const useOnSubmit = ({
+/**
+ * Display a display name input field for search.
+ *
+ * @param {object} props
+ * @param {translate} [props.t=translate]
+ * @param {storeHooks.reactRedux.useDispatch} [props.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {useProduct} [props.useProduct=useProduct]
+ * @param {useProductInventoryHostsQuery} [props.useProductInventoryHostsQuery=useProductInventoryHostsQuery]
+ * @fires onSubmit
+ * @fires onClear
+ * @fires onKeyUp
+ * @returns {JSX.Element}
+ */
+const ToolbarFieldDisplayName = ({
+  t = translate,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useProduct: useAliasProduct = useProduct
-} = {}) => {
+  useProduct: useAliasProduct = useProduct,
+  useProductInventoryHostsQuery: useAliasProductInventoryHostsQuery = useProductInventoryHostsQuery
+}) => {
   const { viewId } = useAliasProduct();
+  const { [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: currentValue } = useAliasProductInventoryHostsQuery();
   const dispatch = useAliasDispatch();
 
-  return submitValue =>
+  /**
+   * On submit, dispatch type.
+   *
+   * @event onSubmit
+   * @param {string} submitValue
+   * @returns {void}
+   */
+  const onSubmit = submitValue =>
     dispatch([
       {
         type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
@@ -43,54 +61,14 @@ const useOnSubmit = ({
         value: submitValue?.trim() || null
       }
     ]);
-};
-
-/**
- * On enter submit value, on type submit value, and on esc ignore (clears value at component level).
- *
- * @param {object} options
- * @param {useOnSubmit} [options.useOnSubmit=useOnSubmit]
- * @fires onSubmit
- * @returns {Function}
- */
-const useOnKeyUp = ({ useOnSubmit: useAliasOnSubmit = useOnSubmit } = {}) => {
-  const onSubmit = useAliasOnSubmit();
 
   /**
-   * Set up submit debounce event to allow for bypass.
+   * On clear, dispatch type.
+   *
+   * @event onClear
+   * @returns {void}
    */
-  const debounced = _debounce(onSubmit, 700);
-
-  return event => {
-    switch (event.keyCode) {
-      case 13:
-        onSubmit(event.value);
-        break;
-      case 27:
-        break;
-      default:
-        debounced(event.value);
-        break;
-    }
-  };
-};
-
-/**
- * On clear, dispatch type.
- *
- * @param {object} options
- * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
- * @param {useProduct} [options.useProduct=useProduct]
- * @returns {Function}
- */
-const useOnClear = ({
-  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useProduct: useAliasProduct = useProduct
-} = {}) => {
-  const { viewId } = useAliasProduct();
-  const dispatch = useAliasDispatch();
-
-  return currentValue => {
+  const onClear = () => {
     if (currentValue === '' || !currentValue) {
       return;
     }
@@ -108,45 +86,43 @@ const useOnClear = ({
       }
     ]);
   };
-};
 
-/**
- * ToDo: evaluate the debounce milliseconds, currently based off platforms default 800 ms
- */
-/**
- * Display a display name input field for search.
- *
- * @param {object} props
- * @param {translate} [props.t=translate]
- * @param {useProductInventoryHostsQuery} [props.useProductInventoryHostsQuery=useProductInventoryHostsQuery]
- * @param {useOnClear} [props.useOnClear=useOnClear]
- * @param {useOnKeyUp} [props.useOnKeyUp=useOnKeyUp]
- * @fires onClear
- * @fires onKeyUp
- * @returns {JSX.Element}
- */
-const ToolbarFieldDisplayName = ({
-  t = translate,
-  useProductInventoryHostsQuery: useAliasProductInventoryHostsQuery = useProductInventoryHostsQuery,
-  useOnClear: useAliasOnClear = useOnClear,
-  useOnKeyUp: useAliasOnKeyUp = useOnKeyUp
-}) => {
-  const { [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: currentValue } = useAliasProductInventoryHostsQuery();
-  const onClear = useAliasOnClear();
-  const onKeyUp = useAliasOnKeyUp();
+  /**
+   * Set up submit debounce event to allow for bypass.
+   */
+  const debounced = _debounce(onSubmit, 700);
+
+  /**
+   * On enter submit value, on type submit value, and on esc ignore (clear value at component level).
+   *
+   * @event onKeyUp
+   * @param {object} event
+   */
+  const onKeyUp = event => {
+    switch (event.keyCode) {
+      case 13:
+        onSubmit(event.value);
+        break;
+      case 27:
+        break;
+      default:
+        debounced(event.value);
+        break;
+    }
+  };
 
   return (
     <InputGroup>
       <InputGroupItem>
         <TextInput
           customIcon={<SearchIcon />}
-          aria-label={t('curiosity-toolbar.placeholder', { context: ['filter', 'displayName'] })}
+          aria-label={t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })}
           className="curiosity-input__display-name"
           maxLength={255}
           onClear={onClear}
           onKeyUp={onKeyUp}
           value={currentValue}
-          placeholder={t('curiosity-toolbar.placeholder', { context: ['filter', 'displayName'] })}
+          placeholder={t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })}
           data-test="toolbarFieldDisplayName"
         />
       </InputGroupItem>
@@ -154,4 +130,4 @@ const ToolbarFieldDisplayName = ({
   );
 };
 
-export { ToolbarFieldDisplayName as default, ToolbarFieldDisplayName, useOnClear, useOnKeyUp, useOnSubmit };
+export { ToolbarFieldDisplayName as default, ToolbarFieldDisplayName };

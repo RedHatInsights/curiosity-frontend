@@ -340,12 +340,12 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-toolbar.label', { context: ['billing_provider', (type === '' && 'none')",
       },
       {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'billing_provider'] })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
       {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'billing_provider'] })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
@@ -370,12 +370,12 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/components/toolbar/toolbarFieldDisplayName.js",
     "keys": [
       {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: ['filter', 'displayName'] })",
+        "key": "curiosity-toolbar.placeholder_filter",
+        "match": "t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })",
       },
       {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: ['filter', 'displayName'] })",
+        "key": "curiosity-toolbar.placeholder_filter",
+        "match": "t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })",
       },
     ],
   },

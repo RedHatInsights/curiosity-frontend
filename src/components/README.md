@@ -5877,82 +5877,11 @@ A standalone Display Name input filter.
 
 
 * [ToolbarFieldDisplayName](#Toolbar.module_ToolbarFieldDisplayName)
-    * [~useOnSubmit(options)](#Toolbar.module_ToolbarFieldDisplayName..useOnSubmit) ⇒ <code>function</code>
-    * [~useOnKeyUp(options)](#Toolbar.module_ToolbarFieldDisplayName..useOnKeyUp) ⇒ <code>function</code>
-        * [~debounced](#Toolbar.module_ToolbarFieldDisplayName..useOnKeyUp..debounced)
-    * [~useOnClear(options)](#Toolbar.module_ToolbarFieldDisplayName..useOnClear) ⇒ <code>function</code>
     * [~ToolbarFieldDisplayName(props)](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName) ⇒ <code>JSX.Element</code>
-
-<a name="Toolbar.module_ToolbarFieldDisplayName..useOnSubmit"></a>
-
-### ToolbarFieldDisplayName~useOnSubmit(options) ⇒ <code>function</code>
-On submit, dispatch type.
-
-**Kind**: inner method of [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
-    </tr><tr>
-    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Toolbar.module_ToolbarFieldDisplayName..useOnKeyUp"></a>
-
-### ToolbarFieldDisplayName~useOnKeyUp(options) ⇒ <code>function</code>
-On enter submit value, on type submit value, and on esc ignore (clears value at component level).
-
-**Kind**: inner method of [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName)  
-**Emits**: <code>event:onSubmit</code>  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>[options.useOnSubmit]</td><td><code>useOnSubmit</code></td><td><code>useOnSubmit</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Toolbar.module_ToolbarFieldDisplayName..useOnKeyUp..debounced"></a>
-
-#### useOnKeyUp~debounced
-Set up submit debounce event to allow for bypass.
-
-**Kind**: inner constant of [<code>useOnKeyUp</code>](#Toolbar.module_ToolbarFieldDisplayName..useOnKeyUp)  
-<a name="Toolbar.module_ToolbarFieldDisplayName..useOnClear"></a>
-
-### ToolbarFieldDisplayName~useOnClear(options) ⇒ <code>function</code>
-On clear, dispatch type.
-
-**Kind**: inner method of [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
-    </tr><tr>
-    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
-    </tr>  </tbody>
-</table>
+        * [~debounced](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName..debounced)
+    * ["onSubmit" (submitValue)](#event_onSubmit) ⇒ <code>void</code>
+    * ["onClear"](#event_onClear) ⇒ <code>void</code>
+    * ["onKeyUp" (event)](#event_onKeyUp)
 
 <a name="Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName"></a>
 
@@ -5960,7 +5889,7 @@ On clear, dispatch type.
 Display a display name input field for search.
 
 **Kind**: inner method of [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName)  
-**Emits**: <code>event:onClear</code>, [<code>onKeyUp</code>](#event_onKeyUp)  
+**Emits**: [<code>onSubmit</code>](#event_onSubmit), [<code>onClear</code>](#event_onClear), [<code>onKeyUp</code>](#event_onKeyUp)  
 <table>
   <thead>
     <tr>
@@ -5973,11 +5902,59 @@ Display a display name input field for search.
     </tr><tr>
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
+    <td>[props.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
+    </tr><tr>
+    <td>[props.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
+    </tr><tr>
     <td>[props.useProductInventoryHostsQuery]</td><td><code>useProductInventoryHostsQuery</code></td><td><code>useProductInventoryHostsQuery</code></td>
-    </tr><tr>
-    <td>[props.useOnClear]</td><td><code>useOnClear</code></td><td><code>useOnClear</code></td>
-    </tr><tr>
-    <td>[props.useOnKeyUp]</td><td><code>useOnKeyUp</code></td><td><code>useOnKeyUp</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName..debounced"></a>
+
+#### ToolbarFieldDisplayName~debounced
+Set up submit debounce event to allow for bypass.
+
+**Kind**: inner constant of [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName)  
+<a name="event_onSubmit"></a>
+
+### "onSubmit" (submitValue) ⇒ <code>void</code>
+On submit, dispatch type.
+
+**Kind**: event emitted by [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>submitValue</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="event_onClear"></a>
+
+### "onClear" ⇒ <code>void</code>
+On clear, dispatch type.
+
+**Kind**: event emitted by [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName)  
+<a name="event_onKeyUp"></a>
+
+### "onKeyUp" (event)
+On enter submit value, on type submit value, and on esc ignore (clear value at component level).
+
+**Kind**: event emitted by [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>event</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
