@@ -5813,7 +5813,7 @@ Generate select field options from nested product graph configuration.
 <tr>
     <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>[options.useProductGraphConfig]</td><td><code>function</code></td><td><code>useProductGraphConfig</code></td>
+    <td>[options.useProductGraphConfig]</td><td><code>useProductGraphConfig</code></td><td><code>useProductGraphConfig</code></td>
     </tr>  </tbody>
 </table>
 

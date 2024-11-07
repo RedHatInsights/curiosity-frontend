@@ -17,7 +17,7 @@ import { translate } from '../i18n/i18n';
  * Generate select field options from nested product graph configuration.
  *
  * @param {object} options
- * @param {Function} [options.useProductGraphConfig=useProductGraphConfig]
+ * @param {useProductGraphConfig} [options.useProductGraphConfig=useProductGraphConfig]
  * @returns {Function}
  */
 const useToolbarFieldOptions = ({ useProductGraphConfig: useAliasProductGraphConfig = useProductGraphConfig } = {}) => {
