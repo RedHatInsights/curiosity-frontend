@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Toolbar as PfToolbar, ToolbarContent, ToolbarItem, ToolbarItemVariant } from '@patternfly/react-core';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
@@ -18,8 +17,8 @@ import { routerContext } from '../router';
  * Generate select field options from config. Sorted by title string.
  *
  * @param {object} options
- * @param {Function} options.t
- * @param {Function} options.useRouteDetail
+ * @param {translate} [options.t=translate]
+ * @param {routerContext.useRouteDetail} [options.useRouteDetail=routerContext.useRouteDetail]
  * @returns {Function}
  */
 const useToolbarFieldOptions = ({
@@ -44,8 +43,8 @@ const useToolbarFieldOptions = ({
  * On select update.
  *
  * @param {object} options
- * @param {Function} options.useDispatch
- * @param {Function} options.useProduct
+ * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {useProduct} [options.useProduct=useProduct]
  * @returns {Function}
  */
 const useOnSelect = ({
@@ -73,27 +72,27 @@ const useOnSelect = ({
 /**
  * Display a product configuration field with generated options.
  *
- * @fires onSelect
  * @param {object} props
- * @param {boolean} props.isFilter
- * @param {boolean} props.isStandalone
- * @param {string} props.position
- * @param {Function} props.t
- * @param {Function} props.useOnSelect
- * @param {Function} props.useProduct
- * @param {Function} props.useSelector
- * @param {Function} props.useToolbarFieldOptions
- * @returns {React.ReactNode}
+ * @param {boolean} [props.isFilter=false]
+ * @param {boolean} [props.isStandalone=false]
+ * @param {SelectPosition} [props.position=SelectPosition.left]
+ * @param {translate} [props.t=translate]
+ * @param {useOnSelect} [props.useOnSelect=useOnSelect]
+ * @param {useProduct} [props.useProduct=useProduct]
+ * @param {storeHooks.reactRedux.useSelector} [props.useSelector=storeHooks.reactRedux.useSelector]
+ * @param {useToolbarFieldOptions} [props.useToolbarFieldOptions=useToolbarFieldOptions]
+ * @fires onSelect
+ * @returns {JSX.Element}
  */
 const ToolbarFieldGroupVariant = ({
-  isFilter,
-  isStandalone,
-  position,
-  t,
-  useOnSelect: useAliasOnSelect,
-  useProduct: useAliasProduct,
-  useSelector: useAliasSelector,
-  useToolbarFieldOptions: useAliasToolbarFieldOptions
+  isFilter = false,
+  isStandalone = false,
+  position = SelectPosition.left,
+  t = translate,
+  useOnSelect: useAliasOnSelect = useOnSelect,
+  useProduct: useAliasProduct = useProduct,
+  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector,
+  useToolbarFieldOptions: useAliasToolbarFieldOptions = useToolbarFieldOptions
 }) => {
   const { productGroup } = useAliasProduct();
   const updatedValue = useAliasSelector(({ view }) => view?.product?.variant?.[productGroup], null);
@@ -138,40 +137,6 @@ const ToolbarFieldGroupVariant = ({
     )) ||
     element
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useOnSelect: Function, useProduct: Function, t: Function, useSelector: Function, isFilter: boolean,
- *     isStandalone: boolean, position: string, useToolbarFieldOptions: Function}}
- */
-ToolbarFieldGroupVariant.propTypes = {
-  isFilter: PropTypes.bool,
-  isStandalone: PropTypes.bool,
-  position: PropTypes.string,
-  t: PropTypes.func,
-  useOnSelect: PropTypes.func,
-  useProduct: PropTypes.func,
-  useSelector: PropTypes.func,
-  useToolbarFieldOptions: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useOnSelect: Function, useProduct: Function, t: translate, useSelector: Function, isFilter: boolean,
- *     isStandalone: boolean, position: string, useToolbarFieldOptions: Function}}
- */
-ToolbarFieldGroupVariant.defaultProps = {
-  isFilter: false,
-  isStandalone: false,
-  position: SelectPosition.left,
-  t: translate,
-  useOnSelect,
-  useProduct,
-  useSelector: storeHooks.reactRedux.useSelector,
-  useToolbarFieldOptions
 };
 
 export { ToolbarFieldGroupVariant as default, ToolbarFieldGroupVariant, useOnSelect, useToolbarFieldOptions };

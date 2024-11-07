@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FilterIcon } from '@patternfly/react-icons';
 import { useShallowCompareEffect } from 'react-use';
 import { reduxTypes, storeHooks } from '../../redux';
@@ -112,8 +111,8 @@ const toolbarFieldOptions = [
  * On select update category.
  *
  * @param {object} options
- * @param {Function} options.useDispatch
- * @param {Function} options.useProduct
+ * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {useProduct} [options.useProduct=useProduct]
  * @returns {Function}
  */
 const useOnSelect = ({
@@ -138,11 +137,12 @@ const useOnSelect = ({
  * Return filtered category options, current, and initial value.
  *
  * @param {object} options
- * @param {Array} options.categoryOptions
- * @param {Function} options.useProduct
- * @param {Function} options.useProductToolbarConfig
- * @param {Function} options.useSelector
- * @returns {object}
+ * @param {toolbarFieldOptions} [options.categoryOptions=toolbarFieldOptions]
+ * @param {useProduct} [options.useProduct=useProduct]
+ * @param {useProductToolbarConfig} [options.useProductToolbarConfig=useProductToolbarConfig]
+ * @param {storeHooks.reactRedux.useSelector} [options.useSelector=storeHooks.reactRedux.useSelector]
+ * @returns {{currentCategory: unknown, initialCategory: string, options: Array<{title: React.ReactNode,
+ *     value: string, selected: boolean}>}}
  */
 const useSelectCategoryOptions = ({
   categoryOptions = toolbarFieldOptions,
@@ -179,19 +179,19 @@ const useSelectCategoryOptions = ({
 };
 
 /**
- * Display a granularity field with options.
+ * Display a select category field with options.
  *
- * @fires onSelect
  * @param {object} props
- * @param {Function} props.t
- * @param {Function} props.useOnSelect
- * @param {Function} props.useSelectCategoryOptions
- * @returns {React.ReactNode}
+ * @param {translate} [props.t=translate]
+ * @param {useOnSelect} [props.useOnSelect=useOnSelect]
+ * @param {useSelectCategoryOptions} [props.useSelectCategoryOptions=useSelectCategoryOptions]
+ * @fires onSelect
+ * @returns {JSX.Element}
  */
 const ToolbarFieldSelectCategory = ({
-  t,
-  useOnSelect: useAliasOnSelect,
-  useSelectCategoryOptions: useAliasSelectCategoryOptions
+  t = translate,
+  useOnSelect: useAliasOnSelect = useOnSelect,
+  useSelectCategoryOptions: useAliasSelectCategoryOptions = useSelectCategoryOptions
 }) => {
   const { currentCategory: updatedValue, initialCategory: initialValue, options } = useAliasSelectCategoryOptions();
   const onSelect = useAliasOnSelect();
@@ -213,28 +213,6 @@ const ToolbarFieldSelectCategory = ({
       data-test="toolbarFieldCategory"
     />
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useOnSelect: Function, t: Function, useSelectCategoryOptions: Function}}
- */
-ToolbarFieldSelectCategory.propTypes = {
-  t: PropTypes.func,
-  useOnSelect: PropTypes.func,
-  useSelectCategoryOptions: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useOnSelect: Function, t: Function, useSelectCategoryOptions: Function}}
- */
-ToolbarFieldSelectCategory.defaultProps = {
-  t: translate,
-  useOnSelect,
-  useSelectCategoryOptions
 };
 
 export {
