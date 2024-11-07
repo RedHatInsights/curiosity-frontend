@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { InputGroup, InputGroupItem } from '@patternfly/react-core';
 import { SearchIcon } from '@patternfly/react-icons';
 import _debounce from 'lodash/debounce';
@@ -22,21 +21,21 @@ import { translate } from '../i18n/i18n';
 /**
  * Display a display name input field for search.
  *
+ * @param {object} props
+ * @param {translate} [props.t=translate]
+ * @param {storeHooks.reactRedux.useDispatch} [props.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {useProduct} [props.useProduct=useProduct]
+ * @param {useProductInventoryHostsQuery} [props.useProductInventoryHostsQuery=useProductInventoryHostsQuery]
  * @fires onSubmit
  * @fires onClear
  * @fires onKeyUp
- * @param {object} props
- * @param {Function} props.t
- * @param {Function} props.useDispatch
- * @param {Function} props.useProduct
- * @param {Function} props.useProductInventoryHostsQuery
- * @returns {React.ReactNode}
+ * @returns {JSX.Element}
  */
 const ToolbarFieldDisplayName = ({
-  t,
-  useDispatch: useAliasDispatch,
-  useProduct: useAliasProduct,
-  useProductInventoryHostsQuery: useAliasProductInventoryHostsQuery
+  t = translate,
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useProduct: useAliasProduct = useProduct,
+  useProductInventoryHostsQuery: useAliasProductInventoryHostsQuery = useProductInventoryHostsQuery
 }) => {
   const { viewId } = useAliasProduct();
   const { [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: currentValue } = useAliasProductInventoryHostsQuery();
@@ -129,30 +128,6 @@ const ToolbarFieldDisplayName = ({
       </InputGroupItem>
     </InputGroup>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useProduct: Function, t: translate, useDispatch: Function, useProductInventoryHostsQuery: Function}}
- */
-ToolbarFieldDisplayName.propTypes = {
-  t: PropTypes.func,
-  useDispatch: PropTypes.func,
-  useProduct: PropTypes.func,
-  useProductInventoryHostsQuery: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useProduct: Function, t: translate, useDispatch: Function, useProductInventoryHostsQuery: Function}}
- */
-ToolbarFieldDisplayName.defaultProps = {
-  t: translate,
-  useDispatch: storeHooks.reactRedux.useDispatch,
-  useProduct,
-  useProductInventoryHostsQuery
 };
 
 export { ToolbarFieldDisplayName as default, ToolbarFieldDisplayName };

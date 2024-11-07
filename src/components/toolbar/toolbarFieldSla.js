@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductQuery } from '../productView/productViewContext';
 import { Select, SelectPosition } from '../form/select';
@@ -28,8 +27,8 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
  * On select update sla.
  *
  * @param {object} options
- * @param {Function} options.useDispatch
- * @param {Function} options.useProduct
+ * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {useProduct} [options.useProduct=useProduct]
  * @returns {Function}
  */
 const useOnSelect = ({
@@ -58,23 +57,23 @@ const useOnSelect = ({
 /**
  * Display a sla field with options.
  *
- * @fires onSelect
  * @param {object} props
- * @param {boolean} props.isFilter
- * @param {object} props.options
- * @param {string} props.position
- * @param {Function} props.t
- * @param {Function} props.useOnSelect
- * @param {Function} props.useProductQuery
- * @returns {React.ReactNode}
+ * @param {boolean} [props.isFilter=false]
+ * @param {toolbarFieldOptions} [props.options=toolbarFieldOptions]
+ * @param {SelectPosition} [props.position=SelectPosition.left]
+ * @param {translate} [props.t=translate]
+ * @param {useOnSelect} [props.useOnSelect=useOnSelect]
+ * @param {useProductQuery} [props.useProductQuery=useProductQuery]
+ * @fires onSelect
+ * @returns {JSX.Element}
  */
 const ToolbarFieldSla = ({
-  isFilter,
-  options,
-  position,
-  t,
-  useOnSelect: useAliasOnSelect,
-  useProductQuery: useAliasProductQuery
+  isFilter = false,
+  options = toolbarFieldOptions,
+  position = SelectPosition.left,
+  t = translate,
+  useOnSelect: useAliasOnSelect = useOnSelect,
+  useProductQuery: useAliasProductQuery = useProductQuery
 }) => {
   const { [RHSM_API_QUERY_SET_TYPES.SLA]: updatedValue } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
@@ -92,42 +91,6 @@ const ToolbarFieldSla = ({
       data-test="toolbarFieldSla"
     />
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function,
- *     position: string}}
- */
-ToolbarFieldSla.propTypes = {
-  isFilter: PropTypes.bool,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.node,
-      value: PropTypes.any,
-      selected: PropTypes.bool
-    })
-  ),
-  position: PropTypes.string,
-  t: PropTypes.func,
-  useOnSelect: PropTypes.func,
-  useProductQuery: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function,
- *     position: string}}
- */
-ToolbarFieldSla.defaultProps = {
-  isFilter: false,
-  options: toolbarFieldOptions,
-  position: SelectPosition.left,
-  t: translate,
-  useOnSelect,
-  useProductQuery
 };
 
 export { ToolbarFieldSla as default, ToolbarFieldSla, toolbarFieldOptions, useOnSelect };

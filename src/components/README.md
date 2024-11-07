@@ -5725,9 +5725,7 @@ A standalone Billing Provider select filter.
 * [ToolbarFieldBillingProvider](#Toolbar.module_ToolbarFieldBillingProvider)
     * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldBillingProvider..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldBillingProvider..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldBillingProvider(props)](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider.defaultProps) : <code>Object</code>
+    * [~ToolbarFieldBillingProvider(props)](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldBillingProvider..toolbarFieldOptions"></a>
 
@@ -5744,22 +5742,22 @@ On select update billing provider.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider"></a>
 
-### ToolbarFieldBillingProvider~ToolbarFieldBillingProvider(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFieldBillingProvider~ToolbarFieldBillingProvider(props) ⇒ <code>JSX.Element</code>
 Display a billing provider field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldBillingProvider</code>](#Toolbar.module_ToolbarFieldBillingProvider)  
@@ -5767,44 +5765,27 @@ Display a billing provider field with options.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
+    <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.options</td><td><code>object</code></td>
+    <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
-    <td>props.useProductQuery</td><td><code>function</code></td>
+    <td>[props.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldBillingProvider(props)](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider.propTypes"></a>
-
-#### ToolbarFieldBillingProvider.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldBillingProvider</code>](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider)  
-<a name="Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider.defaultProps"></a>
-
-#### ToolbarFieldBillingProvider.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldBillingProvider</code>](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider)  
 <a name="Toolbar.module_ToolbarFieldCategory"></a>
 
 ## ToolbarFieldCategory
@@ -5814,9 +5795,7 @@ A standalone Category select filter.
 * [ToolbarFieldCategory](#Toolbar.module_ToolbarFieldCategory)
     * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldCategory..useToolbarFieldOptions) ⇒ <code>function</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldCategory..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldCategory(props)](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory.defaultProps) : <code>Object</code>
+    * [~ToolbarFieldCategory(props)](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldCategory..useToolbarFieldOptions"></a>
 
@@ -5827,14 +5806,14 @@ Generate select field options from nested product graph configuration.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProductGraphConfig</td><td><code>function</code></td>
+    <td>[options.useProductGraphConfig]</td><td><code>useProductGraphConfig</code></td><td><code>useProductGraphConfig</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5847,22 +5826,22 @@ On select update.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory"></a>
 
-### ToolbarFieldCategory~ToolbarFieldCategory(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFieldCategory~ToolbarFieldCategory(props) ⇒ <code>JSX.Element</code>
 Display a category field with generated options.
 
 **Kind**: inner method of [<code>ToolbarFieldCategory</code>](#Toolbar.module_ToolbarFieldCategory)  
@@ -5870,44 +5849,27 @@ Display a category field with generated options.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
+    <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
-    <td>props.useProductToolbarQuery</td><td><code>function</code></td>
+    <td>[props.useProductToolbarQuery]</td><td><code>useProductToolbarQuery</code></td><td><code>useProductToolbarQuery</code></td>
     </tr><tr>
-    <td>props.useToolbarFieldOptions</td><td><code>function</code></td>
+    <td>[props.useToolbarFieldOptions]</td><td><code>useToolbarFieldOptions</code></td><td><code>useToolbarFieldOptions</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldCategory(props)](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory.propTypes"></a>
-
-#### ToolbarFieldCategory.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldCategory</code>](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory)  
-<a name="Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory.defaultProps"></a>
-
-#### ToolbarFieldCategory.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldCategory</code>](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory)  
 <a name="Toolbar.module_ToolbarFieldDisplayName"></a>
 
 ## ToolbarFieldDisplayName
@@ -5915,19 +5877,15 @@ A standalone Display Name input filter.
 
 
 * [ToolbarFieldDisplayName](#Toolbar.module_ToolbarFieldDisplayName)
-    * [~ToolbarFieldDisplayName(props)](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName.propTypes) : <code>Object</code>
-            * [.defaultProps](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName.defaultProps) : <code>Object</code>
-        * _inner_
-            * [~debounced](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName..debounced)
+    * [~ToolbarFieldDisplayName(props)](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName) ⇒ <code>JSX.Element</code>
+        * [~debounced](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName..debounced)
     * ["onSubmit" (submitValue)](#event_onSubmit) ⇒ <code>void</code>
     * ["onClear"](#event_onClear) ⇒ <code>void</code>
     * ["onKeyUp" (event)](#event_onKeyUp)
 
 <a name="Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName"></a>
 
-### ToolbarFieldDisplayName~ToolbarFieldDisplayName(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFieldDisplayName~ToolbarFieldDisplayName(props) ⇒ <code>JSX.Element</code>
 Display a display name input field for search.
 
 **Kind**: inner method of [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName)  
@@ -5935,43 +5893,23 @@ Display a display name input field for search.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useDispatch</td><td><code>function</code></td>
+    <td>[props.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>props.useProduct</td><td><code>function</code></td>
+    <td>[props.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
-    <td>props.useProductInventoryHostsQuery</td><td><code>function</code></td>
+    <td>[props.useProductInventoryHostsQuery]</td><td><code>useProductInventoryHostsQuery</code></td><td><code>useProductInventoryHostsQuery</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldDisplayName(props)](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName) ⇒ <code>React.ReactNode</code>
-    * _static_
-        * [.propTypes](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName.defaultProps) : <code>Object</code>
-    * _inner_
-        * [~debounced](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName..debounced)
-
-<a name="Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName.propTypes"></a>
-
-#### ToolbarFieldDisplayName.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName)  
-<a name="Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName.defaultProps"></a>
-
-#### ToolbarFieldDisplayName.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldDisplayName</code>](#Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName)  
 <a name="Toolbar.module_ToolbarFieldDisplayName..ToolbarFieldDisplayName..debounced"></a>
 
 #### ToolbarFieldDisplayName~debounced
@@ -6029,9 +5967,7 @@ A standalone export select/dropdown filter and download hooks.
 * [ToolbarFieldExport](#Toolbar.module_ToolbarFieldExport)
     * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldExport..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldExport..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldExport(props)](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport.defaultProps) : <code>Object</code>
+    * [~ToolbarFieldExport(props)](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldExport..toolbarFieldOptions"></a>
 
@@ -6048,24 +5984,24 @@ On select create/post an export.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useExport</td><td><code>function</code></td>
+    <td>[options.useExport]</td><td><code>useExport</code></td><td><code>useExport</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
-    <td>options.useProductExportQuery</td><td><code>function</code></td>
+    <td>[options.useProductExportQuery]</td><td><code>useProductExportQuery</code></td><td><code>useProductExportQuery</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldExport..ToolbarFieldExport"></a>
 
-### ToolbarFieldExport~ToolbarFieldExport(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFieldExport~ToolbarFieldExport(props) ⇒ <code>JSX.Element</code>
 Display an export/download field with options. Check and download available exports.
 
 **Kind**: inner method of [<code>ToolbarFieldExport</code>](#Toolbar.module_ToolbarFieldExport)  
@@ -6073,44 +6009,27 @@ Display an export/download field with options. Check and download available expo
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.options</td><td><code>Array</code></td>
+    <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useExistingExports</td><td><code>function</code></td>
+    <td>[props.useExistingExports]</td><td><code>useExistingExports</code></td><td><code>useExistingExports</code></td>
     </tr><tr>
-    <td>props.useExportStatus</td><td><code>function</code></td>
+    <td>[props.useExportStatus]</td><td><code>useExportStatus</code></td><td><code>useExportStatus</code></td>
     </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldExport(props)](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldExport..ToolbarFieldExport.propTypes"></a>
-
-#### ToolbarFieldExport.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldExport</code>](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport)  
-<a name="Toolbar.module_ToolbarFieldExport..ToolbarFieldExport.defaultProps"></a>
-
-#### ToolbarFieldExport.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldExport</code>](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport)  
 <a name="ToolbarFieldExport.module_ToolbarFieldExportContext"></a>
 
 ## ToolbarFieldExportContext
@@ -6273,9 +6192,7 @@ A standalone Granularity select filter.
 * [ToolbarFieldGranularity](#Toolbar.module_ToolbarFieldGranularity)
     * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldGranularity..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldGranularity..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldGranularity(props)](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity.defaultProps) : <code>Object</code>
+    * [~ToolbarFieldGranularity(props)](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldGranularity..toolbarFieldOptions"></a>
 
@@ -6292,22 +6209,22 @@ On select update granularity.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity"></a>
 
-### ToolbarFieldGranularity~ToolbarFieldGranularity(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFieldGranularity~ToolbarFieldGranularity(props) ⇒ <code>JSX.Element</code>
 Display a granularity field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldGranularity</code>](#Toolbar.module_ToolbarFieldGranularity)  
@@ -6315,44 +6232,27 @@ Display a granularity field with options.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
+    <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.options</td><td><code>Array</code></td>
+    <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
-    <td>props.useProductGraphTallyQuery</td><td><code>function</code></td>
+    <td>[props.useProductGraphTallyQuery]</td><td><code>useProductGraphTallyQuery</code></td><td><code>useProductGraphTallyQuery</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldGranularity(props)](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity.propTypes"></a>
-
-#### ToolbarFieldGranularity.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldGranularity</code>](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity)  
-<a name="Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity.defaultProps"></a>
-
-#### ToolbarFieldGranularity.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldGranularity</code>](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity)  
 <a name="Toolbar.module_ToolbarFieldGroupVariant"></a>
 
 ## ToolbarFieldGroupVariant
@@ -6362,9 +6262,7 @@ A toolbar product configuration select filter requiring a toolbar component pare
 * [ToolbarFieldGroupVariant](#Toolbar.module_ToolbarFieldGroupVariant)
     * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldGroupVariant..useToolbarFieldOptions) ⇒ <code>function</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldGroupVariant..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldGroupVariant(props)](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.defaultProps) : <code>Object</code>
+    * [~ToolbarFieldGroupVariant(props)](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldGroupVariant..useToolbarFieldOptions"></a>
 
@@ -6375,16 +6273,16 @@ Generate select field options from config. Sorted by title string.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.t</td><td><code>function</code></td>
+    <td>[options.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.useRouteDetail</td><td><code>function</code></td>
+    <td>[options.useRouteDetail]</td><td><code>routerContext.useRouteDetail</code></td><td><code>routerContext.useRouteDetail</code></td>
     </tr>  </tbody>
 </table>
 
@@ -6397,22 +6295,22 @@ On select update.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant"></a>
 
-### ToolbarFieldGroupVariant~ToolbarFieldGroupVariant(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFieldGroupVariant~ToolbarFieldGroupVariant(props) ⇒ <code>JSX.Element</code>
 Display a product configuration field with generated options.
 
 **Kind**: inner method of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant)  
@@ -6420,48 +6318,31 @@ Display a product configuration field with generated options.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
+    <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.isStandalone</td><td><code>boolean</code></td>
+    <td>[props.isStandalone]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
-    <td>props.useProduct</td><td><code>function</code></td>
+    <td>[props.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
-    <td>props.useSelector</td><td><code>function</code></td>
+    <td>[props.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
     </tr><tr>
-    <td>props.useToolbarFieldOptions</td><td><code>function</code></td>
+    <td>[props.useToolbarFieldOptions]</td><td><code>useToolbarFieldOptions</code></td><td><code>useToolbarFieldOptions</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldGroupVariant(props)](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.propTypes"></a>
-
-#### ToolbarFieldGroupVariant.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant)  
-<a name="Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.defaultProps"></a>
-
-#### ToolbarFieldGroupVariant.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant)  
 <a name="Toolbar.module_ToolbarFieldRangedMonthly"></a>
 
 ## ToolbarFieldRangedMonthly
@@ -6471,9 +6352,7 @@ A standalone Ranged Monthly Granularity select filter.
 * [ToolbarFieldRangedMonthly](#Toolbar.module_ToolbarFieldRangedMonthly)
     * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldRangedMonthly..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldRangedMonthly..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldRangedMonthly(props)](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly.defaultProps) : <code>Object</code>
+    * [~ToolbarFieldRangedMonthly(props)](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldRangedMonthly..toolbarFieldOptions"></a>
 
@@ -6490,22 +6369,22 @@ On select update granularity.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly"></a>
 
-### ToolbarFieldRangedMonthly~ToolbarFieldRangedMonthly(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFieldRangedMonthly~ToolbarFieldRangedMonthly(props) ⇒ <code>JSX.Element</code>
 Display a granularity field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldRangedMonthly</code>](#Toolbar.module_ToolbarFieldRangedMonthly)  
@@ -6513,44 +6392,27 @@ Display a granularity field with options.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
+    <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.options</td><td><code>Array</code></td>
+    <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
-    <td>props.useProductGraphTallyQuery</td><td><code>function</code></td>
+    <td>[props.useProductGraphTallyQuery]</td><td><code>useProductGraphTallyQuery</code></td><td><code>useProductGraphTallyQuery</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldRangedMonthly(props)](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly.propTypes"></a>
-
-#### ToolbarFieldRangedMonthly.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldRangedMonthly</code>](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly)  
-<a name="Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly.defaultProps"></a>
-
-#### ToolbarFieldRangedMonthly.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldRangedMonthly</code>](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly)  
 <a name="Toolbar.module_ToolbarFieldSelectCategory"></a>
 
 ## ToolbarFieldSelectCategory
@@ -6558,10 +6420,8 @@ Default props.
 * [ToolbarFieldSelectCategory](#Toolbar.module_ToolbarFieldSelectCategory)
     * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldSelectCategory..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldSelectCategory..useOnSelect) ⇒ <code>function</code>
-    * [~useSelectCategoryOptions(options)](#Toolbar.module_ToolbarFieldSelectCategory..useSelectCategoryOptions) ⇒ <code>object</code>
-    * [~ToolbarFieldSelectCategory(props)](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory.defaultProps) : <code>Object</code>
+    * [~useSelectCategoryOptions(options)](#Toolbar.module_ToolbarFieldSelectCategory..useSelectCategoryOptions) ⇒ <code>Object</code>
+    * [~ToolbarFieldSelectCategory(props)](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldSelectCategory..toolbarFieldOptions"></a>
 
@@ -6579,87 +6439,70 @@ On select update category.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldSelectCategory..useSelectCategoryOptions"></a>
 
-### ToolbarFieldSelectCategory~useSelectCategoryOptions(options) ⇒ <code>object</code>
+### ToolbarFieldSelectCategory~useSelectCategoryOptions(options) ⇒ <code>Object</code>
 Return filtered category options, current, and initial value.
 
 **Kind**: inner method of [<code>ToolbarFieldSelectCategory</code>](#Toolbar.module_ToolbarFieldSelectCategory)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.categoryOptions</td><td><code>Array</code></td>
+    <td>[options.categoryOptions]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
-    <td>options.useProductToolbarConfig</td><td><code>function</code></td>
+    <td>[options.useProductToolbarConfig]</td><td><code>useProductToolbarConfig</code></td><td><code>useProductToolbarConfig</code></td>
     </tr><tr>
-    <td>options.useSelector</td><td><code>function</code></td>
+    <td>[options.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory"></a>
 
-### ToolbarFieldSelectCategory~ToolbarFieldSelectCategory(props) ⇒ <code>React.ReactNode</code>
-Display a granularity field with options.
+### ToolbarFieldSelectCategory~ToolbarFieldSelectCategory(props) ⇒ <code>JSX.Element</code>
+Display a select category field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldSelectCategory</code>](#Toolbar.module_ToolbarFieldSelectCategory)  
 **Emits**: [<code>onSelect</code>](#event_onSelect)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
-    <td>props.useSelectCategoryOptions</td><td><code>function</code></td>
+    <td>[props.useSelectCategoryOptions]</td><td><code>useSelectCategoryOptions</code></td><td><code>useSelectCategoryOptions</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldSelectCategory(props)](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory.propTypes"></a>
-
-#### ToolbarFieldSelectCategory.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldSelectCategory</code>](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory)  
-<a name="Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory.defaultProps"></a>
-
-#### ToolbarFieldSelectCategory.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldSelectCategory</code>](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory)  
 <a name="Toolbar.module_ToolbarFieldSla"></a>
 
 ## ToolbarFieldSla
@@ -6669,9 +6512,7 @@ A standalone SLA select filter.
 * [ToolbarFieldSla](#Toolbar.module_ToolbarFieldSla)
     * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldSla..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldSla..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldSla(props)](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla.defaultProps) : <code>Object</code>
+    * [~ToolbarFieldSla(props)](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldSla..toolbarFieldOptions"></a>
 
@@ -6688,22 +6529,22 @@ On select update sla.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldSla..ToolbarFieldSla"></a>
 
-### ToolbarFieldSla~ToolbarFieldSla(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFieldSla~ToolbarFieldSla(props) ⇒ <code>JSX.Element</code>
 Display a sla field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldSla</code>](#Toolbar.module_ToolbarFieldSla)  
@@ -6711,44 +6552,27 @@ Display a sla field with options.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
+    <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.options</td><td><code>object</code></td>
+    <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
-    <td>props.useProductQuery</td><td><code>function</code></td>
+    <td>[props.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldSla(props)](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldSla..ToolbarFieldSla.propTypes"></a>
-
-#### ToolbarFieldSla.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldSla</code>](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla)  
-<a name="Toolbar.module_ToolbarFieldSla..ToolbarFieldSla.defaultProps"></a>
-
-#### ToolbarFieldSla.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldSla</code>](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla)  
 <a name="Toolbar.module_ToolbarFieldUsage"></a>
 
 ## ToolbarFieldUsage
@@ -6758,9 +6582,7 @@ A standalone Usage select filter.
 * [ToolbarFieldUsage](#Toolbar.module_ToolbarFieldUsage)
     * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldUsage..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldUsage..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldUsage(props)](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage.defaultProps) : <code>Object</code>
+    * [~ToolbarFieldUsage(props)](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldUsage..toolbarFieldOptions"></a>
 
@@ -6777,22 +6599,22 @@ On select update usage.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage"></a>
 
-### ToolbarFieldUsage~ToolbarFieldUsage(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFieldUsage~ToolbarFieldUsage(props) ⇒ <code>JSX.Element</code>
 Display a usage field with options.
 
 **Kind**: inner method of [<code>ToolbarFieldUsage</code>](#Toolbar.module_ToolbarFieldUsage)  
@@ -6800,44 +6622,27 @@ Display a usage field with options.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
+    <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.options</td><td><code>object</code></td>
+    <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
-    <td>props.useProductQuery</td><td><code>function</code></td>
+    <td>[props.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFieldUsage(props)](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage.propTypes"></a>
-
-#### ToolbarFieldUsage.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldUsage</code>](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage)  
-<a name="Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage.defaultProps"></a>
-
-#### ToolbarFieldUsage.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldUsage</code>](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage)  
 <a name="Toolbar.module_ToolbarFilter"></a>
 
 ## ToolbarFilter
@@ -6847,9 +6652,7 @@ ToolbarFilter, wrapper component for Patternfly ToolbarFilter.
 * [ToolbarFilter](#Toolbar.module_ToolbarFilter)
     * [~useToolbarContentContext()](#Toolbar.module_ToolbarFilter..useToolbarContentContext) ⇒ <code>Object</code>
     * [~useToolbarContext()](#Toolbar.module_ToolbarFilter..useToolbarContext) ⇒ <code>Object</code>
-    * [~ToolbarFilter(props)](#Toolbar.module_ToolbarFilter..ToolbarFilter) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFilter..ToolbarFilter.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFilter..ToolbarFilter.defaultProps) : <code>Object</code>
+    * [~ToolbarFilter(props)](#Toolbar.module_ToolbarFilter..ToolbarFilter) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFilter..useToolbarContentContext"></a>
 
@@ -6865,59 +6668,42 @@ Hook for ToolbarContext
 **Kind**: inner method of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter)  
 <a name="Toolbar.module_ToolbarFilter..ToolbarFilter"></a>
 
-### ToolbarFilter~ToolbarFilter(props) ⇒ <code>React.ReactNode</code>
+### ToolbarFilter~ToolbarFilter(props) ⇒ <code>JSX.Element</code>
 Converted PF ToolbarFilter replacement with conditional "firstElementChild".
 
 **Kind**: inner method of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.categoryName</td><td><code>string</code> | <code>object</code></td>
+    <td>props.categoryName</td><td><code>string</code> | <code>Object</code></td><td></td>
     </tr><tr>
-    <td>props.chipGroupCollapsedText</td><td><code>string</code></td>
+    <td>[props.chipGroupCollapsedText]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.chipGroupExpandedText</td><td><code>string</code></td>
+    <td>[props.chipGroupExpandedText]</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>props.chips</td><td><code>Array</code></td>
+    <td>props.chips</td><td><code>Array.&lt;(string|{key: string, node: string})&gt;</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.deleteChip</td><td><code>function</code></td>
+    <td>[props.deleteChip]</td><td><code>function</code></td><td><code>helpers.noop</code></td>
     </tr><tr>
-    <td>props.deleteChipGroup</td><td><code>function</code></td>
+    <td>[props.deleteChipGroup]</td><td><code>function</code></td><td></td>
     </tr><tr>
-    <td>props.showToolbarItem</td><td><code>boolean</code></td>
+    <td>[props.showToolbarItem]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr><tr>
-    <td>props.useToolbarContentContext</td><td><code>function</code></td>
+    <td>[props.useToolbarContentContext]</td><td><code>useToolbarContentContext</code></td><td><code>useToolbarContentContext</code></td>
     </tr><tr>
-    <td>props.useToolbarContext</td><td><code>function</code></td>
+    <td>[props.useToolbarContext]</td><td><code>useToolbarContext</code></td><td><code>useToolbarContext</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~ToolbarFilter(props)](#Toolbar.module_ToolbarFilter..ToolbarFilter) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFilter..ToolbarFilter.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFilter..ToolbarFilter.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFilter..ToolbarFilter.propTypes"></a>
-
-#### ToolbarFilter.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter..ToolbarFilter)  
-<a name="Toolbar.module_ToolbarFilter..ToolbarFilter.defaultProps"></a>
-
-#### ToolbarFilter.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter..ToolbarFilter)  
 <a name="Components.module_Tooltip"></a>
 
 ## Tooltip

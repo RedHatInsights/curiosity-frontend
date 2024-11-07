@@ -22,14 +22,9 @@ exports[`Toolbar Component should handle displaying a group variant field: group
       >
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
-          chipGroupCollapsedText={null}
-          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
-          deleteChipGroup={null}
           showToolbarItem={true}
-          useToolbarContentContext={[Function]}
-          useToolbarContext={[Function]}
         >
           <Sla
             isFilter={true}
@@ -55,14 +50,7 @@ exports[`Toolbar Component should handle displaying a group variant field: group
 
 exports[`Toolbar Component should handle displaying a group variant field: group variant, standalone 1`] = `
 <ToolbarFieldGroupVariant
-  isFilter={false}
   isStandalone={true}
-  position="left"
-  t={[Function]}
-  useOnSelect={[Function]}
-  useProduct={[Function]}
-  useSelector={[Function]}
-  useToolbarFieldOptions={[Function]}
 />
 `;
 
@@ -74,16 +62,7 @@ exports[`Toolbar Component should handle displaying secondary components, fields
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
-  <ToolbarFieldGroupVariant
-    isFilter={false}
-    isStandalone={false}
-    position="left"
-    t={[Function]}
-    useOnSelect={[Function]}
-    useProduct={[Function]}
-    useSelector={[Function]}
-    useToolbarFieldOptions={[Function]}
-  />
+  <ToolbarFieldGroupVariant />
   <ToolbarContent
     className="curiosity-toolbar__content"
     isExpanded={false}
@@ -98,14 +77,9 @@ exports[`Toolbar Component should handle displaying secondary components, fields
       >
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
-          chipGroupCollapsedText={null}
-          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
-          deleteChipGroup={null}
           showToolbarItem={true}
-          useToolbarContentContext={[Function]}
-          useToolbarContext={[Function]}
         >
           <Sla
             isFilter={true}
@@ -188,16 +162,7 @@ exports[`Toolbar Component should hide categories when a single filter is availa
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
-  <ToolbarFieldGroupVariant
-    isFilter={false}
-    isStandalone={false}
-    position="left"
-    t={[Function]}
-    useOnSelect={[Function]}
-    useProduct={[Function]}
-    useSelector={[Function]}
-    useToolbarFieldOptions={[Function]}
-  />
+  <ToolbarFieldGroupVariant />
   <ToolbarContent
     className="curiosity-toolbar__content"
     isExpanded={false}
@@ -212,14 +177,9 @@ exports[`Toolbar Component should hide categories when a single filter is availa
       >
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
-          chipGroupCollapsedText={null}
-          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
-          deleteChipGroup={null}
           showToolbarItem={true}
-          useToolbarContentContext={[Function]}
-          useToolbarContext={[Function]}
         >
           <Sla
             isFilter={true}
@@ -247,16 +207,7 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
-  <ToolbarFieldGroupVariant
-    isFilter={false}
-    isStandalone={false}
-    position="left"
-    t={[Function]}
-    useOnSelect={[Function]}
-    useProduct={[Function]}
-    useSelector={[Function]}
-    useToolbarFieldOptions={[Function]}
-  />
+  <ToolbarFieldGroupVariant />
   <ToolbarContent
     className="curiosity-toolbar__content"
     isExpanded={false}
@@ -270,22 +221,13 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
         variant="filter-group"
       >
         <ToolbarItem>
-          <ToolbarFieldSelectCategory
-            t={[Function]}
-            useOnSelect={[Function]}
-            useSelectCategoryOptions={[Function]}
-          />
+          <ToolbarFieldSelectCategory />
         </ToolbarItem>
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
-          chipGroupCollapsedText={null}
-          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
-          deleteChipGroup={null}
           showToolbarItem={false}
-          useToolbarContentContext={[Function]}
-          useToolbarContext={[Function]}
         >
           <Sla
             isFilter={true}
@@ -293,14 +235,9 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
         </ToolbarFilter>
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"usage"})"
-          chipGroupCollapsedText={null}
-          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
-          deleteChipGroup={null}
           showToolbarItem={false}
-          useToolbarContentContext={[Function]}
-          useToolbarContext={[Function]}
         >
           <Usage
             isFilter={true}
@@ -324,14 +261,7 @@ exports[`Toolbar Component should return an empty render, or variant filter, whe
 
 exports[`Toolbar Component should return an empty render, or variant filter, when disabled or missing filters: missing filters, has variant filter 1`] = `
 <ToolbarFieldGroupVariant
-  isFilter={false}
   isStandalone={true}
-  position="left"
-  t={[Function]}
-  useOnSelect={[Function]}
-  useProduct={[Function]}
-  useSelector={[Function]}
-  useToolbarFieldOptions={[Function]}
 />
 `;
 
@@ -343,16 +273,7 @@ exports[`Toolbar Component should return an empty render, or variant filter, whe
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
-  <ToolbarFieldGroupVariant
-    isFilter={false}
-    isStandalone={false}
-    position="left"
-    t={[Function]}
-    useOnSelect={[Function]}
-    useProduct={[Function]}
-    useSelector={[Function]}
-    useToolbarFieldOptions={[Function]}
-  />
+  <ToolbarFieldGroupVariant />
   <ToolbarContent
     className="curiosity-toolbar__content"
     isExpanded={false}

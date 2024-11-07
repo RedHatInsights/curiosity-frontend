@@ -66,11 +66,7 @@ exports[`ToolbarFilter Component should render a basic component: basic 1`] = `
   ],
   "children": [
     {}
-  ],
-  "chipGroupCollapsedText": null,
-  "chipGroupExpandedText": null,
-  "deleteChipGroup": null,
-  "showToolbarItem": true
+  ]
 }"
 >
   <div
