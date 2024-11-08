@@ -6709,52 +6709,37 @@ Converted PF ToolbarFilter replacement with conditional "firstElementChild".
 ## Tooltip
 PF tooltip wrapper.
 
-
-* [Tooltip](#Components.module_Tooltip)
-    * [~Tooltip(props)](#Components.module_Tooltip..Tooltip) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Components.module_Tooltip..Tooltip.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_Tooltip..Tooltip.defaultProps) : <code>Object</code>
-
 <a name="Components.module_Tooltip..Tooltip"></a>
 
-### Tooltip~Tooltip(props) ⇒ <code>React.ReactNode</code>
+### Tooltip~Tooltip(props) ⇒ <code>JSX.Element</code>
 PF tooltip wrapper component.
 
 **Kind**: inner method of [<code>Tooltip</code>](#Components.module_Tooltip)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.content</td><td><code>React.ReactNode</code></td>
+    <td>[props.content]</td><td><code>React.ReactNode</code></td><td><code>&#x27;...&#x27;</code></td>
     </tr><tr>
-    <td>props.isNoWrap</td><td><code>boolean</code></td>
+    <td>[props.isNoWrap]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
-    <td>props.props</td><td><code>object</code></td>
+    <td>[props.distance]</td><td><code>number</code></td><td><code>15</code></td>
+    </tr><tr>
+    <td>[props.enableFlip]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.entryDelay]</td><td><code>number</code></td><td><code>100</code></td>
+    </tr><tr>
+    <td>[props.exitDelay]</td><td><code>number</code></td><td><code>0</code></td>
+    </tr><tr>
+    <td>[props.position]</td><td><code>TooltipPosition</code></td><td><code>TooltipPosition.top</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~Tooltip(props)](#Components.module_Tooltip..Tooltip) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Components.module_Tooltip..Tooltip.propTypes) : <code>Object</code>
-    * [.defaultProps](#Components.module_Tooltip..Tooltip.defaultProps) : <code>Object</code>
-
-<a name="Components.module_Tooltip..Tooltip.propTypes"></a>
-
-#### Tooltip.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>Tooltip</code>](#Components.module_Tooltip..Tooltip)  
-<a name="Components.module_Tooltip..Tooltip.defaultProps"></a>
-
-#### Tooltip.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>Tooltip</code>](#Components.module_Tooltip..Tooltip)  
