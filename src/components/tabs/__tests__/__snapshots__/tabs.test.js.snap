@@ -179,9 +179,6 @@ exports[`Tabs Component should render a basic component: basic 1`] = `
       "content": "sit"
     }
   ],
-  "className": "",
-  "defaultActiveTab": 0,
-  "hasOverflowScroll": false,
   "children": []
 }"
 >

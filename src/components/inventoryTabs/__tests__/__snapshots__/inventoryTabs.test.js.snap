@@ -36,9 +36,7 @@ exports[`InventoryTabs Component should render a basic component: basic 1`] = `
   </Title>
   <Tabs
     activeTab={0}
-    className=""
     defaultActiveTab={0}
-    hasOverflowScroll={false}
     onTab={[Function]}
     tabs={
       [
