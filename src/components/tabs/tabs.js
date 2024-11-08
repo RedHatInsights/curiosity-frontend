@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Tabs as PfTabs, Tab, TabTitleText, Grid, GridItem } from '@patternfly/react-core';
 import { helpers } from '../../common';
 
@@ -14,16 +13,23 @@ import { helpers } from '../../common';
  * A set of tabs.
  *
  * @param {object} props
- * @param {number} props.defaultActiveTab
- * @param {Array} props.tabs
- * @param {Function} props.onTab A user defined tab handler
- * @param {string} props.className
- * @param {boolean} props.hasOverflowScroll
- * @param {number} props.activeTab
+ * @param {number} [props.activeTab]
+ * @param {string} [props.className='']
+ * @param {number} [props.defaultActiveTab=0]
+ * @param {boolean} [props.hasOverflowScroll=false]
+ * @param {Function} [props.onTab=helpers.noop] A user defined tab handler
+ * @param {Array<{ active: (boolean|undefined), content: React.ReactNode, title: React.ReactNode }>} [props.tabs=[]]
  * @fires onSelect
- * @returns {React.ReactNode}
+ * @returns {JSX.Element}
  */
-const Tabs = ({ activeTab, defaultActiveTab, tabs, onTab, className, hasOverflowScroll }) => {
+const Tabs = ({
+  activeTab,
+  className = '',
+  defaultActiveTab = 0,
+  hasOverflowScroll = false,
+  onTab = helpers.noop,
+  tabs = []
+}) => {
   // Apply a config driven default or fallback to internal default state.
   const [updatedActiveTab, setUpdatedActiveTab] = useState(defaultActiveTab);
 
@@ -78,42 +84,6 @@ const Tabs = ({ activeTab, defaultActiveTab, tabs, onTab, className, hasOverflow
       </GridItem>
     </Grid>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{tabs: Array, hasOverflowScroll: boolean, onTab: Function, className: string,
- *     defaultActiveTab: number, activeTab: number}}
- */
-Tabs.propTypes = {
-  activeTab: PropTypes.number,
-  className: PropTypes.string,
-  defaultActiveTab: PropTypes.number,
-  hasOverflowScroll: PropTypes.bool,
-  onTab: PropTypes.func,
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      active: PropTypes.bool,
-      content: PropTypes.node.isRequired,
-      title: PropTypes.node.isRequired
-    })
-  )
-};
-
-/**
- * Default props.
- *
- * @type {{tabs: Array, hasOverflowScroll: boolean, onTab: Function, className: string,
- *     defaultActiveTab: number, activeTab: number|undefined}}
- */
-Tabs.defaultProps = {
-  activeTab: undefined,
-  className: '',
-  defaultActiveTab: 0,
-  hasOverflowScroll: false,
-  onTab: helpers.noop,
-  tabs: []
 };
 
 export { Tabs as default, Tabs };
