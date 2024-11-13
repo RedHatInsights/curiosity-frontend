@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { i18nHelpers, EMPTY_CONTEXT, translate, translateComponent } from '../i18nHelpers';
 
 describe('I18nHelpers', () => {
@@ -9,22 +8,13 @@ describe('I18nHelpers', () => {
 
   it('should attempt to perform translate with a node', () => {
     const ExampleComponent = () => <div>{translate('lorem.ipsum', { hello: 'world' }, [<span id="test" />])}</div>;
-    ExampleComponent.propTypes = {};
-    ExampleComponent.defaultProps = {};
 
     const component = renderComponent(<ExampleComponent />);
     expect(component).toMatchSnapshot('translated node');
   });
 
   it('should attempt to perform a component translate', () => {
-    const ExampleComponent = ({ t }) => <div>{t('lorem.ipsum', 'hello world')}</div>;
-    ExampleComponent.propTypes = {
-      t: PropTypes.func
-    };
-
-    ExampleComponent.defaultProps = {
-      t: translate
-    };
+    const ExampleComponent = ({ t = translate }) => <div>{t('lorem.ipsum', 'hello world')}</div>;
 
     const TranslatedComponent = translateComponent(ExampleComponent);
     const component = renderComponent(<TranslatedComponent />);
