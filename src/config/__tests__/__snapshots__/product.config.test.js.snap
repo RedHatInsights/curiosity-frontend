@@ -6404,10 +6404,8 @@ exports[`Product specific configurations should apply variations in inventory fi
               >
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Cores"})"
-                  fill={null}
                   size="md"
                   symbol="infinity"
-                  title={null}
                 />
               </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
@@ -6422,10 +6420,8 @@ exports[`Product specific configurations should apply variations in inventory fi
               >
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Sockets"})"
-                  fill={null}
                   size="md"
                   symbol="infinity"
-                  title={null}
                 />
               </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
@@ -6701,10 +6697,8 @@ exports[`Product specific configurations should apply variations in inventory fi
               >
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Sockets"})"
-                  fill={null}
                   size="md"
                   symbol="infinity"
-                  title={null}
                 />
               </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
@@ -7324,10 +7318,8 @@ exports[`Product specific configurations should apply variations in inventory fi
               >
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Cores"})"
-                  fill={null}
                   size="md"
                   symbol="infinity"
-                  title={null}
                 />
               </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift Container Platform"})",
@@ -7342,10 +7334,8 @@ exports[`Product specific configurations should apply variations in inventory fi
               >
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Sockets"})"
-                  fill={null}
                   size="md"
                   symbol="infinity"
-                  title={null}
                 />
               </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"OpenShift Container Platform"})",
@@ -7621,10 +7611,8 @@ exports[`Product specific configurations should apply variations in inventory fi
               >
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"Sockets"})"
-                  fill={null}
                   size="md"
                   symbol="infinity"
-                  title={null}
                 />
               </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",

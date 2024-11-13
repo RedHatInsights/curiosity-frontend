@@ -10,7 +10,7 @@ import { useChartContext, useToggleData } from './chartContext';
 /**
  * Wrapper for rendering an HTML based legend.
  *
- * @returns {React.ReactNode}
+ * @returns {JSX.Element|null}
  */
 const ChartLegend = () => {
   const { getIsToggled, onHide, onRevert, onToggle } = useToggleData();
@@ -44,15 +44,5 @@ const ChartLegend = () => {
     </div>
   );
 };
-
-/**
- * Prop types.
- */
-ChartLegend.propTypes = {};
-
-/**
- * Default props.
- */
-ChartLegend.defaultProps = {};
 
 export { ChartLegend as default, ChartLegend };

@@ -164,35 +164,6 @@ exports[`ChartElements Component should handle basic element settings from conte
 exports[`ChartElements Component should render a basic component: basic 1`] = `
 <chartelements
   props="{
-  "chartTypeDefaults": {
-    "area": {
-      "animate": {
-        "duration": 250,
-        "onLoad": {
-          "duration": 250
-        }
-      },
-      "interpolation": "monotoneX"
-    },
-    "line": {
-      "animate": {
-        "duration": 250,
-        "onLoad": {
-          "duration": 250
-        }
-      },
-      "interpolation": "monotoneX"
-    },
-    "threshold": {
-      "animate": {
-        "duration": 100,
-        "onLoad": {
-          "duration": 100
-        }
-      },
-      "interpolation": "step"
-    }
-  },
   "children": []
 }"
 >
