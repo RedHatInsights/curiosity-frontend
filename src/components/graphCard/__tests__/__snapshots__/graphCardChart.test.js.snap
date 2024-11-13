@@ -63,23 +63,9 @@ exports[`GraphCardChart Component should handle API response states: fulfilled 1
           chartLegend={[Function]}
           chartTooltip={[Function]}
           dataSets={[]}
-          padding={
-            {
-              "bottom": 75,
-              "left": 55,
-              "right": 55,
-              "top": 50,
-            }
-          }
-          themeColor="blue"
-          xAxisChartLabel={null}
-          xAxisFixLabelOverlap={true}
           xAxisLabelIncrement={1}
           xAxisTickFormat={[Function]}
-          xValueFormat={null}
-          yAxisChartLabel={null}
           yAxisTickFormat={[Function]}
-          yValueFormat={null}
         />
       </div>
     </CardBody>
@@ -154,23 +140,9 @@ exports[`GraphCardChart Component should render a basic component: basic 1`] = `
           chartLegend={[Function]}
           chartTooltip={[Function]}
           dataSets={[]}
-          padding={
-            {
-              "bottom": 75,
-              "left": 55,
-              "right": 55,
-              "top": 50,
-            }
-          }
-          themeColor="blue"
-          xAxisChartLabel={null}
-          xAxisFixLabelOverlap={true}
           xAxisLabelIncrement={1}
           xAxisTickFormat={[Function]}
-          xValueFormat={null}
-          yAxisChartLabel={null}
           yAxisTickFormat={[Function]}
-          yValueFormat={null}
         />
       </div>
     </CardBody>
