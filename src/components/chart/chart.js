@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ChartThemeColor } from '@patternfly/react-charts';
+import { useShallowCompareEffect } from 'react-use';
 import { ChartContext } from './chartContext';
 import { ChartElements } from './chartElements';
 import { ChartLegend } from './chartLegend';
@@ -61,7 +62,7 @@ const Chart = ({
   const tooltipRef = useRef(null);
   const { width: chartWidth } = useResizeObserver(containerRef);
 
-  useEffect(() => {
+  useShallowCompareEffect(() => {
     /**
      * Aggregate chart related settings.
      *
