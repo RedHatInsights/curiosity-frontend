@@ -5,7 +5,6 @@ exports[`Product specific configurations should apply graph filters and settings
   {
     "ansible-aap-managed": {
       "xAxisChartLabel": "t(curiosity-graph.label_axisX, {"context":"Daily"})",
-      "xAxisLabelIncrement": 1,
       "yAxisTickFormat": {
         "0.00001345": "0.00001",
         "0.0000269": "0.00003",
@@ -1457,7 +1456,6 @@ exports[`Product specific configurations should apply graph filters and settings
   {
     "rosa": {
       "xAxisChartLabel": "t(curiosity-graph.label_axisX, {"context":"Daily"})",
-      "xAxisLabelIncrement": 1,
       "yAxisTickFormat": {
         "0.00001345": "0.00001",
         "0.0000269": "0.00003",
@@ -1875,7 +1873,6 @@ exports[`Product specific configurations should apply graph filters and settings
             "stringId": "Managed-nodes_ansible-aap-managed",
             "stroke": "#06c",
             "xAxisChartLabel": [Function],
-            "xAxisLabelIncrement": 1,
             "yAxisTickFormat": [Function],
           },
         },
@@ -1957,7 +1954,6 @@ exports[`Product specific configurations should apply graph filters and settings
             "stringId": "Instance-hours_ansible-aap-managed",
             "stroke": "#06c",
             "xAxisChartLabel": [Function],
-            "xAxisLabelIncrement": 1,
             "yAxisTickFormat": [Function],
           },
         },
@@ -2615,7 +2611,6 @@ exports[`Product specific configurations should apply graph filters and settings
             "stringId": "Cores_rosa",
             "stroke": "#06c",
             "xAxisChartLabel": [Function],
-            "xAxisLabelIncrement": 1,
             "yAxisTickFormat": [Function],
           },
         },
@@ -2697,7 +2692,6 @@ exports[`Product specific configurations should apply graph filters and settings
             "stringId": "Instance-hours_rosa",
             "stroke": "#06c",
             "xAxisChartLabel": [Function],
-            "xAxisLabelIncrement": 1,
             "yAxisTickFormat": [Function],
           },
         },

@@ -191,7 +191,6 @@ const config = {
       }
     ],
     isCardTitleDescription: true,
-    xAxisLabelIncrement: 1,
     xAxisChartLabel: () => translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY }),
     yAxisTickFormat: ({ tick } = {}) => {
       if (tick > 1) {
