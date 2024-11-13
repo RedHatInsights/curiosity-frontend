@@ -1818,118 +1818,70 @@ Configurable graph, chart, cards. Consumes Charts.
     </tr>  </tbody>
 </table>
 
-
-* [GraphCard](#Components.module_GraphCard)
-    * [~GraphCard(props)](#Components.module_GraphCard..GraphCard) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Components.module_GraphCard..GraphCard.propTypes) : <code>Object</code>
-        * [.defaultProps](#Components.module_GraphCard..GraphCard.defaultProps) : <code>Object</code>
-
 <a name="Components.module_GraphCard..GraphCard"></a>
 
-### GraphCard~GraphCard(props) ⇒ <code>React.ReactNode</code>
+### GraphCard~GraphCard(props) ⇒ <code>JSX.Element</code>
 Set up graph cards. Expand filters with base graph settings.
 
 **Kind**: inner method of [<code>GraphCard</code>](#Components.module_GraphCard)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.isDisabled</td><td><code>boolean</code></td>
+    <td>[props.isDisabled]</td><td><code>boolean</code></td><td><code>helpers.UI_DISABLED_GRAPH</code></td>
     </tr><tr>
-    <td>props.useParseFiltersSettings</td><td><code>function</code></td>
+    <td>[props.useParseFiltersSettings]</td><td><code>useParseFiltersSettings</code></td><td><code>useParseFiltersSettings</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~GraphCard(props)](#Components.module_GraphCard..GraphCard) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Components.module_GraphCard..GraphCard.propTypes) : <code>Object</code>
-    * [.defaultProps](#Components.module_GraphCard..GraphCard.defaultProps) : <code>Object</code>
-
-<a name="Components.module_GraphCard..GraphCard.propTypes"></a>
-
-#### GraphCard.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>GraphCard</code>](#Components.module_GraphCard..GraphCard)  
-<a name="Components.module_GraphCard..GraphCard.defaultProps"></a>
-
-#### GraphCard.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>GraphCard</code>](#Components.module_GraphCard..GraphCard)  
 <a name="GraphCard.module_GraphCardChart"></a>
 
 ## GraphCardChart
-
-* [GraphCardChart](#GraphCard.module_GraphCardChart)
-    * [~GraphCardChart(props)](#GraphCard.module_GraphCardChart..GraphCardChart) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#GraphCard.module_GraphCardChart..GraphCardChart.propTypes) : <code>Object</code>
-        * [.defaultProps](#GraphCard.module_GraphCardChart..GraphCardChart.defaultProps) : <code>Object</code>
-
 <a name="GraphCard.module_GraphCardChart..GraphCardChart"></a>
 
-### GraphCardChart~GraphCardChart(props) ⇒ <code>React.ReactNode</code>
+### GraphCardChart~GraphCardChart(props) ⇒ <code>JSX.Element</code>
 A chart/graph card.
 
 **Kind**: inner method of [<code>GraphCardChart</code>](#GraphCard.module_GraphCardChart)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useGetMetrics</td><td><code>function</code></td>
+    <td>[props.useGetMetrics]</td><td><code>useGetMetrics</code></td><td><code>useGetMetrics</code></td>
     </tr><tr>
-    <td>props.useGraphCardActions</td><td><code>function</code></td>
+    <td>[props.useGraphCardActions]</td><td><code>useGraphCardActions</code></td><td><code>useGraphCardActions</code></td>
     </tr><tr>
-    <td>props.useGraphCardContext</td><td><code>function</code></td>
+    <td>[props.useGraphCardContext]</td><td><code>useGraphCardContext</code></td><td><code>useGraphCardContext</code></td>
     </tr><tr>
-    <td>props.useProductGraphTallyQuery</td><td><code>function</code></td>
+    <td>[props.useProductGraphTallyQuery]</td><td><code>useProductGraphTallyQuery</code></td><td><code>useProductGraphTallyQuery</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~GraphCardChart(props)](#GraphCard.module_GraphCardChart..GraphCardChart) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#GraphCard.module_GraphCardChart..GraphCardChart.propTypes) : <code>Object</code>
-    * [.defaultProps](#GraphCard.module_GraphCardChart..GraphCardChart.defaultProps) : <code>Object</code>
-
-<a name="GraphCard.module_GraphCardChart..GraphCardChart.propTypes"></a>
-
-#### GraphCardChart.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>GraphCardChart</code>](#GraphCard.module_GraphCardChart..GraphCardChart)  
-<a name="GraphCard.module_GraphCardChart..GraphCardChart.defaultProps"></a>
-
-#### GraphCardChart.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>GraphCardChart</code>](#GraphCard.module_GraphCardChart..GraphCardChart)  
 <a name="GraphCard.module_GraphCardChartLegend"></a>
 
 ## GraphCardChartLegend
 
 * [GraphCardChartLegend](#GraphCard.module_GraphCardChartLegend)
-    * [~GraphCardChartLegend(props)](#GraphCard.module_GraphCardChartLegend..GraphCardChartLegend) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#GraphCard.module_GraphCardChartLegend..GraphCardChartLegend.propTypes) : <code>Object</code>
-        * [.defaultProps](#GraphCard.module_GraphCardChartLegend..GraphCardChartLegend.defaultProps) : <code>Object</code>
+    * [~GraphCardChartLegend(props)](#GraphCard.module_GraphCardChartLegend..GraphCardChartLegend) ⇒ <code>JSX.Element</code>
     * ["onClick" (id)](#event_onClick)
 
 <a name="GraphCard.module_GraphCardChartLegend..GraphCardChartLegend"></a>
 
-### GraphCardChartLegend~GraphCardChartLegend(props) ⇒ <code>React.ReactNode</code>
+### GraphCardChartLegend~GraphCardChartLegend(props) ⇒ <code>JSX.Element</code>
 A custom chart legend.
 
 **Kind**: inner method of [<code>GraphCardChartLegend</code>](#GraphCard.module_GraphCardChartLegend)  
@@ -1937,46 +1889,29 @@ A custom chart legend.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.chart</td><td><code>object</code></td>
+    <td>[props.chart]</td><td><code>Object</code></td><td><code>{ hide:helpers.noop, toggle:helpers.noop, isToggled:helpers.noop}</code></td>
     </tr><tr>
-    <td>props.datum</td><td><code>object</code></td>
+    <td>[props.datum]</td><td><code>Object</code></td><td><code>{ dataSets:[] }</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useDispatch</td><td><code>function</code></td>
+    <td>[props.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>props.useGraphCardContext</td><td><code>function</code></td>
+    <td>[props.useGraphCardContext]</td><td><code>useGraphCardContext</code></td><td><code>useGraphCardContext</code></td>
     </tr><tr>
-    <td>props.useProduct</td><td><code>function</code></td>
+    <td>[props.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
-    <td>props.useSelectors</td><td><code>function</code></td>
+    <td>[props.useSelectors]</td><td><code>storeHooks.reactRedux.useSelectors</code></td><td><code>storeHooks.reactRedux.useSelectors</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~GraphCardChartLegend(props)](#GraphCard.module_GraphCardChartLegend..GraphCardChartLegend) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#GraphCard.module_GraphCardChartLegend..GraphCardChartLegend.propTypes) : <code>Object</code>
-    * [.defaultProps](#GraphCard.module_GraphCardChartLegend..GraphCardChartLegend.defaultProps) : <code>Object</code>
-
-<a name="GraphCard.module_GraphCardChartLegend..GraphCardChartLegend.propTypes"></a>
-
-#### GraphCardChartLegend.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>GraphCardChartLegend</code>](#GraphCard.module_GraphCardChartLegend..GraphCardChartLegend)  
-<a name="GraphCard.module_GraphCardChartLegend..GraphCardChartLegend.defaultProps"></a>
-
-#### GraphCardChartLegend.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>GraphCardChartLegend</code>](#GraphCard.module_GraphCardChartLegend..GraphCardChartLegend)  
 <a name="event_onClick"></a>
 
 ### "onClick" (id)
@@ -1998,101 +1933,57 @@ Toggle legend item and chart.
 <a name="GraphCard.module_GraphCardChartTitleTooltip"></a>
 
 ## GraphCardChartTitleTooltip
-
-* [GraphCardChartTitleTooltip](#GraphCard.module_GraphCardChartTitleTooltip)
-    * [~GraphCardChartTitleTooltip(props)](#GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip.propTypes) : <code>Object</code>
-        * [.defaultProps](#GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip.defaultProps) : <code>Object</code>
-
 <a name="GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip"></a>
 
-### GraphCardChartTitleTooltip~GraphCardChartTitleTooltip(props) ⇒ <code>React.ReactNode</code>
+### GraphCardChartTitleTooltip~GraphCardChartTitleTooltip(props) ⇒ <code>JSX.Element</code>
 Graph card title tooltip.
 
 **Kind**: inner method of [<code>GraphCardChartTitleTooltip</code>](#GraphCard.module_GraphCardChartTitleTooltip)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useGraphCardContext</td><td><code>function</code></td>
+    <td>[props.useGraphCardContext]</td><td><code>useGraphCardContext</code></td><td><code>useGraphCardContext</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~GraphCardChartTitleTooltip(props)](#GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip.propTypes) : <code>Object</code>
-    * [.defaultProps](#GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip.defaultProps) : <code>Object</code>
-
-<a name="GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip.propTypes"></a>
-
-#### GraphCardChartTitleTooltip.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>GraphCardChartTitleTooltip</code>](#GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip)  
-<a name="GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip.defaultProps"></a>
-
-#### GraphCardChartTitleTooltip.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>GraphCardChartTitleTooltip</code>](#GraphCard.module_GraphCardChartTitleTooltip..GraphCardChartTitleTooltip)  
 <a name="GraphCard.module_GraphCardChartTooltip"></a>
 
 ## GraphCardChartTooltip
-
-* [GraphCardChartTooltip](#GraphCard.module_GraphCardChartTooltip)
-    * [~GraphCardChartTooltip(props)](#GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip.propTypes) : <code>Object</code>
-        * [.defaultProps](#GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip.defaultProps) : <code>Object</code>
-
 <a name="GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip"></a>
 
-### GraphCardChartTooltip~GraphCardChartTooltip(props) ⇒ <code>React.ReactNode</code>
+### GraphCardChartTooltip~GraphCardChartTooltip(props) ⇒ <code>JSX.Element</code>
 A custom chart tooltip.
 
 **Kind**: inner method of [<code>GraphCardChartTooltip</code>](#GraphCard.module_GraphCardChartTooltip)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.datum</td><td><code>object</code></td>
+    <td>[props.datum]</td><td><code>Object</code></td><td><code>{}</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>props.useProduct</td><td><code>function</code></td>
+    <td>[props.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
+    </tr><tr>
+    <td>[props.useProductGraphTallyQuery]</td><td><code>useProductGraphTallyQuery</code></td><td><code>useProductGraphTallyQuery</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~GraphCardChartTooltip(props)](#GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip.propTypes) : <code>Object</code>
-    * [.defaultProps](#GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip.defaultProps) : <code>Object</code>
-
-<a name="GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip.propTypes"></a>
-
-#### GraphCardChartTooltip.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>GraphCardChartTooltip</code>](#GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip)  
-<a name="GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip.defaultProps"></a>
-
-#### GraphCardChartTooltip.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>GraphCardChartTooltip</code>](#GraphCard.module_GraphCardChartTooltip..GraphCardChartTooltip)  
 <a name="GraphCard.module_GraphCardContext"></a>
 
 ## GraphCardContext
@@ -2552,55 +2443,32 @@ Generate base chart component props.
 <a name="GraphCard.module_GraphCardMetricTotals"></a>
 
 ## GraphCardMetricTotals
-
-* [GraphCardMetricTotals](#GraphCard.module_GraphCardMetricTotals)
-    * [~GraphCardMetricTotals(props)](#GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals.propTypes) : <code>Object</code>
-        * [.defaultProps](#GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals.defaultProps) : <code>Object</code>
-
 <a name="GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals"></a>
 
-### GraphCardMetricTotals~GraphCardMetricTotals(props) ⇒ <code>React.ReactNode</code>
+### GraphCardMetricTotals~GraphCardMetricTotals(props) ⇒ <code>JSX.Element</code>
 Display totals for a single metric.
 
 **Kind**: inner method of [<code>GraphCardMetricTotals</code>](#GraphCard.module_GraphCardMetricTotals)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>props</td><td><code>object</code></td>
+    <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
-    <td>props.useGraphCardContext</td><td><code>function</code></td>
+    <td>[props.useGraphCardContext]</td><td><code>useGraphCardContext</code></td><td><code>useGraphCardContext</code></td>
     </tr><tr>
-    <td>props.useMetricsSelector</td><td><code>function</code></td>
+    <td>[props.useMetricsSelector]</td><td><code>useMetricsSelector</code></td><td><code>useMetricsSelector</code></td>
     </tr><tr>
-    <td>props.useProductGraphTallyQuery</td><td><code>function</code></td>
+    <td>[props.useProductGraphTallyQuery]</td><td><code>useProductGraphTallyQuery</code></td><td><code>useProductGraphTallyQuery</code></td>
     </tr>  </tbody>
 </table>
 
-
-* [~GraphCardMetricTotals(props)](#GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals.propTypes) : <code>Object</code>
-    * [.defaultProps](#GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals.defaultProps) : <code>Object</code>
-
-<a name="GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals.propTypes"></a>
-
-#### GraphCardMetricTotals.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>GraphCardMetricTotals</code>](#GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals)  
-<a name="GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals.defaultProps"></a>
-
-#### GraphCardMetricTotals.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>GraphCardMetricTotals</code>](#GraphCard.module_GraphCardMetricTotals..GraphCardMetricTotals)  
 <a name="Components.module_i18n"></a>
 
 ## i18n

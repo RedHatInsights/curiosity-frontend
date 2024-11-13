@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Card, CardBody, CardFooter, CardHeader, CardTitle, Title } from '@patternfly/react-core';
 import _camelCase from 'lodash/camelCase';
 import { useProductGraphTallyQuery } from '../productView/productViewContext';
@@ -20,16 +19,16 @@ import { helpers } from '../../common';
  *
  * @param {object} props
  * @param {React.ReactNode} props.children
- * @param {Function} props.useGraphCardContext
- * @param {Function} props.useMetricsSelector
- * @param {Function} props.useProductGraphTallyQuery
- * @returns {React.ReactNode}
+ * @param {useGraphCardContext} [props.useGraphCardContext=useGraphCardContext]
+ * @param {useMetricsSelector} [props.useMetricsSelector=useMetricsSelector]
+ * @param {useProductGraphTallyQuery} [props.useProductGraphTallyQuery=useProductGraphTallyQuery]
+ * @returns {JSX.Element}
  */
 const GraphCardMetricTotals = ({
   children,
-  useGraphCardContext: useAliasGraphCardContext,
-  useMetricsSelector: useAliasMetricsSelector,
-  useProductGraphTallyQuery: useAliasProductGraphTallyQuery
+  useGraphCardContext: useAliasGraphCardContext = useGraphCardContext,
+  useMetricsSelector: useAliasMetricsSelector = useMetricsSelector,
+  useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery
 }) => {
   const { settings = {} } = useAliasGraphCardContext();
   const query = useAliasProductGraphTallyQuery();
@@ -122,30 +121,6 @@ const GraphCardMetricTotals = ({
       {children}
     </div>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useProductGraphTallyQuery: Function, children: React.ReactNode, useMetricsSelector: Function}}
- */
-GraphCardMetricTotals.propTypes = {
-  children: PropTypes.node,
-  useGraphCardContext: PropTypes.func,
-  useMetricsSelector: PropTypes.func,
-  useProductGraphTallyQuery: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useProductGraphTallyQuery: Function, children: React.ReactNode, useMetricsSelector: Function}}
- */
-GraphCardMetricTotals.defaultProps = {
-  children: null,
-  useGraphCardContext,
-  useMetricsSelector,
-  useProductGraphTallyQuery
 };
 
 export { GraphCardMetricTotals as default, GraphCardMetricTotals };
