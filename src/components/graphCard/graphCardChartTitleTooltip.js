@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Tooltip, TooltipPosition } from '@patternfly/react-core';
 import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
 import { useGraphCardContext } from './graphCardContext';
@@ -14,11 +13,14 @@ import { translate } from '../i18n/i18n';
  * Graph card title tooltip.
  *
  * @param {object} props
- * @param {Function} props.t
- * @param {Function} props.useGraphCardContext
- * @returns {React.ReactNode}
+ * @param {translate} [props.t=translate]
+ * @param {useGraphCardContext} [props.useGraphCardContext=useGraphCardContext]
+ * @returns {JSX.Element}
  */
-const GraphCardChartTitleTooltip = ({ t, useGraphCardContext: useAliasGraphCardContext }) => {
+const GraphCardChartTitleTooltip = ({
+  t = translate,
+  useGraphCardContext: useAliasGraphCardContext = useGraphCardContext
+}) => {
   const { settings = {} } = useAliasGraphCardContext();
   const { isCardTitleDescription, stringId } = settings;
 
@@ -39,26 +41,6 @@ const GraphCardChartTitleTooltip = ({ t, useGraphCardContext: useAliasGraphCardC
       </span>
     </Tooltip>
   );
-};
-
-/**
- * Prop types.
- *
- * @type {{useGraphCardContext: Function, t: Function}}
- */
-GraphCardChartTitleTooltip.propTypes = {
-  t: PropTypes.func,
-  useGraphCardContext: PropTypes.func
-};
-
-/**
- * Default props.
- *
- * @type {{useGraphCardContext: Function, t: Function}}
- */
-GraphCardChartTitleTooltip.defaultProps = {
-  t: translate,
-  useGraphCardContext
 };
 
 export { GraphCardChartTitleTooltip as default, GraphCardChartTitleTooltip };

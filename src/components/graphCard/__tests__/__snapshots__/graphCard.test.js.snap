@@ -35,18 +35,8 @@ exports[`GraphCard Component should setup basic settings: settings, grouped 1`] 
       }
     }
   >
-    <GraphCardMetricTotals
-      useGraphCardContext={[Function]}
-      useMetricsSelector={[Function]}
-      useProductGraphTallyQuery={[Function]}
-    >
-      <GraphCardChart
-        t={[Function]}
-        useGetMetrics={[Function]}
-        useGraphCardActions={[Function]}
-        useGraphCardContext={[Function]}
-        useProductGraphTallyQuery={[Function]}
-      />
+    <GraphCardMetricTotals>
+      <GraphCardChart />
     </GraphCardMetricTotals>
   </Context.Provider>,
 ]
@@ -83,18 +73,8 @@ exports[`GraphCard Component should setup basic settings: settings, standalone 1
       }
     }
   >
-    <GraphCardMetricTotals
-      useGraphCardContext={[Function]}
-      useMetricsSelector={[Function]}
-      useProductGraphTallyQuery={[Function]}
-    >
-      <GraphCardChart
-        t={[Function]}
-        useGetMetrics={[Function]}
-        useGraphCardActions={[Function]}
-        useGraphCardContext={[Function]}
-        useProductGraphTallyQuery={[Function]}
-      />
+    <GraphCardMetricTotals>
+      <GraphCardChart />
     </GraphCardMetricTotals>
   </Context.Provider>,
 ]

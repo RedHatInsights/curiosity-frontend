@@ -16,10 +16,7 @@ exports[`GraphCardChart Component should handle API response states: error 1`] =
         size="lg"
       >
         t(curiosity-graph.cardHeading, {})
-        <GraphCardChartTitleTooltip
-          t={[Function]}
-          useGraphCardContext={[Function]}
-        />
+        <GraphCardChartTitleTooltip />
       </Title>
     </CardTitle>
   </CardHeader>
@@ -51,10 +48,7 @@ exports[`GraphCardChart Component should handle API response states: fulfilled 1
         size="lg"
       >
         t(curiosity-graph.cardHeading, {})
-        <GraphCardChartTitleTooltip
-          t={[Function]}
-          useGraphCardContext={[Function]}
-        />
+        <GraphCardChartTitleTooltip />
       </Title>
     </CardTitle>
   </CardHeader>
@@ -109,10 +103,7 @@ exports[`GraphCardChart Component should handle API response states: pending 1`]
         size="lg"
       >
         t(curiosity-graph.cardHeading, {})
-        <GraphCardChartTitleTooltip
-          t={[Function]}
-          useGraphCardContext={[Function]}
-        />
+        <GraphCardChartTitleTooltip />
       </Title>
     </CardTitle>
   </CardHeader>
@@ -148,10 +139,7 @@ exports[`GraphCardChart Component should render a basic component: basic 1`] = `
         size="lg"
       >
         t(curiosity-graph.cardHeading, {})
-        <GraphCardChartTitleTooltip
-          t={[Function]}
-          useGraphCardContext={[Function]}
-        />
+        <GraphCardChartTitleTooltip />
       </Title>
     </CardTitle>
   </CardHeader>
