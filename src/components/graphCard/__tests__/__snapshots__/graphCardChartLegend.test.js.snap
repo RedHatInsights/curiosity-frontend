@@ -71,14 +71,12 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
         icon={
           <ChartIcon
             fill="#000000"
-            size="sm"
             style={
               {
                 "visibility": "visible",
               }
             }
             symbol="square"
-            title={null}
           />
         }
         isDisabled={false}
@@ -114,14 +112,12 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         icon={
           <ChartIcon
             fill="#000000"
-            size="sm"
             style={
               {
                 "visibility": "visible",
               }
             }
             symbol="square"
-            title={null}
           />
         }
         isDisabled={false}
@@ -151,10 +147,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         component="a"
         icon={
           <ChartIcon
-            fill={null}
-            size="sm"
             symbol="eyeSlash"
-            title={null}
           />
         }
         isDisabled={true}
@@ -185,14 +178,12 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         icon={
           <ChartIcon
             fill="#ff0000"
-            size="sm"
             style={
               {
                 "visibility": "visible",
               }
             }
             symbol="dash"
-            title={null}
           />
         }
         isDisabled={false}
@@ -223,14 +214,12 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         icon={
           <ChartIcon
             fill="#ff0000"
-            size="sm"
             style={
               {
                 "visibility": "visible",
               }
             }
             symbol="dash"
-            title={null}
           />
         }
         isDisabled={false}
