@@ -3,22 +3,22 @@
 exports[`ToolbarFieldSla Component should export select options: toolbarFieldOptions 1`] = `
 [
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
     "value": "Premium",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
     "value": "Standard",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
     "value": "Self-Support",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
     "value": "",
   },
@@ -65,35 +65,39 @@ exports[`ToolbarFieldSla Component should handle updating sla through redux stat
 
 exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = `
 <Select
+  alignment={
+    {
+      "position": "left",
+    }
+  }
   aria-label="t(curiosity-toolbar.placeholder, {"context":"sla"})"
   data-test="toolbarFieldSla"
   onSelect={[Function]}
   options={
     [
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
         "value": "Premium",
       },
       {
-        "selected": true,
+        "isSelected": true,
         "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
         "value": "Standard",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
         "value": "Self-Support",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
         "value": "",
       },
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {"context":"sla"})"
-  position="left"
   selectedOptions="Standard"
 />
 `;

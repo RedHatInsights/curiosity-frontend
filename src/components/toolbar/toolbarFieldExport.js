@@ -1,7 +1,7 @@
 import React from 'react';
 import { useProduct, useProductExportQuery } from '../productView/productViewContext';
 import { useExport, useExistingExports, useExportStatus } from './toolbarFieldExportContext';
-import { Select, SelectPosition, SelectButtonVariant } from '../form/select';
+import { Select, SelectPosition, SelectButtonVariant } from '../form/select.deprecated';
 import {
   PLATFORM_API_EXPORT_APPLICATION_TYPES as APP_TYPES,
   PLATFORM_API_EXPORT_CONTENT_TYPES as FIELD_TYPES,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductQuery } from '../productView/productViewContext';
-import { Select, SelectPosition } from '../form/select';
+import { Select, SelectPosition } from '../form/select.deprecated';
 import {
   RHSM_API_QUERY_BILLING_PROVIDER_TYPES as FIELD_TYPES,
   RHSM_API_QUERY_SET_TYPES
