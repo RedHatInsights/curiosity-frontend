@@ -3,17 +3,17 @@
 exports[`ToolbarFieldBillingProvider Component should export select options: toolbarFieldOptions 1`] = `
 [
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_billing_provider, {"context":"red hat"})",
     "value": "red hat",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_billing_provider, {"context":"aws"})",
     "value": "aws",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_billing_provider, {"context":"azure"})",
     "value": "azure",
   },
@@ -60,30 +60,34 @@ exports[`ToolbarFieldBillingProvider Component should handle updating sla throug
 
 exports[`ToolbarFieldBillingProvider Component should render a basic component: basic 1`] = `
 <Select
+  alignment={
+    {
+      "position": "left",
+    }
+  }
   aria-label="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
   data-test="toolbarFieldBillingProvider"
   onSelect={[Function]}
   options={
     [
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_billing_provider, {"context":"red hat"})",
         "value": "red hat",
       },
       {
-        "selected": true,
+        "isSelected": true,
         "title": "t(curiosity-toolbar.label_billing_provider, {"context":"aws"})",
         "value": "aws",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_billing_provider, {"context":"azure"})",
         "value": "azure",
       },
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
-  position="left"
   selectedOptions="aws"
 />
 `;

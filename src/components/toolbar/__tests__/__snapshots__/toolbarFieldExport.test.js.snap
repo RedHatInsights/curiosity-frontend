@@ -3,12 +3,12 @@
 exports[`ToolbarFieldExport Component should export select options: toolbarFieldOptions 1`] = `
 [
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_export, {"context":"csv"})",
     "value": "csv",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_export, {"context":"json"})",
     "value": "json",
   },
@@ -42,30 +42,38 @@ exports[`ToolbarFieldExport Component should handle updating export through redu
 
 exports[`ToolbarFieldExport Component should render a basic component: basic 1`] = `
 <Select
+  alignment={
+    {
+      "position": "left",
+    }
+  }
   aria-label="t(curiosity-toolbar.placeholder, {"context":"export"})"
-  buttonContent="t(curiosity-toolbar.label, {"context":"export"})"
-  buttonVariant="secondary"
   data-test="toolbarFieldExport"
-  isDropdownButton={true}
   onSelect={[Function]}
   options={
     [
       {
         "isDisabled": false,
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_export, {"context":"csv"})",
         "value": "csv",
       },
       {
         "isDisabled": false,
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_export, {"context":"json"})",
         "value": "json",
       },
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {"context":"export"})"
-  position="left"
   title="t(curiosity-toolbar.placeholder, {"context":"export"})"
+  toggle={
+    {
+      "content": "t(curiosity-toolbar.label, {"context":"export"})",
+      "variant": "secondary",
+    }
+  }
+  variant="dropdown"
 />
 `;
