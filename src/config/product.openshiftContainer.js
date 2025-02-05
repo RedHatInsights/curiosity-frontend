@@ -153,7 +153,7 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId}`}
             >
               {updatedDisplayName}
             </Button>
@@ -198,7 +198,7 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId}`}
             >
               {updatedDisplayName}
             </Button>

@@ -3109,7 +3109,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Button
                 component="a"
-                href="/insights/inventory/lorem inventory id/"
+                href="/insights/inventory/lorem inventory id"
                 isInline={true}
                 variant="link"
               >
@@ -3326,7 +3326,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Button
                 component="a"
-                href="/insights/inventory/lorem inventory id/"
+                href="/insights/inventory/lorem inventory id"
                 isInline={true}
                 variant="link"
               >
@@ -3473,7 +3473,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Button
                 component="a"
-                href="/insights/inventory/lorem inventory id/"
+                href="/insights/inventory/lorem inventory id"
                 isInline={true}
                 variant="link"
               >
@@ -4184,7 +4184,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "content": <React.Fragment>
                 <Button
                   component="a"
-                  href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+                  href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX"
                   isInline={true}
                   variant="link"
                 >
@@ -4624,7 +4624,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Button
                 component="a"
-                href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+                href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX"
                 isInline={true}
                 variant="link"
               >
@@ -5064,7 +5064,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Button
                 component="a"
-                href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+                href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX"
                 isInline={true}
                 variant="link"
               >
