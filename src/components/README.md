@@ -37,6 +37,9 @@
 <dt><a href="#Form.module_FormHelpers">FormHelpers</a></dt>
 <dd><p>A consistent mock event object to enhance PF and testing.</p>
 </dd>
+<dt><del><a href="#Form.module_Select">Select</a></del></dt>
+<dd><p>A deprecated bundled wrapper for PF5 Select, Dropdown.</p>
+</dd>
 <dt><a href="#Form.module_Select">Select</a></dt>
 <dd><p>A bundled wrapper for PF Select, Dropdown.</p>
 </dd>
@@ -1409,11 +1412,13 @@ Confirm a string has minimum length.
 
 <a name="Form.module_Select"></a>
 
-## Select
-A bundled wrapper for PF Select, Dropdown.
+## <del>Select</del>
+***Deprecated***
+
+A deprecated bundled wrapper for PF5 Select, Dropdown.
 
 
-* [Select](#Form.module_Select)
+* <del>[Select](#Form.module_Select)</del>
     * [~SplitButtonVariant](#Form.module_Select..SplitButtonVariant) : <code>Object</code>
     * [~ButtonVariant](#Form.module_Select..ButtonVariant) : <code>Object</code>
     * [~SelectButtonVariant](#Form.module_Select..SelectButtonVariant) : <code>Object</code>
@@ -1422,9 +1427,27 @@ A bundled wrapper for PF Select, Dropdown.
     * [~SelectVariant](#Form.module_Select..SelectVariant) : <code>Object</code>
     * [~formatSelectProps](#Form.module_Select..formatSelectProps) ⇒ <code>Object</code>
     * [~formatButtonProps](#Form.module_Select..formatButtonProps) ⇒ <code>\*</code>
+    * [~SelectButtonVariant](#Form.module_Select..SelectButtonVariant) : <code>Object</code>
+    * [~SelectVariant](#Form.module_Select..SelectVariant) : <code>Object</code>
+    * [~SelectDirection](#Form.module_Select..SelectDirection) : <code>Object</code>
+    * [~SelectPosition](#Form.module_Select..SelectPosition) : <code>Object</code>
     * [~formatOptions(params)](#Form.module_Select..formatOptions) ⇒ <code>Object</code>
     * [~formatButtonParentProps(formattedButtonProps)](#Form.module_Select..formatButtonParentProps) ⇒ <code>\*</code>
     * [~Select(props)](#Form.module_Select..Select) ⇒ <code>JSX.Element</code>
+        * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
+        * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
+    * [~updateDataAttributes(params)](#Form.module_Select..updateDataAttributes)
+    * [~updateOptions(options)](#Form.module_Select..updateOptions) ⇒ <code>Array</code>
+        * [.memo](#Form.module_Select..updateOptions.memo)
+    * [~updateSelectedOptions(options)](#Form.module_Select..updateSelectedOptions) ⇒ <code>Array</code> \| <code>Array.&lt;(&quot;NaN&quot;\|&quot;null&quot;\|unknown)&gt;</code>
+        * [.memo](#Form.module_Select..updateSelectedOptions.memo)
+    * [~updateSelectedProp(params)](#Form.module_Select..updateSelectedProp) ⇒ <code>Object</code> \| <code>undefined</code> \| <code>Array.&lt;{isSelected:boolean}&gt;</code> \| <code>Array</code>
+        * [.memo](#Form.module_Select..updateSelectedProp.memo)
+    * [~formatEvent(params)](#Form.module_Select..formatEvent) ⇒ <code>CustomEvent.&lt;{keyCode, currentTarget: {}, name, checked: \*, id: \*, persist: function(), value, target: {}, selected: (unknown\|Array.&lt;unknown&gt;), selectedIndex: Array.&lt;number&gt;, type: (&quot;select-one&quot;\|&quot;select-multiple&quot;), value: unknown}&gt;</code>
+    * [~setSelectElements([variant])](#Form.module_Select..setSelectElements) ⇒ <code>Object</code>
+        * [.memo](#Form.module_Select..setSelectElements.memo)
+    * [~useOnSelect(options)](#Form.module_Select..useOnSelect) ⇒ <code>Object</code>
+    * [~Select(props)](#Form.module_Select..Select) ⇒ <code>React.ReactElement</code>
         * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
         * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
     * ["onToggle" (expanded)](#event_onToggle)
@@ -1523,6 +1546,30 @@ Format consistent dropdown button props.
     </tr>  </tbody>
 </table>
 
+<a name="Form.module_Select..SelectButtonVariant"></a>
+
+### Select~SelectButtonVariant : <code>Object</code>
+Pass button variant as a select component option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectVariant"></a>
+
+### Select~SelectVariant : <code>Object</code>
+Pass select variants as a select component variant option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectDirection"></a>
+
+### Select~SelectDirection : <code>Object</code>
+Direction as select prop option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectPosition"></a>
+
+### Select~SelectPosition : <code>Object</code>
+Position as select prop option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
 <a name="Form.module_Select..formatOptions"></a>
 
 ### Select~formatOptions(params) ⇒ <code>Object</code>
@@ -1640,6 +1687,834 @@ callback for both select and dropdown.
 
 
 * [~Select(props)](#Form.module_Select..Select) ⇒ <code>JSX.Element</code>
+    * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
+    * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
+
+<a name="Form.module_Select..Select..renderDropdownButton"></a>
+
+#### Select~renderDropdownButton() ⇒ <code>React.ReactNode</code>
+Apply dropdown.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select..Select)  
+<a name="Form.module_Select..Select..renderSelect"></a>
+
+#### Select~renderSelect() ⇒ <code>React.ReactNode</code>
+Apply select.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select..Select)  
+<a name="Form.module_Select..updateDataAttributes"></a>
+
+### Select~updateDataAttributes(params)
+Apply "data-" attributes to main PF element.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.selectField</td><td><code>React.ReactElement</code> | <code>HTMLElement</code></td>
+    </tr><tr>
+    <td>params.props</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..updateOptions"></a>
+
+### Select~updateOptions(options) ⇒ <code>Array</code>
+Update list options for consumption by PF components
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>Array.&lt;(unknown|{title: (React.ReactNode|undefined), value: (React.ReactNode|undefined), description: (React.ReactNode|undefined), isSelected: (boolean|undefined), isDisabled: (boolean|undefined)})&gt;</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..updateOptions.memo"></a>
+
+#### updateOptions.memo
+A memoized response for the updateOptions function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>updateOptions</code>](#Form.module_Select..updateOptions)  
+<a name="Form.module_Select..updateSelectedOptions"></a>
+
+### Select~updateSelectedOptions(options) ⇒ <code>Array</code> \| <code>Array.&lt;(&quot;NaN&quot;\|&quot;null&quot;\|unknown)&gt;</code>
+Update selected list options for consumption.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>string</code> | <code>number</code> | <code>null</code> | <code>NaN</code> | <code>Object</code> | <code>Array.&lt;(string|number|null|undefined|NaN|{value: unknown})&gt;</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..updateSelectedOptions.memo"></a>
+
+#### updateSelectedOptions.memo
+A memoized response for the updateSelectedOptions function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>updateSelectedOptions</code>](#Form.module_Select..updateSelectedOptions)  
+<a name="Form.module_Select..updateSelectedProp"></a>
+
+### Select~updateSelectedProp(params) ⇒ <code>Object</code> \| <code>undefined</code> \| <code>Array.&lt;{isSelected:boolean}&gt;</code> \| <code>Array</code>
+Update the isSelected property for formatted options.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.options</td><td><code>Array.&lt;{title, value, isSelected}&gt;</code></td>
+    </tr><tr>
+    <td>params.selectedOptions</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>params.variant</td><td><code>SelectVariant</code> | <code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..updateSelectedProp.memo"></a>
+
+#### updateSelectedProp.memo
+A memoized response for the updateSelectedProp function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>updateSelectedProp</code>](#Form.module_Select..updateSelectedProp)  
+<a name="Form.module_Select..formatEvent"></a>
+
+### Select~formatEvent(params) ⇒ <code>CustomEvent.&lt;{keyCode, currentTarget: {}, name, checked: \*, id: \*, persist: function(), value, target: {}, selected: (unknown\|Array.&lt;unknown&gt;), selectedIndex: Array.&lt;number&gt;, type: (&quot;select-one&quot;\|&quot;select-multiple&quot;), value: unknown}&gt;</code>
+Expand returned event for select responses.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.event</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.options</td><td><code>Array.&lt;{isSelected: boolean}&gt;</code></td>
+    </tr><tr>
+    <td>params.variant</td><td><code>SelectVariant</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..setSelectElements"></a>
+
+### Select~setSelectElements([variant]) ⇒ <code>Object</code>
+Set PF components.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>[variant]</td><td><code>SelectVariant</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..setSelectElements.memo"></a>
+
+#### setSelectElements.memo
+A memoized response for the setSelectElements function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>setSelectElements</code>](#Form.module_Select..setSelectElements)  
+<a name="Form.module_Select..useOnSelect"></a>
+
+### Select~useOnSelect(options) ⇒ <code>Object</code>
+Hook for handling option and selected option updates.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.options</td><td><code>updateOptions</code></td>
+    </tr><tr>
+    <td>options.onSelect</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.selectedOptions</td><td><code>updateSelectedOptions</code></td>
+    </tr><tr>
+    <td>options.variant</td><td><code>SelectVariant</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..Select"></a>
+
+### Select~Select(props) ⇒ <code>React.ReactElement</code>
+Component wrapper for PF Select and Dropdown.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.alignment]</td><td><code>Object</code></td><td></td><td><p>Alias for PF references to &quot;popperProps&quot;.
+    Override by passing a &quot;popperProps&quot; prop object value.</p>
+</td>
+    </tr><tr>
+    <td>[props.className]</td><td><code>string</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.isDisabled]</td><td><code>boolean</code></td><td></td><td><p>Disable the select/dropdown toggle</p>
+</td>
+    </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>true</code></td><td><p>Is the select/dropdown an inline-block or not.</p>
+</td>
+    </tr><tr>
+    <td>[props.maxHeight]</td><td><code>number</code></td><td></td><td><p>Max height of the select/dropdown menu</p>
+</td>
+    </tr><tr>
+    <td>[props.onSelect]</td><td><code>function</code></td><td></td><td></td>
+    </tr><tr>
+    <td>props.options</td><td><code>Array.&lt;(string|number|{description: (unknown|undefined), isSelected: (boolean|undefined), isDisabled: (boolean|undefined), title: (React.ReactNode|undefined), value: unknown})&gt;</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.placeholder]</td><td><code>React.ReactNode</code></td><td></td><td><p>The default value for the select/dropdown. An emulated placeholder.</p>
+</td>
+    </tr><tr>
+    <td>[props.selectedOptions]</td><td><code>string</code> | <code>number</code> | <code>Object</code> | <code>Array.&lt;(string|number|{value: unknown})&gt;</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.toggle]</td><td><code>Object</code></td><td></td><td><p>select/dropdown
+    menu-toggle props object</p>
+</td>
+    </tr><tr>
+    <td>[props.variant]</td><td><code>SelectVariant</code></td><td><code>SelectVariant.single</code></td><td></td>
+    </tr><tr>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+
+* [~Select(props)](#Form.module_Select..Select) ⇒ <code>React.ReactElement</code>
+    * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
+    * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
+
+<a name="Form.module_Select..Select..renderDropdownButton"></a>
+
+#### Select~renderDropdownButton() ⇒ <code>React.ReactNode</code>
+Apply dropdown.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select..Select)  
+<a name="Form.module_Select..Select..renderSelect"></a>
+
+#### Select~renderSelect() ⇒ <code>React.ReactNode</code>
+Apply select.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select..Select)  
+<a name="event_onToggle"></a>
+
+### "onToggle" (expanded)
+Open/closed state.
+
+**Kind**: event emitted by [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>expanded</td><td><code>boolean</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="event_onSplitButton"></a>
+
+### "onSplitButton" (event)
+Split button event handler.
+
+**Kind**: event emitted by [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>event</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="event_onDropdownSelect"></a>
+
+### "onDropdownSelect" (event, titleSelection)
+Emulate select event object, apply to provided onSelect prop.
+
+**Kind**: event emitted by [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>event</td><td><code>object</code></td>
+    </tr><tr>
+    <td>titleSelection</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select"></a>
+
+## Select
+A bundled wrapper for PF Select, Dropdown.
+
+
+* [Select](#Form.module_Select)
+    * [~SplitButtonVariant](#Form.module_Select..SplitButtonVariant) : <code>Object</code>
+    * [~ButtonVariant](#Form.module_Select..ButtonVariant) : <code>Object</code>
+    * [~SelectButtonVariant](#Form.module_Select..SelectButtonVariant) : <code>Object</code>
+    * [~SelectDirection](#Form.module_Select..SelectDirection) : <code>Object</code>
+    * [~SelectPosition](#Form.module_Select..SelectPosition) : <code>Object</code>
+    * [~SelectVariant](#Form.module_Select..SelectVariant) : <code>Object</code>
+    * [~formatSelectProps](#Form.module_Select..formatSelectProps) ⇒ <code>Object</code>
+    * [~formatButtonProps](#Form.module_Select..formatButtonProps) ⇒ <code>\*</code>
+    * [~SelectButtonVariant](#Form.module_Select..SelectButtonVariant) : <code>Object</code>
+    * [~SelectVariant](#Form.module_Select..SelectVariant) : <code>Object</code>
+    * [~SelectDirection](#Form.module_Select..SelectDirection) : <code>Object</code>
+    * [~SelectPosition](#Form.module_Select..SelectPosition) : <code>Object</code>
+    * [~formatOptions(params)](#Form.module_Select..formatOptions) ⇒ <code>Object</code>
+    * [~formatButtonParentProps(formattedButtonProps)](#Form.module_Select..formatButtonParentProps) ⇒ <code>\*</code>
+    * [~Select(props)](#Form.module_Select..Select) ⇒ <code>JSX.Element</code>
+        * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
+        * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
+    * [~updateDataAttributes(params)](#Form.module_Select..updateDataAttributes)
+    * [~updateOptions(options)](#Form.module_Select..updateOptions) ⇒ <code>Array</code>
+        * [.memo](#Form.module_Select..updateOptions.memo)
+    * [~updateSelectedOptions(options)](#Form.module_Select..updateSelectedOptions) ⇒ <code>Array</code> \| <code>Array.&lt;(&quot;NaN&quot;\|&quot;null&quot;\|unknown)&gt;</code>
+        * [.memo](#Form.module_Select..updateSelectedOptions.memo)
+    * [~updateSelectedProp(params)](#Form.module_Select..updateSelectedProp) ⇒ <code>Object</code> \| <code>undefined</code> \| <code>Array.&lt;{isSelected:boolean}&gt;</code> \| <code>Array</code>
+        * [.memo](#Form.module_Select..updateSelectedProp.memo)
+    * [~formatEvent(params)](#Form.module_Select..formatEvent) ⇒ <code>CustomEvent.&lt;{keyCode, currentTarget: {}, name, checked: \*, id: \*, persist: function(), value, target: {}, selected: (unknown\|Array.&lt;unknown&gt;), selectedIndex: Array.&lt;number&gt;, type: (&quot;select-one&quot;\|&quot;select-multiple&quot;), value: unknown}&gt;</code>
+    * [~setSelectElements([variant])](#Form.module_Select..setSelectElements) ⇒ <code>Object</code>
+        * [.memo](#Form.module_Select..setSelectElements.memo)
+    * [~useOnSelect(options)](#Form.module_Select..useOnSelect) ⇒ <code>Object</code>
+    * [~Select(props)](#Form.module_Select..Select) ⇒ <code>React.ReactElement</code>
+        * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
+        * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
+    * ["onToggle" (expanded)](#event_onToggle)
+    * ["onSplitButton" (event)](#event_onSplitButton)
+    * ["onDropdownSelect" (event, titleSelection)](#event_onDropdownSelect)
+
+<a name="Form.module_Select..SplitButtonVariant"></a>
+
+### Select~SplitButtonVariant : <code>Object</code>
+Dropdown split button variants
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..ButtonVariant"></a>
+
+### Select~ButtonVariant : <code>Object</code>
+Dropdown toggle button variants
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectButtonVariant"></a>
+
+### Select~SelectButtonVariant : <code>Object</code>
+Pass button variant as a select component option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectDirection"></a>
+
+### Select~SelectDirection : <code>Object</code>
+Pass direction as select component variant option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectPosition"></a>
+
+### Select~SelectPosition : <code>Object</code>
+Pass position as select component variant option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectVariant"></a>
+
+### Select~SelectVariant : <code>Object</code>
+Pass select variants as a select component variant option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..formatSelectProps"></a>
+
+### Select~formatSelectProps ⇒ <code>Object</code>
+Return assumed/expected PF select props.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.isDisabled</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>params.placeholder</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.options</td><td><code>object</code> | <code>Array</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..formatButtonProps"></a>
+
+### Select~formatButtonProps ⇒ <code>\*</code>
+Format consistent dropdown button props.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.isDisabled</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>params.options</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>params.buttonContent</td><td><code>React.ReactNode</code></td>
+    </tr><tr>
+    <td>params.buttonVariant</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.onSplitButton</td><td><code>function</code></td>
+    </tr><tr>
+    <td>params.placeholder</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.splitButtonVariant</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..SelectButtonVariant"></a>
+
+### Select~SelectButtonVariant : <code>Object</code>
+Pass button variant as a select component option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectVariant"></a>
+
+### Select~SelectVariant : <code>Object</code>
+Pass select variants as a select component variant option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectDirection"></a>
+
+### Select~SelectDirection : <code>Object</code>
+Direction as select prop option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectPosition"></a>
+
+### Select~SelectPosition : <code>Object</code>
+Position as select prop option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..formatOptions"></a>
+
+### Select~formatOptions(params) ⇒ <code>Object</code>
+Format options into a consumable array of objects.
+Note: It is understood that for line 83'ish around "updatedOptions" we dump all values regardless
+of whether they are plain objects, or not, into updatedOptions. This has been done for speed only,
+one less check to perform.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.selectField</td><td><code>*</code> | <code>React.ReactNode</code></td>
+    </tr><tr>
+    <td>params.options</td><td><code>object</code> | <code>Array</code></td>
+    </tr><tr>
+    <td>params.selectedOptions</td><td><code>string</code> | <code>number</code> | <code>Array</code></td>
+    </tr><tr>
+    <td>params.variant</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.props</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..formatButtonParentProps"></a>
+
+### Select~formatButtonParentProps(formattedButtonProps) ⇒ <code>\*</code>
+Fix pf props inconsistency for dropdown button props.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>formattedButtonProps</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..Select"></a>
+
+### Select~Select(props) ⇒ <code>JSX.Element</code>
+A wrapper for Pf Select, and emulator for Pf Dropdown. Provides consistent restructured event data for onSelect
+callback for both select and dropdown.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+**Emits**: [<code>onDropdownSelect</code>](#event_onDropdownSelect), [<code>onSplitButton</code>](#event_onSplitButton), [<code>onToggle</code>](#event_onToggle)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[props.ariaLabel]</td><td><code>string</code></td><td><code>&quot;&#x27;Select option&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[props.buttonContent]</td><td><code>React.ReactNode</code></td><td></td>
+    </tr><tr>
+    <td>[props.buttonVariant]</td><td><code>ButtonVariant</code></td><td><code>ButtonVariant.default</code></td>
+    </tr><tr>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[props.direction]</td><td><code>SelectDirection</code></td><td><code>SelectDirection.down</code></td>
+    </tr><tr>
+    <td>[props.id]</td><td><code>string</code></td><td><code>&quot;helpers.generateId()&quot;</code></td>
+    </tr><tr>
+    <td>[props.isDisabled]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.isDropdownButton]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.isFlipEnabled]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>true</code></td>
+    </tr><tr>
+    <td>[props.isToggleText]</td><td><code>boolean</code></td><td><code>true</code></td>
+    </tr><tr>
+    <td>[props.maxHeight]</td><td><code>number</code></td><td></td>
+    </tr><tr>
+    <td>[props.name]</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>[props.onSelect]</td><td><code>function</code></td><td><code>helpers.noop</code></td>
+    </tr><tr>
+    <td>[props.onSplitButton]</td><td><code>function</code></td><td></td>
+    </tr><tr>
+    <td>[props.options]</td><td><code>Object</code> | <code>Array.&lt;{description: (unknown|undefined), selected: (boolean|undefined), isDisabledAllowEvent: (boolean|undefined), isDisabled: (boolean|undefined), title: (string|undefined), value: unknown}&gt;</code> | <code>Array.&lt;{string}&gt;</code></td><td><code>[]</code></td>
+    </tr><tr>
+    <td>[props.placeholder]</td><td><code>string</code></td><td><code>&quot;&#x27;Select option&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
+    </tr><tr>
+    <td>[props.selectedOptions]</td><td><code>number</code> | <code>string</code> | <code>Array.&lt;(number|string)&gt;</code></td><td></td>
+    </tr><tr>
+    <td>[props.splitButtonAllowDualButtonToggle]</td><td><code>boolean</code></td><td><code>true</code></td>
+    </tr><tr>
+    <td>[props.splitButtonVariant]</td><td><code>SplitButtonVariant</code></td><td></td>
+    </tr><tr>
+    <td>[props.toggleIcon]</td><td><code>React.ReactNode</code> | <code>function</code></td><td></td>
+    </tr><tr>
+    <td>[props.variant]</td><td><code>SelectVariant</code></td><td><code>SelectVariant.single</code></td>
+    </tr>  </tbody>
+</table>
+
+
+* [~Select(props)](#Form.module_Select..Select) ⇒ <code>JSX.Element</code>
+    * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
+    * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
+
+<a name="Form.module_Select..Select..renderDropdownButton"></a>
+
+#### Select~renderDropdownButton() ⇒ <code>React.ReactNode</code>
+Apply dropdown.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select..Select)  
+<a name="Form.module_Select..Select..renderSelect"></a>
+
+#### Select~renderSelect() ⇒ <code>React.ReactNode</code>
+Apply select.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select..Select)  
+<a name="Form.module_Select..updateDataAttributes"></a>
+
+### Select~updateDataAttributes(params)
+Apply "data-" attributes to main PF element.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.selectField</td><td><code>React.ReactElement</code> | <code>HTMLElement</code></td>
+    </tr><tr>
+    <td>params.props</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..updateOptions"></a>
+
+### Select~updateOptions(options) ⇒ <code>Array</code>
+Update list options for consumption by PF components
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>Array.&lt;(unknown|{title: (React.ReactNode|undefined), value: (React.ReactNode|undefined), description: (React.ReactNode|undefined), isSelected: (boolean|undefined), isDisabled: (boolean|undefined)})&gt;</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..updateOptions.memo"></a>
+
+#### updateOptions.memo
+A memoized response for the updateOptions function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>updateOptions</code>](#Form.module_Select..updateOptions)  
+<a name="Form.module_Select..updateSelectedOptions"></a>
+
+### Select~updateSelectedOptions(options) ⇒ <code>Array</code> \| <code>Array.&lt;(&quot;NaN&quot;\|&quot;null&quot;\|unknown)&gt;</code>
+Update selected list options for consumption.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>string</code> | <code>number</code> | <code>null</code> | <code>NaN</code> | <code>Object</code> | <code>Array.&lt;(string|number|null|undefined|NaN|{value: unknown})&gt;</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..updateSelectedOptions.memo"></a>
+
+#### updateSelectedOptions.memo
+A memoized response for the updateSelectedOptions function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>updateSelectedOptions</code>](#Form.module_Select..updateSelectedOptions)  
+<a name="Form.module_Select..updateSelectedProp"></a>
+
+### Select~updateSelectedProp(params) ⇒ <code>Object</code> \| <code>undefined</code> \| <code>Array.&lt;{isSelected:boolean}&gt;</code> \| <code>Array</code>
+Update the isSelected property for formatted options.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.options</td><td><code>Array.&lt;{title, value, isSelected}&gt;</code></td>
+    </tr><tr>
+    <td>params.selectedOptions</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>params.variant</td><td><code>SelectVariant</code> | <code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..updateSelectedProp.memo"></a>
+
+#### updateSelectedProp.memo
+A memoized response for the updateSelectedProp function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>updateSelectedProp</code>](#Form.module_Select..updateSelectedProp)  
+<a name="Form.module_Select..formatEvent"></a>
+
+### Select~formatEvent(params) ⇒ <code>CustomEvent.&lt;{keyCode, currentTarget: {}, name, checked: \*, id: \*, persist: function(), value, target: {}, selected: (unknown\|Array.&lt;unknown&gt;), selectedIndex: Array.&lt;number&gt;, type: (&quot;select-one&quot;\|&quot;select-multiple&quot;), value: unknown}&gt;</code>
+Expand returned event for select responses.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.event</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.options</td><td><code>Array.&lt;{isSelected: boolean}&gt;</code></td>
+    </tr><tr>
+    <td>params.variant</td><td><code>SelectVariant</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..setSelectElements"></a>
+
+### Select~setSelectElements([variant]) ⇒ <code>Object</code>
+Set PF components.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>[variant]</td><td><code>SelectVariant</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..setSelectElements.memo"></a>
+
+#### setSelectElements.memo
+A memoized response for the setSelectElements function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>setSelectElements</code>](#Form.module_Select..setSelectElements)  
+<a name="Form.module_Select..useOnSelect"></a>
+
+### Select~useOnSelect(options) ⇒ <code>Object</code>
+Hook for handling option and selected option updates.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.options</td><td><code>updateOptions</code></td>
+    </tr><tr>
+    <td>options.onSelect</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.selectedOptions</td><td><code>updateSelectedOptions</code></td>
+    </tr><tr>
+    <td>options.variant</td><td><code>SelectVariant</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Form.module_Select..Select"></a>
+
+### Select~Select(props) ⇒ <code>React.ReactElement</code>
+Component wrapper for PF Select and Dropdown.
+
+**Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.alignment]</td><td><code>Object</code></td><td></td><td><p>Alias for PF references to &quot;popperProps&quot;.
+    Override by passing a &quot;popperProps&quot; prop object value.</p>
+</td>
+    </tr><tr>
+    <td>[props.className]</td><td><code>string</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.isDisabled]</td><td><code>boolean</code></td><td></td><td><p>Disable the select/dropdown toggle</p>
+</td>
+    </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>true</code></td><td><p>Is the select/dropdown an inline-block or not.</p>
+</td>
+    </tr><tr>
+    <td>[props.maxHeight]</td><td><code>number</code></td><td></td><td><p>Max height of the select/dropdown menu</p>
+</td>
+    </tr><tr>
+    <td>[props.onSelect]</td><td><code>function</code></td><td></td><td></td>
+    </tr><tr>
+    <td>props.options</td><td><code>Array.&lt;(string|number|{description: (unknown|undefined), isSelected: (boolean|undefined), isDisabled: (boolean|undefined), title: (React.ReactNode|undefined), value: unknown})&gt;</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.placeholder]</td><td><code>React.ReactNode</code></td><td></td><td><p>The default value for the select/dropdown. An emulated placeholder.</p>
+</td>
+    </tr><tr>
+    <td>[props.selectedOptions]</td><td><code>string</code> | <code>number</code> | <code>Object</code> | <code>Array.&lt;(string|number|{value: unknown})&gt;</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.toggle]</td><td><code>Object</code></td><td></td><td><p>select/dropdown
+    menu-toggle props object</p>
+</td>
+    </tr><tr>
+    <td>[props.variant]</td><td><code>SelectVariant</code></td><td><code>SelectVariant.single</code></td><td></td>
+    </tr><tr>
+    <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+
+* [~Select(props)](#Form.module_Select..Select) ⇒ <code>React.ReactElement</code>
     * [~renderDropdownButton()](#Form.module_Select..Select..renderDropdownButton) ⇒ <code>React.ReactNode</code>
     * [~renderSelect()](#Form.module_Select..Select..renderSelect) ⇒ <code>React.ReactNode</code>
 
@@ -6394,13 +7269,13 @@ A standalone SLA select filter.
 
 
 * [ToolbarFieldSla](#Toolbar.module_ToolbarFieldSla)
-    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldSla..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldSla..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldSla..useOnSelect) ⇒ <code>function</code>
     * [~ToolbarFieldSla(props)](#Toolbar.module_ToolbarFieldSla..ToolbarFieldSla) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldSla..toolbarFieldOptions"></a>
 
-### ToolbarFieldSla~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+### ToolbarFieldSla~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Select field options.
 
 **Kind**: inner constant of [<code>ToolbarFieldSla</code>](#Toolbar.module_ToolbarFieldSla)  
@@ -6464,13 +7339,13 @@ A standalone Usage select filter.
 
 
 * [ToolbarFieldUsage](#Toolbar.module_ToolbarFieldUsage)
-    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldUsage..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldUsage..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldUsage..useOnSelect) ⇒ <code>function</code>
     * [~ToolbarFieldUsage(props)](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldUsage..toolbarFieldOptions"></a>
 
-### ToolbarFieldUsage~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+### ToolbarFieldUsage~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Select field options.
 
 **Kind**: inner constant of [<code>ToolbarFieldUsage</code>](#Toolbar.module_ToolbarFieldUsage)  

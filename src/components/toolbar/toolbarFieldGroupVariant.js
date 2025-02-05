@@ -2,7 +2,7 @@ import React from 'react';
 import { Toolbar as PfToolbar, ToolbarContent, ToolbarItem, ToolbarItemVariant } from '@patternfly/react-core';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
-import { Select, SelectPosition } from '../form/select';
+import { Select, SelectPosition } from '../form/select.deprecated';
 import { translate } from '../i18n/i18n';
 import { routerContext } from '../router';
 
