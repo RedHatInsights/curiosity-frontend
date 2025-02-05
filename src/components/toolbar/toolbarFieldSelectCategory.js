@@ -3,7 +3,7 @@ import { FilterIcon } from '@patternfly/react-icons';
 import { useShallowCompareEffect } from 'react-use';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductToolbarConfig } from '../productView/productViewContext';
-import { Select } from '../form/select.deprecated';
+import { Select } from '../form/select';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 import {
@@ -27,7 +27,7 @@ import { ToolbarFieldUsage, toolbarFieldOptions as usageOptions } from './toolba
  * Select field options. Use function instead of arrow func to help with component
  * display name during testing.
  *
- * @type {Array<{title: React.ReactNode, value: string, selected: boolean}>}
+ * @type {Array<{title: React.ReactNode, value: string, isSelected: boolean}>}
  */
 const toolbarFieldOptions = [
   {
@@ -104,7 +104,7 @@ const toolbarFieldOptions = [
   }
 ].map(option => ({
   ...option,
-  selected: false
+  isSelected: false
 }));
 
 /**
@@ -142,7 +142,7 @@ const useOnSelect = ({
  * @param {useProductToolbarConfig} [options.useProductToolbarConfig=useProductToolbarConfig]
  * @param {storeHooks.reactRedux.useSelector} [options.useSelector=storeHooks.reactRedux.useSelector]
  * @returns {{currentCategory: unknown, initialCategory: string, options: Array<{title: React.ReactNode,
- *     value: string, selected: boolean}>}}
+ *     value: string, isSelected: boolean}>}}
  */
 const useSelectCategoryOptions = ({
   categoryOptions = toolbarFieldOptions,
@@ -158,16 +158,16 @@ const useSelectCategoryOptions = ({
 
   const updatedOptions = filters
     .filter(({ isItem, isSecondary }) => !isItem && !isSecondary)
-    .map(({ id, selected }) => {
+    .map(({ id, isSelected }) => {
       const option = categoryOptions.find(({ value }) => id === value);
 
-      if (updatedValue === undefined && selected) {
+      if (updatedValue === undefined && isSelected) {
         initialValue = option.value;
       }
 
       return {
         ...option,
-        selected: (updatedValue === undefined && selected) || updatedValue === option.value
+        isSelected: (updatedValue === undefined && isSelected) || updatedValue === option.value
       };
     });
 
@@ -209,7 +209,7 @@ const ToolbarFieldSelectCategory = ({
       options={options}
       selectedOptions={updatedValue}
       placeholder={t('curiosity-toolbar.placeholder', { context: ['filter'] })}
-      toggleIcon={<FilterIcon />}
+      toggle={{ icon: <FilterIcon /> }}
       data-test="toolbarFieldCategory"
     />
   );

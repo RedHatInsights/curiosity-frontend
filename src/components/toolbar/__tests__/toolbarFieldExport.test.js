@@ -26,7 +26,7 @@ describe('ToolbarFieldExport Component', () => {
     const input = component.find('button');
     component.fireEvent.click(input);
 
-    const inputMenuItem = component.find('a.pf-v5-c-dropdown__menu-item');
+    const inputMenuItem = component.find('button.curiosity-select-pf__option');
     component.fireEvent.click(inputMenuItem);
 
     expect(mockOnSelect).toHaveBeenCalledTimes(1);

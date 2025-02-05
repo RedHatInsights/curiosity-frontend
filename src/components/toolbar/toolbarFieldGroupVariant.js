@@ -2,7 +2,7 @@ import React from 'react';
 import { Toolbar as PfToolbar, ToolbarContent, ToolbarItem, ToolbarItemVariant } from '@patternfly/react-core';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
-import { Select, SelectPosition } from '../form/select.deprecated';
+import { Select, SelectPosition } from '../form/select';
 import { translate } from '../i18n/i18n';
 import { routerContext } from '../router';
 
@@ -32,7 +32,7 @@ const useToolbarFieldOptions = ({
     options.push({
       title: t('curiosity-toolbar.label', { context: ['groupVariant', variant] }),
       value: variant,
-      selected: variant === firstMatch?.productId
+      isSelected: variant === firstMatch?.productId
     });
   });
 
@@ -100,7 +100,7 @@ const ToolbarFieldGroupVariant = ({
   const options = useAliasToolbarFieldOptions();
   const updatedOptions = options.map(option => ({
     ...option,
-    selected: (updatedValue && option.value === updatedValue) || option?.selected
+    isSelected: (updatedValue && option.value === updatedValue) || option?.isSelected
   }));
 
   if (options?.length <= 1) {
@@ -118,7 +118,7 @@ const ToolbarFieldGroupVariant = ({
         options={updatedOptions}
         selectedOptions={updatedValue}
         placeholder={t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'groupVariant'] })}
-        position={position}
+        alignment={{ position }}
         maxHeight={310}
         data-test="toolbarFieldGroupVariant"
       />
