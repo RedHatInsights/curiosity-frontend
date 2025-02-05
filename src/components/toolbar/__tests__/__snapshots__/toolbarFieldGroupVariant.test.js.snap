@@ -3,27 +3,27 @@
 exports[`ToolbarFieldGroupVariant Component should generate select options: toolbarFieldOptions 1`] = `
 [
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_groupVariant, {"context":"dolor"})",
     "value": "dolor",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_groupVariant, {"context":"ipsum"})",
     "value": "ipsum",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_groupVariant, {"context":"lorem"})",
     "value": "lorem",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_groupVariant, {"context":"sit"})",
     "value": "sit",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label, {"context":"groupVariant"})",
     "value": "",
   },
@@ -79,6 +79,11 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
      
   </ToolbarItem>
   <Select
+    alignment={
+      {
+        "position": "left",
+      }
+    }
     aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
     data-test="toolbarFieldGroupVariant"
     maxHeight={310}
@@ -86,29 +91,28 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
     options={
       [
         {
-          "selected": undefined,
+          "isSelected": undefined,
           "title": "lorem",
           "value": "lorem",
         },
         {
-          "selected": undefined,
+          "isSelected": undefined,
           "title": "ipsum",
           "value": "ipsum",
         },
         {
-          "selected": undefined,
+          "isSelected": undefined,
           "title": "dolor",
           "value": "dolor",
         },
         {
-          "selected": undefined,
+          "isSelected": undefined,
           "title": "sit",
           "value": "sit",
         },
       ]
     }
     placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-    position="left"
     selectedOptions={null}
   />
 </ToolbarContent>
@@ -132,6 +136,11 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
        
     </ToolbarItem>
     <Select
+      alignment={
+        {
+          "position": "left",
+        }
+      }
       aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
       data-test="toolbarFieldGroupVariant"
       maxHeight={310}
@@ -139,19 +148,18 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
       options={
         [
           {
-            "selected": undefined,
+            "isSelected": undefined,
             "title": "lorem",
             "value": "lorem",
           },
           {
-            "selected": undefined,
+            "isSelected": undefined,
             "title": "ipsum",
             "value": "ipsum",
           },
         ]
       }
       placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-      position="left"
       selectedOptions={null}
     />
   </ToolbarContent>

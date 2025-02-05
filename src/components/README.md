@@ -6482,13 +6482,13 @@ A standalone Billing Provider select filter.
 
 
 * [ToolbarFieldBillingProvider](#Toolbar.module_ToolbarFieldBillingProvider)
-    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldBillingProvider..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldBillingProvider..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldBillingProvider..useOnSelect) ⇒ <code>function</code>
     * [~ToolbarFieldBillingProvider(props)](#Toolbar.module_ToolbarFieldBillingProvider..ToolbarFieldBillingProvider) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldBillingProvider..toolbarFieldOptions"></a>
 
-### ToolbarFieldBillingProvider~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+### ToolbarFieldBillingProvider~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Select field options.
 
 **Kind**: inner constant of [<code>ToolbarFieldBillingProvider</code>](#Toolbar.module_ToolbarFieldBillingProvider)  
@@ -6724,13 +6724,13 @@ A standalone export select/dropdown filter and download hooks.
 
 
 * [ToolbarFieldExport](#Toolbar.module_ToolbarFieldExport)
-    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldExport..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldExport..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldExport..useOnSelect) ⇒ <code>function</code>
     * [~ToolbarFieldExport(props)](#Toolbar.module_ToolbarFieldExport..ToolbarFieldExport) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldExport..toolbarFieldOptions"></a>
 
-### ToolbarFieldExport~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+### ToolbarFieldExport~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Select field options.
 
 **Kind**: inner constant of [<code>ToolbarFieldExport</code>](#Toolbar.module_ToolbarFieldExport)  
@@ -6949,13 +6949,13 @@ A standalone Granularity select filter.
 
 
 * [ToolbarFieldGranularity](#Toolbar.module_ToolbarFieldGranularity)
-    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldGranularity..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldGranularity..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldGranularity..useOnSelect) ⇒ <code>function</code>
     * [~ToolbarFieldGranularity(props)](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldGranularity..toolbarFieldOptions"></a>
 
-### ToolbarFieldGranularity~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+### ToolbarFieldGranularity~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Select field options.
 
 **Kind**: inner constant of [<code>ToolbarFieldGranularity</code>](#Toolbar.module_ToolbarFieldGranularity)  
@@ -7109,13 +7109,13 @@ A standalone Ranged Monthly Granularity select filter.
 
 
 * [ToolbarFieldRangedMonthly](#Toolbar.module_ToolbarFieldRangedMonthly)
-    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldRangedMonthly..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldRangedMonthly..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldRangedMonthly..useOnSelect) ⇒ <code>function</code>
     * [~ToolbarFieldRangedMonthly(props)](#Toolbar.module_ToolbarFieldRangedMonthly..ToolbarFieldRangedMonthly) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldRangedMonthly..toolbarFieldOptions"></a>
 
-### ToolbarFieldRangedMonthly~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+### ToolbarFieldRangedMonthly~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Select field options.
 
 **Kind**: inner constant of [<code>ToolbarFieldRangedMonthly</code>](#Toolbar.module_ToolbarFieldRangedMonthly)  
@@ -7177,14 +7177,14 @@ Display a granularity field with options.
 ## ToolbarFieldSelectCategory
 
 * [ToolbarFieldSelectCategory](#Toolbar.module_ToolbarFieldSelectCategory)
-    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldSelectCategory..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldSelectCategory..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldSelectCategory..useOnSelect) ⇒ <code>function</code>
     * [~useSelectCategoryOptions(options)](#Toolbar.module_ToolbarFieldSelectCategory..useSelectCategoryOptions) ⇒ <code>Object</code>
     * [~ToolbarFieldSelectCategory(props)](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldSelectCategory..toolbarFieldOptions"></a>
 
-### ToolbarFieldSelectCategory~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, selected: boolean}&gt;</code>
+### ToolbarFieldSelectCategory~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Select field options. Use function instead of arrow func to help with component
 display name during testing.
 

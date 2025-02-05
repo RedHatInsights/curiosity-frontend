@@ -1,7 +1,7 @@
 import React from 'react';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
-import { Select, SelectPosition } from '../form/select.deprecated';
+import { Select, SelectPosition } from '../form/select';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as FIELD_TYPES,
   RHSM_API_QUERY_SET_TYPES
@@ -19,12 +19,12 @@ import { translate } from '../i18n/i18n';
 /**
  * Select field options.
  *
- * @type {Array<{title: React.ReactNode, value: string, selected: boolean}>}
+ * @type {Array<{title: React.ReactNode, value: string, isSelected: boolean}>}
  */
 const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
   title: translate('curiosity-toolbar.label', { context: ['granularity', type] }),
   value: type,
-  selected: false
+  isSelected: false
 }));
 
 /**
@@ -94,7 +94,7 @@ const ToolbarFieldGranularity = ({
 }) => {
   const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: updatedValue } = useAliasProductGraphTallyQuery();
   const onSelect = useAliasOnSelect();
-  const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
+  const updatedOptions = options.map(option => ({ ...option, isSelected: option.value === updatedValue }));
 
   return (
     <Select
@@ -103,7 +103,7 @@ const ToolbarFieldGranularity = ({
       options={updatedOptions}
       selectedOptions={updatedValue}
       placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'granularity' })}
-      position={position}
+      alignment={{ position }}
       data-test="toolbarFieldGranularity"
     />
   );
