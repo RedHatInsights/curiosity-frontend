@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: weekly
       day: monday
-    open-pull-requests-limit: 2
+    open-pull-requests-limit: 3
     target-branch: "main"
     versioning-strategy: increase
     allow:
@@ -13,25 +13,23 @@ updates:
     ignore:
       - dependency-name: "@patternfly/*"
       - dependency-name: "@redhat-cloud-services/frontend*"
-      - dependency-name: "*i18next*"
       - dependency-name: "victory*"
-      - dependency-name: "react-router*"
     labels:
       - "build"
     commit-message:
       prefix: "build"
       include: "scope"
     groups:
-      dev-dependencies:
+      dev:
         dependency-type: "development"
         update-types:
           - "minor"
           - "patch"
-      dependencies-patch:
+      patch:
         dependency-type: "production"
         update-types:
           - "patch"
-      dependencies-minor:
+      minor:
         dependency-type: "production"
         update-types:
           - "minor"
