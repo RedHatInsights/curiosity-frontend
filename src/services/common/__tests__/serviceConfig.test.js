@@ -332,13 +332,13 @@ describe('Poll service calls', () => {
         cache: false,
         url: '/test/',
         poll: () => {
-          throw new Error('basic validation error');
+          throw new Error('basic error');
         }
       },
       { pollInterval: 0 }
     );
 
-    expect(consoleSpyError.mock.calls).toMatchSnapshot('error');
+    expect(consoleSpyError.mock.calls).toMatchSnapshot('callback error');
     consoleSpyError.mockClear();
   });
 
@@ -383,7 +383,7 @@ describe('Poll service calls', () => {
         url: '/test/',
         poll: {
           validate: () => {
-            throw new Error('status error');
+            throw new Error('validate error');
           }
         }
       },
@@ -530,7 +530,7 @@ describe('Poll service calls', () => {
         poll: {
           validate: (response, count) => count === 1,
           location: () => {
-            throw new Error('location string error');
+            throw new Error('location error');
           }
         }
       },
@@ -542,7 +542,7 @@ describe('Poll service calls', () => {
       setTimeout(() => resolve(), 100);
     });
 
-    expect(consoleSpyError.mock.calls).toMatchSnapshot('different service call with callback errors');
+    expect(consoleSpyError.mock.calls).toMatchSnapshot('callback error');
     consoleSpyError.mockClear();
   });
 

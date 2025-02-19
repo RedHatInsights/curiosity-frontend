@@ -330,10 +330,10 @@ exports[`Emulate a service call with a function should handle function call resp
 ]
 `;
 
-exports[`Poll service calls should handle basic polling error: error 1`] = `
+exports[`Poll service calls should handle basic polling error: callback error 1`] = `
 [
   [
-    [Error: basic validation error],
+    [Error: basic error],
   ],
 ]
 `;
@@ -394,13 +394,13 @@ exports[`Poll service calls should handle basic polling: basic 1`] = `
 }
 `;
 
-exports[`Poll service calls should handle polling against a different service call path but with a callback error: different service call with callback errors 1`] = `
+exports[`Poll service calls should handle polling against a different service call path but with a callback error: callback error 1`] = `
 [
   [
-    [Error: location string error],
+    [Error: location error],
   ],
   [
-    [Error: location string error],
+    [Error: location error],
   ],
 ]
 `;
@@ -612,7 +612,7 @@ exports[`Poll service calls should handle polling with a status callback: callba
 exports[`Poll service calls should handle polling with a validate callback error: callback error 1`] = `
 [
   [
-    [Error: status error],
+    [Error: validate error],
   ],
 ]
 `;
