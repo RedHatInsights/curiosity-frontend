@@ -29,7 +29,6 @@ updates:
       prod:
         dependency-type: "production"
         update-types:
-          - "minor"
           - "patch"
 
   - package-ecosystem: github-actions
