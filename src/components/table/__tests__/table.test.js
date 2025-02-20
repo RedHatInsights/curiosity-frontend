@@ -99,6 +99,7 @@ describe('Table Component', () => {
     component.fireEvent.click(input);
 
     expect(mockSort).toHaveBeenCalledTimes(1);
+    expect(component.find('table th')).toMatchSnapshot('sorted');
   });
 
   it('should allow selectable row content', () => {
