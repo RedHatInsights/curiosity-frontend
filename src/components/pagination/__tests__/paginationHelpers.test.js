@@ -24,6 +24,8 @@ describe('PaginationHelpers', () => {
 
   it('should return a page from offset and perPage/limit', () => {
     expect([
+      paginationHelpers.calculatePageFromOffset(undefined, 10),
+      paginationHelpers.calculatePageFromOffset(null, 10),
       paginationHelpers.calculatePageFromOffset(0, 10),
       paginationHelpers.calculatePageFromOffset(10, 10),
       paginationHelpers.calculatePageFromOffset(20, 10),
