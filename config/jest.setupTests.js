@@ -285,7 +285,6 @@ global.renderHook = async (useHook = Function.prototype, options = {}) => {
   let unmountHook;
   let rerenderHook;
 
-  // eslint-disable-next-line react/prop-types
   const Hook = ({ args = [] }) => {
     result = useHook(...args);
     return null;
