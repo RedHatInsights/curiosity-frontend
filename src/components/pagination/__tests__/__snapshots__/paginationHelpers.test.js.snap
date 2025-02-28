@@ -37,6 +37,8 @@ exports[`PaginationHelpers should return a boolean indicating last page: last pa
 exports[`PaginationHelpers should return a page from offset and perPage/limit: page variations 1`] = `
 [
   1,
+  1,
+  1,
   2,
   3,
   4,

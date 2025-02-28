@@ -13,6 +13,7 @@ updates:
     ignore:
       - dependency-name: "@patternfly/*"
       - dependency-name: "@redhat-cloud-services/frontend*"
+      - dependency-name: "*i18next*"
       - dependency-name: "victory*"
     labels:
       - "build"
@@ -25,14 +26,10 @@ updates:
         update-types:
           - "minor"
           - "patch"
-      patch:
+      prod:
         dependency-type: "production"
         update-types:
           - "patch"
-      minor:
-        dependency-type: "production"
-        update-types:
-          - "minor"
 
   - package-ecosystem: github-actions
     directory: /
