@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.14.3](https://github.com/RedHatInsights/curiosity-frontend/compare/3514374de2bf3a6ccd313630f67d992ed23177fc...4c8d7c6fcada6b6ddce8ff00668797b9b4366206) (2025-03-03)
+
+
+### Tests
+* **serviceConfig** restructure for polling, and readability ([#1520](https://github.com/RedHatInsights/curiosity-frontend/pull/1520)) ([811f9dd](https://github.com/RedHatInsights/curiosity-frontend/commit/811f9dd1a115fbdfe8f819f64f3ce692b9897513))
+
+### Continuous Integrations
+*  Update Konflux references ([#1537](https://github.com/RedHatInsights/curiosity-frontend/pull/1537)) ([4c8d7c6](https://github.com/RedHatInsights/curiosity-frontend/commit/4c8d7c6fcada6b6ddce8ff00668797b9b4366206))
+
+### Builds
+* **deps** remove unused prop-types ([#1534](https://github.com/RedHatInsights/curiosity-frontend/pull/1534)) ([b2b52c9](https://github.com/RedHatInsights/curiosity-frontend/commit/b2b52c9c96621e78420339b47bc0e14c92d365dc))
+* **deps-dev** bump the dev group with 3 updates ([#1532](https://github.com/RedHatInsights/curiosity-frontend/pull/1532)) ([cb7b273](https://github.com/RedHatInsights/curiosity-frontend/commit/cb7b27332a77f4183aa5fc43afb5207985a2a544))
+* **deps-dev** bump eslint-config-prettier from 9.1.0 to 10.0.1 ([#1531](https://github.com/RedHatInsights/curiosity-frontend/pull/1531)) ([ca39edb](https://github.com/RedHatInsights/curiosity-frontend/commit/ca39edb8751fdda342973a3425d1d345a8cc1668))
+* **deps-dev** bump the dev group with 3 updates ([#1530](https://github.com/RedHatInsights/curiosity-frontend/pull/1530)) ([2c0db6e](https://github.com/RedHatInsights/curiosity-frontend/commit/2c0db6ea5cbe0313c488dc54e08d3701d662698d))
+* **deps** dependabot groups, ignored dep ([#1529](https://github.com/RedHatInsights/curiosity-frontend/pull/1529)) ([c46cf52](https://github.com/RedHatInsights/curiosity-frontend/commit/c46cf52372ea9638ba080f30dea7645afe747b14))
+* **deps** bump core group with 8 updates ([#1527](https://github.com/RedHatInsights/curiosity-frontend/pull/1527)) ([9ba97d4](https://github.com/RedHatInsights/curiosity-frontend/commit/9ba97d46360ebad986de828f40a3f35354b6bf5d))
+* **deps** bump codecov/codecov-action from 4 to 5 ([#1490](https://github.com/RedHatInsights/curiosity-frontend/pull/1490)) ([12bf83d](https://github.com/RedHatInsights/curiosity-frontend/commit/12bf83d2d74c00e56aee01510571a3f9666e98aa))
+* **deps-dev** bump the dev group with 2 updates ([#1522](https://github.com/RedHatInsights/curiosity-frontend/pull/1522)) ([fc83a8a](https://github.com/RedHatInsights/curiosity-frontend/commit/fc83a8af4c016c8d94e59d119476c562fbbe70c4))
+
+### Bug Fixes
+* **pagination** sw-3322 restore default offset from refactor ([#1535](https://github.com/RedHatInsights/curiosity-frontend/pull/1535)) ([475d2a5](https://github.com/RedHatInsights/curiosity-frontend/commit/475d2a558b9bdee33b4eb88c09b1bb8e653a84a1))
+
 ## [4.14.2](https://github.com/RedHatInsights/curiosity-frontend/compare/0739944d30e8b8d6d36a7328ff607e18a59c7e87...79ebc2c317cbb74f1c986e585f551e32478f6eff) (2025-02-17)
 
 
