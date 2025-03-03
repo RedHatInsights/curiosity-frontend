@@ -125,7 +125,7 @@
     "cspell": "^8.17.5",
     "eslint": "8.57.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^10.0.1",
+    "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-comment-length": "^2.1.1",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.11.0",
@@ -145,9 +145,9 @@
     "moxios": "^0.4.0",
     "npm-check-updates": "^17.1.15",
     "npm-run-all": "^4.1.5",
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "ts-patch": "^3.3.0",
-    "typescript": "^5.7.3",
+    "typescript": "^5.8.2",
     "weldable": "^3.2.4",
     "yamljs": "^0.3.0"
   }
