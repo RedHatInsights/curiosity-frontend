@@ -166,13 +166,13 @@ const useOnScroll = (
     if (numberOfGuests > currentPage + limit && bottom && !pending) {
       dispatch([
         {
-          type: reduxTypes.query.SET_QUERY_GRAPH,
+          type: reduxTypes.query.SET_QUERY_INVENTORY_GUESTS,
           viewId: id,
           filter: RHSM_API_QUERY_SET_TYPES.OFFSET,
           value: currentPage + limit
         },
         {
-          type: reduxTypes.query.SET_QUERY_GRAPH,
+          type: reduxTypes.query.SET_QUERY_INVENTORY_GUESTS,
           viewId: id,
           filter: RHSM_API_QUERY_SET_TYPES.LIMIT,
           value: limit
