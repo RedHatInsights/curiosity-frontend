@@ -5038,6 +5038,8 @@ A PF Composable table wrapper
     </tr><tr>
     <td>[props.onExpand]</td><td><code>function</code></td><td></td>
     </tr><tr>
+    <td>[props.onLoad]</td><td><code>function</code></td><td></td>
+    </tr><tr>
     <td>[props.onSelect]</td><td><code>function</code></td><td></td>
     </tr><tr>
     <td>[props.onSort]</td><td><code>function</code></td><td></td>
