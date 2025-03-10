@@ -29,6 +29,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
       "code": undefined,
       "config": {
         "adapter": [Function],
+        "allowAbsoluteUrls": true,
         "cacheResponse": false,
         "cancelToken": CancelToken {
           "promise": Promise {
@@ -69,6 +70,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
       "request": Request {
         "config": {
           "adapter": [Function],
+          "allowAbsoluteUrls": true,
           "cacheResponse": false,
           "cancelToken": CancelToken {
             "promise": Promise {
@@ -125,6 +127,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
       "code": undefined,
       "config": {
         "adapter": [Function],
+        "allowAbsoluteUrls": true,
         "cacheResponse": false,
         "cancelToken": CancelToken {
           "promise": Promise {
@@ -164,6 +167,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
       "request": Request {
         "config": {
           "adapter": [Function],
+          "allowAbsoluteUrls": true,
           "cacheResponse": false,
           "cancelToken": CancelToken {
             "promise": Promise {
@@ -218,6 +222,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
       "code": undefined,
       "config": {
         "adapter": [Function],
+        "allowAbsoluteUrls": true,
         "cacheResponse": false,
         "cancelToken": CancelToken {
           "promise": Promise {
@@ -257,6 +262,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
       "request": Request {
         "config": {
           "adapter": [Function],
+          "allowAbsoluteUrls": true,
           "cacheResponse": false,
           "cancelToken": CancelToken {
             "promise": Promise {
@@ -675,7 +681,7 @@ exports[`Poll service calls should handle polling with a validate callback: call
 }
 `;
 
-exports[`ServiceConfig should handle producing a consistent service call configuration: response config hash 1`] = `"c1336321229"`;
+exports[`ServiceConfig should handle producing a consistent service call configuration: response config hash 1`] = `"c-354573293"`;
 
 exports[`ServiceConfig should have specific properties and methods: specific props and methods 1`] = `
 [
