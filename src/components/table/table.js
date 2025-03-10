@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useShallowCompareEffect } from 'react-use';
+import React, { useRef, useState } from 'react';
+import { useShallowCompareEffect, useTimeoutFn } from 'react-use';
 import _cloneDeep from 'lodash/cloneDeep';
 import { Grid, GridItem } from '@patternfly/react-core';
 import {
@@ -86,6 +86,7 @@ const TableEmptyProps = {
  * @param {boolean} [props.isHeader=false]
  * @param {boolean} [props.isStriped=false]
  * @param {Function} [props.onExpand]
+ * @param {Function} [props.onLoad]
  * @param {Function} [props.onSelect]
  * @param {Function} [props.onSort]
  * @param {Array<{
@@ -118,16 +119,27 @@ const Table = ({
   isHeader = false,
   isStriped = false,
   onExpand,
+  onLoad,
   onSelect,
   onSort,
   rows,
   summary,
   variant = TableVariant.compact
 }) => {
+  const tableElement = useRef(null);
   const [updatedHeaderAndRows, setUpdatedHeaderAndRows] = useState({});
   const [updatedIsExpandableRow, setUpdatedIsExpandableRow] = useState(false);
   const [updatedIsExpandableCell, setUpdatedIsExpandableCell] = useState(false);
   const [updatedIsSelectTable, setUpdatedIsSelectTable] = useState(false);
+
+  /**
+   * Apply onLoad callback
+   */
+  useTimeoutFn(() => {
+    if (tableElement?.current && typeof onLoad === 'function') {
+      onLoad({ tableElement });
+    }
+  });
 
   /**
    * Apply an onExpand handler.
@@ -444,6 +456,7 @@ const Table = ({
       <GridItem span={12}>
         {(updatedHeaderAndRows?.bodyRows?.length && (
           <PfTable
+            ref={tableElement}
             aria-label={ariaLabelTable}
             borders={isBorders}
             className={`${componentClassNames.table} ${className}`}
