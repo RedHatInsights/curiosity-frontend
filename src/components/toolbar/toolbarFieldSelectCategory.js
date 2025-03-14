@@ -3,7 +3,7 @@ import { FilterIcon } from '@patternfly/react-icons';
 import { useShallowCompareEffect } from 'react-use';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductToolbarConfig } from '../productView/productViewContext';
-import { Select } from '../form/select';
+import { Select } from '../form/select.deprecated';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 import {
