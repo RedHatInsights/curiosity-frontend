@@ -72,6 +72,7 @@
       }
     ],
     "consistent-return": 1,
+    "default-case": 0,
     "default-param-last": 0,
     "import/extensions": [
       "error",

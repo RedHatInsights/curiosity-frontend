@@ -1,282 +1,384 @@
 import React from 'react';
-import { FilterIcon } from '@patternfly/react-icons';
 import {
-  ButtonVariant,
   Select,
-  formatOptions,
-  formatButtonProps,
-  formatSelectProps,
-  SelectDirection,
-  SelectPosition,
-  SplitButtonVariant,
+  SelectButtonVariant,
+  useOnSelect,
+  updateOptions,
+  updateSelectedOptions,
+  updateSelectedProp,
+  updateDataAttributes,
+  formatEvent,
   SelectVariant
 } from '../select';
-import { helpers } from '../../../common';
 
-describe('Select Component', () => {
-  it('should render a basic component', () => {
-    const props = {
-      id: 'test',
-      options: [
-        { title: 'lorem', value: 'ipsum' },
-        { title: 'hello', value: 'world', selected: true }
-      ]
-    };
+describe('helpers', () => {
+  it('updateDataAttributes should update the data- attributes of a dom element', () => {
+    const mockDomElement = document.createElement('div');
+    mockDomElement.appendChild(document.createElement('span'));
 
-    const component = renderComponent(<Select {...props} />);
-    expect(component).toMatchSnapshot('basic component');
+    updateDataAttributes({ selectField: { current: mockDomElement }, 'data-hello': 'world' });
+    expect(mockDomElement).toMatchSnapshot('attributes');
   });
 
-  it('should render a checkbox select', () => {
-    const props = {
-      id: 'test',
+  it.each([
+    {
+      options: 'lorem',
+      description: 'string'
+    },
+    {
+      options: ['lorem', 1, 2],
+      description: 'string, number'
+    },
+    {
+      options: [{ value: 'hello' }, { value: { world: 'world' } }],
+      description: 'object'
+    },
+    {
+      options: [NaN, undefined, null, 1, 'a'],
+      description: 'null, undefined, NaN'
+    }
+  ])('updateOptions should allow an array of varied options, $description', ({ options }) => {
+    expect(updateOptions(options)).toMatchSnapshot();
+  });
+
+  it.each([
+    {
+      options: 'a',
+      description: 'string'
+    },
+    {
+      options: 3,
+      description: 'number'
+    },
+    {
+      options: { value: 'hello' },
+      description: 'object'
+    },
+    {
+      options: null,
+      description: 'null'
+    },
+    {
+      options: undefined,
+      description: 'undefined'
+    },
+    {
+      options: NaN,
+      description: 'NaN'
+    },
+    {
+      options: ['a', 'b', 3, { value: 'hello' }],
+      description: 'array'
+    },
+    {
+      options: ['a', 'b', 3, { value: 'hello' }, null, undefined, NaN],
+      description: 'null, undefined, NaN'
+    }
+  ])('updateSelectedOptions should only allow lists or any single option type, $description', ({ options }) => {
+    expect(updateSelectedOptions(options)).toMatchSnapshot();
+  });
+
+  it.each([
+    {
+      options: ['a', 'b', 3],
+      selectedOptions: undefined,
+      description: 'none'
+    },
+    {
+      options: ['a', 'b', 3],
+      selectedOptions: 'a',
+      description: 'string'
+    },
+    {
+      options: ['a', 'b', 3],
+      selectedOptions: 'a',
+      description: 'number'
+    },
+    {
+      options: ['a', { value: 'lorem ipsum', isSelected: true }, 3],
+      selectedOptions: undefined,
+      description: 'preselected'
+    },
+    {
+      options: ['a', { value: 'lorem ipsum' }, 3],
+      selectedOptions: 'lorem ipsum',
+      description: 'object'
+    },
+    {
+      options: ['a', { value: { data: 'lorem ipsum' } }, 3],
+      selectedOptions: 'lorem ipsum',
+      description: 'object as value'
+    },
+    {
+      options: ['a', { value: 'lorem ipsum', isSelected: true }, { value: 3, isSelected: true }, 'b', 4],
+      selectedOptions: undefined,
+      variant: 'mock',
+      description: 'multiple preselected'
+    },
+    {
+      options: ['a', { value: 'lorem ipsum' }, 3, 'b', 4],
+      selectedOptions: [3, 'a', 'lorem ipsum'],
+      variant: 'mock',
+      description: 'multiple'
+    },
+    {
+      options: ['a', undefined, 3, 'b', 4],
+      selectedOptions: undefined,
+      variant: 'mock',
+      description: 'purposeful undefined value, this will fail'
+    },
+    {
+      options: ['a', undefined, 3, 'b', 4],
+      selectedOptions: 'undefined',
+      variant: 'mock',
+      description: 'purposeful undefined as title string lookup'
+    },
+    {
+      options: ['a', undefined, 3, 'b', 4],
+      selectedOptions: [undefined],
+      variant: 'mock',
+      description: 'purposeful undefined with required array lookup'
+    },
+    {
+      options: ['a', null, 3, 'b', 4],
+      selectedOptions: null,
+      variant: 'mock',
+      description: 'purposeful null value'
+    },
+    {
+      options: ['a', null, 3, 'b', 4],
+      selectedOptions: 'null',
+      variant: 'mock',
+      description: 'purposeful null value as title string lookup'
+    },
+    {
+      options: ['a', null, 3, 'b', 4],
+      selectedOptions: [null],
+      variant: 'mock',
+      description: 'purposeful null value as array lookup'
+    },
+    {
+      options: ['a', '', 3, 'b', 4],
+      selectedOptions: '',
+      variant: 'mock',
+      description: 'purposeful empty value'
+    },
+    {
+      options: ['a', '', 3, 'b', 4],
+      selectedOptions: [''],
+      variant: 'mock',
+      description: 'purposeful empty value as array lookup'
+    },
+    {
+      options: ['a', NaN, 3, 'b', 4],
+      selectedOptions: NaN,
+      variant: 'mock',
+      description: 'purposeful NaN value'
+    },
+    {
+      options: ['a', NaN, 3, 'b', 4],
+      selectedOptions: 'NaN',
+      variant: 'mock',
+      description: 'purposeful NaN value as title string lookup'
+    },
+    {
+      options: ['a', NaN, 3, 'b', 4],
+      selectedOptions: [NaN],
+      variant: 'mock',
+      description: 'purposeful NaN value as array lookup'
+    }
+  ])(
+    'updateSelectedProp should add isSelected enhancements to options, $description',
+    ({ options, selectedOptions, variant }) => {
+      expect(
+        updateSelectedProp({
+          options: updateOptions(options),
+          selectedOptions: updateSelectedOptions(selectedOptions),
+          variant
+        })
+      ).toMatchSnapshot();
+    }
+  );
+
+  it.each([
+    {
       options: [
-        { title: 'lorem', value: 'ipsum' },
-        { title: 'hello', value: 'world', selected: true }
+        { title: 'lorem', value: 'lorem', index: 'mock', isSelected: false },
+        { title: 'ipsum', value: 'lorem', index: 'mock', isSelected: true }
       ],
-      selectedOptions: ['world', 'ipsum'],
+      variant: SelectVariant.single,
+      description: 'single'
+    },
+    {
+      options: [
+        { title: 'lorem', value: 'lorem', index: 'mock', isSelected: true },
+        { title: 'ipsum', value: 'ipsum', index: 'mock', isSelected: true }
+      ],
       variant: SelectVariant.checkbox,
-      placeholder: 'multiselect test'
+      description: 'multiple'
+    }
+  ])(
+    'formatEvent should modify the event object for select by exposing selected, selectedIndex, select type, and value, $description',
+    ({ options, variant }) => {
+      expect(formatEvent({ options, variant })).toMatchSnapshot();
+    }
+  );
+});
+
+describe('useOnSelect', () => {
+  it('should return specific properties', async () => {
+    const { result } = await renderHook(() => useOnSelect({}));
+    expect(result).toMatchSnapshot('properties');
+  });
+
+  it("should ignore returning updated options' state through the returned onSelect callback when option is disabled", async () => {
+    const onSelect = jest.fn();
+    const { result } = await renderHook(() =>
+      useOnSelect({ options: ['lorem', { title: 'ipsum', isDisabled: true }], onSelect })
+    );
+
+    result.onSelect(undefined, 'c1364870937');
+    expect(onSelect.mock.calls).toMatchSnapshot('disabled');
+  });
+
+  it("should return updated options' state through the returned onSelect callback for default", async () => {
+    const onSelect = jest.fn();
+    const { result } = await renderHook(() => useOnSelect({ options: ['lorem', 'ipsum'], onSelect }));
+
+    result.onSelect(undefined, 'c1551355848');
+    expect(onSelect.mock.calls).toMatchSnapshot('default');
+  });
+
+  it("should return updated options' state through the returned onSelect callback for checkboxes", async () => {
+    const onSelect = jest.fn();
+    const { result } = await renderHook(() =>
+      useOnSelect({ options: ['lorem', 'ipsum'], onSelect, variant: SelectVariant.checkbox })
+    );
+
+    result.onSelect(undefined, 'c1551355848');
+    expect(onSelect.mock.calls).toMatchSnapshot('checkboxes');
+  });
+
+  it('should return consistent, updated options, and a selected title', async () => {
+    const { result } = await renderHook(() => useOnSelect({ options: ['hello', 'world'], selectedOptions: ['hello'] }));
+    expect(result).toMatchSnapshot('properties');
+  });
+});
+
+describe('Select', () => {
+  it('should render a single variant', () => {
+    const props = {
+      useOnSelect: () => ({
+        options: [
+          { title: 'lorem', value: 'ipsum' },
+          { title: 'hello', value: 'world', isSelected: true }
+        ],
+        selectedOption: {
+          title: 'hello',
+          value: 'world',
+          isSelected: true
+        }
+      })
     };
 
     const component = renderComponent(<Select {...props} />);
-    expect(component).toMatchSnapshot('checkbox select');
+    component.fireEvent.click(component.find('button'));
+    expect(component).toMatchSnapshot('select');
   });
 
-  it('should apply patternfly select props based on wrapper props', () => {
-    const props = {};
-
-    expect(formatSelectProps(props)).toMatchSnapshot('select props, disabled');
-
-    props.options = [];
-    expect(formatSelectProps(props)).toMatchSnapshot('select props, no options, disabled');
-
-    props.options = ['lorem', 'ipsum'];
-    props.isDisabled = true;
-    expect(formatSelectProps(props)).toMatchSnapshot('select props, options, disabled');
-
-    props.placeholder = 'dolor sit';
-    props.isDisabled = false;
-    expect(formatSelectProps(props)).toMatchSnapshot('select props, placeholder');
-  });
-
-  it('should apply patternfly dropdown props based on wrapper props', () => {
-    const props = {};
-
-    expect(formatButtonProps(props)).toMatchSnapshot('dropdown props, disabled');
-
-    props.options = [];
-    expect(formatButtonProps(props)).toMatchSnapshot('dropdown props, no options, disabled');
-
-    props.options = ['lorem', 'ipsum'];
-    props.isDisabled = true;
-    expect(formatButtonProps(props)).toMatchSnapshot('dropdown props, options, disabled');
-
-    props.placeholder = 'dolor sit';
-    props.isDisabled = false;
-    expect(formatButtonProps(props)).toMatchSnapshot('dropdown props, placeholder');
-
-    props.buttonVariant = ButtonVariant.plain;
-    props.splitButtonVariant = SplitButtonVariant.checkbox;
-    expect(formatButtonProps(props)).toMatchSnapshot('dropdown props, button variants');
-  });
-
-  it('should allow alternate array and object options', async () => {
+  it('should render a checkbox variant', () => {
     const props = {
-      options: ['lorem', 'ipsum', 'hello', 'world'],
-      selectedOptions: ['ipsum']
+      variant: SelectVariant.checkbox,
+      useOnSelect: () => ({
+        options: [
+          { title: 'lorem', value: 'ipsum' },
+          { title: 'hello', value: 'world' }
+        ]
+      })
     };
-
-    expect(formatOptions(props).options).toMatchSnapshot('string array');
-
-    props.options = { lorem: 'ipsum', hello: 'world' };
-    props.selectedOptions = ['world', 'ipsum'];
-
-    expect(formatOptions(props).options).toMatchSnapshot('key value object');
-
-    props.options = [
-      { title: 'lorem', value: 'ipsum' },
-      { title: () => 'hello', value: 'world' }
-    ];
-    props.selectedOptions = ['world', 'ipsum'];
-
-    expect(formatOptions(props).options).toMatchSnapshot('key value object');
-
-    props.options = undefined;
-    props.selectedOptions = [];
-
-    expect(formatOptions(props).options).toMatchSnapshot('undefined options');
+    const component = renderComponent(<Select {...props} />);
+    component.fireEvent.click(component.find('button'));
+    expect(component).toMatchSnapshot('checklist');
   });
 
-  it('should allow plain objects as values, and be able to select options based on values within the object', async () => {
+  it('should render a dropdown variant', () => {
     const props = {
-      options: [
-        { title: 'lorem', value: { dolor: 'sit' } },
-        { title: 'dolor', value: { lorem: 'ipsum' } },
-        { title: 'hello', value: { hello: 'world' } }
-      ],
-      selectedOptions: ['world']
+      variant: SelectVariant.dropdown,
+      toggle: { variant: SelectButtonVariant.secondary },
+      useOnSelect: () => ({
+        options: [
+          { title: 'lorem', value: 'ipsum' },
+          { title: 'hello', value: 'world' }
+        ]
+      })
     };
-
-    expect(formatOptions(props).options).toMatchSnapshot('select when option values are objects');
+    const component = renderComponent(<Select {...props} />);
+    component.fireEvent.click(component.find('button'));
+    expect(component).toMatchSnapshot('dropdown');
   });
 
-  it('should allow selected options to match value or title', async () => {
-    const props = {
-      options: { lorem: 'ipsum', hello: 'world', dolor: 'set' },
-      selectedOptions: ['world', 'lorem', 'fail'],
-      variant: SelectVariant.checkbox
-    };
-
-    expect(formatOptions(props).options).toMatchSnapshot('value or title match');
-  });
-
-  it('should return an emulated onchange event', () => {
+  it('should return an emulated onselect/onchange event, single', () => {
     const mockOnSelect = jest.fn();
     const props = {
-      id: 'test',
-      options: ['lorem', 'ipsum', 'hello', 'world'],
-      selectedOptions: ['ipsum'],
-      onSelect: mockOnSelect
+      useOnSelect: () => ({
+        options: [
+          { title: 'lorem', value: 'ipsum' },
+          { title: 'hello', value: 'world', isSelected: true }
+        ],
+        selectedOption: {
+          title: 'hello',
+          value: 'world',
+          isSelected: true
+        },
+        onSelect: mockOnSelect
+      })
     };
-
     const component = renderComponent(<Select {...props} />);
-    const firstButton = component.find('button');
-    const mockEvent = { currentTarget: {}, target: {}, persist: helpers.noop };
-    component.fireEvent.click(firstButton, mockEvent);
-
-    const anotherButton = component.find('ul.pf-v5-c-select__menu button');
-    component.fireEvent.click(anotherButton, mockEvent);
+    component.fireEvent.click(component.find('button'));
+    const optionButton = component.find('button.curiosity-select-pf__option');
+    component.fireEvent.click(optionButton);
 
     expect(mockOnSelect).toHaveBeenCalledTimes(1);
-    expect(mockOnSelect.mock.calls[0][0]).toMatchSnapshot('default emulated event');
+    expect(mockOnSelect.mock.calls).toMatchSnapshot('default emulated event');
   });
 
-  it('should return an emulated onchange event, checklist variant', () => {
+  it('should return an emulated onchange event, checkbox', () => {
     const mockOnSelect = jest.fn();
     const props = {
-      id: 'test',
-      options: ['lorem', 'ipsum', 'hello', 'world'],
-      selectedOptions: ['ipsum'],
-      onSelect: mockOnSelect,
-      variant: SelectVariant.checkbox
+      variant: SelectVariant.checkbox,
+      useOnSelect: () => ({
+        options: [
+          { title: 'lorem', value: 'ipsum', isSelected: false },
+          { title: 'hello', value: 'world', isSelected: false },
+          { title: 'dolor', value: 'sit', isSelected: true }
+        ],
+        selectedOption: [],
+        onSelect: mockOnSelect
+      })
     };
-
     const component = renderComponent(<Select {...props} />);
-    const firstButton = component.find('button');
-    const mockEvent = { currentTarget: {}, target: {}, persist: helpers.noop };
-    component.fireEvent.click(firstButton, mockEvent);
+    component.fireEvent.click(component.find('button'));
 
-    const firstCheckbox = component.find('ul.pf-v5-c-select__menu input.pf-v5-c-check__input');
-    component.fireEvent.click(firstCheckbox, { target: { checked: true } });
-
+    const firstCheckbox = component.find('label.curiosity-select-pf__option input');
+    component.fireEvent.click(firstCheckbox);
     expect(mockOnSelect).toHaveBeenCalledTimes(1);
 
-    const secondCheckbox = component.querySelectorAll('ul.pf-v5-c-select__menu input.pf-v5-c-check__input')?.[1];
-    component.fireEvent.click(secondCheckbox, { target: { checked: true } });
-
+    const secondCheckbox = component.querySelectorAll('label.curiosity-select-pf__option input')?.[1];
+    component.fireEvent.click(secondCheckbox);
     expect(mockOnSelect).toHaveBeenCalledTimes(2);
-    expect(mockOnSelect.mock.calls[1][0]).toMatchSnapshot('checklist emulated event, last item checked');
-  });
-
-  it('should render an expanded select', () => {
-    const props = {
-      id: 'test',
-      options: ['lorem', 'ipsum', 'hello', 'world']
-    };
-
-    const component = renderComponent(<Select {...props} />);
-    const firstButton = component.find('button');
-    const mockEvent = { currentTarget: {}, target: {}, persist: helpers.noop };
-    component.fireEvent.click(firstButton, mockEvent);
-
-    expect(component.find('ul.pf-v5-c-select__menu')).toMatchSnapshot('expanded');
-  });
-
-  it('should disable toggle text', () => {
-    const props = {
-      id: 'test',
-      options: ['lorem', 'ipsum'],
-      toggleIcon: <FilterIcon />,
-      isToggleText: false
-    };
-
-    const component = renderComponent(<Select {...props} />);
-    expect(component.find('.curiosity-select-pf__no-toggle-text').className).toMatchSnapshot('disabled text');
-  });
-
-  it('should allow alternate direction and position options', () => {
-    const props = {
-      id: 'test',
-      options: ['lorem', 'ipsum'],
-      direction: SelectDirection.up
-    };
-
-    const component = renderComponent(<Select {...props} />);
-    const upLeftProps = component.find('.curiosity-select-pf');
-    expect(upLeftProps.className).toMatchSnapshot('direction up');
-
-    const posRight = component.setProps({ direction: SelectDirection.down, position: SelectPosition.right });
-    const downRightProps = posRight.find('.curiosity-select-pf');
-    expect(downRightProps.className).toMatchSnapshot('position right');
   });
 
   it('should allow being disabled with missing options', () => {
-    const props = {
-      id: 'test',
-      options: undefined
-    };
-
-    const component = renderComponent(<Select {...props} />);
+    const component = renderComponent(<Select options={undefined} />);
+    component.fireEvent.click(component.find('button'));
     expect(component).toMatchSnapshot('no options');
 
-    const emptyOptions = component.setProps({
-      options: [],
-      isDisabled: false
-    });
+    const componentNoOptions = renderComponent(<Select options={[]} />);
+    componentNoOptions.fireEvent.click(componentNoOptions.find('button'));
+    expect(componentNoOptions).toMatchSnapshot('options, but no content');
 
-    expect(emptyOptions).toMatchSnapshot('options, but no content');
-
-    const dis = component.setProps({
-      options: ['lorem', 'ipsum', 'hello', 'world'],
-      isDisabled: true
-    });
-
-    expect(dis).toMatchSnapshot('options, but disabled');
-  });
-
-  it('should allow disabled options', () => {
-    const props = {
-      id: 'test',
-      options: ['lorem', { value: 'ipsum', isDisabled: true }, 'hello', { value: 'world', isDisabled: true }]
-    };
-
-    const component = renderComponent(<Select {...props} />);
-    const firstButton = component.find('button');
-    const mockEvent = { currentTarget: {}, target: {}, persist: helpers.noop };
-    component.fireEvent.click(firstButton, mockEvent);
-
-    expect(component.find('ul.pf-v5-c-select__menu')).toMatchSnapshot('disabled options');
-  });
-
-  it('should allow data- props', () => {
-    const props = {
-      'data-lorem': 'ipsum',
-      'data-dolor-sit': 'dolor sit'
-    };
-
-    const component = renderComponent(<Select {...props} />);
-    expect(component.props).toMatchSnapshot('data- attributes');
-  });
-
-  it('should emulate pf dropdown', () => {
-    const props = {
-      isDropdownButton: true,
-      buttonVariant: ButtonVariant.secondary,
-      options: ['lorem', 'ipsum', 'hello', 'world']
-    };
-
-    const component = renderComponent(<Select {...props} />);
-    expect(component).toMatchSnapshot('emulated dropdown');
+    const componentDisabled = renderComponent(<Select options={['lorem', 'ipsum', 'hello', 'world']} isDisabled />);
+    componentDisabled.fireEvent.click(componentDisabled.find('button'));
+    expect(componentDisabled).toMatchSnapshot('options, but disabled');
   });
 });

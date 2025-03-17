@@ -115,7 +115,7 @@ exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
   >
     <span
       class="pf-v5-c-chip__text"
-      id="pf-random-id-2"
+      id="pf-random-id-1"
     >
       t(curiosity-toolbar.label_sla, {"context":"Premium"})
     </span>
@@ -126,12 +126,12 @@ exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
     <button
       aria-disabled="false"
       aria-label="close"
-      aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
+      aria-labelledby="remove_pf-random-id-1 pf-random-id-1"
       class="pf-v5-c-button pf-m-plain"
       data-ouia-component-id="close"
       data-ouia-component-type="PF5/Button"
       data-ouia-safe="true"
-      id="remove_pf-random-id-2"
+      id="remove_pf-random-id-1"
       type="button"
     >
       <svg
