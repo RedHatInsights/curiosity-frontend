@@ -1,22 +1,19 @@
-import React, { useRef, useState } from 'react';
-import { useShallowCompareEffect, useUnmount } from 'react-use';
-import { ButtonVariant as PfButtonVariant } from '@patternfly/react-core';
+import React, { useCallback, useRef, useState } from 'react';
 import {
+  Badge,
+  ButtonVariant,
   Dropdown,
-  DropdownDirection,
   DropdownItem,
-  DropdownPosition,
-  DropdownToggle,
-  DropdownToggleAction,
-  DropdownToggleCheckbox,
+  DropdownList,
+  MenuToggle,
   Select as PfSelect,
-  SelectOption as PfSelectOption,
-  SelectVariant as PfSelectVariant
-} from '@patternfly/react-core/deprecated';
+  SelectList as PfSelectList,
+  SelectOption as PfSelectOption
+} from '@patternfly/react-core';
 import _cloneDeep from 'lodash/cloneDeep';
-import _findIndex from 'lodash/findIndex';
 import _isPlainObject from 'lodash/isPlainObject';
-import _memoize from 'lodash/memoize';
+import _findIndex from 'lodash/findIndex';
+import { useDeepCompareEffect, useMount } from 'react-use';
 import { createMockEvent } from './formHelpers';
 import { helpers } from '../../common';
 
@@ -28,555 +25,459 @@ import { helpers } from '../../common';
  */
 
 /**
- * Dropdown split button variants
- *
- * @type {{default: string, checkbox: string, action: string}}
- */
-const SplitButtonVariant = {
-  action: 'action',
-  checkbox: 'checkbox',
-  default: 'default'
-};
-
-/**
- * Dropdown toggle button variants
- *
- * @type {{secondary: string, default: string, plain: string, text: string, primary: string}}
- */
-const ButtonVariant = PfButtonVariant;
-
-/**
  * Pass button variant as a select component option.
  *
- * @type {{secondary: string, default: string, plain: string, text: string, primary: string}}
+ * @type {{secondary: ButtonVariant.secondary, plain: ButtonVariant.plain, tertiary:
+ *     ButtonVariant.tertiary, link: ButtonVariant.link, warning: ButtonVariant.warning, control:
+ *     ButtonVariant.control, danger: ButtonVariant.danger, primary: ButtonVariant.primary}}
  */
 const SelectButtonVariant = { ...ButtonVariant };
 
 /**
- * Pass direction as select component variant option.
- *
- * @type {{up: DropdownDirection.up, down: DropdownDirection.down}}
- */
-const SelectDirection = { ...DropdownDirection };
-
-/**
- * Pass position as select component variant option.
- *
- * @type {{left: DropdownPosition.left, right: DropdownPosition.right}}
- */
-const SelectPosition = { ...DropdownPosition };
-
-/**
  * Pass select variants as a select component variant option.
  *
- * @type {{single: SelectVariant.single, checkbox: SelectVariant.checkbox, typeahead: SelectVariant.typeahead,
- *     typeaheadMulti: SelectVariant.typeaheadMulti}}
+ * @type {{single: string, checkbox: string, dropdown: string}}
  */
-const SelectVariant = { ...PfSelectVariant };
+const SelectVariant = {
+  single: 'single',
+  checkbox: 'checkbox',
+  dropdown: 'dropdown'
+};
 
 /**
- * FixMe: attributes on PF select and dropdown components do not allow data- attributes being passed
- * FixMe: PF dropdown, select attempt to break the ref attribute?
- * Moving from a class to func wrapper exposes a PF "special props warning", https://bit.ly/2n0hzWo
+ * Direction as select prop option.
+ *
+ * @type {{up: string, down: string}}
  */
+const SelectDirection = { up: 'up', down: 'down' };
+
 /**
- * Format options into a consumable array of objects.
- * Note: It is understood that for line 83'ish around "updatedOptions" we dump all values regardless
- * of whether they are plain objects, or not, into updatedOptions. This has been done for speed only,
- * one less check to perform.
+ * Position as select prop option.
+ *
+ * @type {{left: string, center: string, right: string}}
+ */
+const SelectPosition = { left: 'left', right: 'right', center: 'center' };
+
+/**
+ * Apply "data-" attributes to main PF element.
  *
  * @param {object} params
- * @param {*|React.ReactNode} params.selectField
- * @param {object|Array} params.options
- * @param {string|number|Array} params.selectedOptions
- * @param {string} params.variant
+ * @param {React.ReactElement|HTMLElement} params.selectField
  * @param {object} params.props
- * @returns {{options: Array|any, selected: Array}}
  */
-const formatOptions = ({ selectField = { current: null }, options, selectedOptions, variant, ...props } = {}) => {
+const updateDataAttributes = ({ selectField = {}, ...props } = {}) => {
   const { current: domElement = {} } = selectField;
-  const dataAttributes = Object.entries(props).filter(([key]) => /^data-/i.test(key));
-  const updatedOptions =
-    (_isPlainObject(options) && Object.entries(options).map(([key, value]) => ({ ...value, title: key, value }))) ||
-    (options && _cloneDeep(options)) ||
-    [];
-  const isSelectedOptionsStringNumber = typeof selectedOptions === 'string' || typeof selectedOptions === 'number';
-  const activateOptions =
-    (Array.isArray(selectedOptions) && selectedOptions) || (isSelectedOptionsStringNumber && [selectedOptions]) || [];
-
-  updatedOptions.forEach((option, index) => {
-    let convertedOption = option;
-
-    if (typeof convertedOption === 'string') {
-      convertedOption = {
-        title: option,
-        value: option
-      };
-
-      updatedOptions[index] = convertedOption;
-    } else if (typeof convertedOption.title === 'function') {
-      convertedOption.title = convertedOption.title();
-    }
-
-    convertedOption.text = convertedOption.text || convertedOption.title;
-    convertedOption.textContent = convertedOption.textContent || convertedOption.title;
-    convertedOption.label = convertedOption.label || convertedOption.title;
-
-    if (activateOptions.length) {
-      let isSelected;
-
-      if (_isPlainObject(convertedOption.value)) {
-        isSelected = _findIndex(activateOptions, convertedOption.value) > -1;
-
-        if (!isSelected) {
-          const tempSearch = activateOptions.find(activeOption =>
-            Object.values(convertedOption.value).includes(activeOption)
-          );
-          isSelected = !!tempSearch;
-        }
-      } else {
-        isSelected = activateOptions.includes(convertedOption.value);
-      }
-
-      if (!isSelected) {
-        isSelected = activateOptions.includes(convertedOption.title);
-      }
-
-      updatedOptions[index].selected = isSelected;
-    }
-  });
-
-  let updateSelected;
-
-  if (variant === SelectVariant.single) {
-    updateSelected = (updatedOptions.find(opt => opt.selected === true) || {}).title;
-  } else {
-    updateSelected = updatedOptions.filter(opt => opt.selected === true).map(opt => opt.title);
-  }
+  const attributes = Object.entries(props).filter(([key]) => /^data-/i.test(key));
 
   if (domElement?.firstChild) {
-    dataAttributes.forEach(([key, value]) => domElement?.firstChild.setAttribute(key, value));
+    attributes.forEach(([key, value]) => domElement?.firstChild.setAttribute(key, value));
   }
+};
+
+/**
+ * Update list options for consumption by PF components
+ *
+ * @param {Array<unknown|{title:(React.ReactNode|undefined), value:(React.ReactNode|undefined),
+ *     description:(React.ReactNode|undefined), isSelected:(boolean|undefined),
+ *     isDisabled:(boolean|undefined)}>} options
+ * @returns {Array}
+ */
+const updateOptions = options => {
+  const updated = (Array.isArray(options) && _cloneDeep(options)) || [];
+
+  return updated.map((option, index) => {
+    let convertedOption = option;
+
+    switch (typeof convertedOption) {
+      case 'string':
+        convertedOption = {
+          title: `${(option === '' && 'Empty') || option}`,
+          value: option
+        };
+        break;
+      case 'number':
+        convertedOption = {
+          title: `${option}`,
+          value: option
+        };
+        break;
+    }
+
+    // Convert undefined, null to empty values and string descriptions. Assume purposeful, but expect error.
+    if (convertedOption === undefined || convertedOption === null) {
+      convertedOption = {
+        title: `${option}`,
+        value: option
+      };
+    }
+
+    if (_isPlainObject(convertedOption)) {
+      convertedOption.title = convertedOption.title || 'undefined';
+
+      switch (convertedOption.value) {
+        case undefined:
+        case null:
+          break;
+        case '':
+          convertedOption.value = '';
+      }
+
+      convertedOption.isSelected = convertedOption.isSelected || false;
+      convertedOption.index = index;
+      convertedOption.key = `${helpers.generateHash({ value: convertedOption.value, title: convertedOption.title })}`;
+    }
+
+    return convertedOption;
+  });
+};
+
+/**
+ * A memoized response for the updateOptions function. Assigned to a property for testing function.
+ */
+updateOptions.memo = helpers.memo(updateOptions);
+
+/**
+ * Update selected list options for consumption.
+ *
+ * @param {string|number|null|NaN|{value: unknown}|
+ *     Array<string|number|null|undefined|NaN|{value:
+ *     unknown}>} options
+ * @returns {Array|Array<"NaN"|"null"|unknown>}
+ */
+const updateSelectedOptions = options =>
+  (Array.isArray(options) && options) ||
+  (options !== undefined && options !== null && !Number.isNaN(options) && [options]) ||
+  (options === null && ['null']) ||
+  (Number.isNaN(options) && ['NaN']) ||
+  [];
+
+/**
+ * A memoized response for the updateSelectedOptions function. Assigned to a property for testing function.
+ */
+updateSelectedOptions.memo = helpers.memo(updateSelectedOptions, { cacheLimit: 25 });
+
+/**
+ * Update the isSelected property for formatted options.
+ *
+ * @param {object} params
+ * @param {Array<{title, value, isSelected}>} params.options
+ * @param {Array} params.selectedOptions
+ * @param {SelectVariant|string} params.variant
+ * @returns {{isSelected:boolean}|undefined|Array<{isSelected:boolean}>|Array}
+ */
+const updateSelectedProp = ({ options, selectedOptions = [], variant = SelectVariant.single } = {}) =>
+  options
+    .map(option => {
+      const { isSelected, title, value } = option;
+      let updateIsSelected = isSelected;
+
+      if (updateIsSelected === true) {
+        return option;
+      }
+
+      if (_isPlainObject(value)) {
+        updateIsSelected = _findIndex(selectedOptions, value) > -1;
+
+        if (!isSelected) {
+          updateIsSelected =
+            selectedOptions.find(activeOption => Object.values(value).includes(activeOption)) !== undefined;
+        }
+      } else {
+        updateIsSelected = selectedOptions.includes(value);
+      }
+
+      if (!updateIsSelected) {
+        updateIsSelected = selectedOptions.includes(title);
+      }
+
+      return {
+        ...option,
+        isSelected: updateIsSelected
+      };
+    })
+    [(variant === SelectVariant.single && 'find') || 'filter'](opt => opt.isSelected === true);
+
+/**
+ * A memoized response for the updateSelectedProp function. Assigned to a property for testing function.
+ */
+updateSelectedProp.memo = helpers.memo(updateSelectedProp, { cacheLimit: 25 });
+
+/**
+ * Expand returned event for select responses.
+ *
+ * @param {object} params
+ * @param {object} params.event
+ * @param {Array<{ isSelected: boolean }>} params.options
+ * @param {SelectVariant} params.variant
+ * @returns {CustomEvent<{keyCode, currentTarget: {}, name, checked: *, id: *, persist: Function,
+ *     value, target: {}, selected: unknown|Array<unknown>, selectedIndex: Array<number>,
+ *     type: "select-one"|"select-multiple", value: unknown }>}
+ */
+const formatEvent = ({ event, options, variant = SelectVariant.single } = {}) => {
+  const mockUpdatedOptions = helpers.memoClone(options);
+  const mockSelected =
+    (variant === SelectVariant.single && mockUpdatedOptions.find(({ isSelected }) => isSelected === true)) ||
+    mockUpdatedOptions.filter(({ isSelected }) => isSelected === true);
+
+  const mockSelectedIndex = mockUpdatedOptions
+    .filter(({ isSelected }) => isSelected === true)
+    .map(({ index }) => index);
 
   return {
-    options: updatedOptions,
-    selected: updateSelected
+    ...createMockEvent(event),
+    selected: mockSelected,
+    selectedIndex: mockSelectedIndex,
+    type: `select-${((variant === SelectVariant.single || variant === SelectVariant.dropdown) && 'one') || 'multiple'}`,
+    value: (Array.isArray(mockSelected) && mockSelected.map(({ value: mockValue }) => mockValue)) || mockSelected.value
   };
 };
 
 /**
- * Return assumed/expected PF select props.
+ * Set PF components.
  *
- * @param {object} params
- * @param {boolean} params.isDisabled
- * @param {string} params.placeholder
- * @param {object|Array} params.options
- * @returns {{}}
+ * @param {SelectVariant} [variant]
+ * @returns {{SelectList: React.FunctionComponent<DropdownList|PfSelectList>,
+ *     SelectElement: React.FunctionComponent<Dropdown|PfSelect>, SelectOption:
+ *     React.FunctionComponent<DropdownItem|PfSelectOption>}}
  */
-const formatSelectProps = _memoize(({ isDisabled, placeholder, options } = {}) => {
-  const updatedProps = {};
-
-  if (!options || !options.length || isDisabled) {
-    updatedProps.isDisabled = true;
-  }
-
-  if (typeof placeholder === 'string' && placeholder) {
-    updatedProps.hasPlaceholderStyle = true;
-  }
-
-  return updatedProps;
+const setSelectElements = variant => ({
+  SelectElement: (variant === SelectVariant.dropdown && Dropdown) || PfSelect,
+  SelectList: (variant === SelectVariant.dropdown && DropdownList) || PfSelectList,
+  SelectOption: (variant === SelectVariant.dropdown && DropdownItem) || PfSelectOption
 });
 
 /**
- * Format consistent dropdown button props.
- *
- * @param {object} params
- * @param {boolean} params.isDisabled
- * @param {Array} params.options
- * @param {React.ReactNode} params.buttonContent
- * @param {string} params.buttonVariant
- * @param {Function} params.onSplitButton
- * @param {string} params.placeholder
- * @param {string} params.splitButtonVariant
- * @returns {*}
+ * A memoized response for the setSelectElements function. Assigned to a property for testing function.
  */
-const formatButtonProps = _memoize(
-  ({ isDisabled, options, buttonContent, buttonVariant, onSplitButton, placeholder, splitButtonVariant } = {}) => {
-    const buttonVariantPropLookup = {
-      default: { toggleVariant: 'default' },
-      plain: { isPlain: true, toggleIndicator: null },
-      primary: { toggleVariant: 'primary' },
-      secondary: { toggleVariant: 'secondary' },
-      text: { isText: true }
-    };
+setSelectElements.memo = helpers.memo(setSelectElements);
 
-    const splitButtonVariantPropLookup = {
-      action: {
-        splitButtonVariant: 'action',
-        splitButtonItems: [
-          <DropdownToggleAction onClick={onSplitButton} key="toggle-action">
-            {buttonContent}
-          </DropdownToggleAction>
-        ]
-      },
-      default: {
-        splitButtonVariant: 'default',
-        splitButtonItems: [
-          <DropdownToggleAction onClick={onSplitButton} key="toggle-action">
-            {buttonContent}
-          </DropdownToggleAction>
-        ]
-      },
-      checkbox: {
-        splitButtonVariant: 'checkbox',
-        splitButtonItems: [
-          <DropdownToggleCheckbox
-            id={`toggle-action-${placeholder}`}
-            key="toggle-action"
-            onClick={onSplitButton}
-            aria-label={placeholder}
-            placeholder={placeholder}
-          />
-        ]
+/**
+ * Hook for handling option and selected option updates.
+ *
+ * @param {object} options
+ * @param {updateOptions} options.options
+ * @param {Function} options.onSelect
+ * @param {updateSelectedOptions} options.selectedOptions
+ * @param {SelectVariant} options.variant
+ * @returns {{options: Array, selectedOption: undefined, onSelect: Function}}
+ */
+const useOnSelect = ({ options: baseOptions, onSelect, selectedOptions, variant } = {}) => {
+  const [selectedOption, setSelectedOption] = React.useState();
+  const [options, setOptions] = useState();
+
+  // Update, and allow "re-updating", base/initial options
+  useDeepCompareEffect(() => {
+    const updatedOptions = _cloneDeep(updateOptions.memo(baseOptions));
+    const updatedSelected = updateSelectedProp.memo({
+      options: updatedOptions,
+      selectedOptions: updateSelectedOptions.memo(selectedOptions),
+      variant
+    });
+
+    setOptions(updatedOptions);
+    setSelectedOption(updatedSelected);
+  }, [baseOptions, selectedOptions]);
+
+  // Update local state with user selected options
+  const onSelectCallback = useCallback(
+    (event, key) => {
+      const updatedOptions = _cloneDeep(options);
+      const selectedOptionIndex = updatedOptions.findIndex(option => option.key === key);
+
+      if (!options[selectedOptionIndex] || options[selectedOptionIndex].isDisabled === true) {
+        if (helpers.DEV_MODE && !options[selectedOptionIndex]) {
+          console.warn(`Selected option at key "${key}" doesn't exist in ${JSON.stringify(updatedOptions)}`);
+        }
+        if (helpers.DEV_MODE && options[selectedOptionIndex]?.isDisabled) {
+          console.warn(`Selected option at index "${selectedOptionIndex}" is disabled or has no value.`);
+        }
+        return;
       }
-    };
 
-    const updatedProps = {
-      ...buttonVariantPropLookup[buttonVariant],
-      ...splitButtonVariantPropLookup[splitButtonVariant]
-    };
+      switch (variant) {
+        case SelectVariant.checkbox:
+          updatedOptions[selectedOptionIndex].isSelected = !updatedOptions[selectedOptionIndex].isSelected;
+          break;
+        case SelectVariant.single:
+        default:
+          updatedOptions.forEach((_option, index) => {
+            updatedOptions[index].isSelected = index === selectedOptionIndex;
+          });
+          break;
+      }
 
-    if (!options || !options.length || isDisabled) {
-      updatedProps.isDisabled = true;
-    }
+      setSelectedOption(updatedOptions[selectedOptionIndex]);
+      setOptions(updatedOptions);
 
-    return updatedProps;
-  }
-);
+      if (typeof onSelect === 'function') {
+        const selectEvent = formatEvent({ event, options: updatedOptions, variant });
+        onSelect(selectEvent);
+      }
+    },
+    [onSelect, variant, options]
+  );
 
-/**
- * FixMe: PF has an inconsistency in how it applies props for the dropdown
- * Sometimes those props are on the toggle, sometimes those props are on the parent, little bit of guesswork.
- * Additionally, it's not filtering props so you'll throw the "[HTML doesn't recognize attribute]" error.
- */
-/**
- * Fix pf props inconsistency for dropdown button props.
- *
- * @param {object} formattedButtonProps
- * @returns {*}
- */
-const formatButtonParentProps = (formattedButtonProps = {}) => {
-  const updatedButtonProps = formatButtonProps(formattedButtonProps);
-  delete updatedButtonProps.isDisabled;
-  delete updatedButtonProps.toggleIndicator;
-
-  return updatedButtonProps;
+  return {
+    selectedOption,
+    options,
+    onSelect: onSelectCallback
+  };
 };
 
 /**
- * A wrapper for Pf Select, and emulator for Pf Dropdown. Provides consistent restructured event data for onSelect
- * callback for both select and dropdown.
+ * Component wrapper for PF Select and Dropdown.
  *
  * @param {object} props
- * @param {string} [props.ariaLabel='Select option']
- * @param {React.ReactNode} [props.buttonContent]
- * @param {ButtonVariant} [props.buttonVariant=ButtonVariant.default]
- * @param {string} [props.className='']
- * @param {SelectDirection} [props.direction=SelectDirection.down]
- * @param {string} [props.id=helpers.generateId()]
- * @param {boolean} [props.isDisabled=false]
- * @param {boolean} [props.isDropdownButton=false]
- * @param {boolean} [props.isFlipEnabled=false]
- * @param {boolean} [props.isInline=true]
- * @param {boolean} [props.isToggleText=true]
- * @param {number} [props.maxHeight]
- * @param {string} [props.name]
- * @param {Function} [props.onSelect=helpers.noop]
- * @param {Function} [props.onSplitButton]
- * @param {{
+ * @param {{ direction: SelectDirection,
+ *     position: SelectPosition,
+ *     preventOverflow: boolean }} [props.alignment] Alias for PF references to "popperProps".
+ *     Override by passing a "popperProps" prop object value.
+ * @param {string} [props.className]
+ * @param {boolean} [props.isDisabled] Disable the select/dropdown toggle
+ * @param {boolean} [props.isInline=true] Is the select/dropdown an inline-block or not.
+ * @param {number} [props.maxHeight] Max height of the select/dropdown menu
+ * @param {Function} [props.onSelect]
+ * @param {Array<string|number|{
  *     description: (unknown|undefined),
- *     selected: (boolean|undefined),
- *     isDisabledAllowEvent: (boolean|undefined),
+ *     isSelected: (boolean|undefined),
  *     isDisabled: (boolean|undefined),
- *     title: (string|undefined),
+ *     title: (React.ReactNode|undefined),
  *     value: unknown
- *     }|Array<{
- *     description: (unknown|undefined),
- *     selected: (boolean|undefined),
- *     isDisabledAllowEvent: (boolean|undefined),
- *     isDisabled: (boolean|undefined),
- *     title: (string|undefined),
- *     value: unknown
- *     }>|Array<{string}>} [props.options=[]]
- * @param {string} [props.placeholder='Select option']
- * @param {SelectPosition} [props.position=SelectPosition.left]
- * @param {number|string|Array<(number|string)>} [props.selectedOptions]
- * @param {boolean} [props.splitButtonAllowDualButtonToggle=true]
- * @param {SplitButtonVariant} [props.splitButtonVariant]
- * @param {React.ReactNode|Function} [props.toggleIcon]
+ *     }>} props.options
+ * @param {React.ReactNode} [props.placeholder] The default value for the select/dropdown. An emulated placeholder.
+ * @param {string|number|{value: unknown}|
+ *     Array<string|number|{value: unknown
+ *     }>} [props.selectedOptions]
+ * @param {{ content: React.ReactNode|undefined, icon: React.ReactNode|undefined,
+ *     isToggleIconOnly: boolean|undefined, variant: SelectButtonVariant|undefined }} [props.toggle] select/dropdown
+ *     menu-toggle props object
  * @param {SelectVariant} [props.variant=SelectVariant.single]
- * @fires onDropdownSelect
- * @fires onSplitButton
- * @fires onToggle
- * @returns {JSX.Element}
+ * @param {useOnSelect} [props.useOnSelect=useOnSelect]
+ * @returns {React.ReactElement}
  */
 const Select = ({
-  ariaLabel = 'Select option',
-  buttonContent,
-  buttonVariant = ButtonVariant.default,
-  className = '',
-  direction = SelectDirection.down,
-  id = helpers.generateId(),
-  isDisabled = false,
-  isDropdownButton = false,
-  isFlipEnabled = false,
+  alignment,
+  className,
+  isDisabled,
   isInline = true,
-  isToggleText = true,
   maxHeight,
-  name,
-  onSelect = helpers.noop,
-  onSplitButton,
-  options: baseOptions = [],
+  onSelect: baseOnSelect,
+  options: baseOptions,
   placeholder = 'Select option',
-  position = SelectPosition.left,
   selectedOptions,
-  splitButtonAllowDualButtonToggle = true,
-  splitButtonVariant,
-  toggleIcon,
+  toggle,
   variant = SelectVariant.single,
+  useOnSelect: useAliasOnSelect = useOnSelect,
   ...props
 }) => {
-  const [isMounted, setIsMounted] = useState();
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [options, setOptions] = useState(baseOptions);
-  const [selected, setSelected] = useState([]);
+  const [isExpanded, setIsExpanded] = React.useState(false);
   const selectField = useRef();
+  const { options, selectedOption, onSelect } = useAliasOnSelect({
+    ...props,
+    options: baseOptions,
+    onSelect: baseOnSelect,
+    placeholder,
+    selectedOptions,
+    variant
+  });
+  const { SelectElement, SelectList, SelectOption } = setSelectElements.memo(variant);
 
-  useUnmount(() => {
-    setIsMounted(false);
+  useMount(() => {
+    updateDataAttributes({ ...props, selectField });
   });
 
-  useShallowCompareEffect(() => {
-    if (isMounted !== false) {
-      const { options: updatedOptions, selected: updatedSelected } = formatOptions({
-        selectField,
-        options: baseOptions,
-        selectedOptions,
-        variant,
-        ...props
-      });
-      setOptions(updatedOptions);
-      setSelected(updatedSelected);
-    }
-  }, [baseOptions, props, selectField, selectedOptions, variant]);
-
-  /**
-   * Open/closed state.
-   *
-   * @event onToggle
-   * @param {boolean} expanded
-   */
-  const onToggle = expanded => {
-    setIsExpanded(expanded);
+  const onKeySelectOrClickOutsideSelect = () => {
+    setIsExpanded(false);
   };
 
-  /**
-   * Split button event handler.
-   *
-   * @event onSplitButton
-   * @param {object} event
-   */
-  const onUpdatedSplitButton = event => {
-    if (splitButtonAllowDualButtonToggle) {
-      onToggle(!isExpanded);
-    }
-
-    if (typeof onSplitButton === 'function') {
-      const updatedOptions = _cloneDeep(options);
-      onSplitButton(
-        {
-          ...createMockEvent(event),
-          options: updatedOptions
-        },
-        -1,
-        updatedOptions
-      );
-    }
+  const onToggle = () => {
+    setIsExpanded(!isExpanded);
   };
 
-  /**
-   * Emulate select event object, apply to provided onSelect prop.
-   *
-   * @event onDropdownSelect
-   * @param {object} event
-   * @param {string} titleSelection
-   */
-  const onDropdownSelect = (event, titleSelection) => {
-    const updatedOptions = options;
-    const optionsIndex = updatedOptions.findIndex(
-      option =>
-        (titleSelection && option.title === titleSelection) ||
-        event.currentTarget.querySelector('[data-title]')?.getAttribute('data-title') === option.title ||
-        event.currentTarget.innerText === option.title
-    );
-
-    if (updatedOptions[optionsIndex].isDisabled === true) {
-      return;
-    }
-
-    updatedOptions[optionsIndex].selected =
-      variant === SelectVariant.single ? true : !updatedOptions[optionsIndex].selected;
-
-    if (variant === SelectVariant.single) {
-      updatedOptions.forEach((option, index) => {
-        if (optionsIndex !== index) {
-          updatedOptions[index].selected = false;
-        }
-      });
-    }
-
-    const updateSelected =
-      variant === SelectVariant.single
-        ? titleSelection
-        : updatedOptions.filter(opt => opt.selected === true).map(opt => opt.title);
-
-    const mockUpdatedOptions = _cloneDeep(updatedOptions);
-
-    const mockTarget = {
-      id,
-      name: name || id,
-      value: !updatedOptions[optionsIndex].isDisabledAllowEvent ? mockUpdatedOptions[optionsIndex].value : undefined,
-      isDisabled: updatedOptions[optionsIndex].isDisabledAllowEvent === true,
-      selected: (variant === SelectVariant.single && mockUpdatedOptions[optionsIndex]) || _cloneDeep(updateSelected),
-      selectedIndex: optionsIndex,
-      type: `select-${(variant === SelectVariant.single && 'one') || 'multiple'}`,
-      options: mockUpdatedOptions
-    };
-
-    if (variant === SelectVariant.checkbox) {
-      mockTarget.checked = mockUpdatedOptions[optionsIndex].selected;
-    }
-
-    const mockEvent = {
-      ...mockTarget,
-      target: { ...mockTarget },
-      currentTarget: { ...mockTarget },
-      persist: helpers.noop
-    };
-
-    setOptions(updatedOptions);
-    setSelected(updateSelected);
-
-    onSelect({ ...mockEvent }, optionsIndex, mockUpdatedOptions);
-
-    if (variant === SelectVariant.single && !updatedOptions[optionsIndex].isDisabledAllowEvent) {
+  const onPfSelect = (event, value) => {
+    if (variant === SelectVariant.single || variant === SelectVariant.dropdown) {
       setIsExpanded(false);
     }
+    // Remove "timeStamp". Assumption is its intended to help cycle updates. Causes issues with mock events in testing
+    onSelect({ ...event, timeStamp: undefined }, value);
   };
 
-  /**
-   * Apply dropdown.
-   *
-   * @returns {React.ReactNode}
-   */
-  const renderDropdownButton = () => (
-    <Dropdown
-      direction={direction}
-      isFlipEnabled={isFlipEnabled}
-      isOpen={isExpanded}
-      position={position}
-      toggle={
-        <DropdownToggle
-          onToggle={(_event, expanded) => onToggle(expanded)}
-          {...formatButtonProps({
-            isDisabled,
-            onSplitButton: onUpdatedSplitButton,
-            options,
-            buttonVariant,
-            buttonContent,
-            splitButtonVariant,
-            placeholder: placeholder || ariaLabel
-          })}
-        >
-          {toggleIcon ||
-            (!splitButtonVariant && buttonContent) ||
-            (!splitButtonVariant && placeholder) ||
-            (!SplitButtonVariant && ariaLabel)}
-        </DropdownToggle>
-      }
-      dropdownItems={
-        options?.map(option => (
-          <DropdownItem
-            className={(option.isDisabledAllowEvent === true && 'pf-m-disabled') || ''}
-            onClick={onDropdownSelect}
-            key={window.btoa(`${option.title}-${option.value}`)}
-            id={window.btoa(`${option.title}-${option.value}`)}
-            isDisabled={option.isDisabled === true}
-            data-value={(_isPlainObject(option.value) && JSON.stringify([option.value])) || option.value}
-            data-title={option.title}
-            data-description={option.description}
-            description={option.description}
-          >
-            {option.title}
-          </DropdownItem>
-        )) || []
-      }
-      {...formatButtonParentProps({ buttonVariant })}
-      {...props}
-    />
-  );
+  const toggleContent = toggle?.content;
+  const isToggleIconOnly = toggle?.isToggleIconOnly;
+  const toggleProps = {
+    isDisabled: isDisabled ?? (!options || options.length === 0),
+    ...toggle
+  };
+  delete toggleProps.content;
+  delete toggleProps.isToggleIconOnly;
 
-  /**
-   * Apply select.
-   *
-   * @returns {React.ReactNode}
-   */
-  const renderSelect = () => (
-    <PfSelect
-      className={`curiosity-select-pf${(!isToggleText && '__no-toggle-text') || ''} ${
-        (direction === SelectDirection.down && 'curiosity-select-pf__position-down') || ''
-      } ${(position === SelectPosition.right && 'curiosity-select-pf__position-right') || ''} ${className}`}
-      variant={variant}
-      aria-label={ariaLabel}
-      onToggle={(_event, expanded) => onToggle(expanded)}
-      onSelect={onDropdownSelect}
-      selections={selected}
-      isFlipEnabled={isFlipEnabled}
-      isOpen={isExpanded}
-      toggleIcon={toggleIcon}
-      placeholderText={(typeof placeholder === 'string' && placeholder) || undefined}
-      {...{
-        direction,
-        maxHeight,
-        ...formatSelectProps({
-          isDisabled,
-          options: baseOptions,
-          placeholder
-        })
-      }}
-      {...props}
-    >
-      {options?.map(option => (
-        <PfSelectOption
-          className={(option.isDisabledAllowEvent === true && 'pf-m-disabled') || ''}
-          key={window.btoa(`${option.title}-${option.value}`)}
-          id={window.btoa(`${option.title}-${option.value}`)}
-          value={option.title}
-          isDisabled={option.isDisabled === true}
-          data-value={(_isPlainObject(option.value) && JSON.stringify([option.value])) || option.value}
-          data-title={option.title}
-          data-description={option.description}
-        />
-      )) || []}
-    </PfSelect>
-  );
+  const updatedProps = {
+    popperProps: {
+      ...alignment
+    },
+    maxMenuHeight: (maxHeight && `${maxHeight}px`) || undefined,
+    toggle: toggleRef => (
+      <MenuToggle
+        className="curiosity-select-pf__toggle"
+        ref={toggleRef}
+        onClick={onToggle}
+        isExpanded={isExpanded}
+        isFullWidth={isInline === false}
+        {...toggleProps}
+      >
+        {(!isToggleIconOnly &&
+          (toggleContent ||
+            (variant === SelectVariant.dropdown && placeholder) ||
+            (variant === SelectVariant.single && (selectedOption?.title || placeholder)))) ||
+          (variant === SelectVariant.checkbox && (
+            <React.Fragment>
+              {!isToggleIconOnly && `${placeholder} `}
+              {options.filter(({ isSelected }) => isSelected === true).length > 0 && (
+                <Badge isRead>{options.filter(({ isSelected }) => isSelected === true).length}</Badge>
+              )}
+            </React.Fragment>
+          ))}
+      </MenuToggle>
+    ),
+    ...props
+  };
 
+  // Note: applying isExpanded to the options map helps remove animation flicker
   return (
     <div
       ref={selectField}
       className={`curiosity-select${(isInline && ' curiosity-select__inline') || ' curiosity-select__not-inline'}`}
     >
-      {(isDropdownButton && renderDropdownButton()) || renderSelect()}
+      <SelectElement
+        className={`curiosity-select-pf ${className || ''}`}
+        isOpen={isExpanded}
+        onSelect={onPfSelect}
+        onOpenChange={onKeySelectOrClickOutsideSelect}
+        popperProps={{
+          direction: 'up'
+        }}
+        {...updatedProps}
+      >
+        <SelectList>
+          {isExpanded &&
+            options?.map(option => (
+              <SelectOption
+                className="curiosity-select-pf__option"
+                role="menu"
+                description={option.description}
+                key={option.key}
+                id={option.key}
+                hasCheckbox={variant === SelectVariant.checkbox}
+                icon={option.icon}
+                isDisabled={option.isDisabled === true}
+                isSelected={variant !== SelectVariant.dropdown && option.isSelected}
+                value={option.key}
+              >
+                {option.title}
+              </SelectOption>
+            ))}
+        </SelectList>
+      </SelectElement>
     </div>
   );
 };
@@ -584,13 +485,15 @@ const Select = ({
 export {
   Select as default,
   Select,
-  ButtonVariant,
-  formatOptions,
-  formatButtonProps,
-  formatSelectProps,
+  formatEvent,
+  SelectButtonVariant,
+  SelectVariant,
   SelectDirection,
   SelectPosition,
-  SelectVariant,
-  SelectButtonVariant,
-  SplitButtonVariant
+  setSelectElements,
+  updateDataAttributes,
+  updateOptions,
+  updateSelectedProp,
+  updateSelectedOptions,
+  useOnSelect
 };

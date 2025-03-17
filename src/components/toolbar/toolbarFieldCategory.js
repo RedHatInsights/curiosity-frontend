@@ -40,7 +40,7 @@ const useToolbarFieldOptions = ({ useProductGraphConfig: useAliasProductGraphCon
             metric,
             query
           },
-          selected: false
+          isSelected: false
         });
       }
     };
@@ -131,7 +131,7 @@ const ToolbarFieldCategory = ({
   const { [RHSM_API_QUERY_SET_TYPES.CATEGORY]: updatedValue } = useAliasProductToolbarQuery();
   const onSelect = useAliasOnSelect();
   const options = useAliasToolbarFieldOptions();
-  const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
+  const updatedOptions = options.map(option => ({ ...option, isSelected: option.value === updatedValue }));
 
   return (
     <Select

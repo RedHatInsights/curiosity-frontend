@@ -15,12 +15,12 @@ import { translate } from '../i18n/i18n';
 /**
  * Select field options.
  *
- * @type {Array<{title: React.ReactNode, value: string, selected: boolean}>}
+ * @type {Array<{title: React.ReactNode, value: string, isSelected: boolean}>}
  */
 const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
   title: translate('curiosity-toolbar.label', { context: ['sla', (type === '' && 'none') || type] }),
   value: type,
-  selected: false
+  isSelected: false
 }));
 
 /**
@@ -78,7 +78,7 @@ const ToolbarFieldSla = ({
   const { [RHSM_API_QUERY_SET_TYPES.SLA]: updatedValue } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
 
-  const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
+  const updatedOptions = options.map(option => ({ ...option, isSelected: option.value === updatedValue }));
 
   return (
     <Select
@@ -87,7 +87,7 @@ const ToolbarFieldSla = ({
       options={updatedOptions}
       selectedOptions={updatedValue}
       placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'sla' })}
-      position={position}
+      alignment={{ position }}
       data-test="toolbarFieldSla"
     />
   );

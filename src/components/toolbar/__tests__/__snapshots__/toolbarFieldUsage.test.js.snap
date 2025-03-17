@@ -3,22 +3,22 @@
 exports[`ToolbarFieldSla Component should export select options: toolbarFieldOptions 1`] = `
 [
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
     "value": "Production",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
     "value": "Development/Test",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
     "value": "Disaster Recovery",
   },
   {
-    "selected": false,
+    "isSelected": false,
     "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
     "value": "",
   },
@@ -65,35 +65,39 @@ exports[`ToolbarFieldSla Component should handle updating usage through redux st
 
 exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = `
 <Select
+  alignment={
+    {
+      "position": "left",
+    }
+  }
   aria-label="t(curiosity-toolbar.placeholder, {"context":"usage"})"
   data-test="toolbarFieldUsage"
   onSelect={[Function]}
   options={
     [
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
         "value": "Production",
       },
       {
-        "selected": true,
+        "isSelected": true,
         "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
         "value": "Development/Test",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
         "value": "Disaster Recovery",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
         "value": "",
       },
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {"context":"usage"})"
-  position="left"
   selectedOptions="Development/Test"
 />
 `;

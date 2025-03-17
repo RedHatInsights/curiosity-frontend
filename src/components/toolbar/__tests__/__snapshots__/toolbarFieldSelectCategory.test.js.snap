@@ -178,22 +178,22 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
     "isClearable": true,
     "options": [
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
         "value": "Premium",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
         "value": "Standard",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
         "value": "Self-Support",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
         "value": "",
       },
@@ -207,22 +207,22 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
     "isClearable": true,
     "options": [
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
         "value": "Production",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
         "value": "Development/Test",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
         "value": "Disaster Recovery",
       },
       {
-        "selected": false,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
         "value": "",
       },
@@ -298,22 +298,22 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
         "isClearable": true,
         "options": [
           {
-            "selected": false,
+            "isSelected": false,
             "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
             "value": "Production",
           },
           {
-            "selected": false,
+            "isSelected": false,
             "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
             "value": "Development/Test",
           },
           {
-            "selected": false,
+            "isSelected": false,
             "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
             "value": "Disaster Recovery",
           },
           {
-            "selected": false,
+            "isSelected": false,
             "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
             "value": "",
           },
@@ -348,22 +348,22 @@ exports[`ToolbarFieldSelectCategory Component should return options, and an upda
       "isClearable": true,
       "options": [
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
           "value": "Production",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
           "value": "Development/Test",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
           "value": "Disaster Recovery",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
           "value": "",
         },
@@ -377,22 +377,22 @@ exports[`ToolbarFieldSelectCategory Component should return options, and an upda
       "isClearable": true,
       "options": [
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
           "value": "Premium",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
           "value": "Standard",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
           "value": "Self-Support",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
           "value": "",
         },
@@ -415,22 +415,22 @@ exports[`ToolbarFieldSelectCategory Component should return options, and an upda
       "isClearable": true,
       "options": [
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
           "value": "Production",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
           "value": "Development/Test",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
           "value": "Disaster Recovery",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
           "value": "",
         },
@@ -444,22 +444,22 @@ exports[`ToolbarFieldSelectCategory Component should return options, and an upda
       "isClearable": true,
       "options": [
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
           "value": "Premium",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
           "value": "Standard",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
           "value": "Self-Support",
         },
         {
-          "selected": false,
+          "isSelected": false,
           "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
           "value": "",
         },
