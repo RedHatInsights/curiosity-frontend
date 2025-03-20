@@ -2,104 +2,92 @@
 
 exports[`InventoryGuests Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
 <div
-  className="fadein"
+  className="curiosity-table-scroll"
+  style={
+    {
+      "height": "275px",
+    }
+  }
 >
   <div
-    className="curiosity-table-scroll"
-    style={
-      {
-        "height": "275px",
-      }
-    }
+    className="curiosity-table-scroll-list"
+    onScroll={[Function]}
   >
-    <div
-      className="curiosity-table-scroll-list"
-      onScroll={[Function]}
-    >
-      <ErrorMessage
-        title="t(curiosity-inventory.error_title)"
-      />
-    </div>
+    <ErrorMessage
+      title="t(curiosity-inventory.error_title)"
+    />
   </div>
 </div>
 `;
 
 exports[`InventoryGuests Component should handle multiple display states, error, pending, fulfilled: fulfilled 1`] = `
 <div
-  className="fadein"
+  className="curiosity-table-scroll"
+  style={
+    {
+      "height": "275px",
+    }
+  }
 >
   <div
-    className="curiosity-table-scroll"
-    style={
-      {
-        "height": "275px",
-      }
-    }
+    className="curiosity-table-scroll-list"
+    onScroll={[Function]}
   >
-    <div
-      className="curiosity-table-scroll-list"
-      onScroll={[Function]}
-    >
-      <Table
-        className="curiosity-guests-list"
-        columnHeaders={
-          [
-            "lorem",
-            "dolor",
-          ]
-        }
-        isBorders={false}
-        isHeader={true}
-        rows={
-          [
-            {
-              "cells": [
-                "ipsum",
-                "sit",
-              ],
-            },
-          ]
-        }
-      />
-    </div>
+    <Table
+      className="curiosity-guests-list fadein__fast"
+      columnHeaders={
+        [
+          "lorem",
+          "dolor",
+        ]
+      }
+      isBorders={false}
+      isHeader={true}
+      rows={
+        [
+          {
+            "cells": [
+              "ipsum",
+              "sit",
+            ],
+          },
+        ]
+      }
+    />
   </div>
 </div>
 `;
 
 exports[`InventoryGuests Component should handle multiple display states, error, pending, fulfilled: pending 1`] = `
 <div
-  className="fadein"
+  className="curiosity-table-scroll"
+  style={
+    {
+      "height": "275px",
+    }
+  }
 >
   <div
-    className="curiosity-table-scroll"
-    style={
-      {
-        "height": "275px",
-      }
-    }
+    className="curiosity-table-scroll-list__no-scroll"
+    onScroll={[Function]}
   >
     <div
-      className="curiosity-table-scroll-list"
-      onScroll={[Function]}
+      className="curiosity-table-scroll-loader__custom"
     >
-      <div
-        className="curiosity-table-scroll-loader__custom"
-      >
-        <Loader
-          tableProps={
-            {
-              "borders": false,
-              "className": "curiosity-guests-list",
-              "colCount": 1,
-              "colWidth": [],
-              "isHeader": false,
-              "rowCount": 1,
-              "variant": "compact",
-            }
+      <Loader
+        tableProps={
+          {
+            "borders": false,
+            "className": "curiosity-guests-list",
+            "colCount": 1,
+            "colWidth": [],
+            "isHeader": false,
+            "rowCount": 1,
+            "variant": "compact",
           }
-          variant="table"
-        />
-      </div>
+        }
+        variant="table"
+      />
     </div>
   </div>
 </div>
@@ -107,38 +95,34 @@ exports[`InventoryGuests Component should handle multiple display states, error,
 
 exports[`InventoryGuests Component should render a basic component: basic 1`] = `
 <div
-  className="fadein"
+  className="curiosity-table-scroll"
+  style={
+    {
+      "height": "42px",
+    }
+  }
 >
   <div
-    className="curiosity-table-scroll"
-    style={
-      {
-        "height": "42px",
-      }
-    }
+    className="curiosity-table-scroll-list__no-scroll"
+    onScroll={[Function]}
   >
     <div
-      className="curiosity-table-scroll-list__no-scroll"
-      onScroll={[Function]}
+      className="curiosity-table-scroll-loader__custom"
     >
-      <div
-        className="curiosity-table-scroll-loader__custom"
-      >
-        <Loader
-          tableProps={
-            {
-              "borders": false,
-              "className": "curiosity-guests-list",
-              "colCount": 1,
-              "colWidth": [],
-              "isHeader": false,
-              "rowCount": 1,
-              "variant": "compact",
-            }
+      <Loader
+        tableProps={
+          {
+            "borders": false,
+            "className": "curiosity-guests-list",
+            "colCount": 1,
+            "colWidth": [],
+            "isHeader": false,
+            "rowCount": 1,
+            "variant": "compact",
           }
-          variant="table"
-        />
-      </div>
+        }
+        variant="table"
+      />
     </div>
   </div>
 </div>
