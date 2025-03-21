@@ -56,6 +56,7 @@ exports[`Platform Constants should have specific properties: all exported consta
   },
   "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
   "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": {
+    "ORG_ID": "org_id",
     "USER": "user",
   },
   "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": {
@@ -131,6 +132,7 @@ exports[`Platform Constants should have specific properties: all exported consta
     },
     "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
     "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": {
+      "ORG_ID": "org_id",
       "USER": "user",
     },
     "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": {
@@ -207,6 +209,7 @@ exports[`Platform Constants should have specific properties: all exported consta
     },
     "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
     "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": {
+      "ORG_ID": "org_id",
       "USER": "user",
     },
     "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": {
@@ -287,6 +290,7 @@ exports[`Platform Constants should have specific properties: specific constants 
   },
   "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
   "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": {
+    "ORG_ID": "org_id",
     "USER": "user",
   },
   "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": {
