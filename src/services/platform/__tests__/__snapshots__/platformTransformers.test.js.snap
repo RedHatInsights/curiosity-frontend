@@ -57,6 +57,7 @@ exports[`Platform Transformers should attempt to parse a user response: user, de
 {
   "isAdmin": false,
   "isEntitled": false,
+  "orgId": undefined,
 }
 `;
 
@@ -64,6 +65,7 @@ exports[`Platform Transformers should attempt to parse a user response: user, pa
 {
   "isAdmin": true,
   "isEntitled": true,
+  "orgId": undefined,
 }
 `;
 
