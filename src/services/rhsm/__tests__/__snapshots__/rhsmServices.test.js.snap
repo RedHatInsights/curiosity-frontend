@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RhsmServices should call the serviceCall wrapper with consistent configuration, getApiVersion method 1`] = `
+[
+  [
+    {
+      "cache": false,
+      "cancel": true,
+      "cancelId": undefined,
+      "headers": {},
+      "url": "/api/rhsm-subscriptions/v1/version",
+    },
+  ],
+]
+`;
+
+exports[`RhsmServices should call the serviceCall wrapper with consistent configuration, getBillingAccounts method 1`] = `
+[
+  [
+    {
+      "cache": true,
+      "cancel": true,
+      "cancelId": undefined,
+      "schema": undefined,
+      "transform": [
+        [Function],
+      ],
+      "url": [Function],
+    },
+  ],
+]
+`;
+
+exports[`RhsmServices should call the serviceCall wrapper with consistent configuration, getBillingAccountsInstances method 1`] = `
+[
+  [
+    {
+      "_accountType": "instances",
+      "cache": true,
+      "cancel": true,
+      "cancelId": undefined,
+      "headers": {},
+      "params": {
+        "product_tag": undefined,
+      },
+      "schema": [
+        [Function],
+        [Function],
+      ],
+      "transform": undefined,
+      "url": "/api/rhsm-subscriptions/v1/instances/billing_account_ids",
+    },
+  ],
+]
+`;
+
+exports[`RhsmServices should call the serviceCall wrapper with consistent configuration, getBillingAccountsSubscriptions method 1`] = `
+[
+  [
+    {
+      "_accountType": "subscriptions",
+      "cache": true,
+      "cancel": true,
+      "cancelId": undefined,
+      "headers": {},
+      "params": {
+        "product_tag": undefined,
+      },
+      "schema": [
+        [Function],
+        [Function],
+      ],
+      "transform": undefined,
+      "url": "/api/rhsm-subscriptions/v1/subscriptions/billing_account_ids",
+    },
+  ],
+]
+`;
+
+exports[`RhsmServices should call the serviceCall wrapper with consistent configuration, getGraphCapacity method 1`] = `
+[
+  [
+    {
+      "_isCapacity": true,
+      "cache": true,
+      "cancel": true,
+      "cancelId": undefined,
+      "headers": {},
+      "params": {},
+      "schema": [
+        [Function],
+        [Function],
+      ],
+      "transform": [
+        [Function],
+      ],
+      "url": "/api/rhsm-subscriptions/v1/capacity/products/{0}/{1}",
+    },
+  ],
+]
+`;
+
+exports[`RhsmServices should call the serviceCall wrapper with consistent configuration, getGraphTally method 1`] = `
+[
+  [
+    {
+      "cache": true,
+      "cancel": true,
+      "cancelId": undefined,
+      "headers": {},
+      "params": {},
+      "schema": [
+        [Function],
+        [Function],
+      ],
+      "transform": [
+        [Function],
+      ],
+      "url": "/api/rhsm-subscriptions/v1/tally/products/{0}/{1}",
+    },
+  ],
+]
+`;
+
+exports[`RhsmServices should call the serviceCall wrapper with consistent configuration, getInstancesInventory method 1`] = `
+[
+  [
+    {
+      "cache": true,
+      "cancel": true,
+      "cancelId": undefined,
+      "headers": {},
+      "params": {},
+      "schema": [
+        [Function],
+        [Function],
+      ],
+      "transform": [
+        [Function],
+      ],
+      "url": "/api/rhsm-subscriptions/v1/instances/products/undefined",
+    },
+  ],
+]
+`;
+
+exports[`RhsmServices should call the serviceCall wrapper with consistent configuration, getInstancesInventoryGuests method 1`] = `
+[
+  [
+    {
+      "_id": undefined,
+      "cache": true,
+      "cancel": false,
+      "cancelId": undefined,
+      "headers": {},
+      "params": {},
+      "schema": [
+        [Function],
+        [Function],
+      ],
+      "transform": [
+        [Function],
+      ],
+      "url": "/api/rhsm-subscriptions/v1/instances/undefined/guests",
+    },
+  ],
+]
+`;
+
+exports[`RhsmServices should call the serviceCall wrapper with consistent configuration, getSubscriptionsInventory method 1`] = `
+[
+  [
+    {
+      "cache": true,
+      "cancel": true,
+      "cancelId": undefined,
+      "headers": {},
+      "params": {},
+      "schema": [
+        [Function],
+        [Function],
+      ],
+      "transform": [
+        [Function],
+      ],
+      "url": "/api/rhsm-subscriptions/v2/subscriptions/products/undefined",
+    },
+  ],
+]
+`;
+
+exports[`RhsmServices should return specific properties: specific properties 1`] = `
+{
+  "getApiVersion": [Function],
+  "getBillingAccounts": [Function],
+  "getBillingAccountsInstances": [Function],
+  "getBillingAccountsSubscriptions": [Function],
+  "getGraphCapacity": [Function],
+  "getGraphTally": [Function],
+  "getInstancesInventory": [Function],
+  "getInstancesInventoryGuests": [Function],
+  "getSubscriptionsInventory": [Function],
+}
+`;

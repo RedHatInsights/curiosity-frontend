@@ -7,9 +7,10 @@ import {
   RHSM_API_RESPONSE_SUBSCRIPTIONS_META_TYPES as SUBSCRIPTIONS_META_TYPES,
   RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES as TALLY_CAPACITY_DATA_TYPES,
   RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES as TALLY_CAPACITY_META_TYPES,
+  RHSM_API_RESPONSE_BILLING_ACCOUNT_ID_TYPES as BILLING_ACCOUNT_ID_TYPES,
   rhsmConstants
 } from './rhsmConstants';
-import { dateHelpers } from '../../common';
+import { dateHelpers, helpers } from '../../common';
 
 /**
  * Transform RHSM responses. Replaces selector usage.
@@ -17,6 +18,65 @@ import { dateHelpers } from '../../common';
  * @memberof Rhsm
  * @module RhsmTransformers
  */
+
+/**
+ * Parse RHSM billing account id responses.
+ *
+ * @param {object} response
+ * @returns {object}
+ */
+const rhsmBillingAccounts = (response = []) => {
+  const successResponse = response
+    .filter(({ status }) => status === 'fulfilled')
+    .map(({ value = {} }) =>
+      value.data?.[rhsmConstants.RHSM_API_RESPONSE_ID]?.map(
+        ({
+          [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: id,
+          [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: provider
+        }) => ({
+          id,
+          type: value?.config?._accountType || 'unknown',
+          provider
+        })
+      )
+    )
+    .flat()
+    .filter(Boolean);
+
+  // Note: Apply last entry. This will overwrite duplicates if they exist in the first response.
+  const dupCache = {};
+  successResponse.forEach(obj => {
+    if (obj.id) {
+      dupCache[obj.id] = obj;
+    }
+  });
+
+  const accounts = Object.values(dupCache);
+
+  const billingProviders = [...new Set(accounts.map(({ provider }) => provider))].sort();
+
+  const accountIdsByProvider = {};
+  accounts.forEach(({ id, provider }) => {
+    accountIdsByProvider[provider] ??= [];
+    accountIdsByProvider[provider].push(id);
+  });
+
+  Object.keys(accountIdsByProvider).forEach(key => {
+    accountIdsByProvider[key].sort();
+  });
+
+  return {
+    billingProviders,
+    accountIdsByProvider
+  };
+};
+
+/**
+ * A memoized response for the rhsmBillingAccounts function. Assigned to a property for testing function.
+ *
+ * @type {Function}
+ */
+rhsmBillingAccounts.memo = helpers.memo(rhsmBillingAccounts, { cacheLimit: 25 });
 
 /**
  * Parse RHSM instances response for caching.
@@ -226,6 +286,7 @@ const rhsmTallyCapacity = (response, { _isCapacity, params } = {}) => {
 };
 
 const rhsmTransformers = {
+  billingAccounts: rhsmBillingAccounts,
   guests: rhsmInstancesGuests,
   instances: rhsmInstances,
   subscriptions: rhsmSubscriptions,
@@ -235,6 +296,7 @@ const rhsmTransformers = {
 export {
   rhsmTransformers as default,
   rhsmTransformers,
+  rhsmBillingAccounts,
   rhsmInstances,
   rhsmInstancesGuests,
   rhsmSubscriptions,
