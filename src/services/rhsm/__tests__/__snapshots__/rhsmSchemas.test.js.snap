@@ -2,12 +2,19 @@
 
 exports[`RHSM Schemas should have specific response schemas: specific schemas 1`] = `
 {
+  "billingAccounts": [Function],
   "capacity": [Function],
   "errors": [Function],
   "guests": [Function],
   "instances": [Function],
   "subscriptions": [Function],
   "tally": [Function],
+}
+`;
+
+exports[`RHSM Schemas should have valid schemas that validate API responses: billingAccounts response schema 1`] = `
+{
+  "ids": [],
 }
 `;
 

@@ -1,5 +1,5 @@
 import _get from 'lodash/get';
-import { appTypes, platformTypes } from '../types';
+import { appTypes, platformTypes, rhsmTypes } from '../types';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { reduxHelpers } from '../common';
 
@@ -14,10 +14,11 @@ import { reduxHelpers } from '../common';
  * Initial state.
  *
  * @private
- * @type {{auth: {}, exports: {}, exportsExisting: {}, optin: {}, locale: {}, errors: {}}}
+ * @type {{auth: {}, exports: {}, exportsExisting: {}, optin: {}, billingAccounts: {}, locale: {}, errors: {}}}
  */
 const initialState = {
   auth: {},
+  billingAccounts: {},
   errors: {},
   exports: {},
   exportsExisting: {},
@@ -93,7 +94,8 @@ const appReducer = (state = initialState, action) => {
           { ref: 'locale', type: appTypes.USER_LOCALE },
           { ref: 'optin', type: [appTypes.DELETE_USER_OPTIN, appTypes.GET_USER_OPTIN, appTypes.UPDATE_USER_OPTIN] },
           { ref: 'exportsExisting', type: platformTypes.SET_PLATFORM_EXPORT_EXISTING_STATUS },
-          { ref: 'auth', type: platformTypes.PLATFORM_USER_AUTH }
+          { ref: 'auth', type: platformTypes.PLATFORM_USER_AUTH },
+          { ref: 'billingAccounts', type: rhsmTypes.GET_BILLING_ACCOUNTS_RHSM }
         ],
         state,
         action

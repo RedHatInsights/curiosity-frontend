@@ -107,6 +107,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "TOTAL_CAPACITY": "total_capacity",
     "USAGE": "usage",
   },
+  "RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES": {
+    "ORG_ID": "org_id",
+    "PRODUCT_TAG": "product_tag",
+  },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
@@ -145,6 +149,8 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "LIMIT": "limit",
     "METRIC_ID": "metric_id",
     "OFFSET": "offset",
+    "ORG_ID": "org_id",
+    "PRODUCT_TAG": "product_tag",
     "SLA": "sla",
     "SORT": "sort",
     "START_DATE": "beginning",
@@ -162,6 +168,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "DISASTER": "Disaster Recovery",
     "PRODUCTION": "Production",
     "UNSPECIFIED": "",
+  },
+  "RHSM_API_RESPONSE_BILLING_ACCOUNT_ID_TYPES": {
+    "BILLING_ACCOUNT_ID": "billing_account_id",
+    "BILLING_PROVIDER": "billing_provider",
+    "ORG_ID": "org_id",
+    "PRODUCT_TAG": "product_tag",
   },
   "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
     "AWS": "aws",
@@ -183,6 +195,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "QUARTERLY": "Quarterly",
     "WEEKLY": "Weekly",
   },
+  "RHSM_API_RESPONSE_ID": "ids",
   "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
@@ -376,6 +389,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "TOTAL_CAPACITY": "total_capacity",
       "USAGE": "usage",
     },
+    "RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES": {
+      "ORG_ID": "org_id",
+      "PRODUCT_TAG": "product_tag",
+    },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
@@ -414,6 +431,8 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "LIMIT": "limit",
       "METRIC_ID": "metric_id",
       "OFFSET": "offset",
+      "ORG_ID": "org_id",
+      "PRODUCT_TAG": "product_tag",
       "SLA": "sla",
       "SORT": "sort",
       "START_DATE": "beginning",
@@ -431,6 +450,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "DISASTER": "Disaster Recovery",
       "PRODUCTION": "Production",
       "UNSPECIFIED": "",
+    },
+    "RHSM_API_RESPONSE_BILLING_ACCOUNT_ID_TYPES": {
+      "BILLING_ACCOUNT_ID": "billing_account_id",
+      "BILLING_PROVIDER": "billing_provider",
+      "ORG_ID": "org_id",
+      "PRODUCT_TAG": "product_tag",
     },
     "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
       "AWS": "aws",
@@ -452,6 +477,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "QUARTERLY": "Quarterly",
       "WEEKLY": "Weekly",
     },
+    "RHSM_API_RESPONSE_ID": "ids",
     "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
@@ -646,6 +672,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "TOTAL_CAPACITY": "total_capacity",
       "USAGE": "usage",
     },
+    "RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES": {
+      "ORG_ID": "org_id",
+      "PRODUCT_TAG": "product_tag",
+    },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
@@ -684,6 +714,8 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "LIMIT": "limit",
       "METRIC_ID": "metric_id",
       "OFFSET": "offset",
+      "ORG_ID": "org_id",
+      "PRODUCT_TAG": "product_tag",
       "SLA": "sla",
       "SORT": "sort",
       "START_DATE": "beginning",
@@ -701,6 +733,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "DISASTER": "Disaster Recovery",
       "PRODUCTION": "Production",
       "UNSPECIFIED": "",
+    },
+    "RHSM_API_RESPONSE_BILLING_ACCOUNT_ID_TYPES": {
+      "BILLING_ACCOUNT_ID": "billing_account_id",
+      "BILLING_PROVIDER": "billing_provider",
+      "ORG_ID": "org_id",
+      "PRODUCT_TAG": "product_tag",
     },
     "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
       "AWS": "aws",
@@ -722,6 +760,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "QUARTERLY": "Quarterly",
       "WEEKLY": "Weekly",
     },
+    "RHSM_API_RESPONSE_ID": "ids",
     "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
@@ -920,6 +959,10 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "TOTAL_CAPACITY": "total_capacity",
     "USAGE": "usage",
   },
+  "RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES": {
+    "ORG_ID": "org_id",
+    "PRODUCT_TAG": "product_tag",
+  },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
@@ -958,6 +1001,8 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "LIMIT": "limit",
     "METRIC_ID": "metric_id",
     "OFFSET": "offset",
+    "ORG_ID": "org_id",
+    "PRODUCT_TAG": "product_tag",
     "SLA": "sla",
     "SORT": "sort",
     "START_DATE": "beginning",
@@ -975,6 +1020,12 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "DISASTER": "Disaster Recovery",
     "PRODUCTION": "Production",
     "UNSPECIFIED": "",
+  },
+  "RHSM_API_RESPONSE_BILLING_ACCOUNT_ID_TYPES": {
+    "BILLING_ACCOUNT_ID": "billing_account_id",
+    "BILLING_PROVIDER": "billing_provider",
+    "ORG_ID": "org_id",
+    "PRODUCT_TAG": "product_tag",
   },
   "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
     "AWS": "aws",
@@ -996,6 +1047,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "QUARTERLY": "Quarterly",
     "WEEKLY": "Weekly",
   },
+  "RHSM_API_RESPONSE_ID": "ids",
   "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
