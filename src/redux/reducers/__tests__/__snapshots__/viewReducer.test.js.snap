@@ -131,6 +131,7 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
 exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT_VARIANT 1`] = `
 {
   "result": {
+    "billingAccountsQuery": {},
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {},
@@ -149,6 +150,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_PROD
 exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT_VARIANT_QUERY_RESET_ALL 1`] = `
 {
   "result": {
+    "billingAccountsQuery": {},
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {},
@@ -163,6 +165,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_PROD
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY 1`] = `
 {
   "result": {
+    "billingAccountsQuery": {},
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {},
@@ -178,9 +181,29 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 }
 `;
 
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_BILLING_ACCOUNTS 1`] = `
+{
+  "result": {
+    "billingAccountsQuery": {
+      "test_id": {
+        "dolorFilter": "sit any value",
+      },
+    },
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {},
+    "inventoryHostsQuery": {},
+    "inventorySubscriptionsQuery": {},
+    "product": {},
+    "query": {},
+  },
+  "type": "SET_QUERY_BILLING_ACCOUNTS",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_GRAPH 1`] = `
 {
   "result": {
+    "billingAccountsQuery": {},
     "graphTallyQuery": {
       "test_id": {
         "dolorFilter": "sit any value",
@@ -199,6 +222,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_INVENTORY_GUESTS 1`] = `
 {
   "result": {
+    "billingAccountsQuery": {},
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {
       "test_id": {
@@ -217,6 +241,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_INVENTORY_INSTANCES 1`] = `
 {
   "result": {
+    "billingAccountsQuery": {},
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {
@@ -235,6 +260,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_INVENTORY_SUBSCRIPTIONS 1`] = `
 {
   "result": {
+    "billingAccountsQuery": {},
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {},

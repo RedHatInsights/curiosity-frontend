@@ -10,6 +10,29 @@ import { generateChartIds } from '../../components/graphCard/graphCardHelpers';
  */
 
 /**
+ * Get a combined billing account id response listing from RHSM instances, subscriptions billing account ids.
+ *
+ * @param {string} id
+ * @param {object} query
+ * @returns {Function}
+ */
+const getBillingAccounts =
+  (id = null, query = {}) =>
+  dispatch =>
+    dispatch({
+      type: rhsmTypes.GET_BILLING_ACCOUNTS_RHSM,
+      payload: rhsmServices.getBillingAccounts(id, query),
+      meta: {
+        id,
+        productId: id,
+        query,
+        action: 'getBillingAccounts',
+        service: rhsmServices.getBillingAccounts.name,
+        notifications: {}
+      }
+    });
+
+/**
  * Get a RHSM response from multiple Tally, or Capacity, IDs and metrics.
  *
  * @param {object|Array} idMetric An object, or an Array of objects, in the form of { id: PRODUCT_ID, metric: METRIC_ID,
@@ -125,6 +148,7 @@ const getSubscriptionsInventory =
     });
 
 const rhsmActions = {
+  getBillingAccounts,
   getGraphMetrics,
   getInstancesInventory,
   getInstancesInventoryGuests,
@@ -134,6 +158,7 @@ const rhsmActions = {
 export {
   rhsmActions as default,
   rhsmActions,
+  getBillingAccounts,
   getGraphMetrics,
   getInstancesInventory,
   getInstancesInventoryGuests,
