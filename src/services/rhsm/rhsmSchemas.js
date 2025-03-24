@@ -51,6 +51,27 @@ const metaResponseSchema = Joi.object()
   .unknown(true);
 
 /**
+ * Billing accounts response item.
+ *
+ * @type {*} Joi schema
+ */
+const billingAccountsItem = Joi.object({
+  org_id: Joi.string().optional().allow(null),
+  product_tag: Joi.string().optional().allow(null),
+  billing_provider: Joi.string().optional().allow(null),
+  billing_account_id: Joi.string().optional().allow(null)
+});
+
+/**
+ * Billing accounts response.
+ *
+ * @type {*} Joi schema
+ */
+const billingAccountsResponseSchema = Joi.object().keys({
+  ids: Joi.array().items(billingAccountsItem).default([])
+});
+
+/**
  * Capacity response meta field.
  *
  * @type {*} Joi schema
@@ -245,6 +266,8 @@ const tallyResponseSchema = Joi.object().keys({
 });
 
 const rhsmSchemas = {
+  billingAccounts: response =>
+    schemaResponse({ response, schema: billingAccountsResponseSchema, id: 'RHSM billing accounts' }),
   capacity: response => schemaResponse({ response, schema: capacityResponseSchema, id: 'RHSM capacity' }),
   errors: response => schemaResponse({ response, schema: errorResponseSchema, id: 'RHSM errors' }),
   guests: response => schemaResponse({ response, schema: guestsResponseSchema, id: 'RHSM guests' }),
