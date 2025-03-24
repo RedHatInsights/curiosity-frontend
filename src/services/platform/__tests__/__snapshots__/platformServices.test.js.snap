@@ -14,19 +14,91 @@ exports[`PlatformServices should export a specific  properties, methods and clas
 
 exports[`PlatformServices should return a failed getUser: failed authorized user 1`] = `
 {
-  "data": undefined,
-  "message": "{ getUser } = insights.chrome.auth, aliasGetUser is not a function",
+  "config": {
+    "adapter": [Function],
+    "allowAbsoluteUrls": true,
+    "cacheResponse": false,
+    "data": undefined,
+    "env": {
+      "Blob": [Function],
+      "FormData": [Function],
+    },
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+    },
+    "maxBodyLength": -1,
+    "maxContentLength": -1,
+    "method": "get",
+    "schema": [
+      [Function],
+    ],
+    "timeout": 60000,
+    "transform": [
+      [Function],
+    ],
+    "transformRequest": [
+      [Function],
+    ],
+    "transformResponse": [
+      [Function],
+    ],
+    "transitional": {
+      "clarifyTimeoutError": false,
+      "forcedJSONParsing": true,
+      "silentJSONParsing": true,
+    },
+    "url": "/emulated",
+    "validateStatus": [Function],
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+  },
+  "message": "{ getUser } = insights.chrome.auth, platformMethod is not a function",
   "status": 418,
-  "statusText": undefined,
 }
 `;
 
 exports[`PlatformServices should return a failed getUserPermissions: failed user permissions 1`] = `
 {
-  "data": undefined,
-  "message": "{ getUserPermissions } = insights.chrome, aliasGetUserPermissions is not a function",
+  "config": {
+    "adapter": [Function],
+    "allowAbsoluteUrls": true,
+    "cacheResponse": false,
+    "data": undefined,
+    "env": {
+      "Blob": [Function],
+      "FormData": [Function],
+    },
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+    },
+    "maxBodyLength": -1,
+    "maxContentLength": -1,
+    "method": "get",
+    "schema": [
+      [Function],
+    ],
+    "timeout": 60000,
+    "transform": [
+      [Function],
+    ],
+    "transformRequest": [
+      [Function],
+    ],
+    "transformResponse": [
+      [Function],
+    ],
+    "transitional": {
+      "clarifyTimeoutError": false,
+      "forcedJSONParsing": true,
+      "silentJSONParsing": true,
+    },
+    "url": "/emulated",
+    "validateStatus": [Function],
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+  },
+  "message": "{ getUserPermissions } = insights.chrome, platformMethod is not a function",
   "status": 418,
-  "statusText": undefined,
 }
 `;
 
@@ -35,6 +107,7 @@ exports[`PlatformServices should return a successful getUser with a specific res
   "data": {
     "isAdmin": false,
     "isEntitled": false,
+    "orgId": undefined,
   },
   "message": undefined,
   "status": 200,
@@ -47,6 +120,7 @@ exports[`PlatformServices should return a successful getUser: success authorized
   "data": {
     "isAdmin": false,
     "isEntitled": false,
+    "orgId": undefined,
   },
   "message": undefined,
   "status": 200,
