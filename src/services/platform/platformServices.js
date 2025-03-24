@@ -1,4 +1,3 @@
-import _set from 'lodash/set';
 import { rbacConfig } from '../../config';
 import { axiosServiceCall } from '../common/serviceConfig';
 import { platformSchemas } from './platformSchemas';
@@ -26,24 +25,25 @@ const getUser = async (options = {}) => {
   const {
     schema = [platformSchemas.user],
     transform = [platformTransformers.user],
-    getUser: aliasGetUser = window?.insights?.chrome?.auth?.getUser
+    getUser: aliasGetUser = helpers.noop
   } = options;
+  const platformMethod =
+    (helpers.DEV_MODE &&
+      (() => ({
+        [platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY]: {
+          [platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER]: {
+            [platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN]:
+              process.env.REACT_APP_DEBUG_ORG_ADMIN === 'true'
+          },
+          [platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.ORG_ID]: '12345'
+        }
+      }))) ||
+    aliasGetUser;
+
   return axiosServiceCall({
     url: async () => {
       try {
-        return (
-          (helpers.DEV_MODE &&
-            _set(
-              {},
-              [
-                platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY,
-                platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER,
-                platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN
-              ],
-              process.env.REACT_APP_DEBUG_ORG_ADMIN === 'true'
-            )) ||
-          (await aliasGetUser())
-        );
+        return platformMethod();
       } catch (e) {
         throw new Error(`{ getUser } = insights.chrome.auth, ${e.message}`);
       }
@@ -64,19 +64,20 @@ const getUserPermissions = (appName = Object.keys(rbacConfig), options = {}) => 
   const {
     schema = [platformSchemas.permissions],
     transform = [platformTransformers.permissions],
-    getUserPermissions: aliasGetUserPermissions = window?.insights?.chrome?.getUserPermissions
+    getUserPermissions: aliasGetUserPermissions = helpers.noop
   } = options;
   const updatedAppName = (Array.isArray(appName) && appName) || [appName];
-  const platformMethod = name =>
-    (helpers.DEV_MODE && [
-      {
-        [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_ONE
-      },
-      {
-        [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_TWO
-      }
-    ]) ||
-    aliasGetUserPermissions(name);
+  const platformMethod =
+    (helpers.DEV_MODE &&
+      (() => [
+        {
+          [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_ONE
+        },
+        {
+          [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_TWO
+        }
+      ])) ||
+    aliasGetUserPermissions;
 
   return axiosServiceCall({
     url: async () => {

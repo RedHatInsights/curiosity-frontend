@@ -2,19 +2,6 @@ import moxios from 'moxios';
 import platformServices from '../platformServices';
 
 describe('PlatformServices', () => {
-  // Return a promise, or promise like, response for errors
-  const returnPromiseAsync = async promiseAsyncCall => {
-    let response;
-
-    try {
-      response = await promiseAsyncCall();
-    } catch (e) {
-      response = e;
-    }
-
-    return response;
-  };
-
   beforeEach(() => {
     moxios.install();
 
@@ -53,29 +40,32 @@ describe('PlatformServices', () => {
   });
 
   it('should return a successful getUser', async () => {
-    const { status, statusText, data, message } = await platformServices.getUser();
+    const { status, statusText, data, message } = await platformServices.getUser({ getUser: Function.prototype });
 
     expect({ status, statusText, data, message }).toMatchSnapshot('success authorized user');
   });
 
   it('should return a successful getUser with a specific response', async () => {
-    window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => Promise.resolve('lorem ipsum'));
-    const { status, statusText, data, message } = await platformServices.getUser();
+    const { status, statusText, data, message } = await platformServices.getUser({
+      getUser: jest.fn().mockImplementation(() => Promise.resolve('lorem ipsum'))
+    });
 
     expect({ status, statusText, data, message }).toMatchSnapshot('specific success for authorized user');
   });
 
   it('should return a failed getUser', async () => {
-    window.insights.chrome.auth.getUser = undefined;
-    const { status, statusText, data, message } = await returnPromiseAsync(platformServices.getUser);
-
-    expect({ status, statusText, data, message }).toMatchSnapshot('failed authorized user');
+    await expect(
+      platformServices.getUser({
+        getUser: null
+      })
+    ).rejects.toMatchSnapshot('failed authorized user');
   });
 
   it('should return a failed getUserPermissions', async () => {
-    window.insights.chrome.getUserPermissions = undefined;
-    const { status, statusText, data, message } = await returnPromiseAsync(platformServices.getUserPermissions);
-
-    expect({ status, statusText, data, message }).toMatchSnapshot('failed user permissions');
+    await expect(
+      platformServices.getUserPermissions(undefined, {
+        getUserPermissions: null
+      })
+    ).rejects.toMatchSnapshot('failed user permissions');
   });
 });
