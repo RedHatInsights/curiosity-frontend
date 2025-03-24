@@ -146,9 +146,10 @@ const PLATFORM_API_RESPONSE_USER_IDENTITY = 'identity';
  * Platform response of IDENTITY type values.
  * Schema/map of expected response identity types.
  *
- * @type {{USER: string}}
+ * @type {{ORG_ID: string, USER: string}}
  */
 const PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES = {
+  ORG_ID: 'org_id',
   USER: 'user'
 };
 
