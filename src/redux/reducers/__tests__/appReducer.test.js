@@ -1,7 +1,7 @@
 import appReducer from '../appReducer';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 import { platformConstants } from '../../../services/platform/platformConstants';
-import { appTypes as types, platformTypes } from '../../types';
+import { appTypes as types, platformTypes, rhsmTypes } from '../../types';
 import { reduxHelpers } from '../../common';
 
 describe('UserReducer', () => {
@@ -71,7 +71,8 @@ describe('UserReducer', () => {
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
-      types.UPDATE_USER_OPTIN
+      types.UPDATE_USER_OPTIN,
+      rhsmTypes.GET_BILLING_ACCOUNTS_RHSM
     ];
 
     specificTypes.forEach(value => {
@@ -105,7 +106,8 @@ describe('UserReducer', () => {
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
-      types.UPDATE_USER_OPTIN
+      types.UPDATE_USER_OPTIN,
+      rhsmTypes.GET_BILLING_ACCOUNTS_RHSM
     ];
 
     specificTypes.forEach(value => {
@@ -128,7 +130,8 @@ describe('UserReducer', () => {
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
-      types.UPDATE_USER_OPTIN
+      types.UPDATE_USER_OPTIN,
+      rhsmTypes.GET_BILLING_ACCOUNTS_RHSM
     ];
 
     specificTypes.forEach(value => {
