@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.14.4](https://github.com/RedHatInsights/curiosity-frontend/compare/75cda078526f0ba2ffdde314e7fd0f9ddddc0593...fbd2b27b504ea46acad6a0a8dd33a8fc694899b4) (2025-03-31)
+
+
+### Continuous Integrations
+*  Update Konflux references ([#1558](https://github.com/RedHatInsights/curiosity-frontend/pull/1558)) ([fbd2b27](https://github.com/RedHatInsights/curiosity-frontend/commit/fbd2b27b504ea46acad6a0a8dd33a8fc694899b4))
+*  sw-3395 new shared Dockerfile for container build ([#1551](https://github.com/RedHatInsights/curiosity-frontend/pull/1551)) ([d524a73](https://github.com/RedHatInsights/curiosity-frontend/commit/d524a733f6cba9ffff44ae8d31bac5c1594f04eb))
+*  Update Konflux references ([#1546](https://github.com/RedHatInsights/curiosity-frontend/pull/1546)) ([602c483](https://github.com/RedHatInsights/curiosity-frontend/commit/602c483519df5ae95e78e67722adc0132dc0d47c))
+
+### Code Refactoring
+* **platformServices** sw-95 expose org id ([#1552](https://github.com/RedHatInsights/curiosity-frontend/pull/1552)) ([e90b835](https://github.com/RedHatInsights/curiosity-frontend/commit/e90b83563cac3d2b173f604cace3bccf64da917a))
+* **select** sw-3339 replace deprecated patternfly ([#1543](https://github.com/RedHatInsights/curiosity-frontend/pull/1543)) ([e2e8087](https://github.com/RedHatInsights/curiosity-frontend/commit/e2e80879ab9164d5891a6250f597d0c18d45fbbb))
+
+### Builds
+* **deps** bump axios from 1.8.3 to 1.8.4 ([#1554](https://github.com/RedHatInsights/curiosity-frontend/pull/1554)) ([b17359a](https://github.com/RedHatInsights/curiosity-frontend/commit/b17359a4d5302c48a9d95a200442f7e9cf1e309a))
+* **deps-dev** bump the dev group with 3 updates ([#1553](https://github.com/RedHatInsights/curiosity-frontend/pull/1553)) ([a0448ce](https://github.com/RedHatInsights/curiosity-frontend/commit/a0448ce7bb3f6b3f9b343c0beece2999466b2ec1))
+* **deps-dev** bump weldable from 3.2.4 to 4.1.0 ([#1550](https://github.com/RedHatInsights/curiosity-frontend/pull/1550)) ([0e9940c](https://github.com/RedHatInsights/curiosity-frontend/commit/0e9940c951c8cac757d01d9b49e3e0b42e9d7705))
+* **deps-dev** bump the dev group with 4 updates ([#1547](https://github.com/RedHatInsights/curiosity-frontend/pull/1547)) ([41f561c](https://github.com/RedHatInsights/curiosity-frontend/commit/41f561cad437dbffc7aefa50662bb95cd59da81f))
+* **deps** bump axios from 1.8.2 to 1.8.3 ([#1548](https://github.com/RedHatInsights/curiosity-frontend/pull/1548)) ([51d3e31](https://github.com/RedHatInsights/curiosity-frontend/commit/51d3e3147e6d177be81b5cb62a8b596531998885))
+* **deps** bump axios from 1.7.9 to 1.8.2 ([#1545](https://github.com/RedHatInsights/curiosity-frontend/pull/1545)) ([9a46252](https://github.com/RedHatInsights/curiosity-frontend/commit/9a462520a090f357f12c9a930f6c1092ae5cf925))
+* **deps-dev** eslint-config-prettier from 10.0.2 to 10.1.1 ([#1544](https://github.com/RedHatInsights/curiosity-frontend/pull/1544)) ([7c6d1bf](https://github.com/RedHatInsights/curiosity-frontend/commit/7c6d1bf3d1b621bf74c95aae9036d6de101f14ba))
+* **deps-dev** bump the dev group with 3 updates ([#1538](https://github.com/RedHatInsights/curiosity-frontend/pull/1538)) ([cd8d8ed](https://github.com/RedHatInsights/curiosity-frontend/commit/cd8d8ed6d6451a70fa55800cda3a728741c45425))
+
+### Bug Fixes
+* **inventoryGuests** sw-3216 infinite loader ([#1542](https://github.com/RedHatInsights/curiosity-frontend/pull/1542)) ([28fdd8c](https://github.com/RedHatInsights/curiosity-frontend/commit/28fdd8c08ee33e22e348640926a54c39996bc96d))
+
 ## [4.14.3](https://github.com/RedHatInsights/curiosity-frontend/compare/3514374de2bf3a6ccd313630f67d992ed23177fc...4c8d7c6fcada6b6ddce8ff00668797b9b4366206) (2025-03-03)
 
 
