@@ -19,6 +19,12 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
 }
 `;
 
+exports[`ProductViewContext should apply hooks for retrieving specific api queries: billingAccountsQuery 1`] = `
+{
+  "org_id": undefined,
+}
+`;
+
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: exportQuery 1`] = `
 {
   "product_id": undefined,
@@ -174,6 +180,7 @@ exports[`ProductViewContext should return specific properties: specific properti
     "_globalName": null,
     "_threadCount": 0,
   },
+  "useBillingAccountsQuery": [Function],
   "useGraphConfig": [Function],
   "useGraphTallyQuery": [Function],
   "useInventoryGuestsConfig": [Function],
