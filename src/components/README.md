@@ -4227,6 +4227,7 @@ Display products.
     * [~useProductViewContext()](#ProductView.module_ProductViewContext..useProductViewContext) ⇒ <code>React.Context.&lt;{}&gt;</code>
     * [~useProductQueryFactory(queryType, options)](#ProductView.module_ProductViewContext..useProductQueryFactory) ⇒ <code>object</code>
     * [~useProductQuery(options)](#ProductView.module_ProductViewContext..useProductQuery) ⇒ <code>object</code>
+    * [~useProductBillingAccountsQuery(options)](#ProductView.module_ProductViewContext..useProductBillingAccountsQuery) ⇒ <code>object</code>
     * [~useProductGraphTallyQuery(options)](#ProductView.module_ProductViewContext..useProductGraphTallyQuery) ⇒ <code>object</code>
     * [~useProductInventoryGuestsQuery(options)](#ProductView.module_ProductViewContext..useProductInventoryGuestsQuery) ⇒ <code>object</code>
     * [~useProductInventoryHostsQuery(options)](#ProductView.module_ProductViewContext..useProductInventoryHostsQuery) ⇒ <code>object</code>
@@ -4302,6 +4303,36 @@ Return a base product query
     <td>options.useProductQueryFactory</td><td><code>function</code></td>
     </tr><tr>
     <td>options.options</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="ProductView.module_ProductViewContext..useProductBillingAccountsQuery"></a>
+
+### ProductViewContext~useProductBillingAccountsQuery(options) ⇒ <code>object</code>
+Return the billing account id base query, sans-productId.
+Note: The billing accounts query is a one-off when compared to other API calls.
+We align the productId use with ALL API calls by passing it separately.
+
+**Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.queryType]</td><td><code>string</code></td><td><code>&quot;&#x27;billingAccountsQuery&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>rhsmConstants.RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES</code></td>
+    </tr><tr>
+    <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
+    </tr><tr>
+    <td>[options.useSession]</td><td><code>useSession</code></td><td><code>useSession</code></td>
+    </tr><tr>
+    <td>[options.options]</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
