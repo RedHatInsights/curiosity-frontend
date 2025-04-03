@@ -38,7 +38,7 @@ const useOnSelect = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useProduct: useAliasProduct = useProduct
 } = {}) => {
-  const { viewId } = useAliasProduct();
+  const { productId } = useAliasProduct();
   const dispatch = useAliasDispatch();
 
   return ({ value } = {}) => {
@@ -46,23 +46,23 @@ const useOnSelect = ({
     dispatch([
       {
         type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
-        viewId
+        viewId: productId
       },
       {
         type: reduxTypes.query.SET_QUERY_GRAPH,
-        viewId,
+        viewId: productId,
         filter: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
         value: FIELD_TYPES.DAILY
       },
       {
         type: reduxTypes.query.SET_QUERY,
-        viewId,
+        viewId: productId,
         filter: RHSM_API_QUERY_SET_TYPES.START_DATE,
         value: startDate.toISOString()
       },
       {
         type: reduxTypes.query.SET_QUERY,
-        viewId,
+        viewId: productId,
         filter: RHSM_API_QUERY_SET_TYPES.END_DATE,
         value: endDate.toISOString()
       }

@@ -54,7 +54,7 @@ describe('ToolbarFieldRangedMonthly Component', () => {
 
   it('should handle updating granularity and date through redux state with hook', () => {
     const options = {
-      useProduct: () => ({ viewId: 'loremIpsum' })
+      useProduct: () => ({ productId: 'loremIpsum' })
     };
 
     const onSelect = useOnSelect(options);

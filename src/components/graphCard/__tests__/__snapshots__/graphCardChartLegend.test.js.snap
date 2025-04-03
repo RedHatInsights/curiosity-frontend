@@ -4,7 +4,7 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
 [
   [
     {
-      "id": "mock-view-id-loremIpsum_mock-product-id",
+      "id": "loremIpsum_mock-product-id",
       "type": "SET_GRAPH_LEGEND",
       "value": "mock toggle boolean, loremIpsum_mock-product-id",
     },
@@ -16,14 +16,14 @@ exports[`GraphCardChartLegend Component should handle a click event: keyPress ev
 [
   [
     {
-      "id": "mock-view-id-loremIpsum_mock-product-id",
+      "id": "loremIpsum_mock-product-id",
       "type": "SET_GRAPH_LEGEND",
       "value": "mock toggle boolean, loremIpsum_mock-product-id",
     },
   ],
   [
     {
-      "id": "mock-view-id-loremIpsum_mock-product-id",
+      "id": "loremIpsum_mock-product-id",
       "type": "SET_GRAPH_LEGEND",
       "value": "mock toggle boolean, loremIpsum_mock-product-id",
     },

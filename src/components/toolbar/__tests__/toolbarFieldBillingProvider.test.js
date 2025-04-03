@@ -46,7 +46,7 @@ describe('ToolbarFieldBillingProvider Component', () => {
 
   it('should handle updating sla through redux state with hook', () => {
     const options = {
-      useProduct: () => ({ viewId: 'loremIpsum' })
+      useProduct: () => ({ productId: 'loremIpsum' })
     };
 
     const onSelect = useOnSelect(options);

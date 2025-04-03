@@ -10,7 +10,6 @@ describe('ViewReducer', () => {
   it('should handle specific defined types', () => {
     const specificTypes = [
       appTypes.SET_PRODUCT_VARIANT,
-      appTypes.SET_PRODUCT_VARIANT_QUERY_RESET_ALL,
       ...Object.values({
         ...types,
         SET_QUERY_CLEAR: undefined,
@@ -43,6 +42,7 @@ describe('ViewReducer', () => {
 
   it('should handle clearing state with defined types', () => {
     const specificTypes = [
+      appTypes.SET_PRODUCT_VARIANT_QUERY_RESET_ALL,
       types.SET_QUERY_CLEAR,
       types.SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST,
       types.SET_QUERY_CLEAR_INVENTORY_LIST,
@@ -54,12 +54,18 @@ describe('ViewReducer', () => {
         query: {
           test_id: {
             dolor: 'sit'
+          },
+          another_test_id: {
+            lorem: 'ipsum'
           }
         },
         graphTallyQuery: {},
         inventoryGuestsQuery: {
           test_id: {
             [RHSM_API_QUERY_TYPES.OFFSET]: 5
+          },
+          another_test_id: {
+            [RHSM_API_QUERY_TYPES.OFFSET]: 10
           }
         },
         inventoryHostsQuery: {
@@ -67,6 +73,11 @@ describe('ViewReducer', () => {
             [RHSM_API_QUERY_TYPES.DIRECTION]: 'dolor desc direction',
             [RHSM_API_QUERY_TYPES.OFFSET]: 30,
             [RHSM_API_QUERY_TYPES.SORT]: 'dolor sort'
+          },
+          another_test_id: {
+            [RHSM_API_QUERY_TYPES.DIRECTION]: 'lorem desc direction',
+            [RHSM_API_QUERY_TYPES.OFFSET]: 90,
+            [RHSM_API_QUERY_TYPES.SORT]: 'lorem sort'
           }
         },
         inventorySubscriptionsQuery: {
@@ -74,6 +85,11 @@ describe('ViewReducer', () => {
             [RHSM_API_QUERY_TYPES.DIRECTION]: 'ipsum desc direction',
             [RHSM_API_QUERY_TYPES.OFFSET]: 20,
             [RHSM_API_QUERY_TYPES.SORT]: 'ipsum sort'
+          },
+          another_test_id: {
+            [RHSM_API_QUERY_TYPES.DIRECTION]: 'dolor desc direction',
+            [RHSM_API_QUERY_TYPES.OFFSET]: 40,
+            [RHSM_API_QUERY_TYPES.SORT]: 'dolor sort'
           }
         }
       };
@@ -81,6 +97,7 @@ describe('ViewReducer', () => {
       const dispatched = {
         type: value,
         viewId: 'test_id',
+        variant: 'test_id',
         clearFilters: { dolor: undefined }
       };
 
