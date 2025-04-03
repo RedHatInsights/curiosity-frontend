@@ -35,18 +35,18 @@ const useOnSelect = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useProduct: useAliasProduct = useProduct
 } = {}) => {
-  const { viewId } = useAliasProduct();
+  const { productId } = useAliasProduct();
   const dispatch = useAliasDispatch();
 
   return ({ value = null } = {}) =>
     dispatch([
       {
         type: reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST,
-        viewId
+        viewId: productId
       },
       {
         type: reduxTypes.query.SET_QUERY,
-        viewId,
+        viewId: productId,
         filter: RHSM_API_QUERY_SET_TYPES.USAGE,
         value
       }

@@ -1,15 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ViewReducer should handle clearing state with defined types: defined type SET_PRODUCT_VARIANT_QUERY_RESET_ALL 1`] = `
+{
+  "result": {
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {
+      "another_test_id": {
+        "offset": 10,
+      },
+    },
+    "inventoryHostsQuery": {
+      "another_test_id": {
+        "dir": "lorem desc direction",
+        "offset": 90,
+        "sort": "lorem sort",
+      },
+    },
+    "inventorySubscriptionsQuery": {
+      "another_test_id": {
+        "dir": "dolor desc direction",
+        "offset": 40,
+        "sort": "dolor sort",
+      },
+    },
+    "query": {
+      "another_test_id": {
+        "lorem": "ipsum",
+      },
+    },
+  },
+  "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
+}
+`;
+
 exports[`ViewReducer should handle clearing state with defined types: defined type SET_QUERY_CLEAR 1`] = `
 {
   "result": {
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {
+      "another_test_id": {
+        "offset": 10,
+      },
       "test_id": {
         "offset": 5,
       },
     },
     "inventoryHostsQuery": {
+      "another_test_id": {
+        "dir": "lorem desc direction",
+        "offset": 90,
+        "sort": "lorem sort",
+      },
       "test_id": {
         "dir": "dolor desc direction",
         "offset": 30,
@@ -17,6 +58,11 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
       },
     },
     "inventorySubscriptionsQuery": {
+      "another_test_id": {
+        "dir": "dolor desc direction",
+        "offset": 40,
+        "sort": "dolor sort",
+      },
       "test_id": {
         "dir": "ipsum desc direction",
         "offset": 20,
@@ -24,6 +70,9 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
       },
     },
     "query": {
+      "another_test_id": {
+        "lorem": "ipsum",
+      },
       "test_id": {
         "dolor": undefined,
       },
@@ -38,11 +87,19 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
   "result": {
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {
+      "another_test_id": {
+        "offset": 10,
+      },
       "test_id": {
         "offset": 0,
       },
     },
     "inventoryHostsQuery": {
+      "another_test_id": {
+        "dir": "lorem desc direction",
+        "offset": 90,
+        "sort": "lorem sort",
+      },
       "test_id": {
         "dir": "dolor desc direction",
         "offset": 30,
@@ -50,6 +107,11 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
       },
     },
     "inventorySubscriptionsQuery": {
+      "another_test_id": {
+        "dir": "dolor desc direction",
+        "offset": 40,
+        "sort": "dolor sort",
+      },
       "test_id": {
         "dir": "ipsum desc direction",
         "offset": 20,
@@ -57,6 +119,9 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
       },
     },
     "query": {
+      "another_test_id": {
+        "lorem": "ipsum",
+      },
       "test_id": {
         "dolor": "sit",
       },
@@ -71,11 +136,19 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
   "result": {
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {
+      "another_test_id": {
+        "offset": 10,
+      },
       "test_id": {
         "offset": 5,
       },
     },
     "inventoryHostsQuery": {
+      "another_test_id": {
+        "dir": "lorem desc direction",
+        "offset": 90,
+        "sort": "lorem sort",
+      },
       "test_id": {
         "dir": "dolor desc direction",
         "offset": 0,
@@ -83,6 +156,11 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
       },
     },
     "inventorySubscriptionsQuery": {
+      "another_test_id": {
+        "dir": "dolor desc direction",
+        "offset": 40,
+        "sort": "dolor sort",
+      },
       "test_id": {
         "dir": "ipsum desc direction",
         "offset": 0,
@@ -90,6 +168,9 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
       },
     },
     "query": {
+      "another_test_id": {
+        "lorem": "ipsum",
+      },
       "test_id": {
         "dolor": "sit",
       },
@@ -104,21 +185,37 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
   "result": {
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {
+      "another_test_id": {
+        "offset": 10,
+      },
       "test_id": {
         "offset": 5,
       },
     },
     "inventoryHostsQuery": {
+      "another_test_id": {
+        "dir": "lorem desc direction",
+        "offset": 90,
+        "sort": "lorem sort",
+      },
       "test_id": {
         "offset": 0,
       },
     },
     "inventorySubscriptionsQuery": {
+      "another_test_id": {
+        "dir": "dolor desc direction",
+        "offset": 40,
+        "sort": "dolor sort",
+      },
       "test_id": {
         "offset": 0,
       },
     },
     "query": {
+      "another_test_id": {
+        "lorem": "ipsum",
+      },
       "test_id": {
         "dolor": "sit",
       },
@@ -143,20 +240,6 @@ exports[`ViewReducer should handle specific defined types: defined type SET_PROD
     "query": {},
   },
   "type": "SET_PRODUCT_VARIANT",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT_VARIANT_QUERY_RESET_ALL 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {},
-    "inventoryHostsQuery": {},
-    "inventorySubscriptionsQuery": {},
-    "product": {},
-    "query": {},
-  },
-  "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
 }
 `;
 

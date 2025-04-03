@@ -17,7 +17,7 @@ describe('ToolbarFieldDisplayName Component', () => {
 
   it('should render a basic component', async () => {
     const props = {
-      useProduct: () => ({ viewId: 'loremIpsum' }),
+      useProduct: () => ({ productId: 'loremIpsum' }),
       useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
     };
     const component = await shallowComponent(<ToolbarFieldDisplayName {...props} />);
@@ -27,7 +27,7 @@ describe('ToolbarFieldDisplayName Component', () => {
 
   it('should handle updating display name through redux state', () => {
     const props = {
-      useProduct: () => ({ viewId: 'loremIpsum' }),
+      useProduct: () => ({ productId: 'loremIpsum' }),
       useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
     };
 
@@ -41,7 +41,7 @@ describe('ToolbarFieldDisplayName Component', () => {
 
   it('should handle updating display name using the enter key', () => {
     const props = {
-      useProduct: () => ({ viewId: 'loremIpsum' }),
+      useProduct: () => ({ productId: 'loremIpsum' }),
       useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
     };
 
@@ -55,7 +55,7 @@ describe('ToolbarFieldDisplayName Component', () => {
 
   it('should handle clearing display name through redux state', () => {
     const props = {
-      useProduct: () => ({ viewId: 'loremIpsum' }),
+      useProduct: () => ({ productId: 'loremIpsum' }),
       useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
     };
 

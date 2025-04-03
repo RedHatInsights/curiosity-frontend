@@ -45,7 +45,7 @@ describe('ToolbarFieldGranularity Component', () => {
 
   it('should handle updating granularity through redux state with hook', () => {
     const options = {
-      useProduct: () => ({ viewId: 'loremIpsum' })
+      useProduct: () => ({ productId: 'loremIpsum' })
     };
 
     const onSelect = useOnSelect(options);

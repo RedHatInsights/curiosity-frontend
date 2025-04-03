@@ -37,7 +37,7 @@ const ToolbarFieldDisplayName = ({
   useProduct: useAliasProduct = useProduct,
   useProductInventoryHostsQuery: useAliasProductInventoryHostsQuery = useProductInventoryHostsQuery
 }) => {
-  const { viewId } = useAliasProduct();
+  const { productId } = useAliasProduct();
   const { [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: currentValue } = useAliasProductInventoryHostsQuery();
   const dispatch = useAliasDispatch();
 
@@ -52,11 +52,11 @@ const ToolbarFieldDisplayName = ({
     dispatch([
       {
         type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
-        viewId
+        viewId: productId
       },
       {
         type: reduxTypes.query.SET_QUERY_INVENTORY_INSTANCES,
-        viewId,
+        viewId: productId,
         filter: RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME,
         value: submitValue?.trim() || null
       }
@@ -76,11 +76,11 @@ const ToolbarFieldDisplayName = ({
     dispatch([
       {
         type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
-        viewId
+        viewId: productId
       },
       {
         type: reduxTypes.query.SET_QUERY_INVENTORY_INSTANCES,
-        viewId,
+        viewId: productId,
         filter: RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME,
         value: null
       }
@@ -115,6 +115,7 @@ const ToolbarFieldDisplayName = ({
     <InputGroup>
       <InputGroupItem>
         <TextInput
+          key={`display-name-${productId}`}
           customIcon={<SearchIcon />}
           aria-label={t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })}
           className="curiosity-input__display-name"

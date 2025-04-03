@@ -35,16 +35,11 @@ const initialState = {
  */
 const viewReducer = (state = initialState, action) => {
   switch (action.type) {
+    // Reset query state/object associated with a variant/productId
     case reduxTypes.app.SET_PRODUCT_VARIANT_QUERY_RESET_ALL:
       const updateVariantResetQueries = (query = {}, id) => {
-        const queryIds =
-          productConfig.sortedConfigs().byGroupIdConfigs[id]?.map(({ viewId }) => viewId) || (query[id] && [id]) || [];
-        const updatedQuery = { ...query };
-
-        queryIds.forEach(queryId => {
-          delete updatedQuery[queryId];
-        });
-
+        const updatedQuery = query;
+        delete updatedQuery[id];
         return updatedQuery;
       };
 
@@ -52,11 +47,11 @@ const viewReducer = (state = initialState, action) => {
         null,
         {
           ...state,
-          query: updateVariantResetQueries(state.query, action.productGroup),
-          graphTallyQuery: updateVariantResetQueries(state.graphTallyQuery, action.productGroup),
-          inventoryGuestsQuery: updateVariantResetQueries(state.inventoryGuestsQuery, action.productGroup),
-          inventoryHostsQuery: updateVariantResetQueries(state.inventoryHostsQuery, action.productGroup),
-          inventorySubscriptionsQuery: updateVariantResetQueries(state.inventorySubscriptionsQuery, action.productGroup)
+          query: updateVariantResetQueries(state.query, action.variant),
+          graphTallyQuery: updateVariantResetQueries(state.graphTallyQuery, action.variant),
+          inventoryGuestsQuery: updateVariantResetQueries(state.inventoryGuestsQuery, action.variant),
+          inventoryHostsQuery: updateVariantResetQueries(state.inventoryHostsQuery, action.variant),
+          inventorySubscriptionsQuery: updateVariantResetQueries(state.inventorySubscriptionsQuery, action.variant)
         },
         {
           state,

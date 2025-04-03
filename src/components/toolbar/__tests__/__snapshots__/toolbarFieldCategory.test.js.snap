@@ -67,38 +67,38 @@ exports[`ToolbarFieldCategory Component should handle updating through redux sta
   [
     [
       {
-        "id": "mock-view-id-inverted",
+        "id": "mock-product-id-inverted",
         "type": "SET_GRAPH_LEGEND",
         "value": "hello_dolor sit_mock-product-id",
       },
       {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
-        "viewId": "mock-view-id",
+        "viewId": "mock-product-id",
       },
       {
         "filter": "category",
         "type": "SET_QUERY",
         "value": "dolor sit",
-        "viewId": "mock-view-id",
+        "viewId": "mock-product-id",
       },
     ],
   ],
   [
     [
       {
-        "id": "mock-view-id-inverted",
+        "id": "mock-product-id-inverted",
         "type": "SET_GRAPH_LEGEND",
         "value": "lorem ipsum",
       },
       {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
-        "viewId": "mock-view-id",
+        "viewId": "mock-product-id",
       },
       {
         "filter": "category",
         "type": "SET_QUERY",
         "value": "lorem ipsum",
-        "viewId": "mock-view-id",
+        "viewId": "mock-product-id",
       },
     ],
   ],

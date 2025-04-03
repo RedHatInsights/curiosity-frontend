@@ -73,7 +73,7 @@ const useOnSelect = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useProduct: useAliasProduct = useProduct
 } = {}) => {
-  const { productId, viewId } = useAliasProduct();
+  const { productId } = useAliasProduct();
   const dispatch = useAliasDispatch();
 
   return ({ value = null, selected = {} } = {}) => {
@@ -90,16 +90,16 @@ const useOnSelect = ({
     dispatch([
       {
         type: reduxTypes.graph.SET_GRAPH_LEGEND,
-        id: `${viewId}-inverted`,
+        id: `${productId}-inverted`,
         value: updatedGraphLegendValue
       },
       {
         type: reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST,
-        viewId
+        viewId: productId
       },
       {
         type: reduxTypes.query.SET_QUERY,
-        viewId,
+        viewId: productId,
         filter: RHSM_API_QUERY_SET_TYPES.CATEGORY,
         value
       }
