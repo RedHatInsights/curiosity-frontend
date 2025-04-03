@@ -289,7 +289,7 @@ exports[`ToolbarFieldSelectCategory Component should handle updating categories 
 exports[`ToolbarFieldSelectCategory Component should render a basic component: basic 1`] = `
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"filter"})"
-  data-test="toolbarFieldCategory"
+  data-test="toolbarFieldSelectCategory"
   onSelect={[Function]}
   options={
     [
