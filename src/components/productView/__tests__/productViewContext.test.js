@@ -2,6 +2,7 @@ import {
   context,
   useProductQueryFactory,
   useProductQuery,
+  useProductBillingAccountsQuery,
   useProductExportQuery,
   useProductGraphTallyQuery,
   useProductInventoryGuestsQuery,
@@ -40,6 +41,7 @@ describe('ProductViewContext', () => {
   it('should apply hooks for retrieving specific api queries', async () => {
     const mockContextValue = {
       query: { lorem: 'ipsum' },
+      billingAccountsQuery: { [rhsmConstants.RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES.ORG_ID]: 'testOrgId' },
       graphTallyQuery: { [rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES.GRANULARITY]: 'testGranularity' },
       inventoryGuestsQuery: { [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.OFFSET]: 'testOffset' },
       inventoryHostsQuery: { [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.LIMIT]: 'testLimit' },
@@ -52,6 +54,11 @@ describe('ProductViewContext', () => {
       useProductQuery({ options: { useProductViewContext: () => mockContextValue } })
     );
     expect(productQuery).toMatchSnapshot('query');
+
+    const { result: billingAccountsQuery } = await renderHook(() =>
+      useProductBillingAccountsQuery({ options: { useProductViewContext: () => mockContextValue } })
+    );
+    expect(billingAccountsQuery).toMatchSnapshot('billingAccountsQuery');
 
     const { result: graphTallyQuery } = await renderHook(() =>
       useProductGraphTallyQuery({ options: { useProductViewContext: () => mockContextValue } })
