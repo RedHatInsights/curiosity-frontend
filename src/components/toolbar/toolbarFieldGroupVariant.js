@@ -58,7 +58,7 @@ const useOnSelect = ({
     dispatch([
       {
         type: reduxTypes.app.SET_PRODUCT_VARIANT_QUERY_RESET_ALL,
-        productGroup
+        variant: value
       },
       {
         type: reduxTypes.app.SET_PRODUCT_VARIANT,

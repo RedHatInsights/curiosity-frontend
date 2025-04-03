@@ -119,14 +119,14 @@ const useOnSelect = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useProduct: useAliasProduct = useProduct
 } = {}) => {
-  const { viewId } = useAliasProduct();
+  const { productId } = useAliasProduct();
   const dispatch = useAliasDispatch();
 
   return ({ value = null } = {}) => {
     dispatch([
       {
         type: reduxTypes.toolbar.SET_FILTER_TYPE,
-        viewId,
+        viewId: productId,
         currentFilter: value
       }
     ]);
@@ -150,8 +150,8 @@ const useSelectCategoryOptions = ({
   useProductToolbarConfig: useAliasProductToolbarConfig = useProductToolbarConfig,
   useSelector: useAliasSelector = storeHooks.reactRedux.useSelector
 } = {}) => {
-  const { viewId } = useAliasProduct();
-  const { currentFilter: updatedValue } = useAliasSelector(({ toolbar }) => toolbar.filters?.[viewId], {});
+  const { productId } = useAliasProduct();
+  const { currentFilter: updatedValue } = useAliasSelector(({ toolbar }) => toolbar.filters?.[productId], {});
   const { filters = [] } = useAliasProductToolbarConfig();
 
   let initialValue;

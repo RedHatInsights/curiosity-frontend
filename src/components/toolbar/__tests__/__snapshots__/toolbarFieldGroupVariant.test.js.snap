@@ -35,8 +35,8 @@ exports[`ToolbarFieldGroupVariant Component should handle updating through redux
   [
     [
       {
-        "productGroup": undefined,
         "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
+        "variant": "ipsum",
       },
       {
         "productGroup": undefined,
@@ -53,8 +53,8 @@ exports[`ToolbarFieldGroupVariant Component should handle updating through redux
   [
     [
       {
-        "productGroup": "loremIpsum",
         "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
+        "variant": "dolor sit",
       },
       {
         "productGroup": "loremIpsum",

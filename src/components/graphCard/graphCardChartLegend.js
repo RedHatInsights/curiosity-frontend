@@ -44,16 +44,16 @@ const GraphCardChartLegend = ({
   useSelectors: useAliasSelectors = storeHooks.reactRedux.useSelectors
 }) => {
   const { settings = {} } = useAliasGraphCardContext();
-  const { productLabel, viewId } = useAliasProduct();
+  const { productId, productLabel } = useAliasProduct();
   const { isDisabledLegendClick } = settings;
 
   const dispatch = useAliasDispatch();
   const [invertedLegendItem, ...legendItems] = useAliasSelectors([
-    ({ graph }) => graph.legend?.[`${viewId}-inverted`],
+    ({ graph }) => graph.legend?.[`${productId}-inverted`],
     ...datum.dataSets.map(
       ({ id }) =>
         ({ graph }) =>
-          graph.legend?.[`${viewId}-${id}`]
+          graph.legend?.[id]
     )
   ]);
 
@@ -84,7 +84,7 @@ const GraphCardChartLegend = ({
 
     dispatch({
       type: reduxTypes.graph.SET_GRAPH_LEGEND,
-      id: `${viewId}-${id}`,
+      id,
       value: updatedToggle
     });
   };
