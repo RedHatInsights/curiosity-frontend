@@ -210,7 +210,7 @@ const ToolbarFieldSelectCategory = ({
       selectedOptions={updatedValue}
       placeholder={t('curiosity-toolbar.placeholder', { context: ['filter'] })}
       toggle={{ icon: <FilterIcon /> }}
-      data-test="toolbarFieldCategory"
+      data-test="toolbarFieldSelectCategory"
     />
   );
 };
