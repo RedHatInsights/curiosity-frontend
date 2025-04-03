@@ -30,6 +30,9 @@ const initialState = {
  */
 const graphReducer = (state = initialState, action) => {
   switch (action.type) {
+    // Reset both category/type filtering and graph legend buttons/links
+    case graphTypes.SET_GRAPH_LEGEND_RESET:
+      return { ...state, legend: {} };
     case graphTypes.SET_GRAPH_LEGEND:
       return reduxHelpers.setStateProp(
         'legend',

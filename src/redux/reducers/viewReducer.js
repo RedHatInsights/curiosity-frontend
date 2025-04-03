@@ -63,6 +63,7 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
+    // Reset inventory displays' paging offset, sort direction, sort
     case reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST:
       const updateResetQueries = (query = {}, id) => {
         const queryIds = productConfig.sortedConfigs().byViewIds[id] || (query[id] && [id]) || [];
@@ -94,6 +95,7 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
+    // Reset inventory displays' paging offset
     case reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST:
       const updateClearQueries = (query = {}, id) => {
         const queryIds = productConfig.sortedConfigs().byViewIds[id] || (query[id] && [id]) || [];
