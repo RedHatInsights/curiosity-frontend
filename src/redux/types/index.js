@@ -30,10 +30,11 @@ const appTypes = {
 /**
  * Graph action, reducer types.
  *
- * @type {{SET_GRAPH_LEGEND: string}}
+ * @type {{SET_GRAPH_LEGEND_RESET: string, SET_GRAPH_LEGEND: string}}
  */
 const graphTypes = {
-  SET_GRAPH_LEGEND: 'SET_GRAPH_LEGEND'
+  SET_GRAPH_LEGEND: 'SET_GRAPH_LEGEND',
+  SET_GRAPH_LEGEND_RESET: 'SET_GRAPH_LEGEND_RESET'
 };
 
 /**

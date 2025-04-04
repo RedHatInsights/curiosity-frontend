@@ -61,6 +61,9 @@ const useOnSelect = ({
         variant: value
       },
       {
+        type: reduxTypes.graph.SET_GRAPH_LEGEND_RESET
+      },
+      {
         type: reduxTypes.app.SET_PRODUCT_VARIANT,
         variant: value,
         productGroup

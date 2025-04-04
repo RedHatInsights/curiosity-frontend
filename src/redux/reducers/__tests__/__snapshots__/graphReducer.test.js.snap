@@ -126,3 +126,14 @@ exports[`GraphReducer should handle specific defined types: defined type SET_GRA
   "type": "SET_GRAPH_LEGEND",
 }
 `;
+
+exports[`GraphReducer should handle specific defined types: defined type SET_GRAPH_LEGEND_RESET 1`] = `
+{
+  "result": {
+    "capacity": {},
+    "legend": {},
+    "tally": {},
+  },
+  "type": "SET_GRAPH_LEGEND_RESET",
+}
+`;
