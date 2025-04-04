@@ -4,30 +4,10 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
 {
   "result": {
     "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "another_test_id": {
-        "offset": 10,
-      },
-    },
-    "inventoryHostsQuery": {
-      "another_test_id": {
-        "dir": "lorem desc direction",
-        "offset": 90,
-        "sort": "lorem sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "another_test_id": {
-        "dir": "dolor desc direction",
-        "offset": 40,
-        "sort": "dolor sort",
-      },
-    },
-    "query": {
-      "another_test_id": {
-        "lorem": "ipsum",
-      },
-    },
+    "inventoryGuestsQuery": {},
+    "inventoryHostsQuery": {},
+    "inventorySubscriptionsQuery": {},
+    "query": {},
   },
   "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
 }
