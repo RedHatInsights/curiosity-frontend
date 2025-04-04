@@ -8,7 +8,7 @@ describe('GraphReducer', () => {
   });
 
   it('should handle specific defined types', () => {
-    const specificTypes = [graphTypes.SET_GRAPH_LEGEND];
+    const specificTypes = [graphTypes.SET_GRAPH_LEGEND_RESET, graphTypes.SET_GRAPH_LEGEND];
 
     specificTypes.forEach(value => {
       const dispatched = {

@@ -25,6 +25,7 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
     },
     "graph": {
       "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
+      "SET_GRAPH_LEGEND_RESET": "SET_GRAPH_LEGEND_RESET",
     },
     "inventory": {
       "CLEAR_INVENTORY_GUESTS": "CLEAR_INVENTORY_GUESTS",
@@ -70,6 +71,7 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
   },
   "graphTypes": {
     "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
+    "SET_GRAPH_LEGEND_RESET": "SET_GRAPH_LEGEND_RESET",
   },
   "inventoryTypes": {
     "CLEAR_INVENTORY_GUESTS": "CLEAR_INVENTORY_GUESTS",
@@ -114,6 +116,7 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
     },
     "graph": {
       "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
+      "SET_GRAPH_LEGEND_RESET": "SET_GRAPH_LEGEND_RESET",
     },
     "inventory": {
       "CLEAR_INVENTORY_GUESTS": "CLEAR_INVENTORY_GUESTS",
@@ -185,6 +188,7 @@ exports[`ReduxTypes should have specific type properties: specific types 1`] = `
   },
   "graph": {
     "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
+    "SET_GRAPH_LEGEND_RESET": "SET_GRAPH_LEGEND_RESET",
   },
   "inventory": {
     "CLEAR_INVENTORY_GUESTS": "CLEAR_INVENTORY_GUESTS",
