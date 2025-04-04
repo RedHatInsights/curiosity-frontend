@@ -36,19 +36,27 @@ const initialState = {
 const viewReducer = (state = initialState, action) => {
   switch (action.type) {
     /*
-     * Note: Hard reset query state/object associated with a variant/productId. Remove this action type if restoring
-     * queries based on product variant is needed, also review toolbar reducer for restoring/removing legend state.
+     * Note: Hard reset causes query state/object updates for ALL variants/productIds that have a filter selected,
+     * instead we focus the update to the specific variant to remove the extra API calls. Remove this entire
+     * action type if restoring queries based on product variant is needed, also review toolbar reducer for
+     * restoring/removing legend state.
      */
     case reduxTypes.app.SET_PRODUCT_VARIANT_QUERY_RESET_ALL:
+      const updateVariantResetQueries = (query = {}, id) => {
+        const updatedQuery = query;
+        delete updatedQuery[id];
+        return updatedQuery;
+      };
+
       return reduxHelpers.setStateProp(
         null,
         {
           ...state,
-          query: {},
-          graphTallyQuery: {},
-          inventoryGuestsQuery: {},
-          inventoryHostsQuery: {},
-          inventorySubscriptionsQuery: {}
+          query: updateVariantResetQueries(state.query, action.variant),
+          graphTallyQuery: updateVariantResetQueries(state.graphTallyQuery, action.variant),
+          inventoryGuestsQuery: updateVariantResetQueries(state.inventoryGuestsQuery, action.variant),
+          inventoryHostsQuery: updateVariantResetQueries(state.inventoryHostsQuery, action.variant),
+          inventorySubscriptionsQuery: updateVariantResetQueries(state.inventorySubscriptionsQuery, action.variant)
         },
         {
           state,
