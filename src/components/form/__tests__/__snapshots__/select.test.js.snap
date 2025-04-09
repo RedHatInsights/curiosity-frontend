@@ -618,6 +618,29 @@ exports[`Select should return an emulated onselect/onchange event, single: defau
 ]
 `;
 
+exports[`helpers formatEvent should modify the event object for select by exposing selected, selectedIndex, select type, and value, dropdown 1`] = `
+{
+  "checked": undefined,
+  "currentTarget": {},
+  "id": undefined,
+  "keyCode": undefined,
+  "name": undefined,
+  "persist": [Function],
+  "selected": {
+    "index": "mock",
+    "isSelected": true,
+    "title": "lorem",
+    "value": "lorem",
+  },
+  "selectedIndex": [
+    "mock",
+  ],
+  "target": {},
+  "type": "select-one",
+  "value": "lorem",
+}
+`;
+
 exports[`helpers formatEvent should modify the event object for select by exposing selected, selectedIndex, select type, and value, multiple 1`] = `
 {
   "checked": undefined,

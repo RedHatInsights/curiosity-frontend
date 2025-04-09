@@ -212,6 +212,14 @@ describe('helpers', () => {
     {
       options: [
         { title: 'lorem', value: 'lorem', index: 'mock', isSelected: true },
+        { title: 'ipsum', value: 'ipsum', index: 'mock', isSelected: false }
+      ],
+      variant: SelectVariant.dropdown,
+      description: 'dropdown'
+    },
+    {
+      options: [
+        { title: 'lorem', value: 'lorem', index: 'mock', isSelected: true },
         { title: 'ipsum', value: 'ipsum', index: 'mock', isSelected: true }
       ],
       variant: SelectVariant.checkbox,
