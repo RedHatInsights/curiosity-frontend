@@ -216,8 +216,8 @@ updateSelectedProp.memo = helpers.memo(updateSelectedProp, { cacheLimit: 25 });
 const formatEvent = ({ event, options, variant = SelectVariant.single } = {}) => {
   const mockUpdatedOptions = helpers.memoClone(options);
   const mockSelected =
-    (variant === SelectVariant.single && mockUpdatedOptions.find(({ isSelected }) => isSelected === true)) ||
-    mockUpdatedOptions.filter(({ isSelected }) => isSelected === true);
+    (variant === SelectVariant.checkbox && mockUpdatedOptions.filter(({ isSelected }) => isSelected === true)) ||
+    mockUpdatedOptions.find(({ isSelected }) => isSelected === true);
 
   const mockSelectedIndex = mockUpdatedOptions
     .filter(({ isSelected }) => isSelected === true)
@@ -227,7 +227,7 @@ const formatEvent = ({ event, options, variant = SelectVariant.single } = {}) =>
     ...createMockEvent(event),
     selected: mockSelected,
     selectedIndex: mockSelectedIndex,
-    type: `select-${((variant === SelectVariant.single || variant === SelectVariant.dropdown) && 'one') || 'multiple'}`,
+    type: `select-${(variant === SelectVariant.checkbox && 'multiple') || 'one'}`,
     value: (Array.isArray(mockSelected) && mockSelected.map(({ value: mockValue }) => mockValue)) || mockSelected.value
   };
 };
