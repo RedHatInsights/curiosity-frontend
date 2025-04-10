@@ -924,6 +924,8 @@ exports[`RHSM Transformers should attempt to parse multiple billing account id r
     "mockProvider",
     "otherMockProvider",
   ],
+  "defaultAccount": "678910",
+  "defaultProvider": "mockProvider",
 }
 `;
 
@@ -931,6 +933,8 @@ exports[`RHSM Transformers should attempt to parse multiple billing account id r
 {
   "accountIdsByProvider": {},
   "billingProviders": [],
+  "defaultAccount": undefined,
+  "defaultProvider": undefined,
 }
 `;
 

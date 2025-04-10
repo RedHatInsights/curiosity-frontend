@@ -417,12 +417,14 @@ const RHSM_API_QUERY_SET_INVENTORY_TYPES = {
 /**
  * RHSM query parameter options for TALLY, CAPACITY endpoints.
  *
- * @type {{GRANULARITY: string, USAGE: string, CATEGORY: string, END_DATE: string, SLA: string,
- *     START_DATE: string, BILLING_PROVIDER: string, USE_RUNNING_TOTALS_FORMAT: string, BILLING_CATEGORY: string}}
+ * @type {{GRANULARITY: string, BILLING_ACCOUNT_ID: string, USAGE: string, CATEGORY: string, END_DATE: string,
+ *     SLA: string, START_DATE: string, BILLING_PROVIDER: string, USE_RUNNING_TOTALS_FORMAT: string, BILLING_CATEGORY:
+ *     string}}
  */
 const RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES = {
   BILLING_CATEGORY: 'billing_category',
   BILLING_PROVIDER: 'billing_provider',
+  BILLING_ACCOUNT_ID: 'billing_account_id',
   CATEGORY: 'category',
   END_DATE: 'ending',
   GRANULARITY: 'granularity',

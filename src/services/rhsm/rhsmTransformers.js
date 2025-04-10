@@ -65,7 +65,12 @@ const rhsmBillingAccounts = (response = []) => {
     accountIdsByProvider[key].sort();
   });
 
+  const defaultProvider = billingProviders?.[0];
+  const defaultAccount = accountIdsByProvider?.[defaultProvider]?.[0];
+
   return {
+    defaultProvider,
+    defaultAccount,
     billingProviders,
     accountIdsByProvider
   };
