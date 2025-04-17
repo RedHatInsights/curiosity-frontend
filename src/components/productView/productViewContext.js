@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import { reduxHelpers } from '../../redux/common';
-import { storeHooks } from '../../redux/hooks';
+import React, { useContext, useEffect, useMemo } from 'react';
+import { useSession } from '../authentication/authenticationContext';
+import { reduxActions, reduxHelpers, storeHooks } from '../../redux';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { platformConstants } from '../../services/platform/platformConstants';
 import { helpers } from '../../common/helpers';
@@ -60,19 +60,80 @@ const useProductQueryFactory = (
 };
 
 /**
+ * Return the billing account id base query, sans-productId.
+ * Note: The billing accounts query is a one-off when compared to other API calls. We align
+ * the productId use with ALL API calls by passing it separately instead of with this query.
+ *
+ * @param {object} options
+ * @param {string} [options.queryType='billingAccountsQuery']
+ * @param {object} [options.schemaCheck=rhsmConstants.RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES]
+ * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
+ * @param {useSession} [options.useSession=useSession]
+ * @param {object} [options.options]
+ * @returns {object}
+ */
+const useProductBillingAccountsQuery = ({
+  queryType = 'billingAccountsQuery',
+  schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES,
+  useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
+  useSession: useAliasSession = useSession,
+  options
+} = {}) => {
+  const { orgId } = useAliasSession();
+  return reduxHelpers.setApiQuery(
+    {
+      ...useAliasProductQueryFactory(queryType, options),
+      [rhsmConstants.RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES.ORG_ID]: orgId
+    },
+    schemaCheck
+  );
+};
+
+/**
+ * Return a product query based on potential product configuration "onload".
+ *
+ * @param {object} options
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
+ * @param {storeHooks.reactRedux.useSelectors} [options.useSelectors=storeHooks.reactRedux.useSelectors]
+ * @returns {object}
+ */
+const useProductQueryConditional = ({
+  useProductViewContext: useAliasProductViewContext = useProductViewContext,
+  useSelectors: useAliasSelectors = storeHooks.reactRedux.useSelectors
+} = {}) => {
+  const { productId } = useAliasProductViewContext();
+  const { billing = {} } = useAliasSelectors([
+    { id: 'billing', selector: ({ app }) => app?.billingAccounts?.[productId] }
+  ]);
+
+  return useMemo(
+    () => ({
+      [rhsmConstants.RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: billing?.data?.defaultProvider || undefined,
+      [rhsmConstants.RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID]: billing?.data?.defaultAccount || undefined
+    }),
+    [billing?.data?.defaultAccount, billing?.data?.defaultProvider]
+  );
+};
+
+/**
  * Return a base product query
  *
  * @param {object} options
- * @param {string} options.queryType
- * @param {Function} options.useProductQueryFactory
+ * @param {string} [options.queryType='query']
+ * @param {useProductQueryConditional} [options.useProductQueryConditional=useProductQueryConditional]
+ * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {object} options.options
  * @returns {object}
  */
 const useProductQuery = ({
   queryType = 'query',
+  useProductQueryConditional: useAliasProductQueryConditional = useProductQueryConditional,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   options
-} = {}) => useAliasProductQueryFactory(queryType, options);
+} = {}) => ({
+  ...useAliasProductQueryConditional(),
+  ...useAliasProductQueryFactory(queryType, options)
+});
 
 /**
  * Return the graph query based off of tally and capacity.
@@ -335,17 +396,65 @@ const useProductExportQuery = ({
   );
 };
 
+/**
+ * Onload product conditionally dispatch services.
+ *
+ * @param {object} options
+ * @param {reduxActions.rhsm.getBillingAccounts} [options.getBillingAccounts=reduxActions.rhsm.getBillingAccounts]
+ * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
+ * @param {useProductBillingAccountsQuery} [options.useProductBillingAccountsQuery=useProductBillingAccountsQuery]
+ * @param {storeHooks.reactRedux.useSelectorsResponse} [options.useSelectorsResponse]
+ * @returns {{data: object, productId: string, pending: boolean, isReady: boolean, fulfilled: boolean,
+ *     responses: object}}
+ */
+const useProductOnload = ({
+  getBillingAccounts = reduxActions.rhsm.getBillingAccounts,
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext,
+  useProductBillingAccountsQuery: useAliasProductBillingAccountsQuery = useProductBillingAccountsQuery,
+  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
+} = {}) => {
+  const { onloadProduct, productId } = useAliasProductViewContext();
+  const billingAccountsQuery = useAliasProductBillingAccountsQuery();
+  const dispatch = useAliasDispatch();
+  const isBillingAccountRequired =
+    onloadProduct?.find(value => value === rhsmConstants.RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID) !== undefined;
+
+  const selectors = [];
+  if (isBillingAccountRequired) {
+    selectors.push({ id: 'billing', selector: ({ app }) => app.billingAccounts?.[productId] });
+  }
+  const response = useAliasSelectorsResponse(selectors);
+
+  useEffect(() => {
+    if (isBillingAccountRequired) {
+      dispatch(getBillingAccounts(productId, billingAccountsQuery));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isBillingAccountRequired, productId]);
+
+  return {
+    ...response,
+    isReady: !onloadProduct?.length || response?.fulfilled || false,
+    productId
+  };
+};
+
 const context = {
   ProductViewContext,
   DEFAULT_CONTEXT,
   useProductContext,
   useQuery: useProductQuery,
   useQueryFactory: useProductQueryFactory,
+  useQueryConditional: useProductQueryConditional,
+  useBillingAccountsQuery: useProductBillingAccountsQuery,
   useGraphTallyQuery: useProductGraphTallyQuery,
   useInventoryGuestsQuery: useProductInventoryGuestsQuery,
   useInventoryHostsQuery: useProductInventoryHostsQuery,
   useInventorySubscriptionsQuery: useProductInventorySubscriptionsQuery,
   useProduct,
+  useProductOnload,
   useProductExportQuery,
   useGraphConfig: useProductGraphConfig,
   useInventoryGuestsConfig: useProductInventoryGuestsConfig,
@@ -363,11 +472,14 @@ export {
   useProductContext,
   useProductQuery,
   useProductQueryFactory,
+  useProductQueryConditional,
+  useProductBillingAccountsQuery,
   useProductGraphTallyQuery,
   useProductInventoryGuestsQuery,
   useProductInventoryHostsQuery,
   useProductInventorySubscriptionsQuery,
   useProduct,
+  useProductOnload,
   useProductExportQuery,
   useProductGraphConfig,
   useProductInventoryGuestsConfig,

@@ -539,6 +539,21 @@ exports[`UserReducer should handle all defined pending types: pending types USER
 }
 `;
 
+exports[`UserReducer should handle specific defined types: defined type SET_CONFIG_RHSM_RESET 1`] = `
+{
+  "result": {
+    "auth": {},
+    "billingAccounts": {},
+    "errors": {},
+    "exports": {},
+    "exportsExisting": {},
+    "locale": {},
+    "optin": {},
+  },
+  "type": "SET_CONFIG_RHSM_RESET",
+}
+`;
+
 exports[`UserReducer should handle specific defined types: defined type SET_PLATFORM_EXPORT_RESET 1`] = `
 {
   "result": {

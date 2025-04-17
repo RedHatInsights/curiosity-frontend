@@ -88,6 +88,18 @@ const appReducer = (state = initialState, action) => {
           initialState
         }
       );
+    case rhsmTypes.SET_CONFIG_RHSM_RESET:
+      return reduxHelpers.setStateProp(
+        null,
+        {
+          ...state,
+          billingAccounts: {}
+        },
+        {
+          state,
+          initialState
+        }
+      );
     default:
       return reduxHelpers.generatedPromiseActionReducer(
         [

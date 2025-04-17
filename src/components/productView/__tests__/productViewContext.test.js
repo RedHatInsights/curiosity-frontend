@@ -2,6 +2,8 @@ import {
   context,
   useProductQueryFactory,
   useProductQuery,
+  useProductQueryConditional,
+  useProductBillingAccountsQuery,
   useProductExportQuery,
   useProductGraphTallyQuery,
   useProductInventoryGuestsQuery,
@@ -10,6 +12,7 @@ import {
   useProductToolbarQuery,
   useProductContext,
   useProduct,
+  useProductOnload,
   useProductGraphConfig,
   useProductInventoryGuestsConfig,
   useProductInventoryHostsConfig,
@@ -37,8 +40,70 @@ describe('ProductViewContext', () => {
     expect(result).toMatchSnapshot('query factory');
   });
 
-  it('should apply hooks for retrieving specific api queries', async () => {
+  it('should apply a hook for retrieving configuration based queries', async () => {
     const mockContextValue = {
+      lorem: { lorem: 'ipsum' },
+      dolor: { dolor: 'sit' },
+      productId: 'lorem',
+      viewId: 'viewIpsum'
+    };
+    const mockSelectorValue = {
+      billing: {
+        data: {
+          defaultProvider: 'mockProvider',
+          defaultAccount: 'mockAccount'
+        }
+      }
+    };
+
+    const { result } = await renderHook(() =>
+      useProductQueryConditional({
+        useProductViewContext: () => mockContextValue,
+        useSelectors: () => mockSelectorValue
+      })
+    );
+    expect(result).toMatchSnapshot('query factory');
+  });
+
+  it.each([
+    {
+      description: 'billingAccountsQuery',
+      useHook: useProductBillingAccountsQuery,
+      params: {
+        useSession: () => ({ orgId: 'mockOrgId' })
+      }
+    },
+    {
+      description: 'query',
+      useHook: useProductQuery
+    },
+    {
+      description: 'graphTallyQuery',
+      useHook: useProductGraphTallyQuery
+    },
+    {
+      description: 'inventoryGuestsQuery',
+      useHook: useProductInventoryGuestsQuery
+    },
+    {
+      description: 'inventoryHostsQuery',
+      useHook: useProductInventoryHostsQuery
+    },
+    {
+      description: 'inventorySubscriptionsQuery',
+      useHook: useProductInventorySubscriptionsQuery
+    },
+    {
+      description: 'toolbarQuery',
+      useHook: useProductToolbarQuery
+    },
+    {
+      description: 'exportQuery',
+      useHook: useProductExportQuery
+    }
+  ])('should apply hooks for retrieving specific api queries: $description', async ({ useHook, params }) => {
+    const mockContextValue = {
+      billingAccountsQuery: { dolor: 'sit' },
       query: { lorem: 'ipsum' },
       graphTallyQuery: { [rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES.GRANULARITY]: 'testGranularity' },
       inventoryGuestsQuery: { [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.OFFSET]: 'testOffset' },
@@ -48,40 +113,13 @@ describe('ProductViewContext', () => {
       viewId: 'viewIpsum'
     };
 
-    const { result: productQuery } = await renderHook(() =>
-      useProductQuery({ options: { useProductViewContext: () => mockContextValue } })
+    const { result } = await renderHook(() =>
+      useHook({
+        ...params,
+        options: { useProductViewContext: () => mockContextValue }
+      })
     );
-    expect(productQuery).toMatchSnapshot('query');
-
-    const { result: graphTallyQuery } = await renderHook(() =>
-      useProductGraphTallyQuery({ options: { useProductViewContext: () => mockContextValue } })
-    );
-    expect(graphTallyQuery).toMatchSnapshot('graphTallyQuery');
-
-    const { result: inventoryGuestsQuery } = await renderHook(() =>
-      useProductInventoryGuestsQuery({ options: { useProductViewContext: () => mockContextValue } })
-    );
-    expect(inventoryGuestsQuery).toMatchSnapshot('inventoryGuestsQuery');
-
-    const { result: inventoryHostsQuery } = await renderHook(() =>
-      useProductInventoryHostsQuery({ options: { useProductViewContext: () => mockContextValue } })
-    );
-    expect(inventoryHostsQuery).toMatchSnapshot('inventoryHostsQuery');
-
-    const { result: inventorySubscriptionsQuery } = await renderHook(() =>
-      useProductInventorySubscriptionsQuery({ options: { useProductViewContext: () => mockContextValue } })
-    );
-    expect(inventorySubscriptionsQuery).toMatchSnapshot('inventorySubscriptionsQuery');
-
-    const { result: toolbarQuery } = await renderHook(() =>
-      useProductToolbarQuery({ options: { useProductViewContext: () => mockContextValue } })
-    );
-    expect(toolbarQuery).toMatchSnapshot('toolbarQuery');
-
-    const { result: exportQuery } = await renderHook(() =>
-      useProductExportQuery({ options: { useProductViewContext: () => mockContextValue } })
-    );
-    expect(exportQuery).toMatchSnapshot('exportQuery');
+    expect(result).toMatchSnapshot();
   });
 
   it('should apply a hook for retrieving product context', async () => {
@@ -98,7 +136,32 @@ describe('ProductViewContext', () => {
     expect(result).toMatchSnapshot('product context, basic');
   });
 
-  it('should apply hooks for retrieving specific config filters and settings', async () => {
+  it.each([
+    {
+      description: 'productConfig',
+      useHook: useProduct
+    },
+    {
+      description: 'productGraphConfig',
+      useHook: useProductGraphConfig
+    },
+    {
+      description: 'productInventoryGuestsConfig',
+      useHook: useProductInventoryGuestsConfig
+    },
+    {
+      description: 'productInventoryHostsConfig',
+      useHook: useProductInventoryHostsConfig
+    },
+    {
+      description: 'productInventorySubscriptionsConfig',
+      useHook: useProductInventorySubscriptionsConfig
+    },
+    {
+      description: 'productToolbarConfig',
+      useHook: useProductToolbarConfig
+    }
+  ])('should apply hooks for retrieving specific config filters and settings: $description', async ({ useHook }) => {
     const mockContextValue = {
       productGroup: 'loremIpsum',
       productId: 'lorem',
@@ -126,34 +189,35 @@ describe('ProductViewContext', () => {
       }
     };
 
-    const { result: productConfig } = await renderHook(() =>
-      useProduct({ useProductViewContext: () => mockContextValue })
+    const { result } = await renderHook(() =>
+      useHook({ useProductViewContext: () => mockContextValue, useProductContext: () => mockContextValue })
     );
-    expect(productConfig).toMatchSnapshot('productConfig');
+    expect(result).toMatchSnapshot();
+  });
 
-    const { result: productGraphConfig } = await renderHook(() =>
-      useProductGraphConfig({ useProductContext: () => mockContextValue })
-    );
-    expect(productGraphConfig).toMatchSnapshot('productGraphConfig');
+  it('should apply a hook for product configuration onload', async () => {
+    const mockApiCall = jest.fn();
+    const mockDispatch = jest.fn();
+    const mockContextValue = {
+      productId: 'lorem'
+    };
 
-    const { result: productInventoryGuestsConfig } = await renderHook(() =>
-      useProductInventoryGuestsConfig({ useProductContext: () => mockContextValue })
+    const { result: basic } = await renderHook(() =>
+      useProductOnload({ useProductViewContext: () => mockContextValue })
     );
-    expect(productInventoryGuestsConfig).toMatchSnapshot('productInventoryGuestsConfig');
+    expect(basic).toMatchSnapshot('product onload, basic');
 
-    const { result: productInventoryHostsConfig } = await renderHook(() =>
-      useProductInventoryHostsConfig({ useProductContext: () => mockContextValue })
+    const { result: onload } = await renderHook(() =>
+      useProductOnload({
+        getBillingAccounts: mockApiCall,
+        useDispatch: () => mockDispatch,
+        useProductViewContext: () => ({
+          ...mockContextValue,
+          onloadProduct: [rhsmConstants.RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID]
+        })
+      })
     );
-    expect(productInventoryHostsConfig).toMatchSnapshot('productInventoryHostsConfig');
-
-    const { result: productInventorySubscriptionsConfig } = await renderHook(() =>
-      useProductInventorySubscriptionsConfig({ useProductContext: () => mockContextValue })
-    );
-    expect(productInventorySubscriptionsConfig).toMatchSnapshot('productInventorySubscriptionsConfig');
-
-    const { result: productToolbarConfig } = await renderHook(() =>
-      useProductToolbarConfig({ useProductContext: () => mockContextValue })
-    );
-    expect(productToolbarConfig).toMatchSnapshot('productToolbarConfig');
+    expect(onload).toMatchSnapshot('product onload, onload');
+    expect(mockApiCall.mock.calls).toMatchSnapshot('dispatch');
   });
 });

@@ -6,6 +6,58 @@ exports[`ProductViewContext should apply a hook factory for retrieving api queri
 }
 `;
 
+exports[`ProductViewContext should apply a hook for product configuration onload: dispatch 1`] = `
+[
+  [
+    "lorem",
+    {
+      "org_id": undefined,
+    },
+  ],
+]
+`;
+
+exports[`ProductViewContext should apply a hook for product configuration onload: product onload, basic 1`] = `
+{
+  "cancelled": false,
+  "data": [],
+  "error": false,
+  "fulfilled": false,
+  "isReady": true,
+  "message": null,
+  "pending": false,
+  "productId": "lorem",
+  "responses": {
+    "id": {},
+    "list": [],
+  },
+}
+`;
+
+exports[`ProductViewContext should apply a hook for product configuration onload: product onload, onload 1`] = `
+{
+  "cancelled": false,
+  "data": [],
+  "error": false,
+  "fulfilled": false,
+  "isReady": false,
+  "message": null,
+  "pending": false,
+  "productId": "lorem",
+  "responses": {
+    "id": {},
+    "list": [],
+  },
+}
+`;
+
+exports[`ProductViewContext should apply a hook for retrieving configuration based queries: query factory 1`] = `
+{
+  "billing_account_id": "mockAccount",
+  "billing_provider": "mockProvider",
+}
+`;
+
 exports[`ProductViewContext should apply a hook for retrieving product context: product context, basic 1`] = `
 {
   "dolor": {
@@ -19,8 +71,16 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
 }
 `;
 
+exports[`ProductViewContext should apply hooks for retrieving specific api queries: billingAccountsQuery 1`] = `
+{
+  "org_id": "mockOrgId",
+}
+`;
+
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: exportQuery 1`] = `
 {
+  "billing_account_id": undefined,
+  "billing_provider": undefined,
   "product_id": undefined,
   "sla": "testSla",
 }
@@ -28,36 +88,48 @@ exports[`ProductViewContext should apply hooks for retrieving specific api queri
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: graphTallyQuery 1`] = `
 {
+  "billing_account_id": undefined,
+  "billing_provider": undefined,
   "granularity": "testGranularity",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryGuestsQuery 1`] = `
 {
+  "billing_account_id": undefined,
+  "billing_provider": undefined,
   "offset": "testOffset",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryHostsQuery 1`] = `
 {
+  "billing_account_id": undefined,
+  "billing_provider": undefined,
   "limit": "testLimit",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventorySubscriptionsQuery 1`] = `
 {
+  "billing_account_id": undefined,
+  "billing_provider": undefined,
   "sla": "testSla",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: query 1`] = `
 {
+  "billing_account_id": undefined,
+  "billing_provider": undefined,
   "lorem": "ipsum",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: toolbarQuery 1`] = `
 {
+  "billing_account_id": undefined,
+  "billing_provider": undefined,
   "granularity": "testGranularity",
   "limit": "testLimit",
   "lorem": "ipsum",
@@ -174,6 +246,7 @@ exports[`ProductViewContext should return specific properties: specific properti
     "_globalName": null,
     "_threadCount": 0,
   },
+  "useBillingAccountsQuery": [Function],
   "useGraphConfig": [Function],
   "useGraphTallyQuery": [Function],
   "useInventoryGuestsConfig": [Function],
@@ -185,7 +258,9 @@ exports[`ProductViewContext should return specific properties: specific properti
   "useProduct": [Function],
   "useProductContext": [Function],
   "useProductExportQuery": [Function],
+  "useProductOnload": [Function],
   "useQuery": [Function],
+  "useQueryConditional": [Function],
   "useQueryFactory": [Function],
   "useToolbarConfig": [Function],
   "useToolbarQuery": [Function],

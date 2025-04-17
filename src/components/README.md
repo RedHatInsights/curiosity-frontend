@@ -4226,6 +4226,8 @@ Display products.
     * [~DEFAULT_CONTEXT](#ProductView.module_ProductViewContext..DEFAULT_CONTEXT) : <code>React.Context.&lt;{}&gt;</code>
     * [~useProductViewContext()](#ProductView.module_ProductViewContext..useProductViewContext) ⇒ <code>React.Context.&lt;{}&gt;</code>
     * [~useProductQueryFactory(queryType, options)](#ProductView.module_ProductViewContext..useProductQueryFactory) ⇒ <code>object</code>
+    * [~useProductBillingAccountsQuery(options)](#ProductView.module_ProductViewContext..useProductBillingAccountsQuery) ⇒ <code>object</code>
+    * [~useProductQueryConditional(options)](#ProductView.module_ProductViewContext..useProductQueryConditional) ⇒ <code>object</code>
     * [~useProductQuery(options)](#ProductView.module_ProductViewContext..useProductQuery) ⇒ <code>object</code>
     * [~useProductGraphTallyQuery(options)](#ProductView.module_ProductViewContext..useProductGraphTallyQuery) ⇒ <code>object</code>
     * [~useProductInventoryGuestsQuery(options)](#ProductView.module_ProductViewContext..useProductInventoryGuestsQuery) ⇒ <code>object</code>
@@ -4240,6 +4242,7 @@ Display products.
     * [~useProductInventorySubscriptionsConfig(options)](#ProductView.module_ProductViewContext..useProductInventorySubscriptionsConfig) ⇒ <code>Object</code>
     * [~useProductToolbarConfig(options)](#ProductView.module_ProductViewContext..useProductToolbarConfig) ⇒ <code>Object</code>
     * [~useProductExportQuery(options)](#ProductView.module_ProductViewContext..useProductExportQuery) ⇒ <code>Object</code>
+    * [~useProductOnload(options)](#ProductView.module_ProductViewContext..useProductOnload) ⇒ <code>Object</code>
 
 <a name="ProductView.module_ProductViewContext..DEFAULT_CONTEXT"></a>
 
@@ -4281,6 +4284,58 @@ Return a query object from initial product config and Redux store.
     </tr>  </tbody>
 </table>
 
+<a name="ProductView.module_ProductViewContext..useProductBillingAccountsQuery"></a>
+
+### ProductViewContext~useProductBillingAccountsQuery(options) ⇒ <code>object</code>
+Return the billing account id base query, sans-productId.
+Note: The billing accounts query is a one-off when compared to other API calls. We align
+the productId use with ALL API calls by passing it separately instead of with this query.
+
+**Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.queryType]</td><td><code>string</code></td><td><code>&quot;&#x27;billingAccountsQuery&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>rhsmConstants.RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES</code></td>
+    </tr><tr>
+    <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
+    </tr><tr>
+    <td>[options.useSession]</td><td><code>useSession</code></td><td><code>useSession</code></td>
+    </tr><tr>
+    <td>[options.options]</td><td><code>object</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="ProductView.module_ProductViewContext..useProductQueryConditional"></a>
+
+### ProductViewContext~useProductQueryConditional(options) ⇒ <code>object</code>
+Return a product query based on potential product configuration "onload".
+
+**Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr><tr>
+    <td>[options.useSelectors]</td><td><code>storeHooks.reactRedux.useSelectors</code></td><td><code>storeHooks.reactRedux.useSelectors</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="ProductView.module_ProductViewContext..useProductQuery"></a>
 
 ### ProductViewContext~useProductQuery(options) ⇒ <code>object</code>
@@ -4290,18 +4345,20 @@ Return a base product query
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.queryType</td><td><code>string</code></td>
+    <td>[options.queryType]</td><td><code>string</code></td><td><code>&quot;&#x27;query&#x27;&quot;</code></td>
     </tr><tr>
-    <td>options.useProductQueryFactory</td><td><code>function</code></td>
+    <td>[options.useProductQueryConditional]</td><td><code>useProductQueryConditional</code></td><td><code>useProductQueryConditional</code></td>
     </tr><tr>
-    <td>options.options</td><td><code>object</code></td>
+    <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
+    </tr><tr>
+    <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -4608,6 +4665,34 @@ Return an export query for subscriptions.
     <td>options.useProductToolbarQuery</td><td><code>function</code></td>
     </tr><tr>
     <td>options.options</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="ProductView.module_ProductViewContext..useProductOnload"></a>
+
+### ProductViewContext~useProductOnload(options) ⇒ <code>Object</code>
+Onload product conditionally dispatch services.
+
+**Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.getBillingAccounts]</td><td><code>reduxActions.rhsm.getBillingAccounts</code></td><td><code>reduxActions.rhsm.getBillingAccounts</code></td>
+    </tr><tr>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr><tr>
+    <td>[options.useProductBillingAccountsQuery]</td><td><code>useProductBillingAccountsQuery</code></td><td><code>useProductBillingAccountsQuery</code></td>
+    </tr><tr>
+    <td>[options.useSelectorsResponse]</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td><td></td>
     </tr>  </tbody>
 </table>
 

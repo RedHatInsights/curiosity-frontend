@@ -246,7 +246,7 @@ const getBillingAccounts = async (id, params = {}, options = {}) => {
   } = options;
   return axiosServiceCall({
     url: async () =>
-      Promise.allSettled([getBillingAccountsInstances(id, params), getBillingAccountsSubscriptions(id, params)]),
+      Promise.all([getBillingAccountsInstances(id, params), getBillingAccountsSubscriptions(id, params)]),
     cache,
     cancel,
     cancelId,

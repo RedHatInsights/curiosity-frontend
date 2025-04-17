@@ -17,54 +17,48 @@ describe('RHSM Transformers', () => {
     expect(
       rhsmTransformers.billingAccounts([
         {
-          status: 'fulfilled',
-          value: {
-            data: {
-              [rhsmConstants.RHSM_API_RESPONSE_ID]: [
-                {
-                  [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '678910',
-                  [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'mockProvider'
-                },
-                {
-                  [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '12345',
-                  [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'mockProvider'
-                }
-              ]
-            }
+          status: 200,
+          data: {
+            [rhsmConstants.RHSM_API_RESPONSE_ID]: [
+              {
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '678910',
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'mockProvider'
+              },
+              {
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '12345',
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'mockProvider'
+              }
+            ]
           }
         },
         {
-          status: 'fulfilled',
-          value: {
-            data: {
-              [rhsmConstants.RHSM_API_RESPONSE_ID]: [
-                {
-                  [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '78910',
-                  [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'otherMockProvider'
-                },
-                {
-                  [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '12345',
-                  [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'otherMockProvider'
-                }
-              ]
-            }
+          status: 200,
+          data: {
+            [rhsmConstants.RHSM_API_RESPONSE_ID]: [
+              {
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '78910',
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'otherMockProvider'
+              },
+              {
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '12345',
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'otherMockProvider'
+              }
+            ]
           }
         },
         {
-          status: 'fulfilled',
-          value: {
-            data: {
-              [rhsmConstants.RHSM_API_RESPONSE_ID]: [{}]
-            }
+          status: 200,
+          data: {
+            [rhsmConstants.RHSM_API_RESPONSE_ID]: [{}]
           }
         },
         {
-          status: 'fulfilled',
-          value: {}
+          status: 200,
+          data: {}
         },
         {
-          status: 'rejected',
-          value: {}
+          status: 400,
+          data: {}
         }
       ])
     ).toMatchSnapshot('billingAccounts');
