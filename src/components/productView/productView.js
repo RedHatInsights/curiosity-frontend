@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Button } from '@patternfly/react-core';
 import { routerContext } from '../router';
 import { ProductViewContext } from './productViewContext';
@@ -24,7 +24,10 @@ import { ProductViewMissing } from './productViewMissing';
  */
 
 /**
- * ToDo: review removing the "useCallback" once the routing updates are in place
+ * Note: Memoize product context. This is related to "Chroming" level app loading, routing and hooks, which can
+ * trigger a reload in environment. Always confirm "Chroming" behavior when modifying memoization on product
+ * context. Use the appropriate environment for testing. Non-networked local run is immune to "app loading"
+ * because it doesn't leverage full "Chroming".
  */
 /**
  * Display products.
@@ -37,7 +40,7 @@ import { ProductViewMissing } from './productViewMissing';
 const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = routerContext.useRouteDetail }) => {
   const { disableIsClosestMatch, firstMatch, productGroup } = useAliasRouteDetail();
 
-  const renderProduct = () => {
+  const renderProduct = useMemo(() => {
     const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productId, viewId } = firstMatch;
 
     if (!productId || !viewId) {
@@ -81,7 +84,7 @@ const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = rout
         </PageSection>
       </ProductViewContext.Provider>
     );
-  };
+  }, [firstMatch, t]);
 
   if (disableIsClosestMatch) {
     return <ProductViewMissing />;
@@ -93,7 +96,7 @@ const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = rout
         <PageHeader productLabel={productGroup}>
           {t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: productGroup })}
         </PageHeader>
-        <PageColumns>{renderProduct()}</PageColumns>
+        <PageColumns>{renderProduct}</PageColumns>
         <div className="curiosity-page-section__version">
           <Button
             className="curiosity-page-section__version-link"
