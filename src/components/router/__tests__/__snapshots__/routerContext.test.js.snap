@@ -1,38 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RouterContext should apply a hook for useNavigate: navigation push 1`] = `
-[
-  [
-    {},
-    "",
-    "/subscriptions/rhel?lorem=ipsum",
-    undefined,
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, attempt closest disabled but return exact because of variant selection 1`] = `
+{
+  "detailProps": [
+    "allConfigs",
+    "availableVariants",
+    "firstMatch",
+    "isClosest",
+    "productGroup",
+    "productConfig",
+    "productPath",
+    "productVariant",
+    "disableIsClosestMatch",
   ],
-  [
-    {},
-    "",
-    "/subscriptions/rhel?lorem=ipsum",
-    undefined,
+  "firstMatch": [
+    "aliases",
+    "productGroup",
+    "productId",
+    "productLabel",
+    "productPath",
+    "productDisplay",
+    "viewId",
+    "productVariants",
+    "query",
+    "graphTallyQuery",
+    "inventoryGuestsQuery",
+    "inventoryHostsQuery",
+    "inventorySubscriptionsQuery",
+    "initialGraphFilters",
+    "initialGraphSettings",
+    "initialGuestsFilters",
+    "initialInventoryFilters",
+    "initialInventorySettings",
+    "initialToolbarFilters",
   ],
-  [
-    {},
-    "",
-    "/subscriptions/rhel?lorem=ipsum",
-    undefined,
-  ],
-]
+  "isClosest": false,
+  "productGroup": "rhel",
+  "productPath": "l",
+}
 `;
 
-exports[`RouterContext should apply a hook for useRouteDetail: document title 1`] = `
-[
-  [
-    "t(curiosity-view.title, {"appName":"Subscriptions","context":"rhel"}) - Subscriptions",
-    true,
-  ],
-]
-`;
-
-exports[`RouterContext should apply a hook for useSetRouteProduct: route details, closest 1`] = `
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, closest 1`] = `
 {
   "detailProps": [
     "allConfigs",
@@ -73,7 +81,48 @@ exports[`RouterContext should apply a hook for useSetRouteProduct: route details
 }
 `;
 
-exports[`RouterContext should apply a hook for useSetRouteProduct: route details, match 1`] = `
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, closest disabled 1`] = `
+{
+  "detailProps": [
+    "allConfigs",
+    "availableVariants",
+    "firstMatch",
+    "isClosest",
+    "productGroup",
+    "productConfig",
+    "productPath",
+    "productVariant",
+    "disableIsClosestMatch",
+  ],
+  "firstMatch": [
+    "aliases",
+    "productGroup",
+    "productId",
+    "productLabel",
+    "productPath",
+    "productDisplay",
+    "viewId",
+    "productVariants",
+    "query",
+    "graphTallyQuery",
+    "inventoryGuestsQuery",
+    "inventoryHostsQuery",
+    "inventorySubscriptionsQuery",
+    "initialGraphFilters",
+    "initialGraphSettings",
+    "initialGuestsFilters",
+    "initialInventoryFilters",
+    "initialInventorySettings",
+    "initialSubscriptionsInventoryFilters",
+    "initialToolbarFilters",
+  ],
+  "isClosest": true,
+  "productGroup": "rhel",
+  "productPath": "l",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, exact 1`] = `
 {
   "detailProps": [
     "allConfigs",
@@ -114,8 +163,53 @@ exports[`RouterContext should apply a hook for useSetRouteProduct: route details
 }
 `;
 
+exports[`RouterContext should apply a hook for the helper setRouteProduct with useSetRouteProduct: hook 1`] = `
+[
+  [
+    {
+      "disableIsClosestMatch": false,
+      "productPath": "rhel",
+      "productVariant": {},
+    },
+  ],
+]
+`;
+
+exports[`RouterContext should apply a hook for useNavigate: navigation push 1`] = `
+[
+  [
+    {},
+    "",
+    "/subscriptions/rhel?lorem=ipsum",
+    undefined,
+  ],
+  [
+    {},
+    "",
+    "/subscriptions/rhel?lorem=ipsum",
+    undefined,
+  ],
+  [
+    {},
+    "",
+    "/subscriptions/rhel?lorem=ipsum",
+    undefined,
+  ],
+]
+`;
+
+exports[`RouterContext should apply a hook for useRouteDetail: document title 1`] = `
+[
+  [
+    "t(curiosity-view.title, {"appName":"Subscriptions","context":"rhel"}) - Subscriptions",
+    true,
+  ],
+]
+`;
+
 exports[`RouterContext should return specific properties: specific properties 1`] = `
 {
+  "setRouteProduct": [Function],
   "useNavigate": [Function],
   "useRouteDetail": [Function],
   "useSetRouteProduct": [Function],

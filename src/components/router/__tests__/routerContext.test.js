@@ -1,4 +1,5 @@
-import { context, useNavigate, useRouteDetail, useSetRouteProduct } from '../routerContext';
+import { context, setRouteProduct, useNavigate, useRouteDetail, useSetRouteProduct } from '../routerContext';
+import { RHSM_API_PATH_PRODUCT_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('RouterContext', () => {
   it('should return specific properties', () => {
@@ -27,31 +28,52 @@ describe('RouterContext', () => {
     expect(mockWindowHistory.mock.calls).toMatchSnapshot('navigation push');
   });
 
-  it('should apply a hook for useSetRouteProduct', async () => {
-    const { result: exactMatch } = await renderHook(() =>
+  it.each([
+    {
+      productPath: 'rhel',
+      disableIsClosestMatch: false,
+      description: 'exact'
+    },
+    {
+      productPath: 'l',
+      disableIsClosestMatch: false,
+      description: 'closest'
+    },
+    {
+      productPath: 'l',
+      productVariant: { rhel: RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER },
+      disableIsClosestMatch: true,
+      description: 'attempt closest disabled but return exact because of variant selection'
+    },
+    {
+      productPath: 'l',
+      disableIsClosestMatch: true,
+      description: 'closest disabled'
+    }
+  ])('should apply a helper with setRouteProduct and return a product configuration match, $description', params => {
+    const result = setRouteProduct(params);
+
+    expect({
+      detailProps: Object.keys(result),
+      isClosest: result.isClosest,
+      productGroup: result.productGroup,
+      productPath: result.productPath,
+      firstMatch: Object.keys(result?.firstMatch || {})
+    }).toMatchSnapshot();
+  });
+
+  it('should apply a hook for the helper setRouteProduct with useSetRouteProduct', async () => {
+    const mockSetProduct = jest.fn();
+    mockSetProduct.memo = mockSetProduct;
+
+    await renderHook(() =>
       useSetRouteProduct({
+        setProduct: mockSetProduct,
         useLocation: () => ({ pathname: 'rhel' })
       })
     );
 
-    expect({
-      detailProps: Object.keys(exactMatch),
-      isClosest: exactMatch.isClosest,
-      productGroup: exactMatch.productGroup,
-      productPath: exactMatch.productPath,
-      firstMatch: Object.keys(exactMatch.firstMatch)
-    }).toMatchSnapshot('route details, match');
-
-    const { result: closestMatch } = await renderHook(() =>
-      useSetRouteProduct({ useLocation: () => ({ pathname: 'l' }) })
-    );
-    expect({
-      detailProps: Object.keys(closestMatch),
-      isClosest: closestMatch.isClosest,
-      productGroup: closestMatch.productGroup,
-      productPath: closestMatch.productPath,
-      firstMatch: Object.keys(closestMatch.firstMatch)
-    }).toMatchSnapshot('route details, closest');
+    expect(mockSetProduct.mock.calls).toMatchSnapshot('hook');
   });
 
   it('should apply a hook for useRouteDetail', async () => {
