@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Toolbar as PfToolbar, ToolbarContent, ToolbarItem, ToolbarItemVariant } from '@patternfly/react-core';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
@@ -26,17 +26,21 @@ const useToolbarFieldOptions = ({
   useRouteDetail: useAliasRouteDetail = routerContext.useRouteDetail
 } = {}) => {
   const { availableVariants, firstMatch } = useAliasRouteDetail();
-  const options = [];
+  const productId = firstMatch?.productId;
 
-  availableVariants?.forEach(variant => {
-    options.push({
-      title: t('curiosity-toolbar.label', { context: ['groupVariant', variant] }),
-      value: variant,
-      isSelected: variant === firstMatch?.productId
+  return useMemo(() => {
+    const options = [];
+
+    availableVariants?.forEach(variant => {
+      options.push({
+        title: t('curiosity-toolbar.label', { context: ['groupVariant', variant] }),
+        value: variant,
+        isSelected: variant === productId
+      });
     });
-  });
 
-  return options.sort(({ title: titleA }, { title: titleB }) => titleA.localeCompare(titleB));
+    return options.sort(({ title: titleA }, { title: titleB }) => titleA.localeCompare(titleB));
+  }, [availableVariants, productId, t]);
 };
 
 /**
