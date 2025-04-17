@@ -4192,6 +4192,8 @@ Primary product display component, and config context provider.
 <tr>
     <td>ProductViewContext</td><td><code>module</code></td>
     </tr><tr>
+    <td>ProductViewConfigLoad</td><td><code>module</code></td>
+    </tr><tr>
     <td>ProductViewMissing</td><td><code>module</code></td>
     </tr>  </tbody>
 </table>
@@ -4670,6 +4672,8 @@ On click, update history.
 
 * [RouterContext](#Router.module_RouterContext)
     * [~useNavigate(options)](#Router.module_RouterContext..useNavigate) ⇒ <code>function</code>
+    * [~setRouteProduct(params)](#Router.module_RouterContext..setRouteProduct) ⇒ <code>Object</code>
+        * [.memo](#Router.module_RouterContext..setRouteProduct.memo) : <code>function</code>
     * [~useSetRouteProduct(options)](#Router.module_RouterContext..useSetRouteProduct) ⇒ <code>Object</code>
     * [~useRouteDetail(options)](#Router.module_RouterContext..useRouteDetail) ⇒ <code>Object</code>
 
@@ -4683,19 +4687,49 @@ update. Dispatches the same type leveraged by the initialize hook, useSetRouteDe
 <table>
   <thead>
     <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
+    </tr><tr>
+    <td>[options.windowHistory]</td><td><code>*</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterContext..setRouteProduct"></a>
+
+### RouterContext~setRouteProduct(params) ⇒ <code>Object</code>
+Set a product config based on routing
+
+**Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
+<table>
+  <thead>
+    <tr>
       <th>Param</th><th>Type</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>params</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.useLocation</td><td><code>function</code></td>
+    <td>params.productPath</td><td><code>string</code></td>
     </tr><tr>
-    <td>options.windowHistory</td><td><code>*</code></td>
+    <td>params.disableIsClosestMatch</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>params.productVariant</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
+<a name="Router.module_RouterContext..setRouteProduct.memo"></a>
+
+#### setRouteProduct.memo : <code>function</code>
+A memoized response for the setProductRoute function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>setRouteProduct</code>](#Router.module_RouterContext..setRouteProduct)  
 <a name="Router.module_RouterContext..useSetRouteProduct"></a>
 
 ### RouterContext~useSetRouteProduct(options) ⇒ <code>Object</code>
@@ -4707,18 +4741,20 @@ and returns a similar structured value as useParam.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.disableIsClosestMatch</td><td><code>boolean</code></td>
+    <td>[options.disableIsClosestMatch]</td><td><code>boolean</code></td><td></td>
     </tr><tr>
-    <td>options.useLocation</td><td><code>function</code></td>
+    <td>[options.setProduct]</td><td><code>setRouteProduct</code></td><td><code>setRouteProduct</code></td>
     </tr><tr>
-    <td>options.useSelector</td><td><code>function</code></td>
+    <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
+    </tr><tr>
+    <td>[options.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4733,18 +4769,18 @@ Consumes useSetRouteProduct to return a display configuration for use in product
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.t</td><td><code>function</code></td>
+    <td>[options.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.useChrome</td><td><code>function</code></td>
+    <td>[options.useChrome]</td><td><code>useChrome</code></td><td><code>useChrome</code></td>
     </tr><tr>
-    <td>options.useSetRouteProduct</td><td><code>useSetRouteProduct</code></td>
+    <td>[options.useSetRouteProduct]</td><td><code>useSetRouteProduct</code></td><td><code>useSetRouteProduct</code></td>
     </tr>  </tbody>
 </table>
 

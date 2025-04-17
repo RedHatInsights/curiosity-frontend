@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Button } from '@patternfly/react-core';
 import { routerContext } from '../router';
 import { ProductViewContext } from './productViewContext';
@@ -19,6 +19,7 @@ import { ProductViewMissing } from './productViewMissing';
  * @memberof Components
  * @module ProductView
  * @property {module} ProductViewContext
+ * @property {module} ProductViewConfigLoad
  * @property {module} ProductViewMissing
  */
 
@@ -36,55 +37,51 @@ import { ProductViewMissing } from './productViewMissing';
 const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = routerContext.useRouteDetail }) => {
   const { disableIsClosestMatch, firstMatch, productGroup } = useAliasRouteDetail();
 
-  const renderProduct = useCallback(() => {
-    const updated = config => {
-      const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productId, viewId } = config;
+  const renderProduct = () => {
+    const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productId, viewId } = firstMatch;
 
-      if (!productId || !viewId) {
-        return null;
-      }
+    if (!productId || !viewId) {
+      return null;
+    }
 
-      return (
-        <ProductViewContext.Provider value={config}>
-          <PageMessages>
-            <BannerMessages />
-          </PageMessages>
-          <PageToolbar>
-            <Toolbar />
-          </PageToolbar>
-          <PageSection className="curiosity-page-section__graphs">
-            <GraphCard />
-          </PageSection>
-          <PageSection className="curiosity-page-section__tabs">
-            <InventoryTabs
-              isDisabled={
-                (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
-              }
-            >
-              {!helpers.UI_DISABLED_TABLE_INSTANCES && initialInventoryFilters && (
-                <InventoryTab
-                  key={`inventory_instances_${productId}`}
-                  title={t('curiosity-inventory.tabInstances', { context: [productId] })}
-                >
-                  <InventoryCardInstances />
-                </InventoryTab>
-              )}
-              {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
-                <InventoryTab
-                  key={`inventory_subs_${productId}`}
-                  title={t('curiosity-inventory.tabSubscriptions', { context: [productId] })}
-                >
-                  <InventoryCardSubscriptions />
-                </InventoryTab>
-              )}
-            </InventoryTabs>
-          </PageSection>
-        </ProductViewContext.Provider>
-      );
-    };
-
-    return updated(firstMatch);
-  }, [firstMatch, t]);
+    return (
+      <ProductViewContext.Provider value={firstMatch}>
+        <PageMessages>
+          <BannerMessages />
+        </PageMessages>
+        <PageToolbar>
+          <Toolbar />
+        </PageToolbar>
+        <PageSection className="curiosity-page-section__graphs">
+          <GraphCard />
+        </PageSection>
+        <PageSection className="curiosity-page-section__tabs">
+          <InventoryTabs
+            isDisabled={
+              (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
+            }
+          >
+            {!helpers.UI_DISABLED_TABLE_INSTANCES && initialInventoryFilters && (
+              <InventoryTab
+                key={`inventory_instances_${productId}`}
+                title={t('curiosity-inventory.tabInstances', { context: [productId] })}
+              >
+                <InventoryCardInstances />
+              </InventoryTab>
+            )}
+            {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
+              <InventoryTab
+                key={`inventory_subs_${productId}`}
+                title={t('curiosity-inventory.tabSubscriptions', { context: [productId] })}
+              >
+                <InventoryCardSubscriptions />
+              </InventoryTab>
+            )}
+          </InventoryTabs>
+        </PageSection>
+      </ProductViewContext.Provider>
+    );
+  };
 
   if (disableIsClosestMatch) {
     return <ProductViewMissing />;
