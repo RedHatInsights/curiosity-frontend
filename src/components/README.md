@@ -4192,8 +4192,6 @@ Primary product display component, and config context provider.
 <tr>
     <td>ProductViewContext</td><td><code>module</code></td>
     </tr><tr>
-    <td>ProductViewConfigLoad</td><td><code>module</code></td>
-    </tr><tr>
     <td>ProductViewMissing</td><td><code>module</code></td>
     </tr>  </tbody>
 </table>
@@ -4734,8 +4732,6 @@ A memoized response for the setProductRoute function. Assigned to a property for
 
 ### RouterContext~useSetRouteProduct(options) ⇒ <code>Object</code>
 Initialize and store a product path, parameter, in a "state" update parallel to variant detail.
-We're opting to use "window.location.pathname" directly because its faster.
-and returns a similar structured value as useParam.
 
 **Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
 <table>

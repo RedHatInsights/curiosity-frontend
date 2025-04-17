@@ -19,7 +19,6 @@ import { ProductViewMissing } from './productViewMissing';
  * @memberof Components
  * @module ProductView
  * @property {module} ProductViewContext
- * @property {module} ProductViewConfigLoad
  * @property {module} ProductViewMissing
  */
 

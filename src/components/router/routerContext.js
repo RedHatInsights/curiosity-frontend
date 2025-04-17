@@ -142,18 +142,19 @@ const useRouteDetail = ({
 } = {}) => {
   const product = useAliasSetRouteProduct();
   const { getBundleData = helpers.noop, updateDocumentTitle = helpers.noop } = useAliasChrome();
-  const bundleData = getBundleData();
+  const bundleTitle = getBundleData()?.bundleTitle;
+  const productGroup = product?.productGroup;
 
   useEffect(() => {
     // Set platform document title, remove pre-baked suffix
     updateDocumentTitle(
       `${t(`curiosity-view.title`, {
         appName: helpers.UI_DISPLAY_NAME,
-        context: product?.productGroup
-      })} - ${helpers.UI_DISPLAY_NAME}${(bundleData?.bundleTitle && ` | ${bundleData?.bundleTitle}`) || ''}`,
+        context: productGroup
+      })} - ${helpers.UI_DISPLAY_NAME}${(bundleTitle && ` | ${bundleTitle}`) || ''}`,
       true
     );
-  }, [bundleData?.bundleTitle, product?.productGroup, t, updateDocumentTitle]);
+  }, [bundleTitle, productGroup, t, updateDocumentTitle]);
 
   return product;
 };
