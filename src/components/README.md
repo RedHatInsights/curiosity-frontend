@@ -5762,13 +5762,13 @@ A standalone Category select filter.
 
 
 * [ToolbarFieldCategory](#Toolbar.module_ToolbarFieldCategory)
-    * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldCategory..useToolbarFieldOptions) ⇒ <code>function</code>
+    * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldCategory..useToolbarFieldOptions) ⇒ <code>Array</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldCategory..useOnSelect) ⇒ <code>function</code>
     * [~ToolbarFieldCategory(props)](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldCategory..useToolbarFieldOptions"></a>
 
-### ToolbarFieldCategory~useToolbarFieldOptions(options) ⇒ <code>function</code>
+### ToolbarFieldCategory~useToolbarFieldOptions(options) ⇒ <code>Array</code>
 Generate select field options from nested product graph configuration.
 
 **Kind**: inner method of [<code>ToolbarFieldCategory</code>](#Toolbar.module_ToolbarFieldCategory)  
