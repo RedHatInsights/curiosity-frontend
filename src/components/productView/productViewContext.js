@@ -29,11 +29,11 @@ const useProductViewContext = () => useContext(ProductViewContext);
 /**
  * Return a query object from initial product config and Redux store.
  *
- * @param {string} queryType An identifier used to pull from both config and Redux, they should named the same.
+ * @param {string} queryType An identifier used to pull from both config and Redux, they should be named the same.
  * @param {object} options
- * @param {string} options.overrideId A custom identifier, used for scenarios like the Guest inventory IDs
- * @param {object} options.useProductViewContext
- * @param {Function} options.useSelectors
+ * @param {string} [options.overrideId] A custom identifier, used for scenarios like the Guest inventory IDs
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
+ * @param {storeHooks.reactRedux.useSelectors} [options.useSelectors=storeHooks.reactRedux.useSelectors]
  * @returns {object}
  */
 const useProductQueryFactory = (
@@ -139,10 +139,10 @@ const useProductQuery = ({
  * Return the graph query based off of tally and capacity.
  *
  * @param {object} options
- * @param {string} options.queryType
- * @param {object} options.schemaCheck
- * @param {Function} options.useProductQuery
- * @param {Function} options.useProductQueryFactory
+ * @param {string} [options.queryType='graphTallyQuery']
+ * @param {object} [options.schemaCheck=rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES]
+ * @param {useProductQuery} [options.useProductQuery=useProductQuery]
+ * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {object} options.options
  * @returns {object}
  */
@@ -165,10 +165,10 @@ const useProductGraphTallyQuery = ({
  * Return the inventory query for guests. Use fallback/defaults for guests offset, limit.
  *
  * @param {object} options
- * @param {string} options.queryType
- * @param {object} options.schemaCheck
- * @param {Function} options.useProductQuery
- * @param {Function} options.useProductQueryFactory
+ * @param {string} [options.queryType='inventoryGuestsQuery']
+ * @param {object} [options.schemaCheck=rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES]
+ * @param {useProductQuery} [options.useProductQuery=useProductQuery]
+ * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {object} options.options
  * @returns {object}
  */
@@ -191,10 +191,10 @@ const useProductInventoryGuestsQuery = ({
  * Return an inventory query for hosts.
  *
  * @param {object} options
- * @param {string} options.queryType
- * @param {object} options.schemaCheck
- * @param {Function} options.useProductQuery
- * @param {Function} options.useProductQueryFactory
+ * @param {string} [options.queryType='inventoryHostsQuery']
+ * @param {object} [options.schemaCheck=rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES]
+ * @param {useProductQuery} [options.useProductQuery=useProductQuery]
+ * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {object} options.options
  * @returns {object}
  */
@@ -217,10 +217,10 @@ const useProductInventoryHostsQuery = ({
  * Return an inventory query for subscriptions.
  *
  * @param {object} options
- * @param {string} options.queryType
- * @param {object} options.schemaCheck
- * @param {Function} options.useProductQuery
- * @param {Function} options.useProductQueryFactory
+ * @param {string} [options.queryType='inventorySubscriptionsQuery']
+ * @param {object} [options.schemaCheck=rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES]
+ * @param {useProductQuery} [options.useProductQuery=useProductQuery]
+ * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {object} options.options
  * @returns {object}
  */
@@ -243,10 +243,10 @@ const useProductInventorySubscriptionsQuery = ({
  * Return a unified query for toolbars
  *
  * @param {object} options
- * @param {Function} options.useProductQuery
- * @param {Function} options.useProductGraphTallyQuery
- * @param {Function} options.useProductInventoryHostsQuery
- * @param {Function} options.useProductInventorySubscriptionsQuery
+ * @param {useProductQuery} [options.useProductQuery=useProductQuery]
+ * @param {useProductGraphTallyQuery} [options.useProductGraphTallyQuery=useProductGraphTallyQuery]
+ * @param {useProductInventoryHostsQuery} [options.useProductInventoryHostsQuery=useProductInventoryHostsQuery]
+ * @param {useProductInventorySubscriptionsQuery} [options.useProductInventorySubscriptionsQuery]
  * @param {object} options.options
  * @returns {object}
  */
@@ -268,7 +268,7 @@ const useProductToolbarQuery = ({
  * Get a filtered product configuration context.
  *
  * @param {object} options
- * @param {Function} options.useProductViewContext
+ * @param {useProductContext} [options.useProductViewContext=useProductContext]
  * @returns {object}
  */
 const useProductContext = ({ useProductViewContext: useAliasProductViewContext = useProductViewContext } = {}) =>
@@ -278,7 +278,7 @@ const useProductContext = ({ useProductViewContext: useAliasProductViewContext =
  * Return product identifiers.
  *
  * @param {object} options
- * @param {Function} options.useProductViewContext
+ * @param {useProductContext} [options.useProductViewContext=useProductContext]
  * @returns {{productLabel, viewId, productId, productGroup, productVariants}}
  */
 const useProduct = ({ useProductViewContext: useAliasProductViewContext = useProductViewContext } = {}) => {
@@ -296,7 +296,7 @@ const useProduct = ({ useProductViewContext: useAliasProductViewContext = usePro
  * Return graph configuration.
  *
  * @param {object} options
- * @param {Function} options.useProductContext
+ * @param {useProductContext} [options.useProductContext=useProductContext]
  * @returns {{settings: object, filters: Array}}
  */
 const useProductGraphConfig = ({ useProductContext: useAliasProductContext = useProductContext } = {}) => {
@@ -311,8 +311,8 @@ const useProductGraphConfig = ({ useProductContext: useAliasProductContext = use
  * Return guests inventory configuration.
  *
  * @param {object} options
- * @param {Function} options.useProductContext
- * @returns {{settings: object, filters: Array}}
+ * @param {useProductContext} [options.useProductContext=useProductContext]
+ * @returns {{settings: object, initialQuery: object, filters: Array}}
  */
 const useProductInventoryGuestsConfig = ({ useProductContext: useAliasProductContext = useProductContext } = {}) => {
   const { inventoryGuestsQuery = {}, initialGuestsFilters, initialGuestsSettings = {} } = useAliasProductContext();
@@ -327,7 +327,7 @@ const useProductInventoryGuestsConfig = ({ useProductContext: useAliasProductCon
  * Return inventory configuration.
  *
  * @param {object} options
- * @param {Function} options.useProductContext
+ * @param {useProductContext} [options.useProductContext=useProductContext]
  * @returns {{settings: object, filters: Array}}
  */
 const useProductInventoryHostsConfig = ({ useProductContext: useAliasProductContext = useProductContext } = {}) => {
@@ -342,7 +342,7 @@ const useProductInventoryHostsConfig = ({ useProductContext: useAliasProductCont
  * Return subscriptions inventory configuration.
  *
  * @param {object} options
- * @param {Function} options.useProductContext
+ * @param {useProductContext} [options.useProductContext=useProductContext]
  * @returns {{settings: object, filters: Array}}
  */
 const useProductInventorySubscriptionsConfig = ({
@@ -359,7 +359,7 @@ const useProductInventorySubscriptionsConfig = ({
  * Return primary toolbar configuration.
  *
  * @param {object} options
- * @param {Function} options.useProductContext
+ * @param {useProductContext} [options.useProductContext=useProductContext]
  * @returns {{settings: object, filters: Array}}
  */
 const useProductToolbarConfig = ({ useProductContext: useAliasProductContext = useProductContext } = {}) => {
@@ -374,9 +374,9 @@ const useProductToolbarConfig = ({ useProductContext: useAliasProductContext = u
  * Return an export query for subscriptions.
  *
  * @param {object} options
- * @param {Function} options.useProduct
- * @param {object} options.schemaCheck
- * @param {Function} options.useProductToolbarQuery
+ * @param {useProduct} [options.useProduct=useProduct]
+ * @param {object} [options.schemaCheck=platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES]
+ * @param {useProductToolbarQuery} [options.useProductToolbarQuery=useProductToolbarQuery]
  * @param {object} options.options
  * @returns {{}}
  */
@@ -404,7 +404,7 @@ const useProductExportQuery = ({
  * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
  * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
  * @param {useProductBillingAccountsQuery} [options.useProductBillingAccountsQuery=useProductBillingAccountsQuery]
- * @param {storeHooks.reactRedux.useSelectorsResponse} [options.useSelectorsResponse]
+ * @param {storeHooks.reactRedux.useSelectorsResponse} [options.useSelectorsResponse=useSelectorsResponse]
  * @returns {{data: object, productId: string, pending: boolean, isReady: boolean, fulfilled: boolean,
  *     responses: object}}
  */
