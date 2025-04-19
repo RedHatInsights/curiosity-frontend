@@ -66,7 +66,7 @@ const ToolbarFilter = ({
   const { isExpanded, chipGroupContentRef, updateNumberFilters = helpers.noop } = useAliasToolbarContext();
   const { chipContainerRef } = useAliasToolbarContentContext();
   const { key: normalizedCategoryKey, name: normalizedCategoryName } =
-    (typeof categoryName === 'string' && { key: categoryName, name: categoryName }) || categoryName;
+    (typeof categoryName === 'string' && { key: categoryName, name: categoryName }) || categoryName || {};
 
   useMount(() => {
     setIsMounted(true);

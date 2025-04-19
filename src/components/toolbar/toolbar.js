@@ -21,9 +21,11 @@ import { translate } from '../i18n/i18n';
  * @memberof Components
  * @module Toolbar
  * @property {module} ToolbarContext
+ * @property {module} ToolbarFieldBillingAccount
  * @property {module} ToolbarFieldBillingProvider
  * @property {module} ToolbarFieldCategory
  * @property {module} ToolbarFieldDisplayName
+ * @property {module} ToolbarFieldExport
  * @property {module} ToolbarFieldGranularity
  * @property {module} ToolbarFieldRangedMonthly
  * @property {module} ToolbarFieldSelectCategory
@@ -131,24 +133,36 @@ const Toolbar = ({
                   <ToolbarFieldSelectCategory />
                 </ToolbarItem>
               )}
-              {options.map(({ title, value: filterName, component: OptionComponent, isClearable }) => {
-                const chipProps = { categoryName: title };
+              {options.map(
+                ({
+                  title,
+                  value: filterAltName,
+                  chipProps: optionChipProps,
+                  chipValue: filterName,
+                  component: OptionComponent,
+                  isClearable
+                }) => {
+                  const chipValue = filterName || filterAltName;
+                  const chipContent = setSelectedOptions({ value: chipValue, chipProps: optionChipProps });
+                  const chipCategoryName = title || setSelectedOptions({ value: filterAltName })[0];
+                  const chipProps = { categoryName: chipCategoryName, isReadOnly: true };
 
-                if (isClearable !== false) {
-                  chipProps.chips = setSelectedOptions({ value: filterName });
-                  chipProps.deleteChip = () => onClearFilter({ value: filterName });
+                  if (isClearable !== false) {
+                    chipProps.chips = chipContent;
+                    // chipProps.deleteChip = () => onClearFilter({ value: chipValue });
+                  }
+
+                  return (
+                    <ToolbarFilter
+                      key={chipValue}
+                      showToolbarItem={currentCategory === filterAltName || options.length === 1}
+                      {...chipProps}
+                    >
+                      <OptionComponent isFilter />
+                    </ToolbarFilter>
+                  );
                 }
-
-                return (
-                  <ToolbarFilter
-                    key={filterName}
-                    showToolbarItem={currentCategory === filterName || options.length === 1}
-                    {...chipProps}
-                  >
-                    <OptionComponent isFilter />
-                  </ToolbarFilter>
-                );
-              })}
+              )}
             </ToolbarGroup>
           </ToolbarToggleGroup>
         )}

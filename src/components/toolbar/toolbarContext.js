@@ -36,8 +36,11 @@ const useToolbarFieldClear = ({
   const usageOnSelect = useAliasUsageOnSelect();
 
   return field => {
+    console.log('>>>> ATTEMPT TO CLEAR SPECIFIC', field);
     switch (field) {
+      case RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID:
       case RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER:
+        console.log('>>>> PROVIDER CLEAR SPECIFIC');
         billingOnSelect();
         break;
       case RHSM_API_QUERY_SET_TYPES.CATEGORY:
@@ -89,6 +92,7 @@ const useToolbarFieldClearAll = ({
 
   return hardFilterReset => {
     if (typeof billingProvider === 'string') {
+      console.log('>>>> PROVIDER CLEAR ALL');
       billingOnSelect();
     }
 
