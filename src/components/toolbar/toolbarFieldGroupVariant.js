@@ -65,6 +65,9 @@ const useOnSelect = ({
         variant: value
       },
       {
+        type: reduxTypes.rhsm.SET_CONFIG_RHSM_RESET
+      },
+      {
         type: reduxTypes.graph.SET_GRAPH_LEGEND_RESET
       },
       {

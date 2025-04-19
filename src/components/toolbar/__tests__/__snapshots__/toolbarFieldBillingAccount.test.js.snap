@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldBillingAccount Component should generate select options: toolbarFieldOptions 1`] = `
+[
+  {
+    "isSelected": false,
+    "title": "t(curiosity-toolbar.label_billing_account_id, {"context":"lorem"})",
+    "value": "lorem",
+  },
+  {
+    "isSelected": false,
+    "title": "t(curiosity-toolbar.label_billing_account_id, {"context":"ipsum"})",
+    "value": "ipsum",
+  },
+  {
+    "isSelected": false,
+    "title": "t(curiosity-toolbar.label_billing_account_id, {"context":"dolor"})",
+    "value": "dolor",
+  },
+  {
+    "isSelected": false,
+    "title": "t(curiosity-toolbar.label_billing_account_id, {"context":"sit"})",
+    "value": "sit",
+  },
+]
+`;
+
+exports[`ToolbarFieldBillingAccount Component should handle updating through redux state with component: dispatch, component 1`] = `
+[
+  [
+    [
+      {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      {
+        "filter": "billing_account_id",
+        "type": "SET_QUERY",
+        "value": "lorem",
+        "viewId": undefined,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldBillingAccount Component should handle updating through redux state with hook: dispatch, hook 1`] = `
+[
+  [
+    [
+      {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "mock-product-id",
+      },
+      {
+        "filter": "billing_account_id",
+        "type": "SET_QUERY",
+        "value": "dolor sit",
+        "viewId": "mock-product-id",
+      },
+    ],
+  ],
+  [
+    [
+      {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "mock-product-id",
+      },
+      {
+        "filter": "billing_account_id",
+        "type": "SET_QUERY",
+        "value": "lorem ipsum",
+        "viewId": "mock-product-id",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldBillingAccount Component should render a basic component: basic 1`] = `
+<Select
+  alignment={
+    {
+      "position": "left",
+    }
+  }
+  aria-label="t(curiosity-toolbar.placeholder_billing, {"context":"account"})"
+  data-test="toolbarFieldBillingAccount"
+  isReadOnly={false}
+  onSelect={[Function]}
+  options={[]}
+  placeholder="t(curiosity-toolbar.placeholder_billing, {"context":"account"})"
+  selectedOptions="mock account id"
+/>
+`;

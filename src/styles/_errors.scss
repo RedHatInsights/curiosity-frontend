@@ -11,5 +11,12 @@
       white-space: pre-wrap;
       border-color: var(--pf-global--palette--black-400);
     }
+
+    &__product-onload {
+      margin-bottom: var(--pf-global--spacer--md);
+      margin-left: var(--pf-global--spacer--md);
+      margin-right: var(--pf-global--spacer--md);
+      margin-top: var(--pf-global--spacer--md);
+    }
   }
 }

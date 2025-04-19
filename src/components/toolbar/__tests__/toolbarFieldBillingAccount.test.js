@@ -1,17 +1,13 @@
 import React from 'react';
 import {
-  ToolbarFieldBillingProvider as ToolbarField,
+  ToolbarFieldBillingAccount as ToolbarField,
   useToolbarFieldOptions,
   useOnSelect
-} from '../toolbarFieldBillingProvider';
+} from '../toolbarFieldBillingAccount';
 import { store } from '../../../redux/store';
-import {
-  RHSM_API_QUERY_BILLING_PROVIDER_TYPES as BILLING_PROVIDER_TYPES,
-  RHSM_API_QUERY_SET_TYPES,
-  RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES
-} from '../../../services/rhsm/rhsmConstants';
+import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 
-describe('ToolbarFieldBillingProvider Component', () => {
+describe('ToolbarFieldBillingAccount Component', () => {
   let mockDispatch;
 
   beforeEach(() => {
@@ -24,10 +20,10 @@ describe('ToolbarFieldBillingProvider Component', () => {
 
   it('should render a basic component', async () => {
     const props = {
-      useProductQuery: () => ({ [RHSM_API_QUERY_TYPES.BILLING_PROVIDER]: BILLING_PROVIDER_TYPES.AWS })
+      useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID]: 'mock account id' })
     };
-    const component = await shallowComponent(<ToolbarField {...props} />);
 
+    const component = await shallowComponent(<ToolbarField {...props} />);
     expect(component).toMatchSnapshot('basic');
   });
 
@@ -37,8 +33,6 @@ describe('ToolbarFieldBillingProvider Component', () => {
         useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: 'mock billing provider' }),
         useSelector: () => ({
           data: {
-            billingProviders: ['mock billing provider'],
-            defaultProvider: 'mock billing provider',
             accountsByProvider: {
               'mock billing provider': ['lorem', 'ipsum', 'dolor', 'sit']
             }
@@ -55,13 +49,13 @@ describe('ToolbarFieldBillingProvider Component', () => {
       useToolbarFieldOptions: () => [
         {
           isSelected: true,
-          title: 't(curiosity-toolbar.label_billing_provider, {"context":"mock billing provider"})',
-          value: 'mock billing provider'
+          title: 't(curiosity-toolbar.label_billing_account_id, {"context":"lorem"})',
+          value: 'lorem'
         },
         {
           isSelected: false,
-          title: 't(curiosity-toolbar.label_billing_provider, {"context":"lorem ipsum provider"})',
-          value: 'lorem ipsum provider'
+          title: 't(curiosity-toolbar.label_billing_account_id, {"context":"ipsum"})',
+          value: 'ipsum'
         }
       ]
     };

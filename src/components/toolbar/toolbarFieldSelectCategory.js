@@ -6,10 +6,7 @@ import { useProduct, useProductToolbarConfig } from '../productView/productViewC
 import { Select } from '../form/select';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
-import {
-  ToolbarFieldBillingProvider,
-  toolbarFieldOptions as billingProviderOptions
-} from './toolbarFieldBillingProvider';
+import { ToolbarFieldBillingProvider } from './toolbarFieldBillingProvider';
 import { ToolbarFieldCategory } from './toolbarFieldCategory';
 import { ToolbarFieldDisplayName } from './toolbarFieldDisplayName';
 import { ToolbarFieldExport } from './toolbarFieldExport';
@@ -51,10 +48,11 @@ const toolbarFieldOptions = [
   {
     title: translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER] }),
     value: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER,
+    dynamicValue: [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER, RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID],
     component: function BillingProvider(props) {
       return <ToolbarFieldBillingProvider key="selectCategory_billingProvider" {...props} />;
     },
-    options: billingProviderOptions,
+    options: [],
     isClearable: true
   },
   {
