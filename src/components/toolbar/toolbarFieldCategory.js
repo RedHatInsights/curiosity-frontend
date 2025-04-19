@@ -18,7 +18,8 @@ import { translate } from '../i18n/i18n';
  *
  * @param {object} options
  * @param {useProductGraphConfig} [options.useProductGraphConfig=useProductGraphConfig]
- * @returns {Array}
+ * @returns {Array<{title: React.ReactNode, value: string, isSelected: boolean, metaData:{metric: string,
+ *     query: string}}>}
  */
 const useToolbarFieldOptions = ({ useProductGraphConfig: useAliasProductGraphConfig = useProductGraphConfig } = {}) => {
   const { filters } = useAliasProductGraphConfig();
