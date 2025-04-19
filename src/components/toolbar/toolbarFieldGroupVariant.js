@@ -19,7 +19,7 @@ import { routerContext } from '../router';
  * @param {object} options
  * @param {translate} [options.t=translate]
  * @param {routerContext.useRouteDetail} [options.useRouteDetail=routerContext.useRouteDetail]
- * @returns {Function}
+ * @returns {Array<{title: React.ReactNode, value: string, isSelected: boolean}>}
  */
 const useToolbarFieldOptions = ({
   t = translate,
@@ -63,6 +63,9 @@ const useOnSelect = ({
       {
         type: reduxTypes.app.SET_PRODUCT_VARIANT_QUERY_RESET_ALL,
         variant: value
+      },
+      {
+        type: reduxTypes.rhsm.SET_CONFIG_RHSM_RESET
       },
       {
         type: reduxTypes.graph.SET_GRAPH_LEGEND_RESET
