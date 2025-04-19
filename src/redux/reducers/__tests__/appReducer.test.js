@@ -1,7 +1,7 @@
 import appReducer from '../appReducer';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 import { platformConstants } from '../../../services/platform/platformConstants';
-import { appTypes as types, platformTypes } from '../../types';
+import { appTypes as types, platformTypes, rhsmTypes } from '../../types';
 import { reduxHelpers } from '../../common';
 
 describe('UserReducer', () => {
@@ -44,7 +44,11 @@ describe('UserReducer', () => {
   });
 
   it('should handle specific defined types', () => {
-    const specificTypes = [platformTypes.SET_PLATFORM_EXPORT_STATUS, platformTypes.SET_PLATFORM_EXPORT_RESET];
+    const specificTypes = [
+      rhsmTypes.SET_CONFIG_RHSM_RESET,
+      platformTypes.SET_PLATFORM_EXPORT_STATUS,
+      platformTypes.SET_PLATFORM_EXPORT_RESET
+    ];
 
     specificTypes.forEach(value => {
       if (!value) {
@@ -71,7 +75,8 @@ describe('UserReducer', () => {
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
-      types.UPDATE_USER_OPTIN
+      types.UPDATE_USER_OPTIN,
+      rhsmTypes.GET_BILLING_ACCOUNTS_RHSM
     ];
 
     specificTypes.forEach(value => {
@@ -105,7 +110,8 @@ describe('UserReducer', () => {
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
-      types.UPDATE_USER_OPTIN
+      types.UPDATE_USER_OPTIN,
+      rhsmTypes.GET_BILLING_ACCOUNTS_RHSM
     ];
 
     specificTypes.forEach(value => {
@@ -128,7 +134,8 @@ describe('UserReducer', () => {
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
-      types.UPDATE_USER_OPTIN
+      types.UPDATE_USER_OPTIN,
+      rhsmTypes.GET_BILLING_ACCOUNTS_RHSM
     ];
 
     specificTypes.forEach(value => {

@@ -15,10 +15,11 @@ import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../services
  *
  * @private
  * @type {{product: {}, graphTallyQuery: {}, inventoryHostsQuery: {}, inventorySubscriptionsQuery: {},
- *     query: {}, inventoryGuestsQuery: {}}}
+ *     query: {}, inventoryGuestsQuery: {}, billingAccountsQuery: {}}}
  */
 const initialState = {
   query: {},
+  billingAccountsQuery: {},
   graphTallyQuery: {},
   inventoryGuestsQuery: {},
   inventoryHostsQuery: {},
@@ -171,6 +172,20 @@ const viewReducer = (state = initialState, action) => {
         {
           [action.viewId]: {
             ...state.query[action.viewId],
+            [action.filter]: action.value
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_BILLING_ACCOUNTS:
+      return reduxHelpers.setStateProp(
+        'billingAccountsQuery',
+        {
+          [action.viewId]: {
+            ...state.billingAccountsQuery[action.viewId],
             [action.filter]: action.value
           }
         },

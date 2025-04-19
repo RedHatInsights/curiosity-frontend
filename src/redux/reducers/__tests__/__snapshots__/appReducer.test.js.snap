@@ -4,6 +4,7 @@ exports[`UserReducer should handle all defined error types: rejected types DELET
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -21,10 +22,33 @@ exports[`UserReducer should handle all defined error types: rejected types DELET
 }
 `;
 
+exports[`UserReducer should handle all defined error types: rejected types GET_BILLING_ACCOUNTS_RHSM 1`] = `
+{
+  "result": {
+    "auth": {},
+    "billingAccounts": {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "fulfilled": false,
+      "meta": {},
+      "pending": false,
+      "status": 0,
+    },
+    "errors": {},
+    "exports": {},
+    "exportsExisting": {},
+    "locale": {},
+    "optin": {},
+  },
+  "type": "GET_BILLING_ACCOUNTS_RHSM_REJECTED",
+}
+`;
+
 exports[`UserReducer should handle all defined error types: rejected types GET_USER_OPTIN 1`] = `
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -53,6 +77,7 @@ exports[`UserReducer should handle all defined error types: rejected types PLATF
       "pending": false,
       "status": 0,
     },
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -67,6 +92,7 @@ exports[`UserReducer should handle all defined error types: rejected types SET_P
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {
@@ -88,6 +114,7 @@ exports[`UserReducer should handle all defined error types: rejected types UPDAT
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -109,6 +136,7 @@ exports[`UserReducer should handle all defined error types: rejected types USER_
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -130,6 +158,7 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -159,10 +188,45 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
 }
 `;
 
+exports[`UserReducer should handle all defined fulfilled types: fulfilled types GET_BILLING_ACCOUNTS_RHSM 1`] = `
+{
+  "result": {
+    "auth": {},
+    "billingAccounts": {
+      "data": {
+        "permissions": [],
+        "test": "success",
+        "user": {
+          "identity": {
+            "user": {
+              "is_org_admin": true,
+            },
+          },
+        },
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": {},
+      "pending": false,
+      "status": 0,
+    },
+    "errors": {},
+    "exports": {},
+    "exportsExisting": {},
+    "locale": {},
+    "optin": {},
+  },
+  "type": "GET_BILLING_ACCOUNTS_RHSM_FULFILLED",
+}
+`;
+
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types GET_USER_OPTIN 1`] = `
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -215,6 +279,7 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
       "pending": false,
       "status": 0,
     },
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -229,6 +294,7 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {
@@ -262,6 +328,7 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -295,6 +362,7 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -328,6 +396,7 @@ exports[`UserReducer should handle all defined pending types: pending types DELE
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -344,10 +413,32 @@ exports[`UserReducer should handle all defined pending types: pending types DELE
 }
 `;
 
+exports[`UserReducer should handle all defined pending types: pending types GET_BILLING_ACCOUNTS_RHSM 1`] = `
+{
+  "result": {
+    "auth": {},
+    "billingAccounts": {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": {},
+      "pending": true,
+    },
+    "errors": {},
+    "exports": {},
+    "exportsExisting": {},
+    "locale": {},
+    "optin": {},
+  },
+  "type": "GET_BILLING_ACCOUNTS_RHSM_PENDING",
+}
+`;
+
 exports[`UserReducer should handle all defined pending types: pending types GET_USER_OPTIN 1`] = `
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -374,6 +465,7 @@ exports[`UserReducer should handle all defined pending types: pending types PLAT
       "meta": {},
       "pending": true,
     },
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -388,6 +480,7 @@ exports[`UserReducer should handle all defined pending types: pending types SET_
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {
@@ -408,6 +501,7 @@ exports[`UserReducer should handle all defined pending types: pending types UPDA
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -428,6 +522,7 @@ exports[`UserReducer should handle all defined pending types: pending types USER
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -444,10 +539,26 @@ exports[`UserReducer should handle all defined pending types: pending types USER
 }
 `;
 
+exports[`UserReducer should handle specific defined types: defined type SET_CONFIG_RHSM_RESET 1`] = `
+{
+  "result": {
+    "auth": {},
+    "billingAccounts": {},
+    "errors": {},
+    "exports": {},
+    "exportsExisting": {},
+    "locale": {},
+    "optin": {},
+  },
+  "type": "SET_CONFIG_RHSM_RESET",
+}
+`;
+
 exports[`UserReducer should handle specific defined types: defined type SET_PLATFORM_EXPORT_RESET 1`] = `
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -462,6 +573,7 @@ exports[`UserReducer should handle specific defined types: defined type SET_PLAT
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {
       "test_id": {
@@ -483,6 +595,7 @@ exports[`UserReducer should handle specific http status types: http status 4XX 4
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {},
     "exports": {},
     "exportsExisting": {},
@@ -497,6 +610,7 @@ exports[`UserReducer should handle specific http status types: http status 4XX 4
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {
       "data": [
         "SUBSCRIPTIONS1004",
@@ -518,6 +632,7 @@ exports[`UserReducer should handle specific http status types: http status 4XX 4
 {
   "result": {
     "auth": {},
+    "billingAccounts": {},
     "errors": {
       "data": [
         "SUBSCRIPTIONS1004",

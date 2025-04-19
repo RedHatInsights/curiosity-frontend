@@ -665,11 +665,13 @@ Parse platform getUserPermissions response.
     * [~RHSM_API_PATH_PRODUCT_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_PATH_PRODUCT_TYPES) : <code>Object</code>
     * [~RHSM_API_PATH_METRIC_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_PATH_METRIC_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_DATA](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_DATA) : <code>string</code>
+    * [~RHSM_API_RESPONSE_ID](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_ID) : <code>string</code>
     * [~RHSM_API_RESPONSE_META](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_META) : <code>string</code>
     * [~RHSM_API_RESPONSE_META_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_META_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_ERRORS](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_ERRORS) : <code>string</code>
     * [~RHSM_API_RESPONSE_ERRORS_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_ERRORS_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_ERRORS_CODE_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_ERRORS_CODE_TYPES) : <code>Object</code>
+    * [~RHSM_API_RESPONSE_BILLING_ACCOUNT_ID_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_BILLING_ACCOUNT_ID_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_INSTANCES_DATA_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_INSTANCES_DATA_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_INSTANCES_META_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_INSTANCES_META_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES) : <code>Object</code>
@@ -685,6 +687,7 @@ Parse platform getUserPermissions response.
     * [~RHSM_API_QUERY_INVENTORY_SORT_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_SORT_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES) : <code>Object</code>
+    * [~RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_SET_INVENTORY_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_SET_INVENTORY_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_SET_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_SET_TYPES) : <code>Object</code>
@@ -734,6 +737,12 @@ RHSM path IDs for metrics.
 RHSM response data type.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
+<a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_ID"></a>
+
+### RhsmConstants~RHSM\_API\_RESPONSE\_ID : <code>string</code>
+RHSM response ids type.
+
+**Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
 <a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_META"></a>
 
 ### RhsmConstants~RHSM\_API\_RESPONSE\_META : <code>string</code>
@@ -762,6 +771,12 @@ RHSM response errors types.
 
 ### RhsmConstants~RHSM\_API\_RESPONSE\_ERRORS\_CODE\_TYPES : <code>Object</code>
 RHSM response error codes.
+
+**Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
+<a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_BILLING_ACCOUNT_ID_TYPES"></a>
+
+### RhsmConstants~RHSM\_API\_RESPONSE\_BILLING\_ACCOUNT\_ID\_TYPES : <code>Object</code>
+RHSM response Billing Account ID types.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
 <a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_INSTANCES_DATA_TYPES"></a>
@@ -855,6 +870,12 @@ RHSM API query/search parameter SORT DIRECTION type values.
 RHSM API query/search parameter SORT type values for SUBSCRIPTIONS.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
+<a name="Rhsm.module_RhsmConstants..RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES"></a>
+
+### RhsmConstants~RHSM\_API\_QUERY\_SET\_BILLING\_ACCOUNT\_ID\_TYPES : <code>Object</code>
+RHSM API query/search parameter BILLING ACCOUNT ID type values.
+
+**Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
 <a name="Rhsm.module_RhsmConstants..RHSM_API_QUERY_SET_INVENTORY_TYPES"></a>
 
 ### RhsmConstants~RHSM\_API\_QUERY\_SET\_INVENTORY\_TYPES : <code>Object</code>
@@ -894,6 +915,8 @@ RHSM constants.
     * [~errorItem](#Rhsm.module_RhsmSchemas..errorItem) : <code>\*</code>
     * [~errorResponseSchema](#Rhsm.module_RhsmSchemas..errorResponseSchema) : <code>\*</code>
     * [~metaResponseSchema](#Rhsm.module_RhsmSchemas..metaResponseSchema) : <code>\*</code>
+    * [~billingAccountsItem](#Rhsm.module_RhsmSchemas..billingAccountsItem) : <code>\*</code>
+    * [~billingAccountsResponseSchema](#Rhsm.module_RhsmSchemas..billingAccountsResponseSchema) : <code>\*</code>
     * [~capacityMetaSchema](#Rhsm.module_RhsmSchemas..capacityMetaSchema) : <code>\*</code>
     * [~capacityItem](#Rhsm.module_RhsmSchemas..capacityItem) : <code>\*</code>
     * [~capacityResponseSchema](#Rhsm.module_RhsmSchemas..capacityResponseSchema) : <code>\*</code>
@@ -932,6 +955,18 @@ Error response.
 
 ### RhsmSchemas~metaResponseSchema : <code>\*</code>
 RHSM base response meta field.
+
+**Kind**: inner constant of [<code>RhsmSchemas</code>](#Rhsm.module_RhsmSchemas)  
+<a name="Rhsm.module_RhsmSchemas..billingAccountsItem"></a>
+
+### RhsmSchemas~billingAccountsItem : <code>\*</code>
+Billing accounts response item.
+
+**Kind**: inner constant of [<code>RhsmSchemas</code>](#Rhsm.module_RhsmSchemas)  
+<a name="Rhsm.module_RhsmSchemas..billingAccountsResponseSchema"></a>
+
+### RhsmSchemas~billingAccountsResponseSchema : <code>\*</code>
+Billing accounts response.
 
 **Kind**: inner constant of [<code>RhsmSchemas</code>](#Rhsm.module_RhsmSchemas)  
 <a name="Rhsm.module_RhsmSchemas..capacityMetaSchema"></a>
@@ -1032,6 +1067,9 @@ RHSM API service calls.
 
 * [RhsmServices](#Rhsm.module_RhsmServices)
     * [~getApiVersion(options)](#Rhsm.module_RhsmServices..getApiVersion) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~getBillingAccountsInstances(id, params, options)](#Rhsm.module_RhsmServices..getBillingAccountsInstances) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~getBillingAccountsSubscriptions(id, params, options)](#Rhsm.module_RhsmServices..getBillingAccountsSubscriptions) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~getBillingAccounts(id, params, options)](#Rhsm.module_RhsmServices..getBillingAccounts) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getGraphTally(id, params, options)](#Rhsm.module_RhsmServices..getGraphTally) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getGraphCapacity(id, params, options)](#Rhsm.module_RhsmServices..getGraphCapacity) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getInstancesInventoryGuests(id, params, options)](#Rhsm.module_RhsmServices..getInstancesInventoryGuests) ⇒ <code>Promise.&lt;\*&gt;</code>
@@ -1057,6 +1095,118 @@ Get RHSM API version information.
     <td>options.cancel</td><td><code>boolean</code></td>
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Rhsm.module_RhsmServices..getBillingAccountsInstances"></a>
+
+### RhsmServices~getBillingAccountsInstances(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Get RHSM API instances billing account id data.
+Note: Align API call with RHSM calls. Treat unique search param "product_tag" as "id" instead, allow override.
+
+**Kind**: inner method of [<code>RhsmServices</code>](#Rhsm.module_RhsmServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code></td><td><p>Product ID</p>
+</td>
+    </tr><tr>
+    <td>params</td><td><code>object</code></td><td><p>Query/search params</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cache</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,</p>
+</td>
+    </tr><tr>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="Rhsm.module_RhsmServices..getBillingAccountsSubscriptions"></a>
+
+### RhsmServices~getBillingAccountsSubscriptions(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Get RHSM API instances billing account id data.
+Note: Align API call with RHSM calls. Treat unique search param "product_tag" as "id" instead, allow override.
+
+**Kind**: inner method of [<code>RhsmServices</code>](#Rhsm.module_RhsmServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code></td><td><p>Product ID</p>
+</td>
+    </tr><tr>
+    <td>params</td><td><code>object</code></td><td><p>Query/search params</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cache</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,</p>
+</td>
+    </tr><tr>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="Rhsm.module_RhsmServices..getBillingAccounts"></a>
+
+### RhsmServices~getBillingAccounts(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Get RHSM API instances AND subscriptions billing account id data.
+
+**Kind**: inner method of [<code>RhsmServices</code>](#Rhsm.module_RhsmServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code></td><td><p>Product identifier</p>
+</td>
+    </tr><tr>
+    <td>params</td><td><code>object</code></td><td><p>Query/search params</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cache</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
+</td>
+    </tr><tr>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
+</td>
     </tr>  </tbody>
 </table>
 
@@ -1248,6 +1398,8 @@ Transform RHSM responses. Replaces selector usage.
 
 * [RhsmTransformers](#Rhsm.module_RhsmTransformers)
     * [~rhsmInstancesGuestsCache](#Rhsm.module_RhsmTransformers..rhsmInstancesGuestsCache) : <code>Object</code>
+    * [~rhsmBillingAccounts(response)](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts) ⇒ <code>object</code>
+        * [.memo](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts.memo) : <code>function</code>
     * [~rhsmInstances(response)](#Rhsm.module_RhsmTransformers..rhsmInstances) ⇒ <code>object</code>
     * [~rhsmInstancesGuests(response, config)](#Rhsm.module_RhsmTransformers..rhsmInstancesGuests) ⇒ <code>object</code>
     * [~rhsmSubscriptions(response)](#Rhsm.module_RhsmTransformers..rhsmSubscriptions) ⇒ <code>object</code>
@@ -1259,6 +1411,30 @@ Transform RHSM responses. Replaces selector usage.
 Temporary guests response cache.
 
 **Kind**: inner constant of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
+<a name="Rhsm.module_RhsmTransformers..rhsmBillingAccounts"></a>
+
+### RhsmTransformers~rhsmBillingAccounts(response) ⇒ <code>object</code>
+Parse RHSM billing account id responses.
+
+**Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>response</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Rhsm.module_RhsmTransformers..rhsmBillingAccounts.memo"></a>
+
+#### rhsmBillingAccounts.memo : <code>function</code>
+A memoized response for the rhsmBillingAccounts function. Assigned to a property for testing function.
+
+**Kind**: static property of [<code>rhsmBillingAccounts</code>](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts)  
 <a name="Rhsm.module_RhsmTransformers..rhsmInstances"></a>
 
 ### RhsmTransformers~rhsmInstances(response) ⇒ <code>object</code>

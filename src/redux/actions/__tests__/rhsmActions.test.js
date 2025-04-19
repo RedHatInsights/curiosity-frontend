@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
 import moxios from 'moxios';
 import { multiActionMiddleware, promiseMiddleware } from '../../middleware';
-import { graphReducer, inventoryReducer, viewReducer } from '../../reducers';
+import { appReducer, graphReducer, inventoryReducer, viewReducer } from '../../reducers';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 import { rhsmActions } from '../rhsmActions';
 
@@ -10,6 +10,7 @@ describe('RhsmActions', () => {
   const generateStore = () =>
     createStore(
       combineReducers({
+        app: appReducer,
         graph: graphReducer,
         inventory: inventoryReducer,
         view: viewReducer
@@ -33,6 +34,17 @@ describe('RhsmActions', () => {
 
   afterEach(() => {
     moxios.uninstall();
+  });
+
+  it('Should return response content for getBillingAccounts method', done => {
+    const store = generateStore();
+    const dispatcher = rhsmActions.getBillingAccounts();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().app;
+      expect(response.billingAccounts.fulfilled).toBe(true);
+      done();
+    });
   });
 
   it('Should return response content for getGraphMetrics method', done => {

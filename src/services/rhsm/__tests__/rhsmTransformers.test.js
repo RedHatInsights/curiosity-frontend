@@ -2,12 +2,66 @@ import { rhsmTransformers } from '../rhsmTransformers';
 import {
   rhsmConstants,
   RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES as TALLY_CAPACITY_DATA_TYPES,
-  RHSM_API_QUERY_SET_TYPES
+  RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_RESPONSE_BILLING_ACCOUNT_ID_TYPES as BILLING_ACCOUNT_ID_TYPES
 } from '../rhsmConstants';
 
 describe('RHSM Transformers', () => {
   it('should have specific response transformers', () => {
     expect(rhsmTransformers).toMatchSnapshot('specific transformers');
+  });
+
+  it('should attempt to parse multiple billing account id responses', () => {
+    expect(rhsmTransformers.billingAccounts(undefined)).toMatchSnapshot('billingAccounts, failed');
+
+    expect(
+      rhsmTransformers.billingAccounts([
+        {
+          status: 200,
+          data: {
+            [rhsmConstants.RHSM_API_RESPONSE_ID]: [
+              {
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '678910',
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'mockProvider'
+              },
+              {
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '12345',
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'mockProvider'
+              }
+            ]
+          }
+        },
+        {
+          status: 200,
+          data: {
+            [rhsmConstants.RHSM_API_RESPONSE_ID]: [
+              {
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '78910',
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'otherMockProvider'
+              },
+              {
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: '12345',
+                [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: 'otherMockProvider'
+              }
+            ]
+          }
+        },
+        {
+          status: 200,
+          data: {
+            [rhsmConstants.RHSM_API_RESPONSE_ID]: [{}]
+          }
+        },
+        {
+          status: 200,
+          data: {}
+        },
+        {
+          status: 400,
+          data: {}
+        }
+      ])
+    ).toMatchSnapshot('billingAccounts');
   });
 
   it('should attempt to parse a capacity response', () => {
