@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useProduct, useProductGraphConfig, useProductToolbarQuery } from '../productView/productViewContext';
 import { reduxTypes, storeHooks } from '../../redux';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
@@ -18,47 +18,50 @@ import { translate } from '../i18n/i18n';
  *
  * @param {object} options
  * @param {useProductGraphConfig} [options.useProductGraphConfig=useProductGraphConfig]
- * @returns {Function}
+ * @returns {Array}
  */
 const useToolbarFieldOptions = ({ useProductGraphConfig: useAliasProductGraphConfig = useProductGraphConfig } = {}) => {
   const { filters } = useAliasProductGraphConfig();
-  const options = [];
 
-  if (Array.isArray(filters)) {
-    const updatedFilters = [];
-    const update = ({ metric, query }) => {
-      const category = query?.[RHSM_API_QUERY_SET_TYPES.CATEGORY];
-      const isDuplicate = updatedFilters.find(({ value }) => value === category);
+  return useMemo(() => {
+    const options = [];
 
-      if (category !== undefined && !isDuplicate) {
-        updatedFilters.push({
-          title: translate('curiosity-toolbar.label', {
-            context: ['category', (category === '' && 'none') || category]
-          }),
-          value: category,
-          metaData: {
-            metric,
-            query
-          },
-          isSelected: false
-        });
+    if (Array.isArray(filters)) {
+      const updatedFilters = [];
+      const update = ({ metric, query }) => {
+        const category = query?.[RHSM_API_QUERY_SET_TYPES.CATEGORY];
+        const isDuplicate = updatedFilters.find(({ value }) => value === category);
+
+        if (category !== undefined && !isDuplicate) {
+          updatedFilters.push({
+            title: translate('curiosity-toolbar.label', {
+              context: ['category', (category === '' && 'none') || category]
+            }),
+            value: category,
+            metaData: {
+              metric,
+              query
+            },
+            isSelected: false
+          });
+        }
+      };
+
+      filters?.forEach(({ filters: groupedFilters, ...restFilters }) => {
+        if (Array.isArray(groupedFilters)) {
+          groupedFilters.forEach(group => update(group));
+        } else {
+          update(restFilters);
+        }
+      });
+
+      if (updatedFilters?.length) {
+        options.push(...updatedFilters);
       }
-    };
-
-    filters?.forEach(({ filters: groupedFilters, ...restFilters }) => {
-      if (Array.isArray(groupedFilters)) {
-        groupedFilters.forEach(group => update(group));
-      } else {
-        update(restFilters);
-      }
-    });
-
-    if (updatedFilters?.length) {
-      options.push(...updatedFilters);
     }
-  }
 
-  return options;
+    return options;
+  }, [filters]);
 };
 
 /**
