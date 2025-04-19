@@ -909,8 +909,43 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
 }
 `;
 
+exports[`RHSM Transformers should attempt to parse multiple billing account id responses: billingAccounts 1`] = `
+{
+  "accountsByProvider": {
+    "mockProvider": [
+      "678910",
+    ],
+    "otherMockProvider": [
+      "12345",
+      "78910",
+    ],
+  },
+  "billingProviders": [
+    "mockProvider",
+    "otherMockProvider",
+  ],
+  "defaultAccount": "678910",
+  "defaultAccountByProvider": {
+    "mockProvider": "678910",
+    "otherMockProvider": "12345",
+  },
+  "defaultProvider": "mockProvider",
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse multiple billing account id responses: billingAccounts, failed 1`] = `
+{
+  "accountsByProvider": {},
+  "billingProviders": [],
+  "defaultAccount": undefined,
+  "defaultAccountByProvider": {},
+  "defaultProvider": undefined,
+}
+`;
+
 exports[`RHSM Transformers should have specific response transformers: specific transformers 1`] = `
 {
+  "billingAccounts": [Function],
   "guests": [Function],
   "instances": [Function],
   "subscriptions": [Function],

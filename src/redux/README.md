@@ -231,10 +231,31 @@ RHSM service wrappers for dispatch, state update.
 
 
 * [RhsmActions](#Actions.module_RhsmActions)
+    * [~getBillingAccounts(id, query)](#Actions.module_RhsmActions..getBillingAccounts) ⇒ <code>function</code>
     * [~getGraphMetrics(idMetric, query, options)](#Actions.module_RhsmActions..getGraphMetrics) ⇒ <code>function</code>
     * [~getInstancesInventory(id, query)](#Actions.module_RhsmActions..getInstancesInventory) ⇒ <code>function</code>
     * [~getInstancesInventoryGuests(id, query)](#Actions.module_RhsmActions..getInstancesInventoryGuests) ⇒ <code>function</code>
     * [~getSubscriptionsInventory(id, query)](#Actions.module_RhsmActions..getSubscriptionsInventory) ⇒ <code>function</code>
+
+<a name="Actions.module_RhsmActions..getBillingAccounts"></a>
+
+### RhsmActions~getBillingAccounts(id, query) ⇒ <code>function</code>
+Get a combined billing account id response listing from RHSM instances, subscriptions billing account ids.
+
+**Kind**: inner method of [<code>RhsmActions</code>](#Actions.module_RhsmActions)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code></td><td><code>null</code></td>
+    </tr><tr>
+    <td>query</td><td><code>object</code></td><td></td>
+    </tr>  </tbody>
+</table>
 
 <a name="Actions.module_RhsmActions..getGraphMetrics"></a>
 
