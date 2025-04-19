@@ -19,7 +19,7 @@ import { routerContext } from '../router';
  * @param {object} options
  * @param {translate} [options.t=translate]
  * @param {routerContext.useRouteDetail} [options.useRouteDetail=routerContext.useRouteDetail]
- * @returns {Function}
+ * @returns {Array<{title: React.ReactNode, value: string, isSelected: boolean}>}
  */
 const useToolbarFieldOptions = ({
   t = translate,

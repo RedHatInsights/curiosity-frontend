@@ -4265,22 +4265,22 @@ Return a query object from initial product config and Redux store.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>queryType</td><td><code>string</code></td><td><p>An identifier used to pull from both config and Redux, they should named the same.</p>
+    <td>queryType</td><td><code>string</code></td><td></td><td><p>An identifier used to pull from both config and Redux, they should be named the same.</p>
 </td>
     </tr><tr>
-    <td>options</td><td><code>object</code></td><td></td>
+    <td>options</td><td><code>object</code></td><td></td><td></td>
     </tr><tr>
-    <td>options.overrideId</td><td><code>string</code></td><td><p>A custom identifier, used for scenarios like the Guest inventory IDs</p>
+    <td>[options.overrideId]</td><td><code>string</code></td><td></td><td><p>A custom identifier, used for scenarios like the Guest inventory IDs</p>
 </td>
     </tr><tr>
-    <td>options.useProductViewContext</td><td><code>object</code></td><td></td>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td><td></td>
     </tr><tr>
-    <td>options.useSelectors</td><td><code>function</code></td><td></td>
+    <td>[options.useSelectors]</td><td><code>storeHooks.reactRedux.useSelectors</code></td><td><code>storeHooks.reactRedux.useSelectors</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -4371,22 +4371,22 @@ Return the graph query based off of tally and capacity.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.queryType</td><td><code>string</code></td>
+    <td>[options.queryType]</td><td><code>string</code></td><td><code>&quot;&#x27;graphTallyQuery&#x27;&quot;</code></td>
     </tr><tr>
-    <td>options.schemaCheck</td><td><code>object</code></td>
+    <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES</code></td>
     </tr><tr>
-    <td>options.useProductQuery</td><td><code>function</code></td>
+    <td>[options.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
-    <td>options.useProductQueryFactory</td><td><code>function</code></td>
+    <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
-    <td>options.options</td><td><code>object</code></td>
+    <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -4399,22 +4399,22 @@ Return the inventory query for guests. Use fallback/defaults for guests offset, 
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.queryType</td><td><code>string</code></td>
+    <td>[options.queryType]</td><td><code>string</code></td><td><code>&quot;&#x27;inventoryGuestsQuery&#x27;&quot;</code></td>
     </tr><tr>
-    <td>options.schemaCheck</td><td><code>object</code></td>
+    <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES</code></td>
     </tr><tr>
-    <td>options.useProductQuery</td><td><code>function</code></td>
+    <td>[options.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
-    <td>options.useProductQueryFactory</td><td><code>function</code></td>
+    <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
-    <td>options.options</td><td><code>object</code></td>
+    <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -4427,22 +4427,22 @@ Return an inventory query for hosts.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.queryType</td><td><code>string</code></td>
+    <td>[options.queryType]</td><td><code>string</code></td><td><code>&quot;&#x27;inventoryHostsQuery&#x27;&quot;</code></td>
     </tr><tr>
-    <td>options.schemaCheck</td><td><code>object</code></td>
+    <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES</code></td>
     </tr><tr>
-    <td>options.useProductQuery</td><td><code>function</code></td>
+    <td>[options.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
-    <td>options.useProductQueryFactory</td><td><code>function</code></td>
+    <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
-    <td>options.options</td><td><code>object</code></td>
+    <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -4455,22 +4455,22 @@ Return an inventory query for subscriptions.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.queryType</td><td><code>string</code></td>
+    <td>[options.queryType]</td><td><code>string</code></td><td><code>&quot;&#x27;inventorySubscriptionsQuery&#x27;&quot;</code></td>
     </tr><tr>
-    <td>options.schemaCheck</td><td><code>object</code></td>
+    <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES</code></td>
     </tr><tr>
-    <td>options.useProductQuery</td><td><code>function</code></td>
+    <td>[options.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
-    <td>options.useProductQueryFactory</td><td><code>function</code></td>
+    <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
-    <td>options.options</td><td><code>object</code></td>
+    <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -4483,22 +4483,22 @@ Return a unified query for toolbars
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProductQuery</td><td><code>function</code></td>
+    <td>[options.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
-    <td>options.useProductGraphTallyQuery</td><td><code>function</code></td>
+    <td>[options.useProductGraphTallyQuery]</td><td><code>useProductGraphTallyQuery</code></td><td><code>useProductGraphTallyQuery</code></td>
     </tr><tr>
-    <td>options.useProductInventoryHostsQuery</td><td><code>function</code></td>
+    <td>[options.useProductInventoryHostsQuery]</td><td><code>useProductInventoryHostsQuery</code></td><td><code>useProductInventoryHostsQuery</code></td>
     </tr><tr>
-    <td>options.useProductInventorySubscriptionsQuery</td><td><code>function</code></td>
+    <td>[options.useProductInventorySubscriptionsQuery]</td><td><code>useProductInventorySubscriptionsQuery</code></td><td></td>
     </tr><tr>
-    <td>options.options</td><td><code>object</code></td>
+    <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -4511,14 +4511,14 @@ Get a filtered product configuration context.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProductViewContext</td><td><code>function</code></td>
+    <td>[options.useProductViewContext]</td><td><code>useProductContext</code></td><td><code>useProductContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4531,14 +4531,14 @@ Return product identifiers.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProductViewContext</td><td><code>function</code></td>
+    <td>[options.useProductViewContext]</td><td><code>useProductContext</code></td><td><code>useProductContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4551,14 +4551,14 @@ Return graph configuration.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProductContext</td><td><code>function</code></td>
+    <td>[options.useProductContext]</td><td><code>useProductContext</code></td><td><code>useProductContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4571,14 +4571,14 @@ Return guests inventory configuration.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProductContext</td><td><code>function</code></td>
+    <td>[options.useProductContext]</td><td><code>useProductContext</code></td><td><code>useProductContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4591,14 +4591,14 @@ Return inventory configuration.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProductContext</td><td><code>function</code></td>
+    <td>[options.useProductContext]</td><td><code>useProductContext</code></td><td><code>useProductContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4611,14 +4611,14 @@ Return subscriptions inventory configuration.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProductContext</td><td><code>function</code></td>
+    <td>[options.useProductContext]</td><td><code>useProductContext</code></td><td><code>useProductContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4631,14 +4631,14 @@ Return primary toolbar configuration.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProductContext</td><td><code>function</code></td>
+    <td>[options.useProductContext]</td><td><code>useProductContext</code></td><td><code>useProductContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4651,20 +4651,20 @@ Return an export query for subscriptions.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
-    <td>options.schemaCheck</td><td><code>object</code></td>
+    <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES</code></td>
     </tr><tr>
-    <td>options.useProductToolbarQuery</td><td><code>function</code></td>
+    <td>[options.useProductToolbarQuery]</td><td><code>useProductToolbarQuery</code></td><td><code>useProductToolbarQuery</code></td>
     </tr><tr>
-    <td>options.options</td><td><code>object</code></td>
+    <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -4692,7 +4692,7 @@ Onload product conditionally dispatch services.
     </tr><tr>
     <td>[options.useProductBillingAccountsQuery]</td><td><code>useProductBillingAccountsQuery</code></td><td><code>useProductBillingAccountsQuery</code></td>
     </tr><tr>
-    <td>[options.useSelectorsResponse]</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td><td></td>
+    <td>[options.useSelectorsResponse]</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td><td><code>useSelectorsResponse</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5762,13 +5762,13 @@ A standalone Category select filter.
 
 
 * [ToolbarFieldCategory](#Toolbar.module_ToolbarFieldCategory)
-    * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldCategory..useToolbarFieldOptions) ⇒ <code>Array</code>
+    * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldCategory..useToolbarFieldOptions) ⇒ <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean, metaData: {metric: string, query: string}}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldCategory..useOnSelect) ⇒ <code>function</code>
     * [~ToolbarFieldCategory(props)](#Toolbar.module_ToolbarFieldCategory..ToolbarFieldCategory) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldCategory..useToolbarFieldOptions"></a>
 
-### ToolbarFieldCategory~useToolbarFieldOptions(options) ⇒ <code>Array</code>
+### ToolbarFieldCategory~useToolbarFieldOptions(options) ⇒ <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean, metaData: {metric: string, query: string}}&gt;</code>
 Generate select field options from nested product graph configuration.
 
 **Kind**: inner method of [<code>ToolbarFieldCategory</code>](#Toolbar.module_ToolbarFieldCategory)  
@@ -5931,6 +5931,20 @@ On enter submit value, on type submit value, and on esc ignore (clear value at c
 
 ## ToolbarFieldExport
 A standalone export select/dropdown filter and download hooks.
+
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>ToolbarFieldExportContext</td><td><code>module</code></td>
+    </tr>  </tbody>
+</table>
 
 
 * [ToolbarFieldExport](#Toolbar.module_ToolbarFieldExport)
@@ -6229,13 +6243,13 @@ A toolbar product configuration select filter requiring a toolbar component pare
 
 
 * [ToolbarFieldGroupVariant](#Toolbar.module_ToolbarFieldGroupVariant)
-    * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldGroupVariant..useToolbarFieldOptions) ⇒ <code>function</code>
+    * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldGroupVariant..useToolbarFieldOptions) ⇒ <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldGroupVariant..useOnSelect) ⇒ <code>function</code>
     * [~ToolbarFieldGroupVariant(props)](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldGroupVariant..useToolbarFieldOptions"></a>
 
-### ToolbarFieldGroupVariant~useToolbarFieldOptions(options) ⇒ <code>function</code>
+### ToolbarFieldGroupVariant~useToolbarFieldOptions(options) ⇒ <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Generate select field options from config. Sorted by title string.
 
 **Kind**: inner method of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant)  
