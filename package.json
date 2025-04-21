@@ -122,7 +122,7 @@
     "apidoc-mock": "^5.0.7",
     "babel-jest": "^29.7.0",
     "changelog-light": "^2.0.5",
-    "cspell": "^8.18.1",
+    "cspell": "^8.19.2",
     "eslint": "8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^10.1.2",
