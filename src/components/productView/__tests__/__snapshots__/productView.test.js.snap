@@ -8,47 +8,53 @@ exports[`ProductView Component should allow custom inventory displays via config
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns>
-    <Context.Provider
-      value={
-        {
-          "initialInventoryFilters": [],
-          "initialSubscriptionsInventoryFilters": [],
-          "lorem": "ipsum",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
+    <MinHeight
+      isOnLoad={true}
     >
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
-      <PageToolbar>
-        <Toolbar />
-      </PageToolbar>
-      <PageSection
-        className="curiosity-page-section__graphs"
+      <Context.Provider
+        value={
+          {
+            "initialInventoryFilters": [],
+            "initialSubscriptionsInventoryFilters": [],
+            "lorem": "ipsum",
+            "productId": "lorem",
+            "viewId": "viewIpsum",
+          }
+        }
       >
-        <GraphCard />
-      </PageSection>
-      <PageSection
-        className="curiosity-page-section__tabs"
-      >
-        <InventoryTabs
-          isDisabled={false}
-        >
-          <InventoryTab
-            title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
+        <ProductViewOnload>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection
+            className="curiosity-page-section__graphs"
           >
-            <InventoryCardInstances />
-          </InventoryTab>
-          <InventoryTab
-            title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
+            <GraphCard />
+          </PageSection>
+          <PageSection
+            className="curiosity-page-section__tabs"
           >
-            <InventoryCardSubscriptions />
-          </InventoryTab>
-        </InventoryTabs>
-      </PageSection>
-    </Context.Provider>
+            <InventoryTabs
+              isDisabled={false}
+            >
+              <InventoryTab
+                title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
+              >
+                <InventoryCardInstances />
+              </InventoryTab>
+              <InventoryTab
+                title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
+              >
+                <InventoryCardSubscriptions />
+              </InventoryTab>
+            </InventoryTabs>
+          </PageSection>
+        </ProductViewOnload>
+      </Context.Provider>
+    </MinHeight>
   </PageColumns>
   <div
     className="curiosity-page-section__version"
@@ -75,42 +81,48 @@ exports[`ProductView Component should allow custom inventory displays via config
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns>
-    <Context.Provider
-      value={
-        {
-          "initialInventoryFilters": undefined,
-          "initialSubscriptionsInventoryFilters": [],
-          "lorem": "ipsum",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
+    <MinHeight
+      isOnLoad={true}
     >
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
-      <PageToolbar>
-        <Toolbar />
-      </PageToolbar>
-      <PageSection
-        className="curiosity-page-section__graphs"
+      <Context.Provider
+        value={
+          {
+            "initialInventoryFilters": undefined,
+            "initialSubscriptionsInventoryFilters": [],
+            "lorem": "ipsum",
+            "productId": "lorem",
+            "viewId": "viewIpsum",
+          }
+        }
       >
-        <GraphCard />
-      </PageSection>
-      <PageSection
-        className="curiosity-page-section__tabs"
-      >
-        <InventoryTabs
-          isDisabled={false}
-        >
-          <InventoryTab
-            title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
+        <ProductViewOnload>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection
+            className="curiosity-page-section__graphs"
           >
-            <InventoryCardSubscriptions />
-          </InventoryTab>
-        </InventoryTabs>
-      </PageSection>
-    </Context.Provider>
+            <GraphCard />
+          </PageSection>
+          <PageSection
+            className="curiosity-page-section__tabs"
+          >
+            <InventoryTabs
+              isDisabled={false}
+            >
+              <InventoryTab
+                title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
+              >
+                <InventoryCardSubscriptions />
+              </InventoryTab>
+            </InventoryTabs>
+          </PageSection>
+        </ProductViewOnload>
+      </Context.Provider>
+    </MinHeight>
   </PageColumns>
   <div
     className="curiosity-page-section__version"
@@ -137,42 +149,48 @@ exports[`ProductView Component should allow custom inventory displays via config
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns>
-    <Context.Provider
-      value={
-        {
-          "initialInventoryFilters": [],
-          "initialSubscriptionsInventoryFilters": undefined,
-          "lorem": "ipsum",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
+    <MinHeight
+      isOnLoad={true}
     >
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
-      <PageToolbar>
-        <Toolbar />
-      </PageToolbar>
-      <PageSection
-        className="curiosity-page-section__graphs"
+      <Context.Provider
+        value={
+          {
+            "initialInventoryFilters": [],
+            "initialSubscriptionsInventoryFilters": undefined,
+            "lorem": "ipsum",
+            "productId": "lorem",
+            "viewId": "viewIpsum",
+          }
+        }
       >
-        <GraphCard />
-      </PageSection>
-      <PageSection
-        className="curiosity-page-section__tabs"
-      >
-        <InventoryTabs
-          isDisabled={false}
-        >
-          <InventoryTab
-            title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
+        <ProductViewOnload>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection
+            className="curiosity-page-section__graphs"
           >
-            <InventoryCardInstances />
-          </InventoryTab>
-        </InventoryTabs>
-      </PageSection>
-    </Context.Provider>
+            <GraphCard />
+          </PageSection>
+          <PageSection
+            className="curiosity-page-section__tabs"
+          >
+            <InventoryTabs
+              isDisabled={false}
+            >
+              <InventoryTab
+                title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
+              >
+                <InventoryCardInstances />
+              </InventoryTab>
+            </InventoryTabs>
+          </PageSection>
+        </ProductViewOnload>
+      </Context.Provider>
+    </MinHeight>
   </PageColumns>
   <div
     className="curiosity-page-section__version"
@@ -199,35 +217,41 @@ exports[`ProductView Component should allow custom product views via productDisp
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns>
-    <Context.Provider
-      value={
-        {
-          "lorem": "ipsum",
-          "productDisplay": "capacity",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
+    <MinHeight
+      isOnLoad={true}
     >
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
-      <PageToolbar>
-        <Toolbar />
-      </PageToolbar>
-      <PageSection
-        className="curiosity-page-section__graphs"
+      <Context.Provider
+        value={
+          {
+            "lorem": "ipsum",
+            "productDisplay": "capacity",
+            "productId": "lorem",
+            "viewId": "viewIpsum",
+          }
+        }
       >
-        <GraphCard />
-      </PageSection>
-      <PageSection
-        className="curiosity-page-section__tabs"
-      >
-        <InventoryTabs
-          isDisabled={true}
-        />
-      </PageSection>
-    </Context.Provider>
+        <ProductViewOnload>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection
+            className="curiosity-page-section__graphs"
+          >
+            <GraphCard />
+          </PageSection>
+          <PageSection
+            className="curiosity-page-section__tabs"
+          >
+            <InventoryTabs
+              isDisabled={true}
+            />
+          </PageSection>
+        </ProductViewOnload>
+      </Context.Provider>
+    </MinHeight>
   </PageColumns>
   <div
     className="curiosity-page-section__version"
@@ -254,35 +278,41 @@ exports[`ProductView Component should allow custom product views via productDisp
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns>
-    <Context.Provider
-      value={
-        {
-          "lorem": "ipsum",
-          "productDisplay": "dual-axes",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
+    <MinHeight
+      isOnLoad={true}
     >
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
-      <PageToolbar>
-        <Toolbar />
-      </PageToolbar>
-      <PageSection
-        className="curiosity-page-section__graphs"
+      <Context.Provider
+        value={
+          {
+            "lorem": "ipsum",
+            "productDisplay": "dual-axes",
+            "productId": "lorem",
+            "viewId": "viewIpsum",
+          }
+        }
       >
-        <GraphCard />
-      </PageSection>
-      <PageSection
-        className="curiosity-page-section__tabs"
-      >
-        <InventoryTabs
-          isDisabled={true}
-        />
-      </PageSection>
-    </Context.Provider>
+        <ProductViewOnload>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection
+            className="curiosity-page-section__graphs"
+          >
+            <GraphCard />
+          </PageSection>
+          <PageSection
+            className="curiosity-page-section__tabs"
+          >
+            <InventoryTabs
+              isDisabled={true}
+            />
+          </PageSection>
+        </ProductViewOnload>
+      </Context.Provider>
+    </MinHeight>
   </PageColumns>
   <div
     className="curiosity-page-section__version"
@@ -309,35 +339,41 @@ exports[`ProductView Component should allow custom product views via productDisp
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns>
-    <Context.Provider
-      value={
-        {
-          "lorem": "ipsum",
-          "productDisplay": "hourly",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
+    <MinHeight
+      isOnLoad={true}
     >
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
-      <PageToolbar>
-        <Toolbar />
-      </PageToolbar>
-      <PageSection
-        className="curiosity-page-section__graphs"
+      <Context.Provider
+        value={
+          {
+            "lorem": "ipsum",
+            "productDisplay": "hourly",
+            "productId": "lorem",
+            "viewId": "viewIpsum",
+          }
+        }
       >
-        <GraphCard />
-      </PageSection>
-      <PageSection
-        className="curiosity-page-section__tabs"
-      >
-        <InventoryTabs
-          isDisabled={true}
-        />
-      </PageSection>
-    </Context.Provider>
+        <ProductViewOnload>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection
+            className="curiosity-page-section__graphs"
+          >
+            <GraphCard />
+          </PageSection>
+          <PageSection
+            className="curiosity-page-section__tabs"
+          >
+            <InventoryTabs
+              isDisabled={true}
+            />
+          </PageSection>
+        </ProductViewOnload>
+      </Context.Provider>
+    </MinHeight>
   </PageColumns>
   <div
     className="curiosity-page-section__version"
@@ -364,35 +400,41 @@ exports[`ProductView Component should allow custom product views via productDisp
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns>
-    <Context.Provider
-      value={
-        {
-          "lorem": "ipsum",
-          "productDisplay": "legacy",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
+    <MinHeight
+      isOnLoad={true}
     >
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
-      <PageToolbar>
-        <Toolbar />
-      </PageToolbar>
-      <PageSection
-        className="curiosity-page-section__graphs"
+      <Context.Provider
+        value={
+          {
+            "lorem": "ipsum",
+            "productDisplay": "legacy",
+            "productId": "lorem",
+            "viewId": "viewIpsum",
+          }
+        }
       >
-        <GraphCard />
-      </PageSection>
-      <PageSection
-        className="curiosity-page-section__tabs"
-      >
-        <InventoryTabs
-          isDisabled={true}
-        />
-      </PageSection>
-    </Context.Provider>
+        <ProductViewOnload>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection
+            className="curiosity-page-section__graphs"
+          >
+            <GraphCard />
+          </PageSection>
+          <PageSection
+            className="curiosity-page-section__tabs"
+          >
+            <InventoryTabs
+              isDisabled={true}
+            />
+          </PageSection>
+        </ProductViewOnload>
+      </Context.Provider>
+    </MinHeight>
   </PageColumns>
   <div
     className="curiosity-page-section__version"
@@ -419,35 +461,41 @@ exports[`ProductView Component should allow custom product views via productDisp
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns>
-    <Context.Provider
-      value={
-        {
-          "lorem": "ipsum",
-          "productDisplay": "partial",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
+    <MinHeight
+      isOnLoad={true}
     >
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
-      <PageToolbar>
-        <Toolbar />
-      </PageToolbar>
-      <PageSection
-        className="curiosity-page-section__graphs"
+      <Context.Provider
+        value={
+          {
+            "lorem": "ipsum",
+            "productDisplay": "partial",
+            "productId": "lorem",
+            "viewId": "viewIpsum",
+          }
+        }
       >
-        <GraphCard />
-      </PageSection>
-      <PageSection
-        className="curiosity-page-section__tabs"
-      >
-        <InventoryTabs
-          isDisabled={true}
-        />
-      </PageSection>
-    </Context.Provider>
+        <ProductViewOnload>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection
+            className="curiosity-page-section__graphs"
+          >
+            <GraphCard />
+          </PageSection>
+          <PageSection
+            className="curiosity-page-section__tabs"
+          >
+            <InventoryTabs
+              isDisabled={true}
+            />
+          </PageSection>
+        </ProductViewOnload>
+      </Context.Provider>
+    </MinHeight>
   </PageColumns>
   <div
     className="curiosity-page-section__version"
@@ -474,34 +522,40 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
     t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns>
-    <Context.Provider
-      value={
-        {
-          "lorem": "ipsum",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
+    <MinHeight
+      isOnLoad={true}
     >
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
-      <PageToolbar>
-        <Toolbar />
-      </PageToolbar>
-      <PageSection
-        className="curiosity-page-section__graphs"
+      <Context.Provider
+        value={
+          {
+            "lorem": "ipsum",
+            "productId": "lorem",
+            "viewId": "viewIpsum",
+          }
+        }
       >
-        <GraphCard />
-      </PageSection>
-      <PageSection
-        className="curiosity-page-section__tabs"
-      >
-        <InventoryTabs
-          isDisabled={true}
-        />
-      </PageSection>
-    </Context.Provider>
+        <ProductViewOnload>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection
+            className="curiosity-page-section__graphs"
+          >
+            <GraphCard />
+          </PageSection>
+          <PageSection
+            className="curiosity-page-section__tabs"
+          >
+            <InventoryTabs
+              isDisabled={true}
+            />
+          </PageSection>
+        </ProductViewOnload>
+      </Context.Provider>
+    </MinHeight>
   </PageColumns>
   <div
     className="curiosity-page-section__version"

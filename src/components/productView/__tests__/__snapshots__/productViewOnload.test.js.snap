@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductViewOnload Component should handle display error responses: error 1`] = `
+<Card
+  className="curiosity-card curiosity-error__product-onload"
+  isPlain={true}
+>
+  <CardBody
+    className="curiosity-card__body"
+  >
+    <ErrorMessage
+      message="error message"
+      title="t(curiosity-view.error_title, {"product":"mockProductId","context":"onload"})"
+    />
+  </CardBody>
+</Card>
+`;
+
+exports[`ProductViewOnload Component should handle pending responses: pending 1`] = `
+<MessageView
+  icon={<BinocularsIcon />}
+  message="t(curiosity-view.pending, {"context":"description"})"
+  pageTitle=" "
+/>
+`;
+
+exports[`ProductViewOnload Component should render a basic component: basic 1`] = `"lorem ipsum"`;

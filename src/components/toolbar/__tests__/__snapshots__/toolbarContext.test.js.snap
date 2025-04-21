@@ -9,6 +9,12 @@ exports[`ToolbarContext should apply a hook for clearing a toolbar field through
         "viewId": undefined,
       },
       {
+        "filter": "billing_account_id",
+        "type": "SET_QUERY",
+        "value": undefined,
+        "viewId": undefined,
+      },
+      {
         "filter": "billing_provider",
         "type": "SET_QUERY",
         "value": null,
@@ -75,6 +81,12 @@ exports[`ToolbarContext should apply a hook for clearing specific active toolbar
         "viewId": undefined,
       },
       {
+        "filter": "billing_account_id",
+        "type": "SET_QUERY",
+        "value": undefined,
+        "viewId": undefined,
+      },
+      {
         "filter": "billing_provider",
         "type": "SET_QUERY",
         "value": null,
@@ -133,6 +145,12 @@ exports[`ToolbarContext should apply a hook for clearing specific active toolbar
     [
       {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      {
+        "filter": "billing_account_id",
+        "type": "SET_QUERY",
+        "value": undefined,
         "viewId": undefined,
       },
       {

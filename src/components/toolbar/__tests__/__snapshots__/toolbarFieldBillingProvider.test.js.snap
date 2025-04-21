@@ -1,26 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToolbarFieldBillingProvider Component should export select options: toolbarFieldOptions 1`] = `
+exports[`ToolbarFieldBillingProvider Component should generate select options: toolbarFieldOptions 1`] = `
 [
   {
-    "isSelected": false,
-    "title": "t(curiosity-toolbar.label_billing_provider, {"context":"red hat"})",
-    "value": "red hat",
-  },
-  {
-    "isSelected": false,
-    "title": "t(curiosity-toolbar.label_billing_provider, {"context":"aws"})",
-    "value": "aws",
-  },
-  {
-    "isSelected": false,
-    "title": "t(curiosity-toolbar.label_billing_provider, {"context":"azure"})",
-    "value": "azure",
+    "isSelected": true,
+    "title": "t(curiosity-toolbar.label_billing_provider, {"context":"mock billing provider"})",
+    "value": "mock billing provider",
   },
 ]
 `;
 
-exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with component: dispatch, component 1`] = `
+exports[`ToolbarFieldBillingProvider Component should handle updating through redux state with component: dispatch, component 1`] = `
 [
   [
     [
@@ -29,9 +19,15 @@ exports[`ToolbarFieldBillingProvider Component should handle updating sla throug
         "viewId": undefined,
       },
       {
+        "filter": "billing_account_id",
+        "type": "SET_QUERY",
+        "value": undefined,
+        "viewId": undefined,
+      },
+      {
         "filter": "billing_provider",
         "type": "SET_QUERY",
-        "value": "red hat",
+        "value": "mock billing provider",
         "viewId": undefined,
       },
     ],
@@ -39,19 +35,45 @@ exports[`ToolbarFieldBillingProvider Component should handle updating sla throug
 ]
 `;
 
-exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with hook: dispatch, hook 1`] = `
+exports[`ToolbarFieldBillingProvider Component should handle updating through redux state with hook: dispatch, hook 1`] = `
 [
   [
     [
       {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
-        "viewId": "loremIpsum",
+        "viewId": "mock-product-id",
+      },
+      {
+        "filter": "billing_account_id",
+        "type": "SET_QUERY",
+        "value": undefined,
+        "viewId": "mock-product-id",
       },
       {
         "filter": "billing_provider",
         "type": "SET_QUERY",
         "value": "dolor sit",
-        "viewId": "loremIpsum",
+        "viewId": "mock-product-id",
+      },
+    ],
+  ],
+  [
+    [
+      {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "mock-product-id",
+      },
+      {
+        "filter": "billing_account_id",
+        "type": "SET_QUERY",
+        "value": undefined,
+        "viewId": "mock-product-id",
+      },
+      {
+        "filter": "billing_provider",
+        "type": "SET_QUERY",
+        "value": "lorem ipsum",
+        "viewId": "mock-product-id",
       },
     ],
   ],
@@ -59,35 +81,30 @@ exports[`ToolbarFieldBillingProvider Component should handle updating sla throug
 `;
 
 exports[`ToolbarFieldBillingProvider Component should render a basic component: basic 1`] = `
-<Select
-  alignment={
-    {
-      "position": "left",
+<React.Fragment>
+  <ToolbarItem
+    spacer={
+      {
+        "default": "spacerNone",
+      }
     }
-  }
-  aria-label="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
-  data-test="toolbarFieldBillingProvider"
-  onSelect={[Function]}
-  options={
-    [
-      {
-        "isSelected": false,
-        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"red hat"})",
-        "value": "red hat",
-      },
-      {
-        "isSelected": true,
-        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"aws"})",
-        "value": "aws",
-      },
-      {
-        "isSelected": false,
-        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"azure"})",
-        "value": "azure",
-      },
-    ]
-  }
-  placeholder="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
-  selectedOptions="aws"
-/>
+  >
+    <Select
+      alignment={
+        {
+          "position": "left",
+        }
+      }
+      aria-label="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
+      data-test="toolbarFieldBillingProvider"
+      onSelect={[Function]}
+      options={[]}
+      placeholder="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
+      selectedOptions="aws"
+    />
+  </ToolbarItem>
+  <ToolbarItem>
+    <ToolbarFieldBillingAccount />
+  </ToolbarItem>
+</React.Fragment>
 `;

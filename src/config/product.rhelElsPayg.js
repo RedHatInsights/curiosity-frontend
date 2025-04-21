@@ -56,11 +56,11 @@ const productLabel = 'RHEL';
 /**
  * Product configuration
  *
- * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery:
- *     object, query: object, initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, viewId:
- *     string, initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object, inventoryHostsQuery:
- *     object, productDisplay: string, productVariants: string[], initialGraphFilters: Array, initialGraphSettings:
- *     object, initialInventoryFilters: Array}}
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, onloadProduct: Array,
+ *     inventorySubscriptionsQuery: object, query: object, initialSubscriptionsInventoryFilters: Array,
+ *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string,
+ *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, productVariants: string[],
+ *     initialGraphFilters: Array, initialGraphSettings: object, initialInventoryFilters: Array}}
  */
 const config = {
   aliases: ['els'],
@@ -71,6 +71,7 @@ const config = {
   productDisplay: DISPLAY_TYPES.HOURLY,
   viewId: `view${productGroup}-${productId}`,
   productVariants: [...Object.values(RHSM_API_PATH_PRODUCT_VARIANT_RHEL_ELS_TYPES)],
+  onloadProduct: [RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID],
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
     [RHSM_API_QUERY_SET_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()
