@@ -4,6 +4,7 @@ import { useProductQuery, useProductToolbarConfig } from '../productView/product
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { useOnSelect as useSelectCategoryOnSelect, toolbarFieldOptions } from './toolbarFieldSelectCategory';
 import { useOnSelect as useBillingProviderOnSelect } from './toolbarFieldBillingProvider';
+import { useOnSelect as useBillingAccountOnSelect } from './toolbarFieldBillingAccount';
 import { useOnSelect as useCategoryOnSelect } from './toolbarFieldCategory';
 import { useOnSelect as useSlaOnSelect } from './toolbarFieldSla';
 import { useOnSelect as useUsageOnSelect } from './toolbarFieldUsage';
@@ -18,27 +19,33 @@ import { helpers } from '../../common/helpers';
  * Clear a specific toolbar category using a select component's OnSelect hook.
  *
  * @param {object} options
- * @param {Function} options.useBillingProviderOnSelect
- * @param {Function} options.useCategoryOnSelect
- * @param {Function} options.useSlaOnSelect
- * @param {Function} options.useUsageOnSelect
+ * @param {useBillingAccountOnSelect} [options.useBillingAccountOnSelect=useBillingAccountOnSelect]
+ * @param {useBillingProviderOnSelect} [options.useBillingProviderOnSelect=useBillingProviderOnSelect]
+ * @param {useCategoryOnSelect} [options.useCategoryOnSelect=useCategoryOnSelect]
+ * @param {useSlaOnSelect} [options.useSlaOnSelect=useSlaOnSelect]
+ * @param {useUsageOnSelect} [options.useUsageOnSelect=useUsageOnSelect]
  * @returns {Function}
  */
 const useToolbarFieldClear = ({
+  useBillingAccountOnSelect: useAliasBillingAccountOnSelect = useBillingAccountOnSelect,
   useBillingProviderOnSelect: useAliasBillingProviderOnSelect = useBillingProviderOnSelect,
   useCategoryOnSelect: useAliasCategoryOnSelect = useCategoryOnSelect,
   useSlaOnSelect: useAliasSlaOnSelect = useSlaOnSelect,
   useUsageOnSelect: useAliasUsageOnSelect = useUsageOnSelect
 } = {}) => {
-  const billingOnSelect = useAliasBillingProviderOnSelect();
+  const billingProviderOnSelect = useAliasBillingProviderOnSelect();
+  const billingAccountOnSelect = useAliasBillingAccountOnSelect();
   const categoryOnSelect = useAliasCategoryOnSelect();
   const slaOnSelect = useAliasSlaOnSelect();
   const usageOnSelect = useAliasUsageOnSelect();
 
   return field => {
     switch (field) {
+      case RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID:
+        billingAccountOnSelect();
+        break;
       case RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER:
-        billingOnSelect();
+        billingProviderOnSelect();
         break;
       case RHSM_API_QUERY_SET_TYPES.CATEGORY:
         categoryOnSelect();
@@ -59,17 +66,19 @@ const useToolbarFieldClear = ({
  * Clear all available toolbar categories.
  *
  * @param {object} options
- * @param {Function} options.useProductQuery
- * @param {Function} options.useSelectCategoryOnSelect
- * @param {Function} options.useBillingProviderOnSelect
- * @param {Function} options.useCategoryOnSelect
- * @param {Function} options.useSlaOnSelect
- * @param {Function} options.useUsageOnSelect
+ * @param {useProductQuery} [options.useProductQuery=useProductQuery]
+ * @param {useSelectCategoryOnSelect} [options.useSelectCategoryOnSelect=useSelectCategoryOnSelect]
+ * @param {useBillingAccountOnSelect} [options.useBillingAccountOnSelect=useBillingAccountOnSelect]
+ * @param {useBillingProviderOnSelect} [options.useBillingProviderOnSelect=useBillingProviderOnSelect]
+ * @param {useCategoryOnSelect} [options.useCategoryOnSelect=useCategoryOnSelect]
+ * @param {useSlaOnSelect} [options.useSlaOnSelect=useSlaOnSelect]
+ * @param {useUsageOnSelect} [options.useUsageOnSelect=useUsageOnSelect]
  * @returns {Function}
  */
 const useToolbarFieldClearAll = ({
   useProductQuery: useAliasProductQuery = useProductQuery,
   useSelectCategoryOnSelect: useAliasSelectCategoryOnSelect = useSelectCategoryOnSelect,
+  useBillingAccountOnSelect: useAliasBillingAccountOnSelect = useBillingAccountOnSelect,
   useBillingProviderOnSelect: useAliasBillingProviderOnSelect = useBillingProviderOnSelect,
   useCategoryOnSelect: useAliasCategoryOnSelect = useCategoryOnSelect,
   useSlaOnSelect: useAliasSlaOnSelect = useSlaOnSelect,
@@ -77,19 +86,25 @@ const useToolbarFieldClearAll = ({
 } = {}) => {
   const {
     [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: billingProvider,
+    [RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID]: billingAccount,
     [RHSM_API_QUERY_SET_TYPES.CATEGORY]: category,
     [RHSM_API_QUERY_SET_TYPES.SLA]: sla,
     [RHSM_API_QUERY_SET_TYPES.USAGE]: usage
   } = useAliasProductQuery();
-  const billingOnSelect = useAliasBillingProviderOnSelect();
+  const billingProviderOnSelect = useAliasBillingProviderOnSelect();
+  const billingAccountOnSelect = useAliasBillingAccountOnSelect();
   const categoryOnSelect = useAliasCategoryOnSelect();
   const slaOnSelect = useAliasSlaOnSelect();
   const usageOnSelect = useAliasUsageOnSelect();
   const selectCategoryOnSelect = useAliasSelectCategoryOnSelect();
 
   return hardFilterReset => {
+    if (typeof billingAccount === 'string') {
+      billingAccountOnSelect();
+    }
+
     if (typeof billingProvider === 'string') {
-      billingOnSelect();
+      billingProviderOnSelect();
     }
 
     if (typeof category === 'string') {
@@ -114,8 +129,8 @@ const useToolbarFieldClearAll = ({
  * Return lists of item and secondary toolbar fields for display.
  *
  * @param {object} options
- * @param {Array} options.categoryOptions
- * @param {Function} options.useProductToolbarConfig
+ * @param {Array<{value:string}>} [options.categoryOptions=toolbarFieldOptions]
+ * @param {useProductToolbarConfig} [options.useProductToolbarConfig=useProductToolbarConfig]
  * @returns {Array}
  */
 const useToolbarFields = ({

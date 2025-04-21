@@ -79,8 +79,6 @@ exports[`ProductViewContext should apply hooks for retrieving specific api queri
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: exportQuery 1`] = `
 {
-  "billing_account_id": undefined,
-  "billing_provider": undefined,
   "product_id": undefined,
   "sla": "testSla",
 }
@@ -88,48 +86,36 @@ exports[`ProductViewContext should apply hooks for retrieving specific api queri
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: graphTallyQuery 1`] = `
 {
-  "billing_account_id": undefined,
-  "billing_provider": undefined,
   "granularity": "testGranularity",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryGuestsQuery 1`] = `
 {
-  "billing_account_id": undefined,
-  "billing_provider": undefined,
   "offset": "testOffset",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryHostsQuery 1`] = `
 {
-  "billing_account_id": undefined,
-  "billing_provider": undefined,
   "limit": "testLimit",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventorySubscriptionsQuery 1`] = `
 {
-  "billing_account_id": undefined,
-  "billing_provider": undefined,
   "sla": "testSla",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: query 1`] = `
 {
-  "billing_account_id": undefined,
-  "billing_provider": undefined,
   "lorem": "ipsum",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: toolbarQuery 1`] = `
 {
-  "billing_account_id": undefined,
-  "billing_provider": undefined,
   "granularity": "testGranularity",
   "limit": "testLimit",
   "lorem": "ipsum",

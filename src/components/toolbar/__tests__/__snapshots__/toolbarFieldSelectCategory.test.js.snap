@@ -151,25 +151,13 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
   },
   {
     "component": [Function],
+    "dynamicValue": [
+      "billing_provider",
+      "billing_account_id",
+    ],
     "isClearable": true,
     "isSelected": false,
-    "options": [
-      {
-        "isSelected": false,
-        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"red hat"})",
-        "value": "red hat",
-      },
-      {
-        "isSelected": false,
-        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"aws"})",
-        "value": "aws",
-      },
-      {
-        "isSelected": false,
-        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"azure"})",
-        "value": "azure",
-      },
-    ],
+    "options": [],
     "title": "t(curiosity-toolbar.label_filter_billing, {"context":"provider"})",
     "value": "billing_provider",
   },

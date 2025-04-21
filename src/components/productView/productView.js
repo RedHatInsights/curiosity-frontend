@@ -10,8 +10,10 @@ import BannerMessages from '../bannerMessages/bannerMessages';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { InventoryCardInstances } from '../inventoryCardInstances/inventoryCardInstances';
 import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
-import { translate } from '../i18n/i18n';
+import { ProductViewOnload } from './productViewOnload';
 import { ProductViewMissing } from './productViewMissing';
+import { MinHeight } from '../minHeight/minHeight';
+import { translate } from '../i18n/i18n';
 
 /**
  * Primary product display component, and config context provider.
@@ -19,6 +21,7 @@ import { ProductViewMissing } from './productViewMissing';
  * @memberof Components
  * @module ProductView
  * @property {module} ProductViewContext
+ * @property {module} ProductViewOnload
  * @property {module} ProductViewMissing
  */
 
@@ -47,41 +50,45 @@ const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = rout
     }
 
     return (
-      <ProductViewContext.Provider value={firstMatch}>
-        <PageMessages>
-          <BannerMessages />
-        </PageMessages>
-        <PageToolbar>
-          <Toolbar />
-        </PageToolbar>
-        <PageSection className="curiosity-page-section__graphs">
-          <GraphCard />
-        </PageSection>
-        <PageSection className="curiosity-page-section__tabs">
-          <InventoryTabs
-            isDisabled={
-              (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
-            }
-          >
-            {!helpers.UI_DISABLED_TABLE_INSTANCES && initialInventoryFilters && (
-              <InventoryTab
-                key={`inventory_instances_${productId}`}
-                title={t('curiosity-inventory.tabInstances', { context: [productId] })}
+      <MinHeight isOnLoad>
+        <ProductViewContext.Provider value={firstMatch}>
+          <ProductViewOnload>
+            <PageMessages>
+              <BannerMessages />
+            </PageMessages>
+            <PageToolbar>
+              <Toolbar />
+            </PageToolbar>
+            <PageSection className="curiosity-page-section__graphs">
+              <GraphCard />
+            </PageSection>
+            <PageSection className="curiosity-page-section__tabs">
+              <InventoryTabs
+                isDisabled={
+                  (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
+                }
               >
-                <InventoryCardInstances />
-              </InventoryTab>
-            )}
-            {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
-              <InventoryTab
-                key={`inventory_subs_${productId}`}
-                title={t('curiosity-inventory.tabSubscriptions', { context: [productId] })}
-              >
-                <InventoryCardSubscriptions />
-              </InventoryTab>
-            )}
-          </InventoryTabs>
-        </PageSection>
-      </ProductViewContext.Provider>
+                {!helpers.UI_DISABLED_TABLE_INSTANCES && initialInventoryFilters && (
+                  <InventoryTab
+                    key={`inventory_instances_${productId}`}
+                    title={t('curiosity-inventory.tabInstances', { context: [productId] })}
+                  >
+                    <InventoryCardInstances />
+                  </InventoryTab>
+                )}
+                {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
+                  <InventoryTab
+                    key={`inventory_subs_${productId}`}
+                    title={t('curiosity-inventory.tabSubscriptions', { context: [productId] })}
+                  >
+                    <InventoryCardSubscriptions />
+                  </InventoryTab>
+                )}
+              </InventoryTabs>
+            </PageSection>
+          </ProductViewOnload>
+        </ProductViewContext.Provider>
+      </MinHeight>
     );
   }, [firstMatch, t]);
 

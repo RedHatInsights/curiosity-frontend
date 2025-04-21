@@ -311,6 +311,19 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/components/productView/productViewOnload.js",
+    "keys": [
+      {
+        "key": "curiosity-view.error",
+        "match": "t('curiosity-view.error', { product: productId, context: ['title', 'onload'] })",
+      },
+      {
+        "key": "curiosity-view.pending",
+        "match": "t('curiosity-view.pending', { context: 'description' })",
+      },
+    ],
+  },
+  {
     "file": "src/components/router/routerContext.js",
     "keys": [
       {
@@ -324,7 +337,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.label",
-        "match": "t('curiosity-toolbar.label', { context: [filterName, (filterValue === '' && 'none')",
+        "match": "t('curiosity-toolbar.label', { context: [name, (value === '' && 'none')",
       },
       {
         "key": "curiosity-toolbar.clearFilters",
@@ -333,11 +346,28 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/components/toolbar/toolbarFieldBillingAccount.js",
+    "keys": [
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "t('curiosity-toolbar.label', { context: ['billing_account_id', account] })",
+      },
+      {
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
+      },
+      {
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
+      },
+    ],
+  },
+  {
     "file": "src/components/toolbar/toolbarFieldBillingProvider.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['billing_provider', (type === '' && 'none')",
+        "match": "t('curiosity-toolbar.label', { context: ['billing_provider', (provider === '' && 'none')",
       },
       {
         "key": "",
@@ -1092,7 +1122,15 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-inventory.table",
   },
   {
+    "file": "src/components/productView/productViewOnload.js",
+    "key": "curiosity-view.pending",
+  },
+  {
     "file": "src/components/toolbar/toolbar.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "src/components/toolbar/toolbarFieldBillingAccount.js",
     "key": "curiosity-toolbar.label",
   },
   {

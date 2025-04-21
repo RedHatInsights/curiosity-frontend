@@ -335,6 +335,8 @@ const useOnSelect = ({ options: baseOptions, onSelect, selectedOptions, variant 
  * @param {string} [props.className]
  * @param {boolean} [props.isDisabled] Disable the select/dropdown toggle
  * @param {boolean} [props.isInline=true] Is the select/dropdown an inline-block or not.
+ * @param {boolean} [props.isReadOnly] Is the select/dropdown "read only". ONLY disables the onSelect callback, use
+ *     isDisabled if a "disabled field display" is required.
  * @param {number} [props.maxHeight] Max height of the select/dropdown menu
  * @param {Function} [props.onSelect]
  * @param {Array<string|number|{
@@ -360,6 +362,7 @@ const Select = ({
   className,
   isDisabled,
   isInline = true,
+  isReadOnly,
   maxHeight,
   onSelect: baseOnSelect,
   options: baseOptions,
@@ -398,8 +401,10 @@ const Select = ({
     if (variant === SelectVariant.single || variant === SelectVariant.dropdown) {
       setIsExpanded(false);
     }
-    // Remove "timeStamp". Assumption is its intended to help cycle updates. Causes issues with mock events in testing
-    onSelect({ ...event, timeStamp: undefined }, value);
+    if (!isReadOnly) {
+      // Remove "timeStamp". Assumption is its intended to help cycle updates. Causes issues with mock events in testing
+      onSelect({ ...event, timeStamp: undefined }, value);
+    }
   };
 
   const toggleContent = toggle?.content;

@@ -1,21 +1,22 @@
-import React, { useMemo } from 'react';
-import { ToolbarItem } from '@patternfly/react-core';
+import React, { useEffect, useMemo } from 'react';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductQuery } from '../productView/productViewContext';
 import { Select, SelectPosition } from '../form/select';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
-import { ToolbarFieldBillingAccount } from './toolbarFieldBillingAccount';
 import { translate } from '../i18n/i18n';
 
 /**
- * A dynamic Billing Provider select filter.
+ * A dynamic Billing Account select filter.
  *
  * @memberof Toolbar
- * @module ToolbarFieldBillingProvider
+ * @module ToolbarFieldBillingAccount
  */
 
 /**
- * Generate select field options from config.
+ * ToDo: review activating the default account to help in auto-population.
+ */
+/**
+ * Generate select field options from service.
  *
  * @param {object} options
  * @param {translate} [options.t=translate]
@@ -33,37 +34,35 @@ const useToolbarFieldOptions = ({
   const { [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: billingProvider } = useAliasProductQuery();
   const { productId } = useAliasProduct();
   const { data = {} } = useAliasSelector(({ app }) => app.billingAccounts?.[productId], {});
-  const updatedBillingProvider = billingProvider || data?.defaultProvider;
-  const billingProviders = data?.billingProviders;
+  // const updatedBillingProvider = billingProvider || data?.defaultProvider;
+  const updatedBillingProvider = billingProvider;
+  const defaultAccount = data?.defaultAccountByProvider?.[updatedBillingProvider];
+  const billingAccounts = data?.accountsByProvider?.[updatedBillingProvider];
 
   return useMemo(
     () =>
-      billingProviders?.map(provider => ({
-        title: t('curiosity-toolbar.label', { context: ['billing_provider', (provider === '' && 'none') || provider] }),
-        value: provider,
-        isSelected: provider === updatedBillingProvider
+      billingAccounts?.map(account => ({
+        title: t('curiosity-toolbar.label', { context: ['billing_account_id', account] }),
+        value: account,
+        isSelected: account === defaultAccount
       })) || [],
-    [billingProviders, updatedBillingProvider, t]
+    [billingAccounts, defaultAccount, t]
   );
 };
 
 /**
- * On select update billing provider.
+ * On select update billing account.
  *
  * @param {object} options
  * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
  * @param {useProduct} [options.useProduct=useProduct]
- * @param {storeHooks.reactRedux.useSelector} [options.useSelector=storeHooks.reactRedux.useSelector]
  * @returns {Function}
  */
 const useOnSelect = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useProduct: useAliasProduct = useProduct,
-  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector
+  useProduct: useAliasProduct = useProduct
 } = {}) => {
   const { productId } = useAliasProduct();
-  const { data = {} } = useAliasSelector(({ app }) => app.billingAccounts?.[productId], {});
-  const defaultAccountByProvider = data?.defaultAccountByProvider || {};
   const dispatch = useAliasDispatch();
 
   return ({ value = null } = {}) => {
@@ -76,21 +75,12 @@ const useOnSelect = ({
         type: reduxTypes.query.SET_QUERY,
         viewId: productId,
         filter: RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID,
-        value: defaultAccountByProvider[value]
-      },
-      {
-        type: reduxTypes.query.SET_QUERY,
-        viewId: productId,
-        filter: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER,
         value
       }
     ]);
   };
 };
 
-/**
- * ToDo: review the isRead property on auto-populating the field
- */
 /**
  * Display a billing provider field with options.
  *
@@ -104,7 +94,7 @@ const useOnSelect = ({
  * @fires onSelect
  * @returns {JSX.Element}
  */
-const ToolbarFieldBillingProvider = ({
+const ToolbarFieldBillingAccount = ({
   isFilter = false,
   position = SelectPosition.left,
   t = translate,
@@ -112,37 +102,39 @@ const ToolbarFieldBillingProvider = ({
   useProductQuery: useAliasProductQuery = useProductQuery,
   useToolbarFieldOptions: useAliasToolbarFieldOptions = useToolbarFieldOptions
 }) => {
-  const { [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: updatedValue } = useAliasProductQuery();
+  const {
+    [RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID]: updatedValue,
+    [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: billingProvider
+  } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
   const options = useAliasToolbarFieldOptions();
   const updatedOptions = options.map(option => ({
     ...option,
-    isSelected: updatedValue && option.value === updatedValue
+    isSelected: option.value === updatedValue
   }));
 
+  // Select an account on provider update
+  useEffect(() => {
+    const selectedAccount = updatedOptions.find(({ isSelected }) => isSelected === true)?.value;
+
+    if (selectedAccount) {
+      onSelect({ value: selectedAccount });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [billingProvider]);
+
   return (
-    <React.Fragment>
-      <ToolbarItem spacer={{ default: 'spacerNone' }}>
-        <Select
-          // isReadOnly={updatedOptions.length === 1}
-          aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, {
-            context: 'billing_provider'
-          })}
-          onSelect={onSelect}
-          options={updatedOptions}
-          selectedOptions={updatedValue}
-          placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, {
-            context: 'billing_provider'
-          })}
-          alignment={{ position }}
-          data-test="toolbarFieldBillingProvider"
-        />
-      </ToolbarItem>
-      <ToolbarItem>
-        <ToolbarFieldBillingAccount />
-      </ToolbarItem>
-    </React.Fragment>
+    <Select
+      isReadOnly={updatedOptions.length === 1}
+      aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'billing_account' })}
+      onSelect={onSelect}
+      options={updatedOptions}
+      selectedOptions={updatedValue}
+      placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'billing_account' })}
+      alignment={{ position }}
+      data-test="toolbarFieldBillingAccount"
+    />
   );
 };
 
-export { ToolbarFieldBillingProvider as default, ToolbarFieldBillingProvider, useOnSelect, useToolbarFieldOptions };
+export { ToolbarFieldBillingAccount as default, ToolbarFieldBillingAccount, useOnSelect, useToolbarFieldOptions };

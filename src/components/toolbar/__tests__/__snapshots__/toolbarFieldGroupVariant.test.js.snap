@@ -39,6 +39,9 @@ exports[`ToolbarFieldGroupVariant Component should handle updating through redux
         "variant": "ipsum",
       },
       {
+        "type": "SET_CONFIG_RHSM_RESET",
+      },
+      {
         "type": "SET_GRAPH_LEGEND_RESET",
       },
       {
@@ -58,6 +61,9 @@ exports[`ToolbarFieldGroupVariant Component should handle updating through redux
       {
         "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
         "variant": "dolor sit",
+      },
+      {
+        "type": "SET_CONFIG_RHSM_RESET",
       },
       {
         "type": "SET_GRAPH_LEGEND_RESET",

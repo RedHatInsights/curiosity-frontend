@@ -116,22 +116,24 @@ const useProductQueryConditional = ({
 };
 
 /**
+ * ToDo: review useProductQueryConditional to auto-populate provider and account with default entries.
+ */
+/**
  * Return a base product query
  *
  * @param {object} options
  * @param {string} [options.queryType='query']
- * @param {useProductQueryConditional} [options.useProductQueryConditional=useProductQueryConditional]
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {object} options.options
  * @returns {object}
  */
 const useProductQuery = ({
   queryType = 'query',
-  useProductQueryConditional: useAliasProductQueryConditional = useProductQueryConditional,
+  // useProductQueryConditional: useAliasProductQueryConditional = useProductQueryConditional,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   options
 } = {}) => ({
-  ...useAliasProductQueryConditional(),
+  // ...useAliasProductQueryConditional(),
   ...useAliasProductQueryFactory(queryType, options)
 });
 

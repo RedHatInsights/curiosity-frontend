@@ -85,7 +85,10 @@ const Toolbar = ({
    * @param {*} params.value
    * @returns {void}
    */
-  const onClearFilter = ({ value }) => clearField(value);
+  const onClearFilter = ({ value }) => {
+    const updatedValue = (Array.isArray(value) && value) || [value];
+    updatedValue.forEach(val => clearField(val));
+  };
 
   /**
    * Clear all active filters.
@@ -99,17 +102,20 @@ const Toolbar = ({
    * Set selected options for chip display.
    *
    * @param {object} params
-   * @param {*} params.value
+   * @param {string|Array<string>} params.value
    * @returns {Array}
    */
   const setSelectedOptions = ({ value: filterName } = {}) => {
-    const filterValue = toolbarFieldQueries?.[filterName];
-    return (
-      (typeof filterValue === 'string' && [
-        t('curiosity-toolbar.label', { context: [filterName, (filterValue === '' && 'none') || filterValue] })
+    const filterValues =
+      (Array.isArray(filterName) && filterName.map(filter => ({ name: filter, value: toolbarFieldQueries[filter] }))) ||
+      (typeof toolbarFieldQueries[filterName] === 'string' && [
+        { name: filterName, value: toolbarFieldQueries[filterName] }
       ]) ||
-      []
-    );
+      [];
+
+    return filterValues
+      .filter(({ value }) => typeof value === 'string')
+      .map(({ name, value }) => t('curiosity-toolbar.label', { context: [name, (value === '' && 'none') || value] }));
   };
 
   return (
@@ -131,18 +137,22 @@ const Toolbar = ({
                   <ToolbarFieldSelectCategory />
                 </ToolbarItem>
               )}
-              {options.map(({ title, value: filterName, component: OptionComponent, isClearable }) => {
-                const chipProps = { categoryName: title };
+              {options.map(({ title, dynamicValue, value: filterName, component: OptionComponent, isClearable }) => {
+                const chipProps = {
+                  categoryName: title
+                };
+
+                const updatedValue = dynamicValue || filterName;
 
                 if (isClearable !== false) {
-                  chipProps.chips = setSelectedOptions({ value: filterName });
-                  chipProps.deleteChip = () => onClearFilter({ value: filterName });
+                  chipProps.chips = setSelectedOptions({ value: updatedValue });
+                  chipProps.deleteChip = () => onClearFilter({ value: updatedValue });
                 }
 
                 return (
                   <ToolbarFilter
-                    key={filterName}
-                    showToolbarItem={currentCategory === filterName || options.length === 1}
+                    key={helpers.generateHash(updatedValue)}
+                    showToolbarItem={currentCategory === updatedValue || options.length === 1}
                     {...chipProps}
                   >
                     <OptionComponent isFilter />
