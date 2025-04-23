@@ -17,16 +17,16 @@ import { translate } from '../i18n/i18n';
  */
 /**
  * Generate select field options from service.
+ * Note: Avoid using the translation wrapper for "account" for scenarios where the account
+ * contains underscores. Underscores interfere with the contextual string lookup.
  *
  * @param {object} options
- * @param {translate} [options.t=translate]
  * @param {useProduct} [options.useProduct=useProduct]
  * @param {useProductQuery} [options.useProductQuery=useProductQuery]
  * @param {storeHooks.reactRedux.useSelector} [options.useSelector=storeHooks.reactRedux.useSelector]
  * @returns {Array<{title: React.ReactNode, value: string, isSelected: boolean}>}
  */
 const useToolbarFieldOptions = ({
-  t = translate,
   useProduct: useAliasProduct = useProduct,
   useProductQuery: useAliasProductQuery = useProductQuery,
   useSelector: useAliasSelector = storeHooks.reactRedux.useSelector
@@ -42,11 +42,11 @@ const useToolbarFieldOptions = ({
   return useMemo(
     () =>
       billingAccounts?.map(account => ({
-        title: t('curiosity-toolbar.label', { context: ['billing_account_id', account] }),
+        title: account,
         value: account,
         isSelected: account === defaultAccount
       })) || [],
-    [billingAccounts, defaultAccount, t]
+    [billingAccounts, defaultAccount]
   );
 };
 

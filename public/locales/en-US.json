@@ -336,7 +336,6 @@
     "clearFilters": "Reset filters",
     "label": "",
     "label_billing_account": "Billing account",
-    "label_billing_account_id": "{{context}}",
     "label_billing_provider": "",
     "label_billing_provider_none": "None",
     "label_billing_provider_aws": "Amazon Web Services",
