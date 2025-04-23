@@ -4,22 +4,22 @@ exports[`ToolbarFieldBillingAccount Component should generate select options: to
 [
   {
     "isSelected": false,
-    "title": "t(curiosity-toolbar.label_billing_account_id, {"context":"lorem"})",
+    "title": "lorem",
     "value": "lorem",
   },
   {
     "isSelected": false,
-    "title": "t(curiosity-toolbar.label_billing_account_id, {"context":"ipsum"})",
+    "title": "ipsum",
     "value": "ipsum",
   },
   {
     "isSelected": false,
-    "title": "t(curiosity-toolbar.label_billing_account_id, {"context":"dolor"})",
+    "title": "dolor",
     "value": "dolor",
   },
   {
     "isSelected": false,
-    "title": "t(curiosity-toolbar.label_billing_account_id, {"context":"sit"})",
+    "title": "sit",
     "value": "sit",
   },
 ]
