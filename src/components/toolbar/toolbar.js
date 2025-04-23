@@ -86,7 +86,23 @@ const Toolbar = ({
    * @returns {void}
    */
   const onClearFilter = ({ value }) => {
-    const updatedValue = (Array.isArray(value) && value) || [value];
+    const updatedValue = [];
+
+    if (typeof value === 'string') {
+      updatedValue.push(value);
+    }
+
+    if (Array.isArray(value)) {
+      updatedValue.push(
+        ...value.map(obj => {
+          if (typeof obj === 'string') {
+            return obj;
+          }
+          return obj.name;
+        })
+      );
+    }
+
     updatedValue.forEach(val => clearField(val));
   };
 
@@ -102,20 +118,41 @@ const Toolbar = ({
    * Set selected options for chip display.
    *
    * @param {object} params
-   * @param {string|Array<string>} params.value
-   * @returns {Array}
+   * @param {string|Array<string|{name:string, isDisplayValueOnly:boolean}>} params.value
+   * @returns {Array<string>}
    */
   const setSelectedOptions = ({ value: filterName } = {}) => {
-    const filterValues =
-      (Array.isArray(filterName) && filterName.map(filter => ({ name: filter, value: toolbarFieldQueries[filter] }))) ||
-      (typeof toolbarFieldQueries[filterName] === 'string' && [
-        { name: filterName, value: toolbarFieldQueries[filterName] }
-      ]) ||
-      [];
+    const filterValues = [];
+
+    if (typeof toolbarFieldQueries[filterName] === 'string') {
+      filterValues.push({ name: filterName, value: toolbarFieldQueries[filterName] });
+    }
+
+    if (Array.isArray(filterName)) {
+      filterValues.push(
+        ...filterName.map(filter => {
+          if (typeof filter === 'string') {
+            return { name: filter, value: toolbarFieldQueries[filter] };
+          }
+
+          const { isDisplayValueOnly, name } = filter;
+          return {
+            isDisplayValueOnly,
+            name,
+            value: toolbarFieldQueries[name]
+          };
+        })
+      );
+    }
 
     return filterValues
       .filter(({ value }) => typeof value === 'string')
-      .map(({ name, value }) => t('curiosity-toolbar.label', { context: [name, (value === '' && 'none') || value] }));
+      .map(({ isDisplayValueOnly, name, value }) =>
+        t(`curiosity-toolbar.label`, {
+          context: [name, (value === '' && 'none') || (!isDisplayValueOnly && value)],
+          value
+        })
+      );
   };
 
   return (

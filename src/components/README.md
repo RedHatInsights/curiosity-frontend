@@ -5544,7 +5544,7 @@ Primary view toolbar.
 
 * [Toolbar](#Components.module_Toolbar)
     * [~Toolbar(props)](#Components.module_Toolbar..Toolbar) ⇒ <code>JSX.Element</code>
-        * [~setSelectedOptions(params)](#Components.module_Toolbar..Toolbar..setSelectedOptions) ⇒ <code>Array</code>
+        * [~setSelectedOptions(params)](#Components.module_Toolbar..Toolbar..setSelectedOptions) ⇒ <code>Array.&lt;string&gt;</code>
     * ["onClearFilter" (params)](#event_onClearFilter) ⇒ <code>void</code>
     * ["onClearAll"](#event_onClearAll) ⇒ <code>void</code>
 
@@ -5590,7 +5590,7 @@ Application filter toolbar.
 
 <a name="Components.module_Toolbar..Toolbar..setSelectedOptions"></a>
 
-#### Toolbar~setSelectedOptions(params) ⇒ <code>Array</code>
+#### Toolbar~setSelectedOptions(params) ⇒ <code>Array.&lt;string&gt;</code>
 Set selected options for chip display.
 
 **Kind**: inner method of [<code>Toolbar</code>](#Components.module_Toolbar..Toolbar)  
@@ -5604,7 +5604,7 @@ Set selected options for chip display.
 <tr>
     <td>params</td><td><code>object</code></td>
     </tr><tr>
-    <td>params.value</td><td><code>string</code> | <code>Array.&lt;string&gt;</code></td>
+    <td>params.value</td><td><code>string</code> | <code>Array.&lt;(string|{name:string, isDisplayValueOnly:boolean})&gt;</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5740,8 +5740,9 @@ A dynamic Billing Account select filter.
 
 ### ToolbarFieldBillingAccount~useToolbarFieldOptions(options) ⇒ <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Generate select field options from service.
-Note: Avoid using the translation wrapper for "account" for scenarios where the account
-contains underscores. Underscores interfere with the contextual string lookup.
+Note: Limit using the translation wrapper for "account" for scenarios where the account
+contains underscores. Underscores interfere with the contextual string lookup, leverage a
+string value.
 
 **Kind**: inner method of [<code>ToolbarFieldBillingAccount</code>](#Toolbar.module_ToolbarFieldBillingAccount)  
 <table>
@@ -5753,6 +5754,8 @@ contains underscores. Underscores interfere with the contextual string lookup.
   <tbody>
 <tr>
     <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
     <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
@@ -6553,14 +6556,14 @@ Display a granularity field with options.
 ## ToolbarFieldSelectCategory
 
 * [ToolbarFieldSelectCategory](#Toolbar.module_ToolbarFieldSelectCategory)
-    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldSelectCategory..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
+    * [~toolbarFieldOptions](#Toolbar.module_ToolbarFieldSelectCategory..toolbarFieldOptions) : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean, dynamicValue: (string\|{name: string, isDisplayValueOnly: (boolean\|undefined)}\|undefined)}&gt;</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldSelectCategory..useOnSelect) ⇒ <code>function</code>
     * [~useSelectCategoryOptions(options)](#Toolbar.module_ToolbarFieldSelectCategory..useSelectCategoryOptions) ⇒ <code>Object</code>
     * [~ToolbarFieldSelectCategory(props)](#Toolbar.module_ToolbarFieldSelectCategory..ToolbarFieldSelectCategory) ⇒ <code>JSX.Element</code>
 
 <a name="Toolbar.module_ToolbarFieldSelectCategory..toolbarFieldOptions"></a>
 
-### ToolbarFieldSelectCategory~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
+### ToolbarFieldSelectCategory~toolbarFieldOptions : <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean, dynamicValue: (string\|{name: string, isDisplayValueOnly: (boolean\|undefined)}\|undefined)}&gt;</code>
 Select field options. Use function instead of arrow func to help with component
 display name during testing.
 
