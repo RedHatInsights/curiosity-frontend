@@ -24,7 +24,8 @@ import { ToolbarFieldUsage, toolbarFieldOptions as usageOptions } from './toolba
  * Select field options. Use function instead of arrow func to help with component
  * display name during testing.
  *
- * @type {Array<{title: React.ReactNode, value: string, isSelected: boolean}>}
+ * @type {Array<{title: React.ReactNode, value: string, isSelected: boolean,
+ *     dynamicValue: (string|{name: string, isDisplayValueOnly: boolean|undefined}|undefined)}>}
  */
 const toolbarFieldOptions = [
   {
@@ -48,7 +49,10 @@ const toolbarFieldOptions = [
   {
     title: translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER] }),
     value: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER,
-    dynamicValue: [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER, RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID],
+    dynamicValue: [
+      RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER,
+      { name: RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID, isDisplayValueOnly: true }
+    ],
     component: function BillingProvider(props) {
       return <ToolbarFieldBillingProvider key="selectCategory_billingProvider" {...props} />;
     },

@@ -86,7 +86,23 @@ const Toolbar = ({
    * @returns {void}
    */
   const onClearFilter = ({ value }) => {
-    const updatedValue = (Array.isArray(value) && value) || [value];
+    const updatedValue = [];
+
+    if (typeof value === 'string') {
+      updatedValue.push(value);
+    }
+
+    if (Array.isArray(value)) {
+      updatedValue.push(
+        ...value.map(obj => {
+          if (typeof obj === 'string') {
+            return obj;
+          }
+          return obj.name;
+        })
+      );
+    }
+
     updatedValue.forEach(val => clearField(val));
   };
 
@@ -102,25 +118,40 @@ const Toolbar = ({
    * Set selected options for chip display.
    *
    * @param {object} params
-   * @param {string|Array<string>} params.value
-   * @param {boolean} [params.isLocale=true]
-   * @returns {Array}
+   * @param {string|Array<string|{name:string, isDisplayValueOnly:boolean}>} params.value
+   * @returns {Array<string>}
    */
-  const setSelectedOptions = ({ value: filterName, isLocale = true } = {}) => {
-    const filterValues =
-      (Array.isArray(filterName) && filterName.map(filter => ({ name: filter, value: toolbarFieldQueries[filter] }))) ||
-      (typeof toolbarFieldQueries[filterName] === 'string' && [
-        { name: filterName, value: toolbarFieldQueries[filterName] }
-      ]) ||
-      [];
+  const setSelectedOptions = ({ value: filterName } = {}) => {
+    const filterValues = [];
+
+    if (typeof toolbarFieldQueries[filterName] === 'string') {
+      filterValues.push({ name: filterName, value: toolbarFieldQueries[filterName] });
+    }
+
+    if (Array.isArray(filterName)) {
+      filterValues.push(
+        ...filterName.map(filter => {
+          if (typeof filter === 'string') {
+            return { name: filter, value: toolbarFieldQueries[filter] };
+          }
+
+          const { isDisplayValueOnly, name } = filter;
+          return {
+            isDisplayValueOnly,
+            name,
+            value: toolbarFieldQueries[name]
+          };
+        })
+      );
+    }
 
     return filterValues
       .filter(({ value }) => typeof value === 'string')
-      .map(
-        ({ name, value }) =>
-          (isLocale && t('curiosity-toolbar.label', { context: [name, (value === '' && 'none') || value] })) ||
-          (value === '' && 'none') ||
+      .map(({ isDisplayValueOnly, name, value }) =>
+        t(`curiosity-toolbar.label`, {
+          context: [name, (value === '' && 'none') || (!isDisplayValueOnly && value)],
           value
+        })
       );
   };
 
@@ -151,7 +182,7 @@ const Toolbar = ({
                 const updatedValue = dynamicValue || filterName;
 
                 if (isClearable !== false) {
-                  chipProps.chips = setSelectedOptions({ value: updatedValue, isLocale: dynamicValue === undefined });
+                  chipProps.chips = setSelectedOptions({ value: updatedValue });
                   chipProps.deleteChip = () => onClearFilter({ value: updatedValue });
                 }
 
