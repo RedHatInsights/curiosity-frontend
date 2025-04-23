@@ -1118,10 +1118,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-inventory.table",
   },
   {
-    "file": "src/components/productView/productViewOnload.js",
-    "key": "curiosity-view.pending",
-  },
-  {
     "file": "src/components/toolbar/toolbar.js",
     "key": "curiosity-toolbar.label",
   },
