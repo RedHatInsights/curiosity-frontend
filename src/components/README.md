@@ -5597,14 +5597,16 @@ Set selected options for chip display.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>params</td><td><code>object</code></td>
+    <td>params</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>params.value</td><td><code>string</code> | <code>Array.&lt;string&gt;</code></td>
+    <td>params.value</td><td><code>string</code> | <code>Array.&lt;string&gt;</code></td><td></td>
+    </tr><tr>
+    <td>[params.isLocale]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr>  </tbody>
 </table>
 

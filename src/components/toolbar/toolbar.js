@@ -103,9 +103,10 @@ const Toolbar = ({
    *
    * @param {object} params
    * @param {string|Array<string>} params.value
+   * @param {boolean} [params.isLocale=true]
    * @returns {Array}
    */
-  const setSelectedOptions = ({ value: filterName } = {}) => {
+  const setSelectedOptions = ({ value: filterName, isLocale = true } = {}) => {
     const filterValues =
       (Array.isArray(filterName) && filterName.map(filter => ({ name: filter, value: toolbarFieldQueries[filter] }))) ||
       (typeof toolbarFieldQueries[filterName] === 'string' && [
@@ -115,7 +116,12 @@ const Toolbar = ({
 
     return filterValues
       .filter(({ value }) => typeof value === 'string')
-      .map(({ name, value }) => t('curiosity-toolbar.label', { context: [name, (value === '' && 'none') || value] }));
+      .map(
+        ({ name, value }) =>
+          (isLocale && t('curiosity-toolbar.label', { context: [name, (value === '' && 'none') || value] })) ||
+          (value === '' && 'none') ||
+          value
+      );
   };
 
   return (
@@ -145,7 +151,7 @@ const Toolbar = ({
                 const updatedValue = dynamicValue || filterName;
 
                 if (isClearable !== false) {
-                  chipProps.chips = setSelectedOptions({ value: updatedValue });
+                  chipProps.chips = setSelectedOptions({ value: updatedValue, isLocale: dynamicValue === undefined });
                   chipProps.deleteChip = () => onClearFilter({ value: updatedValue });
                 }
 
