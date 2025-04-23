@@ -349,10 +349,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/components/toolbar/toolbarFieldBillingAccount.js",
     "keys": [
       {
-        "key": "curiosity-toolbar.label",
-        "match": "t('curiosity-toolbar.label', { context: ['billing_account_id', account] })",
-      },
-      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
@@ -1127,10 +1123,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/components/toolbar/toolbar.js",
-    "key": "curiosity-toolbar.label",
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldBillingAccount.js",
     "key": "curiosity-toolbar.label",
   },
   {

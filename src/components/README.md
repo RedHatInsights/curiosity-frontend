@@ -5740,6 +5740,8 @@ A dynamic Billing Account select filter.
 
 ### ToolbarFieldBillingAccount~useToolbarFieldOptions(options) ⇒ <code>Array.&lt;{title: React.ReactNode, value: string, isSelected: boolean}&gt;</code>
 Generate select field options from service.
+Note: Avoid using the translation wrapper for "account" for scenarios where the account
+contains underscores. Underscores interfere with the contextual string lookup.
 
 **Kind**: inner method of [<code>ToolbarFieldBillingAccount</code>](#Toolbar.module_ToolbarFieldBillingAccount)  
 <table>
@@ -5751,8 +5753,6 @@ Generate select field options from service.
   <tbody>
 <tr>
     <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>[options.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
     <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
