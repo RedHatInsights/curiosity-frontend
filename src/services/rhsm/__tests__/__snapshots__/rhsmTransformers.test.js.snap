@@ -913,6 +913,7 @@ exports[`RHSM Transformers should attempt to parse multiple billing account id r
 {
   "accountsByProvider": {
     "mockProvider": [
+      "12345",
       "678910",
     ],
     "otherMockProvider": [
@@ -924,9 +925,9 @@ exports[`RHSM Transformers should attempt to parse multiple billing account id r
     "mockProvider",
     "otherMockProvider",
   ],
-  "defaultAccount": "678910",
+  "defaultAccount": "12345",
   "defaultAccountByProvider": {
-    "mockProvider": "678910",
+    "mockProvider": "12345",
     "otherMockProvider": "12345",
   },
   "defaultProvider": "mockProvider",
