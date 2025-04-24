@@ -41,30 +41,20 @@ const rhsmBillingAccounts = (response = []) => {
       )
     )
     .flat()
-    .filter(Boolean);
-
-  // Note: Apply last entry. This will overwrite duplicates if they exist in the first response.
-  const dupCache = {};
-  successResponse.forEach(obj => {
-    if (obj.id) {
-      dupCache[obj.id] = obj;
-    }
-  });
-
-  const accounts = Object.values(dupCache);
-
-  const billingProviders = [...new Set(accounts.map(({ provider }) => provider))].sort();
+    .filter(res => typeof res?.provider === 'string' && typeof res?.id === 'string');
 
   const accountsByProvider = {};
   const defaultAccountByProvider = {};
 
-  accounts.forEach(({ id, provider }) => {
+  successResponse.forEach(({ id, provider }) => {
     accountsByProvider[provider] ??= [];
     accountsByProvider[provider].push(id);
   });
 
+  const billingProviders = [...Object.keys(accountsByProvider)].sort();
+
   Object.keys(accountsByProvider).forEach(key => {
-    accountsByProvider[key].sort();
+    accountsByProvider[key] = [...new Set(accountsByProvider[key])].sort();
     defaultAccountByProvider[key] = accountsByProvider[key]?.[0];
   });
 

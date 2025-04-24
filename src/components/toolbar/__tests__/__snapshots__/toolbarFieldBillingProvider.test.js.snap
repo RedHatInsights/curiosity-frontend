@@ -4,7 +4,7 @@ exports[`ToolbarFieldBillingProvider Component should generate select options: t
 [
   {
     "isSelected": true,
-    "title": "t(curiosity-toolbar.label_billing_provider, {"context":"mock billing provider"})",
+    "title": "t(curiosity-toolbar.label_billing_provider, {"context":"mock billing provider","value":"mock billing provider"})",
     "value": "mock billing provider",
   },
 ]
