@@ -39,7 +39,10 @@ const useToolbarFieldOptions = ({
   return useMemo(
     () =>
       billingProviders?.map(provider => ({
-        title: t('curiosity-toolbar.label', { context: ['billing_provider', (provider === '' && 'none') || provider] }),
+        title: t('curiosity-toolbar.label', {
+          context: ['billing_provider', (provider === '' && 'none') || provider],
+          value: provider
+        }),
         value: provider,
         isSelected: provider === updatedBillingProvider
       })) || [],

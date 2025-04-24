@@ -338,7 +338,7 @@
     "label_billing_account": "Billing account",
     "label_billing_account_id": "{{value}}",
     "label_billing_account_id_none": "Empty account id",
-    "label_billing_provider": "",
+    "label_billing_provider": "{{value}}",
     "label_billing_provider_none": "$t(curiosity-toolbar.label_none)",
     "label_billing_provider_aws": "Amazon Web Services",
     "label_billing_provider_azure": "Microsoft Azure",
