@@ -1,7 +1,12 @@
-import { useEffect } from 'react';
-import { useProductBillingAccountsQuery, useProductViewContext } from './productViewContext';
+import React, { useEffect } from 'react';
+import { AlertVariant, Button } from '@patternfly/react-core';
+import { ExternalLinkAltIcon } from '@patternfly/react-icons';
+import { useProduct, useProductBillingAccountsQuery, useProductViewContext } from './productViewContext';
+import { useSetBannerMessages } from '../bannerMessages/bannerMessagesContext';
 import { reduxActions, storeHooks } from '../../redux';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
+import { helpers } from '../../common';
+import { translate } from '../i18n/i18nHelpers';
 
 /**
  * Product view onload hooks. Hooks intended to fire AFTER product query and configuration is set.
@@ -55,8 +60,73 @@ const useProductOnload = ({
   };
 };
 
-const context = {
-  useProductOnload
+/**
+ * Apply a usage related banner notification per product variant
+ *
+ * @param {object} options
+ * @param {translate} [options.t=translate]
+ * @param {useProduct} [options.useProduct=useProduct]
+ * @param {storeHooks.reactRedux.useSelector} [options.useSelector=storeHooks.reactRedux.useSelector]
+ * @param {useSetBannerMessages} [options.useSetBannerMessages=useSetBannerMessages]
+ */
+const useUsageBanner = ({
+  t = translate,
+  useProduct: useAliasProduct = useProduct,
+  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector,
+  useSetBannerMessages: useAliasSetBannerMessages = useSetBannerMessages
+} = {}) => {
+  const setBannerMessages = useAliasSetBannerMessages();
+  const { productId } = useAliasProduct();
+  const { data = {} } = useAliasSelector(({ app }) => app.billingAccounts?.[productId], {});
+  const isUsageError = data?.isUsageError || false;
+
+  useEffect(() => {
+    if (isUsageError === true) {
+      const { firstProvider, firstProviderAccount, firstProviderNumberAccounts, numberProviders } = data.usageMetrics;
+
+      setBannerMessages({
+        variant: AlertVariant.warning,
+        id: 'usage-warning',
+        title: t('curiosity-banner.usage', { context: ['title'], product: productId }),
+        message: t(
+          'curiosity-banner.usage',
+          {
+            context: ['description'],
+            count: (numberProviders >= 2 && 2) || (firstProviderNumberAccounts > 2 && 2) || 0,
+            remaining: t('curiosity-banner.usage', {
+              context: ['description', 'remaining', numberProviders >= 2 && 'provider'],
+              count:
+                (numberProviders === 2 && 1) ||
+                (numberProviders > 2 && numberProviders - 1) ||
+                (numberProviders === 2 && 1) ||
+                (firstProviderNumberAccounts > 2 && firstProviderNumberAccounts - 1) ||
+                0
+            }),
+            provider: firstProvider,
+            account: firstProviderAccount
+          },
+          [
+            <strong />,
+            <Button
+              isInline
+              component="a"
+              variant="link"
+              icon={<ExternalLinkAltIcon />}
+              iconPosition="right"
+              target="_blank"
+              href={helpers.UI_LINK_USAGE_SUBSCRIPTIONS}
+            />
+          ]
+        )
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isUsageError]);
 };
 
-export { context as default, context, useProductOnload };
+const context = {
+  useProductOnload,
+  useUsageBanner
+};
+
+export { context as default, context, useProductOnload, useUsageBanner };

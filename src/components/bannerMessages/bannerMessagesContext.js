@@ -91,30 +91,34 @@ const useSetBannerMessages = ({
   return useCallback(
     messages => {
       if (productId) {
-        const updatedMessages = (Array.isArray(messages) && messages) || [messages];
+        const updatedMessages = ((Array.isArray(messages) && messages) || [messages])
+          .map(value => {
+            if (value?.id || value?.title || value?.message) {
+              return {
+                ...value,
+                id: value?.id || value?.title || value?.message
+              };
+            }
+
+            if (typeof value === 'string' || typeof value === 'number') {
+              return {
+                id: value,
+                title: value
+              };
+            }
+
+            return undefined;
+          })
+          .filter(value => value !== undefined);
+
+        const updatedBannerMessages = bannerMessages?.filter(({ id: existingId }) =>
+          updatedMessages.some(({ id: newId }) => newId !== existingId)
+        );
 
         dispatch({
           type: reduxTypes.message.SET_BANNER_MESSAGES,
           viewId: productId,
-          bannerMessages: [
-            ...(bannerMessages || []),
-            ...updatedMessages
-              .map(value => {
-                if (value?.id || value?.title || value?.message || value?.variant) {
-                  return value;
-                }
-
-                if (typeof value === 'string' || typeof value === 'number') {
-                  return {
-                    id: value,
-                    title: value
-                  };
-                }
-
-                return undefined;
-              })
-              .filter(value => value !== undefined)
-          ]
+          bannerMessages: [...updatedBannerMessages, ...updatedMessages]
         });
       } else if (helpers.DEV_MODE) {
         console.warn(

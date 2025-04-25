@@ -4773,6 +4773,8 @@ Product conditional configuration loading.
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
     <td>[props.useProductOnload]</td><td><code>useProductOnload</code></td><td><code>useProductOnload</code></td>
+    </tr><tr>
+    <td>[props.useUsageBanner]</td><td><code>useUsageBanner</code></td><td><code>useUsageBanner</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4780,6 +4782,11 @@ Product conditional configuration loading.
 
 ## ProductViewOnloadContext
 Product view onload hooks. Hooks intended to fire AFTER product query and configuration is set.
+
+
+* [ProductViewOnloadContext](#ProductViewOnload.module_ProductViewOnloadContext)
+    * [~useProductOnload(options)](#ProductViewOnload.module_ProductViewOnloadContext..useProductOnload) ⇒ <code>Object</code>
+    * [~useUsageBanner(options)](#ProductViewOnload.module_ProductViewOnloadContext..useUsageBanner)
 
 <a name="ProductViewOnload.module_ProductViewOnloadContext..useProductOnload"></a>
 
@@ -4806,6 +4813,32 @@ Onload product apply conditional state dispatch services.
     <td>[options.useProductBillingAccountsQuery]</td><td><code>useProductBillingAccountsQuery</code></td><td><code>useProductBillingAccountsQuery</code></td>
     </tr><tr>
     <td>[options.useSelectorsResponse]</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td><td><code>useSelectorsResponse</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="ProductViewOnload.module_ProductViewOnloadContext..useUsageBanner"></a>
+
+### ProductViewOnloadContext~useUsageBanner(options)
+Apply a usage related banner notification per product variant
+
+**Kind**: inner method of [<code>ProductViewOnloadContext</code>](#ProductViewOnload.module_ProductViewOnloadContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.t]</td><td><code>translate</code></td><td><code>translate</code></td>
+    </tr><tr>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
+    </tr><tr>
+    <td>[options.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
+    </tr><tr>
+    <td>[options.useSetBannerMessages]</td><td><code>useSetBannerMessages</code></td><td><code>useSetBannerMessages</code></td>
     </tr>  </tbody>
 </table>
 

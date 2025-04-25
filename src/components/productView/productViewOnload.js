@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardBody } from '@patternfly/react-core';
 import { BinocularsIcon } from '@patternfly/react-icons';
-import { useProductOnload } from './productViewOnloadContext';
+import { useProductOnload, useUsageBanner } from './productViewOnloadContext';
 import { ErrorMessage } from '../errorMessage/errorMessage';
 import { MessageView } from '../messageView/messageView';
 import { translate } from '../i18n/i18n';
@@ -19,10 +19,17 @@ import { translate } from '../i18n/i18n';
  * @param {React.ReactNode} props.children
  * @param {translate} [props.t=translate]
  * @param {useProductOnload} [props.useProductOnload=useProductOnload]
+ * @param {useUsageBanner} [props.useUsageBanner=useUsageBanner]
  * @returns {JSX.Element}
  */
-const ProductViewOnload = ({ children, t = translate, useProductOnload: useAliasProductOnload = useProductOnload }) => {
+const ProductViewOnload = ({
+  children,
+  t = translate,
+  useProductOnload: useAliasProductOnload = useProductOnload,
+  useUsageBanner: useAliasUsageBanner = useUsageBanner
+}) => {
   const { isReady, error, message, productId } = useAliasProductOnload();
+  useAliasUsageBanner();
 
   return (
     (error && (

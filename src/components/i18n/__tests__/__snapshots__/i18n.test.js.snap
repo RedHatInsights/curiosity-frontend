@@ -324,6 +324,23 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/components/productView/productViewOnloadContext.js",
+    "keys": [
+      {
+        "key": "curiosity-banner.usage",
+        "match": "t('curiosity-banner.usage', { context: ['title'], product: productId })",
+      },
+      {
+        "key": "curiosity-banner.usage",
+        "match": "t( 'curiosity-banner.usage', { context: ['description'], count: (numberProviders >= 2 && 2)",
+      },
+      {
+        "key": "curiosity-banner.usage",
+        "match": "t('curiosity-banner.usage', { context: ['description', 'remaining', numberProviders >= 2 && 'provider'], count: (numberProviders === 2 && 1)",
+      },
+    ],
+  },
+  {
     "file": "src/components/router/routerContext.js",
     "keys": [
       {
@@ -1144,6 +1161,18 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.table",
+  },
+  {
+    "file": "src/components/productView/productViewOnloadContext.js",
+    "key": "curiosity-banner.usage",
+  },
+  {
+    "file": "src/components/productView/productViewOnloadContext.js",
+    "key": "curiosity-banner.usage",
+  },
+  {
+    "file": "src/components/productView/productViewOnloadContext.js",
+    "key": "curiosity-banner.usage",
   },
   {
     "file": "src/components/toolbar/toolbar.js",
