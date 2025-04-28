@@ -279,6 +279,16 @@ const config = {
       isSort: true
     },
     {
+      metric: INVENTORY_TYPES.BILLING_PROVIDER,
+      cell: ({ [INVENTORY_TYPES.BILLING_PROVIDER]: provider }) =>
+        translate(`curiosity-inventory.label_${INVENTORY_TYPES.BILLING_PROVIDER}`, {
+          context: provider || 'none'
+        }),
+      isSort: true,
+      isWrap: true,
+      width: 15
+    },
+    {
       metric: RHSM_API_PATH_METRIC_TYPES.CORES,
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: total } = {}) =>
         translate('curiosity-inventory.measurement', {
@@ -328,6 +338,16 @@ const config = {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME,
       isSort: true,
       isWrap: true
+    },
+    {
+      metric: SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER,
+      cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER]: provider }) =>
+        translate(`curiosity-inventory.label`, {
+          context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none']
+        }),
+      isSort: false,
+      isWrap: false,
+      width: 15
     },
     {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY,
