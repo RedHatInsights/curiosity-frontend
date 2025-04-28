@@ -58,8 +58,8 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.ROSA;
  * Product configuration
  *
  * @type {{productLabel: string, productPath: string, aliases: string[], productId: string,
- *     inventorySubscriptionsQuery: object, query: object, initialSubscriptionsInventoryFilters: Array,
- *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string,
+ *     inventorySubscriptionsQuery: object, query: object, onloadProduct: Array, initialSubscriptionsInventoryFilters:
+ *     Array, initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string,
  *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, initialGraphFilters: Array,
  *     initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings: object,
  *     initialInventoryFilters: Array}}
@@ -72,6 +72,7 @@ const config = {
   productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.CAPACITY,
   viewId: `view${productGroup}-${productId}`,
+  onloadProduct: [RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID],
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
     [RHSM_API_QUERY_SET_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()
@@ -352,6 +353,9 @@ const config = {
     }
   ],
   initialToolbarFilters: [
+    {
+      id: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER
+    },
     {
       id: 'rangedMonthly',
       isSecondary: true,
