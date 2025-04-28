@@ -6,51 +6,6 @@ exports[`ProductViewContext should apply a hook factory for retrieving api queri
 }
 `;
 
-exports[`ProductViewContext should apply a hook for product configuration onload: dispatch 1`] = `
-[
-  [
-    "lorem",
-    {
-      "org_id": undefined,
-    },
-  ],
-]
-`;
-
-exports[`ProductViewContext should apply a hook for product configuration onload: product onload, basic 1`] = `
-{
-  "cancelled": false,
-  "data": [],
-  "error": false,
-  "fulfilled": false,
-  "isReady": true,
-  "message": null,
-  "pending": false,
-  "productId": "lorem",
-  "responses": {
-    "id": {},
-    "list": [],
-  },
-}
-`;
-
-exports[`ProductViewContext should apply a hook for product configuration onload: product onload, onload 1`] = `
-{
-  "cancelled": false,
-  "data": [],
-  "error": false,
-  "fulfilled": false,
-  "isReady": false,
-  "message": null,
-  "pending": false,
-  "productId": "lorem",
-  "responses": {
-    "id": {},
-    "list": [],
-  },
-}
-`;
-
 exports[`ProductViewContext should apply a hook for retrieving configuration based queries: query factory 1`] = `
 {
   "billing_account_id": "mockAccount",
@@ -244,7 +199,7 @@ exports[`ProductViewContext should return specific properties: specific properti
   "useProduct": [Function],
   "useProductContext": [Function],
   "useProductExportQuery": [Function],
-  "useProductOnload": [Function],
+  "useProductViewContext": [Function],
   "useQuery": [Function],
   "useQueryConditional": [Function],
   "useQueryFactory": [Function],

@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useSession } from '../authentication/authenticationContext';
-import { reduxActions, reduxHelpers, storeHooks } from '../../redux';
+import { reduxHelpers, storeHooks } from '../../redux';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { platformConstants } from '../../services/platform/platformConstants';
 import { helpers } from '../../common/helpers';
 
 /**
+ * Product view hooks for configuration and query management.
+ *
  * @memberof ProductView
  * @module ProductViewContext
  */
@@ -398,55 +400,11 @@ const useProductExportQuery = ({
   );
 };
 
-/**
- * Onload product conditionally dispatch services.
- *
- * @param {object} options
- * @param {reduxActions.rhsm.getBillingAccounts} [options.getBillingAccounts=reduxActions.rhsm.getBillingAccounts]
- * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
- * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
- * @param {useProductBillingAccountsQuery} [options.useProductBillingAccountsQuery=useProductBillingAccountsQuery]
- * @param {storeHooks.reactRedux.useSelectorsResponse} [options.useSelectorsResponse=useSelectorsResponse]
- * @returns {{data: object, productId: string, pending: boolean, isReady: boolean, fulfilled: boolean,
- *     responses: object}}
- */
-const useProductOnload = ({
-  getBillingAccounts = reduxActions.rhsm.getBillingAccounts,
-  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useProductViewContext: useAliasProductViewContext = useProductViewContext,
-  useProductBillingAccountsQuery: useAliasProductBillingAccountsQuery = useProductBillingAccountsQuery,
-  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
-} = {}) => {
-  const { onloadProduct, productId } = useAliasProductViewContext();
-  const billingAccountsQuery = useAliasProductBillingAccountsQuery();
-  const dispatch = useAliasDispatch();
-  const isBillingAccountRequired =
-    onloadProduct?.find(value => value === rhsmConstants.RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID) !== undefined;
-
-  const selectors = [];
-  if (isBillingAccountRequired) {
-    selectors.push({ id: 'billing', selector: ({ app }) => app.billingAccounts?.[productId] });
-  }
-  const response = useAliasSelectorsResponse(selectors);
-
-  useEffect(() => {
-    if (isBillingAccountRequired) {
-      dispatch(getBillingAccounts(productId, billingAccountsQuery));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isBillingAccountRequired, productId]);
-
-  return {
-    ...response,
-    isReady: !onloadProduct?.length || response?.fulfilled || false,
-    productId
-  };
-};
-
 const context = {
   ProductViewContext,
   DEFAULT_CONTEXT,
   useProductContext,
+  useProductViewContext,
   useQuery: useProductQuery,
   useQueryFactory: useProductQueryFactory,
   useQueryConditional: useProductQueryConditional,
@@ -456,7 +414,6 @@ const context = {
   useInventoryHostsQuery: useProductInventoryHostsQuery,
   useInventorySubscriptionsQuery: useProductInventorySubscriptionsQuery,
   useProduct,
-  useProductOnload,
   useProductExportQuery,
   useGraphConfig: useProductGraphConfig,
   useInventoryGuestsConfig: useProductInventoryGuestsConfig,
@@ -472,6 +429,7 @@ export {
   ProductViewContext,
   DEFAULT_CONTEXT,
   useProductContext,
+  useProductViewContext,
   useProductQuery,
   useProductQueryFactory,
   useProductQueryConditional,
@@ -481,7 +439,6 @@ export {
   useProductInventoryHostsQuery,
   useProductInventorySubscriptionsQuery,
   useProduct,
-  useProductOnload,
   useProductExportQuery,
   useProductGraphConfig,
   useProductInventoryGuestsConfig,

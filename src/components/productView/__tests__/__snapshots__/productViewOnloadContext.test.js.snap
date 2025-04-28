@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductViewOnloadContext should apply a hook for product configuration onload: dispatch 1`] = `
+[
+  [
+    "lorem",
+    {
+      "org_id": undefined,
+    },
+  ],
+]
+`;
+
+exports[`ProductViewOnloadContext should apply a hook for product configuration onload: product onload, basic 1`] = `
+{
+  "cancelled": false,
+  "data": [],
+  "error": false,
+  "fulfilled": false,
+  "isReady": true,
+  "message": null,
+  "pending": false,
+  "productId": "lorem",
+  "responses": {
+    "id": {},
+    "list": [],
+  },
+}
+`;
+
+exports[`ProductViewOnloadContext should apply a hook for product configuration onload: product onload, onload 1`] = `
+{
+  "cancelled": false,
+  "data": [],
+  "error": false,
+  "fulfilled": false,
+  "isReady": false,
+  "message": null,
+  "pending": false,
+  "productId": "lorem",
+  "responses": {
+    "id": {},
+    "list": [],
+  },
+}
+`;
+
+exports[`ProductViewOnloadContext should return specific properties: specific properties 1`] = `
+{
+  "useProductOnload": [Function],
+}
+`;
