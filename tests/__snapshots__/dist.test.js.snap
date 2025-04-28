@@ -777,8 +777,8 @@ exports[`Build distribution should have a predictable ephemeral navigation based
 exports[`Build distribution should match a specific file output 1`] = `
 [
   "",
+  "./dist/css/2031*css",
   "./dist/css/3372*css",
-  "./dist/css/7889*css",
   "./dist/fed-mods.json",
   "./dist/fonts/graph2x.png",
   "./dist/fonts/graph4x.png",
@@ -796,6 +796,7 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/167*js",
   "./dist/js/2007*js",
   "./dist/js/203*js",
+  "./dist/js/2031*js",
   "./dist/js/2047*js",
   "./dist/js/2471*js",
   "./dist/js/279*js",
@@ -862,7 +863,6 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/7474*js",
   "./dist/js/7675*js",
   "./dist/js/7691*js",
-  "./dist/js/7889*js",
   "./dist/js/7964*js",
   "./dist/js/8005*js",
   "./dist/js/8376*js",
