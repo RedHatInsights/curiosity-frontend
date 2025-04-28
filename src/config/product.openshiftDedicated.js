@@ -55,10 +55,10 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
  * Product configuration
  *
  * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, query: object,
- *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string,
- *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, initialGraphFilters: Array,
- *     initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings: object,
- *     initialInventoryFilters: Array}}
+ *     onloadProduct: Array, initialInventorySettings: object, viewId: string, initialToolbarFilters: Array,
+ *     productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string,
+ *     initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings:
+ *     object, initialInventoryFilters: Array}}
  */
 const config = {
   aliases: ['openshift-dedicated', 'dedicated'],
@@ -68,6 +68,7 @@ const config = {
   productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.HOURLY,
   viewId: `view${productGroup}-${productId}`,
+  onloadProduct: [RHSM_API_QUERY_SET_TYPES.BILLING_ACCOUNT_ID],
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
     [RHSM_API_QUERY_SET_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()
@@ -318,6 +319,9 @@ const config = {
     } = {}) => (numberOfGuests > 0 && id && { id, numberOfGuests }) || undefined
   },
   initialToolbarFilters: [
+    {
+      id: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER
+    },
     {
       id: 'rangedMonthly',
       isSecondary: true,
