@@ -1,6 +1,11 @@
 import _differenceBy from 'lodash/differenceBy';
 
 /**
+ * @memberof Rhsm
+ * @module RhsmHelpers
+ */
+
+/**
  * Apply generic stats to a minimally "sorted by service type" object.
  *
  * Attempt to avoid business specific logic by looping and using each "service type" as a diff base
@@ -9,10 +14,11 @@ import _differenceBy from 'lodash/differenceBy';
  * @param {{ instances: Array<{id:string, provider:string, type:string}>|undefined,
  *     subscriptions: Array<{id:string, provider:string, type:string}>|undefined }} [baseMetrics={}]
  * @returns {{
- *   instances: {accounts:Array, providers:Array, firstProvider:string, firstProviderAccount:object,
- *       firstProviderNumberAccounts:number, numberProviders:number}|undefined
- *   subscriptions: {accounts:Array, providers:Array, firstProvider:string, firstProviderAccount:object,
- *       firstProviderNumberAccounts:number, numberProviders:number}|undefined
+ *   instances: {hasUniqueAccounts:boolean, hasUniqueProviders:boolean, accounts:Array, providers:Array,
+ *   firstProvider:string, firstProviderAccount:object, firstProviderNumberAccounts:number,
+ *   numberProviders:number}|undefined, subscriptions: {hasUniqueAccounts:boolean, hasUniqueProviders:boolean,
+ *   accounts:Array, providers:Array, firstProvider:string, firstProviderAccount:object,
+ *   firstProviderNumberAccounts:number, numberProviders:number}|undefined
  * }}
  */
 const billingMetrics = (baseMetrics = {}) => {
