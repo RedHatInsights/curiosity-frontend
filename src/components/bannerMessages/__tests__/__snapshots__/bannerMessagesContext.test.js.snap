@@ -6,12 +6,17 @@ exports[`BannerMessagesContext should apply a hook for retrieving messages data 
     {
       "bannerMessages": [
         {
-          "id": "lorem",
-          "title": "ipsum",
-        },
-        {
           "id": "new message",
           "title": "new message",
+        },
+        {
+          "id": "lorem",
+          "message": "duplicate id",
+          "title": "lorem",
+        },
+        {
+          "id": "message only",
+          "message": "message only",
         },
       ],
       "type": "SET_BANNER_MESSAGES",

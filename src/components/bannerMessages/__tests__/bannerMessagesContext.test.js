@@ -35,7 +35,13 @@ describe('BannerMessagesContext', () => {
       })
     );
 
-    result('new message');
+    result([
+      undefined,
+      'new message',
+      { title: 'lorem', message: 'duplicate id' },
+      { id: 'id only' },
+      { message: 'message only' }
+    ]);
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch');
   });
 

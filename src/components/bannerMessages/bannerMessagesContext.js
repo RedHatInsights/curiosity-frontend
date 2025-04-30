@@ -109,10 +109,10 @@ const useSetBannerMessages = ({
 
             return undefined;
           })
-          .filter(value => value !== undefined);
+          .filter(value => value?.id !== undefined && Object.keys(value).length > 1);
 
-        const updatedBannerMessages = bannerMessages?.filter(({ id: existingId }) =>
-          updatedMessages.some(({ id: newId }) => newId !== existingId)
+        const updatedBannerMessages = bannerMessages?.filter(
+          ({ id: existingId }) => !updatedMessages.some(({ id: newId }) => newId === existingId)
         );
 
         dispatch({

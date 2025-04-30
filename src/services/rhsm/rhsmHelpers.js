@@ -7,7 +7,7 @@ import _differenceBy from 'lodash/differenceBy';
  * to pull unique providers and account ids.
  *
  * @param {{ instances: Array<{id:string, provider:string, type:string}>|undefined,
- *     subscriptions: Array<{id:string, provider:string, type:string}>|undefined }} baseMetrics
+ *     subscriptions: Array<{id:string, provider:string, type:string}>|undefined }} [baseMetrics={}]
  * @returns {{
  *   instances: {accounts:Array, providers:Array, firstProvider:string, firstProviderAccount:object,
  *       firstProviderNumberAccounts:number, numberProviders:number}|undefined
@@ -15,7 +15,7 @@ import _differenceBy from 'lodash/differenceBy';
  *       firstProviderNumberAccounts:number, numberProviders:number}|undefined
  * }}
  */
-const billingMetrics = baseMetrics => {
+const billingMetrics = (baseMetrics = {}) => {
   const serviceTypeProviderAccountIdMetrics = {};
   const baseMetricsValues = Object.values(baseMetrics);
 
@@ -35,7 +35,8 @@ const billingMetrics = baseMetrics => {
     });
 
     const numberProviders = Object.keys(filterAggregatedAccountsProviders).length;
-    const [firstProvider, firstProviderAccounts = []] = Object.entries(filterAggregatedAccountsProviders).shift();
+    const [firstProvider, firstProviderAccounts = []] =
+      Object?.entries(filterAggregatedAccountsProviders)?.shift() || [];
     const firstProviderNumberAccounts = firstProviderAccounts.size;
     const firstProviderAccount = Array.from(firstProviderAccounts)[0];
 
