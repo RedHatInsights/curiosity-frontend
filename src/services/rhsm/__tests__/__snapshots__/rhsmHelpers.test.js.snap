@@ -13,6 +13,7 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
     "hasUniqueProviders": false,
     "numberProviders": 0,
     "providers": [],
+    "uniqueAccountsProvidersList": [],
   },
   "loremApi": {
     "accounts": [
@@ -50,6 +51,20 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
         "type": "loremApi",
       },
     ],
+    "uniqueAccountsProvidersList": [
+      [
+        "ipsum",
+        "123",
+      ],
+      [
+        "lorem",
+        "456",
+      ],
+      [
+        "dolor",
+        "012",
+      ],
+    ],
   },
 }
 `;
@@ -65,6 +80,7 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
     "hasUniqueProviders": false,
     "numberProviders": 0,
     "providers": [],
+    "uniqueAccountsProvidersList": [],
   },
   "loremApi": {
     "accounts": [
@@ -91,6 +107,20 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
     "hasUniqueProviders": false,
     "numberProviders": 1,
     "providers": [],
+    "uniqueAccountsProvidersList": [
+      [
+        "lorem",
+        "123",
+      ],
+      [
+        "lorem",
+        "456",
+      ],
+      [
+        "lorem",
+        "012",
+      ],
+    ],
   },
 }
 `;
@@ -106,6 +136,7 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
     "hasUniqueProviders": false,
     "numberProviders": 0,
     "providers": [],
+    "uniqueAccountsProvidersList": [],
   },
   "loremApi": {
     "accounts": [
@@ -122,6 +153,12 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
     "hasUniqueProviders": false,
     "numberProviders": 1,
     "providers": [],
+    "uniqueAccountsProvidersList": [
+      [
+        "lorem",
+        "123",
+      ],
+    ],
   },
 }
 `;
@@ -137,6 +174,7 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
     "hasUniqueProviders": false,
     "numberProviders": 0,
     "providers": [],
+    "uniqueAccountsProvidersList": [],
   },
   "loremApi": {
     "accounts": [
@@ -178,6 +216,20 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
         "provider": "lorem",
         "type": "loremApi",
       },
+    ],
+    "uniqueAccountsProvidersList": [
+      [
+        "lorem",
+        "123",
+      ],
+      [
+        "lorem",
+        "456",
+      ],
+      [
+        "lorem",
+        "012",
+      ],
     ],
   },
 }
@@ -194,6 +246,7 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
     "hasUniqueProviders": false,
     "numberProviders": 0,
     "providers": [],
+    "uniqueAccountsProvidersList": [],
   },
   "loremApi": {
     "accounts": [
@@ -215,6 +268,12 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
         "provider": "lorem",
         "type": "loremApi",
       },
+    ],
+    "uniqueAccountsProvidersList": [
+      [
+        "lorem",
+        "123",
+      ],
     ],
   },
 }

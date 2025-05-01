@@ -986,6 +986,24 @@ exports[`RHSM Transformers should attempt to parse multiple billing account id r
           "type": "unknown",
         },
       ],
+      "uniqueAccountsProvidersList": [
+        [
+          "mockProvider",
+          "678910",
+        ],
+        [
+          "mockProvider",
+          "12345",
+        ],
+        [
+          "otherMockProvider",
+          "78910",
+        ],
+        [
+          "otherMockProvider",
+          "12345",
+        ],
+      ],
     },
   },
   "usageMetrics": {},
