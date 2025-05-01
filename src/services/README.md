@@ -19,6 +19,8 @@ into the same response format.</p>
 </dd>
 <dt><a href="#Rhsm.module_RhsmConstants">RhsmConstants</a></dt>
 <dd></dd>
+<dt><a href="#Rhsm.module_RhsmHelpers">RhsmHelpers</a></dt>
+<dd></dd>
 <dt><a href="#Rhsm.module_RhsmSchemas">RhsmSchemas</a></dt>
 <dd></dd>
 <dt><a href="#Rhsm.module_RhsmServices">RhsmServices</a></dt>
@@ -906,6 +908,30 @@ Product display types.
 RHSM constants.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
+<a name="Rhsm.module_RhsmHelpers"></a>
+
+## RhsmHelpers
+<a name="Rhsm.module_RhsmHelpers..billingMetrics"></a>
+
+### RhsmHelpers~billingMetrics([baseMetrics]) ⇒ <code>Object</code>
+Apply generic stats to a minimally "sorted by service type" object.
+
+Attempt to avoid business specific logic by looping and using each "service type" as a diff base
+to pull unique providers and account ids.
+
+**Kind**: inner method of [<code>RhsmHelpers</code>](#Rhsm.module_RhsmHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>[baseMetrics]</td><td><code>Object</code></td><td><code>{}</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Rhsm.module_RhsmSchemas"></a>
 
 ## RhsmSchemas
@@ -1399,7 +1425,11 @@ Transform RHSM responses. Replaces selector usage.
 * [RhsmTransformers](#Rhsm.module_RhsmTransformers)
     * [~rhsmInstancesGuestsCache](#Rhsm.module_RhsmTransformers..rhsmInstancesGuestsCache) : <code>Object</code>
     * [~rhsmBillingAccounts(response)](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts) ⇒ <code>object</code>
-        * [.memo](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts.memo) : <code>function</code>
+        * _static_
+            * [.memo](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts.memo) : <code>function</code>
+        * _inner_
+            * [~billingProviders](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts..billingProviders)
+            * [~serviceTypeProviderAccountIdMetrics](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts..serviceTypeProviderAccountIdMetrics)
     * [~rhsmInstances(response)](#Rhsm.module_RhsmTransformers..rhsmInstances) ⇒ <code>object</code>
     * [~rhsmInstancesGuests(response, config)](#Rhsm.module_RhsmTransformers..rhsmInstancesGuests) ⇒ <code>object</code>
     * [~rhsmSubscriptions(response)](#Rhsm.module_RhsmTransformers..rhsmSubscriptions) ⇒ <code>object</code>
@@ -1429,12 +1459,32 @@ Parse RHSM billing account id responses.
     </tr>  </tbody>
 </table>
 
+
+* [~rhsmBillingAccounts(response)](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts) ⇒ <code>object</code>
+    * _static_
+        * [.memo](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts.memo) : <code>function</code>
+    * _inner_
+        * [~billingProviders](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts..billingProviders)
+        * [~serviceTypeProviderAccountIdMetrics](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts..serviceTypeProviderAccountIdMetrics)
+
 <a name="Rhsm.module_RhsmTransformers..rhsmBillingAccounts.memo"></a>
 
 #### rhsmBillingAccounts.memo : <code>function</code>
 A memoized response for the rhsmBillingAccounts function. Assigned to a property for testing function.
 
 **Kind**: static property of [<code>rhsmBillingAccounts</code>](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts)  
+<a name="Rhsm.module_RhsmTransformers..rhsmBillingAccounts..billingProviders"></a>
+
+#### rhsmBillingAccounts~billingProviders
+Breakdown accounts by provider, defaults for convenient display
+
+**Kind**: inner constant of [<code>rhsmBillingAccounts</code>](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts)  
+<a name="Rhsm.module_RhsmTransformers..rhsmBillingAccounts..serviceTypeProviderAccountIdMetrics"></a>
+
+#### rhsmBillingAccounts~serviceTypeProviderAccountIdMetrics
+Apply metrics, determine unique providers, accounts by service type.
+
+**Kind**: inner constant of [<code>rhsmBillingAccounts</code>](#Rhsm.module_RhsmTransformers..rhsmBillingAccounts)  
 <a name="Rhsm.module_RhsmTransformers..rhsmInstances"></a>
 
 ### RhsmTransformers~rhsmInstances(response) ⇒ <code>object</code>

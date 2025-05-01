@@ -931,6 +931,64 @@ exports[`RHSM Transformers should attempt to parse multiple billing account id r
     "otherMockProvider": "12345",
   },
   "defaultProvider": "mockProvider",
+  "isBillingActive": true,
+  "isBillingCountDiffBetweenServiceTypes": true,
+  "isUsageError": false,
+  "serviceTypeProviderAccountIdMetrics": {
+    "unknown": {
+      "accounts": [
+        {
+          "id": "678910",
+          "provider": "mockProvider",
+          "type": "unknown",
+        },
+        {
+          "id": "12345",
+          "provider": "mockProvider",
+          "type": "unknown",
+        },
+        {
+          "id": "78910",
+          "provider": "otherMockProvider",
+          "type": "unknown",
+        },
+        {
+          "id": "12345",
+          "provider": "otherMockProvider",
+          "type": "unknown",
+        },
+      ],
+      "firstProvider": "mockProvider",
+      "firstProviderAccount": "678910",
+      "firstProviderNumberAccounts": 2,
+      "hasUniqueAccounts": true,
+      "hasUniqueProviders": true,
+      "numberProviders": 2,
+      "providers": [
+        {
+          "id": "678910",
+          "provider": "mockProvider",
+          "type": "unknown",
+        },
+        {
+          "id": "12345",
+          "provider": "mockProvider",
+          "type": "unknown",
+        },
+        {
+          "id": "78910",
+          "provider": "otherMockProvider",
+          "type": "unknown",
+        },
+        {
+          "id": "12345",
+          "provider": "otherMockProvider",
+          "type": "unknown",
+        },
+      ],
+    },
+  },
+  "usageMetrics": {},
 }
 `;
 
@@ -941,6 +999,11 @@ exports[`RHSM Transformers should attempt to parse multiple billing account id r
   "defaultAccount": undefined,
   "defaultAccountByProvider": {},
   "defaultProvider": undefined,
+  "isBillingActive": false,
+  "isBillingCountDiffBetweenServiceTypes": false,
+  "isUsageError": false,
+  "serviceTypeProviderAccountIdMetrics": {},
+  "usageMetrics": {},
 }
 `;
 

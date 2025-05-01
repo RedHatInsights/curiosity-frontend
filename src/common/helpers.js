@@ -422,6 +422,14 @@ const UI_LINK_PLATFORM_STATUS = process.env.REACT_APP_UI_LINK_PLATFORM_STATUS;
 const UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS = process.env.REACT_APP_UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS;
 
 /**
+ * Url, or uri, for "usage vs subscriptions" detections
+ * See dotenv config files for updating.
+ *
+ * @type {string}
+ */
+const UI_LINK_USAGE_SUBSCRIPTIONS = process.env.REACT_APP_UI_LINK_USAGE_SUBSCRIPTIONS;
+
+/**
  * UI locale default.
  * See dotenv config files for updating.
  *
@@ -550,6 +558,7 @@ const helpers = {
   UI_LINK_LEARN_MORE,
   UI_LINK_PLATFORM_STATUS,
   UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS,
+  UI_LINK_USAGE_SUBSCRIPTIONS,
   UI_LOCALE_DEFAULT,
   UI_LOCALE_DEFAULT_DESC,
   UI_LOGGER_ID,

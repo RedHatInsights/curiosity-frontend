@@ -5,7 +5,17 @@
     "maintenance": "...",
     "maintenance_description": "We are currently undergoing scheduled maintenance and will be back shortly. Thank you for your patience."
   },
-  "curiosity-banner": {},
+  "curiosity-banner": {
+    "usage_title": "Usage that has no matching subscription was found for $t(curiosity-view.title_{{product}})",
+    "usage_description": "Usage that has no matching subscription is being reported. <1>Learn more about resolving this issue</1>",
+    "usage_description_one": "Usage that has no matching subscription is being reported for <0>$t(curiosity-toolbar.label_billing_provider_{{provider}})</0> billing account <0>{{account}}</0>. <1>Learn more about resolving this issue</1>",
+    "usage_description_other": "Usage that has no matching subscription is being reported for <0>$t(curiosity-toolbar.label_billing_provider_{{provider}})</0> billing account <0>{{account}}</0>, and <0>{{remaining}}</0>. <1>Learn more about resolving this issue</1>",
+    "usage_description_remaining": "{{count}} more",
+    "usage_description_remaining_one": "{{count}} more account",
+    "usage_description_remaining_other": "{{count}} more accounts",
+    "usage_description_remaining_provider_one": "{{count}} more provider",
+    "usage_description_remaining_provider_other": "{{count}} more providers"
+  },
   "curiosity-graph": {
     "error_title": "Graph display is unavailable",
     "cardActionTotal": "{{total}} used",

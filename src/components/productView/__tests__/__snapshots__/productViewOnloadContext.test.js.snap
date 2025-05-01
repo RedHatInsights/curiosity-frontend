@@ -48,5 +48,6 @@ exports[`ProductViewOnloadContext should apply a hook for product configuration 
 exports[`ProductViewOnloadContext should return specific properties: specific properties 1`] = `
 {
   "useProductOnload": [Function],
+  "useUsageBanner": [Function],
 }
 `;

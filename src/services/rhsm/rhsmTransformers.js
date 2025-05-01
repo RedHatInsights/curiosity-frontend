@@ -11,6 +11,7 @@ import {
   rhsmConstants
 } from './rhsmConstants';
 import { dateHelpers, helpers } from '../../common';
+import { rhsmHelpers } from './rhsmHelpers';
 
 /**
  * Transform RHSM responses. Replaces selector usage.
@@ -26,10 +27,14 @@ import { dateHelpers, helpers } from '../../common';
  * @returns {object}
  */
 const rhsmBillingAccounts = (response = []) => {
+  const accountResponseSizes = new Set();
   const successResponse = response
     .filter(({ status }) => status === 200)
-    .map(({ data = {}, config }) =>
-      data?.[rhsmConstants.RHSM_API_RESPONSE_ID]?.map(
+    .map(({ data = {}, config }) => {
+      const accountIdData = data?.[rhsmConstants.RHSM_API_RESPONSE_ID] || [];
+      accountResponseSizes.add(accountIdData.length);
+
+      return accountIdData.map(
         ({
           [BILLING_ACCOUNT_ID_TYPES.BILLING_ACCOUNT_ID]: id,
           [BILLING_ACCOUNT_ID_TYPES.BILLING_PROVIDER]: provider
@@ -38,35 +43,66 @@ const rhsmBillingAccounts = (response = []) => {
           type: config?._accountType || 'unknown',
           provider
         })
-      )
-    )
+      );
+    })
     .flat()
     .filter(res => typeof res?.provider === 'string' && typeof res?.id === 'string');
 
+  const isBillingCountDiffBetweenServiceTypes = accountResponseSizes.size > 1;
   const accountsByProvider = {};
   const defaultAccountByProvider = {};
+  const baseMetrics = {};
 
-  successResponse.forEach(({ id, provider }) => {
-    accountsByProvider[provider] ??= [];
-    accountsByProvider[provider].push(id);
+  /**
+   * Finish processing service responses
+   */
+  successResponse.forEach(({ id, provider, type }) => {
+    baseMetrics[type] ??= [];
+
+    if (
+      !baseMetrics[type].find(
+        ({ id: existingId, provider: existingProvider }) => id === existingId && provider === existingProvider
+      )
+    ) {
+      baseMetrics[type].push({ id, provider, type });
+    }
+
+    accountsByProvider[provider] ??= new Set();
+    accountsByProvider[provider].add(id);
   });
 
+  /**
+   * Breakdown accounts by provider, defaults for convenient display
+   */
   const billingProviders = [...Object.keys(accountsByProvider)].sort();
 
-  Object.keys(accountsByProvider).forEach(key => {
-    accountsByProvider[key] = [...new Set(accountsByProvider[key])].sort();
-    defaultAccountByProvider[key] = accountsByProvider[key]?.[0];
+  billingProviders.forEach(provider => {
+    accountsByProvider[provider] = Array.from(accountsByProvider[provider]).sort();
+    defaultAccountByProvider[provider] = accountsByProvider[provider]?.[0];
   });
 
   const defaultProvider = billingProviders?.[0];
   const defaultAccount = defaultAccountByProvider[defaultProvider];
 
+  /**
+   * Apply metrics, determine unique providers, accounts by service type.
+   */
+  const serviceTypeProviderAccountIdMetrics = rhsmHelpers.billingMetrics(baseMetrics);
+
   return {
+    accountsByProvider,
+    billingProviders,
     defaultProvider,
     defaultAccount,
     defaultAccountByProvider,
-    billingProviders,
-    accountsByProvider
+    isBillingActive: defaultAccount !== undefined && defaultProvider !== undefined,
+    isBillingCountDiffBetweenServiceTypes,
+    isUsageError:
+      serviceTypeProviderAccountIdMetrics?.instances?.hasUniqueAccounts ||
+      serviceTypeProviderAccountIdMetrics?.instances?.hasUniqueProviders ||
+      false,
+    serviceTypeProviderAccountIdMetrics,
+    usageMetrics: serviceTypeProviderAccountIdMetrics?.instances || {}
   };
 };
 
