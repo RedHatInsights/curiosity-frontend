@@ -102,7 +102,10 @@ const useUsageBanner = ({
                 (firstProviderNumberAccounts > 2 && firstProviderNumberAccounts - 1) ||
                 0
             }),
-            provider: firstProvider,
+            provider: t('curiosity-toolbar.label', {
+              context: ['billing_provider', (firstProvider === '' && 'none') || firstProvider],
+              value: firstProvider
+            }),
             account: firstProviderAccount
           },
           [
