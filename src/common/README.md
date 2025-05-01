@@ -329,6 +329,7 @@ Download the debug log file.
     * [~UI_LINK_LEARN_MORE](#Helpers.module_General..UI_LINK_LEARN_MORE) : <code>string</code>
     * [~UI_LINK_PLATFORM_STATUS](#Helpers.module_General..UI_LINK_PLATFORM_STATUS) : <code>string</code>
     * [~UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS](#Helpers.module_General..UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS) : <code>string</code>
+    * [~UI_LINK_USAGE_SUBSCRIPTIONS](#Helpers.module_General..UI_LINK_USAGE_SUBSCRIPTIONS) : <code>string</code>
     * [~UI_LOCALE_DEFAULT](#Helpers.module_General..UI_LOCALE_DEFAULT) : <code>string</code>
     * [~UI_LOCALE_DEFAULT_DESC](#Helpers.module_General..UI_LOCALE_DEFAULT_DESC) : <code>string</code>
     * [~UI_LOGGER_ID](#Helpers.module_General..UI_LOGGER_ID) : <code>string</code>
@@ -591,6 +592,13 @@ See dotenv config files for updating.
 
 ### General~UI\_LINK\_REPORT\_ACCURACY\_RECOMMENDATIONS : <code>string</code>
 Url, or uri, for "recommend actions"
+See dotenv config files for updating.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..UI_LINK_USAGE_SUBSCRIPTIONS"></a>
+
+### General~UI\_LINK\_USAGE\_SUBSCRIPTIONS : <code>string</code>
+Url, or uri, for "usage vs subscriptions" detections
 See dotenv config files for updating.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
