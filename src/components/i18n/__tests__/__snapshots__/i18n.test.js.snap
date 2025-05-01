@@ -338,6 +338,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "key": "curiosity-banner.usage",
         "match": "t('curiosity-banner.usage', { context: ['description', 'remaining', numberProviders >= 2 && 'provider'], count: (numberProviders === 2 && 1)",
       },
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "t('curiosity-toolbar.label', { context: ['billing_provider', (firstProvider === '' && 'none')",
+      },
     ],
   },
   {
@@ -1173,6 +1177,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/components/productView/productViewOnloadContext.js",
     "key": "curiosity-banner.usage",
+  },
+  {
+    "file": "src/components/productView/productViewOnloadContext.js",
+    "key": "curiosity-toolbar.label",
   },
   {
     "file": "src/components/toolbar/toolbar.js",
