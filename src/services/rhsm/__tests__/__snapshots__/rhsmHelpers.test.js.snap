@@ -2,7 +2,7 @@
 
 exports[`RhsmHelpers billingMetrics should return parsed API responses in a consumable metric format, basic 1`] = `{}`;
 
-exports[`RhsmHelpers billingMetrics should return parsed API responses in a consumable metric format, multiple providers, multiple accounts 1`] = `
+exports[`RhsmHelpers billingMetrics should return parsed API responses in a consumable metric format, multiple unique providers, multiple accounts 1`] = `
 {
   "dolorApi": {
     "accounts": [],
@@ -122,6 +122,100 @@ exports[`RhsmHelpers billingMetrics should return parsed API responses in a cons
     "hasUniqueProviders": false,
     "numberProviders": 1,
     "providers": [],
+  },
+}
+`;
+
+exports[`RhsmHelpers billingMetrics should return parsed API responses in a consumable metric format, single unique provider, multiple accounts 1`] = `
+{
+  "dolorApi": {
+    "accounts": [],
+    "firstProvider": undefined,
+    "firstProviderAccount": undefined,
+    "firstProviderNumberAccounts": undefined,
+    "hasUniqueAccounts": false,
+    "hasUniqueProviders": false,
+    "numberProviders": 0,
+    "providers": [],
+  },
+  "loremApi": {
+    "accounts": [
+      {
+        "id": "123",
+        "provider": "lorem",
+        "type": "loremApi",
+      },
+      {
+        "id": "456",
+        "provider": "lorem",
+        "type": "loremApi",
+      },
+      {
+        "id": "012",
+        "provider": "lorem",
+        "type": "loremApi",
+      },
+    ],
+    "firstProvider": "lorem",
+    "firstProviderAccount": "123",
+    "firstProviderNumberAccounts": 3,
+    "hasUniqueAccounts": true,
+    "hasUniqueProviders": true,
+    "numberProviders": 1,
+    "providers": [
+      {
+        "id": "123",
+        "provider": "lorem",
+        "type": "loremApi",
+      },
+      {
+        "id": "456",
+        "provider": "lorem",
+        "type": "loremApi",
+      },
+      {
+        "id": "012",
+        "provider": "lorem",
+        "type": "loremApi",
+      },
+    ],
+  },
+}
+`;
+
+exports[`RhsmHelpers billingMetrics should return parsed API responses in a consumable metric format, single unique provider, single account 1`] = `
+{
+  "dolorApi": {
+    "accounts": [],
+    "firstProvider": undefined,
+    "firstProviderAccount": undefined,
+    "firstProviderNumberAccounts": undefined,
+    "hasUniqueAccounts": false,
+    "hasUniqueProviders": false,
+    "numberProviders": 0,
+    "providers": [],
+  },
+  "loremApi": {
+    "accounts": [
+      {
+        "id": "123",
+        "provider": "lorem",
+        "type": "loremApi",
+      },
+    ],
+    "firstProvider": "lorem",
+    "firstProviderAccount": "123",
+    "firstProviderNumberAccounts": 1,
+    "hasUniqueAccounts": true,
+    "hasUniqueProviders": true,
+    "numberProviders": 1,
+    "providers": [
+      {
+        "id": "123",
+        "provider": "lorem",
+        "type": "loremApi",
+      },
+    ],
   },
 }
 `;
