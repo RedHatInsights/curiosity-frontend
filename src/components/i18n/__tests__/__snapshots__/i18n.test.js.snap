@@ -29,6 +29,15 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/components/bannerMessages/bannerMessagesModal.js",
+    "keys": [
+      {
+        "key": "curiosity-banner.modal",
+        "match": "t('curiosity-banner.modal', { context: ['label', 'close'] })",
+      },
+    ],
+  },
+  {
     "file": "src/components/errorMessage/errorMessage.js",
     "keys": [
       {
@@ -328,15 +337,31 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-banner.usage",
-        "match": "t('curiosity-banner.usage', { context: ['title'], product: productId })",
+        "match": "t('curiosity-banner.usage', { context: ['modal', 'title'], count: uniqueAccountsProvidersList.length })",
       },
       {
         "key": "curiosity-banner.usage",
-        "match": "t( 'curiosity-banner.usage', { context: ['description'], count: (numberProviders >= 2 && 2)",
+        "match": "t( 'curiosity-banner.usage', { context: ['modal', 'description'], count: uniqueAccountsProvidersList.length }, [ <Button data-test="bannerUsageLearnMoreLink" isInline component="a" variant="link" icon={<ExternalLinkAltIcon />} iconPosition="right" target="_blank" href={helpers.UI_LINK_USAGE_SUBSCRIPTIONS} /> ] )",
       },
       {
         "key": "curiosity-banner.usage",
-        "match": "t('curiosity-banner.usage', { context: ['description', 'remaining', numberProviders >= 2 && 'provider'], count: (numberProviders === 2 && 1)",
+        "match": "t('curiosity-banner.usage', { context: ['alert', 'title'], product: productId })",
+      },
+      {
+        "key": "curiosity-banner.usage",
+        "match": "t('curiosity-banner.usage', { context: ['alert', 'link', 'modal'] })",
+      },
+      {
+        "key": "curiosity-banner.usage",
+        "match": "t('curiosity-banner.usage', { context: ['alert', 'link'] })",
+      },
+      {
+        "key": "curiosity-banner.usage",
+        "match": "t( 'curiosity-banner.usage', { context: ['alert', 'description'], count: (isMultipleProviders && numberProviders)",
+      },
+      {
+        "key": "curiosity-banner.usage",
+        "match": "t('curiosity-banner.usage', { context: ['alert', 'description', 'remaining', isMultipleProviders && 'provider'], count: (isMultipleProviders && remainingProviders)",
       },
       {
         "key": "curiosity-toolbar.label",
@@ -1147,6 +1172,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-toolbar.label",
   },
   {
+    "file": "src/components/bannerMessages/bannerMessagesModal.js",
+    "key": "curiosity-banner.modal",
+  },
+  {
     "file": "src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.tab",
   },
@@ -1165,6 +1194,22 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.table",
+  },
+  {
+    "file": "src/components/productView/productViewOnloadContext.js",
+    "key": "curiosity-banner.usage",
+  },
+  {
+    "file": "src/components/productView/productViewOnloadContext.js",
+    "key": "curiosity-banner.usage",
+  },
+  {
+    "file": "src/components/productView/productViewOnloadContext.js",
+    "key": "curiosity-banner.usage",
+  },
+  {
+    "file": "src/components/productView/productViewOnloadContext.js",
+    "key": "curiosity-banner.usage",
   },
   {
     "file": "src/components/productView/productViewOnloadContext.js",

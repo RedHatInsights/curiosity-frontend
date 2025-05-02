@@ -6,15 +6,24 @@
     "maintenance_description": "We are currently undergoing scheduled maintenance and will be back shortly. Thank you for your patience."
   },
   "curiosity-banner": {
-    "usage_title": "Usage that has no matching subscription was found for $t(curiosity-view.title_{{product}})",
-    "usage_description": "Usage that has no matching subscription is being reported. <1>Learn more about resolving this issue</1>",
-    "usage_description_one": "Usage that has no matching subscription is being reported for <0>{{provider}}</0> billing account <0>{{account}}</0>. <1>Learn more about resolving this issue</1>",
-    "usage_description_other": "Usage that has no matching subscription is being reported for <0>{{provider}}</0> billing account <0>{{account}}</0>, and <0>{{remaining}}</0>. <1>Learn more about resolving this issue</1>",
-    "usage_description_remaining": "{{count}} more",
-    "usage_description_remaining_one": "{{count}} more account",
-    "usage_description_remaining_other": "{{count}} more accounts",
-    "usage_description_remaining_provider_one": "{{count}} more provider",
-    "usage_description_remaining_provider_other": "{{count}} more providers"
+    "modal_label_close": "Close",
+    "usage_alert_title": "Usage that has no matching subscription was found for $t(curiosity-view.title_{{product}})",
+    "usage_alert_description": "Usage that has no matching subscription is being reported.",
+    "usage_alert_description_one": "Usage that has no matching subscription is being reported for <0>{{provider}}</0> billing account <0>{{account}}</0>.",
+    "usage_alert_description_other": "Usage that has no matching subscription is being reported for <0>{{provider}}</0> billing account <0>{{account}}</0>, and <0>{{remaining}}</0>.",
+    "usage_alert_description_remaining": "{{count}} more",
+    "usage_alert_description_remaining_one": "{{count}} more account",
+    "usage_alert_description_remaining_other": "{{count}} more accounts",
+    "usage_alert_description_remaining_provider_one": "{{count}} more provider",
+    "usage_alert_description_remaining_provider_other": "{{count}} more providers",
+    "usage_alert_link_modal": "View details",
+    "usage_alert_link": "Learn more",
+    "usage_modal_title": "No matching subscriptions",
+    "usage_modal_title_one": "No matching subscription",
+    "usage_modal_title_other": "No matching subscriptions",
+    "usage_modal_description": "Below is a listing of usage accounts that have no matching subscription. <0>Learn more about resolving this issue</0>",
+    "usage_modal_description_one": "There is {{count}} usage account that has no matching subscription. <0>Learn more about resolving this issue</0>",
+    "usage_modal_description_other": "There are {{count}} usage accounts that have no matching subscription. <0>Learn more about resolving this issue</0>"
   },
   "curiosity-graph": {
     "error_title": "Graph display is unavailable",
