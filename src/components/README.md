@@ -506,7 +506,7 @@ A self-contained modal wrapper for banner messages.
 <tr>
     <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>[props.modalTitle]</td><td><code>React.ReactNode</code></td><td></td>
+    <td>props.modalTitle</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
     <td>[props.modalContent]</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>

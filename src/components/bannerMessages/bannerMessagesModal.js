@@ -11,7 +11,7 @@ import { translate } from '../i18n/i18nHelpers';
  * A self-contained modal wrapper for banner messages.
  *
  * @param {object} props
- * @param {React.ReactNode} [props.modalTitle]
+ * @param {React.ReactNode} props.modalTitle
  * @param {React.ReactNode} [props.modalContent]
  * @param {React.ReactNode} props.children
  * @param {translate} [props.t=translate]
@@ -32,6 +32,7 @@ const BannerMessagesModal = ({ modalTitle, modalContent = '...', children, t = t
     <React.Fragment>
       <Modal
         appendTo={document.querySelector('.curiosity')}
+        className="curiosity-banner-modal"
         onClose={onClose}
         title={modalTitle}
         isOpen={isOpen}
