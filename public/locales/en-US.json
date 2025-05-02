@@ -21,9 +21,9 @@
     "usage_modal_title": "No matching subscriptions",
     "usage_modal_title_one": "No matching subscription",
     "usage_modal_title_other": "No matching subscriptions",
-    "usage_modal_description": "Below is a listing of usage accounts that have no matching subscription. <0>Learn more about resolving this issue</0>",
-    "usage_modal_description_one": "There is {{count}} usage account that has no matching subscription. <0>Learn more about resolving this issue</0>",
-    "usage_modal_description_other": "There are {{count}} usage accounts that have no matching subscription. <0>Learn more about resolving this issue</0>"
+    "usage_modal_description": "Below is a listing of billing accounts that have no matching subscription. <0>Learn more about resolving this issue</0>",
+    "usage_modal_description_one": "There is {{count}} billing account that has no matching subscription. <0>Learn more about resolving this issue</0>",
+    "usage_modal_description_other": "There are {{count}} billing accounts that have no matching subscription. <0>Learn more about resolving this issue</0>"
   },
   "curiosity-graph": {
     "error_title": "Graph display is unavailable",
