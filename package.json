@@ -112,16 +112,16 @@
     "victory-create-container": "37.2.0"
   },
   "devDependencies": {
-    "@babel/core": "7.26.10",
-    "@babel/eslint-parser": "7.27.0",
+    "@babel/core": "7.27.1",
+    "@babel/eslint-parser": "7.27.1",
     "@redhat-cloud-services/frontend-components-config": "6.5.4",
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.24",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
-    "apidoc-mock": "^5.0.7",
+    "apidoc-mock": "^5.0.8",
     "babel-jest": "^29.7.0",
-    "changelog-light": "^2.0.5",
+    "changelog-light": "^2.0.6",
     "cspell": "^8.19.3",
     "eslint": "8.57.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -133,7 +133,7 @@
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-prettier": "^5.4.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
     "glob": "^11.0.2",
@@ -148,7 +148,7 @@
     "prettier": "^3.5.3",
     "ts-patch": "^3.3.0",
     "typescript": "^5.8.3",
-    "weldable": "^4.1.0",
+    "weldable": "^4.1.1",
     "yamljs": "^0.3.0"
   }
 }
