@@ -45,6 +45,173 @@ exports[`ProductViewOnloadContext should apply a hook for product configuration 
 }
 `;
 
+exports[`ProductViewOnloadContext should apply a hook for usage banner alerts, basic 1`] = `undefined`;
+
+exports[`ProductViewOnloadContext should apply a hook for usage banner alerts, multiple accounts multiple providers 1`] = `
+[
+  {
+    "actionLinks": <React.Fragment>
+      <BannerMessagesModal
+        alertVariant="warning"
+        modalContent={
+          <label
+            aria-live="polite"
+          >
+            <p>
+              t(curiosity-banner.usage_modal, {"context":"description","count":3}, [object Object])
+            </p>
+            <textarea
+              className="curiosity-error__textarea"
+              data-test="bannerUsageAccountsProvidersList"
+              readOnly={true}
+              rows="10"
+              value="[
+  {
+    "id": "ipsum",
+    "provider": "Lorem"
+  },
+  {
+    "id": "ipsumLorem",
+    "provider": "Lorem"
+  },
+  {
+    "id": "sit",
+    "provider": "Dolor"
+  }
+]"
+            />
+          </label>
+        }
+        modalTitle="t(curiosity-banner.usage_modal, {"context":"title","count":3})"
+      >
+        t(curiosity-banner.usage_alert_link, {"context":"modal"})
+      </BannerMessagesModal>
+      <AlertActionLink
+        component="a"
+        data-test="bannerUsageLearnMoreLink"
+        href="https://access.redhat.com/solutions/7110681"
+        icon={<ExternalLinkAltIcon />}
+        iconPosition="right"
+        target="_blank"
+      >
+        t(curiosity-banner.usage_alert, {"context":"link"})
+      </AlertActionLink>
+    </React.Fragment>,
+    "dataTest": "bannerUsage",
+    "id": "usage-warning",
+    "message": "t(curiosity-banner.usage_alert, {"context":"description","count":3,"remaining":"t(curiosity-banner.usage_alert_description, {\\"context\\":\\"remaining\\",\\"count\\":2})","provider":"t(curiosity-toolbar.label_billing_provider, {\\"context\\":\\"Lorem\\",\\"value\\":\\"Lorem\\"})","account":"ipsum"}, [object Object])",
+    "title": "t(curiosity-banner.usage_alert, {"context":"title"})",
+    "variant": "warning",
+  },
+]
+`;
+
+exports[`ProductViewOnloadContext should apply a hook for usage banner alerts, multiple accounts single provider 1`] = `
+[
+  {
+    "actionLinks": <React.Fragment>
+      <BannerMessagesModal
+        alertVariant="warning"
+        modalContent={
+          <label
+            aria-live="polite"
+          >
+            <p>
+              t(curiosity-banner.usage_modal, {"context":"description","count":2}, [object Object])
+            </p>
+            <textarea
+              className="curiosity-error__textarea"
+              data-test="bannerUsageAccountsProvidersList"
+              readOnly={true}
+              rows="10"
+              value="[
+  {
+    "id": "ipsum",
+    "provider": "Lorem"
+  },
+  {
+    "id": "ipsumLorem",
+    "provider": "Lorem"
+  }
+]"
+            />
+          </label>
+        }
+        modalTitle="t(curiosity-banner.usage_modal, {"context":"title","count":2})"
+      >
+        t(curiosity-banner.usage_alert_link, {"context":"modal"})
+      </BannerMessagesModal>
+      <AlertActionLink
+        component="a"
+        data-test="bannerUsageLearnMoreLink"
+        href="https://access.redhat.com/solutions/7110681"
+        icon={<ExternalLinkAltIcon />}
+        iconPosition="right"
+        target="_blank"
+      >
+        t(curiosity-banner.usage_alert, {"context":"link"})
+      </AlertActionLink>
+    </React.Fragment>,
+    "dataTest": "bannerUsage",
+    "id": "usage-warning",
+    "message": "t(curiosity-banner.usage_alert, {"context":"description","count":2,"remaining":"t(curiosity-banner.usage_alert_description, {\\"context\\":\\"remaining\\",\\"count\\":1})","provider":"t(curiosity-toolbar.label_billing_provider, {\\"context\\":\\"Lorem\\",\\"value\\":\\"Lorem\\"})","account":"ipsum"}, [object Object])",
+    "title": "t(curiosity-banner.usage_alert, {"context":"title"})",
+    "variant": "warning",
+  },
+]
+`;
+
+exports[`ProductViewOnloadContext should apply a hook for usage banner alerts, single account 1`] = `
+[
+  {
+    "actionLinks": <React.Fragment>
+      <BannerMessagesModal
+        alertVariant="warning"
+        modalContent={
+          <label
+            aria-live="polite"
+          >
+            <p>
+              t(curiosity-banner.usage_modal, {"context":"description","count":1}, [object Object])
+            </p>
+            <textarea
+              className="curiosity-error__textarea"
+              data-test="bannerUsageAccountsProvidersList"
+              readOnly={true}
+              rows="10"
+              value="[
+  {
+    "id": "ipsum",
+    "provider": "Lorem"
+  }
+]"
+            />
+          </label>
+        }
+        modalTitle="t(curiosity-banner.usage_modal, {"context":"title","count":1})"
+      >
+        t(curiosity-banner.usage_alert_link, {"context":"modal"})
+      </BannerMessagesModal>
+      <AlertActionLink
+        component="a"
+        data-test="bannerUsageLearnMoreLink"
+        href="https://access.redhat.com/solutions/7110681"
+        icon={<ExternalLinkAltIcon />}
+        iconPosition="right"
+        target="_blank"
+      >
+        t(curiosity-banner.usage_alert, {"context":"link"})
+      </AlertActionLink>
+    </React.Fragment>,
+    "dataTest": "bannerUsage",
+    "id": "usage-warning",
+    "message": "t(curiosity-banner.usage_alert, {"context":"description","count":1,"remaining":"t(curiosity-banner.usage_alert_description, {\\"context\\":\\"remaining\\",\\"count\\":1})","provider":"t(curiosity-toolbar.label_billing_provider, {\\"context\\":\\"Lorem\\",\\"value\\":\\"Lorem\\"})","account":"ipsum"}, [object Object])",
+    "title": "t(curiosity-banner.usage_alert, {"context":"title"})",
+    "variant": "warning",
+  },
+]
+`;
+
 exports[`ProductViewOnloadContext should return specific properties: specific properties 1`] = `
 {
   "useProductOnload": [Function],
