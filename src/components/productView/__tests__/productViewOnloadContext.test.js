@@ -1,4 +1,4 @@
-import { context, useProductOnload } from '../productViewOnloadContext';
+import { context, useProductOnload, useUsageBanner } from '../productViewOnloadContext';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 
 describe('ProductViewOnloadContext', () => {
@@ -30,5 +30,82 @@ describe('ProductViewOnloadContext', () => {
     );
     expect(onload).toMatchSnapshot('product onload, onload');
     expect(mockApiCall.mock.calls).toMatchSnapshot('dispatch');
+  });
+
+  it.each([
+    {
+      description: 'basic',
+      data: {}
+    },
+    {
+      description: 'single account',
+      data: {
+        isUsageError: true,
+        usageMetrics: {
+          firstProvider: 'Lorem',
+          firstProviderAccount: 'ipsum',
+          uniqueAccountsProvidersList: [
+            {
+              id: 'ipsum',
+              provider: 'Lorem'
+            }
+          ]
+        }
+      }
+    },
+    {
+      description: 'multiple accounts single provider',
+      data: {
+        isUsageError: true,
+        usageMetrics: {
+          firstProvider: 'Lorem',
+          firstProviderAccount: 'ipsum',
+          uniqueAccountsProvidersList: [
+            {
+              id: 'ipsum',
+              provider: 'Lorem'
+            },
+            {
+              id: 'ipsumLorem',
+              provider: 'Lorem'
+            }
+          ]
+        }
+      }
+    },
+    {
+      description: 'multiple accounts multiple providers',
+      data: {
+        isUsageError: true,
+        usageMetrics: {
+          firstProvider: 'Lorem',
+          firstProviderAccount: 'ipsum',
+          uniqueAccountsProvidersList: [
+            {
+              id: 'ipsum',
+              provider: 'Lorem'
+            },
+            {
+              id: 'ipsumLorem',
+              provider: 'Lorem'
+            },
+            {
+              id: 'sit',
+              provider: 'Dolor'
+            }
+          ]
+        }
+      }
+    }
+  ])('should apply a hook for usage banner alerts, $description', async ({ data }) => {
+    const mockSetBannerMessagesHook = jest.fn();
+
+    await renderHook(() =>
+      useUsageBanner({
+        useSetBannerMessages: () => mockSetBannerMessagesHook,
+        useSelector: () => ({ data })
+      })
+    );
+    expect(mockSetBannerMessagesHook.mock.calls.pop()).toMatchSnapshot();
   });
 });

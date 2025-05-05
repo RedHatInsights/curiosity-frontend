@@ -11,6 +11,8 @@
 </dd>
 <dt><a href="#BannerMessages.module_BannerMessagesContext">BannerMessagesContext</a></dt>
 <dd></dd>
+<dt><a href="#BannerMessages.module_BannerMessagesModal">BannerMessagesModal</a></dt>
+<dd></dd>
 <dt><a href="#Components.module_Chart">Chart</a></dt>
 <dd><p>PF Charts/Victory area, and line, charts generator.</p>
 </dd>
@@ -330,6 +332,8 @@ Banner alert messages for a product view.
   <tbody>
 <tr>
     <td>BannerMessagesContext</td><td><code>module</code></td>
+    </tr><tr>
+    <td>BannerMessagesModal</td><td><code>module</code></td>
     </tr>  </tbody>
 </table>
 
@@ -480,6 +484,35 @@ Set application messages for banner display
   <tbody>
 <tr>
     <td>messages</td><td><code>Array</code> | <code>Object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="BannerMessages.module_BannerMessagesModal"></a>
+
+## BannerMessagesModal
+<a name="BannerMessages.module_BannerMessagesModal..BannerMessagesModal"></a>
+
+### BannerMessagesModal~BannerMessagesModal(props) ⇒ <code>JSX.Element</code>
+A self-contained modal wrapper for banner messages.
+
+**Kind**: inner method of [<code>BannerMessagesModal</code>](#BannerMessages.module_BannerMessagesModal)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>props.modalTitle</td><td><code>React.ReactNode</code></td><td></td>
+    </tr><tr>
+    <td>[props.modalContent]</td><td><code>React.ReactNode</code></td><td></td>
+    </tr><tr>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
+    </tr><tr>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr>  </tbody>
 </table>
 
