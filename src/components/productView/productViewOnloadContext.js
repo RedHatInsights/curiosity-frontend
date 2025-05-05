@@ -82,22 +82,15 @@ const useUsageBanner = ({
 
   useEffect(() => {
     if (isUsageError === true) {
-      const {
-        firstProvider,
-        firstProviderAccount,
-        firstProviderNumberAccounts,
-        numberProviders,
-        uniqueAccountsProvidersList
-      } = data.usageMetrics;
+      const { firstProvider, firstProviderAccount, uniqueAccountsProvidersList } = data.usageMetrics;
 
-      const isMultipleProviders = numberProviders >= 2;
-      const isMultipleAccounts = firstProviderNumberAccounts >= 2;
-      const remainingAccounts = firstProviderNumberAccounts - 1;
-      const remainingProviders = numberProviders - 1;
+      const numberAccounts = uniqueAccountsProvidersList.length;
+      const isMultipleAccounts = numberAccounts >= 2;
+      const remainingAccounts = numberAccounts - 1;
 
       const modalTitle = t('curiosity-banner.usage', {
         context: ['modal', 'title'],
-        count: uniqueAccountsProvidersList.length
+        count: numberAccounts
       });
 
       const modalContent = (
@@ -107,7 +100,7 @@ const useUsageBanner = ({
               'curiosity-banner.usage',
               {
                 context: ['modal', 'description'],
-                count: uniqueAccountsProvidersList.length
+                count: numberAccounts
               },
               [
                 <Button
@@ -166,10 +159,10 @@ const useUsageBanner = ({
           'curiosity-banner.usage',
           {
             context: ['alert', 'description'],
-            count: (isMultipleProviders && numberProviders) || (isMultipleAccounts && firstProviderNumberAccounts) || 1,
+            count: (isMultipleAccounts && remainingAccounts) || 1,
             remaining: t('curiosity-banner.usage', {
-              context: ['alert', 'description', 'remaining', isMultipleProviders && 'provider'],
-              count: (isMultipleProviders && remainingProviders) || (isMultipleAccounts && remainingAccounts) || 1
+              context: ['alert', 'description', 'remaining'],
+              count: (isMultipleAccounts && remainingAccounts) || 1
             }),
             provider: t('curiosity-toolbar.label', {
               context: ['billing_provider', (firstProvider === '' && 'none') || firstProvider],

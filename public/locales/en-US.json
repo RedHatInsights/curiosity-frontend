@@ -14,8 +14,6 @@
     "usage_alert_description_remaining": "{{count}} more",
     "usage_alert_description_remaining_one": "{{count}} more account",
     "usage_alert_description_remaining_other": "{{count}} more accounts",
-    "usage_alert_description_remaining_provider_one": "{{count}} more provider",
-    "usage_alert_description_remaining_provider_other": "{{count}} more providers",
     "usage_alert_link_modal": "View details",
     "usage_alert_link": "Learn more",
     "usage_modal_title": "No matching subscriptions",

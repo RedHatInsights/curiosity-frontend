@@ -337,11 +337,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-banner.usage",
-        "match": "t('curiosity-banner.usage', { context: ['modal', 'title'], count: uniqueAccountsProvidersList.length })",
+        "match": "t('curiosity-banner.usage', { context: ['modal', 'title'], count: numberAccounts })",
       },
       {
         "key": "curiosity-banner.usage",
-        "match": "t( 'curiosity-banner.usage', { context: ['modal', 'description'], count: uniqueAccountsProvidersList.length }, [ <Button data-test="bannerUsageLearnMoreLink" isInline component="a" variant="link" icon={<ExternalLinkAltIcon />} iconPosition="right" target="_blank" href={helpers.UI_LINK_USAGE_SUBSCRIPTIONS} /> ] )",
+        "match": "t( 'curiosity-banner.usage', { context: ['modal', 'description'], count: numberAccounts }, [ <Button data-test="bannerUsageLearnMoreLink" isInline component="a" variant="link" icon={<ExternalLinkAltIcon />} iconPosition="right" target="_blank" href={helpers.UI_LINK_USAGE_SUBSCRIPTIONS} /> ] )",
       },
       {
         "key": "curiosity-banner.usage",
@@ -357,11 +357,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-banner.usage",
-        "match": "t( 'curiosity-banner.usage', { context: ['alert', 'description'], count: (isMultipleProviders && numberProviders)",
+        "match": "t( 'curiosity-banner.usage', { context: ['alert', 'description'], count: (isMultipleAccounts && remainingAccounts)",
       },
       {
         "key": "curiosity-banner.usage",
-        "match": "t('curiosity-banner.usage', { context: ['alert', 'description', 'remaining', isMultipleProviders && 'provider'], count: (isMultipleProviders && remainingProviders)",
+        "match": "t('curiosity-banner.usage', { context: ['alert', 'description', 'remaining'], count: (isMultipleAccounts && remainingAccounts)",
       },
       {
         "key": "curiosity-toolbar.label",
