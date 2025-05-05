@@ -82,7 +82,7 @@ const useUsageBanner = ({
 
   useEffect(() => {
     if (isUsageError === true) {
-      const { firstProvider, firstProviderAccount, uniqueAccountsProvidersList } = data.usageMetrics;
+      const { firstProvider, firstProviderAccount, uniqueAccountsProvidersList = [] } = data?.usageMetrics || {};
 
       const numberAccounts = uniqueAccountsProvidersList.length;
       const isMultipleAccounts = numberAccounts >= 2;
@@ -159,7 +159,7 @@ const useUsageBanner = ({
           'curiosity-banner.usage',
           {
             context: ['alert', 'description'],
-            count: (isMultipleAccounts && remainingAccounts) || 1,
+            count: (isMultipleAccounts && numberAccounts) || 1,
             remaining: t('curiosity-banner.usage', {
               context: ['alert', 'description', 'remaining'],
               count: (isMultipleAccounts && remainingAccounts) || 1

@@ -357,7 +357,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-banner.usage",
-        "match": "t( 'curiosity-banner.usage', { context: ['alert', 'description'], count: (isMultipleAccounts && remainingAccounts)",
+        "match": "t( 'curiosity-banner.usage', { context: ['alert', 'description'], count: (isMultipleAccounts && numberAccounts)",
       },
       {
         "key": "curiosity-banner.usage",
