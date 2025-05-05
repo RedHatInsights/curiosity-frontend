@@ -33,3 +33,4 @@ public/locales/*.json
 .docs
 .openapi
 .cache
+.archive

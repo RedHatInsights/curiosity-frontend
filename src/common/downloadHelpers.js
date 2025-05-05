@@ -20,7 +20,7 @@ const downloadData = options => {
   const { data = '', fileName = 'download.txt', fileType = 'text/plain' } = options || {};
   return new Promise((resolve, reject) => {
     try {
-      const { document, navigator, URL } = window;
+      const { document, navigator, URL, setTimeout } = window;
       const blob = new Blob([data], { type: fileType });
 
       if (navigator?.msSaveBlob) {

@@ -410,7 +410,7 @@ describe('Poll service calls', () => {
 
     // Note: The status callback is an independent async func fired out of sequence, we wait for it to resolve.
     await new Promise(resolve => {
-      setTimeout(() => resolve(), 100);
+      window.setTimeout(() => resolve(), 100);
     });
 
     expect(statusPoll).toHaveBeenCalledTimes(3);
@@ -449,7 +449,7 @@ describe('Poll service calls', () => {
 
     // Note: The status callback is an independent async func fired out of sequence, we wait for it to resolve.
     await new Promise(resolve => {
-      setTimeout(() => resolve(), 100);
+      window.setTimeout(() => resolve(), 100);
     });
 
     expect(consoleSpyError.mock.calls).toMatchSnapshot('callback error');
@@ -504,7 +504,7 @@ describe('Poll service calls', () => {
 
     // Note: The status callback is an independent async func fired out of sequence, we wait for it to resolve.
     await new Promise(resolve => {
-      setTimeout(() => resolve(), 100);
+      window.setTimeout(() => resolve(), 100);
     });
 
     expect(statusErrorPoll).toHaveBeenCalledTimes(2);
@@ -539,7 +539,7 @@ describe('Poll service calls', () => {
 
     // Note: The location callback is an independent async func fired out of sequence, we wait for it to resolve.
     await new Promise(resolve => {
-      setTimeout(() => resolve(), 100);
+      window.setTimeout(() => resolve(), 100);
     });
 
     expect(consoleSpyError.mock.calls).toMatchSnapshot('callback error');
@@ -568,7 +568,7 @@ describe('Poll service calls', () => {
 
     // Note: The status callback is an independent async func fired out of sequence, we wait for it to resolve.
     await new Promise(resolve => {
-      setTimeout(() => resolve(), 100);
+      window.setTimeout(() => resolve(), 100);
     });
 
     expect(statusStatusErrorPoll).toHaveBeenCalledTimes(2);
