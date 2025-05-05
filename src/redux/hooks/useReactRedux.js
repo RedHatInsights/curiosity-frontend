@@ -30,10 +30,8 @@ const createSimpleSelector = (selectors, callback) => {
   const selector = function (...args) {
     const results = [];
     updatedSelectors.forEach(sel => {
-      // eslint-disable-next-line prefer-spread
       results.push(sel.apply(this, args));
     });
-    // eslint-disable-next-line prefer-spread
     return result.apply(this, results);
   };
 
