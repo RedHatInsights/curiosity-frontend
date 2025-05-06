@@ -450,15 +450,21 @@ Pre-parsed product configurations
   </thead>
   <tbody>
 <tr>
+    <td>Ansible</td><td><code>module</code></td>
+    </tr><tr>
     <td>OpenShiftContainer</td><td><code>module</code></td>
     </tr><tr>
     <td>OpenShiftDedicated</td><td><code>module</code></td>
     </tr><tr>
     <td>OpenShiftMetrics</td><td><code>module</code></td>
     </tr><tr>
+    <td>RHACM</td><td><code>module</code></td>
+    </tr><tr>
     <td>RHACS</td><td><code>module</code></td>
     </tr><tr>
     <td>RHEL</td><td><code>module</code></td>
+    </tr><tr>
+    <td>RHEL-X86-ELS-PAYG</td><td><code>module</code></td>
     </tr><tr>
     <td>RHODS</td><td><code>module</code></td>
     </tr><tr>
