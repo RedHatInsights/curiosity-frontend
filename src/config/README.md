@@ -13,6 +13,9 @@
 <dt><a href="#Products.module_OpenShiftMetrics">OpenShiftMetrics</a></dt>
 <dd><p>OpenShift Metrics</p>
 </dd>
+<dt><a href="#Products.module_RHACM">RHACM</a></dt>
+<dd><p>RHACM</p>
+</dd>
 <dt><a href="#Products.module_RHACS">RHACS</a></dt>
 <dd><p>RHACS</p>
 </dd>
@@ -180,6 +183,42 @@ Product label. An identifier used for display strings.
 Product configuration
 
 **Kind**: inner constant of [<code>OpenShiftMetrics</code>](#Products.module_OpenShiftMetrics)  
+<a name="Products.module_RHACM"></a>
+
+## RHACM
+RHACM
+
+
+* [RHACM](#Products.module_RHACM)
+    * [~productGroup](#Products.module_RHACM..productGroup) : <code>string</code>
+    * [~productId](#Products.module_RHACM..productId) : <code>string</code>
+    * [~productLabel](#Products.module_RHACM..productLabel) : <code>string</code>
+    * [~config](#Products.module_RHACM..config) : <code>Object</code>
+
+<a name="Products.module_RHACM..productGroup"></a>
+
+### RHACM~productGroup : <code>string</code>
+Product group. A variant and dissimilar product configuration grouping identifier.
+
+**Kind**: inner constant of [<code>RHACM</code>](#Products.module_RHACM)  
+<a name="Products.module_RHACM..productId"></a>
+
+### RHACM~productId : <code>string</code>
+Product ID. The identifier used when querying the API.
+
+**Kind**: inner constant of [<code>RHACM</code>](#Products.module_RHACM)  
+<a name="Products.module_RHACM..productLabel"></a>
+
+### RHACM~productLabel : <code>string</code>
+Product label. An identifier used for display strings.
+
+**Kind**: inner constant of [<code>RHACM</code>](#Products.module_RHACM)  
+<a name="Products.module_RHACM..config"></a>
+
+### RHACM~config : <code>Object</code>
+Product configuration
+
+**Kind**: inner constant of [<code>RHACM</code>](#Products.module_RHACM)  
 <a name="Products.module_RHACS"></a>
 
 ## RHACS
