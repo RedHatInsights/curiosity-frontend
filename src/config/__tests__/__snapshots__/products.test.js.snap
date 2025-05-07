@@ -390,6 +390,7 @@ exports[`Product configurations should return specific methods and properties: p
     "OpenShift Container Platform",
     "OpenShift-dedicated-metrics",
     "OpenShift-metrics",
+    "rhacm",
     "rhacs",
     "RHEL for x86",
     "rhel-for-x86-els-payg",
