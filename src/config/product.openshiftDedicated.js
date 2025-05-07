@@ -21,6 +21,7 @@ import {
 import { ChartTypeVariant } from '../components/chart/chart';
 import { dateHelpers, helpers } from '../common';
 import { SelectPosition } from '../components/form/select';
+import { Tooltip } from '../components/tooltip/tooltip';
 import { translate } from '../components/i18n/i18n';
 
 /**
@@ -275,10 +276,27 @@ const config = {
     },
     {
       metric: INVENTORY_TYPES.BILLING_PROVIDER,
-      cell: ({ [INVENTORY_TYPES.BILLING_PROVIDER]: provider }) =>
-        translate(`curiosity-inventory.label_${INVENTORY_TYPES.BILLING_PROVIDER}`, {
-          context: provider || 'none'
-        }),
+      info: {
+        tooltip: () =>
+          translate(`curiosity-inventory.tooltip`, {
+            context: ['header', INVENTORY_TYPES.BILLING_PROVIDER]
+          })
+      },
+      cell: ({ [INVENTORY_TYPES.BILLING_PROVIDER]: provider, [INVENTORY_TYPES.BILLING_ACCOUNT_ID]: account }) => (
+        <Tooltip
+          content={translate(`curiosity-inventory.tooltip`, {
+            context: ['cell', INVENTORY_TYPES.BILLING_PROVIDER, !provider && 'none'],
+            provider: translate('curiosity-inventory.label', {
+              context: [INVENTORY_TYPES.BILLING_PROVIDER, provider]
+            }),
+            account
+          })}
+        >
+          {translate('curiosity-inventory.label', {
+            context: [INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none']
+          })}
+        </Tooltip>
+      ),
       isSort: true,
       isWrap: true,
       width: 15
