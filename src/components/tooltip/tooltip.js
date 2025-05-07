@@ -43,7 +43,9 @@ const Tooltip = ({
     position={position}
     {...props}
   >
-    {(React.isValidElement(children) && children) || <span className="curiosity-tooltip-children">{children}</span>}
+    <div className="curiosity-tooltip-content">
+      {(React.isValidElement(children) && children) || <span className="curiosity-tooltip-children">{children}</span>}
+    </div>
   </PfTooltip>
 );
 
