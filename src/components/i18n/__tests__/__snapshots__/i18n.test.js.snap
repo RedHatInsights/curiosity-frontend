@@ -868,6 +868,47 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/config/product.rhacm.js",
+    "keys": [
+      {
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['remainingCapacity', dataSets?.[0]?.display?.chartId], testId: 'graphRemainingCapacityCard-header' })",
+      },
+      {
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.remainingCapacityHasData && dataSets?.[0]?.display?.chartId], testId: 'graphRemainingCapacityCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.remainingCapacity)",
+      },
+      {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.dailyDate)",
+      },
+      {
+        "key": "curiosity-graph.label_axisX",
+        "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
+      },
+      {
+        "key": "curiosity-inventory.guestsHeader",
+        "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
+      },
+      {
+        "key": "",
+        "match": "translate(\`curiosity-inventory.label_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider || 'none' })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
+        "key": "curiosity-inventory.label",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none'] })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+    ],
+  },
+  {
     "file": "src/config/product.rhacs.js",
     "keys": [
       {
@@ -1417,6 +1458,18 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/config/product.openshiftMetrics.js",
+    "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "src/config/product.rhacm.js",
+    "key": "curiosity-graph.label_axisX",
+  },
+  {
+    "file": "src/config/product.rhacm.js",
+    "key": "curiosity-inventory.guestsHeader",
+  },
+  {
+    "file": "src/config/product.rhacm.js",
     "key": "curiosity-inventory.label",
   },
   {

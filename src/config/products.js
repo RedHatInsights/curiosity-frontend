@@ -5,11 +5,14 @@ import { helpers } from '../common/helpers';
  *
  * @memberof Configuration
  * @module Products
+ * @property {module} Ansible
  * @property {module} OpenShiftContainer
  * @property {module} OpenShiftDedicated
  * @property {module} OpenShiftMetrics
+ * @property {module} RHACM
  * @property {module} RHACS
  * @property {module} RHEL
+ * @property {module} RHEL-X86-ELS-PAYG
  * @property {module} RHODS
  * @property {module} ROSA
  * @property {module} Satellite
