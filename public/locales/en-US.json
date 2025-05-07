@@ -347,7 +347,10 @@
     "table_ariaLabel_skeleton": "Loading",
     "table_summary": "A generated table with one level of column headers.",
     "table_emptyState_description": "To show more results, clear some or all filters.",
-    "table_emptyState_title": "No results found"
+    "table_emptyState_title": "No results found",
+    "tooltip_header_billing_provider": "Hover over a billing provider name to display the related billing account.",
+    "tooltip_cell_billing_provider": "{{provider}} billing account {{account}}",
+    "tooltip_cell_billing_provider_none": "Billing account {{account}}"
   },
   "curiosity-toolbar": {
     "button_displayName": "Search button for name",
