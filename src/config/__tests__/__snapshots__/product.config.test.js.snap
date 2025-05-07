@@ -4545,7 +4545,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"ansible-aap-managed"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -4599,9 +4601,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"ansible-aap-managed"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -4782,7 +4791,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"OpenShift-dedicated-metrics"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -4847,9 +4858,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"OpenShift-dedicated-metrics"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -4916,7 +4934,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"OpenShift-metrics"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -4970,9 +4990,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"OpenShift-metrics"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -5030,7 +5057,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacm"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -5080,9 +5109,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacm"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -5140,7 +5176,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -5190,9 +5228,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -5377,10 +5422,14 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhel-for-x86-els-payg"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
+          "isWrap": true,
           "label": [Function],
           "metric": "billing_provider",
+          "modifier": "wrap",
           "width": 20,
         },
         {
@@ -5418,10 +5467,18 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhel-for-x86-els-payg"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
+              "isWrap": true,
               "metric": "billing_provider",
               "width": 20,
             },
@@ -5477,7 +5534,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -5520,9 +5579,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -5580,7 +5646,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rosa"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -5641,9 +5709,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rosa"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -5858,7 +5933,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"ansible-aap-managed"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -5912,9 +5989,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"ansible-aap-managed"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -6088,7 +6172,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"OpenShift-dedicated-metrics"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -6146,9 +6232,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"OpenShift-dedicated-metrics"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -6215,7 +6308,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"OpenShift-metrics"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -6262,9 +6357,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"OpenShift-metrics"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -6322,7 +6424,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacm"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -6365,9 +6469,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacm"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -6425,7 +6536,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -6468,9 +6581,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -6648,10 +6768,14 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhel-for-x86-els-payg"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
+          "isWrap": true,
           "label": [Function],
           "metric": "billing_provider",
+          "modifier": "wrap",
           "width": 20,
         },
         {
@@ -6689,10 +6813,18 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhel-for-x86-els-payg"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
+              "isWrap": true,
               "metric": "billing_provider",
               "width": 20,
             },
@@ -6748,7 +6880,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -6791,9 +6925,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",
@@ -6851,7 +6992,9 @@ exports[`Product specific configurations should apply variations in inventory fi
         {
           "cell": [Function],
           "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rosa"})",
-          "info": undefined,
+          "info": {
+            "tooltip": "t(curiosity-inventory.tooltip_header_billing, {"context":"provider"})",
+          },
           "isSort": true,
           "isWrap": true,
           "label": [Function],
@@ -6905,9 +7048,16 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "content": <Tooltip
+                content="t(curiosity-inventory.tooltip_cell_billing_provider, {"context":"none","provider":"t(curiosity-inventory.label_billing, {\\"context\\":\\"provider\\"})"})"
+              >
+                t(curiosity-inventory.label_billing_provider, {"context":"none"})
+              </Tooltip>,
               "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rosa"})",
               "header": [Function],
+              "info": {
+                "tooltip": [Function],
+              },
               "isSort": true,
               "isWrap": true,
               "metric": "billing_provider",

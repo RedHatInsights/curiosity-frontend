@@ -14,8 +14,12 @@ exports[`Tooltip Component should allow custom properties: custom, content 1`] =
   exitDelay={0}
   position="top"
 >
-  <div>
-    content
+  <div
+    className="curiosity-tooltip-content"
+  >
+    <div>
+      content
+    </div>
   </div>
 </Tooltip>
 `;
@@ -31,11 +35,15 @@ exports[`Tooltip Component should render a basic component: basic 1`] = `
   <div
     style="display: contents;"
   >
-    <span
-      class="curiosity-tooltip-children"
+    <div
+      class="curiosity-tooltip-content"
     >
-      hello world
-    </span>
+      <span
+        class="curiosity-tooltip-children"
+      >
+        hello world
+      </span>
+    </div>
   </div>
 </tooltip>
 `;

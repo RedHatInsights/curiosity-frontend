@@ -73,7 +73,7 @@ const getApiVersion = (options = {}) => {
  *     {
  *       "ids": [
  *         {
- *           "billing_account_id": "2cfa4d67-cf37-47f4-bd76-2mock91242",
+ *           "billing_account_id": "XXXXXXXXXX",
  *           "billing_provider": "aws"
  *         },
  *         {
@@ -2055,7 +2055,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *       "data" : [
  *         {
  *           "category": "physical",
- *           "billing_account_id": "xxxxx-xxxx-CCCCC-xxxx-xxxx10",
+ *           "billing_account_id": "XXXXXXXXXX",
  *           "inventory_id": "CCCCC-b344-4778-831c-CCCCCCC",
  *           "instance_id": "i-831cCCCCCCC",
  *           "subscription_manager_id": "CCCCC-5b00-42fa-CCCCC-75801d45cc6d",
@@ -2071,7 +2071,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *         },
  *         {
  *           "category": "virtual",
- *           "billing_account_id": "xxxxx-xxxx-FFFFF-xxxx-xxxx40",
+ *           "billing_account_id": "XXXXXXXXXX",
  *           "inventory_id": "FFFFF-b344-4778-831c-FFFFF",
  *           "instance_id": "i-831cFFFFF",
  *           "subscription_manager_id": "FFFFF-5b00-42fa-FFFFF-75801d45cc6d",
@@ -2090,7 +2090,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *           "category": "cloud",
  *           "billing_provider": "red hat",
  *           "cloud_provider": "aws",
- *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx01",
+ *           "billing_account_id": "XXXXXXXXXX",
  *           "inventory_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
  *           "instance_id": "i-831cd53dcacb2da3",
  *           "subscription_manager_id": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
@@ -2108,7 +2108,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *           "category": "cloud",
  *           "billing_provider": "azure",
  *           "cloud_provider": "azure",
- *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx02",
+ *           "billing_account_id": "XXXXXXXXXX",
  *           "inventory_id": "XXXXXX-b344-4778-831c-XXXXXXXX",
  *           "instance_id": "i-831cXXXXXXXX",
  *           "subscription_manager_id": "XXXXXX-5b00-42fa-XXXX-75801d45cc6d",
@@ -2124,7 +2124,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *         },
  *         {
  *           "category": "physical",
- *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx03",
+ *           "billing_account_id": "XXXXXXXXXX",
  *           "inventory_id": "BBBBB-b344-4778-831c-BBBBBBB",
  *           "instance_id": "i-831cBBBBBBB",
  *           "subscription_manager_id": "BBBBB-5b00-42fa-BBBBB-75801d45cc6d",
