@@ -2,6 +2,64 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.15.0](https://github.com/RedHatInsights/curiosity-frontend/compare/8ccd53b4fef8b5ba6e486af9b721092abb1ae5ca...54aab55bf53987076e8960db67ceac4a70d56413) (2025-05-07)
+
+
+### Performance Improvements
+* **productView,routerContext** sw-95 product load optimization ([#1576](https://github.com/RedHatInsights/curiosity-frontend/pull/1576)) ([0804c00](https://github.com/RedHatInsights/curiosity-frontend/commit/0804c00541ce472cd84b855bc59e5d21b4f0c62f))
+
+### Features
+* **rhsmTransformers,bannerMessages** sw-3519 usage alert banner ([#1587](https://github.com/RedHatInsights/curiosity-frontend/pull/1587)) ([c999a65](https://github.com/RedHatInsights/curiosity-frontend/commit/c999a6533f8041ea904f668d96b7651a5918a1ee))
+* **config** sw-95 activate inventory billing provider column ([#1590](https://github.com/RedHatInsights/curiosity-frontend/pull/1590)) ([371a528](https://github.com/RedHatInsights/curiosity-frontend/commit/371a52831510070af0f13d84f6a12bf88c4acfd6))
+* **config** sw-95 activate dynamic provider, accounts ([#1589](https://github.com/RedHatInsights/curiosity-frontend/pull/1589)) ([a0130bb](https://github.com/RedHatInsights/curiosity-frontend/commit/a0130bb8e46bdbb7ed13e197fe02e8a3e834b188))
+* **toolbarFieldBillingAccount** sw-95 dynamic provider,accounts ([#1577](https://github.com/RedHatInsights/curiosity-frontend/pull/1577)) ([943526c](https://github.com/RedHatInsights/curiosity-frontend/commit/943526c7cc3a199428a49dacee2bd16fb6e32e3a))
+* **rhsmServices,redux** sw-95 billing account ids ([#1555](https://github.com/RedHatInsights/curiosity-frontend/pull/1555)) ([38b2aed](https://github.com/RedHatInsights/curiosity-frontend/commit/38b2aed6074d598a50576702dee97fb4ab1cd539))
+
+### Documentation
+* **productView,toolbarFields** sw-95 consistent annotations ([#1579](https://github.com/RedHatInsights/curiosity-frontend/pull/1579)) ([70cedaf](https://github.com/RedHatInsights/curiosity-frontend/commit/70cedafc541a61183005098d24f81251cf809804))
+
+### Continuous Integrations
+*  Update build-tools digest to f28db1b ([#1602](https://github.com/RedHatInsights/curiosity-frontend/pull/1602)) ([54aab55](https://github.com/RedHatInsights/curiosity-frontend/commit/54aab55bf53987076e8960db67ceac4a70d56413))
+*  Update Konflux references ([#1599](https://github.com/RedHatInsights/curiosity-frontend/pull/1599)) ([55b6390](https://github.com/RedHatInsights/curiosity-frontend/commit/55b6390ef4b27271149862166794297fcf988893))
+*  Konflux Quay repository ([#1596](https://github.com/RedHatInsights/curiosity-frontend/pull/1596)) ([b7ea65f](https://github.com/RedHatInsights/curiosity-frontend/commit/b7ea65f4558a639ebcdfbecc2c0008a55726be94))
+*  Update Konflux references ([#1594](https://github.com/RedHatInsights/curiosity-frontend/pull/1594)) ([d933a79](https://github.com/RedHatInsights/curiosity-frontend/commit/d933a792c820491d6e278669d4bb18a1e007312f))
+*  Update Konflux references ([#1585](https://github.com/RedHatInsights/curiosity-frontend/pull/1585)) ([158df6b](https://github.com/RedHatInsights/curiosity-frontend/commit/158df6b38ececd6562e485e75e691031742e6cc7))
+*  Update Konflux references ([#1578](https://github.com/RedHatInsights/curiosity-frontend/pull/1578)) ([920a3f0](https://github.com/RedHatInsights/curiosity-frontend/commit/920a3f0db968450e1b9e006bd061b4fc2f64d3c3))
+*  Update Konflux references ([#1573](https://github.com/RedHatInsights/curiosity-frontend/pull/1573)) ([9be9f3d](https://github.com/RedHatInsights/curiosity-frontend/commit/9be9f3d7da5fc1aecf14f8a816b7260fe0ffd6d6))
+*  Update build-tools digest to faea943 ([#1571](https://github.com/RedHatInsights/curiosity-frontend/pull/1571)) ([643dbe1](https://github.com/RedHatInsights/curiosity-frontend/commit/643dbe14fe7b3eb66faa2c4569b4e3faa17a96c1))
+*  Update Konflux references ([#1568](https://github.com/RedHatInsights/curiosity-frontend/pull/1568)) ([10737cb](https://github.com/RedHatInsights/curiosity-frontend/commit/10737cbb936c7943278d90a2e7341729e43ead05))
+
+### Code Refactoring
+* **productViewOnloadContext** sw-95 component related hooks ([#1586](https://github.com/RedHatInsights/curiosity-frontend/pull/1586)) ([830d72f](https://github.com/RedHatInsights/curiosity-frontend/commit/830d72fa108d62cff4e438816e50e7efb8c76614))
+* **toolbarFieldCategory** options hook, move to useMemo ([#1579](https://github.com/RedHatInsights/curiosity-frontend/pull/1579)) ([3fba461](https://github.com/RedHatInsights/curiosity-frontend/commit/3fba4618cddf131944c6f270af1ba9163f956ca5))
+* **select** sw-3339 remove deprecated pf components ([#1562](https://github.com/RedHatInsights/curiosity-frontend/pull/1562)) ([2a01f72](https://github.com/RedHatInsights/curiosity-frontend/commit/2a01f725f7421c23ff3b70dfc0b3e4c85202b332))
+* **select** sw-3339 expand deprecated pf replacement ([#1562](https://github.com/RedHatInsights/curiosity-frontend/pull/1562)) ([c95fe02](https://github.com/RedHatInsights/curiosity-frontend/commit/c95fe022db4deca67fb61a45ae029d5330383d3a))
+
+### Builds
+* **deps** lock reset ([#1601](https://github.com/RedHatInsights/curiosity-frontend/pull/1601)) ([435a0d2](https://github.com/RedHatInsights/curiosity-frontend/commit/435a0d24291e6435e08542d432aab3b70bb270c9))
+* **deps-dev** bump the dev group with 6 updates ([#1600](https://github.com/RedHatInsights/curiosity-frontend/pull/1600)) ([dad8ca7](https://github.com/RedHatInsights/curiosity-frontend/commit/dad8ca712c102c017adc82571fde0a43490806a4))
+* **deps-dev** bump the dev group with 4 updates ([#1588](https://github.com/RedHatInsights/curiosity-frontend/pull/1588)) ([b524467](https://github.com/RedHatInsights/curiosity-frontend/commit/b5244671735df952cd17d4e081cd1de911962e1b))
+* **deps-dev** bump cspell from 8.18.1 to 8.19.2 ([#1580](https://github.com/RedHatInsights/curiosity-frontend/pull/1580)) ([710d203](https://github.com/RedHatInsights/curiosity-frontend/commit/710d203a2b2f9222800932741ed211bb2a20e40b))
+* **deps** bump group with 4 updates ([#1575](https://github.com/RedHatInsights/curiosity-frontend/pull/1575)) ([2fc2ff8](https://github.com/RedHatInsights/curiosity-frontend/commit/2fc2ff8f81dabb89bb5fd52edebf08b2329195c5))
+* **deps-dev** bump the dev group with 2 updates ([#1574](https://github.com/RedHatInsights/curiosity-frontend/pull/1574)) ([a5ec453](https://github.com/RedHatInsights/curiosity-frontend/commit/a5ec453aa6a5e578d260900ccefea3d8984462b2))
+* **deps-dev** bump the dev group with 4 updates ([#1569](https://github.com/RedHatInsights/curiosity-frontend/pull/1569)) ([7fc1478](https://github.com/RedHatInsights/curiosity-frontend/commit/7fc1478e57dca552db79c898658dc4be5f091e1c))
+* **deps-dev** bump the dev group with 3 updates ([#1559](https://github.com/RedHatInsights/curiosity-frontend/pull/1559)) ([445620b](https://github.com/RedHatInsights/curiosity-frontend/commit/445620b2a735f880b1d366fdd490437295f49dc9))
+* **deps** bump lru-cache from 11.0.2 to 11.1.0 ([#1560](https://github.com/RedHatInsights/curiosity-frontend/pull/1560)) ([1efb602](https://github.com/RedHatInsights/curiosity-frontend/commit/1efb6029bd5564f68dc004a596c4bf392cca7f4d))
+
+### Bug Fixes
+* **bannerMessages** sw-3519 modal detail for usage accounts ([#1591](https://github.com/RedHatInsights/curiosity-frontend/pull/1591)) ([4aea085](https://github.com/RedHatInsights/curiosity-frontend/commit/4aea08519c1b0af06121e14cfe03b53379ce57db))
+* **locale** sw-3519 unique provider names context ([#1598](https://github.com/RedHatInsights/curiosity-frontend/pull/1598)) ([ae9cc31](https://github.com/RedHatInsights/curiosity-frontend/commit/ae9cc3114e5e6dcce3e0ac823dbd84a92f09fb19))
+* **rhsmHelpers** sw-3519 expose unique accounts, providers ([#1597](https://github.com/RedHatInsights/curiosity-frontend/pull/1597)) ([01354c5](https://github.com/RedHatInsights/curiosity-frontend/commit/01354c525d5809b5c510f972a68c048e9643ce37))
+* **rhsmTransformers** sw-95 allow id overlap per provider ([#1584](https://github.com/RedHatInsights/curiosity-frontend/pull/1584)) ([0802496](https://github.com/RedHatInsights/curiosity-frontend/commit/08024961c14ed5d2d6df9666679936e863d7b85f))
+* **toolbar** sw-3513 conditional locale display ([#1583](https://github.com/RedHatInsights/curiosity-frontend/pull/1583)) ([ec13f22](https://github.com/RedHatInsights/curiosity-frontend/commit/ec13f22a0e88d2b2cca74bd974fbaf34fdc79f57))
+* **productViewOnload** sw-95 missing locale string ([#1582](https://github.com/RedHatInsights/curiosity-frontend/pull/1582)) ([11ad4e7](https://github.com/RedHatInsights/curiosity-frontend/commit/11ad4e75fc11a5c1d6fe64630097c174d515df06))
+* **toolbarFieldBillingAccount** sw-3513 remove locale ref ([#1581](https://github.com/RedHatInsights/curiosity-frontend/pull/1581)) ([208ce45](https://github.com/RedHatInsights/curiosity-frontend/commit/208ce454f6cba1569eedca4a9921a1f9ba7137ce))
+* **select** sw-3468 consistent multiple, single return value ([#1572](https://github.com/RedHatInsights/curiosity-frontend/pull/1572)) ([489fcaf](https://github.com/RedHatInsights/curiosity-frontend/commit/489fcaf2c85a5d005be82d39673fa71df18e222e))
+* **toolbarFieldCategory** sw-3443 reset filter, legend links ([#1565](https://github.com/RedHatInsights/curiosity-frontend/pull/1565)) ([64be3bf](https://github.com/RedHatInsights/curiosity-frontend/commit/64be3bf120d6b1f6823a95ba11a8e595b9a83eb1))
+* **toolbar** sw-3443 productId key refresh ([#1566](https://github.com/RedHatInsights/curiosity-frontend/pull/1566)) ([d601f3e](https://github.com/RedHatInsights/curiosity-frontend/commit/d601f3e2f2eb477e53c4aee0716e7036370e6669))
+* **toolbarFields** sw-3443 state refs from view to productId ([#1564](https://github.com/RedHatInsights/curiosity-frontend/pull/1564)) ([1bc10f9](https://github.com/RedHatInsights/curiosity-frontend/commit/1bc10f9f38ab6b713c3f0baaffb87c4ea8488c35))
+* **toolbarFieldSelectCategory** sw-3440 set unique test id ([#1563](https://github.com/RedHatInsights/curiosity-frontend/pull/1563)) ([d30a477](https://github.com/RedHatInsights/curiosity-frontend/commit/d30a47706edf96351e94a42716338afc528afb5c))
+
 ## [4.14.4](https://github.com/RedHatInsights/curiosity-frontend/compare/75cda078526f0ba2ffdde314e7fd0f9ddddc0593...fbd2b27b504ea46acad6a0a8dd33a8fc694899b4) (2025-03-31)
 
 
