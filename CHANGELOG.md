@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.16.0](https://github.com/RedHatInsights/curiosity-frontend/compare/f9355c62d9afd0635ba4770e6786aee91f3ff303...5336057f1d21283a9b8bd79cdd495b4730f8449b) (2025-05-20)
+
+
+### Features
+* **config** sw-3512 activate rhacm ([#1603](https://github.com/RedHatInsights/curiosity-frontend/pull/1603)) ([14db2a9](https://github.com/RedHatInsights/curiosity-frontend/commit/14db2a98717df177474cad171dc673ac3770219c))
+
+### Continuous Integrations
+*  Update build-tools digest to 75adad0 ([#1612](https://github.com/RedHatInsights/curiosity-frontend/pull/1612)) ([1e22634](https://github.com/RedHatInsights/curiosity-frontend/commit/1e226346631df3dc2baa330019354f72d4f67d3f))
+*  Update Konflux references ([#1610](https://github.com/RedHatInsights/curiosity-frontend/pull/1610)) ([57ac8e2](https://github.com/RedHatInsights/curiosity-frontend/commit/57ac8e20127d79835b956fdf0ac3b877ecf1d5f1))
+*  Update build-tools digest to 28b7b8f ([#1609](https://github.com/RedHatInsights/curiosity-frontend/pull/1609)) ([406333f](https://github.com/RedHatInsights/curiosity-frontend/commit/406333f904f0fc4b9559910453199de488a69366))
+*  Update Konflux references ([#1607](https://github.com/RedHatInsights/curiosity-frontend/pull/1607)) ([9dc2f08](https://github.com/RedHatInsights/curiosity-frontend/commit/9dc2f08ef3fb7dffe7c2dd9af5aaef3c6ec327fb))
+
+### Builds
+* **deps-dev** eslint-plugin-jsdoc from 50.6.14 to 50.6.17 ([#1611](https://github.com/RedHatInsights/curiosity-frontend/pull/1611)) ([5336057](https://github.com/RedHatInsights/curiosity-frontend/commit/5336057f1d21283a9b8bd79cdd495b4730f8449b))
+* **deps-dev** bump the dev group with 2 updates ([#1608](https://github.com/RedHatInsights/curiosity-frontend/pull/1608)) ([07f0e17](https://github.com/RedHatInsights/curiosity-frontend/commit/07f0e1787609f233f1dfed4820f3430446096f52))
+
+### Bug Fixes
+* **config** sw-3519 instances tooltip for billing accounts ([#1606](https://github.com/RedHatInsights/curiosity-frontend/pull/1606)) ([86e5648](https://github.com/RedHatInsights/curiosity-frontend/commit/86e5648cf852ec7649a547583d1a61caa6123471))
+
 ## [4.15.0](https://github.com/RedHatInsights/curiosity-frontend/compare/8ccd53b4fef8b5ba6e486af9b721092abb1ae5ca...54aab55bf53987076e8960db67ceac4a70d56413) (2025-05-07)
 
 
