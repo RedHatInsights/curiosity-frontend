@@ -1,13 +1,13 @@
 import React from 'react';
-import {
-  chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark,
-  chart_color_gold_400 as chartColorGoldDark,
-  chart_color_gold_400 as chartColorGoldLight
-} from '@patternfly/react-tokens';
 import { Button } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import moment from 'moment/moment';
+import {
+  chartColorBlueLight,
+  chartColorBlueDark,
+  chartColorGoldLight,
+  chartColorGoldDark
+} from '../common/tokenHelpers';
 import {
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_PATH_PRODUCT_TYPES,

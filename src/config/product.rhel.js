@@ -1,17 +1,17 @@
 import React from 'react';
-import {
-  chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark,
-  chart_color_cyan_100 as chartColorCyanLight,
-  chart_color_cyan_300 as chartColorCyanDark,
-  chart_color_orange_100 as chartColorOrangeLight,
-  chart_color_orange_300 as chartColorOrangeDark,
-  chart_color_purple_100 as chartColorPurpleLight,
-  chart_color_purple_300 as chartColorPurpleDark
-} from '@patternfly/react-tokens';
 import { Button } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import moment from 'moment';
+import {
+  chartColorBlueLight,
+  chartColorBlueDark,
+  chartColorCyanLight,
+  chartColorCyanDark,
+  chartColorOrangeLight,
+  chartColorOrangeDark,
+  chartColorPurpleLight,
+  chartColorPurpleDark
+} from '../common/tokenHelpers';
 import {
   RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES,
   RHSM_API_PATH_METRIC_TYPES,

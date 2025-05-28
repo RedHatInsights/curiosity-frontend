@@ -7,6 +7,8 @@
 <dd></dd>
 <dt><a href="#Helpers.module_General">General</a></dt>
 <dd></dd>
+<dt><a href="#Helpers.module_Color Tokens">Color Tokens</a></dt>
+<dd></dd>
 </dl>
 
 <a name="Helpers.module_Dates"></a>
@@ -850,3 +852,6 @@ test and non-production environments only. Exposes helpers across all environmen
     </tr>  </tbody>
 </table>
 
+<a name="Helpers.module_Color Tokens"></a>
+
+## Color Tokens
