@@ -1,13 +1,13 @@
 import React from 'react';
-import {
-  chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark,
-  chart_color_orange_100 as chartColorOrangeLight,
-  chart_color_orange_100 as chartColorOrangeDark
-} from '@patternfly/react-tokens';
 import { Button } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import moment from 'moment/moment';
+import {
+  chartColorBlueLight,
+  chartColorBlueDark,
+  chartColorGoldLight,
+  chartColorGoldDark
+} from '../common/tokenHelpers';
 import {
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_PATH_PRODUCT_TYPES,
@@ -112,9 +112,9 @@ const config = {
         },
         {
           metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-          fill: chartColorOrangeLight.value,
-          stroke: chartColorOrangeDark.value,
-          color: chartColorOrangeDark.value,
+          fill: chartColorGoldLight.value,
+          stroke: chartColorGoldDark.value,
+          color: chartColorGoldDark.value,
           query: {
             [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.ON_DEMAND
           }
@@ -138,9 +138,9 @@ const config = {
         },
         {
           metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
-          fill: chartColorOrangeLight.value,
-          stroke: chartColorOrangeDark.value,
-          color: chartColorOrangeDark.value,
+          fill: chartColorGoldLight.value,
+          stroke: chartColorGoldDark.value,
+          color: chartColorGoldDark.value,
           query: {
             [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.ON_DEMAND
           }

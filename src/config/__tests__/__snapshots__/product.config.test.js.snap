@@ -2083,8 +2083,8 @@ exports[`Product specific configurations should apply graph filters and settings
               },
               {
                 "chartType": "area",
-                "color": "#f4b678",
-                "fill": "#f4b678",
+                "color": "#c58c00",
+                "fill": "#f0ab00",
                 "id": "Managed-nodes_on-demand_ansible-aap-managed",
                 "isCapacity": false,
                 "isStacked": true,
@@ -2094,7 +2094,7 @@ exports[`Product specific configurations should apply graph filters and settings
                 "query": {
                   "billing_category": "on-demand",
                 },
-                "stroke": "#f4b678",
+                "stroke": "#c58c00",
                 "strokeWidth": 2,
               },
               {
@@ -2164,8 +2164,8 @@ exports[`Product specific configurations should apply graph filters and settings
               },
               {
                 "chartType": "area",
-                "color": "#f4b678",
-                "fill": "#f4b678",
+                "color": "#c58c00",
+                "fill": "#f0ab00",
                 "id": "Instance-hours_on-demand_ansible-aap-managed",
                 "isCapacity": false,
                 "isStacked": true,
@@ -2175,7 +2175,7 @@ exports[`Product specific configurations should apply graph filters and settings
                 "query": {
                   "billing_category": "on-demand",
                 },
-                "stroke": "#f4b678",
+                "stroke": "#c58c00",
                 "strokeWidth": 2,
               },
               {
@@ -2525,8 +2525,8 @@ exports[`Product specific configurations should apply graph filters and settings
               },
               {
                 "chartType": "area",
-                "color": "#f4b678",
-                "fill": "#f4b678",
+                "color": "#c58c00",
+                "fill": "#f0ab00",
                 "id": "Cores_on-demand_rhacm",
                 "isCapacity": false,
                 "isStacked": true,
@@ -2536,7 +2536,7 @@ exports[`Product specific configurations should apply graph filters and settings
                 "query": {
                   "billing_category": "on-demand",
                 },
-                "stroke": "#f4b678",
+                "stroke": "#c58c00",
                 "strokeWidth": 2,
               },
               {
@@ -2908,8 +2908,8 @@ exports[`Product specific configurations should apply graph filters and settings
               },
               {
                 "chartType": "area",
-                "color": "#f4b678",
-                "fill": "#f4b678",
+                "color": "#c58c00",
+                "fill": "#f0ab00",
                 "id": "Cores_on-demand_rosa",
                 "isCapacity": false,
                 "isStacked": true,
@@ -2919,7 +2919,7 @@ exports[`Product specific configurations should apply graph filters and settings
                 "query": {
                   "billing_category": "on-demand",
                 },
-                "stroke": "#f4b678",
+                "stroke": "#c58c00",
                 "strokeWidth": 2,
               },
               {
@@ -2989,8 +2989,8 @@ exports[`Product specific configurations should apply graph filters and settings
               },
               {
                 "chartType": "area",
-                "color": "#f4b678",
-                "fill": "#f4b678",
+                "color": "#c58c00",
+                "fill": "#f0ab00",
                 "id": "Instance-hours_on-demand_rosa",
                 "isCapacity": false,
                 "isStacked": true,
@@ -3000,7 +3000,7 @@ exports[`Product specific configurations should apply graph filters and settings
                 "query": {
                   "billing_category": "on-demand",
                 },
-                "stroke": "#f4b678",
+                "stroke": "#c58c00",
                 "strokeWidth": 2,
               },
               {
