@@ -102,7 +102,7 @@ const config = {
     {
       filters: [
         {
-          metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+          metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
           fill: chartColorBlueLight.value,
           stroke: chartColorBlueDark.value,
           color: chartColorBlueDark.value,
@@ -111,7 +111,7 @@ const config = {
           }
         },
         {
-          metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+          metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
           fill: chartColorGoldLight.value,
           stroke: chartColorGoldDark.value,
           color: chartColorGoldDark.value,
@@ -120,7 +120,7 @@ const config = {
           }
         },
         {
-          metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+          metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
           chartType: ChartTypeVariant.threshold
         }
       ]
@@ -281,12 +281,12 @@ const config = {
       width: 15
     },
     {
-      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-      cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: total } = {}) =>
+      metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.VCPUS]: total } = {}) =>
         translate('curiosity-inventory.measurement', {
           context: (total && 'value') || undefined,
           total: (total && Number.parseFloat(total).toFixed(2)) || undefined,
-          testId: <span data-test={`instances-cell-${RHSM_API_PATH_METRIC_TYPES.CORES}`} data-value={`${total}`} />
+          testId: <span data-test={`instances-cell-${RHSM_API_PATH_METRIC_TYPES.VCPUS}`} data-value={`${total}`} />
         }),
       isSort: true,
       isWrap: true,
