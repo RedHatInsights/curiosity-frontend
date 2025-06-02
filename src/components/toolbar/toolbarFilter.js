@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useMount } from 'react-use';
 import { ToolbarContentContext, ToolbarContext } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
-import { ToolbarItem, Chip, ChipGroup } from '@patternfly/react-core';
+import { Label, LabelGroup, ToolbarItem } from '@patternfly/react-core';
+
 import { helpers } from '../../common/helpers';
 
 /**
@@ -95,17 +96,22 @@ const ToolbarFilter = ({
     }
 
     chipGroup = (
-      <ToolbarItem variant="chip-group">
-        <ChipGroup key={normalizedCategoryKey} categoryName={normalizedCategoryName} {...chipGroupProps}>
+      <ToolbarItem variant="label-group">
+        <LabelGroup key={normalizedCategoryKey} categoryName={normalizedCategoryName} {...chipGroupProps}>
           {chips.map(chip => {
             const normalizedChip = (typeof chip === 'string' && { key: chip, node: chip }) || chip;
             return (
-              <Chip key={normalizedChip.key} onClick={() => deleteChip(normalizedCategoryKey, normalizedChip)}>
+              // eslint-disable-next-line jsx-a11y/label-has-for
+              <Label
+                variant="outline"
+                key={normalizedChip.key}
+                onClose={() => deleteChip(normalizedCategoryKey, normalizedChip)}
+              >
                 {normalizedChip.node}
-              </Chip>
+              </Label>
             );
           })}
-        </ChipGroup>
+        </LabelGroup>
       </ToolbarItem>
     );
   }

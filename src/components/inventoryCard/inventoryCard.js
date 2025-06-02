@@ -140,13 +140,13 @@ const InventoryCard = ({
               <Toolbar className="curiosity-toolbar" collapseListedFiltersBreakpoint="sm">
                 <ToolbarContent className="curiosity-toolbar__content">
                   {updatedActionDisplay && (
-                    <ToolbarGroup key="inventory-actions" align={{ default: 'alignLeft' }}>
+                    <ToolbarGroup key="inventory-actions" align={{ default: 'alignStart' }}>
                       {updatedActionDisplay}
                     </ToolbarGroup>
                   )}
                   <ToolbarGroup
                     key="inventory-paging"
-                    align={{ default: 'alignRight' }}
+                    align={{ default: 'alignEnd' }}
                     className={`curiosity-toolbar__group ${(!resultsCount && 'transparent') || ''}`}
                     aria-hidden={!resultsCount || false}
                   >

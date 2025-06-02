@@ -55,7 +55,7 @@ const ProductViewMissing = ({
   return (
     <PageLayout className="curiosity-missing-view">
       <PageHeader productLabel="missing">{t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME })}</PageHeader>
-      <PageSection isFilled>
+      <PageSection hasBodyWrapper={false} isFilled>
         <Gallery hasGutter>
           {availableProducts?.map(({ productGroup, productId, productPath }) => (
             <Card

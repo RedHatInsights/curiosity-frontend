@@ -200,7 +200,7 @@ const Toolbar = ({
           </ToolbarToggleGroup>
         )}
         <ToolbarGroup key="itemFields">{itemFields}</ToolbarGroup>
-        <ToolbarGroup key="secondaryFields" align={{ default: 'alignRight' }}>
+        <ToolbarGroup key="secondaryFields" align={{ default: 'alignEnd' }}>
           {secondaryFields}
         </ToolbarGroup>
       </ToolbarContent>

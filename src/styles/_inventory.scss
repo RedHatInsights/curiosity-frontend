@@ -12,14 +12,14 @@
    * Paging functionality is hidden below 768px, this restores it.
    */
   @media (max-width: $pf-global--breakpoint--md) {
-    .pf-v5-c-pagination {
+    .pf-v6-c-pagination {
       button,
-      .pf-v5-c-pagination__nav {
+      .pf-v6-c-pagination__nav {
         display: inherit;
         visibility: inherit;
       }
 
-      button .pf-v5-c-menu-toggle__controls {
+      button .pf-v6-c-menu-toggle__controls {
         display: none;
       }
     }
@@ -46,6 +46,6 @@
      * Attempting to access the class or elements & classes or subsequent chained classes & even "important"
      * failed to modify the border width.
      */
-    --pf-v5-c-table--border-width--base: 0;
+    --pf-v6-c-table--border-width--base: 0;
   }
 }

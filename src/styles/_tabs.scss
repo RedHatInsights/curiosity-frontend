@@ -7,7 +7,7 @@
 
     &__no-scroll {
       @extend .curiosity-tabs;
-      > .pf-v5-c-tabs__scroll-button {
+      > .pf-v6-c-tabs__scroll-button {
         display: none;
       }
     }
