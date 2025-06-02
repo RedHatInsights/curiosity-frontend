@@ -2123,6 +2123,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *           "last_seen": "2022-04-02T00:00:00Z"
  *         },
  *         {
+ *           "number_of_guests": 70,
  *           "category": "physical",
  *           "billing_account_id": "XXXXXXXXXX",
  *           "inventory_id": "BBBBB-b344-4778-831c-BBBBBBB",

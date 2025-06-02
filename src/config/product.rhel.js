@@ -24,7 +24,8 @@ import {
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES,
-  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
+  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES,
+  RHSM_API_QUERY_CATEGORY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
 import { Tooltip } from '../components/tooltip/tooltip';
@@ -284,9 +285,12 @@ const config = {
       }
     ],
     guestContent: ({
+      [INVENTORY_TYPES.CATEGORY]: category,
       [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {},
       [INVENTORY_TYPES.INSTANCE_ID]: id
-    } = {}) => (numberOfGuests > 0 && id && { id, numberOfGuests }) || undefined
+    } = {}) =>
+      (numberOfGuests > 0 && id && category !== RHSM_API_QUERY_CATEGORY_TYPES.PHYSICAL && { id, numberOfGuests }) ||
+      undefined
   },
   initialSubscriptionsInventoryFilters: [
     {
