@@ -259,13 +259,13 @@ exports[`ToolbarFieldRangedMonthly Component should handle updating granularity 
       {
         "filter": "beginning",
         "type": "SET_QUERY",
-        "value": "2019-07-01T00:00:00.000Z",
+        "value": "2018-08-01T00:00:00.000Z",
         "viewId": undefined,
       },
       {
         "filter": "ending",
         "type": "SET_QUERY",
-        "value": "2019-07-31T23:59:59.999Z",
+        "value": "2018-08-31T23:59:59.999Z",
         "viewId": undefined,
       },
     ],

@@ -2,161 +2,168 @@
 
 exports[`OptinView Component should render a basic component: basic 1`] = `
 <PageLayout>
-  <Card
-    data-test="optinView"
+  <PageSection
+    className="curiosity-page-section__optin"
   >
-    <Flex>
-      <Flex
-        flex={
-          {
-            "default": "flex_2",
+    <Card
+      data-test="optinView"
+    >
+      <Flex>
+        <Flex
+          flex={
+            {
+              "default": "flex_2",
+            }
           }
-        }
-      >
-        <FlexItem>
-          <CardTitle>
-            <Title
-              headingLevel="h1"
-              size="2xl"
-            >
-              t(curiosity-optin.cardTitle, {"appName":"Subscriptions"})
-            </Title>
-          </CardTitle>
-          <CardBody>
-            t(curiosity-optin.cardDescription, {"appName":"Subscriptions"})
-          </CardBody>
-          <CardTitle>
-            <Title
-              headingLevel="h2"
-              size="xl"
-            >
-              t(curiosity-optin.cardSeeTitle)
-            </Title>
-          </CardTitle>
-          <CardBody>
-            t(curiosity-optin.cardSeeDescription)
-          </CardBody>
-          <CardTitle>
-            <Title
-              headingLevel="h2"
-              size="xl"
-            >
-              t(curiosity-optin.cardReportTitle)
-            </Title>
-          </CardTitle>
-          <CardBody>
-            t(curiosity-optin.cardReportDescription)
-          </CardBody>
-          <CardTitle>
-            <Title
-              headingLevel="h2"
-              size="xl"
-            >
-              t(curiosity-optin.cardFilterTitle)
-            </Title>
-          </CardTitle>
-          <CardBody>
-            t(curiosity-optin.cardFilterDescription)
-          </CardBody>
-          <CardFooter>
-            <Form>
-              <ActionGroup>
-                <Button
-                  data-test="optinButtonSubmitDisabled"
-                  isDisabled={true}
-                  variant="primary"
-                >
-                  t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
-                </Button>
-              </ActionGroup>
-            </Form>
-          </CardFooter>
-        </FlexItem>
-      </Flex>
-      <Flex
-        alignSelf={
-          {
-            "default": "alignSelfCenter",
+        >
+          <FlexItem>
+            <CardTitle>
+              <Title
+                headingLevel="h1"
+                size="2xl"
+              >
+                t(curiosity-optin.cardTitle, {"appName":"Subscriptions"})
+              </Title>
+            </CardTitle>
+            <CardBody>
+              t(curiosity-optin.cardDescription, {"appName":"Subscriptions"})
+            </CardBody>
+            <CardTitle>
+              <Title
+                headingLevel="h2"
+                size="xl"
+              >
+                t(curiosity-optin.cardSeeTitle)
+              </Title>
+            </CardTitle>
+            <CardBody>
+              t(curiosity-optin.cardSeeDescription)
+            </CardBody>
+            <CardTitle>
+              <Title
+                headingLevel="h2"
+                size="xl"
+              >
+                t(curiosity-optin.cardReportTitle)
+              </Title>
+            </CardTitle>
+            <CardBody>
+              t(curiosity-optin.cardReportDescription)
+            </CardBody>
+            <CardTitle>
+              <Title
+                headingLevel="h2"
+                size="xl"
+              >
+                t(curiosity-optin.cardFilterTitle)
+              </Title>
+            </CardTitle>
+            <CardBody>
+              t(curiosity-optin.cardFilterDescription)
+            </CardBody>
+            <CardFooter>
+              <Form>
+                <ActionGroup>
+                  <Button
+                    data-test="optinButtonSubmitDisabled"
+                    isDisabled={true}
+                    variant="primary"
+                  >
+                    t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+                  </Button>
+                </ActionGroup>
+              </Form>
+            </CardFooter>
+          </FlexItem>
+        </Flex>
+        <Flex
+          alignSelf={
+            {
+              "default": "alignSelfCenter",
+            }
           }
-        }
-        flex={
-          {
-            "default": "flex_1",
+          flex={
+            {
+              "default": "flex_1",
+            }
           }
-        }
-      >
-        <FlexItem>
-          <CardBody>
-            <Card
-              className="curiosity-optin-tour"
-            >
-              <CardHeader
-                actions={
-                  {
-                    "actions": <Brand
-                      alt="t(curiosity-optin.tourTitleImageAlt)"
-                      aria-hidden={true}
-                      className="curiosity-optin-image"
-                      src="graph4x.png"
-                      srcSet="graph4x.png 1064w, graph2x.png 600w"
-                    />,
+        >
+          <FlexItem>
+            <CardBody>
+              <Card
+                className="curiosity-optin-tour"
+              >
+                <CardHeader
+                  actions={
+                    {
+                      "actions": <Brand
+                        alt="t(curiosity-optin.tourTitleImageAlt)"
+                        aria-hidden={true}
+                        className="curiosity-optin-image"
+                        src="graph4x.png"
+                        srcSet="graph4x.png 1064w, graph2x.png 600w"
+                      />,
+                    }
                   }
-                }
-              />
-              <CardTitle>
-                <Title
-                  headingLevel="h3"
-                  size="2xl"
-                >
-                  t(curiosity-optin.tourTitle)
-                </Title>
-              </CardTitle>
-              <CardBody>
-                t(curiosity-optin.tourDescription)
-              </CardBody>
-              <CardFooter>
-                <Button
-                  className="uxui-curiosity__button-tour"
-                  data-test="optinButtonTour"
-                  variant="secondary"
-                >
-                  t(curiosity-optin.buttonTour)
-                </Button>
-              </CardFooter>
-            </Card>
-          </CardBody>
-        </FlexItem>
+                />
+                <CardTitle>
+                  <Title
+                    headingLevel="h3"
+                    size="2xl"
+                  >
+                    t(curiosity-optin.tourTitle)
+                  </Title>
+                </CardTitle>
+                <CardBody>
+                  t(curiosity-optin.tourDescription)
+                </CardBody>
+                <CardFooter>
+                  <Button
+                    className="uxui-curiosity__button-tour"
+                    data-test="optinButtonTour"
+                    variant="secondary"
+                  >
+                    t(curiosity-optin.buttonTour)
+                  </Button>
+                </CardFooter>
+              </Card>
+            </CardBody>
+          </FlexItem>
+        </Flex>
       </Flex>
-    </Flex>
-  </Card>
+    </Card>
+  </PageSection>
 </PageLayout>
 `;
 
 exports[`OptinView Component should render an API state driven view: 4XX view 1`] = `
 <form
-  class="pf-v5-c-form"
+  class="pf-v6-c-form"
   novalidate=""
 >
   <div
-    class="pf-v5-c-form__group pf-m-action"
+    class="pf-v6-c-form__group pf-m-action"
   >
     <div
-      class="pf-v5-c-form__group-control"
+      class="pf-v6-c-form__group-control"
     >
       <div
-        class="pf-v5-c-form__actions"
+        class="pf-v6-c-form__actions"
       >
         <button
-          aria-disabled="true"
-          class="pf-v5-c-button pf-m-primary pf-m-disabled"
+          class="pf-v6-c-button pf-m-primary"
           data-ouia-component-id="OUIA-Generated-Button-primary-4"
-          data-ouia-component-type="PF5/Button"
+          data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
           type="button"
         >
-          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          <span
+            class="pf-v6-c-button__text"
+          >
+            t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          </span>
         </button>
       </div>
     </div>
@@ -166,29 +173,32 @@ exports[`OptinView Component should render an API state driven view: 4XX view 1`
 
 exports[`OptinView Component should render an API state driven view: 200 view 1`] = `
 <form
-  class="pf-v5-c-form"
+  class="pf-v6-c-form"
   novalidate=""
 >
   <div
-    class="pf-v5-c-form__group pf-m-action"
+    class="pf-v6-c-form__group pf-m-action"
   >
     <div
-      class="pf-v5-c-form__group-control"
+      class="pf-v6-c-form__group-control"
     >
       <div
-        class="pf-v5-c-form__actions"
+        class="pf-v6-c-form__actions"
       >
         <button
-          aria-disabled="true"
-          class="pf-v5-c-button pf-m-primary pf-m-disabled"
+          class="pf-v6-c-button pf-m-primary"
           data-ouia-component-id="OUIA-Generated-Button-primary-1"
-          data-ouia-component-type="PF5/Button"
+          data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
           type="button"
         >
-          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          <span
+            class="pf-v6-c-button__text"
+          >
+            t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          </span>
         </button>
       </div>
     </div>
@@ -198,29 +208,32 @@ exports[`OptinView Component should render an API state driven view: 200 view 1`
 
 exports[`OptinView Component should render an API state driven view: 401 view 1`] = `
 <form
-  class="pf-v5-c-form"
+  class="pf-v6-c-form"
   novalidate=""
 >
   <div
-    class="pf-v5-c-form__group pf-m-action"
+    class="pf-v6-c-form__group pf-m-action"
   >
     <div
-      class="pf-v5-c-form__group-control"
+      class="pf-v6-c-form__group-control"
     >
       <div
-        class="pf-v5-c-form__actions"
+        class="pf-v6-c-form__actions"
       >
         <button
-          aria-disabled="true"
-          class="pf-v5-c-button pf-m-primary pf-m-disabled"
+          class="pf-v6-c-button pf-m-primary"
           data-ouia-component-id="OUIA-Generated-Button-primary-2"
-          data-ouia-component-type="PF5/Button"
+          data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
           type="button"
         >
-          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          <span
+            class="pf-v6-c-button__text"
+          >
+            t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          </span>
         </button>
       </div>
     </div>
@@ -230,28 +243,31 @@ exports[`OptinView Component should render an API state driven view: 401 view 1`
 
 exports[`OptinView Component should render an API state driven view: 403 view 1`] = `
 <form
-  class="pf-v5-c-form"
+  class="pf-v6-c-form"
   novalidate=""
 >
   <div
-    class="pf-v5-c-form__group pf-m-action"
+    class="pf-v6-c-form__group pf-m-action"
   >
     <div
-      class="pf-v5-c-form__group-control"
+      class="pf-v6-c-form__group-control"
     >
       <div
-        class="pf-v5-c-form__actions"
+        class="pf-v6-c-form__actions"
       >
         <button
-          aria-disabled="false"
-          class="pf-v5-c-button pf-m-primary"
+          class="pf-v6-c-button pf-m-primary"
           data-ouia-component-id="OUIA-Generated-Button-primary-3"
-          data-ouia-component-type="PF5/Button"
+          data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmit"
           type="button"
         >
-          t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
+          <span
+            class="pf-v6-c-button__text"
+          >
+            t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
+          </span>
         </button>
       </div>
     </div>
@@ -261,29 +277,32 @@ exports[`OptinView Component should render an API state driven view: 403 view 1`
 
 exports[`OptinView Component should render an API state driven view: 500 view 1`] = `
 <form
-  class="pf-v5-c-form"
+  class="pf-v6-c-form"
   novalidate=""
 >
   <div
-    class="pf-v5-c-form__group pf-m-action"
+    class="pf-v6-c-form__group pf-m-action"
   >
     <div
-      class="pf-v5-c-form__group-control"
+      class="pf-v6-c-form__group-control"
     >
       <div
-        class="pf-v5-c-form__actions"
+        class="pf-v6-c-form__actions"
       >
         <button
-          aria-disabled="true"
-          class="pf-v5-c-button pf-m-primary pf-m-disabled"
+          class="pf-v6-c-button pf-m-primary"
           data-ouia-component-id="OUIA-Generated-Button-primary-5"
-          data-ouia-component-type="PF5/Button"
+          data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
           type="button"
         >
-          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          <span
+            class="pf-v6-c-button__text"
+          >
+            t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          </span>
         </button>
       </div>
     </div>
@@ -295,29 +314,32 @@ exports[`OptinView Component should render an API state driven view: error view 
 
 exports[`OptinView Component should render an API state driven view: fulfilled view 1`] = `
 <form
-  class="pf-v5-c-form"
+  class="pf-v6-c-form"
   novalidate=""
 >
   <div
-    class="pf-v5-c-form__group pf-m-action"
+    class="pf-v6-c-form__group pf-m-action"
   >
     <div
-      class="pf-v5-c-form__group-control"
+      class="pf-v6-c-form__group-control"
     >
       <div
-        class="pf-v5-c-form__actions"
+        class="pf-v6-c-form__actions"
       >
         <button
-          aria-disabled="true"
-          class="pf-v5-c-button pf-m-primary pf-m-disabled"
+          class="pf-v6-c-button pf-m-primary"
           data-ouia-component-id="OUIA-Generated-Button-primary-8"
-          data-ouia-component-type="PF5/Button"
+          data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
           type="button"
         >
-          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          <span
+            class="pf-v6-c-button__text"
+          >
+            t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          </span>
         </button>
       </div>
     </div>
@@ -330,161 +352,168 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
 
 exports[`OptinView Component should render an API state driven view: initial view 1`] = `
 <PageLayout>
-  <Card
-    data-test="optinView"
+  <PageSection
+    className="curiosity-page-section__optin"
   >
-    <Flex>
-      <Flex
-        flex={
-          {
-            "default": "flex_2",
+    <Card
+      data-test="optinView"
+    >
+      <Flex>
+        <Flex
+          flex={
+            {
+              "default": "flex_2",
+            }
           }
-        }
-      >
-        <FlexItem>
-          <CardTitle>
-            <Title
-              headingLevel="h1"
-              size="2xl"
-            >
-              t(curiosity-optin.cardTitle, {"appName":"Subscriptions"})
-            </Title>
-          </CardTitle>
-          <CardBody>
-            t(curiosity-optin.cardDescription, {"appName":"Subscriptions"})
-          </CardBody>
-          <CardTitle>
-            <Title
-              headingLevel="h2"
-              size="xl"
-            >
-              t(curiosity-optin.cardSeeTitle)
-            </Title>
-          </CardTitle>
-          <CardBody>
-            t(curiosity-optin.cardSeeDescription)
-          </CardBody>
-          <CardTitle>
-            <Title
-              headingLevel="h2"
-              size="xl"
-            >
-              t(curiosity-optin.cardReportTitle)
-            </Title>
-          </CardTitle>
-          <CardBody>
-            t(curiosity-optin.cardReportDescription)
-          </CardBody>
-          <CardTitle>
-            <Title
-              headingLevel="h2"
-              size="xl"
-            >
-              t(curiosity-optin.cardFilterTitle)
-            </Title>
-          </CardTitle>
-          <CardBody>
-            t(curiosity-optin.cardFilterDescription)
-          </CardBody>
-          <CardFooter>
-            <Form>
-              <ActionGroup>
-                <Button
-                  data-test="optinButtonSubmitDisabled"
-                  isDisabled={true}
-                  variant="primary"
-                >
-                  t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
-                </Button>
-              </ActionGroup>
-            </Form>
-          </CardFooter>
-        </FlexItem>
-      </Flex>
-      <Flex
-        alignSelf={
-          {
-            "default": "alignSelfCenter",
+        >
+          <FlexItem>
+            <CardTitle>
+              <Title
+                headingLevel="h1"
+                size="2xl"
+              >
+                t(curiosity-optin.cardTitle, {"appName":"Subscriptions"})
+              </Title>
+            </CardTitle>
+            <CardBody>
+              t(curiosity-optin.cardDescription, {"appName":"Subscriptions"})
+            </CardBody>
+            <CardTitle>
+              <Title
+                headingLevel="h2"
+                size="xl"
+              >
+                t(curiosity-optin.cardSeeTitle)
+              </Title>
+            </CardTitle>
+            <CardBody>
+              t(curiosity-optin.cardSeeDescription)
+            </CardBody>
+            <CardTitle>
+              <Title
+                headingLevel="h2"
+                size="xl"
+              >
+                t(curiosity-optin.cardReportTitle)
+              </Title>
+            </CardTitle>
+            <CardBody>
+              t(curiosity-optin.cardReportDescription)
+            </CardBody>
+            <CardTitle>
+              <Title
+                headingLevel="h2"
+                size="xl"
+              >
+                t(curiosity-optin.cardFilterTitle)
+              </Title>
+            </CardTitle>
+            <CardBody>
+              t(curiosity-optin.cardFilterDescription)
+            </CardBody>
+            <CardFooter>
+              <Form>
+                <ActionGroup>
+                  <Button
+                    data-test="optinButtonSubmitDisabled"
+                    isDisabled={true}
+                    variant="primary"
+                  >
+                    t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+                  </Button>
+                </ActionGroup>
+              </Form>
+            </CardFooter>
+          </FlexItem>
+        </Flex>
+        <Flex
+          alignSelf={
+            {
+              "default": "alignSelfCenter",
+            }
           }
-        }
-        flex={
-          {
-            "default": "flex_1",
+          flex={
+            {
+              "default": "flex_1",
+            }
           }
-        }
-      >
-        <FlexItem>
-          <CardBody>
-            <Card
-              className="curiosity-optin-tour"
-            >
-              <CardHeader
-                actions={
-                  {
-                    "actions": <Brand
-                      alt="t(curiosity-optin.tourTitleImageAlt)"
-                      aria-hidden={true}
-                      className="curiosity-optin-image"
-                      src="graph4x.png"
-                      srcSet="graph4x.png 1064w, graph2x.png 600w"
-                    />,
+        >
+          <FlexItem>
+            <CardBody>
+              <Card
+                className="curiosity-optin-tour"
+              >
+                <CardHeader
+                  actions={
+                    {
+                      "actions": <Brand
+                        alt="t(curiosity-optin.tourTitleImageAlt)"
+                        aria-hidden={true}
+                        className="curiosity-optin-image"
+                        src="graph4x.png"
+                        srcSet="graph4x.png 1064w, graph2x.png 600w"
+                      />,
+                    }
                   }
-                }
-              />
-              <CardTitle>
-                <Title
-                  headingLevel="h3"
-                  size="2xl"
-                >
-                  t(curiosity-optin.tourTitle)
-                </Title>
-              </CardTitle>
-              <CardBody>
-                t(curiosity-optin.tourDescription)
-              </CardBody>
-              <CardFooter>
-                <Button
-                  className="uxui-curiosity__button-tour"
-                  data-test="optinButtonTour"
-                  variant="secondary"
-                >
-                  t(curiosity-optin.buttonTour)
-                </Button>
-              </CardFooter>
-            </Card>
-          </CardBody>
-        </FlexItem>
+                />
+                <CardTitle>
+                  <Title
+                    headingLevel="h3"
+                    size="2xl"
+                  >
+                    t(curiosity-optin.tourTitle)
+                  </Title>
+                </CardTitle>
+                <CardBody>
+                  t(curiosity-optin.tourDescription)
+                </CardBody>
+                <CardFooter>
+                  <Button
+                    className="uxui-curiosity__button-tour"
+                    data-test="optinButtonTour"
+                    variant="secondary"
+                  >
+                    t(curiosity-optin.buttonTour)
+                  </Button>
+                </CardFooter>
+              </Card>
+            </CardBody>
+          </FlexItem>
+        </Flex>
       </Flex>
-    </Flex>
-  </Card>
+    </Card>
+  </PageSection>
 </PageLayout>
 `;
 
 exports[`OptinView Component should render an API state driven view: null or undefined status view 1`] = `
 <form
-  class="pf-v5-c-form"
+  class="pf-v6-c-form"
   novalidate=""
 >
   <div
-    class="pf-v5-c-form__group pf-m-action"
+    class="pf-v6-c-form__group pf-m-action"
   >
     <div
-      class="pf-v5-c-form__group-control"
+      class="pf-v6-c-form__group-control"
     >
       <div
-        class="pf-v5-c-form__actions"
+        class="pf-v6-c-form__actions"
       >
         <button
-          aria-disabled="true"
-          class="pf-v5-c-button pf-m-primary pf-m-disabled"
+          class="pf-v6-c-button pf-m-primary"
           data-ouia-component-id="OUIA-Generated-Button-primary-6"
-          data-ouia-component-type="PF5/Button"
+          data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
           type="button"
         >
-          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          <span
+            class="pf-v6-c-button__text"
+          >
+            t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+          </span>
         </button>
       </div>
     </div>
@@ -494,44 +523,47 @@ exports[`OptinView Component should render an API state driven view: null or und
 
 exports[`OptinView Component should render an API state driven view: pending view 1`] = `
 <form
-  class="pf-v5-c-form"
+  class="pf-v6-c-form"
   novalidate=""
 >
   <div
-    class="pf-v5-c-form__group pf-m-action"
+    class="pf-v6-c-form__group pf-m-action"
   >
     <div
-      class="pf-v5-c-form__group-control"
+      class="pf-v6-c-form__group-control"
     >
       <div
-        class="pf-v5-c-form__actions"
+        class="pf-v6-c-form__actions"
       >
         <button
-          aria-disabled="true"
-          class="pf-v5-c-button pf-m-primary pf-m-disabled"
+          class="pf-v6-c-button pf-m-primary"
           data-ouia-component-id="OUIA-Generated-Button-primary-7"
-          data-ouia-component-type="PF5/Button"
+          data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           disabled=""
           type="button"
         >
-          <svg
-            aria-label="Contents"
-            aria-valuetext="Loading..."
-            class="pf-v5-c-spinner pf-m-sm"
-            role="progressbar"
-            viewBox="0 0 100 100"
+          <span
+            class="pf-v6-c-button__text"
           >
-            <circle
-              class="pf-v5-c-spinner__path"
-              cx="50"
-              cy="50"
-              fill="none"
-              r="45"
-            />
-          </svg>
-           
-          t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
+            <svg
+              aria-label="Contents"
+              aria-valuetext="Loading..."
+              class="pf-v6-c-spinner pf-m-sm"
+              role="progressbar"
+              viewBox="0 0 100 100"
+            >
+              <circle
+                class="pf-v6-c-spinner__path"
+                cx="50"
+                cy="50"
+                fill="none"
+                r="45"
+              />
+            </svg>
+             
+            t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
+          </span>
         </button>
       </div>
     </div>

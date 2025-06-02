@@ -1,15 +1,17 @@
 .mock-header {
   min-height: 4.25rem;
-  background-color: var(--pf-v5-global--BackgroundColor--dark-100);
+  background-color: var(--pf-t--global--background--color--400);
 }
 
-section.pf-l-page-header {
+section.pf-v6-l-page-header {
   margin: 1.25rem;
+
+  h1 {
+    margin-bottom: .25rem;
+  }
 }
 
-.curiosity  {
-  background-color: var(--pf-v5-global--BackgroundColor--light-300) !important;
-}
+.curiosity  {}
 
 .sr-only {
   position: absolute;

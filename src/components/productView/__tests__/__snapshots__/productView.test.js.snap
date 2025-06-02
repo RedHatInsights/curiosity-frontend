@@ -23,7 +23,9 @@ exports[`ProductView Component should allow custom inventory displays via config
         }
       >
         <ProductViewOnload>
-          <PageMessages>
+          <PageMessages
+            className="curiosity-page-section__messages"
+          >
             <BannerMessages />
           </PageMessages>
           <PageToolbar>
@@ -57,7 +59,7 @@ exports[`ProductView Component should allow custom inventory displays via config
     </MinHeight>
   </PageColumns>
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"
@@ -96,7 +98,9 @@ exports[`ProductView Component should allow custom inventory displays via config
         }
       >
         <ProductViewOnload>
-          <PageMessages>
+          <PageMessages
+            className="curiosity-page-section__messages"
+          >
             <BannerMessages />
           </PageMessages>
           <PageToolbar>
@@ -125,7 +129,7 @@ exports[`ProductView Component should allow custom inventory displays via config
     </MinHeight>
   </PageColumns>
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"
@@ -164,7 +168,9 @@ exports[`ProductView Component should allow custom inventory displays via config
         }
       >
         <ProductViewOnload>
-          <PageMessages>
+          <PageMessages
+            className="curiosity-page-section__messages"
+          >
             <BannerMessages />
           </PageMessages>
           <PageToolbar>
@@ -193,7 +199,7 @@ exports[`ProductView Component should allow custom inventory displays via config
     </MinHeight>
   </PageColumns>
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"
@@ -231,7 +237,9 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       >
         <ProductViewOnload>
-          <PageMessages>
+          <PageMessages
+            className="curiosity-page-section__messages"
+          >
             <BannerMessages />
           </PageMessages>
           <PageToolbar>
@@ -254,7 +262,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     </MinHeight>
   </PageColumns>
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"
@@ -292,7 +300,9 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       >
         <ProductViewOnload>
-          <PageMessages>
+          <PageMessages
+            className="curiosity-page-section__messages"
+          >
             <BannerMessages />
           </PageMessages>
           <PageToolbar>
@@ -315,7 +325,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     </MinHeight>
   </PageColumns>
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"
@@ -353,7 +363,9 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       >
         <ProductViewOnload>
-          <PageMessages>
+          <PageMessages
+            className="curiosity-page-section__messages"
+          >
             <BannerMessages />
           </PageMessages>
           <PageToolbar>
@@ -376,7 +388,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     </MinHeight>
   </PageColumns>
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"
@@ -414,7 +426,9 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       >
         <ProductViewOnload>
-          <PageMessages>
+          <PageMessages
+            className="curiosity-page-section__messages"
+          >
             <BannerMessages />
           </PageMessages>
           <PageToolbar>
@@ -437,7 +451,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     </MinHeight>
   </PageColumns>
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"
@@ -475,7 +489,9 @@ exports[`ProductView Component should allow custom product views via productDisp
         }
       >
         <ProductViewOnload>
-          <PageMessages>
+          <PageMessages
+            className="curiosity-page-section__messages"
+          >
             <BannerMessages />
           </PageMessages>
           <PageToolbar>
@@ -498,7 +514,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     </MinHeight>
   </PageColumns>
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"
@@ -535,7 +551,9 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
         }
       >
         <ProductViewOnload>
-          <PageMessages>
+          <PageMessages
+            className="curiosity-page-section__messages"
+          >
             <BannerMessages />
           </PageMessages>
           <PageToolbar>
@@ -558,7 +576,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
     </MinHeight>
   </PageColumns>
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"
@@ -585,7 +603,7 @@ exports[`ProductView Component should render nothing if productGroup, and produc
   </PageHeader>
   <PageColumns />
   <div
-    className="curiosity-page-section__version"
+    className="curiosity-page-section__version fadein"
   >
     <Button
       className="curiosity-page-section__version-link"

@@ -16,15 +16,17 @@ exports[`PageSection Component should render a basic component: basic 1`] = `
 }"
 >
   <section
-    class="curiosity-page-section lorem"
+    class="pf-v6-c-page__main-section curiosity-page-section lorem"
   >
-     
-    <span
-      class="test"
+    <div
+      class="pf-v6-c-page__main-body"
     >
-      lorem
-    </span>
-     
+      <span
+        class="test"
+      >
+        lorem
+      </span>
+    </div>
   </section>
 </pagesection>
 `;

@@ -1,7 +1,9 @@
 .curiosity {
   .curiosity-error {
     &__link {
-      @extend .curiosity-page-section__version-link;
+      > span {
+        color: var(--pf-global--color--gray) !important;
+      }
     }
 
     &__textarea {
@@ -9,7 +11,7 @@
       resize: vertical;
       width: 100%;
       white-space: pre-wrap;
-      border-color: var(--pf-global--palette--black-400);
+      border-color: var(--pf-global--BorderColor--100);
     }
 
     &__product-onload {
