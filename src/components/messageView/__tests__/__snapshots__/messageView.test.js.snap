@@ -8,6 +8,7 @@ exports[`MessageView Component should have fallback conditions for all props: fa
   <PageSection>
     <EmptyState
       className="fadein"
+      headingLevel="h2"
       variant="full"
     />
   </PageSection>
@@ -22,17 +23,11 @@ exports[`MessageView Component should render a basic component: basic 1`] = `
   <PageSection>
     <EmptyState
       className="fadein"
+      headingLevel="h2"
+      icon={[Function]}
+      titleText="lorem"
       variant="full"
     >
-      <EmptyStateIcon
-        icon={[Function]}
-      />
-      <Title
-        headingLevel="h2"
-        size="lg"
-      >
-        lorem
-      </Title>
       <EmptyStateBody>
         ipsum
       </EmptyStateBody>

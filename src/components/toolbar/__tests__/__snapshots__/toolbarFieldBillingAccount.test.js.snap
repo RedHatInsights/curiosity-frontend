@@ -36,7 +36,7 @@ exports[`ToolbarFieldBillingAccount Component should handle updating through red
       {
         "filter": "billing_account_id",
         "type": "SET_QUERY",
-        "value": "lorem",
+        "value": "ipsum",
         "viewId": undefined,
       },
     ],

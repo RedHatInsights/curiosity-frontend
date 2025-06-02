@@ -36,7 +36,7 @@ exports[`ToolbarFieldGroupVariant Component should handle updating through redux
     [
       {
         "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
-        "variant": "ipsum",
+        "variant": "lorem",
       },
       {
         "type": "SET_CONFIG_RHSM_RESET",
@@ -47,7 +47,7 @@ exports[`ToolbarFieldGroupVariant Component should handle updating through redux
       {
         "productGroup": undefined,
         "type": "SET_PRODUCT_VARIANT",
-        "variant": "ipsum",
+        "variant": "lorem",
       },
     ],
   ],

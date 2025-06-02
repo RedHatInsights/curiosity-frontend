@@ -36,7 +36,7 @@ exports[`ToolbarFieldSla Component should handle updating sla through redux stat
       {
         "filter": "sla",
         "type": "SET_QUERY",
-        "value": "Premium",
+        "value": "",
         "viewId": undefined,
       },
     ],
