@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.17.0](https://github.com/RedHatInsights/curiosity-frontend/compare/9571d20520cbff7920450aa438ff60ed72b2878d...1a45ebb866cd90d9248be98a230a17323b50c4cf) (2025-06-03)
+
+
+### Features
+* **config,tokenHelpers** sw-3398 pre PF6 update UI tokens ([#1617](https://github.com/RedHatInsights/curiosity-frontend/pull/1617)) ([b1b7d3c](https://github.com/RedHatInsights/curiosity-frontend/commit/b1b7d3c1dd53bc9c986191c04b60a1e8a4c5d461))
+
+### Continuous Integrations
+*  Update Konflux references ([#1619](https://github.com/RedHatInsights/curiosity-frontend/pull/1619)) ([1ebf72c](https://github.com/RedHatInsights/curiosity-frontend/commit/1ebf72cd55cd96ab1a20d6de5f020df00b742bc6))
+*  Update Konflux references ([#1615](https://github.com/RedHatInsights/curiosity-frontend/pull/1615)) ([3bfcbc6](https://github.com/RedHatInsights/curiosity-frontend/commit/3bfcbc634c94ecd07ebedbbdabb20ccf0094b072))
+
+### Builds
+* **deps-dev** bump the dev group with 4 updates ([#1620](https://github.com/RedHatInsights/curiosity-frontend/pull/1620)) ([1a45ebb](https://github.com/RedHatInsights/curiosity-frontend/commit/1a45ebb866cd90d9248be98a230a17323b50c4cf))
+* **deps-dev** bump cspell from 8.19.4 to 9.0.2 ([#1616](https://github.com/RedHatInsights/curiosity-frontend/pull/1616)) ([9d68505](https://github.com/RedHatInsights/curiosity-frontend/commit/9d6850568cb818cdc472041b7cd54ca26bcaedc9))
+
+### Bug Fixes
+* **config** sw-3618 use vCPUs for rhacm ([#1618](https://github.com/RedHatInsights/curiosity-frontend/pull/1618)) ([e52d6b4](https://github.com/RedHatInsights/curiosity-frontend/commit/e52d6b4c4dc2d6e6069b9775e06768d73112d619))
+
 ## [4.16.0](https://github.com/RedHatInsights/curiosity-frontend/compare/f9355c62d9afd0635ba4770e6786aee91f3ff303...5336057f1d21283a9b8bd79cdd495b4730f8449b) (2025-05-20)
 
 
