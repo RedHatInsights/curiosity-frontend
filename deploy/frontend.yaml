@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/RedHatInsights/frontend-components/refs/heads/master/packages/config-utils/src/feo/spec/frontend-crd.schema.json# yaml-language-server: $schema=https://raw.githubusercontent.com/RedHatInsights/frontend-components/refs/heads/master/packages/config-utils/src/feo/spec/frontend-crd.schema.json
 apiVersion: v1
 kind: Template
 metadata:
@@ -9,8 +10,9 @@ objects:
       # this must match appList value in frontend-configs/deploy/deploy.yaml
       name: subscriptions
     spec:
+      feoConfigEnabled: true
       envName: ${ENV_NAME}
-      title: rhsm
+      title: Subscriptions Usage
       deploymentRepo: https://github.com/RedHatInsights/curiosity-frontend
       API:
         versions:
@@ -19,51 +21,95 @@ objects:
         paths:
           - /apps/subscriptions
       image: ${IMAGE}:${IMAGE_TAG}
-      navItems:
-        # use *-navigation.json in cloud-services-config for reference
-        - title: "Subscriptions"
-          expandable: true
-          routes:
-            - appId: "subscriptions"
-              title: "RHEL"
-              href: "/insights/subscriptions/rhel"
-              product: "Subscription Watch"
-            - appId: "subscriptions"
-              title: "OpenShift Subscriptions"
-              href: "/openshift/subscriptions/openshift"
-              product: "Subscription Watch"
-            - appId: "subscriptions"
-              title: "OpenShift Data Science"
-              href: "/application-services/subscriptions/rhods"
-              product: "Subscription Watch"
-            - appId: "subscriptions"
-              title: "Advanced Cluster Security"
-              href: "/application-services/subscriptions/rhacs"
-              product: "Subscription Watch"
-            - appId: "subscriptions"
-              title: "RHEL Subscriptions"
-              href: "/insights/subscriptions/rhel"
-              product: "Subscription Watch"
-            - appId: "subscriptions"
-              title: "Container Platform"
-              href: "/openshift/subscriptions/openshift-container"
-              product: "Subscription Watch"
+      serviceTiles:
+        - id: subscriptionsUsageObserve
+          section: subscriptions
+          group: observe
+          title: Subscriptions Usage
+          href: /subscriptions/usage/openshift
+          description: Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.
+          icon: OpenShiftIcon
+        - id: subscriptionsUsageRhel
+          section: subscriptions
+          group: rhel
+          title: Subscriptions Usage
+          href: /subscriptions/usage/rhel
+          description: Monitor your Red Hat Enterprise Linux usage for both Annual and On-Demand subscriptions.
+          icon: OpenShiftIcon
+        - id: subscriptionsUsageOpenShift
+          section: subscriptions
+          group: openshift
+          title: Subscriptions Usage
+          href: /subscriptions/usage/openshift
+          description: Monitor your OpenShift usage for both Annual and On-Demand subscriptions.
+          icon: OpenShiftIcon
+        - id: subscriptionsUsageAnsible
+          section: subscriptions
+          group: ansible
+          title: Subscriptions Usage
+          href: /subscriptions/usage/ansible
+          description: Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.
+          icon: AnsibleIcon
+        - id: subscriptionsUsageSubscriptions
+          section: subscriptions
+          group: subscriptions
+          title: Subscriptions Usage
+          href: /subscriptions/usage/rhel
+          description: Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.
+          icon: SubscriptionsIcon
+      searchEntries:
+        - id: subscriptions-usage-rhel
+          title: RHEL - Subscriptions Usage
+          href: /subscriptions/usage/rhel
+          description: Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.
+          alt_title:
+            - swatch
+            - subs watch
+            - usage
+        - id: subscriptions-usage-openshift
+          title: OpenShift - Subscriptions Usage
+          href: /subscriptions/usage/openshift
+          description: Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.
+        - id: subscription-usage-ansible
+          title: Ansible - Subscriptions Usage
+          href: /subscriptions/usage/ansible
+          description: Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.
+      bundleSegments:
+        - segmentId: subscriptions-usage
+          bundleId: subscriptions
+          navItems:
+            - id: subscriptionsUsage
+              title: Subscriptions Usage
+              expandable: true
+              routes:
+                - id: rhel
+                  title: RHEL
+                  href: /subscriptions/usage/rhel
+                  icon: SubscriptionsIcon
+                - id: openshift
+                  title: OpenShift
+                  href: /subscriptions/usage/openshift
+                - id: ansible
+                  title: Ansible
+                  href: /subscriptions/usage/ansible
+          position: 200
       module:
         # this should match chrome/fed-modules.json in cloud-services-config
-        manifestLocation: "/apps/subscriptions/fed-mods.json"
+        manifestLocation: /apps/subscriptions/fed-mods.json
         modules:
-          - id: "application-services-subscriptions"
-            module: "./RootApp"
+          - id: application-services-subscriptions
+            module: ./RootApp
             routes:
-              - pathname: "/application-services/subscriptions"
-          - id: "insights-subscriptions"
-            module: "./RootApp"
+              - pathname: /application-services/subscriptions
+          - id: insights-subscriptions
+            module: ./RootApp
             routes:
-              - pathname: "/insights/subscriptions"
-          - id: "openshift-subscriptions"
-            module: "./RootApp"
+              - pathname: /insights/subscriptions
+              - pathname: /subscriptions/usage
+          - id: openshift-subscriptions
+            module: ./RootApp
             routes:
-              - pathname: "/openshift/subscriptions"
+              - pathname: /openshift/subscriptions
 
 parameters:
   - name: ENV_NAME
