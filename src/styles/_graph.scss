@@ -3,6 +3,7 @@
     .curiosity-card {
       &__header {
         border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+        padding-top: 0;
       }
 
       &__title {}
@@ -57,6 +58,10 @@
   &__standalone {
     padding-left: var(--pf-global--spacer--lg);
     padding-right: var(--pf-global--spacer--lg);
+
+    .curiosity-card__header {
+      padding-top: var(--pf-global--spacer--lg);
+    }
   }
 
   &__totals {
