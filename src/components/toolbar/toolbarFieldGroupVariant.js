@@ -84,6 +84,7 @@ const useOnSelect = ({
  *
  * @param {object} props
  * @param {boolean} [props.isFilter=false]
+ * @param {boolean} [props.isInline=false]
  * @param {boolean} [props.isStandalone=false]
  * @param {SelectPosition} [props.position=SelectPosition.left]
  * @param {translate} [props.t=translate]
@@ -95,6 +96,7 @@ const useOnSelect = ({
  * @returns {JSX.Element}
  */
 const ToolbarFieldGroupVariant = ({
+  isInline = true,
   isFilter = false,
   isStandalone = false,
   position = SelectPosition.left,
@@ -123,6 +125,7 @@ const ToolbarFieldGroupVariant = ({
         {t('curiosity-toolbar.label', { context: ['groupVariant'] })}{' '}
       </ToolbarItem>
       <Select
+        isInline={isInline}
         aria-label={t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'groupVariant'] })}
         onSelect={onSelect}
         options={updatedOptions}

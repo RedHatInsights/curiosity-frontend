@@ -72,6 +72,7 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
   }
   aria-label="t(curiosity-toolbar.placeholder, {"context":"usage"})"
   data-test="toolbarFieldUsage"
+  isInline={false}
   onSelect={[Function]}
   options={
     [

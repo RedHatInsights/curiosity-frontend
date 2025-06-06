@@ -116,6 +116,7 @@ const useOnSelect = ({
  *
  * @param {object} props
  * @param {boolean} [props.isFilter=false]
+ * @param {boolean} [props.isInline=false]
  * @param {SelectPosition} [props.position=SelectPosition.left]
  * @param {translate} [props.t=translate]
  * @param {useOnSelect} [props.useOnSelect=useOnSelect]
@@ -126,6 +127,7 @@ const useOnSelect = ({
  */
 const ToolbarFieldCategory = ({
   isFilter = false,
+  isInline = false,
   position = SelectPosition.left,
   t = translate,
   useOnSelect: useAliasOnSelect = useOnSelect,
@@ -139,6 +141,7 @@ const ToolbarFieldCategory = ({
 
   return (
     <Select
+      isInline={isInline}
       aria-label={t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'category'] })}
       onSelect={onSelect}
       options={updatedOptions}

@@ -189,7 +189,7 @@ const Chart = ({
   return (
     <ChartContext.Provider value={context}>
       <div
-        className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading"
+        className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading fadein"
         data-test="curiosity-chartarea"
         ref={containerRef}
       >

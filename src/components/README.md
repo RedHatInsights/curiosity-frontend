@@ -5892,6 +5892,8 @@ Display a billing provider field with options.
     </tr><tr>
     <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
     <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
@@ -5984,6 +5986,8 @@ Display a billing provider field with options.
     </tr><tr>
     <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
     <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
@@ -6067,6 +6071,8 @@ Display a category field with generated options.
     <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
     <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
     <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
     </tr><tr>
@@ -6465,6 +6471,8 @@ Display a granularity field with options.
     </tr><tr>
     <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
     <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
     <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
@@ -6551,6 +6559,8 @@ Display a product configuration field with generated options.
     </tr><tr>
     <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
     <td>[props.isStandalone]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
     <td>[props.position]</td><td><code>SelectPosition</code></td><td><code>SelectPosition.left</code></td>
@@ -6624,6 +6634,8 @@ Display a granularity field with options.
     <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
     <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
     <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
@@ -6719,6 +6731,8 @@ Display a select category field with options.
 <tr>
     <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
     <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
@@ -6784,6 +6798,8 @@ Display a sla field with options.
     <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
     <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
     <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
@@ -6854,6 +6870,8 @@ Display a usage field with options.
     <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
     <td>[props.isFilter]</td><td><code>boolean</code></td><td><code>false</code></td>
+    </tr><tr>
+    <td>[props.isInline]</td><td><code>boolean</code></td><td><code>false</code></td>
     </tr><tr>
     <td>[props.options]</td><td><code>toolbarFieldOptions</code></td><td><code>toolbarFieldOptions</code></td>
     </tr><tr>
