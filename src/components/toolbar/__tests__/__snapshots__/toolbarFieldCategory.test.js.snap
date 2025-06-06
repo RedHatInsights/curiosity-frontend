@@ -109,6 +109,7 @@ exports[`ToolbarFieldCategory Component should render a basic component: basic 1
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {"context":"category"})"
   data-test="toolbarFieldCategory"
+  isInline={false}
   onSelect={[Function]}
   options={[]}
   placeholder="t(curiosity-toolbar.placeholder, {"context":"category"})"
