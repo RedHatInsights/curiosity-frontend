@@ -76,6 +76,7 @@ const useOnSelect = ({
  *
  * @param {object} props
  * @param {boolean} [props.isFilter=false]
+ * @param {boolean} [props.isInline=false]
  * @param {toolbarFieldOptions} [props.options=toolbarFieldOptions]
  * @param {SelectPosition} [props.position=SelectPosition.left]
  * @param {translate} [props.t=translate]
@@ -86,6 +87,7 @@ const useOnSelect = ({
  */
 const ToolbarFieldGranularity = ({
   isFilter = false,
+  isInline = false,
   options = toolbarFieldOptions,
   position = SelectPosition.left,
   t = translate,
@@ -98,6 +100,7 @@ const ToolbarFieldGranularity = ({
 
   return (
     <Select
+      isInline={isInline}
       aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'granularity' })}
       onSelect={onSelect}
       options={updatedOptions}

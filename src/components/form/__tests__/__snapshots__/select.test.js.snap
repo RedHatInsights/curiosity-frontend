@@ -7,7 +7,7 @@ exports[`Select should allow being disabled with missing options: no options 1`]
 }"
 >
   <div
-    class="curiosity-select curiosity-select__inline"
+    class="curiosity-select curiosity-select__inline fadein__fast"
   >
     <button
       aria-expanded="false"
@@ -63,7 +63,7 @@ exports[`Select should allow being disabled with missing options: options, but d
 }"
 >
   <div
-    class="curiosity-select curiosity-select__inline"
+    class="curiosity-select curiosity-select__inline fadein__fast"
   >
     <button
       aria-expanded="false"
@@ -113,7 +113,7 @@ exports[`Select should allow being disabled with missing options: options, but n
 }"
 >
   <div
-    class="curiosity-select curiosity-select__inline"
+    class="curiosity-select curiosity-select__inline fadein__fast"
   >
     <button
       aria-expanded="false"
@@ -163,7 +163,7 @@ exports[`Select should render a checkbox variant: checklist 1`] = `
 }"
 >
   <div
-    class="curiosity-select curiosity-select__inline"
+    class="curiosity-select curiosity-select__inline fadein__fast"
   >
     <button
       aria-expanded="true"
@@ -215,7 +215,7 @@ exports[`Select should render a dropdown variant: dropdown 1`] = `
 }"
 >
   <div
-    class="curiosity-select curiosity-select__inline"
+    class="curiosity-select curiosity-select__inline fadein__fast"
   >
     <button
       aria-expanded="true"
@@ -263,7 +263,7 @@ exports[`Select should render a single variant: select 1`] = `
 }"
 >
   <div
-    class="curiosity-select curiosity-select__inline"
+    class="curiosity-select curiosity-select__inline fadein__fast"
   >
     <button
       aria-expanded="true"

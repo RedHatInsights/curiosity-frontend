@@ -99,6 +99,7 @@ const useOnSelect = ({
  *
  * @param {object} props
  * @param {boolean} [props.isFilter=false]
+ * @param {boolean} [props.isInline=false]
  * @param {SelectPosition} [props.position=SelectPosition.left]
  * @param {translate} [props.t=translate]
  * @param {useOnSelect} [props.useOnSelect=useOnSelect]
@@ -109,6 +110,7 @@ const useOnSelect = ({
  */
 const ToolbarFieldBillingProvider = ({
   isFilter = false,
+  isInline = false,
   position = SelectPosition.left,
   t = translate,
   useOnSelect: useAliasOnSelect = useOnSelect,
@@ -127,6 +129,7 @@ const ToolbarFieldBillingProvider = ({
     <React.Fragment>
       <ToolbarItem gap={{ default: 'gapNone' }}>
         <Select
+          isInline={isInline}
           // isReadOnly={updatedOptions.length === 1}
           aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, {
             context: 'billing_provider'

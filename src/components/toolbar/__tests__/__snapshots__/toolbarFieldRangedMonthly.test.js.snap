@@ -123,6 +123,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
   }
   aria-label="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   data-test="toolbarFieldRangeGranularity"
+  isInline={false}
   maxHeight={250}
   onSelect={[Function]}
   options={
@@ -313,6 +314,7 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
   }
   aria-label="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   data-test="toolbarFieldRangeGranularity"
+  isInline={false}
   maxHeight={250}
   onSelect={[Function]}
   options={
