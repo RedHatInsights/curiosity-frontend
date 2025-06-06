@@ -1,12 +1,7 @@
 .curiosity {
-  /**
-   * FixMe: PF CSS, appears updating resources causes an issue with an aggressive selector
-   * This is related to responsive table headers on browser widths below 800px. Remove this
-   * block once PF has a fix exposed via the platform.
-   */
-  // tr.pf-v5-c-table__expandable-row.pf-v5-m-expanded > td:before {
-  //  content: '';
-  // }
+  .curiosity-table__td-expand {
+    padding: 0 !important;
+  }
 
   .curiosity-table__td-expand-expanded.curiosity-table__td-expand-wrapper {
     padding: 0;
@@ -25,7 +20,7 @@
       &__td.pf-m-width {
         @for $tdWidth from 0 through 100 {
           &-#{$tdWidth} {
-            width: percentage(div($tdWidth, 100));
+            width: percentage(calc($tdWidth/100));
           }
         }
       }

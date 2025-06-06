@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section } from '@redhat-cloud-services/frontend-components/Section';
+import { PageSection as Section } from '@patternfly/react-core';
 
 /**
  * @memberof PageLayout

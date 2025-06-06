@@ -53,7 +53,7 @@ const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = rout
       <MinHeight isOnLoad>
         <ProductViewContext.Provider value={firstMatch}>
           <ProductViewOnload>
-            <PageMessages>
+            <PageMessages className="curiosity-page-section__messages">
               <BannerMessages />
             </PageMessages>
             <PageToolbar>
@@ -103,7 +103,7 @@ const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = rout
           {t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: productGroup })}
         </PageHeader>
         <PageColumns>{renderProduct}</PageColumns>
-        <div className="curiosity-page-section__version">
+        <div className="curiosity-page-section__version fadein">
           <Button
             className="curiosity-page-section__version-link"
             isInline
