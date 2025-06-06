@@ -18,7 +18,7 @@ import {
 import { useSession } from '../authentication/authenticationContext';
 import { reduxActions, storeHooks } from '../../redux';
 import { translate } from '../i18n/i18n';
-import { PageLayout } from '../pageLayout/pageLayout';
+import { PageLayout, PageSection } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
 import graphPng2x from '../../images/graph2x.png';
 import graphPng4x from '../../images/graph4x.png';
@@ -151,50 +151,52 @@ const OptinView = ({
 
   return (
     <PageLayout>
-      <Card data-test="optinView">
-        <Flex>
-          <Flex flex={{ default: 'flex_2' }}>
-            <FlexItem>
-              <CardTitle key="heading1Title">
-                <Title headingLevel="h1" size="2xl">
-                  {t('curiosity-optin.cardTitle', { appName: helpers.UI_DISPLAY_NAME })}
-                </Title>
-              </CardTitle>
-              <CardBody key="heading1Desc">
-                {t('curiosity-optin.cardDescription', { appName: helpers.UI_DISPLAY_NAME })}
-              </CardBody>
+      <PageSection className="curiosity-page-section__optin">
+        <Card data-test="optinView">
+          <Flex>
+            <Flex flex={{ default: 'flex_2' }}>
+              <FlexItem>
+                <CardTitle key="heading1Title">
+                  <Title headingLevel="h1" size="2xl">
+                    {t('curiosity-optin.cardTitle', { appName: helpers.UI_DISPLAY_NAME })}
+                  </Title>
+                </CardTitle>
+                <CardBody key="heading1Desc">
+                  {t('curiosity-optin.cardDescription', { appName: helpers.UI_DISPLAY_NAME })}
+                </CardBody>
 
-              <CardTitle key="heading2Title">
-                <Title headingLevel="h2" size="xl">
-                  {t('curiosity-optin.cardSeeTitle')}
-                </Title>
-              </CardTitle>
-              <CardBody key="heading2Desc">{t('curiosity-optin.cardSeeDescription')}</CardBody>
+                <CardTitle key="heading2Title">
+                  <Title headingLevel="h2" size="xl">
+                    {t('curiosity-optin.cardSeeTitle')}
+                  </Title>
+                </CardTitle>
+                <CardBody key="heading2Desc">{t('curiosity-optin.cardSeeDescription')}</CardBody>
 
-              <CardTitle key="heading3Title">
-                <Title headingLevel="h2" size="xl">
-                  {t('curiosity-optin.cardReportTitle')}
-                </Title>
-              </CardTitle>
-              <CardBody key="heading3Desc">{t('curiosity-optin.cardReportDescription')}</CardBody>
+                <CardTitle key="heading3Title">
+                  <Title headingLevel="h2" size="xl">
+                    {t('curiosity-optin.cardReportTitle')}
+                  </Title>
+                </CardTitle>
+                <CardBody key="heading3Desc">{t('curiosity-optin.cardReportDescription')}</CardBody>
 
-              <CardTitle key="heading4Title">
-                <Title headingLevel="h2" size="xl">
-                  {t('curiosity-optin.cardFilterTitle')}
-                </Title>
-              </CardTitle>
-              <CardBody key="heading4Desc">{t('curiosity-optin.cardFilterDescription')}</CardBody>
+                <CardTitle key="heading4Title">
+                  <Title headingLevel="h2" size="xl">
+                    {t('curiosity-optin.cardFilterTitle')}
+                  </Title>
+                </CardTitle>
+                <CardBody key="heading4Desc">{t('curiosity-optin.cardFilterDescription')}</CardBody>
 
-              <CardFooter>{renderOptinForm()}</CardFooter>
-            </FlexItem>
+                <CardFooter>{renderOptinForm()}</CardFooter>
+              </FlexItem>
+            </Flex>
+            <Flex flex={{ default: 'flex_1' }} alignSelf={{ default: 'alignSelfCenter' }}>
+              <FlexItem>
+                <CardBody>{renderTour()}</CardBody>
+              </FlexItem>
+            </Flex>
           </Flex>
-          <Flex flex={{ default: 'flex_1' }} alignSelf={{ default: 'alignSelfCenter' }}>
-            <FlexItem>
-              <CardBody>{renderTour()}</CardBody>
-            </FlexItem>
-          </Flex>
-        </Flex>
-      </Card>
+        </Card>
+      </PageSection>
     </PageLayout>
   );
 };

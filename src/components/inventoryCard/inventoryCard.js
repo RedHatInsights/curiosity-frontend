@@ -14,7 +14,7 @@ import { TableToolbar } from '@redhat-cloud-services/frontend-components/TableTo
 import { Table } from '../table/table';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
-import { Pagination } from '../pagination/pagination';
+import { Pagination, PaginationDirectionType, PaginationVariant } from '../pagination/pagination';
 import { ErrorMessage } from '../errorMessage/errorMessage';
 import { translate } from '../i18n/i18n';
 import { helpers } from '../../common';
@@ -129,7 +129,7 @@ const InventoryCard = ({
   });
 
   return (
-    <Card className="curiosity-card curiosity-inventory-card">
+    <Card className="curiosity-card curiosity-inventory-card" isPlain>
       <MinHeight key="headerMinHeight">
         <CardHeader
           className={`curiosity-card__header ${(error && 'hidden') || ''}`}
@@ -215,7 +215,8 @@ const InventoryCard = ({
         >
           <TableToolbar isFooter>
             <Pagination
-              dropDirection="up"
+              variant={PaginationVariant.bottom}
+              dropDirection={PaginationDirectionType.up}
               isDisabled={pending || error}
               itemCount={resultsCount}
               offset={resultsOffset}
