@@ -1,5 +1,4 @@
 // Framework
-// @import '~@redhat-cloud-services/frontend-components-utilities/index';
 @import '~@redhat-cloud-services/frontend-components-utilities/styles/all';
 @import '~@patternfly/patternfly/sass-utilities/index';
 
@@ -9,14 +8,10 @@ $pf-global--breakpoint--md: $pf-v6-global--breakpoint--md;
 $pf-global--breakpoint--lg: $pf-v6-global--breakpoint--lg;
 
 .curiosity {
-  // --pf-global--BackgroundColor--100: var(--pf-v6-c-page--BackgroundColor);
-
-  --pf-global--Color--light-100: var(--pf-t--global--background--color--100);
-  --pf-global--palette--gray: var(--pf-t--color--gray--40);
-  --pf-global--palette--gray-dark: var(--pf-t--color--gray--70);
-  --pf-global--palette--black-500: var(--pf-t--global--background--color--400);
-  --pf-global--palette--black-900: var(--pf-t--global--background--color--400);
-  --pf-global--palette--black-1000: var(--pf-t--global--background--color--400);
+  --pf-global--color--background--light: var(--pf-t--global--background--color--100);
+  --pf-global--color--background--dark: var(--pf-t--global--background--color--400);
+  --pf-global--color--gray: var(--pf-t--color--gray--40);
+  --pf-global--color--gray-dark: var(--pf-t--color--gray--70);
 
   --pf-global--FontSize--md: var(--pf-t--global--font--size--md);
   --pf-global--FontSize--xs: var(--pf-t--global--font--size--xs);

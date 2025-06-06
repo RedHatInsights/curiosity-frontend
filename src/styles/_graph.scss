@@ -11,7 +11,7 @@
   }
 
   &__tooltip {
-    color: var(--pf-global--Color--light-100);
+    color: var(--pf-global--color--background--light);
     font-size: 0.9em;
     padding: 0.3rem;
     padding-left: 0.5rem;
@@ -133,7 +133,7 @@
         }
 
         &-footer {
-          color: var(--pf-global--palette--black-500);
+          color: var(--pf-global--color--background--dark);
           font-size: var(--pf-global--FontSize--xs);
         }
       }
@@ -151,221 +151,8 @@
       }
     }
   }
-
-  /*
-  &__totals-column {
-    display: flex;
-    flex-wrap: wrap;
-    // padding-top: var(--pf-global--spacer--lg);
-    // padding-bottom: var(--pf-global--spacer--lg);
-
-    &-card {
-      flex: 0 1 100%;
-      // flex: 1 0 50%;
-
-      align-self: center;
-      text-align: center;
-      // padding-top: calc(var(--pf-global--spacer--lg) / 2);
-
-      &-header {
-        display: block;
-        padding-top: inherit !important;
-
-        h2, h3 {
-          line-height: var(--pf-global--FontSize--3xl);
-        }
-      }
-
-      &-body {
-        strong {
-          display: block;
-          font-size: var(--pf-global--FontSize--3xl);
-        }
-      }
-
-      &-footer {
-        color: var(--pf-global--palette--black-500);
-        font-size: var(--pf-global--FontSize--xs);
-      }
-    }
-   */
-  /*
-  &-card:first-child {
-    flex: 0 1 100%;
-  }
-
-  &-card:not(:first-child) {
-    flex: 1 0 50%
-  }
-  */
-  /*
-  &-card {
-
-  :first-child {
-    flex: 1 0 50%
-  }
-
-  :not(:first-child) {
-    flex: 1 0 50%
-  }
 }
 
-  :has(> :last-child:nth-child(1)), &:has(> :last-child:nth-child(2)) {
-    &:first-child, &:not(:first-child) {
-      flex: 0 1 100%;
-    }
-  }
-
-  &:has(> :last-child:nth-child(3)) {
-    &:first-child {
-      flex: 0 1 100%;
-    }
-
-    &:not(:first-child) {
-      flex: 1 0 50%
-    }
-  }
-
-  &:has(> :last-child:nth-child(4)) {
-    &:first-child {
-      flex: 1 0 50%
-    }
-
-    &:not(:first-child) {
-      flex: 1 0 50%
-    }
-  }
-}
-*/
-
-  /*
-  &-card:first-child {
-    flex: 0 1 100%;
-  }
-
-  &-card:not(:first-child) {
-    flex: 1 0 50%
-  }
-  */
-
-  /*
-  &:has(> :last-child:nth-child(1)), &:has(> :last-child:nth-child(2)) {
-    &:first-child, &:not(:first-child) {
-      flex: 0 1 100%;
-    }
-  }
-
-  &:has(> :last-child:nth-child(3)) {
-    &:first-child {
-      flex: 0 1 100%;
-    }
-
-    &:not(:first-child) {
-      flex: 1 0 50%
-    }
-  }
-
-  &:has(> :last-child:nth-child(4)) {
-    &:first-child {
-      flex: 1 0 50%
-    }
-
-    &:not(:first-child) {
-      flex: 1 0 50%
-    }
-  }
-  */
-
-  /*
-  &-card:first-child:nth-last-child(1) {
-    flex: 0 1 100%;
-  }
-
-  &-card:first-child:nth-last-child(2) {
-    flex: 0 1 100%;
-  }
-
-  &-card:first-child:nth-last-child(3) {
-    &:first-child {
-      flex: 0 1 100%;
-    }
-
-    &:not(:first-child) {
-      flex: 1 0 50%
-    }
-  }
-
-  &-card:first-child:nth-last-child(4) {
-    flex: 1 0 50%
-  }
-  */
-
-  &__totalsWOOT {
-    &-column {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-left: var(--pf-global--spacer--sm);
-      margin-right: var(--pf-global--spacer--sm);
-      margin-top: var(--pf-global--spacer--lg);
-      margin-bottom: var(--pf-global--spacer--lg);
-      width: 100%;
-
-      // @media (max-width: $pf-global--breakpoint--md) {
-      // margin-bottom: 0 !important;
-      // }
-
-      &-card {
-        // display: flex;
-        flex-basis: 100%;
-        flex-direction: column;
-        align-self: center;
-        text-align: center;
-
-        &:not(:first-child) {
-          // flex: 1;
-          border-top: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
-          border-radius: 0;
-          padding-top: calc(var(--pf-global--spacer--lg) / 2);
-        }
-
-        &-header {
-          display: block;
-          padding-top: inherit !important;
-
-          h2, h3 {
-            line-height: var(--pf-global--FontSize--3xl);
-          }
-        }
-
-        &-body {
-          strong {
-            display: block;
-            font-size: var(--pf-global--FontSize--3xl);
-          }
-        }
-
-        &-footer {
-          color: var(--pf-global--palette--black-500);
-          font-size: var(--pf-global--FontSize--xs);
-        }
-      }
-    }
-  }
-}
-
-/*
-@media (min-width: $pf-global--breakpoint--lg) {
-  .curiosity-graph__totals-column {
-    padding-bottom: 0 !important;
-  }
-}
-
-.curiosity-graph__totals-column {
-  // margin-bottom: 0 !important;
-}
-*/
 
 .curiosity-chartarea {
   &__legend {
@@ -380,8 +167,8 @@
 
   &__tooltip {
     transition: width 1s ease-in-out, left 1s ease-in-out;
-    background-color: var(--pf-global--palette--black-1000);
-    color: var(--pf-global--Color--light-100);
+    background-color: var(--pf-global--color--background--dark);
+    color: var(--pf-global--color--background--light);
     margin-left: 10px;
     margin-right: 15px;
 
@@ -397,7 +184,7 @@
     &-right:after {
       border-width: 10px;
       border-style: solid;
-      border-color: transparent var(--pf-global--palette--black-1000) transparent transparent;
+      border-color: transparent var(--pf-global--color--background--dark) transparent transparent;
       content: "";
       left: -9px;  //-10px Compensate for Firefox pixel diff, match margin-left
       margin-left: 0;
@@ -407,7 +194,7 @@
     }
 
     &-right:after {
-      border-color: transparent transparent transparent var(--pf-global--palette--black-1000);
+      border-color: transparent transparent transparent var(--pf-global--color--background--dark);
       left: calc(100% - 16px); //-15px Compensate for Firefox pixel diff, match margin-right
       margin-left: 0;
     }
@@ -418,7 +205,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    color: var(--pf-global--palette--black-500);
+    color: var(--pf-global--color--background--dark);
     font-size: var(--pf-global--FontSize--xs);
 
     &-x {
@@ -451,6 +238,6 @@
 
   > div > svg > line[role="presentation"][vector-effect="non-scaling-stroke"] {
     position: relative;
-    stroke: var(--pf-global--palette--black-900) !important;
+    stroke: var(--pf-global--color--background--dark) !important;
   }
 }

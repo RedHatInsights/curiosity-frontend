@@ -32,15 +32,15 @@
     margin-left: var(--pf-global--spacer--md);
     margin-right: var(--pf-global--spacer--md);
     font-size: var(--pf-global--FontSize--xs);
-    color: var(--pf-global--palette--gray);
+    color: var(--pf-global--color--gray);
   }
 }
 
 .curiosity-page-section__version-link {
-  color: var(--pf-global--palette--gray) !important;
+  color: var(--pf-global--color--gray) !important;
 
   &:hover {
-    color: var(--pf-global--palette--gray-dark) !important;
+    color: var(--pf-global--color--gray-dark) !important;
   }
 }
 
