@@ -97,6 +97,7 @@ exports[`ToolbarFieldBillingProvider Component should render a basic component: 
       }
       aria-label="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
       data-test="toolbarFieldBillingProvider"
+      isInline={false}
       onSelect={[Function]}
       options={[]}
       placeholder="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"

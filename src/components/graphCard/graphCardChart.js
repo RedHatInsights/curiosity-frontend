@@ -79,19 +79,15 @@ const GraphCardChart = ({
       </CardHeader>
       <MinHeight key="bodyMinHeight">
         <CardBody className="curiosity-card__body">
-          {(error && <ErrorMessage message={message} title={t('curiosity-graph.error_title')} />) || (
-            <div className={(pending && 'fadein') || ''}>
-              {pending && <Loader variant="graph" />}
-              {!pending && (
-                <Chart
-                  {...graphCardHelpers.generateExtendedChartSettings({ settings, granularity })}
-                  dataSets={dataSets}
-                  chartLegend={({ chart, datum }) => <GraphCardChartLegend chart={chart} datum={datum} />}
-                  chartTooltip={({ datum }) => <GraphCardChartTooltip datum={datum} />}
-                />
-              )}
-            </div>
-          )}
+          {(error && <ErrorMessage message={message} title={t('curiosity-graph.error_title')} />) ||
+            (pending && <Loader variant="graph" />) || (
+              <Chart
+                {...graphCardHelpers.generateExtendedChartSettings({ settings, granularity })}
+                dataSets={dataSets}
+                chartLegend={({ chart, datum }) => <GraphCardChartLegend chart={chart} datum={datum} />}
+                chartTooltip={({ datum }) => <GraphCardChartTooltip datum={datum} />}
+              />
+            )}
         </CardBody>
       </MinHeight>
     </Card>

@@ -98,6 +98,7 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
     }
     aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
     data-test="toolbarFieldGroupVariant"
+    isInline={true}
     maxHeight={310}
     onSelect={[Function]}
     options={
@@ -155,6 +156,7 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
       }
       aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
       data-test="toolbarFieldGroupVariant"
+      isInline={true}
       maxHeight={310}
       onSelect={[Function]}
       options={

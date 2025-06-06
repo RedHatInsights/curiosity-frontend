@@ -96,6 +96,7 @@ exports[`ToolbarFieldGranularity Component should render a basic component: basi
   }
   aria-label="t(curiosity-toolbar.placeholder, {"context":"granularity"})"
   data-test="toolbarFieldGranularity"
+  isInline={false}
   onSelect={[Function]}
   options={
     [
