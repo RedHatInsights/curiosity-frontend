@@ -1,800 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Build distribution should have a predictable ephemeral navigation based on route configuration: GUI routes expected covered, missing routes 1`] = `
-[
-  {
-    "coverage": "FALSE",
-    "path": "/ansible-aap-managed",
-    "productGroup": [
-      "ansible-aap-managed",
-    ],
-    "productId": [
-      "ansible-aap-managed",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/ansible",
-    "productGroup": [
-      "ansible-aap-managed",
-    ],
-    "productId": [
-      "ansible-aap-managed",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "TRUE",
-    "path": "/openshift",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/OpenShift Container Platform",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "TRUE",
-    "path": "/openshift-container",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/container",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/platform",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/shift",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/openshift-dedicated",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/dedicated",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/OpenShift-metrics",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/metrics",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/advanced",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/cluster",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/security",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/kubernetes",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/acs",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/application-services",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/data",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/science",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/ods",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "TRUE",
-    "path": "/rhel",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/insights",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/enterprise",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/linux",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/el",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/x86",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/ibm",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/power",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/els",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/sat",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/server",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/capsule",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-]
-`;
-
-exports[`Build distribution should have a predictable ephemeral navigation based on route configuration: YAML routes expected covered, missing routes 1`] = `
-[
-  {
-    "coverage": "TRUE",
-    "path": "/rhel",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "TRUE",
-    "path": "/openshift",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": undefined,
-    "productGroup": undefined,
-    "productId": undefined,
-    "productVariants": undefined,
-  },
-  {
-    "coverage": "FALSE",
-    "path": undefined,
-    "productGroup": undefined,
-    "productId": undefined,
-    "productVariants": undefined,
-  },
-  {
-    "coverage": "TRUE",
-    "path": "/rhel",
-    "productGroup": [
-      "rhel",
-    ],
-    "productId": [
-      "RHEL for x86",
-      "rhel-for-x86-els-payg",
-      "Satellite Server",
-    ],
-    "productVariants": [
-      "RHEL for ARM",
-      "rhel-aus-addon",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
-      "rhel-for-x86-eus",
-      "rhel-for-x86-ha",
-      "rhel-for-x86-rs",
-      "rhel-for-x86-els-unconverted",
-      "rhel-for-sap-x86",
-      "rhel-for-x86-els-payg",
-      "rhel-for-x86-els-payg-addon",
-      "Satellite Capsule",
-      "Satellite Server",
-    ],
-  },
-  {
-    "coverage": "TRUE",
-    "path": "/openshift-container",
-    "productGroup": [
-      "openshift",
-    ],
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-dedicated-metrics",
-      "OpenShift-metrics",
-      "rhacm",
-      "rhacs",
-      "rhods",
-      "rosa",
-    ],
-    "productVariants": [],
-  },
-]
-`;
-
 exports[`Build distribution should match a specific file output 1`] = `
 [
   "",
@@ -909,5 +114,156 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/locales/en.json",
   "./dist/locales/locales.json",
   "./dist/subscriptions*js",
+]
+`;
+
+exports[`Frontend operator should have a consistent configuration: module 1`] = `
+{
+  "manifestLocation": "/apps/subscriptions/fed-mods.json",
+  "modules": [
+    {
+      "id": "application-services-subscriptions",
+      "module": "./RootApp",
+      "routes": [
+        {
+          "pathname": "/application-services/subscriptions",
+        },
+      ],
+    },
+    {
+      "id": "insights-subscriptions",
+      "module": "./RootApp",
+      "routes": [
+        {
+          "pathname": "/insights/subscriptions",
+        },
+        {
+          "pathname": "/subscriptions/usage",
+        },
+      ],
+    },
+    {
+      "id": "openshift-subscriptions",
+      "module": "./RootApp",
+      "routes": [
+        {
+          "pathname": "/openshift/subscriptions",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Frontend operator should have a consistent set of bundleSegments: segments 1`] = `
+[
+  {
+    "bundleId": "subscriptions",
+    "navItems": [
+      {
+        "expandable": true,
+        "id": "subscriptionsUsage",
+        "routes": [
+          {
+            "href": "/subscriptions/usage/rhel",
+            "icon": "SubscriptionsIcon",
+            "id": "rhel",
+            "title": "RHEL",
+          },
+          {
+            "href": "/subscriptions/usage/openshift",
+            "id": "openshift",
+            "title": "OpenShift",
+          },
+          {
+            "href": "/subscriptions/usage/ansible",
+            "id": "ansible",
+            "title": "Ansible",
+          },
+        ],
+        "title": "Subscriptions Usage",
+      },
+    ],
+    "position": 200,
+    "segmentId": "subscriptions-usage",
+  },
+]
+`;
+
+exports[`Frontend operator should have a consistent set of searchEntries: search 1`] = `
+[
+  {
+    "alt_title": [
+      "swatch",
+      "subs watch",
+      "usage",
+    ],
+    "description": "Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.",
+    "href": "/subscriptions/usage/rhel",
+    "id": "subscriptions-usage-rhel",
+    "title": "RHEL - Subscriptions Usage",
+  },
+  {
+    "description": "Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.",
+    "href": "/subscriptions/usage/openshift",
+    "id": "subscriptions-usage-openshift",
+    "title": "OpenShift - Subscriptions Usage",
+  },
+  {
+    "description": "Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.",
+    "href": "/subscriptions/usage/ansible",
+    "id": "subscription-usage-ansible",
+    "title": "Ansible - Subscriptions Usage",
+  },
+]
+`;
+
+exports[`Frontend operator should have a consistent set of serviceTiles: tiles 1`] = `
+[
+  {
+    "description": "Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.",
+    "group": "observe",
+    "href": "/subscriptions/usage/openshift",
+    "icon": "OpenShiftIcon",
+    "id": "subscriptionsUsageObserve",
+    "section": "subscriptions",
+    "title": "Subscriptions Usage",
+  },
+  {
+    "description": "Monitor your Red Hat Enterprise Linux usage for both Annual and On-Demand subscriptions.",
+    "group": "rhel",
+    "href": "/subscriptions/usage/rhel",
+    "icon": "OpenShiftIcon",
+    "id": "subscriptionsUsageRhel",
+    "section": "subscriptions",
+    "title": "Subscriptions Usage",
+  },
+  {
+    "description": "Monitor your OpenShift usage for both Annual and On-Demand subscriptions.",
+    "group": "openshift",
+    "href": "/subscriptions/usage/openshift",
+    "icon": "OpenShiftIcon",
+    "id": "subscriptionsUsageOpenShift",
+    "section": "subscriptions",
+    "title": "Subscriptions Usage",
+  },
+  {
+    "description": "Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.",
+    "group": "ansible",
+    "href": "/subscriptions/usage/ansible",
+    "icon": "AnsibleIcon",
+    "id": "subscriptionsUsageAnsible",
+    "section": "subscriptions",
+    "title": "Subscriptions Usage",
+  },
+  {
+    "description": "Drive purchasing and IT operations decisions with comprehensive, account-wide usage reporting that highlights how and where your technology is being used.",
+    "group": "subscriptions",
+    "href": "/subscriptions/usage/rhel",
+    "icon": "SubscriptionsIcon",
+    "id": "subscriptionsUsageSubscriptions",
+    "section": "subscriptions",
+    "title": "Subscriptions Usage",
+  },
 ]
 `;

@@ -1,5 +1,5 @@
-import { products } from '../src/config/products';
 const { execSync } = require('child_process');
+const packageJson = require('../package.json');
 
 describe('Build distribution', () => {
   const outputDir = 'dist';
@@ -25,65 +25,32 @@ describe('Build distribution', () => {
 
     expect(Number.parseInt(output.trim(), 10)).toBe(0);
   });
+});
 
-  it('should have a predictable ephemeral navigation based on route configuration', () => {
+describe('Frontend operator', () => {
+  let yamlOutput;
+
+  beforeAll(() => {
     const yamlFile = `./deploy/frontend.yaml`;
     const output = execSync(`yaml2json ${yamlFile}`);
-    const yamlObj = JSON.parse(output.toString());
-    const yamlRoutes = yamlObj.objects[0].spec.navItems[0].routes;
+    yamlOutput = JSON.parse(output.toString());
+  });
 
-    const guiRoutes = [
-      ...Object.entries(products.sortedConfigs().byGroupIdConfigs).reduce((acc, [, groupedConfigs]) => {
-        const updatedConfig = [
-          {
-            path: `/${groupedConfigs?.[0]?.productPath}`,
-            productId: [...groupedConfigs.map(({ productId }) => productId)],
-            productGroup: Array.from(new Set([...groupedConfigs.map(({ productGroup }) => productGroup)])),
-            productVariants: Array.from(new Set([...groupedConfigs.map(({ productVariants }) => productVariants)]))
-              .flat()
-              .filter(value => value !== undefined)
-          }
-        ];
+  it('should have a consistent configuration', () => {
+    expect(yamlOutput.objects.length).toBe(1);
+    expect(yamlOutput.objects[0].metadata.name).toBe(packageJson.insights.appname);
+    expect(yamlOutput.objects[0].spec.module).toMatchSnapshot('module');
+  });
 
-        const flatAliases = groupedConfigs.map(({ aliases }) => [...aliases]).flat(1);
-        const aliasedConfigs = [
-          ...[...new Set(flatAliases)].map(alias => ({ ...updatedConfig[0], path: `/${alias}` }))
-        ];
+  it('should have a consistent set of serviceTiles', () => {
+    expect(yamlOutput.objects[0].spec.serviceTiles).toMatchSnapshot('tiles');
+  });
 
-        return [...acc, ...updatedConfig, ...aliasedConfigs];
-      }, [])
-    ];
+  it('should have a consistent set of searchEntries', () => {
+    expect(yamlOutput.objects[0].spec.searchEntries).toMatchSnapshot('search');
+  });
 
-    expect(
-      yamlRoutes.map(({ href }) => {
-        const updatedRoute = { coverage: 'FALSE' };
-        const match = guiRoutes.find(({ path }) => href.split('subscriptions')[1] === path);
-
-        if (match) {
-          updatedRoute.coverage = 'TRUE';
-        }
-
-        return {
-          path: match?.path,
-          productId: match?.productId,
-          productGroup: match?.productGroup,
-          productVariants: match?.productVariants,
-          ...updatedRoute
-        };
-      })
-    ).toMatchSnapshot('YAML routes expected covered, missing routes');
-
-    expect(
-      guiRoutes.map(({ path, productGroup, productId, productVariants }) => {
-        const updatedRoute = { path, productId, productGroup, productVariants, coverage: 'FALSE' };
-        const match = yamlRoutes.find(({ href }) => href.split('subscriptions')[1] === path);
-
-        if (match) {
-          updatedRoute.coverage = 'TRUE';
-        }
-
-        return updatedRoute;
-      })
-    ).toMatchSnapshot('GUI routes expected covered, missing routes');
+  it('should have a consistent set of bundleSegments', () => {
+    expect(yamlOutput.objects[0].spec.bundleSegments).toMatchSnapshot('segments');
   });
 });
