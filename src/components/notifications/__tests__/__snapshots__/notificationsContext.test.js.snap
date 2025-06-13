@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationsContext should apply a hook wrapper for notifications: notifications hook 1`] = `
+{
+  "addNotification": [Function],
+  "clearNotifications": [Function],
+  "removeNotification": [Function],
+  "subscribe": [Function],
+}
+`;
+
+exports[`NotificationsContext should attempt addNotification with a custom ID: id 1`] = `
+[
+  [
+    {
+      "id": "ametConsectetur",
+      "swatchid": undefined,
+      "title": "Lorem ipsum",
+    },
+  ],
+]
+`;
+
+exports[`NotificationsContext should attempt addNotification with a custom ID: swatchId 1`] = `
+[
+  [
+    {
+      "swatchid": "loremIpsum",
+      "title": "Lorem ipsum",
+    },
+  ],
+]
+`;
+
+exports[`NotificationsContext should attempt addNotification with a custom ID: swatchid 1`] = `
+[
+  [
+    {
+      "swatchid": "dolorSitAmet",
+      "title": "Lorem ipsum",
+    },
+  ],
+]
+`;
+
+exports[`NotificationsContext should attempt removeNotification with a custom ID: id 1`] = `
+[
+  [
+    "generated-id-2",
+  ],
+]
+`;
+
+exports[`NotificationsContext should attempt removeNotification with a custom ID: incorrect id 1`] = `[]`;
+
+exports[`NotificationsContext should attempt removeNotification with a custom ID: swatchId 1`] = `
+[
+  [
+    "generated-id-1",
+  ],
+]
+`;
+
+exports[`NotificationsContext should return specific properties: specific properties 1`] = `
+{
+  "useNotifications": [Function],
+}
+`;

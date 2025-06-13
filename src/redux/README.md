@@ -63,58 +63,12 @@ Platform service wrappers for dispatch, state update.
 
 
 * [PlatformActions](#Actions.module_PlatformActions)
-    * [~addNotification(data)](#Actions.module_PlatformActions..addNotification) ⇒ <code>\*</code>
-    * [~removeNotification(id)](#Actions.module_PlatformActions..removeNotification) ⇒ <code>\*</code>
-    * [~clearNotifications()](#Actions.module_PlatformActions..clearNotifications) ⇒ <code>\*</code>
     * [~authorizeUser(params)](#Actions.module_PlatformActions..authorizeUser) ⇒ <code>function</code>
-    * [~getExistingExports(existingExports, notifications)](#Actions.module_PlatformActions..getExistingExports) ⇒ <code>function</code>
-    * [~deleteExistingExports(existingExports, notifications)](#Actions.module_PlatformActions..deleteExistingExports) ⇒ <code>function</code>
-    * [~getExistingExportsStatus(notifications)](#Actions.module_PlatformActions..getExistingExportsStatus) ⇒ <code>function</code>
-    * [~createExport(id, data, options, notifications)](#Actions.module_PlatformActions..createExport) ⇒ <code>function</code>
+    * [~getExistingExports(existingExports, callbacks)](#Actions.module_PlatformActions..getExistingExports) ⇒ <code>function</code>
+    * [~deleteExistingExports(existingExports, callbacks)](#Actions.module_PlatformActions..deleteExistingExports) ⇒ <code>function</code>
+    * [~getExistingExportsStatus(callbacks)](#Actions.module_PlatformActions..getExistingExportsStatus) ⇒ <code>function</code>
+    * [~createExport(id, data, options, callbacks)](#Actions.module_PlatformActions..createExport) ⇒ <code>function</code>
 
-<a name="Actions.module_PlatformActions..addNotification"></a>
-
-### PlatformActions~addNotification(data) ⇒ <code>\*</code>
-Add a platform plugin toast notification. Generate an id if one doesn't exist. The default generated id is
-random when testing.
-
-**Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>data</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Actions.module_PlatformActions..removeNotification"></a>
-
-### PlatformActions~removeNotification(id) ⇒ <code>\*</code>
-Remove a platform plugin toast notification.
-
-**Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>string</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Actions.module_PlatformActions..clearNotifications"></a>
-
-### PlatformActions~clearNotifications() ⇒ <code>\*</code>
-Clear all platform plugin toast notifications.
-
-**Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
 <a name="Actions.module_PlatformActions..authorizeUser"></a>
 
 ### PlatformActions~authorizeUser(params) ⇒ <code>function</code>
@@ -141,8 +95,9 @@ Get an emulated and combined API response from the platforms "getUser" and "getU
 
 <a name="Actions.module_PlatformActions..getExistingExports"></a>
 
-### PlatformActions~getExistingExports(existingExports, notifications) ⇒ <code>function</code>
-Get all existing exports, if pending poll, and when complete download. Includes toast notifications.
+### PlatformActions~getExistingExports(existingExports, callbacks) ⇒ <code>function</code>
+Get all existing exports, if "pending" then poll, and when complete download.
+Includes toast notifications through the callbacks parameter.
 
 **Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
 <table>
@@ -155,15 +110,15 @@ Get all existing exports, if pending poll, and when complete download. Includes 
 <tr>
     <td>existingExports</td><td><code>Array</code></td><td></td>
     </tr><tr>
-    <td>notifications</td><td><code>object</code></td><td><p>Apply notification options</p>
+    <td>callbacks</td><td><code>object</code></td><td><p>Apply notification callbacks with options</p>
 </td>
     </tr>  </tbody>
 </table>
 
 <a name="Actions.module_PlatformActions..deleteExistingExports"></a>
 
-### PlatformActions~deleteExistingExports(existingExports, notifications) ⇒ <code>function</code>
-Delete all existing exports. Includes toast notifications.
+### PlatformActions~deleteExistingExports(existingExports, callbacks) ⇒ <code>function</code>
+Delete all existing exports. Includes toast notifications through the callbacks parameter
 
 **Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
 <table>
@@ -176,15 +131,15 @@ Delete all existing exports. Includes toast notifications.
 <tr>
     <td>existingExports</td><td><code>Array.&lt;{id: string}&gt;</code></td>
     </tr><tr>
-    <td>notifications</td><td><code>object</code></td>
+    <td>callbacks</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Actions.module_PlatformActions..getExistingExportsStatus"></a>
 
-### PlatformActions~getExistingExportsStatus(notifications) ⇒ <code>function</code>
+### PlatformActions~getExistingExportsStatus(callbacks) ⇒ <code>function</code>
 Get a status from any existing exports. Display a confirmation for downloading, or ignoring, the exports.
-Includes toast notifications.
+Includes toast notifications through the callbacks parameter
 
 **Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
 <table>
@@ -195,14 +150,14 @@ Includes toast notifications.
   </thead>
   <tbody>
 <tr>
-    <td>notifications</td><td><code>object</code></td>
+    <td>callbacks</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="Actions.module_PlatformActions..createExport"></a>
 
-### PlatformActions~createExport(id, data, options, notifications) ⇒ <code>function</code>
-Create an export for download. Includes toast notifications.
+### PlatformActions~createExport(id, data, options, callbacks) ⇒ <code>function</code>
+Create an export for download. Includes toast notifications through the callbacks parameter.
 
 **Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
 <table>
@@ -220,7 +175,7 @@ Create an export for download. Includes toast notifications.
     <td>options</td><td><code>object</code></td><td><p>Apply polling options</p>
 </td>
     </tr><tr>
-    <td>notifications</td><td><code>object</code></td><td></td>
+    <td>callbacks</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -353,7 +308,7 @@ User, and RHSM, service wrappers for dispatch, state update.
     * [~getLocale()](#Actions.module_UserActions..getLocale) ⇒ <code>Object</code>
     * [~deleteAccountOptIn()](#Actions.module_UserActions..deleteAccountOptIn) ⇒ <code>function</code>
     * [~getAccountOptIn()](#Actions.module_UserActions..getAccountOptIn) ⇒ <code>function</code>
-    * [~updateAccountOptIn(query)](#Actions.module_UserActions..updateAccountOptIn) ⇒ <code>function</code>
+    * [~updateAccountOptIn(query, callbacks)](#Actions.module_UserActions..updateAccountOptIn) ⇒ <code>function</code>
 
 <a name="Actions.module_UserActions..getLocale"></a>
 
@@ -375,7 +330,7 @@ Get a user's opt-in config.
 **Kind**: inner method of [<code>UserActions</code>](#Actions.module_UserActions)  
 <a name="Actions.module_UserActions..updateAccountOptIn"></a>
 
-### UserActions~updateAccountOptIn(query) ⇒ <code>function</code>
+### UserActions~updateAccountOptIn(query, callbacks) ⇒ <code>function</code>
 Update a user's opt-in.
 
 **Kind**: inner method of [<code>UserActions</code>](#Actions.module_UserActions)  
@@ -388,6 +343,8 @@ Update a user's opt-in.
   <tbody>
 <tr>
     <td>query</td><td><code>object</code></td>
+    </tr><tr>
+    <td>callbacks</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 

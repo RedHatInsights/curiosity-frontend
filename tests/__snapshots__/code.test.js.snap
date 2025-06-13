@@ -7,6 +7,7 @@ exports[`General code checks should only have specific console.[warn|log|info|er
   "components/form/select.js:292:          console.warn(\`Selected option at index "\${selectedOptionIndex}" is disabled or has no value.\`);",
   "components/inventoryCardInstances/inventoryCardInstancesContext.js:268:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "components/inventoryCardSubscriptions/inventoryCardSubscriptionsContext.js:191:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
+  "components/notifications/notificationsContext.js:70:          console.warn(",
   "config/products.js:44:    console.warn(\`Product configuration failed to load: \${e.message}\`);",
   "index.js:12:      console.log(\`Emulated appNavClick: \${JSON.stringify({ id, ...rest })}\`);",
   "redux/common/reduxHelpers.js:287:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",

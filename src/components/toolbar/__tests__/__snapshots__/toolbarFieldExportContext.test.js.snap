@@ -26,43 +26,6 @@ exports[`ToolbarFieldExport Component should aggregate export status, polling st
 exports[`ToolbarFieldExport Component should allow export service calls on existing exports: existingExports 1`] = `
 [
   [],
-  [
-    {
-      "autoDismiss": false,
-      "description": <div
-        aria-live="polite"
-      >
-        t(curiosity-toolbar.notifications_export_completed_description_existing, {"context":"pending","count":1,"completed":0,"pending":1})
-        <div
-          style={
-            {
-              "paddingTop": "0.5rem",
-            }
-          }
-        >
-          <Button
-            autoFocus={true}
-            data-test="exportButtonConfirm"
-            onClick={[Function]}
-            variant="primary"
-          >
-            t(curiosity-toolbar.button, {"context":"yes"})
-          </Button>
-           
-          <Button
-            data-test="exportButtonCancel"
-            onClick={[Function]}
-            variant="plain"
-          >
-            t(curiosity-toolbar.button, {"context":"no"})
-          </Button>
-        </div>
-      </div>,
-      "dismissable": false,
-      "id": "swatch-exports-status",
-      "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":1,"testId":"exportNotification-existing-confirmation"})",
-    },
-  ],
 ]
 `;
 
@@ -85,10 +48,6 @@ exports[`ToolbarFieldExport Component should allow export service calls: createE
       "dispatch => Promise.resolve(dispatch(...args))",
     ],
   },
-  {
-    "type": "return",
-    "value": [Function],
-  },
 ]
 `;
 
@@ -108,12 +67,7 @@ exports[`ToolbarFieldExport Component should allow service calls on user confirm
       "sit",
     ],
     {
-      "pending": {
-        "dismissable": false,
-        "id": "swatch-exports-existing-confirmation",
-        "title": "t(curiosity-toolbar.notifications_export_pending, {"context":"titleGlobal","testId":"exportNotification-existing-pending"})",
-        "variant": "info",
-      },
+      "pendingCallback": [Function],
     },
   ],
 ]
@@ -123,7 +77,6 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
 [
   [
     [
-      [Function],
       {
         "id": "loremIpsum",
         "isPending": false,
@@ -136,9 +89,6 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
         "type": "SET_PLATFORM_EXPORT_STATUS",
       },
     ],
-  ],
-  [
-    [Function],
   ],
 ]
 `;
