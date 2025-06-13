@@ -125,6 +125,9 @@ recreate the core component.
 </dd>
 <dt><a href="#Pagination.module_PaginationHelpers">PaginationHelpers</a></dt>
 <dd></dd>
+<dt><a href="#Components.module_Platform">Platform</a></dt>
+<dd><p>Load platform-specific functionality</p>
+</dd>
 <dt><a href="#Components.module_ProductView">ProductView</a></dt>
 <dd><p>Primary product display component, and config context provider.</p>
 </dd>
@@ -4214,6 +4217,40 @@ Determine if paging is on the last page.
     <td>perPage</td><td><code>number</code></td>
     </tr><tr>
     <td>itemCount</td><td><code>number</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Components.module_Platform"></a>
+
+## Platform
+Load platform-specific functionality
+
+<a name="Components.module_Platform..Platform"></a>
+
+### Platform~Platform(props) ⇒ <code>React.ReactNode</code>
+PlatformWrapper is a functional component that conditionally wraps its children with a NotificationsProvider.
+
+If UI notifications are not disabled, the children will be wrapped with a NotificationsProvider component.
+If UI notifications are disabled, the children will be rendered directly without any wrapping.
+
+This component relies on the `UI_DISABLED_NOTIFICATIONS` property from the `helpers` object to determine
+whether notifications are enabled or disabled in the platform.
+
+**Kind**: inner method of [<code>Platform</code>](#Components.module_Platform)  
+**Returns**: <code>React.ReactNode</code> - The rendered output, either wrapped with NotificationsProvider or plain children.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td><p>The prop object for the component.</p>
+</td>
+    </tr><tr>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td><p>The child components or elements to be rendered.</p>
+</td>
     </tr>  </tbody>
 </table>
 
