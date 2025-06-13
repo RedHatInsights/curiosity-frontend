@@ -5,15 +5,11 @@ exports[`TableEmpty Component should have fallback checks for certain props: fal
   <table />
   <EmptyState
     className="fadein"
+    headingLevel="h1"
+    icon={[Function]}
+    titleText="Lorem ipsum title"
     variant="sm"
   >
-    <EmptyStateIcon
-      icon={[Function]}
-    />
-    <EmptyStateHeader
-      headingLevel="h1"
-      titleText="Lorem ipsum title"
-    />
     <EmptyStateBody>
       Lorem ipsum message.
     </EmptyStateBody>
@@ -26,15 +22,11 @@ exports[`TableEmpty Component should render a basic component: basic 1`] = `
   <table />
   <EmptyState
     className="fadein"
+    headingLevel="h2"
+    icon={[Function]}
+    titleText="Lorem ipsum title"
     variant="sm"
   >
-    <EmptyStateIcon
-      icon={[Function]}
-    />
-    <EmptyStateHeader
-      headingLevel="h2"
-      titleText="Lorem ipsum title"
-    />
     <EmptyStateBody>
       Lorem ipsum message.
     </EmptyStateBody>

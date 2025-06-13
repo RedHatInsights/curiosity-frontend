@@ -36,7 +36,7 @@ exports[`ToolbarFieldSla Component should handle updating usage through redux st
       {
         "filter": "usage",
         "type": "SET_QUERY",
-        "value": "Production",
+        "value": "",
         "viewId": undefined,
       },
     ],

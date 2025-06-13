@@ -27,7 +27,7 @@ exports[`ToolbarFieldBillingProvider Component should handle updating through re
       {
         "filter": "billing_provider",
         "type": "SET_QUERY",
-        "value": "mock billing provider",
+        "value": "lorem ipsum provider",
         "viewId": undefined,
       },
     ],
@@ -83,9 +83,9 @@ exports[`ToolbarFieldBillingProvider Component should handle updating through re
 exports[`ToolbarFieldBillingProvider Component should render a basic component: basic 1`] = `
 <React.Fragment>
   <ToolbarItem
-    spacer={
+    gap={
       {
-        "default": "spacerNone",
+        "default": "gapNone",
       }
     }
   >

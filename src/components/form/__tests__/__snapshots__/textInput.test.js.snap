@@ -9,12 +9,12 @@ exports[`TextInput Component should handle readOnly, disabled: active 1`] = `
 }"
 >
   <span
-    class="pf-v5-c-form-control curiosity-text-input "
+    class="pf-v6-c-form-control curiosity-text-input "
   >
     <input
       aria-invalid="false"
       data-ouia-component-id="OUIA-Generated-TextInputBase-4"
-      data-ouia-component-type="PF5/TextInput"
+      data-ouia-component-type="PF6/TextInput"
       data-ouia-safe="true"
       id="generatedid-"
       name="generatedid-"
@@ -34,12 +34,12 @@ exports[`TextInput Component should handle readOnly, disabled: disabled 1`] = `
 }"
 >
   <span
-    class="pf-v5-c-form-control pf-m-disabled curiosity-text-input "
+    class="pf-v6-c-form-control pf-m-disabled curiosity-text-input "
   >
     <input
       aria-invalid="false"
       data-ouia-component-id="OUIA-Generated-TextInputBase-3"
-      data-ouia-component-type="PF5/TextInput"
+      data-ouia-component-type="PF6/TextInput"
       data-ouia-safe="true"
       disabled=""
       id="generatedid-"
@@ -59,12 +59,12 @@ exports[`TextInput Component should handle readOnly, disabled: readOnly 1`] = `
 }"
 >
   <span
-    class="pf-v5-c-form-control pf-m-readonly curiosity-text-input "
+    class="pf-v6-c-form-control pf-m-readonly curiosity-text-input "
   >
     <input
       aria-invalid="false"
       data-ouia-component-id="OUIA-Generated-TextInputBase-2"
-      data-ouia-component-type="PF5/TextInput"
+      data-ouia-component-type="PF6/TextInput"
       data-ouia-safe="true"
       id="generatedid-"
       name="generatedid-"
@@ -83,12 +83,12 @@ exports[`TextInput Component should render a basic component: basic component 1`
 }"
 >
   <span
-    class="pf-v5-c-form-control curiosity-text-input "
+    class="pf-v6-c-form-control curiosity-text-input "
   >
     <input
       aria-invalid="false"
       data-ouia-component-id="OUIA-Generated-TextInputBase-1"
-      data-ouia-component-type="PF5/TextInput"
+      data-ouia-component-type="PF6/TextInput"
       data-ouia-safe="true"
       id="generatedid-"
       name="generatedid-"
@@ -109,7 +109,7 @@ exports[`TextInput Component should return an emulated onClear event on escape: 
       "currentTarget": <input
         aria-invalid="false"
         data-ouia-component-id="OUIA-Generated-TextInputBase-6"
-        data-ouia-component-type="PF5/TextInput"
+        data-ouia-component-type="PF6/TextInput"
         data-ouia-safe="true"
         id="test-id"
         name="generatedid-"
@@ -123,7 +123,7 @@ exports[`TextInput Component should return an emulated onClear event on escape: 
       "target": <input
         aria-invalid="false"
         data-ouia-component-id="OUIA-Generated-TextInputBase-6"
-        data-ouia-component-type="PF5/TextInput"
+        data-ouia-component-type="PF6/TextInput"
         data-ouia-safe="true"
         id="test-id"
         name="generatedid-"

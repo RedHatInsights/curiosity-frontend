@@ -58,7 +58,8 @@ const useExportConfirmation = ({
               context: ['export', 'pending', 'title'],
               testId: 'exportNotification-individual-pending'
             }),
-            dismissable: true
+            // FixMe: after the pf6 update, notifications npm needs to be updated, revert this change accordingly
+            dismissable: false
           })
         ]);
         return;
@@ -89,7 +90,8 @@ const useExportConfirmation = ({
               count: completed.length,
               fileName: completed?.[0]?.fileName
             }),
-            dismissable: true
+            // FixMe: after the pf6 update, notifications npm needs to be updated, revert this change accordingly
+            dismissable: false
           })
         );
       }
@@ -143,7 +145,8 @@ const useExport = ({
               description: t('curiosity-toolbar.notifications', {
                 context: ['export', 'error', 'description']
               }),
-              dismissable: true
+              // FixMe: after the pf6 update, notifications npm needs to be updated, revert this change accordingly
+              dismissable: false
             }
           }
         )
@@ -194,7 +197,8 @@ const useExistingExportsConfirmation = ({
             context: ['export', 'pending', 'titleGlobal'],
             testId: 'exportNotification-existing-pending'
           }),
-          dismissable: true
+          // FixMe: after the pf6 update, notifications npm needs to be updated, revert this change accordingly
+          dismissable: false
         }
       })(dispatch).then(() => {
         if (confirmAppLoaded()) {
@@ -211,7 +215,8 @@ const useExistingExportsConfirmation = ({
                 context: ['export', 'completed', 'descriptionGlobal'],
                 count: allResults.length
               }),
-              dismissable: true
+              // FixMe: after the pf6 update, notifications npm needs to be updated, revert this change accordingly
+              dismissable: false
             })
           );
         }
