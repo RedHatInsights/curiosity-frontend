@@ -578,15 +578,15 @@ exports[`OptinView Component should submit an opt-in form: dispatch 1`] = `
       "meta": {
         "notifications": {
           "fulfilled": {
-            "autoDismiss": false,
+            "autoDismiss": true,
             "description": "t(curiosity-optin.notificationsSuccessDescription)",
-            "dismissable": true,
+            "dismissable": false,
             "title": "t(curiosity-optin.notificationsSuccessTitle, {"appName":"Subscriptions"})",
             "variant": "success",
           },
           "rejected": {
             "description": "t(curiosity-optin.notificationsErrorDescription)",
-            "dismissable": true,
+            "dismissable": false,
             "title": "t(curiosity-optin.notificationsErrorTitle, {"appName":"Subscriptions"})",
             "variant": "danger",
           },

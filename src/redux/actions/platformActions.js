@@ -22,7 +22,8 @@ import { helpers } from '../../common';
  * @returns {*}
  */
 const addNotification = data => dispatch => {
-  const updatedData = { ...data };
+  // FixMe: after the pf6 update, notifications npm needs to be updated, revert this change accordingly
+  const updatedData = { ...data, dismissable: false };
 
   if (updatedData.id) {
     dispatch(RcsRemoveNotification(updatedData.id));
