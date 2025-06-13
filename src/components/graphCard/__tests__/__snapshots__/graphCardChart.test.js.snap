@@ -56,18 +56,14 @@ exports[`GraphCardChart Component should handle API response states: fulfilled 1
     <CardBody
       className="curiosity-card__body"
     >
-      <div
-        className=""
-      >
-        <Chart
-          chartLegend={[Function]}
-          chartTooltip={[Function]}
-          dataSets={[]}
-          xAxisLabelIncrement={1}
-          xAxisTickFormat={[Function]}
-          yAxisTickFormat={[Function]}
-        />
-      </div>
+      <Chart
+        chartLegend={[Function]}
+        chartTooltip={[Function]}
+        dataSets={[]}
+        xAxisLabelIncrement={1}
+        xAxisTickFormat={[Function]}
+        yAxisTickFormat={[Function]}
+      />
     </CardBody>
   </MinHeight>
 </Card>
@@ -97,13 +93,9 @@ exports[`GraphCardChart Component should handle API response states: pending 1`]
     <CardBody
       className="curiosity-card__body"
     >
-      <div
-        className="fadein"
-      >
-        <Loader
-          variant="graph"
-        />
-      </div>
+      <Loader
+        variant="graph"
+      />
     </CardBody>
   </MinHeight>
 </Card>
@@ -133,18 +125,14 @@ exports[`GraphCardChart Component should render a basic component: basic 1`] = `
     <CardBody
       className="curiosity-card__body"
     >
-      <div
-        className=""
-      >
-        <Chart
-          chartLegend={[Function]}
-          chartTooltip={[Function]}
-          dataSets={[]}
-          xAxisLabelIncrement={1}
-          xAxisTickFormat={[Function]}
-          yAxisTickFormat={[Function]}
-        />
-      </div>
+      <Chart
+        chartLegend={[Function]}
+        chartTooltip={[Function]}
+        dataSets={[]}
+        xAxisLabelIncrement={1}
+        xAxisTickFormat={[Function]}
+        yAxisTickFormat={[Function]}
+      />
     </CardBody>
   </MinHeight>
 </Card>

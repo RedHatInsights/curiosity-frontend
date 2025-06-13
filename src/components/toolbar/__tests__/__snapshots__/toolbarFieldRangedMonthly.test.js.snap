@@ -123,6 +123,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
   }
   aria-label="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   data-test="toolbarFieldRangeGranularity"
+  isInline={false}
   maxHeight={250}
   onSelect={[Function]}
   options={
@@ -259,13 +260,13 @@ exports[`ToolbarFieldRangedMonthly Component should handle updating granularity 
       {
         "filter": "beginning",
         "type": "SET_QUERY",
-        "value": "2019-07-01T00:00:00.000Z",
+        "value": "2018-08-01T00:00:00.000Z",
         "viewId": undefined,
       },
       {
         "filter": "ending",
         "type": "SET_QUERY",
-        "value": "2019-07-31T23:59:59.999Z",
+        "value": "2018-08-31T23:59:59.999Z",
         "viewId": undefined,
       },
     ],
@@ -313,6 +314,7 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
   }
   aria-label="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   data-test="toolbarFieldRangeGranularity"
+  isInline={false}
   maxHeight={250}
   onSelect={[Function]}
   options={

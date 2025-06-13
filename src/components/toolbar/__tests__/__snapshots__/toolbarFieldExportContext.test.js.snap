@@ -109,7 +109,7 @@ exports[`ToolbarFieldExport Component should allow service calls on user confirm
     ],
     {
       "pending": {
-        "dismissable": true,
+        "dismissable": false,
         "id": "swatch-exports-existing-confirmation",
         "title": "t(curiosity-toolbar.notifications_export_pending, {"context":"titleGlobal","testId":"exportNotification-existing-pending"})",
         "variant": "info",

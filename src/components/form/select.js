@@ -451,7 +451,7 @@ const Select = ({
   return (
     <div
       ref={selectField}
-      className={`curiosity-select${(isInline && ' curiosity-select__inline') || ' curiosity-select__not-inline'}`}
+      className={`curiosity-select${(isInline && ' curiosity-select__inline') || ' curiosity-select__not-inline'} fadein__fast`}
     >
       <SelectElement
         className={`curiosity-select-pf ${className || ''}`}

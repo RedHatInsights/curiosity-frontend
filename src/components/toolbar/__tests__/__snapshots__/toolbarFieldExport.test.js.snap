@@ -71,6 +71,7 @@ exports[`ToolbarFieldExport Component should render a basic component: basic 1`]
   toggle={
     {
       "content": "t(curiosity-toolbar.label, {"context":"export"})",
+      "icon": <ExportIcon />,
       "variant": "secondary",
     }
   }

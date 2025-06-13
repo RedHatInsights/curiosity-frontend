@@ -3,14 +3,14 @@
 exports[`TokenHelpers should have specific tokens: tokens 1`] = `
 {
   "chartColorBlueDark": {
-    "name": "--pf-v5-chart-color-blue-300",
-    "value": "#06c",
-    "var": "var(--pf-v5-chart-color-blue-300, #06c)",
+    "name": "--pf-v6-chart-color-blue-300",
+    "value": "#0066cc",
+    "var": "var(--pf-v6-chart-color-blue-300, #0066cc)",
   },
   "chartColorBlueLight": {
-    "name": "--pf-v5-chart-color-blue-100",
-    "value": "#8bc1f7",
-    "var": "var(--pf-v5-chart-color-blue-100, #8bc1f7)",
+    "name": "--pf-v6-chart-color-blue-100",
+    "value": "#92c5f9",
+    "var": "var(--pf-v6-chart-color-blue-100, #92c5f9)",
   },
   "chartColorCyanDark": {
     "value": "#009596",
@@ -25,24 +25,24 @@ exports[`TokenHelpers should have specific tokens: tokens 1`] = `
     "value": "#f0ab00",
   },
   "chartColorOrangeDark": {
-    "name": "--pf-v5-chart-color-orange-300",
-    "value": "#ec7a08",
-    "var": "var(--pf-v5-chart-color-orange-300, #ec7a08)",
+    "name": "--pf-v6-chart-color-orange-300",
+    "value": "#ca6c0f",
+    "var": "var(--pf-v6-chart-color-orange-300, #ca6c0f)",
   },
   "chartColorOrangeLight": {
-    "name": "--pf-v5-chart-color-orange-100",
-    "value": "#f4b678",
-    "var": "var(--pf-v5-chart-color-orange-100, #f4b678)",
+    "name": "--pf-v6-chart-color-orange-100",
+    "value": "#f8ae54",
+    "var": "var(--pf-v6-chart-color-orange-100, #f8ae54)",
   },
   "chartColorPurpleDark": {
-    "name": "--pf-v5-chart-color-purple-300",
-    "value": "#5752d1",
-    "var": "var(--pf-v5-chart-color-purple-300, #5752d1)",
+    "name": "--pf-v6-chart-color-purple-300",
+    "value": "#5e40be",
+    "var": "var(--pf-v6-chart-color-purple-300, #5e40be)",
   },
   "chartColorPurpleLight": {
-    "name": "--pf-v5-chart-color-purple-100",
-    "value": "#b2b0ea",
-    "var": "var(--pf-v5-chart-color-purple-100, #b2b0ea)",
+    "name": "--pf-v6-chart-color-purple-100",
+    "value": "#b6a6e9",
+    "var": "var(--pf-v6-chart-color-purple-100, #b6a6e9)",
   },
 }
 `;

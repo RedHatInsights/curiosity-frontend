@@ -59,7 +59,7 @@ describe('Pagination Component', () => {
     const inputToggle = component.find('button');
     component.fireEvent.click(inputToggle);
 
-    const inputPerPage = component.find('button[role="menuitem"]');
+    const inputPerPage = component.screen.getAllByRole('menuitem').pop();
     component.fireEvent.click(inputPerPage);
 
     expect(updatedOnPerPage).toHaveBeenCalledTimes(1);
