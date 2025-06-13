@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
-import { Button, Card, CardBody, CardFooter, CardTitle, Gallery, Title, PageSection } from '@patternfly/react-core';
+import { Button, Card, CardBody, CardFooter, CardTitle, Gallery, Title } from '@patternfly/react-core';
 import { ArrowRightIcon } from '@patternfly/react-icons';
-import { PageLayout, PageHeader } from '../pageLayout/pageLayout';
+import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
 import { routerContext } from '../router';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -55,16 +55,12 @@ const ProductViewMissing = ({
   return (
     <PageLayout className="curiosity-missing-view">
       <PageHeader productLabel="missing">{t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME })}</PageHeader>
-      <PageSection isFilled>
+      <PageSection className="curiosity-page-section__missing">
         <Gallery hasGutter>
           {availableProducts?.map(({ productGroup, productId, productPath }) => (
             <Card
-              className={`curiosity-card ${
-                (firstMatch?.productPath === productPath && 'curiosity-card__selected') || ''
-              }`}
+              className="curiosity-card"
               key={`missingViewCard-${productId}-${helpers.generateId()}`}
-              isSelectable
-              isSelected={firstMatch?.productPath === productPath}
               onClick={() => onNavigate(productPath)}
             >
               <CardTitle>

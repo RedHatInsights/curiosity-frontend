@@ -31,7 +31,7 @@ const PageLayout = ({ children, className = '' }) => (
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageHeader)}
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageMessages)}
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageToolbar)}
-    <Main padding={{ default: 'noPadding' }} className={`curiosity ${className}`}>
+    <Main hasBodyWrapper={false} padding={{ default: 'noPadding' }} className={`curiosity ${className}`}>
       {React.Children.toArray(children).filter(
         child => child.type !== PageHeader && child.type !== PageMessages && child.type !== PageToolbar
       )}

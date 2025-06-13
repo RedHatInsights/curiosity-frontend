@@ -184,6 +184,7 @@ const useSelectCategoryOptions = ({
  * Display a select category field with options.
  *
  * @param {object} props
+ * @param {boolean} [props.isInline=false]
  * @param {translate} [props.t=translate]
  * @param {useOnSelect} [props.useOnSelect=useOnSelect]
  * @param {useSelectCategoryOptions} [props.useSelectCategoryOptions=useSelectCategoryOptions]
@@ -191,6 +192,7 @@ const useSelectCategoryOptions = ({
  * @returns {JSX.Element}
  */
 const ToolbarFieldSelectCategory = ({
+  isInline = false,
   t = translate,
   useOnSelect: useAliasOnSelect = useOnSelect,
   useSelectCategoryOptions: useAliasSelectCategoryOptions = useSelectCategoryOptions
@@ -206,6 +208,7 @@ const ToolbarFieldSelectCategory = ({
 
   return (
     <Select
+      isInline={isInline}
       aria-label={t('curiosity-toolbar.placeholder', { context: ['filter'] })}
       onSelect={onSelect}
       options={options}

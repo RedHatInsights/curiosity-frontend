@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ChartThemeColor } from '@patternfly/react-charts';
+import { ChartThemeColor } from '@patternfly/react-charts/victory';
 import { useShallowCompareEffect } from 'react-use';
 import { ChartContext } from './chartContext';
 import { ChartElements } from './chartElements';
@@ -189,7 +189,7 @@ const Chart = ({
   return (
     <ChartContext.Provider value={context}>
       <div
-        className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading"
+        className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading fadein"
         data-test="curiosity-chartarea"
         ref={containerRef}
       >
