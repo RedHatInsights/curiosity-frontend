@@ -343,7 +343,7 @@ describe('Select', () => {
     };
     const component = renderComponent(<Select {...props} />);
     component.fireEvent.click(component.find('button'));
-    const optionButton = component.find('button.curiosity-select-pf__option');
+    const optionButton = component.screen.getAllByRole('option').shift();
     component.fireEvent.click(optionButton);
 
     expect(mockOnSelect).toHaveBeenCalledTimes(1);
@@ -366,12 +366,13 @@ describe('Select', () => {
     };
     const component = renderComponent(<Select {...props} />);
     component.fireEvent.click(component.find('button'));
+    const checkboxList = component.screen.getAllByRole('menu');
 
-    const firstCheckbox = component.find('label.curiosity-select-pf__option input');
+    const firstCheckbox = checkboxList[0].querySelector('input');
     component.fireEvent.click(firstCheckbox);
     expect(mockOnSelect).toHaveBeenCalledTimes(1);
 
-    const secondCheckbox = component.querySelectorAll('label.curiosity-select-pf__option input')?.[1];
+    const secondCheckbox = checkboxList[1].querySelector('input');
     component.fireEvent.click(secondCheckbox);
     expect(mockOnSelect).toHaveBeenCalledTimes(2);
   });

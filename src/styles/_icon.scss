@@ -1,12 +1,10 @@
 .curiosity {
   .curiosity-icon {
-    &__info {
-      color: var(--pf-global--palette--blue-300);
-    }
+    &__info {}
 
     &__question {
-      color: var(--pf-global--palette--black-500);
       font-size: var(--pf-global--FontSize--md);
+      opacity: 60%;
     }
 
     &__f-infinity {

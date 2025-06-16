@@ -68,14 +68,16 @@ const updateAccountOptIn =
             variant: 'danger',
             title: translate('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME }),
             description: translate('curiosity-optin.notificationsErrorDescription'),
-            dismissable: true
+            // FixMe: after the pf6 update, notifications npm needs to be updated, revert this change accordingly
+            dismissable: false
           },
           fulfilled: {
             variant: 'success',
             title: translate('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME }),
             description: translate('curiosity-optin.notificationsSuccessDescription'),
-            dismissable: true,
-            autoDismiss: false
+            // FixMe: after the pf6 update, notifications npm needs to be updated, revert this change accordingly
+            dismissable: false,
+            autoDismiss: true
           }
         }
       }

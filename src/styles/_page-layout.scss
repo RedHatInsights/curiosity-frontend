@@ -7,7 +7,7 @@
 }
 
 .curiosity-page-section {
-  &__tabs, &__graphs {
+  &__tabs, &__graphs, &__messages, &__missing, &__optin {
     margin-bottom: var(--pf-global--spacer--md);
     margin-left: var(--pf-global--spacer--md);
     margin-right: var(--pf-global--spacer--md);
@@ -23,20 +23,24 @@
     &:last-child {}
   }
 
+  &__tabs {
+    min-height: 775px;
+  }
+
   &__version {
     margin-top: calc(var(--pf-global--spacer--md) * -1);
     margin-left: var(--pf-global--spacer--md);
     margin-right: var(--pf-global--spacer--md);
     font-size: var(--pf-global--FontSize--xs);
-    color: var(--pf-global--palette--black-400);
+    color: var(--pf-global--color--gray);
   }
 }
 
 .curiosity-page-section__version-link {
-  color: var(--pf-global--palette--black-400) !important;
+  color: var(--pf-global--color--gray) !important;
 
   &:hover {
-    color: var(--pf-global--palette--black-900) !important;
+    color: var(--pf-global--color--gray-dark) !important;
   }
 }
 

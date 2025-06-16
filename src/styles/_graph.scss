@@ -1,11 +1,9 @@
 .curiosity-graph {
   &-card {
-    margin-top: var(--pf-global--spacer--md);
-    margin-bottom: var(--pf-global--spacer--md);
-
     .curiosity-card {
       &__header {
         border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+        padding-top: 0;
       }
 
       &__title {}
@@ -13,7 +11,7 @@
   }
 
   &__tooltip {
-    color: var(--pf-global--Color--light-100);
+    color: var(--pf-global--color--background--light);
     font-size: 0.9em;
     padding: 0.3rem;
     padding-left: 0.5rem;
@@ -46,29 +44,36 @@
   &__legend-item-wrapper {
     > :first-child {
       padding-left: 0;
+
+      &[class*='disabled'] {
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  &__standalone, &__totals {
+    margin-top: var(--pf-global--spacer--md);
+  }
+
+  &__standalone {
+    padding-left: var(--pf-global--spacer--lg);
+    padding-right: var(--pf-global--spacer--lg);
+
+    .curiosity-card__header {
+      padding-top: var(--pf-global--spacer--lg);
     }
   }
 
   &__totals {
-    background-color: var(--pf-global--BackgroundColor--100);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: var(--pf-global--spacer--md);
-
-    &:last-child {
-      margin-bottom: var(--pf-global--spacer--md);
-    }
 
     @media (min-width: $pf-global--breakpoint--md) {
       flex-direction: row;
       justify-content: start;
     }
-
-    &:last-child {
-      margin-bottom: var(--pf-global--spacer--md);
-    };
 
     > div {
       display: flex;
@@ -84,34 +89,31 @@
       }
 
       &:last-child {
+        align-items: stretch;
         @media (min-width: $pf-global--breakpoint--md) {
           flex: 3;
         }
       }
     }
 
+    &-column, &-graph-column {
+
+    }
+
     &-column {
       display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
-      align-items: center;
-      margin-left: var(--pf-global--spacer--sm);
-      margin-right: var(--pf-global--spacer--sm);
-      margin-top: var(--pf-global--spacer--lg);
-      margin-bottom: var(--pf-global--spacer--lg);
+      justify-content: space-between;
       width: 100%;
 
       &-card {
-        display: flex;
-        flex-basis: 100%;
-        flex-direction: column;
+        flex: 0 1 100%;
         align-self: center;
         text-align: center;
+        width: 100%;
 
-        &:not(:first-child) {
-          flex: 1;
-          border-top: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
-          padding-top: calc(var(--pf-global--spacer--lg) / 2);
+        &:first-child {
+          margin-top: var(--pf-global--spacer--lg);
         }
 
         &-header {
@@ -131,38 +133,26 @@
         }
 
         &-footer {
-          color: var(--pf-global--palette--black-500);
+          color: var(--pf-global--color--background--dark);
           font-size: var(--pf-global--FontSize--xs);
         }
       }
     }
 
     &-graph-column {
-      margin-bottom: var(--pf-global--spacer--lg);
-      margin-right: var(--pf-global--spacer--sm);
       margin-top: var(--pf-global--spacer--lg);
-      padding-left: var(--pf-global--spacer--sm);
+      margin-bottom: var(--pf-global--spacer--lg);
+      margin-right: var(--pf-global--spacer--lg);
+      padding-left: var(--pf-global--spacer--lg);
       width: 100%;
 
       @media (min-width: $pf-global--breakpoint--md) {
-        padding-left: var(--pf-global--spacer--lg);
         border-left: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
-      }
-
-      .curiosity-card {
-        &__header {
-          align-items: flex-start;
-          border-bottom-width: 0;
-          padding: inherit;
-        }
-
-        &__body {
-          padding: inherit;
-        }
       }
     }
   }
 }
+
 
 .curiosity-chartarea {
   &__legend {
@@ -177,8 +167,8 @@
 
   &__tooltip {
     transition: width 1s ease-in-out, left 1s ease-in-out;
-    background-color: var(--pf-global--palette--black-1000);
-    color: var(--pf-global--Color--light-100);
+    background-color: var(--pf-global--color--background--dark);
+    color: var(--pf-global--color--background--light);
     margin-left: 10px;
     margin-right: 15px;
 
@@ -194,7 +184,7 @@
     &-right:after {
       border-width: 10px;
       border-style: solid;
-      border-color: transparent var(--pf-global--palette--black-1000) transparent transparent;
+      border-color: transparent var(--pf-global--color--background--dark) transparent transparent;
       content: "";
       left: -9px;  //-10px Compensate for Firefox pixel diff, match margin-left
       margin-left: 0;
@@ -204,7 +194,7 @@
     }
 
     &-right:after {
-      border-color: transparent transparent transparent var(--pf-global--palette--black-1000);
+      border-color: transparent transparent transparent var(--pf-global--color--background--dark);
       left: calc(100% - 16px); //-15px Compensate for Firefox pixel diff, match margin-right
       margin-left: 0;
     }
@@ -215,7 +205,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    color: var(--pf-global--palette--black-500);
+    color: var(--pf-global--color--background--dark);
     font-size: var(--pf-global--FontSize--xs);
 
     &-x {
@@ -248,6 +238,6 @@
 
   > div > svg > line[role="presentation"][vector-effect="non-scaling-stroke"] {
     position: relative;
-    stroke: var(--pf-global--palette--black-900) !important;
+    stroke: var(--pf-global--color--background--dark) !important;
   }
 }

@@ -44,20 +44,20 @@ describe('Toolbar Component', () => {
     expect(component).toMatchSnapshot('single filter');
   });
 
-  it('should handle updating toolbar chips', async () => {
+  it('should handle updating toolbar chips/labels', async () => {
     const props = {
       useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[3]] }),
       useProductToolbarQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: RHSM_API_QUERY_SLA_TYPES.PREMIUM })
     };
     const component = await shallowComponent(<Toolbar {...props} />);
 
-    expect(component.find('.pf-v5-c-chip')).toMatchSnapshot('chips');
+    expect(component.find('.pf-v6-c-label-group')).toMatchSnapshot('chips/labels');
 
     const componentNotClearable = await component.setProps({
       useSelectCategoryOptions: () => ({ options: [{ ...selectCategoryOptions[3], isClearable: false }] })
     });
 
-    expect(componentNotClearable.find('.pf-v5-c-chip')).toMatchSnapshot('chips, not clearable');
+    expect(componentNotClearable.find('.pf-v6-c-label-group')).toMatchSnapshot('chips, not clearable');
   });
 
   it('should handle displaying secondary components, fields', async () => {

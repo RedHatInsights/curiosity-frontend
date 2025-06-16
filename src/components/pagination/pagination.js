@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pagination as PfPagination } from '@patternfly/react-core';
+import { Pagination as PfPagination, PaginationVariant } from '@patternfly/react-core';
 import { helpers } from '../../common';
 import { paginationHelpers } from './paginationHelpers';
 
@@ -72,4 +72,4 @@ const Pagination = ({
   />
 );
 
-export { Pagination as default, Pagination, PaginationDirectionType };
+export { Pagination as default, Pagination, PaginationDirectionType, PaginationVariant };

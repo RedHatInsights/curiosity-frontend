@@ -44,7 +44,7 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
   <svg
     aria-label="hello world"
     aria-labelledby="icon-title-0"
-    class="pf-v5-svg"
+    class="pf-v6-svg"
     fill="currentColor"
     height="1em"
     role="img"
@@ -69,7 +69,7 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
 >
   <svg
     aria-labelledby="icon-title-1"
-    class="pf-v5-svg"
+    class="pf-v6-svg"
     fill="currentColor"
     height="1em"
     role="img"

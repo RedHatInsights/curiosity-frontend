@@ -193,9 +193,6 @@ recreate the core component.
 <dt><a href="#Toolbar.module_ToolbarFieldUsage">ToolbarFieldUsage</a></dt>
 <dd><p>A standalone Usage select filter.</p>
 </dd>
-<dt><a href="#Toolbar.module_ToolbarFilter">ToolbarFilter</a></dt>
-<dd><p>ToolbarFilter, wrapper component for Patternfly ToolbarFilter.</p>
-</dd>
 <dt><a href="#Components.module_Tooltip">Tooltip</a></dt>
 <dd><p>PF tooltip wrapper.</p>
 </dd>
@@ -3788,7 +3785,6 @@ Page empty state message display.
 
 ### MessageView~MessageView(props) ⇒ <code>JSX.Element</code>
 Render a message view, page empty state.
-Note: PF EmptyStateIcon registers as function, we compensate for PF by allowing a ReactNode or Function.
 
 **Kind**: inner method of [<code>MessageView</code>](#Components.module_MessageView)  
 <table>
@@ -5681,7 +5677,7 @@ Application filter toolbar.
 <a name="Components.module_Toolbar..Toolbar..setSelectedOptions"></a>
 
 #### Toolbar~setSelectedOptions(params) ⇒ <code>Array.&lt;string&gt;</code>
-Set selected options for chip display.
+Set selected options for chip/label display.
 
 **Kind**: inner method of [<code>Toolbar</code>](#Components.module_Toolbar..Toolbar)  
 <table>
@@ -6868,67 +6864,6 @@ Display a usage field with options.
     <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
     <td>[props.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Toolbar.module_ToolbarFilter"></a>
-
-## ToolbarFilter
-ToolbarFilter, wrapper component for Patternfly ToolbarFilter.
-
-
-* [ToolbarFilter](#Toolbar.module_ToolbarFilter)
-    * [~useToolbarContentContext()](#Toolbar.module_ToolbarFilter..useToolbarContentContext) ⇒ <code>Object</code>
-    * [~useToolbarContext()](#Toolbar.module_ToolbarFilter..useToolbarContext) ⇒ <code>Object</code>
-    * [~ToolbarFilter(props)](#Toolbar.module_ToolbarFilter..ToolbarFilter) ⇒ <code>JSX.Element</code>
-
-<a name="Toolbar.module_ToolbarFilter..useToolbarContentContext"></a>
-
-### ToolbarFilter~useToolbarContentContext() ⇒ <code>Object</code>
-Hook for ToolbarContentContext
-
-**Kind**: inner method of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter)  
-<a name="Toolbar.module_ToolbarFilter..useToolbarContext"></a>
-
-### ToolbarFilter~useToolbarContext() ⇒ <code>Object</code>
-Hook for ToolbarContext
-
-**Kind**: inner method of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter)  
-<a name="Toolbar.module_ToolbarFilter..ToolbarFilter"></a>
-
-### ToolbarFilter~ToolbarFilter(props) ⇒ <code>JSX.Element</code>
-Converted PF ToolbarFilter replacement with conditional "firstElementChild".
-
-**Kind**: inner method of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>props</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>props.categoryName</td><td><code>string</code> | <code>Object</code></td><td></td>
-    </tr><tr>
-    <td>[props.chipGroupCollapsedText]</td><td><code>string</code></td><td></td>
-    </tr><tr>
-    <td>[props.chipGroupExpandedText]</td><td><code>string</code></td><td></td>
-    </tr><tr>
-    <td>props.chips</td><td><code>Array.&lt;(string|{key: string, node: string})&gt;</code></td><td></td>
-    </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
-    </tr><tr>
-    <td>[props.deleteChip]</td><td><code>function</code></td><td><code>helpers.noop</code></td>
-    </tr><tr>
-    <td>[props.deleteChipGroup]</td><td><code>function</code></td><td></td>
-    </tr><tr>
-    <td>[props.showToolbarItem]</td><td><code>boolean</code></td><td><code>true</code></td>
-    </tr><tr>
-    <td>[props.useToolbarContentContext]</td><td><code>useToolbarContentContext</code></td><td><code>useToolbarContentContext</code></td>
-    </tr><tr>
-    <td>[props.useToolbarContext]</td><td><code>useToolbarContext</code></td><td><code>useToolbarContext</code></td>
     </tr>  </tbody>
 </table>
 

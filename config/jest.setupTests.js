@@ -2,8 +2,6 @@ import React from 'react';
 import { fireEvent, queries, render, screen } from '@testing-library/react';
 import { prettyDOM } from '@testing-library/dom';
 import { act } from 'react-dom/test-utils';
-import * as pfReactCoreComponents from '@patternfly/react-core';
-import * as pfReactChartComponents from '@patternfly/react-charts';
 import * as reactRedux from 'react-redux';
 import { TextEncoder } from 'util';
 import { dotenv } from 'weldable';
@@ -55,24 +53,6 @@ jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useSelector: jest.fn()
 }));
-
-/**
- * Add the displayName property to function based components. Makes sure that snapshot tests have named components
- * instead of displaying a generic "<Component.../>".
- *
- * @param {object} components
- */
-const addDisplayName = components => {
-  Object.keys(components).forEach(key => {
-    const component = components[key];
-    if (typeof component === 'function' && !component.displayName) {
-      component.displayName = key;
-    }
-  });
-};
-
-addDisplayName(pfReactCoreComponents);
-addDisplayName(pfReactChartComponents);
 
 /**
  * Apply a global insights chroming object.
@@ -403,17 +383,19 @@ global.shallowComponent = async testComponent => {
   return localRenderHook(testComponent);
 };
 
-// ToDo: revisit squashing log and group messaging, redux leaks log messaging
-// ToDo: revisit squashing PF4 "popper" alerts
-// ToDo: revisit squashing PF4 "validateDOMNesting" select alerts
-// ToDo: revisit squashing PF4 "validateDOMNesting" table alerts
+/*
+ * ToDo: revisit squashing log and group messaging, redux leaks log messaging
+ * ToDo: revisit squashing PF "popper" alerts
+ * ToDo: revisit squashing PF "validateDOMNesting" select alerts
+ * ToDo: revisit squashing PF "validateDOMNesting" table alerts
+ */
 /*
  * For applying a global Jest "beforeAll", based on
  * - consoledot/platform console messaging
  * - jest-prop-type-error, https://www.npmjs.com/package/jest-prop-type-error
  * - renderComponent, test function testComponent messaging
  * - SVG syntax
- * - PF4 popper alerts and validateDOMNesting for select, table
+ * - PF popper alerts and validateDOMNesting for select, table
  */
 beforeAll(() => {
   const { error, group, log } = console;
