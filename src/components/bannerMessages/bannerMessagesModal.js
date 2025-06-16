@@ -1,5 +1,6 @@
 import React from 'react';
-import { AlertActionLink, Button, Modal, ModalVariant } from '@patternfly/react-core';
+import { AlertActionLink, Button } from '@patternfly/react-core';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import { translate } from '../i18n/i18nHelpers';
 
 /**

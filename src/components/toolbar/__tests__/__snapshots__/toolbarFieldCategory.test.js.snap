@@ -45,7 +45,7 @@ exports[`ToolbarFieldCategory Component should handle updating through redux sta
       {
         "id": "undefined-inverted",
         "type": "SET_GRAPH_LEGEND",
-        "value": "dolor_virtual",
+        "value": "sit_hypervisor",
       },
       {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
@@ -54,7 +54,7 @@ exports[`ToolbarFieldCategory Component should handle updating through redux sta
       {
         "filter": "category",
         "type": "SET_QUERY",
-        "value": "virtual",
+        "value": "hypervisor",
         "viewId": undefined,
       },
     ],

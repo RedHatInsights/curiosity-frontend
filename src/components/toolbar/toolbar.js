@@ -4,12 +4,12 @@ import {
   ToolbarContent,
   ToolbarGroup,
   ToolbarItem,
+  ToolbarFilter,
   ToolbarToggleGroup
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
 import { useProductToolbarQuery, useProduct } from '../productView/productViewContext';
 import { useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFields } from './toolbarContext';
-import { ToolbarFilter } from './toolbarFilter';
 import { ToolbarFieldGroupVariant } from './toolbarFieldGroupVariant';
 import { ToolbarFieldSelectCategory, useSelectCategoryOptions } from './toolbarFieldSelectCategory';
 import { helpers } from '../../common';
@@ -115,7 +115,7 @@ const Toolbar = ({
   const onClearAll = () => clearAllFields(hardFilterReset);
 
   /**
-   * Set selected options for chip display.
+   * Set selected options for chip/label display.
    *
    * @param {object} params
    * @param {string|Array<string|{name:string, isDisplayValueOnly:boolean}>} params.value
@@ -159,8 +159,8 @@ const Toolbar = ({
     <PfToolbar
       id="curiosity-toolbar"
       key={productId}
-      className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
-      collapseListedFiltersBreakpoint="sm"
+      className="curiosity-toolbar"
+      collapseListedFiltersBreakpoint="md"
       clearAllFilters={onClearAll}
       clearFiltersButtonText={t('curiosity-toolbar.clearFilters')}
     >
@@ -175,22 +175,22 @@ const Toolbar = ({
                 </ToolbarItem>
               )}
               {options.map(({ title, dynamicValue, value: filterName, component: OptionComponent, isClearable }) => {
-                const chipProps = {
+                const labelProps = {
                   categoryName: title
                 };
 
                 const updatedValue = dynamicValue || filterName;
 
                 if (isClearable !== false) {
-                  chipProps.chips = setSelectedOptions({ value: updatedValue });
-                  chipProps.deleteChip = () => onClearFilter({ value: updatedValue });
+                  labelProps.labels = setSelectedOptions({ value: updatedValue });
+                  labelProps.deleteLabel = () => onClearFilter({ value: updatedValue });
                 }
 
                 return (
                   <ToolbarFilter
                     key={helpers.generateHash(updatedValue)}
                     showToolbarItem={currentCategory === updatedValue || options.length === 1}
-                    {...chipProps}
+                    {...labelProps}
                   >
                     <OptionComponent isFilter />
                   </ToolbarFilter>
@@ -200,7 +200,7 @@ const Toolbar = ({
           </ToolbarToggleGroup>
         )}
         <ToolbarGroup key="itemFields">{itemFields}</ToolbarGroup>
-        <ToolbarGroup key="secondaryFields" align={{ default: 'alignRight' }}>
+        <ToolbarGroup key="secondaryFields" align={{ default: 'alignEnd' }}>
           {secondaryFields}
         </ToolbarGroup>
       </ToolbarContent>

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ChartThemeColor } from '@patternfly/react-charts';
+import { ChartThemeColor } from '@patternfly/react-charts/victory';
 import { useShallowCompareEffect } from 'react-use';
 import { ChartContext } from './chartContext';
 import { ChartElements } from './chartElements';

@@ -67,7 +67,7 @@ const GraphCardMetricTotals = ({
     );
 
     return (
-      <div
+      <Card
         data-test={`graphMetricTotals-${settings?.groupMetric?.map(metricId => _camelCase(metricId))?.join('-')}`}
         data-test-data={JSON.stringify(metricDisplayPassedData)}
         className="curiosity-graph__totals curiosity-usage-graph__totals"
@@ -112,14 +112,14 @@ const GraphCardMetricTotals = ({
             {children}
           </div>
         </div>
-      </div>
+      </Card>
     );
   }
 
   return (
-    <div data-test="graphStandalone" className="curiosity-graph__standalone curiosity-usage-graph__standalone">
+    <Card data-test="graphStandalone" className="curiosity-graph__standalone curiosity-usage-graph__standalone">
       {children}
-    </div>
+    </Card>
   );
 };
 

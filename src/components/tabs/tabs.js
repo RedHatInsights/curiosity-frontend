@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Tabs as PfTabs, Tab, TabTitleText, Grid, GridItem } from '@patternfly/react-core';
+import { Card, Tabs as PfTabs, Tab, TabTitleText } from '@patternfly/react-core';
 import { helpers } from '../../common';
 
 /**
@@ -65,24 +65,22 @@ const Tabs = ({
   };
 
   return (
-    <Grid className="curiosity-tabs-container">
-      <GridItem span={12}>
-        <PfTabs
-          className={`curiosity-tabs${(!hasOverflowScroll && '__no-scroll') || ''} ${className || ''}`}
-          activeKey={currentActiveTab}
-          onSelect={(event, index) => onSelect({ event, index })}
-          mountOnEnter
-          unmountOnExit
-          id={helpers.generateId()}
-          inset={{
-            default: 'insetNone',
-            md: 'insetLg'
-          }}
-        >
-          {updatedTabs}
-        </PfTabs>
-      </GridItem>
-    </Grid>
+    <Card isPlain>
+      <PfTabs
+        className={`curiosity-tabs${(!hasOverflowScroll && '__no-scroll') || ''} ${className || ''}`}
+        activeKey={currentActiveTab}
+        onSelect={(event, index) => onSelect({ event, index })}
+        mountOnEnter
+        unmountOnExit
+        id={helpers.generateId()}
+        inset={{
+          default: 'insetNone',
+          md: 'insetLg'
+        }}
+      >
+        {updatedTabs}
+      </PfTabs>
+    </Card>
   );
 };
 

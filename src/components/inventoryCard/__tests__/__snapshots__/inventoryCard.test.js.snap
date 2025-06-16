@@ -3,6 +3,7 @@
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
 <Card
   className="curiosity-card curiosity-inventory-card"
+  isPlain={true}
 >
   <MinHeight>
     <CardHeader
@@ -20,7 +21,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
               <ForwardRef
                 align={
                   {
-                    "default": "alignRight",
+                    "default": "alignEnd",
                   }
                 }
                 aria-hidden={true}
@@ -60,6 +61,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
         <Pagination
           dropDirection="up"
           isDisabled={true}
+          variant="bottom"
         />
       </TableToolbar>
     </CardFooter>
@@ -70,6 +72,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: fulfilled 1`] = `
 <Card
   className="curiosity-card curiosity-inventory-card"
+  isPlain={true}
 >
   <MinHeight>
     <CardHeader
@@ -87,7 +90,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
               <ForwardRef
                 align={
                   {
-                    "default": "alignRight",
+                    "default": "alignEnd",
                   }
                 }
                 aria-hidden={true}
@@ -144,6 +147,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       >
         <Pagination
           dropDirection="up"
+          variant="bottom"
         />
       </TableToolbar>
     </CardFooter>
@@ -154,6 +158,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: pending 1`] = `
 <Card
   className="curiosity-card curiosity-inventory-card"
+  isPlain={true}
 >
   <MinHeight>
     <CardHeader
@@ -171,7 +176,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
               <ForwardRef
                 align={
                   {
-                    "default": "alignRight",
+                    "default": "alignEnd",
                   }
                 }
                 aria-hidden={true}
@@ -227,6 +232,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
         <Pagination
           dropDirection="up"
           isDisabled={true}
+          variant="bottom"
         />
       </TableToolbar>
     </CardFooter>
@@ -237,6 +243,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 exports[`InventoryCard Component should render a basic component: basic render 1`] = `
 <Card
   className="curiosity-card curiosity-inventory-card"
+  isPlain={true}
 >
   <MinHeight>
     <CardHeader
@@ -254,7 +261,7 @@ exports[`InventoryCard Component should render a basic component: basic render 1
               <ForwardRef
                 align={
                   {
-                    "default": "alignRight",
+                    "default": "alignEnd",
                   }
                 }
                 aria-hidden={true}
@@ -310,6 +317,7 @@ exports[`InventoryCard Component should render a basic component: basic render 1
         <Pagination
           dropDirection="up"
           isDisabled={true}
+          variant="bottom"
         />
       </TableToolbar>
     </CardFooter>

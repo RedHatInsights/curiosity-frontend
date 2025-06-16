@@ -1,7 +1,14 @@
 import React from 'react';
 import { VictoryStack as ChartStack, VictoryTooltip as ChartCursorTooltip } from 'victory';
 import { createContainer } from 'victory-create-container';
-import { Chart, ChartArea, ChartAxis, ChartContainer, ChartLine, ChartThreshold } from '@patternfly/react-charts';
+import {
+  Chart,
+  ChartArea,
+  ChartAxis,
+  ChartContainer,
+  ChartLine,
+  ChartThreshold
+} from '@patternfly/react-charts/victory';
 import { useChartContext } from './chartContext';
 import { chartTooltip } from './chartTooltip';
 import { chartAxisLabel } from './chartAxisLabel';
