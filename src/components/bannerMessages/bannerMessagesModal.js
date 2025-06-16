@@ -1,6 +1,13 @@
 import React from 'react';
-import { AlertActionLink, Button } from '@patternfly/react-core';
-import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+import {
+  AlertActionLink,
+  Button,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+  ModalVariant
+} from '@patternfly/react-core';
 import { translate } from '../i18n/i18nHelpers';
 
 /**
@@ -35,16 +42,18 @@ const BannerMessagesModal = ({ modalTitle, modalContent = '...', children, t = t
         appendTo={document.querySelector('.curiosity')}
         className="curiosity-banner-modal"
         onClose={onClose}
-        title={modalTitle}
         isOpen={isOpen}
         variant={ModalVariant.small}
-        actions={[
+      >
+        <ModalHeader title={modalTitle} />
+        <ModalBody>
+          <div data-test="bannerMessageModalContent">{modalContent}</div>
+        </ModalBody>
+        <ModalFooter>
           <Button key="confirm" variant="secondary" onClick={onClose}>
             {t('curiosity-banner.modal', { context: ['label', 'close'] })}
           </Button>
-        ]}
-      >
-        <div data-test="bannerMessageModalContent">{modalContent}</div>
+        </ModalFooter>
       </Modal>
       <AlertActionLink data-test="bannerMessageModalLink" isInline component="a" onClick={onClick}>
         {children}

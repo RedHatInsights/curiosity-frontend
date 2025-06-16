@@ -4,14 +4,13 @@ exports[`BannerMessagesModal Component should handle opening a modal: open 1`] =
 <screen>
   <div
     class="pf-v6-c-backdrop"
-    id="pf-modal-part-3"
+    id="pf-modal-part-1"
   >
     <div
       class="pf-v6-l-bullseye"
     >
       <div
-        aria-describedby="pf-modal-part-2"
-        aria-labelledby="pf-modal-part-1"
+        aria-labelledby="pf-modal-part-0"
         aria-modal="true"
         class="pf-v6-c-modal-box curiosity-banner-modal pf-m-sm"
         data-ouia-component-id="OUIA-Generated-Modal-small-1"
@@ -55,7 +54,6 @@ exports[`BannerMessagesModal Component should handle opening a modal: open 1`] =
         >
           <h1
             class="pf-v6-c-modal-box__title"
-            id="pf-modal-part-1"
           >
             <span
               class="pf-v6-c-modal-box__title-text"
@@ -66,7 +64,6 @@ exports[`BannerMessagesModal Component should handle opening a modal: open 1`] =
         </header>
         <div
           class="pf-v6-c-modal-box__body"
-          id="pf-modal-part-2"
         >
           <div
             data-test="bannerMessageModalContent"
@@ -100,37 +97,32 @@ exports[`BannerMessagesModal Component should handle opening a modal: open 1`] =
 exports[`BannerMessagesModal Component should render a basic component: basic 1`] = `
 <React.Fragment>
   <Modal
-    actions={
-      [
-        <Button
-          onClick={[Function]}
-          variant="secondary"
-        >
-          t(curiosity-banner.modal_label, {"context":"close"})
-        </Button>,
-      ]
-    }
     appendTo={null}
-    aria-describedby=""
-    aria-label=""
-    aria-labelledby=""
     className="curiosity-banner-modal"
-    hasNoBodyWrapper={false}
     isOpen={false}
     onClose={[Function]}
     ouiaSafe={true}
     position="default"
-    showClose={true}
-    title="Lorem ipsum"
-    titleIconVariant={null}
-    titleLabel=""
     variant="small"
   >
-    <div
-      data-test="bannerMessageModalContent"
-    >
-      ...
-    </div>
+    <ModalHeader
+      title="Lorem ipsum"
+    />
+    <ModalBody>
+      <div
+        data-test="bannerMessageModalContent"
+      >
+        ...
+      </div>
+    </ModalBody>
+    <ModalFooter>
+      <Button
+        onClick={[Function]}
+        variant="secondary"
+      >
+        t(curiosity-banner.modal_label, {"context":"close"})
+      </Button>
+    </ModalFooter>
   </Modal>
   <AlertActionLink
     component="a"
