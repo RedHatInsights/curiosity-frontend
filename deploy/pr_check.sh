@@ -39,11 +39,11 @@ curl -s $CICD_URL/bootstrap.sh > .cicd_bootstrap.sh && source .cicd_bootstrap.sh
 export APP_NAME="rhsm"
 export REF_ENV="insights-production"
 export DEPLOY_FRONTENDS="true"
-export EXTRA_DEPLOY_ARGS=""
+export EXTRA_DEPLOY_ARGS="--timeout 1800 "
 export DEPLOY_TIMEOUT="1800"
 # Keep that in sync with rhsm-subscriptions pr_check.sh
 export OPTIONAL_DEPS_METHOD=none
-export COMPONENTS_W_RESOURCES="rhsm swatch-api swatch-contracts swatch-producer-aws swatch-producer-red-hat-marketplace swatch-metrics swatch-subscription-sync swatch-system-conduit swatch-tally"
+export COMPONENTS_W_RESOURCES="rhsm swatch-api swatch-contracts swatch-producer-aws swatch-metrics swatch-subscription-sync swatch-system-conduit swatch-tally"
 export IQE_IBUTSU_SOURCE="curiosity-ephemeral-${IMAGE_TAG}"
 
 # no idea why we need this while backend doesn't, but without this EE fails to deploy
