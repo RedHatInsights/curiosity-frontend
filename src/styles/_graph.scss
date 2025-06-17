@@ -5,8 +5,6 @@
         border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
         padding-top: 0;
       }
-
-      &__title {}
     }
   }
 
@@ -53,6 +51,10 @@
 
   &__standalone, &__totals {
     margin-top: var(--pf-global--spacer--md);
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   &__standalone {

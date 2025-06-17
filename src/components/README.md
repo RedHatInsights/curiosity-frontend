@@ -3909,7 +3909,9 @@ Submit and update account opt-in.
 ## PageColumns
 <a name="PageLayout.module_PageColumns..PageColumns"></a>
 
-### PageColumns~PageColumns(props) ⇒ <code>JSX.Element</code>
+### <del>PageColumns~PageColumns(props) ⇒ <code>JSX.Element</code></del>
+***Deprecated***
+
 Render page columns based on children.
 
 **Kind**: inner method of [<code>PageColumns</code>](#PageLayout.module_PageColumns)  

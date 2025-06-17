@@ -1,5 +1,11 @@
 import React, { useMemo } from 'react';
-import { Toolbar as PfToolbar, ToolbarContent, ToolbarItem, ToolbarItemVariant } from '@patternfly/react-core';
+import {
+  Toolbar as PfToolbar,
+  ToolbarContent,
+  ToolbarGroup,
+  ToolbarItem,
+  ToolbarItemVariant
+} from '@patternfly/react-core';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
 import { Select, SelectPosition } from '../form/select';
@@ -121,20 +127,24 @@ const ToolbarFieldGroupVariant = ({
 
   const element = (
     <ToolbarContent className="curiosity-toolbar__content">
-      <ToolbarItem variant={ToolbarItemVariant.label}>
-        {t('curiosity-toolbar.label', { context: ['groupVariant'] })}{' '}
-      </ToolbarItem>
-      <Select
-        isInline={isInline}
-        aria-label={t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'groupVariant'] })}
-        onSelect={onSelect}
-        options={updatedOptions}
-        selectedOptions={updatedValue}
-        placeholder={t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'groupVariant'] })}
-        alignment={{ position }}
-        maxHeight={310}
-        data-test="toolbarFieldGroupVariant"
-      />
+      <ToolbarGroup>
+        <ToolbarItem variant={ToolbarItemVariant.label}>
+          {t('curiosity-toolbar.label', { context: ['groupVariant'] })}{' '}
+        </ToolbarItem>
+        <ToolbarItem>
+          <Select
+            isInline={isInline}
+            aria-label={t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'groupVariant'] })}
+            onSelect={onSelect}
+            options={updatedOptions}
+            selectedOptions={updatedValue}
+            placeholder={t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'groupVariant'] })}
+            alignment={{ position }}
+            maxHeight={310}
+            data-test="toolbarFieldGroupVariant"
+          />
+        </ToolbarItem>
+      </ToolbarGroup>
     </ToolbarContent>
   );
 

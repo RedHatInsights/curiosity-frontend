@@ -10,6 +10,7 @@ import { helpers } from '../../common';
 /**
  * Render page columns based on children.
  *
+ * @deprecated
  * @param {object} props
  * @param {React.ReactNode} [props.children=[]]
  * @param {string} [props.className='']

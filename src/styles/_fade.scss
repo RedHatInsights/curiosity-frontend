@@ -19,6 +19,12 @@
     animation-delay:.08s;
   }
 
+  .fadein__slow {
+    opacity:0;
+    animation:fadein .08s ease-in forwards;
+    animation-delay:.5s;
+  }
+
   @keyframes fadein { 0%{opacity:0} 100%{opacity:1} }
 
   .fadeout {

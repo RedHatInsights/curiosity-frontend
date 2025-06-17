@@ -7,59 +7,31 @@
 }
 
 .curiosity-page-section {
-  &__tabs, &__graphs, &__messages, &__missing, &__optin {
-    margin-bottom: var(--pf-global--spacer--md);
+  &__tabs, &__graphs, &__toolbar, &__messages, &__missing, &__optin {
     margin-left: var(--pf-global--spacer--md);
     margin-right: var(--pf-global--spacer--md);
-  }
 
-  &__graphs .curiosity-graph__standalone,
-  &__graphs .curiosity-graph__totals {
-
-    &:first-child {
-      margin-top: var(--pf-global--spacer--md);
-    }
-
-    &:last-child {}
+    // ToDo: override for custom spacing display related to PF5 vs PF6 displays. Periodically review
+    margin-bottom: var(--pf-global--spacer--sm);
+    padding: 0 !important;
   }
 
   &__tabs {
-    min-height: 775px;
+    min-height: 775px; // used to minimize page load-jump
   }
 
   &__version {
     margin-top: calc(var(--pf-global--spacer--md) * -1);
     margin-left: var(--pf-global--spacer--md);
     margin-right: var(--pf-global--spacer--md);
-    font-size: var(--pf-global--FontSize--xs);
-    color: var(--pf-global--color--gray);
   }
 }
 
 .curiosity-page-section__version-link {
   color: var(--pf-global--color--gray) !important;
+  font-size: var(--pf-global--FontSize--xs);
 
   &:hover {
     color: var(--pf-global--color--gray-dark) !important;
-  }
-}
-
-.curiosity-page-columns > .curiosity-page-columns-column {
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
-
-  @media (min-width: $pf-global--breakpoint--sm) {
-    flex-basis: 0;
-    margin-left: var(--pf-global--spacer--sm);
-    margin-right: var(--pf-global--spacer--sm);
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
   }
 }
