@@ -1,5 +1,10 @@
 .curiosity {
   .curiosity-tabs {
+    // ToDo: override for custom tab display related to PF5 vs PF6 displays. Periodically review
+    .pf-v6-c-tabs__item.pf-m-current {
+      background-color: inherit;
+    }
+
     &-container {}
 
     &__no-scroll {
