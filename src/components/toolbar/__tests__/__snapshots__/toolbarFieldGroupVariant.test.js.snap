@@ -84,50 +84,54 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
   isExpanded={false}
   showClearFiltersButton={false}
 >
-  <ToolbarItem
-    variant="label"
-  >
-    t(curiosity-toolbar.label, {"context":"groupVariant"})
-     
-  </ToolbarItem>
-  <Select
-    alignment={
-      {
-        "position": "left",
-      }
-    }
-    aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-    data-test="toolbarFieldGroupVariant"
-    isInline={true}
-    maxHeight={310}
-    onSelect={[Function]}
-    options={
-      [
-        {
-          "isSelected": undefined,
-          "title": "lorem",
-          "value": "lorem",
-        },
-        {
-          "isSelected": undefined,
-          "title": "ipsum",
-          "value": "ipsum",
-        },
-        {
-          "isSelected": undefined,
-          "title": "dolor",
-          "value": "dolor",
-        },
-        {
-          "isSelected": undefined,
-          "title": "sit",
-          "value": "sit",
-        },
-      ]
-    }
-    placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-    selectedOptions={null}
-  />
+  <ForwardRef>
+    <ToolbarItem
+      variant="label"
+    >
+      t(curiosity-toolbar.label, {"context":"groupVariant"})
+       
+    </ToolbarItem>
+    <ToolbarItem>
+      <Select
+        alignment={
+          {
+            "position": "left",
+          }
+        }
+        aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
+        data-test="toolbarFieldGroupVariant"
+        isInline={true}
+        maxHeight={310}
+        onSelect={[Function]}
+        options={
+          [
+            {
+              "isSelected": undefined,
+              "title": "lorem",
+              "value": "lorem",
+            },
+            {
+              "isSelected": undefined,
+              "title": "ipsum",
+              "value": "ipsum",
+            },
+            {
+              "isSelected": undefined,
+              "title": "dolor",
+              "value": "dolor",
+            },
+            {
+              "isSelected": undefined,
+              "title": "sit",
+              "value": "sit",
+            },
+          ]
+        }
+        placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
+        selectedOptions={null}
+      />
+    </ToolbarItem>
+  </ForwardRef>
 </ToolbarContent>
 `;
 
@@ -142,40 +146,44 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
     isExpanded={false}
     showClearFiltersButton={false}
   >
-    <ToolbarItem
-      variant="label"
-    >
-      t(curiosity-toolbar.label, {"context":"groupVariant"})
-       
-    </ToolbarItem>
-    <Select
-      alignment={
-        {
-          "position": "left",
-        }
-      }
-      aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-      data-test="toolbarFieldGroupVariant"
-      isInline={true}
-      maxHeight={310}
-      onSelect={[Function]}
-      options={
-        [
-          {
-            "isSelected": undefined,
-            "title": "lorem",
-            "value": "lorem",
-          },
-          {
-            "isSelected": undefined,
-            "title": "ipsum",
-            "value": "ipsum",
-          },
-        ]
-      }
-      placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-      selectedOptions={null}
-    />
+    <ForwardRef>
+      <ToolbarItem
+        variant="label"
+      >
+        t(curiosity-toolbar.label, {"context":"groupVariant"})
+         
+      </ToolbarItem>
+      <ToolbarItem>
+        <Select
+          alignment={
+            {
+              "position": "left",
+            }
+          }
+          aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
+          data-test="toolbarFieldGroupVariant"
+          isInline={true}
+          maxHeight={310}
+          onSelect={[Function]}
+          options={
+            [
+              {
+                "isSelected": undefined,
+                "title": "lorem",
+                "value": "lorem",
+              },
+              {
+                "isSelected": undefined,
+                "title": "ipsum",
+                "value": "ipsum",
+              },
+            ]
+          }
+          placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
+          selectedOptions={null}
+        />
+      </ToolbarItem>
+    </ForwardRef>
   </ToolbarContent>
 </Toolbar>
 `;
