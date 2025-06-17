@@ -8,9 +8,12 @@
 
 .curiosity-page-section {
   &__tabs, &__graphs, &__toolbar, &__messages, &__missing, &__optin {
-    // margin-bottom: var(--pf-global--spacer--sm);
     margin-left: var(--pf-global--spacer--md);
     margin-right: var(--pf-global--spacer--md);
+
+    // ToDo: override for custom spacing display related to PF5 vs PF6 displays. Periodically review
+    margin-bottom: var(--pf-global--spacer--sm);
+    padding: 0 !important;
   }
 
   &__tabs {
