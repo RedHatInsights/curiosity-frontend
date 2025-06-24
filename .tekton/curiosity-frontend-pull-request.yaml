@@ -364,7 +364,7 @@ spec:
         operator: in
         values:
         - "false"
-    - name: sast-snyk-check
+    - name: sast-snyk-check-oci-ta
       params:
       - name: image-digest
         value: $(tasks.build-image-index.results.IMAGE_DIGEST)
