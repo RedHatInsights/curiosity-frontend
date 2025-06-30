@@ -3,7 +3,7 @@ import { useEffectOnce, useUnmount } from 'react-use';
 import { Button } from '@patternfly/react-core';
 import { reduxActions, reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
-import { useNotifications } from '../notifications/notificationsContext';
+import { NotificationsContext, NotificationVariant } from '../notifications/notifications';
 import { PLATFORM_API_EXPORT_POST_TYPES as POST_TYPES } from '../../services/platform/platformConstants';
 import { translate } from '../i18n/i18n';
 import { useAppLoad } from '../../hooks/useApp';
@@ -20,7 +20,7 @@ import { useAppLoad } from '../../hooks/useApp';
  * @param {translate} options.t
  * @param {useAppLoad} options.useAppLoad
  * @param {storeHooks.reactRedux.useDispatch} options.useDispatch
- * @param {useNotifications} options.useNotifications
+ * @param {NotificationsContext.useNotifications} options.useNotifications
  * @param {useProduct} options.useProduct
  * @returns {Function}
  */
@@ -28,7 +28,7 @@ const useExportConfirmation = ({
   t = translate,
   useAppLoad: useAliasAppLoad = useAppLoad,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useNotifications: useAliasNotifications = useNotifications,
+  useNotifications: useAliasNotifications = NotificationsContext.useNotifications,
   useProduct: useAliasProduct = useProduct
 } = {}) => {
   const { productId } = useAliasProduct();
@@ -52,7 +52,7 @@ const useExportConfirmation = ({
       if (retryCount === -1) {
         addNotification({
           swatchId: 'swatch-exports-individual-status',
-          variant: 'info',
+          variant: NotificationVariant.info,
           title: t('curiosity-toolbar.notifications', {
             context: ['export', 'pending', 'title'],
             testId: 'exportNotification-individual-pending'
@@ -65,7 +65,7 @@ const useExportConfirmation = ({
       if (isCompleted) {
         addNotification({
           swatchId: 'swatch-exports-individual-status',
-          variant: 'success',
+          variant: NotificationVariant.success,
           title: t('curiosity-toolbar.notifications', {
             context: ['export', 'completed', 'title'],
             testId: 'exportNotification-individual-completed'
@@ -100,7 +100,7 @@ const useExportConfirmation = ({
  * @param {translate} options.t
  * @param {storeHooks.reactRedux.useDispatch} options.useDispatch
  * @param {useExportConfirmation} options.useExportConfirmation
- * @param {useNotifications} options.useNotifications
+ * @param {NotificationsContext.useNotifications} options.useNotifications
  * @returns {Function}
  */
 const useExport = ({
@@ -108,7 +108,7 @@ const useExport = ({
   t = translate,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useExportConfirmation: useAliasExportConfirmation = useExportConfirmation,
-  useNotifications: useAliasNotifications = useNotifications
+  useNotifications: useAliasNotifications = NotificationsContext.useNotifications
 } = {}) => {
   const statusConfirmation = useAliasExportConfirmation();
   const dispatch = useAliasDispatch();
@@ -131,7 +131,7 @@ const useExport = ({
           {
             rejectCallback: () =>
               addNotification({
-                variant: 'warning',
+                variant: NotificationVariant.warning,
                 title: t('curiosity-toolbar.notifications', {
                   context: ['export', 'error', 'title'],
                   testId: 'exportNotification-individual-error'
@@ -157,7 +157,7 @@ const useExport = ({
  * @param {translate} options.t
  * @param {useAppLoad} options.useAppLoad
  * @param {storeHooks.reactRedux.useDispatch} options.useDispatch
- * @param {useNotifications} options.useNotifications
+ * @param {NotificationsContext.useNotifications} options.useNotifications
  * @returns {Function}
  */
 const useExistingExportsConfirmation = ({
@@ -166,7 +166,7 @@ const useExistingExportsConfirmation = ({
   t = translate,
   useAppLoad: useAliasAppLoad = useAppLoad,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useNotifications: useAliasNotifications = useNotifications
+  useNotifications: useAliasNotifications = NotificationsContext.useNotifications
 } = {}) => {
   const dispatch = useAliasDispatch();
   const confirmAppLoaded = useAliasAppLoad();
@@ -184,7 +184,7 @@ const useExistingExportsConfirmation = ({
         pendingCallback: () =>
           addNotification({
             swatchId: 'swatch-exports-existing-confirmation',
-            variant: 'info',
+            variant: NotificationVariant.info,
             title: t('curiosity-toolbar.notifications', {
               context: ['export', 'pending', 'titleGlobal'],
               testId: 'exportNotification-existing-pending'
@@ -194,7 +194,7 @@ const useExistingExportsConfirmation = ({
         if (confirmAppLoaded()) {
           addNotification({
             swatchId: 'swatch-exports-existing-confirmation',
-            variant: 'success',
+            variant: NotificationVariant.success,
             title: t('curiosity-toolbar.notifications', {
               context: ['export', 'completed', 'titleGlobal'],
               count: allResults.length,
@@ -229,7 +229,7 @@ const useExistingExportsConfirmation = ({
  * @param {storeHooks.reactRedux.useDispatch} options.useDispatch
  * @param {useExistingExportsConfirmation} options.useExistingExportsConfirmation
  * @param {storeHooks.reactRedux.useSelectorsResponse} options.useSelectorsResponse
- * @param {useNotifications} options.useNotifications
+ * @param {NotificationsContext.useNotifications} options.useNotifications
  */
 const useExistingExports = ({
   getExistingExportsStatus: getAliasExistingExportsStatus = reduxActions.platform.getExistingExportsStatus,
@@ -237,7 +237,7 @@ const useExistingExports = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useExistingExportsConfirmation: useAliasExistingExportsConfirmation = useExistingExportsConfirmation,
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse,
-  useNotifications: useAliasNotifications = useNotifications
+  useNotifications: useAliasNotifications = NotificationsContext.useNotifications
 } = {}) => {
   const dispatch = useAliasDispatch();
   const { addNotification, removeNotification } = useAliasNotifications();

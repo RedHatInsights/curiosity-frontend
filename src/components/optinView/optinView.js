@@ -16,7 +16,7 @@ import {
   Title
 } from '@patternfly/react-core';
 import { useSession } from '../authentication/authenticationContext';
-import { useNotifications } from '../notifications/notificationsContext';
+import { NotificationsContext, NotificationVariant } from '../notifications/notifications';
 import { reduxActions, storeHooks } from '../../redux';
 import { translate } from '../i18n/i18n';
 import { PageLayout, PageSection } from '../pageLayout/pageLayout';
@@ -38,7 +38,7 @@ import graphPng4x from '../../images/graph4x.png';
  * @param {translate} [props.t=translate]
  * @param {reduxActions.user.updateAccountOptIn} [props.updateAccountOptIn=reduxActions.user.updateAccountOptIn]
  * @param {storeHooks.reactRedux.useDispatch} [props.useDispatch=storeHooks.reactRedux.useDispatch]
- * @param {useNotifications} [props.useNotifications=useNotitications]
+ * @param {NotificationsContext.useNotifications} [props.useNotifications=NotificationsContext.useNotifications]
  * @param {storeHooks.reactRedux.useSelectorsResponse} [props.useSelectorsResponse=storeHooks.reactRedux.useSelectorsResponse]
  * @param {useSession} [props.useSession=useSession]
  * @fires onSubmitOptIn
@@ -48,7 +48,7 @@ const OptinView = ({
   t = translate,
   updateAccountOptIn = reduxActions.user.updateAccountOptIn,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useNotifications: useAliasNotifications = useNotifications,
+  useNotifications: useAliasNotifications = NotificationsContext.useNotifications,
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse,
   useSession: useAliasSession = useSession
 }) => {
@@ -65,18 +65,20 @@ const OptinView = ({
    */
   const onSubmitOptIn = () =>
     updateAccountOptIn(undefined, {
-      rejectCallback: () =>
+      rejectCallback: () => {
         addNotification({
-          variant: 'danger',
+          variant: NotificationVariant.danger,
           title: t('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME }),
           description: t('curiosity-optin.notificationsErrorDescription')
-        }),
-      resolveCallback: () =>
+        });
+      },
+      resolveCallback: () => {
         addNotification({
-          variant: 'success',
+          variant: NotificationVariant.success,
           title: t('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME }),
           description: t('curiosity-optin.notificationsSuccessDescription')
-        })
+        });
+      }
     })(dispatch);
 
   /**
