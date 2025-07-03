@@ -11,14 +11,14 @@ compatibility:
 agent_hints:
   processing_order: "sequential"
   validation_required: true
-  key_concepts: ["payg", "pay-as-you-go", "hourly", "on-demand", "annual", "product-config"]
+  key_concepts: ["payg", "pay-as-you-go", "hourly", "on-demand", "annual", "product", "product-config"]
   related_guidelines: []
   importance: "high"
   question_sequence: true
   wait_for_response: true
   code_examples: true
   critical_instructions: "ALWAYS ask the sequential questions when creating or adding a PRODUCT"
-  trigger_prefixes: ["/workflow payg", "/workflow on-demand"," "/workflow annual"]
+  trigger_prefixes: ["/workflow product"]
 ---
 
 # Adding PAYG, On-demand, and Annual Variants
@@ -75,6 +75,7 @@ Agent MUST ask these questions sequentially (ask one question, wait for answer, 
 - DO NOT assume any values; always ask for explicit confirmation
 - Each question MUST be asked separately, waiting for a response before proceeding
 - Do NOT skip any questions unless explicitly indicated in the steps or requested by the user
+- Do NOT make up any questions unless explicitly indicated in the steps or requested by the user
 - Exit the process if the user requests to stop or exit, then reset any information gathered from the interactive process
 
 ## Implementation for OpenShift Annual
@@ -134,10 +135,17 @@ For complete implementation details and full context, refer to these actual comm
 - [ ] Run `npm run test:ci -- --updateSnapshot` to update test snapshots
 - [ ] Run `npm run test:lintfix` to format code
 - [ ] Run `npm run test:ci` to verify all tests pass
+- [ ] Agent concisely lists any of the previous steps that require user completion, or that the agent was unable to complete
+- [ ] Agent has asked user "Can you confirm success?"
+- [ ] User has confirmed success
 
 ❌ **Don't:**
 - Create a new product config file for this implementation
 - Forget to add all localizations
+
+**Requirements:**
+- Follow the file checklist
+- After the user has confirmed success exit the process and reset any information gathered from the interactive process
 
 ## Implementation for OpenShift PAYG
 
@@ -167,11 +175,22 @@ For complete implementation details and full context, refer to these actual comm
 
 - [ ] Add product constant to `src/services/rhsm/rhsmConstants.js`
 - [ ] Update JSDoc type annotations (4 locations in rhsmConstants.js)
-- [ ] Create product configuration file `src/config/product.yourProduct.js`
+- [ ] Create product configuration file `src/config/product.yourVariantName.js`
 - [ ] Add localization entries to `public/locales/en-US.json`
 - [ ] Run `npm run test:ci -- --updateSnapshot` - Update Jest snapshots
 - [ ] Run `npm run test:lintfix` - Format code
 - [ ] Run `npm run test:ci` - Verify all tests pass
+- [ ] Agent concisely lists any of the previous steps that require user completion, or that the agent was unable to complete
+- [ ] Agent has asked user "Can you confirm success?"
+- [ ] User has confirmed success
+
+❌ **Don't:**
+- Forget to add all localizations
+- Add a partial product configuration
+
+**Requirements:**
+- Follow the file checklist
+- After the user has confirmed success exit the process and reset any information gathered from the interactive process
 
 ## Implementation for RHEL PAYG
 
@@ -191,6 +210,27 @@ For complete implementation details and full context, refer to these actual comm
 - **Commit Hash**: `d66edfaa93c4242ed6ea042350c9cee74565a614`
 - **Description**: Add RHEL for x86 PAYG Add-On variant
 - **Files Modified**: rhsmConstants.js, product configuration files, en-US.json, test snapshots
+
+### File Checklist
+
+- [ ] Add variant constant to appropriate section in `src/services/rhsm/rhsmConstants.js`
+- [ ] Update JSDoc type annotations (all 3+ locations)
+- [ ] Create product configuration file `src/config/product.yourVariantName.js`
+- [ ] Add localization entries to `public/locales/en-US.json`
+- [ ] Run `npm run test:ci -- --updateSnapshot` to update test snapshots
+- [ ] Run `npm run test:lintfix` to format code
+- [ ] Run `npm run test:ci` to verify all tests pass
+- [ ] Agent concisely lists any of the previous steps that require user completion, or that the agent was unable to complete 
+- [ ] Agent has asked user "Can you confirm success?"
+- [ ] User has confirmed success
+
+❌ **Don't:**
+- Forget to add all localizations
+- Add a partial product configuration
+
+**Requirements:**
+- Follow the file checklist
+- After the user has confirmed success exit the process and reset any information gathered from the interactive process
 
 ## Localization Entries
 
@@ -226,25 +266,7 @@ Add additional translation entries by comparing git reference commits and review
 - Add entries to ALL relevant sections (toolbar, view, graph, inventory)
 - Use the correct product ID exactly as defined in the constants
 - Maintain alphabetical order within each section
-- For standard descriptions that match, use the `$t()` translation reference
-
-### File Checklist
-
-- [ ] Add variant constant to appropriate section in `src/services/rhsm/rhsmConstants.js`
-- [ ] Update JSDoc type annotations (all 3+ locations)
-- [ ] Create product configuration file `src/config/product.yourVariantName.js`
-- [ ] Add localization entries to `public/locales/en-US.json`
-- [ ] Run `npm run test:ci -- --updateSnapshot` to update test snapshots
-- [ ] Run `npm run test:lintfix` to format code
-- [ ] Run `npm run test:ci` to verify all tests pass
-- [ ] Agent concisely lists any of the previous steps that require user completion, or that the agent was unable to complete 
-- [ ] Agent has asked user "Can you confirm success?"
-- [ ] User has confirmed success or not responded within 15 minutes
-
-**Requirements:**
-- After the user has confirmed success exit the process and reset any information gathered from the interactive process
-- If the user closes the process externally exit the process and reset any information gathered from the interactive process
-- If the user does not respond within 15 minutes exit the process and reset any information gathered from the interactive process
+- For standard descriptions that match, use the `$(curiosity-view.[locale entry]_[product group])` translation reference
 
 ## Common Pitfalls
 
@@ -254,6 +276,8 @@ Add additional translation entries by comparing git reference commits and review
 - Use inconsistent naming conventions (stick to existing patterns)
 - Skip the alphabetical ordering in constants
 - Change unrelated parts of the constants file
+- Skip, or ignore, steps
+- Skip git references
 
 ✅ **Do:**
 - Follow alphabetical ordering in all locations
@@ -261,3 +285,112 @@ Add additional translation entries by comparing git reference commits and review
 - Add descriptive aliases for product discovery if a new product configuration is created
 - Export productGroup and productId from your configuration file
 - Verify all tests pass before committing
+
+## Common Mistakes and Lessons Learned
+
+Based on recent implementations, here are specific mistakes to avoid and correct patterns to follow:
+
+### File Naming Patterns
+
+❌ **Don't:**
+- Use unnecessary words in filenames (e.g., `product.openshiftForLoremIpsum.js`)
+- Use inconsistent casing (e.g., mixing camelCase and kebab-case)
+
+✅ **Do:**
+- Follow camelCase for product config files: `product.openshiftLoremIpsum.js`
+- Remove unnecessary words like "for" from filenames
+- Match the pattern of existing sibling files in the config directory
+
+### Capacity Configuration
+
+❌ **Don't:**
+- Add non-existent `capacity: [RHSM_API_PATH_METRIC_TYPES.VCPUS]` property
+- Assume capacity configuration without checking existing patterns
+- Apply threshold configuration to all metrics in capacity products
+
+✅ **Do:**
+- Use `productDisplay: DISPLAY_TYPES.CAPACITY` for capacity-based products
+- Only apply `chartType: ChartTypeVariant.threshold` to the primary capacity metric
+- Reference ROSA (`product.rosa.js`) for OpenShift capacity patterns
+- Keep secondary metrics (like `INSTANCE_HOURS`) as regular usage metrics without threshold
+
+### Graph Filters Structure
+
+❌ **Don't:**
+- Use simple metric arrays for capacity products
+- Apply threshold to all metrics indiscriminately
+
+✅ **Do:**
+- Use `filters` array structure for capacity products:
+```javascript
+initialGraphFilters: [
+  {
+    filters: [
+      {
+        metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
+        fill: chartColorBlueLight.value,
+        stroke: chartColorBlueDark.value,
+        color: chartColorBlueDark.value
+      },
+      {
+        metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
+        chartType: ChartTypeVariant.threshold
+      }
+    ]
+  },
+  {
+    filters: [
+      {
+        metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
+        fill: chartColorBlueLight.value,
+        stroke: chartColorBlueDark.value,
+        color: chartColorBlueDark.value
+      }
+    ]
+  }
+]
+```
+
+### Reference Patterns
+
+**For OpenShift PAYG with Capacity:**
+- **Primary Reference**: `product.rosa.js` (Red Hat OpenShift Service on AWS)
+- **Secondary Reference**: `product.rhacs.js` (Red Hat Advanced Cluster Security)
+
+**For OpenShift PAYG without Capacity:**
+- **Primary Reference**: `product.rhacs.js` (Red Hat Advanced Cluster Security)
+
+**For RHEL Annual:**
+- **Primary Reference**: `product.rhel.js` (Red Hat Enterprise Linux)
+
+### Validation Steps
+
+Before confirming success, verify:
+1. **File naming**: Matches camelCase pattern without unnecessary words
+2. **Capacity configuration**: Only primary metric has threshold, secondary metrics are regular
+3. **Graph filters**: Use `filters` array structure for capacity products
+4. **Localization**: Product-specific entries follow `openshift-for-lorem-ipsum` pattern
+5. **Tests**: All tests pass without linting errors
+6. **Snapshots**: Updated and consistent
+
+### Quick Reference Commands
+
+```bash
+# Check file naming pattern
+ls src/config/product.*.js
+
+# Verify capacity configuration
+grep -r "capacity.*\[" src/config/
+
+# Check graph filters structure
+grep -A 20 "initialGraphFilters" src/config/product.yourVariant.js
+
+# Validate localization entries
+grep -r "your-variant-id" public/locales/en-US.json
+
+# Run validation
+npm run test:ci -- --testPathPattern=src/config/product.yourVariant.js
+npm run test:lintfix
+npm run test:ci
+```
+

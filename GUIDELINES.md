@@ -58,9 +58,29 @@ This section outlines how agents should handle requests and questions based on s
    - Set reminders for pending items
    - Schedule follow-ups for unresolved issues
 
+#### Code Example Handling
+
+When working with code examples in guidelines:
+1. **Reference Commit Integration** - Use git commit references to understand implementation details
+2. **Pattern Recognition** - Identify similar patterns across implementations
+3. **Adaptation** - Adapt examples to match the specific requirements provided
+4. **Validation** - Ensure examples are updated to work with current codebase versions
+
+#### Error Handling and Edge Cases
+
+When following guideline workflows:
+1. **Validation Failures** - If user input fails validation, explain the specific requirements and ask again
+2. **Conflicting Requirements** - If requirements conflict with existing patterns, highlight the conflict and seek clarification
+3. **Missing Information** - If critical information is unavailable, explain what's missing and why it's needed
+4. **Process Interruptions** - If a workflow is interrupted, document progress and provide resumption guidance
+
 #### Local Processing Context
 
-Agent request and question handling response times happen according to the constraints of the related guideline.
+Agent request and question handling should:
+1. **Respect Timing Constraints** - Follow timing guidelines specified in specialized workflows
+2. **Prioritize Critical Requirements** - Items marked with "critical_instructions" should be given highest priority
+3. **Maintain Context Across Interactions** - Preserve information gathered during sequential questions
+4. **Apply Local Overrides** - Check GUIDELINES.local.md for developer-specific preferences that override defaults
 
 #### Trigger Words, Statements or Phrases, and Questions
 
@@ -74,10 +94,10 @@ When these prefix words are detected at the beginning of a request, the agent wi
 
 #### Workflow Trigger Implementation
 
-When a user begins a request with a workflow trigger prefix (e.g., `/workflow payg`), follow these implementation steps:
+When a user begins a request with a workflow trigger prefix (e.g., `/workflow product`), follow these implementation steps:
 
 1. **Match Guideline Document**:
-   - Parse the workflow command to identify the workflow type (`payg`)
+   - Parse the workflow command to identify the workflow type (`product`)
    - Search the `guidelines/` directory for matching documents
    - Check each guideline's frontmatter for `trigger_prefixes` that match the command
    - Select the most specific matching guideline document
@@ -86,6 +106,7 @@ When a user begins a request with a workflow trigger prefix (e.g., `/workflow pa
    - If the guideline has `question_sequence: true` in its `agent_hints`, follow the numbered question sequence
    - Ask only one question at a time, waiting for a user response before proceeding
    - Do not skip questions unless explicitly instructed in the guideline
+   - Do not make up new questions unless explicitly instructed in the guideline
    - Validate each answer against any validation criteria in the guideline
 
 3. **Provide Implementation Guidance**:
@@ -102,9 +123,11 @@ When a user begins a request with a workflow trigger prefix (e.g., `/workflow pa
    - Complete the workflow by following the listed steps
 
 Example match patterns:
-- `/workflow payg` → `guidelines/adding-product-configs.md`
-- `/workflow on-demand` → `guidelines/adding-product-configs.md`
-- `/workflow annual` → `guidelines/adding-product-configs.md`
+- `/workflow product` → `guidelines/adding-product-configs.md`
+
+**Important:**
+- The agent will only look for workflows in the `guidelines/` directory
+- The agent will follow the steps listed in guidelines files
 
 ### Project Knowledge Discovery
 
@@ -122,7 +145,7 @@ When examining a project for understanding, agents should look beyond just the c
    - **Location**: `CONTRIBUTING.md` in the root directory
    - **Contains**: Workflow processes, PR requirements, commit message formats
    - **Priority**: Important for understanding development practices
-   - **Key Sections**: Pull request workflow, testing guidelines, release procedures
+   - **Key Sections**: Pull request workflow, testing guidelines, release procedures, AI agent guidance
 
 3. **CHANGELOG**
    - **Location**: `CHANGELOG.md` in the root directory
@@ -221,3 +244,23 @@ When working with guideline documents, understand their common structure:
    - Common pitfalls to avoid
 
 When processing a workflow request, analyze the guideline document structure to understand the complete process before beginning the interactive sequence.
+
+### Local Guidelines Detection
+
+As an agent working with this repository, you should be aware that developers may have personalized guidelines:
+
+1. **Check for GUIDELINES.local.md**
+   - This file may or may not exist in the repository root
+   - It contains developer-specific preferences and overrides
+   - It is git-ignored and thus not visible in the repository
+   - If present, the preferences in this file take precedence over standard guidelines
+
+2. **Processing Order**
+   - First process the main GUIDELINES.md (this document)
+   - Then check for and process GUIDELINES.local.md if it exists
+   - Finally, process any relevant specialized guidelines from the guidelines/ directory
+
+3. **Respecting Developer Preferences**
+   - Local guidelines may modify workflow sequences, validation rules, or other behaviors
+   - Always adapt your responses to align with local guideline specifications
+   - If local guidelines conflict with repository standards, follow the local preference

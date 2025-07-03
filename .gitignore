@@ -33,3 +33,7 @@ public/locales/*.json
 .docs
 .openapi
 .cache
+
+# agent
+*.local.md
+
