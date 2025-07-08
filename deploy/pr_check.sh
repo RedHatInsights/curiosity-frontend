@@ -43,13 +43,8 @@ export EXTRA_DEPLOY_ARGS="--timeout 1800 "
 export DEPLOY_TIMEOUT="1800"
 # Keep that in sync with rhsm-subscriptions pr_check.sh
 export OPTIONAL_DEPS_METHOD=none
-export COMPONENTS_W_RESOURCES="rhsm swatch-api swatch-contracts swatch-producer-aws swatch-metrics swatch-subscription-sync swatch-system-conduit swatch-tally"
+export COMPONENTS_W_RESOURCES="app:rhsm app:export-service"
 export IQE_IBUTSU_SOURCE="curiosity-ephemeral-${IMAGE_TAG}"
-
-# no idea why we need this while backend doesn't, but without this EE fails to deploy
-for EXTRA_COMPONENT_NAME in $COMPONENTS_W_RESOURCES; do
-  export EXTRA_DEPLOY_ARGS="${EXTRA_DEPLOY_ARGS} --no-remove-resources ${EXTRA_COMPONENT_NAME}"
-done
 
 # Deploy to an ephemeral namespace for testing
 source $CICD_ROOT/deploy_ephemeral_env.sh
