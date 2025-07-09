@@ -32,11 +32,33 @@ describe('NotificationsContext', () => {
         id: 'ametConsectetur',
         title: 'Lorem ipsum'
       }
+    },
+    {
+      description: 'swatchId and existing notification',
+      notification: {
+        swatchId: 'ametConsectetur',
+        title: 'Lorem ipsum'
+      },
+      notifications: [
+        {
+          id: 'generated-id-1',
+          swatchid: 'ametConsectetur',
+          title: 'The original notification'
+        },
+        {
+          id: 'generated-id-2',
+          swatchid: 'loremIpsum'
+        },
+        {
+          id: 'generated-id-3',
+          swatchid: 'dolorSit'
+        }
+      ]
     }
-  ])('should attempt addNotification with a custom ID: $description', async ({ notification }) => {
+  ])('should attempt addNotification with a custom ID: $description', async ({ notification, notifications = [] }) => {
     const mockAddNotification = jest.fn();
     const mockRemoveNotification = jest.fn();
-    const mockGetNotifications = jest.fn(() => []);
+    const mockGetNotifications = jest.fn(() => [...notifications]);
     const mockClearNotifications = jest.fn();
 
     const mockUseContext = jest.spyOn(React, 'useContext').mockReturnValue({
@@ -51,9 +73,71 @@ describe('NotificationsContext', () => {
       ...notification
     });
 
-    expect(mockAddNotification.mock.calls).toMatchSnapshot();
+    expect({
+      addNotifications: mockAddNotification.mock.calls,
+      removeNotifications: mockRemoveNotification.mock.calls,
+      getNotifications: mockGetNotifications.mock.results
+    }).toMatchSnapshot();
     mockUseContext.mockClear();
   });
+
+  it.each([
+    {
+      description: 'swatchId',
+      findNotification: 'loremIpsum',
+      notifications: [
+        {
+          id: 'generated-id-1',
+          swatchid: 'loremIpsum',
+          title: 'Lorem ipsum'
+        }
+      ]
+    },
+    {
+      description: 'id',
+      findNotification: 'generated-id-2',
+      notifications: [
+        {
+          id: 'generated-id-2',
+          swatchid: 'dolorSitAmet',
+          title: 'Lorem ipsum'
+        }
+      ]
+    },
+    {
+      description: 'incorrect id',
+      findNotification: 'incorrectId',
+      notifications: [
+        {
+          id: 'generated-id-3',
+          swatchid: 'ametConsectetur',
+          title: 'Lorem ipsum'
+        }
+      ]
+    }
+  ])(
+    'should find a notification with getNotification and hasNotification: $description',
+    async ({ notifications, findNotification }) => {
+      const mockAddNotification = jest.fn();
+      const mockRemoveNotification = jest.fn();
+      const mockGetNotifications = jest.fn(() => [...notifications]);
+      const mockClearNotifications = jest.fn();
+
+      const mockUseContext = jest.spyOn(React, 'useContext').mockReturnValue({
+        addNotification: mockAddNotification,
+        removeNotification: mockRemoveNotification,
+        getNotifications: mockGetNotifications,
+        clearNotifications: mockClearNotifications
+      });
+
+      const { result } = await renderHook(() => useNotifications());
+      expect({
+        getNotification: result.getNotification(findNotification),
+        hasNotification: result.hasNotification(findNotification)
+      }).toMatchSnapshot();
+      mockUseContext.mockClear();
+    }
+  );
 
   it.each([
     {

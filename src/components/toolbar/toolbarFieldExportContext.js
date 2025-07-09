@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { useEffectOnce, useUnmount } from 'react-use';
+import { useEffectOnce } from 'react-use';
 import { Button } from '@patternfly/react-core';
 import { reduxActions, reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
@@ -34,11 +34,7 @@ const useExportConfirmation = ({
   const { productId } = useAliasProduct();
   const dispatch = useAliasDispatch();
   const confirmAppLoaded = useAliasAppLoad();
-  const { addNotification, removeNotification } = useAliasNotifications();
-
-  useUnmount(() => {
-    removeNotification('swatch-exports-individual-status');
-  });
+  const { addNotification } = useAliasNotifications();
 
   return useCallback(
     ({ error, data } = {}, retryCount) => {
@@ -72,7 +68,6 @@ const useExportConfirmation = ({
           }),
           description: t('curiosity-toolbar.notifications', {
             context: ['export', 'completed', 'description'],
-            count: completed.length,
             fileName: completed?.[0]?.fileName
           })
         });
@@ -228,19 +223,19 @@ const useExistingExportsConfirmation = ({
  * @param {translate} options.t
  * @param {storeHooks.reactRedux.useDispatch} options.useDispatch
  * @param {useExistingExportsConfirmation} options.useExistingExportsConfirmation
- * @param {storeHooks.reactRedux.useSelectorsResponse} options.useSelectorsResponse
  * @param {NotificationsContext.useNotifications} options.useNotifications
+ * @param {storeHooks.reactRedux.useSelectorsResponse} options.useSelectorsResponse
  */
 const useExistingExports = ({
   getExistingExportsStatus: getAliasExistingExportsStatus = reduxActions.platform.getExistingExportsStatus,
   t = translate,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useExistingExportsConfirmation: useAliasExistingExportsConfirmation = useExistingExportsConfirmation,
-  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse,
-  useNotifications: useAliasNotifications = NotificationsContext.useNotifications
+  useNotifications: useAliasNotifications = NotificationsContext.useNotifications,
+  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
   const dispatch = useAliasDispatch();
-  const { addNotification, removeNotification } = useAliasNotifications();
+  const { addNotification, removeNotification, hasNotification } = useAliasNotifications();
   const onConfirmation = useAliasExistingExportsConfirmation();
   const { data, fulfilled } = useAliasSelectorsResponse(({ app }) => app?.exportsExisting);
   const { completed = [], isAnythingPending, isAnythingCompleted, pending = [] } = data?.[0]?.data || {};
@@ -249,7 +244,6 @@ const useExistingExports = ({
     dispatch(getAliasExistingExportsStatus());
 
     return () => {
-      removeNotification('swatch-exports-status');
       dispatch([{ type: reduxTypes.platform.SET_PLATFORM_EXPORT_RESET }]);
     };
   });
@@ -257,8 +251,11 @@ const useExistingExports = ({
   useEffect(() => {
     const isAnythingAvailable = isAnythingPending || isAnythingCompleted || false;
     const totalResults = completed.length + pending.length;
+    // Confirm existing toast IDs for "toast pending/success" OR "existing toast message".
+    const isExistingNotifications =
+      hasNotification('swatch-exports-individual-status') || hasNotification('swatch-exports-status');
 
-    if (isAnythingAvailable && totalResults) {
+    if (isAnythingAvailable && totalResults && !isExistingNotifications) {
       addNotification({
         swatchId: 'swatch-exports-status',
         title: t('curiosity-toolbar.notifications', {
@@ -310,6 +307,7 @@ const useExistingExports = ({
     completed,
     dispatch,
     fulfilled,
+    hasNotification,
     isAnythingCompleted,
     isAnythingPending,
     onConfirmation,

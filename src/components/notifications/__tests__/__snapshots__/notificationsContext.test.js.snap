@@ -4,43 +4,110 @@ exports[`NotificationsContext should apply a hook wrapper for notifications: not
 {
   "addNotification": [Function],
   "clearNotifications": [Function],
+  "getNotification": [Function],
+  "hasNotification": [Function],
   "removeNotification": [Function],
   "subscribe": [Function],
 }
 `;
 
 exports[`NotificationsContext should attempt addNotification with a custom ID: id 1`] = `
-[
-  [
+{
+  "addNotifications": [
+    [
+      {
+        "id": "ametConsectetur",
+        "swatchid": undefined,
+        "title": "Lorem ipsum",
+      },
+    ],
+  ],
+  "getNotifications": [
     {
-      "id": "ametConsectetur",
-      "swatchid": undefined,
-      "title": "Lorem ipsum",
+      "type": "return",
+      "value": [],
     },
   ],
-]
+  "removeNotifications": [],
+}
 `;
 
 exports[`NotificationsContext should attempt addNotification with a custom ID: swatchId 1`] = `
-[
-  [
+{
+  "addNotifications": [
+    [
+      {
+        "swatchid": "loremIpsum",
+        "title": "Lorem ipsum",
+      },
+    ],
+  ],
+  "getNotifications": [
     {
-      "swatchid": "loremIpsum",
-      "title": "Lorem ipsum",
+      "type": "return",
+      "value": [],
     },
   ],
-]
+  "removeNotifications": [],
+}
+`;
+
+exports[`NotificationsContext should attempt addNotification with a custom ID: swatchId and existing notification 1`] = `
+{
+  "addNotifications": [
+    [
+      {
+        "swatchid": "ametConsectetur",
+        "title": "Lorem ipsum",
+      },
+    ],
+  ],
+  "getNotifications": [
+    {
+      "type": "return",
+      "value": [
+        {
+          "id": "generated-id-1",
+          "swatchid": "ametConsectetur",
+          "title": "The original notification",
+        },
+        {
+          "id": "generated-id-2",
+          "swatchid": "loremIpsum",
+        },
+        {
+          "id": "generated-id-3",
+          "swatchid": "dolorSit",
+        },
+      ],
+    },
+  ],
+  "removeNotifications": [
+    [
+      "generated-id-1",
+    ],
+  ],
+}
 `;
 
 exports[`NotificationsContext should attempt addNotification with a custom ID: swatchid 1`] = `
-[
-  [
+{
+  "addNotifications": [
+    [
+      {
+        "swatchid": "dolorSitAmet",
+        "title": "Lorem ipsum",
+      },
+    ],
+  ],
+  "getNotifications": [
     {
-      "swatchid": "dolorSitAmet",
-      "title": "Lorem ipsum",
+      "type": "return",
+      "value": [],
     },
   ],
-]
+  "removeNotifications": [],
+}
 `;
 
 exports[`NotificationsContext should attempt removeNotification with a custom ID: id 1`] = `
@@ -59,6 +126,35 @@ exports[`NotificationsContext should attempt removeNotification with a custom ID
     "generated-id-1",
   ],
 ]
+`;
+
+exports[`NotificationsContext should find a notification with getNotification and hasNotification: id 1`] = `
+{
+  "getNotification": {
+    "id": "generated-id-2",
+    "swatchid": "dolorSitAmet",
+    "title": "Lorem ipsum",
+  },
+  "hasNotification": true,
+}
+`;
+
+exports[`NotificationsContext should find a notification with getNotification and hasNotification: incorrect id 1`] = `
+{
+  "getNotification": undefined,
+  "hasNotification": false,
+}
+`;
+
+exports[`NotificationsContext should find a notification with getNotification and hasNotification: swatchId 1`] = `
+{
+  "getNotification": {
+    "id": "generated-id-1",
+    "swatchid": "loremIpsum",
+    "title": "Lorem ipsum",
+  },
+  "hasNotification": true,
+}
 `;
 
 exports[`NotificationsContext should return specific properties: specific properties 1`] = `

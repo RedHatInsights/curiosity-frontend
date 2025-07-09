@@ -69,12 +69,18 @@ describe('ToolbarFieldExport Component', () => {
   });
 
   it('should allow export service calls on existing exports', async () => {
+    const mockNotification = jest.fn();
+
     const { unmount } = await renderHook((...args) => {
       useExistingExports({
         addNotification: mockService,
         getExistingExports: mockService,
         getExistingExportsStatus: mockService,
         deleteExistingExports: mockService,
+        useNotifications: () => ({
+          addNotification: mockNotification,
+          hasNotification: () => false
+        }),
         useSelectorsResponse: () => ({
           data: [{ data: { isAnythingPending: true, pending: [{ lorem: 'ipsum' }] } }],
           fulfilled: true
@@ -84,7 +90,7 @@ describe('ToolbarFieldExport Component', () => {
     });
 
     await unmount();
-    expect(mockService.mock.calls).toMatchSnapshot('existingExports');
+    expect(mockNotification.mock.calls).toMatchSnapshot('existingExports');
   });
 
   it('should allow service calls on user confirmation', async () => {
