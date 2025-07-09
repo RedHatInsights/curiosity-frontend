@@ -4,6 +4,8 @@ exports[`NotificationsContext should apply a hook wrapper for notifications: not
 {
   "addNotification": [Function],
   "clearNotifications": [Function],
+  "getNotification": [Function],
+  "hasNotification": [Function],
   "removeNotification": [Function],
   "subscribe": [Function],
 }
@@ -59,6 +61,35 @@ exports[`NotificationsContext should attempt removeNotification with a custom ID
     "generated-id-1",
   ],
 ]
+`;
+
+exports[`NotificationsContext should find a notification with getNotification and hasNotification: id 1`] = `
+{
+  "getNotification": {
+    "id": "generated-id-2",
+    "swatchid": "dolorSitAmet",
+    "title": "Lorem ipsum",
+  },
+  "hasNotification": true,
+}
+`;
+
+exports[`NotificationsContext should find a notification with getNotification and hasNotification: incorrect id 1`] = `
+{
+  "getNotification": undefined,
+  "hasNotification": false,
+}
+`;
+
+exports[`NotificationsContext should find a notification with getNotification and hasNotification: swatchId 1`] = `
+{
+  "getNotification": {
+    "id": "generated-id-1",
+    "swatchid": "loremIpsum",
+    "title": "Lorem ipsum",
+  },
+  "hasNotification": true,
+}
 `;
 
 exports[`NotificationsContext should return specific properties: specific properties 1`] = `

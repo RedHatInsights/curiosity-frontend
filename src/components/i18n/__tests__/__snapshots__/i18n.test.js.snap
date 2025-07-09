@@ -513,7 +513,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'description'], count: completed.length, fileName: completed?.[0]?.fileName })",
+        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'description'], fileName: completed?.[0]?.fileName })",
       },
       {
         "key": "curiosity-toolbar.notifications",
