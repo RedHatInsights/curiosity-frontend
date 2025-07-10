@@ -25,7 +25,6 @@ exports[`ToolbarFieldExport Component should aggregate export status, polling st
 
 exports[`ToolbarFieldExport Component should allow export service calls on existing exports: existingExports 1`] = `
 [
-  [],
   [
     {
       "autoDismiss": false,
@@ -59,7 +58,7 @@ exports[`ToolbarFieldExport Component should allow export service calls on exist
         </div>
       </div>,
       "dismissable": false,
-      "id": "swatch-exports-status",
+      "swatchId": "swatch-exports-status",
       "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":1,"testId":"exportNotification-existing-confirmation"})",
     },
   ],
@@ -85,10 +84,6 @@ exports[`ToolbarFieldExport Component should allow export service calls: createE
       "dispatch => Promise.resolve(dispatch(...args))",
     ],
   },
-  {
-    "type": "return",
-    "value": [Function],
-  },
 ]
 `;
 
@@ -108,12 +103,7 @@ exports[`ToolbarFieldExport Component should allow service calls on user confirm
       "sit",
     ],
     {
-      "pending": {
-        "dismissable": false,
-        "id": "swatch-exports-existing-confirmation",
-        "title": "t(curiosity-toolbar.notifications_export_pending, {"context":"titleGlobal","testId":"exportNotification-existing-pending"})",
-        "variant": "info",
-      },
+      "pendingCallback": [Function],
     },
   ],
 ]
@@ -123,7 +113,6 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
 [
   [
     [
-      [Function],
       {
         "id": "loremIpsum",
         "isPending": false,
@@ -136,9 +125,6 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
         "type": "SET_PLATFORM_EXPORT_STATUS",
       },
     ],
-  ],
-  [
-    [Function],
   ],
 ]
 `;

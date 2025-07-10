@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notifications Component should render a basic component: basic 1`] = `
+<NotificationsProvider>
+  Lorem ipsum
+</NotificationsProvider>
+`;
+
+exports[`Notifications Component should render children directly when notifications are disabled: direct children 1`] = `"Lorem ipsum"`;
