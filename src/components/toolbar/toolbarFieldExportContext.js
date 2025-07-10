@@ -223,16 +223,16 @@ const useExistingExportsConfirmation = ({
  * @param {translate} options.t
  * @param {storeHooks.reactRedux.useDispatch} options.useDispatch
  * @param {useExistingExportsConfirmation} options.useExistingExportsConfirmation
- * @param {storeHooks.reactRedux.useSelectorsResponse} options.useSelectorsResponse
  * @param {NotificationsContext.useNotifications} options.useNotifications
+ * @param {storeHooks.reactRedux.useSelectorsResponse} options.useSelectorsResponse
  */
 const useExistingExports = ({
   getExistingExportsStatus: getAliasExistingExportsStatus = reduxActions.platform.getExistingExportsStatus,
   t = translate,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useExistingExportsConfirmation: useAliasExistingExportsConfirmation = useExistingExportsConfirmation,
-  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse,
-  useNotifications: useAliasNotifications = NotificationsContext.useNotifications
+  useNotifications: useAliasNotifications = NotificationsContext.useNotifications,
+  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
   const dispatch = useAliasDispatch();
   const { addNotification, removeNotification, hasNotification } = useAliasNotifications();
