@@ -3905,9 +3905,9 @@ Expose consoledot toast notifications.
 
 * [NotificationsContext](#Notifications.module_NotificationsContext)
     * [~useNotifications([context])](#Notifications.module_NotificationsContext..useNotifications) ⇒ <code>Object</code>
-        * [~addNotification](#Notifications.module_NotificationsContext..useNotifications..addNotification) ⇒ <code>void</code>
         * [~getNotification](#Notifications.module_NotificationsContext..useNotifications..getNotification) ⇒ <code>object</code> \| <code>undefined</code>
         * [~hasNotification](#Notifications.module_NotificationsContext..useNotifications..hasNotification) ⇒ <code>boolean</code>
+        * [~addNotification](#Notifications.module_NotificationsContext..useNotifications..addNotification) ⇒ <code>void</code>
         * [~removeNotification](#Notifications.module_NotificationsContext..useNotifications..removeNotification)
 
 <a name="Notifications.module_NotificationsContext..useNotifications"></a>
@@ -3919,7 +3919,8 @@ Use platform notifications. Apply a convenience wrapper for easily removing noti
 **Kind**: inner method of [<code>NotificationsContext</code>](#Notifications.module_NotificationsContext)  
 **Returns**: <code>Object</code> - Add, clear all, or remove a notification.
 
-    - `addNotification` - Add a toast notification. A `swatchId` property is exposed to allow for easy removal.
+    - `addNotification` - Add a toast notification. A `swatchId` property is exposed to allow for easy removal. If
+        the `swatchId` is used across multiple notifications, the previous one will be automatically removed.
     - `clearNotifications` - Clear all notifications
     - `getNotification` - Get a notification object by ID or `swatchId` if it exists. Returns `undefined` or
         the notification object.
@@ -3942,44 +3943,10 @@ Use platform notifications. Apply a convenience wrapper for easily removing noti
 
 
 * [~useNotifications([context])](#Notifications.module_NotificationsContext..useNotifications) ⇒ <code>Object</code>
-    * [~addNotification](#Notifications.module_NotificationsContext..useNotifications..addNotification) ⇒ <code>void</code>
     * [~getNotification](#Notifications.module_NotificationsContext..useNotifications..getNotification) ⇒ <code>object</code> \| <code>undefined</code>
     * [~hasNotification](#Notifications.module_NotificationsContext..useNotifications..hasNotification) ⇒ <code>boolean</code>
+    * [~addNotification](#Notifications.module_NotificationsContext..useNotifications..addNotification) ⇒ <code>void</code>
     * [~removeNotification](#Notifications.module_NotificationsContext..useNotifications..removeNotification)
-
-<a name="Notifications.module_NotificationsContext..useNotifications..addNotification"></a>
-
-#### useNotifications~addNotification ⇒ <code>void</code>
-Add a toast notification.
-
-A `swatchId` property is exposed to allow for easy removal.
-
-**Kind**: inner constant of [<code>useNotifications</code>](#Notifications.module_NotificationsContext..useNotifications)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>notification</td><td><code>object</code></td><td><p>Notification object to be added.</p>
-</td>
-    </tr><tr>
-    <td>[notification.swatchId]</td><td><code>string</code></td><td><p>Optional plain language &quot;unique&quot; identifier that allows for
-    easy removal.</p>
-</td>
-    </tr><tr>
-    <td>[variant]</td><td><code>string</code></td><td><p>Optional variant to display, defaults to &quot;info&quot;</p>
-</td>
-    </tr><tr>
-    <td>title</td><td><code>React.ReactNode</code></td><td><p>Notification title</p>
-</td>
-    </tr><tr>
-    <td>[description]</td><td><code>React.ReactNode</code></td><td><p>Notification description</p>
-</td>
-    </tr>  </tbody>
-</table>
 
 <a name="Notifications.module_NotificationsContext..useNotifications..getNotification"></a>
 
@@ -4021,6 +3988,43 @@ Convenience wrapper for getNotification. Check for a matching notification ID or
   <tbody>
 <tr>
     <td>id</td><td><code>string</code> | <code>number</code></td><td><p>Identifier to search for, either the &#39;swatchid&#39; or &#39;id&#39;.</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="Notifications.module_NotificationsContext..useNotifications..addNotification"></a>
+
+#### useNotifications~addNotification ⇒ <code>void</code>
+Add a toast notification.
+
+A `swatchId` property is exposed to allow for easy removal.
+
+For convenience if the `swatchId` is used across multiple notifications, the previous notification will
+be removed before the new one is added.
+
+**Kind**: inner constant of [<code>useNotifications</code>](#Notifications.module_NotificationsContext..useNotifications)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>notification</td><td><code>object</code></td><td><p>Notification object to be added.</p>
+</td>
+    </tr><tr>
+    <td>[notification.swatchId]</td><td><code>string</code></td><td><p>Optional plain language &quot;unique&quot; identifier that allows for
+    easy removal.</p>
+</td>
+    </tr><tr>
+    <td>[variant]</td><td><code>string</code></td><td><p>Optional variant to display, defaults to &quot;info&quot;</p>
+</td>
+    </tr><tr>
+    <td>title</td><td><code>React.ReactNode</code></td><td><p>Notification title</p>
+</td>
+    </tr><tr>
+    <td>[description]</td><td><code>React.ReactNode</code></td><td><p>Notification description</p>
 </td>
     </tr>  </tbody>
 </table>

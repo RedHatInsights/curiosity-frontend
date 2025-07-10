@@ -18,7 +18,8 @@ import { helpers } from '../../common';
  *     hasNotification: Function,
  *     removeNotification: removeNotification }} Add, clear all, or remove a notification.
  *
- *     - `addNotification` - Add a toast notification. A `swatchId` property is exposed to allow for easy removal.
+ *     - `addNotification` - Add a toast notification. A `swatchId` property is exposed to allow for easy removal. If
+ *         the `swatchId` is used across multiple notifications, the previous one will be automatically removed.
  *     - `clearNotifications` - Clear all notifications
  *     - `getNotification` - Get a notification object by ID or `swatchId` if it exists. Returns `undefined` or
  *         the notification object.
@@ -35,27 +36,6 @@ const useNotifications = ({ context = NotificationsContext } = {}) => {
     getNotifications: baseGetNotifications,
     ...contextMethods
   } = useContext(context);
-
-  /**
-   * Add a toast notification.
-   *
-   * A `swatchId` property is exposed to allow for easy removal.
-   *
-   * @param {object} notification - Notification object to be added.
-   * @param {string} [notification.swatchId] - Optional plain language "unique" identifier that allows for
-   *     easy removal.
-   * @param {string} [variant] - Optional variant to display, defaults to "info"
-   * @param {React.ReactNode} title - Notification title
-   * @param {React.ReactNode} [description] - Notification description
-   * @returns {void}
-   */
-  const addNotification = useCallback(
-    notification => {
-      const { swatchId, swatchid, ...remainingNotification } = notification;
-      return baseAddNotification({ ...remainingNotification, swatchid: swatchId || swatchid });
-    },
-    [baseAddNotification]
-  );
 
   /**
    * Get a single notification
@@ -82,6 +62,37 @@ const useNotifications = ({ context = NotificationsContext } = {}) => {
    * @returns {boolean} Notification match is found or not.
    */
   const hasNotification = useCallback(id => getNotification(id) !== undefined, [getNotification]);
+
+  /**
+   * Add a toast notification.
+   *
+   * A `swatchId` property is exposed to allow for easy removal.
+   *
+   * For convenience if the `swatchId` is used across multiple notifications, the previous notification will
+   * be removed before the new one is added.
+   *
+   * @param {object} notification - Notification object to be added.
+   * @param {string} [notification.swatchId] - Optional plain language "unique" identifier that allows for
+   *     easy removal.
+   * @param {string} [variant] - Optional variant to display, defaults to "info"
+   * @param {React.ReactNode} title - Notification title
+   * @param {React.ReactNode} [description] - Notification description
+   * @returns {void}
+   */
+  const addNotification = useCallback(
+    notification => {
+      const { swatchId, swatchid, ...remainingNotification } = notification;
+      const updatedSwatchId = swatchId || swatchid;
+      const existingNotification = getNotification(updatedSwatchId);
+
+      if (existingNotification) {
+        baseRemoveNotification(existingNotification.id);
+      }
+
+      return baseAddNotification({ ...remainingNotification, swatchid: updatedSwatchId });
+    },
+    [baseAddNotification, baseRemoveNotification, getNotification]
+  );
 
   /**
    * Remove a toast notification.
