@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { useEffectOnce } from 'react-use';
+import { useEffectOnce, useUnmount } from 'react-use';
 import { Button } from '@patternfly/react-core';
 import { reduxActions, reduxTypes, storeHooks } from '../../redux';
 import { useProduct } from '../productView/productViewContext';
@@ -34,7 +34,11 @@ const useExportConfirmation = ({
   const { productId } = useAliasProduct();
   const dispatch = useAliasDispatch();
   const confirmAppLoaded = useAliasAppLoad();
-  const { addNotification } = useAliasNotifications();
+  const { addNotification, removeNotification } = useAliasNotifications();
+
+  useUnmount(() => {
+    removeNotification('swatch-exports-individual-status');
+  });
 
   return useCallback(
     ({ error, data } = {}, retryCount) => {
@@ -244,6 +248,7 @@ const useExistingExports = ({
     dispatch(getAliasExistingExportsStatus());
 
     return () => {
+      removeNotification('swatch-exports-status');
       dispatch([{ type: reduxTypes.platform.SET_PLATFORM_EXPORT_RESET }]);
     };
   });
