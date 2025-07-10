@@ -12,37 +12,102 @@ exports[`NotificationsContext should apply a hook wrapper for notifications: not
 `;
 
 exports[`NotificationsContext should attempt addNotification with a custom ID: id 1`] = `
-[
-  [
+{
+  "addNotifications": [
+    [
+      {
+        "id": "ametConsectetur",
+        "swatchid": undefined,
+        "title": "Lorem ipsum",
+      },
+    ],
+  ],
+  "getNotifications": [
     {
-      "id": "ametConsectetur",
-      "swatchid": undefined,
-      "title": "Lorem ipsum",
+      "type": "return",
+      "value": [],
     },
   ],
-]
+  "removeNotifications": [],
+}
 `;
 
 exports[`NotificationsContext should attempt addNotification with a custom ID: swatchId 1`] = `
-[
-  [
+{
+  "addNotifications": [
+    [
+      {
+        "swatchid": "loremIpsum",
+        "title": "Lorem ipsum",
+      },
+    ],
+  ],
+  "getNotifications": [
     {
-      "swatchid": "loremIpsum",
-      "title": "Lorem ipsum",
+      "type": "return",
+      "value": [],
     },
   ],
-]
+  "removeNotifications": [],
+}
+`;
+
+exports[`NotificationsContext should attempt addNotification with a custom ID: swatchId and existing notification 1`] = `
+{
+  "addNotifications": [
+    [
+      {
+        "swatchid": "ametConsectetur",
+        "title": "Lorem ipsum",
+      },
+    ],
+  ],
+  "getNotifications": [
+    {
+      "type": "return",
+      "value": [
+        {
+          "id": "generated-id-1",
+          "swatchid": "ametConsectetur",
+          "title": "The original notification",
+        },
+        {
+          "id": "generated-id-2",
+          "swatchid": "loremIpsum",
+        },
+        {
+          "id": "generated-id-3",
+          "swatchid": "dolorSit",
+        },
+      ],
+    },
+  ],
+  "removeNotifications": [
+    [
+      "generated-id-1",
+    ],
+  ],
+}
 `;
 
 exports[`NotificationsContext should attempt addNotification with a custom ID: swatchid 1`] = `
-[
-  [
+{
+  "addNotifications": [
+    [
+      {
+        "swatchid": "dolorSitAmet",
+        "title": "Lorem ipsum",
+      },
+    ],
+  ],
+  "getNotifications": [
     {
-      "swatchid": "dolorSitAmet",
-      "title": "Lorem ipsum",
+      "type": "return",
+      "value": [],
     },
   ],
-]
+  "removeNotifications": [],
+}
 `;
 
 exports[`NotificationsContext should attempt removeNotification with a custom ID: id 1`] = `
