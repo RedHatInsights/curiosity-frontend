@@ -251,8 +251,9 @@ const useExistingExports = ({
   useEffect(() => {
     const isAnythingAvailable = isAnythingPending || isAnythingCompleted || false;
     const totalResults = completed.length + pending.length;
+    // Confirm existing toast IDs for "toast pending/success" OR "existing toast message".
     const isExistingNotifications =
-      hasNotification('swatch-exports-individual-status') && hasNotification('swatch-exports-status');
+      hasNotification('swatch-exports-individual-status') || hasNotification('swatch-exports-status');
 
     if (isAnythingAvailable && totalResults && !isExistingNotifications) {
       addNotification({
