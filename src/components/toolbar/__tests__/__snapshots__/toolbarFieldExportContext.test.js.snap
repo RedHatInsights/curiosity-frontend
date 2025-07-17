@@ -31,7 +31,7 @@ exports[`ToolbarFieldExport Component should allow export service calls on exist
       "description": <div
         aria-live="polite"
       >
-        t(curiosity-toolbar.notifications_export_completed_description_existing, {"context":"pending","count":1,"completed":0,"pending":1})
+        t(curiosity-toolbar.notifications_export_completed_description_existing, {"context":"completed","count":1,"completed":1,"pending":0})
         <div
           style={
             {

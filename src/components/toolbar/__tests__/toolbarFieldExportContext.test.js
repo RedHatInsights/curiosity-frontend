@@ -86,7 +86,16 @@ describe('ToolbarFieldExport Component', () => {
           removeNotification: () => mockNotification
         }),
         useSelectorsResponse: () => ({
-          data: [{ data: { isAnythingPending: true, pending: [{ lorem: 'ipsum' }] } }],
+          data: [
+            {
+              data: {
+                isAnythingPending: false,
+                isAnythingCompleted: true,
+                pending: [],
+                completed: [{ dolor: 'sit' }]
+              }
+            }
+          ],
           fulfilled: true
         }),
         ...args?.[0]
