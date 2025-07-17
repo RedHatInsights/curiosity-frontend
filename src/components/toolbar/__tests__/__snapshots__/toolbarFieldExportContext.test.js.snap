@@ -115,7 +115,7 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
     [
       {
         "id": "loremIpsum",
-        "isPending": false,
+        "isPending": true,
         "pending": [
           {
             "fileName": "dolorSitFileName",
