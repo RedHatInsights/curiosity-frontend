@@ -3,7 +3,7 @@ guideline_version: "1.0.0"
 priority: 3
 applies_to: ["*.js", "config/*.js", "*.json"]
 contexts: ["development", "product-config"]
-extends: ["../../GUIDELINES.md"]
+extends: ["./README.md"]
 last_updated: "2025-07-03"
 compatibility:
   min_version: "1.0.0"

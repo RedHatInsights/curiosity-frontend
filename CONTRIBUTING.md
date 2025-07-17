@@ -696,25 +696,8 @@ You can then leverage the agent, through chat, to help you do common tasks like 
 ##### Customizing developer experience
 
 As developers, we often have our own flavor of working, and now that includes with AI agents. To that point we've added agent guidance
-to allow customization through a gitignored `GUIDELINES.local.md` file. If you, as a developer, come across refinements that can be added
-to the guidelines, you're encouraged to contribute.
-
-#### Agent Section
-
-As an agent working with this codebase, this repository contains a hierarchical guidelines system:
-- **`GUIDELINES.md`** - Core agent guidance and behavior standards
-- **`GUIDELINES.local.md`** - Developer-specific overrides and enhancements (optional and gitignored)
-- **`./guidelines/**/*.md`** - Specialized workflow and domain-specific instructions
-
-The guidelines system should be processed in this order, with specialized guidelines taking precedence for their specific domains, and local guidelines overriding general guidelines when present.
-
-##### Finding Local Guidelines
-
-To discover if local guidelines are available, agents should use the standard directory listing command:
-```
-$ ls
-```
-
-Look for `GUIDELINES.local.md` in the repository root. This file contains developer-specific customizations and local environment overrides that supplement the core guidelines.
+to allow customization through a gitignored directory `./.agent` in the root of the project. If you, as a developer, come across
+refinements that are unique to you, feel free to ask the agent to save guidance there. And if you think it's something that can be refined
+for all developers, you're encouraged to contribute it back.
 
 </details>

@@ -36,4 +36,5 @@ public/locales/*.json
 
 # agent
 *.local.md
+.agent
 
