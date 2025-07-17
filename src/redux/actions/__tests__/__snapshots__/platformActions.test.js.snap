@@ -6,7 +6,6 @@ exports[`PlatformActions Should return response content for createExport method:
     {
       "meta": {
         "id": undefined,
-        "notifications": {},
       },
       "payload": Promise {},
       "type": "SET_PLATFORM_EXPORT_CREATE",
@@ -19,9 +18,7 @@ exports[`PlatformActions Should return response content for getExistingExports m
 [
   [
     {
-      "meta": {
-        "notifications": {},
-      },
+      "meta": {},
       "payload": Promise {},
       "type": "GET_PLATFORM_EXPORT_EXISTING",
     },
@@ -33,9 +30,7 @@ exports[`PlatformActions Should return response content for getExistingExportsSt
 [
   [
     {
-      "meta": {
-        "notifications": undefined,
-      },
+      "meta": {},
       "payload": Promise {},
       "type": "SET_PLATFORM_EXPORT_EXISTING_STATUS",
     },
@@ -47,9 +42,7 @@ exports[`PlatformActions Should return response content for removeExistingExport
 [
   [
     {
-      "meta": {
-        "notifications": undefined,
-      },
+      "meta": {},
       "payload": Promise {},
       "type": "DELETE_PLATFORM_EXPORT_EXISTING",
     },

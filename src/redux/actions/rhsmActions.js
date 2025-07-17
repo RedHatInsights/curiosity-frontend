@@ -27,8 +27,7 @@ const getBillingAccounts =
         productId: id,
         query,
         action: 'getBillingAccounts',
-        service: rhsmServices.getBillingAccounts.name,
-        notifications: {}
+        service: rhsmServices.getBillingAccounts.name
       }
     });
 
@@ -69,8 +68,7 @@ const getGraphMetrics =
           productId: id,
           query: { ...query, ...metricQuery },
           action: 'getGraphMetrics',
-          service: methodService.name,
-          notifications: {}
+          service: methodService.name
         }
       });
     });
@@ -96,8 +94,7 @@ const getInstancesInventory =
         productId: id,
         query,
         action: 'getInstancesInventory',
-        service: rhsmServices.getInstancesInventory.name,
-        notifications: {}
+        service: rhsmServices.getInstancesInventory.name
       }
     });
 
@@ -119,8 +116,7 @@ const getInstancesInventoryGuests =
         productId: id,
         query,
         action: 'getInstancesInventoryGuests',
-        service: rhsmServices.getInstancesInventoryGuests.name,
-        notifications: {}
+        service: rhsmServices.getInstancesInventoryGuests.name
       }
     });
 
@@ -142,8 +138,7 @@ const getSubscriptionsInventory =
         productId: id,
         query,
         action: 'getSubscriptionsInventory',
-        service: rhsmServices.getSubscriptionsInventory.name,
-        notifications: {}
+        service: rhsmServices.getSubscriptionsInventory.name
       }
     });
 

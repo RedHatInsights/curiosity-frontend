@@ -203,6 +203,22 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/components/optinView/optinView.js",
     "keys": [
       {
+        "key": "curiosity-optin.notificationsErrorTitle",
+        "match": "t('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      {
+        "key": "curiosity-optin.notificationsErrorDescription",
+        "match": "t('curiosity-optin.notificationsErrorDescription')",
+      },
+      {
+        "key": "curiosity-optin.notificationsSuccessTitle",
+        "match": "t('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      {
+        "key": "curiosity-optin.notificationsSuccessDescription",
+        "match": "t('curiosity-optin.notificationsSuccessDescription')",
+      },
+      {
         "key": "curiosity-optin.buttonActivate",
         "match": "t('curiosity-optin.buttonActivate', { appName: helpers.UI_DISPLAY_NAME })",
       },
@@ -497,7 +513,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-toolbar.notifications",
-        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'description'], count: completed.length, fileName: completed?.[0]?.fileName })",
+        "match": "t('curiosity-toolbar.notifications', { context: ['export', 'completed', 'description'], fileName: completed?.[0]?.fileName })",
       },
       {
         "key": "curiosity-toolbar.notifications",
@@ -1239,27 +1255,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-inventory.measurement",
         "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
-      },
-    ],
-  },
-  {
-    "file": "src/redux/actions/userActions.js",
-    "keys": [
-      {
-        "key": "curiosity-optin.notificationsErrorTitle",
-        "match": "translate('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME })",
-      },
-      {
-        "key": "curiosity-optin.notificationsErrorDescription",
-        "match": "translate('curiosity-optin.notificationsErrorDescription')",
-      },
-      {
-        "key": "curiosity-optin.notificationsSuccessTitle",
-        "match": "translate('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME })",
-      },
-      {
-        "key": "curiosity-optin.notificationsSuccessDescription",
-        "match": "translate('curiosity-optin.notificationsSuccessDescription')",
       },
     ],
   },

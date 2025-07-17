@@ -104,6 +104,11 @@ recreate the core component.
 <dt><a href="#Components.module_MinHeight">MinHeight</a></dt>
 <dd><p>Normalize component height on page loads and updates.</p>
 </dd>
+<dt><a href="#Components.module_Notifications">Notifications</a></dt>
+<dd><p>Notification functionality</p>
+</dd>
+<dt><a href="#Notifications.module_NotificationsContext">NotificationsContext</a></dt>
+<dd></dd>
 <dt><a href="#Components.module_OptinView">OptinView</a></dt>
 <dd><p>Opt-in view</p>
 </dd>
@@ -3840,6 +3845,212 @@ Set a min-height to prevent page jump.
     </tr>  </tbody>
 </table>
 
+<a name="Components.module_Notifications"></a>
+
+## Notifications
+Notification functionality
+
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>NotificationsContext</td><td><code>module</code></td>
+    </tr>  </tbody>
+</table>
+
+
+* [Notifications](#Components.module_Notifications)
+    * [~NotificationVariant](#Components.module_Notifications..NotificationVariant) : <code>Object</code>
+    * [~Notifications(props)](#Components.module_Notifications..Notifications) ⇒ <code>React.ReactNode</code>
+
+<a name="Components.module_Notifications..NotificationVariant"></a>
+
+### Notifications~NotificationVariant : <code>Object</code>
+Toast notification, or Alert, variants.
+
+**Kind**: inner constant of [<code>Notifications</code>](#Components.module_Notifications)  
+<a name="Components.module_Notifications..Notifications"></a>
+
+### Notifications~Notifications(props) ⇒ <code>React.ReactNode</code>
+Expose consoledot toast notifications.
+
+**Kind**: inner method of [<code>Notifications</code>](#Components.module_Notifications)  
+**Returns**: <code>React.ReactNode</code> - Rendered output, either wrapped with NotificationsProvider or plain children.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td><td></td>
+    </tr><tr>
+    <td>props.children</td><td><code>React.ReactNode</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[props.isDisabled]</td><td><code>boolean</code></td><td><code>helpers.UI_DISABLED_NOTIFICATIONS</code></td><td><p>Disable the notification provider.</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="Notifications.module_NotificationsContext"></a>
+
+## NotificationsContext
+
+* [NotificationsContext](#Notifications.module_NotificationsContext)
+    * [~useNotifications([context])](#Notifications.module_NotificationsContext..useNotifications) ⇒ <code>Object</code>
+        * [~getNotification](#Notifications.module_NotificationsContext..useNotifications..getNotification) ⇒ <code>object</code> \| <code>undefined</code>
+        * [~hasNotification](#Notifications.module_NotificationsContext..useNotifications..hasNotification) ⇒ <code>boolean</code>
+        * [~addNotification](#Notifications.module_NotificationsContext..useNotifications..addNotification) ⇒ <code>void</code>
+        * [~removeNotification](#Notifications.module_NotificationsContext..useNotifications..removeNotification)
+
+<a name="Notifications.module_NotificationsContext..useNotifications"></a>
+
+### NotificationsContext~useNotifications([context]) ⇒ <code>Object</code>
+Use platform notifications. Apply a convenience wrapper for easily removing notifications based on an internal
+"swatchId"
+
+**Kind**: inner method of [<code>NotificationsContext</code>](#Notifications.module_NotificationsContext)  
+**Returns**: <code>Object</code> - Add, clear all, or remove a notification.
+
+    - `addNotification` - Add a toast notification. A `swatchId` property is exposed to allow for easy removal. If
+        the `swatchId` is used across multiple notifications, the previous one will be automatically removed.
+    - `clearNotifications` - Clear all notifications
+    - `getNotification` - Get a notification object by ID or `swatchId` if it exists. Returns `undefined` or
+        the notification object.
+    - `hasNotification` - Check if an ID or `swatchId` notification exists. Returns a `boolean`. Convenience
+        wrapper for `getNotification`.
+    - `removeNotifications` - Remove a toast notification based on ID. If you used a plain text `swatchId` to add
+        the notification, this can be used to remove it. If `DEV_MODE` is enabled, a warning is logged to the
+        console when an attempt is made to remove a notification using an invalid or non-existent `swatchId` or `id`.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>[context]</td><td><code>NotificationsContext</code></td><td><code>NotificationsContext</code></td>
+    </tr>  </tbody>
+</table>
+
+
+* [~useNotifications([context])](#Notifications.module_NotificationsContext..useNotifications) ⇒ <code>Object</code>
+    * [~getNotification](#Notifications.module_NotificationsContext..useNotifications..getNotification) ⇒ <code>object</code> \| <code>undefined</code>
+    * [~hasNotification](#Notifications.module_NotificationsContext..useNotifications..hasNotification) ⇒ <code>boolean</code>
+    * [~addNotification](#Notifications.module_NotificationsContext..useNotifications..addNotification) ⇒ <code>void</code>
+    * [~removeNotification](#Notifications.module_NotificationsContext..useNotifications..removeNotification)
+
+<a name="Notifications.module_NotificationsContext..useNotifications..getNotification"></a>
+
+#### useNotifications~getNotification ⇒ <code>object</code> \| <code>undefined</code>
+Get a single notification
+
+Check for a matching notification ID or `swatchId` from the collection.
+
+**Kind**: inner constant of [<code>useNotifications</code>](#Notifications.module_NotificationsContext..useNotifications)  
+**Returns**: <code>object</code> \| <code>undefined</code> - Notification match is found or not.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code> | <code>number</code></td><td><p>Identifier to search for, either the &#39;swatchId&#39; or &#39;id&#39;.</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="Notifications.module_NotificationsContext..useNotifications..hasNotification"></a>
+
+#### useNotifications~hasNotification ⇒ <code>boolean</code>
+Does a notification exist?
+
+Convenience wrapper for getNotification. Check for a matching notification ID or `swatchId` from the collection.
+
+**Kind**: inner constant of [<code>useNotifications</code>](#Notifications.module_NotificationsContext..useNotifications)  
+**Returns**: <code>boolean</code> - Notification match is found or not.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code> | <code>number</code></td><td><p>Identifier to search for, either the &#39;swatchId&#39; or &#39;id&#39;.</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="Notifications.module_NotificationsContext..useNotifications..addNotification"></a>
+
+#### useNotifications~addNotification ⇒ <code>void</code>
+Add a toast notification.
+
+A `swatchId` property is exposed to allow for easy removal.
+
+For convenience if the `swatchId` is used across multiple notifications, the previous notification will
+be removed before the new one is added.
+
+**Kind**: inner constant of [<code>useNotifications</code>](#Notifications.module_NotificationsContext..useNotifications)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>notification</td><td><code>object</code></td><td><p>Notification object to be added.</p>
+</td>
+    </tr><tr>
+    <td>[notification.swatchId]</td><td><code>string</code></td><td><p>Optional plain language &quot;unique&quot; identifier that allows for
+    easy removal.</p>
+</td>
+    </tr><tr>
+    <td>[variant]</td><td><code>string</code></td><td><p>Optional variant to display, defaults to &quot;info&quot;</p>
+</td>
+    </tr><tr>
+    <td>title</td><td><code>React.ReactNode</code></td><td><p>Notification title</p>
+</td>
+    </tr><tr>
+    <td>[description]</td><td><code>React.ReactNode</code></td><td><p>Notification description</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="Notifications.module_NotificationsContext..useNotifications..removeNotification"></a>
+
+#### useNotifications~removeNotification
+Remove a toast notification.
+
+For convenience IF a `swatchId` property is provided of the notification.
+
+**Kind**: inner constant of [<code>useNotifications</code>](#Notifications.module_NotificationsContext..useNotifications)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>notification</td><td><code>id</code></td><td><p>Unique identifier to remove. This can be the plain language swatchId, or
+    the generatedId provided by the notification package.</p>
+</td>
+    </tr>  </tbody>
+</table>
+
 <a name="Components.module_OptinView"></a>
 
 ## OptinView
@@ -3874,6 +4085,8 @@ An account opt-in view.
     <td>[props.updateAccountOptIn]</td><td><code>reduxActions.user.updateAccountOptIn</code></td><td><code>reduxActions.user.updateAccountOptIn</code></td>
     </tr><tr>
     <td>[props.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
+    </tr><tr>
+    <td>[props.useNotifications]</td><td><code>NotificationsContext.useNotifications</code></td><td><code>NotificationsContext.useNotifications</code></td>
     </tr><tr>
     <td>[props.useSelectorsResponse]</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td>
     </tr><tr>
@@ -6289,17 +6502,15 @@ Return a polling status callback. Used when creating an export.
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.addNotification</td><td><code>function</code></td>
+    <td>options.t</td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.removeNotification</td><td><code>function</code></td>
+    <td>options.useAppLoad</td><td><code>useAppLoad</code></td>
     </tr><tr>
-    <td>options.t</td><td><code>function</code></td>
+    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useAppLoad</td><td><code>function</code></td>
+    <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>options.useProduct</td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 
@@ -6319,13 +6530,15 @@ Apply an export hook for an export post. The service automatically sets up polli
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.createExport</td><td><code>function</code></td>
+    <td>options.createExport</td><td><code>reduxActions.platform.createExport</code></td>
     </tr><tr>
-    <td>options.t</td><td><code>function</code></td>
+    <td>options.t</td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useExportConfirmation</td><td><code>function</code></td>
+    <td>options.useExportConfirmation</td><td><code>useExportConfirmation</code></td>
+    </tr><tr>
+    <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
     </tr>  </tbody>
 </table>
 
@@ -6345,19 +6558,17 @@ User confirmation results when existing exports are detected.
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.addNotification</td><td><code>function</code></td>
+    <td>options.deleteExistingExports</td><td><code>reduxActions.platform.deleteExistingExports</code></td>
     </tr><tr>
-    <td>options.deleteExistingExports</td><td><code>function</code></td>
+    <td>options.getExistingExports</td><td><code>reduxActions.platform.getExistingExports</code></td>
     </tr><tr>
-    <td>options.getExistingExports</td><td><code>function</code></td>
+    <td>options.t</td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.removeNotification</td><td><code>function</code></td>
+    <td>options.useAppLoad</td><td><code>useAppLoad</code></td>
     </tr><tr>
-    <td>options.t</td><td><code>function</code></td>
+    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useAppLoad</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
     </tr>  </tbody>
 </table>
 
@@ -6377,19 +6588,17 @@ Apply an existing exports hook for user abandoned reports. Allow bulk polling st
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.addNotification</td><td><code>function</code></td>
+    <td>options.getExistingExportsStatus</td><td><code>reduxActions.platform.getExistingExportsStatus</code></td>
     </tr><tr>
-    <td>options.getExistingExportsStatus</td><td><code>function</code></td>
+    <td>options.t</td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.removeNotification</td><td><code>function</code></td>
+    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.t</td><td><code>function</code></td>
+    <td>options.useExistingExportsConfirmation</td><td><code>useExistingExportsConfirmation</code></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
+    <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
     </tr><tr>
-    <td>options.useExistingExportsConfirmation</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useSelectorsResponse</td><td><code>function</code></td>
+    <td>options.useSelectorsResponse</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td>
     </tr>  </tbody>
 </table>
 

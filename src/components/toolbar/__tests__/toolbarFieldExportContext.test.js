@@ -43,11 +43,14 @@ describe('ToolbarFieldExport Component', () => {
       data: {
         data: {
           completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],
+          isCompleted: false,
+          isPending: true,
+          pending: [{ id: 'dolorSit', fileName: 'dolorSitFileName' }],
           products: {
             loremIpsum: {
               completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],
-              isCompleted: true,
-              isPending: false,
+              isCompleted: false,
+              isPending: true,
               pending: [{ id: 'dolorSit', fileName: 'dolorSitFileName' }]
             }
           }
@@ -69,14 +72,30 @@ describe('ToolbarFieldExport Component', () => {
   });
 
   it('should allow export service calls on existing exports', async () => {
+    const mockNotification = jest.fn();
+
     const { unmount } = await renderHook((...args) => {
       useExistingExports({
         addNotification: mockService,
         getExistingExports: mockService,
         getExistingExportsStatus: mockService,
         deleteExistingExports: mockService,
+        useNotifications: () => ({
+          addNotification: mockNotification,
+          hasNotification: () => false,
+          removeNotification: () => mockNotification
+        }),
         useSelectorsResponse: () => ({
-          data: [{ data: { isAnythingPending: true, pending: [{ lorem: 'ipsum' }] } }],
+          data: [
+            {
+              data: {
+                isAnythingPending: false,
+                isAnythingCompleted: true,
+                pending: [],
+                completed: [{ dolor: 'sit' }]
+              }
+            }
+          ],
           fulfilled: true
         }),
         ...args?.[0]
@@ -84,7 +103,7 @@ describe('ToolbarFieldExport Component', () => {
     });
 
     await unmount();
-    expect(mockService.mock.calls).toMatchSnapshot('existingExports');
+    expect(mockNotification.mock.calls).toMatchSnapshot('existingExports');
   });
 
   it('should allow service calls on user confirmation', async () => {
