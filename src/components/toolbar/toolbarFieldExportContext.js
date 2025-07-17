@@ -42,7 +42,7 @@ const useExportConfirmation = ({
 
   return useCallback(
     ({ error, data } = {}, retryCount) => {
-      const { completed = [], isCompleted, isPending, pending = [] } = data?.data?.products?.[productId] || {};
+      const { completed = [], isCompleted, isPending, pending = [] } = data?.data || {};
 
       if (error || !confirmAppLoaded()) {
         return;
