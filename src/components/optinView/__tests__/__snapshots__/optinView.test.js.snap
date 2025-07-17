@@ -350,142 +350,6 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
 </form>
 `;
 
-exports[`OptinView Component should render an API state driven view: initial view 1`] = `
-<PageLayout>
-  <PageSection
-    className="curiosity-page-section__optin"
-  >
-    <Card
-      data-test="optinView"
-    >
-      <Flex>
-        <Flex
-          flex={
-            {
-              "default": "flex_2",
-            }
-          }
-        >
-          <FlexItem>
-            <CardTitle>
-              <Title
-                headingLevel="h1"
-                size="2xl"
-              >
-                t(curiosity-optin.cardTitle, {"appName":"Subscriptions"})
-              </Title>
-            </CardTitle>
-            <CardBody>
-              t(curiosity-optin.cardDescription, {"appName":"Subscriptions"})
-            </CardBody>
-            <CardTitle>
-              <Title
-                headingLevel="h2"
-                size="xl"
-              >
-                t(curiosity-optin.cardSeeTitle)
-              </Title>
-            </CardTitle>
-            <CardBody>
-              t(curiosity-optin.cardSeeDescription)
-            </CardBody>
-            <CardTitle>
-              <Title
-                headingLevel="h2"
-                size="xl"
-              >
-                t(curiosity-optin.cardReportTitle)
-              </Title>
-            </CardTitle>
-            <CardBody>
-              t(curiosity-optin.cardReportDescription)
-            </CardBody>
-            <CardTitle>
-              <Title
-                headingLevel="h2"
-                size="xl"
-              >
-                t(curiosity-optin.cardFilterTitle)
-              </Title>
-            </CardTitle>
-            <CardBody>
-              t(curiosity-optin.cardFilterDescription)
-            </CardBody>
-            <CardFooter>
-              <Form>
-                <ActionGroup>
-                  <Button
-                    data-test="optinButtonSubmitDisabled"
-                    isDisabled={true}
-                    variant="primary"
-                  >
-                    t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
-                  </Button>
-                </ActionGroup>
-              </Form>
-            </CardFooter>
-          </FlexItem>
-        </Flex>
-        <Flex
-          alignSelf={
-            {
-              "default": "alignSelfCenter",
-            }
-          }
-          flex={
-            {
-              "default": "flex_1",
-            }
-          }
-        >
-          <FlexItem>
-            <CardBody>
-              <Card
-                className="curiosity-optin-tour"
-              >
-                <CardHeader
-                  actions={
-                    {
-                      "actions": <Brand
-                        alt="t(curiosity-optin.tourTitleImageAlt)"
-                        aria-hidden={true}
-                        className="curiosity-optin-image"
-                        src="graph4x.png"
-                        srcSet="graph4x.png 1064w, graph2x.png 600w"
-                      />,
-                    }
-                  }
-                />
-                <CardTitle>
-                  <Title
-                    headingLevel="h3"
-                    size="2xl"
-                  >
-                    t(curiosity-optin.tourTitle)
-                  </Title>
-                </CardTitle>
-                <CardBody>
-                  t(curiosity-optin.tourDescription)
-                </CardBody>
-                <CardFooter>
-                  <Button
-                    className="uxui-curiosity__button-tour"
-                    data-test="optinButtonTour"
-                    variant="secondary"
-                  >
-                    t(curiosity-optin.buttonTour)
-                  </Button>
-                </CardFooter>
-              </Card>
-            </CardBody>
-          </FlexItem>
-        </Flex>
-      </Flex>
-    </Card>
-  </PageSection>
-</PageLayout>
-`;
-
 exports[`OptinView Component should render an API state driven view: null or undefined status view 1`] = `
 <form
   class="pf-v6-c-form"
@@ -576,22 +440,9 @@ exports[`OptinView Component should submit an opt-in form: dispatch 1`] = `
   [
     {
       "meta": {
-        "notifications": {
-          "fulfilled": {
-            "autoDismiss": true,
-            "description": "t(curiosity-optin.notificationsSuccessDescription)",
-            "dismissable": false,
-            "title": "t(curiosity-optin.notificationsSuccessTitle, {"appName":"Subscriptions"})",
-            "variant": "success",
-          },
-          "rejected": {
-            "description": "t(curiosity-optin.notificationsErrorDescription)",
-            "dismissable": false,
-            "title": "t(curiosity-optin.notificationsErrorTitle, {"appName":"Subscriptions"})",
-            "variant": "danger",
-          },
-        },
         "query": {},
+        "rejectCallback": [Function],
+        "resolveCallback": [Function],
       },
       "payload": Promise {},
       "type": "UPDATE_USER_OPTIN",

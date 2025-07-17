@@ -75,6 +75,8 @@ exports[`Platform Transformers should attempt to parse an exports response: expo
     "completed": [],
     "isAnythingCompleted": false,
     "isAnythingPending": false,
+    "isCompleted": false,
+    "isPending": false,
     "pending": [],
     "products": {},
   },
@@ -88,6 +90,8 @@ exports[`Platform Transformers should attempt to parse an exports response: expo
     "completed": [],
     "isAnythingCompleted": false,
     "isAnythingPending": true,
+    "isCompleted": false,
+    "isPending": true,
     "pending": [
       {
         "fileName": "20190720_000000_csv_swatch_report_rhel_for_x_86",
