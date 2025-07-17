@@ -20,7 +20,7 @@ describe('NotificationsContext', () => {
       }
     },
     {
-      description: 'swatchid',
+      description: 'swatchId (legacy swatchid)',
       notification: {
         swatchid: 'dolorSitAmet',
         title: 'Lorem ipsum'
@@ -42,16 +42,16 @@ describe('NotificationsContext', () => {
       notifications: [
         {
           id: 'generated-id-1',
-          swatchid: 'ametConsectetur',
+          swatchId: 'ametConsectetur',
           title: 'The original notification'
         },
         {
           id: 'generated-id-2',
-          swatchid: 'loremIpsum'
+          swatchId: 'loremIpsum'
         },
         {
           id: 'generated-id-3',
-          swatchid: 'dolorSit'
+          swatchId: 'dolorSit'
         }
       ]
     }
@@ -88,7 +88,7 @@ describe('NotificationsContext', () => {
       notifications: [
         {
           id: 'generated-id-1',
-          swatchid: 'loremIpsum',
+          swatchId: 'loremIpsum',
           title: 'Lorem ipsum'
         }
       ]
@@ -99,7 +99,7 @@ describe('NotificationsContext', () => {
       notifications: [
         {
           id: 'generated-id-2',
-          swatchid: 'dolorSitAmet',
+          swatchId: 'dolorSitAmet',
           title: 'Lorem ipsum'
         }
       ]
@@ -110,7 +110,7 @@ describe('NotificationsContext', () => {
       notifications: [
         {
           id: 'generated-id-3',
-          swatchid: 'ametConsectetur',
+          swatchId: 'ametConsectetur',
           title: 'Lorem ipsum'
         }
       ]
@@ -146,7 +146,7 @@ describe('NotificationsContext', () => {
       notifications: [
         {
           id: 'generated-id-1',
-          swatchid: 'loremIpsum',
+          swatchId: 'loremIpsum',
           title: 'Lorem ipsum'
         }
       ]
@@ -157,7 +157,7 @@ describe('NotificationsContext', () => {
       notifications: [
         {
           id: 'generated-id-2',
-          swatchid: 'dolorSitAmet',
+          swatchId: 'dolorSitAmet',
           title: 'Lorem ipsum'
         }
       ]
@@ -168,7 +168,7 @@ describe('NotificationsContext', () => {
       notifications: [
         {
           id: 'generated-id-3',
-          swatchid: 'ametConsectetur',
+          swatchId: 'ametConsectetur',
           title: 'Lorem ipsum'
         }
       ]

@@ -42,13 +42,13 @@ const useNotifications = ({ context = NotificationsContext } = {}) => {
    *
    * Check for a matching notification ID or `swatchId` from the collection.
    *
-   * @param {string|number} id - Identifier to search for, either the 'swatchid' or 'id'.
+   * @param {string|number} id - Identifier to search for, either the 'swatchId' or 'id'.
    * @returns {object|undefined} Notification match is found or not.
    */
   const getNotification = useCallback(
     id => {
       const notifications = baseGetNotifications();
-      return notifications.find(({ swatchid: internalId, id: generatedId }) => internalId === id || generatedId === id);
+      return notifications.find(({ swatchId: internalId, id: generatedId }) => internalId === id || generatedId === id);
     },
     [baseGetNotifications]
   );
@@ -58,7 +58,7 @@ const useNotifications = ({ context = NotificationsContext } = {}) => {
    *
    * Convenience wrapper for getNotification. Check for a matching notification ID or `swatchId` from the collection.
    *
-   * @param {string|number} id - Identifier to search for, either the 'swatchid' or 'id'.
+   * @param {string|number} id - Identifier to search for, either the 'swatchId' or 'id'.
    * @returns {boolean} Notification match is found or not.
    */
   const hasNotification = useCallback(id => getNotification(id) !== undefined, [getNotification]);
@@ -81,15 +81,15 @@ const useNotifications = ({ context = NotificationsContext } = {}) => {
    */
   const addNotification = useCallback(
     notification => {
-      const { swatchId, swatchid, ...remainingNotification } = notification;
-      const updatedSwatchId = swatchId || swatchid;
+      const { swatchId, ...remainingNotification } = notification;
+      const updatedSwatchId = swatchId;
       const existingNotification = getNotification(updatedSwatchId);
 
       if (existingNotification) {
         baseRemoveNotification(existingNotification.id);
       }
 
-      return baseAddNotification({ ...remainingNotification, swatchid: updatedSwatchId });
+      return baseAddNotification({ ...remainingNotification, swatchId: updatedSwatchId });
     },
     [baseAddNotification, baseRemoveNotification, getNotification]
   );

@@ -250,7 +250,7 @@ const useExistingExports = ({
   });
 
   useEffect(() => {
-    const isAnythingAvailable = isAnythingCompleted || false;
+    const isAnythingAvailable = isAnythingCompleted || isAnythingPending || false;
     const totalResults = completed.length + pending.length;
     // Confirm existing toast IDs for "toast pending/success" OR "existing toast message".
     const isExistingNotifications =

@@ -138,11 +138,12 @@ const exports = response => {
   Object.entries(updatedResponse.data.products).forEach(([productId, { pending, completed }]) => {
     updatedResponse.data.products[productId].isPending = pending.length > 0;
     updatedResponse.data.products[productId].isCompleted =
-      completed.length > 0 && !updatedResponse.data.products[productId].isPending;
+      (completed.length > 0 && !updatedResponse.data.products[productId].isPending) || false;
   });
 
   updatedResponse.data.isPending = updatedResponse.data.pending.length > 0;
-  updatedResponse.data.isCompleted = updatedResponse.data.completed.length > 0 && !updatedResponse.data.isPending;
+  updatedResponse.data.isCompleted =
+    (updatedResponse.data.completed.length > 0 && !updatedResponse.data.isPending) || false;
 
   return updatedResponse;
 };

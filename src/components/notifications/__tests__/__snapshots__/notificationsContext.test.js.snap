@@ -17,7 +17,28 @@ exports[`NotificationsContext should attempt addNotification with a custom ID: i
     [
       {
         "id": "ametConsectetur",
-        "swatchid": undefined,
+        "swatchId": undefined,
+        "title": "Lorem ipsum",
+      },
+    ],
+  ],
+  "getNotifications": [
+    {
+      "type": "return",
+      "value": [],
+    },
+  ],
+  "removeNotifications": [],
+}
+`;
+
+exports[`NotificationsContext should attempt addNotification with a custom ID: swatchId (legacy swatchid) 1`] = `
+{
+  "addNotifications": [
+    [
+      {
+        "swatchId": undefined,
+        "swatchid": "dolorSitAmet",
         "title": "Lorem ipsum",
       },
     ],
@@ -37,7 +58,7 @@ exports[`NotificationsContext should attempt addNotification with a custom ID: s
   "addNotifications": [
     [
       {
-        "swatchid": "loremIpsum",
+        "swatchId": "loremIpsum",
         "title": "Lorem ipsum",
       },
     ],
@@ -57,7 +78,7 @@ exports[`NotificationsContext should attempt addNotification with a custom ID: s
   "addNotifications": [
     [
       {
-        "swatchid": "ametConsectetur",
+        "swatchId": "ametConsectetur",
         "title": "Lorem ipsum",
       },
     ],
@@ -68,16 +89,16 @@ exports[`NotificationsContext should attempt addNotification with a custom ID: s
       "value": [
         {
           "id": "generated-id-1",
-          "swatchid": "ametConsectetur",
+          "swatchId": "ametConsectetur",
           "title": "The original notification",
         },
         {
           "id": "generated-id-2",
-          "swatchid": "loremIpsum",
+          "swatchId": "loremIpsum",
         },
         {
           "id": "generated-id-3",
-          "swatchid": "dolorSit",
+          "swatchId": "dolorSit",
         },
       ],
     },
@@ -87,26 +108,6 @@ exports[`NotificationsContext should attempt addNotification with a custom ID: s
       "generated-id-1",
     ],
   ],
-}
-`;
-
-exports[`NotificationsContext should attempt addNotification with a custom ID: swatchid 1`] = `
-{
-  "addNotifications": [
-    [
-      {
-        "swatchid": "dolorSitAmet",
-        "title": "Lorem ipsum",
-      },
-    ],
-  ],
-  "getNotifications": [
-    {
-      "type": "return",
-      "value": [],
-    },
-  ],
-  "removeNotifications": [],
 }
 `;
 
@@ -132,7 +133,7 @@ exports[`NotificationsContext should find a notification with getNotification an
 {
   "getNotification": {
     "id": "generated-id-2",
-    "swatchid": "dolorSitAmet",
+    "swatchId": "dolorSitAmet",
     "title": "Lorem ipsum",
   },
   "hasNotification": true,
@@ -150,7 +151,7 @@ exports[`NotificationsContext should find a notification with getNotification an
 {
   "getNotification": {
     "id": "generated-id-1",
-    "swatchid": "loremIpsum",
+    "swatchId": "loremIpsum",
     "title": "Lorem ipsum",
   },
   "hasNotification": true,
