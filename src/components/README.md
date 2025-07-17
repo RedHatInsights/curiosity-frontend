@@ -3965,7 +3965,7 @@ Check for a matching notification ID or `swatchId` from the collection.
   </thead>
   <tbody>
 <tr>
-    <td>id</td><td><code>string</code> | <code>number</code></td><td><p>Identifier to search for, either the &#39;swatchid&#39; or &#39;id&#39;.</p>
+    <td>id</td><td><code>string</code> | <code>number</code></td><td><p>Identifier to search for, either the &#39;swatchId&#39; or &#39;id&#39;.</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -3987,7 +3987,7 @@ Convenience wrapper for getNotification. Check for a matching notification ID or
   </thead>
   <tbody>
 <tr>
-    <td>id</td><td><code>string</code> | <code>number</code></td><td><p>Identifier to search for, either the &#39;swatchid&#39; or &#39;id&#39;.</p>
+    <td>id</td><td><code>string</code> | <code>number</code></td><td><p>Identifier to search for, either the &#39;swatchId&#39; or &#39;id&#39;.</p>
 </td>
     </tr>  </tbody>
 </table>
