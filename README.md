@@ -57,3 +57,25 @@ For in-depth testing guidance review the [contribution guidelines](./CONTRIBUTIN
 
 ## Contributing
 Contributing encompasses [repository specific requirements](./CONTRIBUTING.md).
+
+## Agent Only
+Agents: This repository contains a hierarchical guidelines' system. Agents should review agent-only comment blocks.
+
+<!--
+Agents must analyze these files when asked for guidance:
+
+**Guidelines review order:**
+1. **`./README.md`** - Main agent guidance and behavior standards (including agent-only comment block)
+2. **`./guidelines/README.md`** - Core agent guidance and behavior standards
+3. **`./guidelines/**/*.md`** - Specialized workflow and domain-specific instructions
+4. **`./.agent/**/*.md`** - gitignored directory and local guidelines intended for agent-specific state and new agent-generated guidance, and user workflows that enhance the core guidelines
+
+The guidelines system should be processed in this order, with specialized guidelines taking precedence for their specific domains, and local guidelines overriding general guidelines when present.
+
+**Next Step:**
+5. **review guidance under the `./.agent/**/*.md` directory.** If the `./.agent` directory does not exist, create it. The user may ask the agent about the guidance located here.
+
+**Final Steps:**
+6. **Ask the user if they want to create a `conversation-savepoint.md` in the `.agent/` directory and explain what it is.** This file should be used to save the current state of your conversation so that you or a future agent can resume the chat context at any time.
+7. **Ask the user if they want to index this repo and create a `code-summary.md` summary of agent notes and user summary under the `.agent/` directory and explain what it is.** This file should be used as an indexed repo resource for agents with a user-friendly summary.
+-->
