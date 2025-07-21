@@ -6480,40 +6480,20 @@ Display an export/download field with options. Check and download available expo
 ## ToolbarFieldExportContext
 
 * [ToolbarFieldExportContext](#ToolbarFieldExport.module_ToolbarFieldExportContext)
-    * [~useExportConfirmation(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExportConfirmation) ⇒ <code>function</code>
+    * [~exportCache](#ToolbarFieldExport.module_ToolbarFieldExportContext..exportCache) : <code>object</code>
     * [~useExport(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExport) ⇒ <code>function</code>
     * [~useExistingExportsConfirmation(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExistingExportsConfirmation) ⇒ <code>function</code>
     * [~useExistingExports(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExistingExports)
     * [~useExportStatus(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExportStatus) ⇒ <code>Object</code>
 
-<a name="ToolbarFieldExport.module_ToolbarFieldExportContext..useExportConfirmation"></a>
+<a name="ToolbarFieldExport.module_ToolbarFieldExportContext..exportCache"></a>
 
-### ToolbarFieldExportContext~useExportConfirmation(options) ⇒ <code>function</code>
-Return a polling status callback. Used when creating an export.
+### ToolbarFieldExportContext~exportCache : <code>object</code>
+Cache store for confirming if the existing exports checked fired.
 
-**Kind**: inner method of [<code>ToolbarFieldExportContext</code>](#ToolbarFieldExport.module_ToolbarFieldExportContext)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.t</td><td><code>translate</code></td>
-    </tr><tr>
-    <td>options.useAppLoad</td><td><code>useAppLoad</code></td>
-    </tr><tr>
-    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
-    </tr><tr>
-    <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
-    </tr><tr>
-    <td>options.useProduct</td><td><code>useProduct</code></td>
-    </tr>  </tbody>
-</table>
+If the page/UI is not refreshed, the cache will reset after 5 minutes and allow future checks.
 
+**Kind**: inner constant of [<code>ToolbarFieldExportContext</code>](#ToolbarFieldExport.module_ToolbarFieldExportContext)  
 <a name="ToolbarFieldExport.module_ToolbarFieldExportContext..useExport"></a>
 
 ### ToolbarFieldExportContext~useExport(options) ⇒ <code>function</code>
@@ -6534,9 +6514,9 @@ Apply an export hook for an export post. The service automatically sets up polli
     </tr><tr>
     <td>options.t</td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
+    <td>options.useAppLoad</td><td><code>useAppLoad</code></td>
     </tr><tr>
-    <td>options.useExportConfirmation</td><td><code>useExportConfirmation</code></td>
+    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
     <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
     </tr>  </tbody>
@@ -6587,6 +6567,8 @@ Apply an existing exports hook for user abandoned reports. Allow bulk polling st
   <tbody>
 <tr>
     <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.cache</td><td><code>object</code></td>
     </tr><tr>
     <td>options.getExistingExportsStatus</td><td><code>reduxActions.platform.getExistingExportsStatus</code></td>
     </tr><tr>
