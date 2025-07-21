@@ -43,6 +43,7 @@ describe('ToolbarFieldExport Component', () => {
       data: {
         data: {
           completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],
+          isAnything: true,
           isCompleted: false,
           isPending: true,
           pending: [{ id: 'dolorSit', fileName: 'dolorSitFileName' }],
@@ -120,19 +121,18 @@ describe('ToolbarFieldExport Component', () => {
     expect(mockService.mock.calls).toMatchSnapshot('confirmation');
   });
 
-  it('should aggregate export status, polling status with a hook', async () => {
-    const { result: basic, unmount: unmountBasic } = await renderHook(() =>
-      useExportStatus({
+  it.each([
+    {
+      description: 'basic status',
+      params: {
         useProduct: () => ({
           productId: 'loremIpsum'
         })
-      })
-    );
-    await unmountBasic();
-    expect(basic).toMatchSnapshot('status, basic');
-
-    const { result: polling, unmount: unmountPolling } = await renderHook(() =>
-      useExportStatus({
+      }
+    },
+    {
+      description: 'polling status',
+      params: {
         useProduct: () => ({
           productId: 'loremIpsum'
         }),
@@ -145,13 +145,11 @@ describe('ToolbarFieldExport Component', () => {
             }
           ]
         })
-      })
-    );
-    await unmountPolling();
-    expect(polling).toMatchSnapshot('status, polling');
-
-    const { result: completed, unmount: unmountCompleted } = await renderHook(() =>
-      useExportStatus({
+      }
+    },
+    {
+      description: 'polling completed',
+      params: {
         useProduct: () => ({
           productId: 'loremIpsum'
         }),
@@ -159,9 +157,11 @@ describe('ToolbarFieldExport Component', () => {
           isPending: false,
           pending: []
         })
-      })
-    );
-    await unmountCompleted();
-    expect(completed).toMatchSnapshot('status, completed');
+      }
+    }
+  ])('should aggregate export status, polling status with a hook, $description', async ({ params }) => {
+    const { result, unmount } = await renderHook(() => useExportStatus(params));
+    await unmount();
+    expect(result).toMatchSnapshot();
   });
 });

@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToolbarFieldExport Component should aggregate export status, polling status with a hook: status, basic 1`] = `
+exports[`ToolbarFieldExport Component should aggregate export status, polling status with a hook, basic status 1`] = `
 {
   "isProductPending": false,
   "pendingProductFormats": [],
 }
 `;
 
-exports[`ToolbarFieldExport Component should aggregate export status, polling status with a hook: status, completed 1`] = `
+exports[`ToolbarFieldExport Component should aggregate export status, polling status with a hook, polling completed 1`] = `
 {
   "isProductPending": false,
   "pendingProductFormats": [],
 }
 `;
 
-exports[`ToolbarFieldExport Component should aggregate export status, polling status with a hook: status, polling 1`] = `
+exports[`ToolbarFieldExport Component should aggregate export status, polling status with a hook, polling status 1`] = `
 {
   "isProductPending": true,
   "pendingProductFormats": [
@@ -114,7 +114,17 @@ exports[`ToolbarFieldExport Component should expose an export polling status con
   [
     [
       {
+        "completed": [
+          {
+            "fileName": "helloWorldFileName",
+            "id": "helloWorld",
+          },
+        ],
+        "failed": [],
         "id": "loremIpsum",
+        "isAnything": true,
+        "isCompleted": false,
+        "isFailed": undefined,
         "isPending": true,
         "pending": [
           {

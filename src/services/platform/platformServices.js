@@ -188,8 +188,8 @@ const deleteExport = (id, options = {}) => {
  *           "created_at": "2024-01-24T16:20:31.229Z",
  *           "completed_at": "2024-01-24T16:20:31.229Z",
  *           "expires_at": "2024-01-24T16:20:31.229Z",
- *           "format": "json",
- *           "status": "pending"
+ *           "format": "csv",
+ *           "status": "failed"
  *         }
  *       ]
  *     }
@@ -226,6 +226,12 @@ const deleteExport = (id, options = {}) => {
  *           "status": "partial"
  *         }
  *       ]
+ *     }
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": []
  *     }
  *
  * @apiErrorExample {json} Error-Response:
@@ -391,22 +397,50 @@ const getExistingExports = (idList, params = {}, options = {}) => {
         url: process.env.REACT_APP_SERVICES_PLATFORM_EXPORT,
         ...poll?.location
       },
-      validate: response => {
+      validate: async response => {
         // FixMe: replace classic querySelector logic for "does the ui wrapper exist?" with external service cancel
-        if (!document.querySelector('.curiosity')) {
+        if (!document.querySelector('.curiosity') || response?.data?.data?.isAnything === false) {
           return true;
         }
 
-        const completedResults = response?.data?.data?.completed;
-        const isIdListCompleted =
-          idList.filter(({ id }) => completedResults.find(({ id: completedId }) => completedId === id) !== undefined)
-            .length === idList.length;
+        const failedResults = response?.data?.data?.failed || [];
+        const completedResults = response?.data?.data?.completed || [];
 
-        if (isIdListCompleted && completedResults.length > 0) {
-          Promise.all(idList.map(({ id, fileName }) => getExport(id, { fileName })));
+        // Check if any of the requested exports have failed
+        const failedIds = idList.filter(
+          ({ id }) => failedResults.find(({ id: failedId }) => failedId === id) !== undefined
+        );
+
+        // Check if any of the requested exports have completed
+        const completedIds = idList.filter(
+          ({ id }) => completedResults.find(({ id: completedId }) => completedId === id) !== undefined
+        );
+
+        // Any export has failed, stop and cleanup. We `await` to avoid ID conflicts with polling against the service.
+        if (failedIds.length > 0) {
+          await Promise.all(failedIds.map(({ id }) => deleteExport(id))).catch(error => {
+            if (!helpers.PROD_MODE) {
+              console.warn('Failed to delete exports:', error);
+            }
+          });
         }
 
-        return isIdListCompleted;
+        // Any export completed, download it. We `await` to avoid ID conflicts with polling against the service.
+        if (completedResults.length > 0) {
+          await Promise.all(completedIds.map(({ id, fileName }) => getExport(id, { fileName }))).catch(error => {
+            if (!helpers.PROD_MODE) {
+              console.warn('Failed to download exports:', error);
+            }
+          });
+        }
+
+        return (
+          idList.filter(
+            ({ id }) =>
+              completedIds.find(({ id: completedId }) => completedId === id) === undefined &&
+              failedIds.find(({ id: failedId }) => failedId === id) === undefined
+          ).length === 0
+        );
       },
       ...poll
     },
@@ -498,22 +532,41 @@ const postExport = async (data = {}, options = {}) => {
           poll.status.call(null, successResponse, ...args);
         }
       },
-      validate: response => {
+      validate: async response => {
         // FixMe: replace classic querySelector logic for "does the ui wrapper exist?" with external service cancel
-        if (!document.querySelector('.curiosity')) {
+        if (!document.querySelector('.curiosity') || response?.data?.data?.isAnything === false) {
           return true;
         }
+
+        const foundFailed = response?.data?.data?.failed?.find(
+          ({ id }) => downloadId !== undefined && id === downloadId
+        );
 
         const foundDownload = response?.data?.data?.completed.find(
           ({ id }) => downloadId !== undefined && id === downloadId
         );
 
-        if (foundDownload) {
-          const { id, fileName } = foundDownload;
-          getExport(id, { fileName });
+        // Export has failed, stop and cleanup. We `await` to avoid ID conflicts with polling against the service.
+        if (foundFailed) {
+          const { id } = foundFailed;
+          await deleteExport(id).catch(error => {
+            if (!helpers.PROD_MODE) {
+              console.warn('Failed to delete export:', error);
+            }
+          });
         }
 
-        return foundDownload !== undefined;
+        // Export completed, download it. We `await` to avoid ID conflicts with polling against the service.
+        if (foundDownload) {
+          const { id, fileName } = foundDownload;
+          await getExport(id, { fileName }).catch(error => {
+            if (!helpers.PROD_MODE) {
+              console.warn('Failed to download export:', error);
+            }
+          });
+        }
+
+        return foundDownload !== undefined || foundFailed !== undefined;
       }
     },
     method: 'post',
