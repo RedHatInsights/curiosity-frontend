@@ -6480,147 +6480,180 @@ Display an export/download field with options. Check and download available expo
 ## ToolbarFieldExportContext
 
 * [ToolbarFieldExportContext](#ToolbarFieldExport.module_ToolbarFieldExportContext)
-    * [~useExportConfirmation(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExportConfirmation) ⇒ <code>function</code>
-    * [~useExport(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExport) ⇒ <code>function</code>
-    * [~useExistingExportsConfirmation(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExistingExportsConfirmation) ⇒ <code>function</code>
-    * [~useExistingExports(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExistingExports)
-    * [~useExportStatus(options)](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExportStatus) ⇒ <code>Object</code>
+    * [~NOTIFICATION_IDS](#ToolbarFieldExport.module_ToolbarFieldExportContext..NOTIFICATION_IDS) : <code>Object</code>
+    * [~useExportConfirmation([options])](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExportConfirmation) ⇒ <code>function</code>
+    * [~useExportRejection([options])](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExportRejection) ⇒ <code>function</code>
+    * [~useExport([options])](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExport) ⇒ <code>function</code>
+    * [~useExistingExportsConfirmation([options])](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExistingExportsConfirmation) ⇒ <code>function</code>
+    * [~useExistingExports([options])](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExistingExports)
+    * [~useExportStatus([options])](#ToolbarFieldExport.module_ToolbarFieldExportContext..useExportStatus) ⇒ <code>Object</code>
 
+<a name="ToolbarFieldExport.module_ToolbarFieldExportContext..NOTIFICATION_IDS"></a>
+
+### ToolbarFieldExportContext~NOTIFICATION\_IDS : <code>Object</code>
+A constant object containing notification identifiers for various export statuses.
+
+Properties:
+- `EXPORT_INDIVIDUAL_STATUS`: Identifier for notifications related to individual status updates
+    during export operations.
+- `EXPORT_STATUS`: Identifier for notifications pertaining to overall export operation status updates.
+
+**Kind**: inner constant of [<code>ToolbarFieldExportContext</code>](#ToolbarFieldExport.module_ToolbarFieldExportContext)  
 <a name="ToolbarFieldExport.module_ToolbarFieldExportContext..useExportConfirmation"></a>
 
-### ToolbarFieldExportContext~useExportConfirmation(options) ⇒ <code>function</code>
+### ToolbarFieldExportContext~useExportConfirmation([options]) ⇒ <code>function</code>
 Return a polling status callback. Used when creating an export.
 
 **Kind**: inner method of [<code>ToolbarFieldExportContext</code>](#ToolbarFieldExport.module_ToolbarFieldExportContext)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>[options]</td><td><code>object</code></td><td><code>{}</code></td>
     </tr><tr>
-    <td>options.t</td><td><code>translate</code></td>
+    <td>[options.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.useAppLoad</td><td><code>useAppLoad</code></td>
+    <td>[options.useAppLoad]</td><td><code>useAppLoad</code></td><td><code>useAppLoad</code></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
+    <td>[options.useNotifications]</td><td><code>NotificationsContext.useNotifications</code></td><td><code>NotificationsContext.useNotifications</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>useProduct</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="ToolbarFieldExport.module_ToolbarFieldExportContext..useExportRejection"></a>
+
+### ToolbarFieldExportContext~useExportRejection([options]) ⇒ <code>function</code>
+Handle export rejection notifications.
+
+**Kind**: inner method of [<code>ToolbarFieldExportContext</code>](#ToolbarFieldExport.module_ToolbarFieldExportContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>[options]</td><td><code>object</code></td><td><code>{}</code></td>
+    </tr><tr>
+    <td>[options.t]</td><td><code>function</code></td><td><code>translate</code></td>
+    </tr><tr>
+    <td>[options.useNotifications]</td><td><code>object</code></td><td><code>NotificationsContext.useNotifications</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="ToolbarFieldExport.module_ToolbarFieldExportContext..useExport"></a>
 
-### ToolbarFieldExportContext~useExport(options) ⇒ <code>function</code>
+### ToolbarFieldExportContext~useExport([options]) ⇒ <code>function</code>
 Apply an export hook for an export post. The service automatically sets up polling, then force downloads the file.
 
 **Kind**: inner method of [<code>ToolbarFieldExportContext</code>](#ToolbarFieldExport.module_ToolbarFieldExportContext)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>[options]</td><td><code>object</code></td><td><code>{}</code></td>
     </tr><tr>
-    <td>options.createExport</td><td><code>reduxActions.platform.createExport</code></td>
+    <td>[options.createExport]</td><td><code>reduxActions.platform.createExport</code></td><td><code>reduxActions.platform.createExport</code></td>
     </tr><tr>
-    <td>options.t</td><td><code>translate</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
+    <td>[options.useExportConfirmation]</td><td><code>useExportConfirmation</code></td><td><code>useExportConfirmation</code></td>
     </tr><tr>
-    <td>options.useExportConfirmation</td><td><code>useExportConfirmation</code></td>
-    </tr><tr>
-    <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
+    <td>[options.useExportRejection]</td><td><code>useExportRejection</code></td><td><code>useExportRejection</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="ToolbarFieldExport.module_ToolbarFieldExportContext..useExistingExportsConfirmation"></a>
 
-### ToolbarFieldExportContext~useExistingExportsConfirmation(options) ⇒ <code>function</code>
+### ToolbarFieldExportContext~useExistingExportsConfirmation([options]) ⇒ <code>function</code>
 User confirmation results when existing exports are detected.
 
 **Kind**: inner method of [<code>ToolbarFieldExportContext</code>](#ToolbarFieldExport.module_ToolbarFieldExportContext)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>[options]</td><td><code>object</code></td><td><code>{}</code></td>
     </tr><tr>
-    <td>options.deleteExistingExports</td><td><code>reduxActions.platform.deleteExistingExports</code></td>
+    <td>[options.deleteExistingExports]</td><td><code>reduxActions.platform.deleteExistingExports</code></td><td></td>
     </tr><tr>
-    <td>options.getExistingExports</td><td><code>reduxActions.platform.getExistingExports</code></td>
+    <td>[options.getExistingExports]</td><td><code>reduxActions.platform.getExistingExports</code></td><td></td>
     </tr><tr>
-    <td>options.t</td><td><code>translate</code></td>
+    <td>[options.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.useAppLoad</td><td><code>useAppLoad</code></td>
+    <td>[options.useAppLoad]</td><td><code>useAppLoad</code></td><td><code>useAppLoad</code></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
+    <td>[options.useNotifications]</td><td><code>NotificationsContext.useNotifications</code></td><td><code>NotificationsContext.useNotifications</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="ToolbarFieldExport.module_ToolbarFieldExportContext..useExistingExports"></a>
 
-### ToolbarFieldExportContext~useExistingExports(options)
-Apply an existing exports hook for user abandoned reports. Allow bulk polling status with download.
+### ToolbarFieldExportContext~useExistingExports([options])
+Apply an existing exports hook for user-abandoned reports. Allow bulk polling status with download.
 
 **Kind**: inner method of [<code>ToolbarFieldExportContext</code>](#ToolbarFieldExport.module_ToolbarFieldExportContext)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>[options]</td><td><code>object</code></td><td><code>{}</code></td>
     </tr><tr>
-    <td>options.getExistingExportsStatus</td><td><code>reduxActions.platform.getExistingExportsStatus</code></td>
+    <td>[options.getExistingExportsStatus]</td><td><code>reduxActions.platform.getExistingExportsStatus</code></td><td></td>
     </tr><tr>
-    <td>options.t</td><td><code>translate</code></td>
+    <td>[options.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
-    <td>options.useDispatch</td><td><code>storeHooks.reactRedux.useDispatch</code></td>
+    <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>options.useExistingExportsConfirmation</td><td><code>useExistingExportsConfirmation</code></td>
+    <td>[options.useExistingExportsConfirmation]</td><td><code>useExistingExportsConfirmation</code></td><td><code>useExistingExportsConfirmation</code></td>
     </tr><tr>
-    <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
+    <td>[options.useNotifications]</td><td><code>NotificationsContext.useNotifications</code></td><td><code>NotificationsContext.useNotifications</code></td>
     </tr><tr>
-    <td>options.useSelectorsResponse</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td>
+    <td>[options.useSelectorsResponse]</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td><td></td>
     </tr>  </tbody>
 </table>
 
 <a name="ToolbarFieldExport.module_ToolbarFieldExportContext..useExportStatus"></a>
 
-### ToolbarFieldExportContext~useExportStatus(options) ⇒ <code>Object</code>
+### ToolbarFieldExportContext~useExportStatus([options]) ⇒ <code>Object</code>
 Aggregated export status
 
 **Kind**: inner method of [<code>ToolbarFieldExportContext</code>](#ToolbarFieldExport.module_ToolbarFieldExportContext)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>options</td><td><code>object</code></td>
+    <td>[options]</td><td><code>object</code></td><td><code>{}</code></td>
     </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
-    <td>options.useSelector</td><td><code>function</code></td>
+    <td>[options.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
     </tr>  </tbody>
 </table>
 

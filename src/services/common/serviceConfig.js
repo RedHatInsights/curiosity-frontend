@@ -42,29 +42,62 @@ const globalResponseCache = new LRUCache({
 });
 
 /**
- * Set Axios configuration. This includes response schema validation and caching.
- * Call platform "getUser" auth method, and apply service config. Service configuration
- * includes the ability to cancel all and specific calls, cache and normalize a response
- * based on both a provided schema and a successful API response. The cache will refresh
- * its timeout on continuous calls. To reset it a user will either need to refresh the
- * page or wait the "maxAge".
+ * Executes an HTTP request using Axios with customizable configurations, advanced response processing,
+ * caching mechanisms, and support for polling and cancellation.
  *
- * @param {object} config
- * @param {object} config.cache
- * @param {boolean} config.cancel
- * @param {string} config.cancelId
- * @param {object} config.params
+ * - **Caching**:
+ * Requests using the `GET` method with `cacheResponse: true`. Use the provided `responseCache` to store responses.
+ * Responses are retrieved and returned directly from the cache if available, marked with a 304 "Not Modified" status.
+ * Cache will refresh its timeout on continuous calls. To reset, a user either needs to refresh the page or wait the
+ * `maxAge` determined by `globalResponseCache`.
+ *
+ * - **Cancellation**:
+ * Configurations with `cancel: true` allow cancellation of ongoing requests. `cancelId` distinguishes different
+ * request groups, and repeated requests with the same `cancelId` cancel earlier ones.
+ *
+ * - **Polling**:
+ * Enables polling behavior by using the `poll` configuration. Polling continues either until a validation
+ * callback returns `true` or a custom condition is met. Up-to-date responses from polling can execute status
+ * callbacks via a user-defined `status` function.
+ *
+ * - **Transformations**:
+ * User-provided `schema` and `transform` configurations modify response data or handling behavior. Both success
+ * and error transformations are supported and executed conditionally.
+ *
+ * - **Emulation**:
+ * Supports emulated API responses by passing a callback function to `url`. The emulated response is wrapped and
+ * provided as a resolved HTTP response.
+ *
+ * @example
+ * // Configurations should be passed as arguments.
+ * axiosServiceCall({ method: 'get', url: '/example' }, { xhrTimeout: 5000 });
+ *
+ * @param {object} [config={}] - A modified Axios request configuration object. See https://axios-http.com/ for all options.
+ * @param {boolean} [config.cache] - Cache `GET` requests. Cached responses are marked with a 304 "Not Modified" status.
+ * @param {boolean} [config.cancel] - Cancel the previous request with the same identifier. Use `config.cancelId` to
+ *     create your own groupings. If `config.cancelId` isn't set, it's automatically generated using `config` as a key.
+ * @param {string} [config.cancelId] - An optional `cancelId` to create custom request cancel groups.
+ * @param {boolean} [config.exposeCacheId] - Developer option intended for testing cache identifiers.
+ * @param {string} [config.method='get'] - The request method. Standard Axios setting.
+ * @param {object|URLSearchParams} [config.params] - Search parameters in a plain or `URLSearchParams` object.
+ *     `undefined` parameters will be pruned. Standard Axios setting.
  * @param {{location: Function|string|{url: string|Function, config: serviceConfig}, validate: Function,
- *     pollInterval: number, status: Function}|Function} config.poll
- * @param {Array} config.schema
- * @param {Array} config.transform
- * @param {string|Function} config.url
- * @param {object} options
- * @param {string} options.cancelledMessage
- * @param {object} options.responseCache
- * @param {number} options.xhrTimeout
- * @param {number} options.pollInterval
- * @returns {Promise<*>}
+ *     pollInterval: number, status: Function}|Function} [config.poll] - Enable polling
+ *     - `config.poll.location` -
+ *     - `config.poll.validate` -
+ *     - `config.poll.pollInterval` -
+ *     - `config.poll.status` -
+ *
+ * @param {object} [options={}] - Additional configuration options for the service call.
+ * @param {string} [options.cancelledMessage="cancelled request"] - Message to be returned when a request is cancelled.
+ * @param {object} [options.responseCache=globalResponseCache] - Cache instance to store and retrieve cached responses.
+ * @param {number} [options.xhrTimeout=globalXhrTimeout] - Timeout duration for HTTP requests in milliseconds.
+ * @param {number} [options.pollInterval=globalPollInterval] - Global millisecond polling interval.
+ *
+ * @returns {Promise} A promise that resolves with the HTTP response or rejects with an error.
+ *
+ * @throws Will throw an error if the operation fails due to request issues or transform errors. Catch errors
+ *     accordingly.
  */
 const axiosServiceCall = async (
   config = {},
@@ -76,11 +109,11 @@ const axiosServiceCall = async (
   } = {}
 ) => {
   const updatedConfig = {
-    timeout: xhrTimeout,
     ...config,
     cache: undefined,
     cacheResponse: config.cache,
-    method: config.method || 'get'
+    method: config.method || 'get',
+    timeoutResponse: config.timeout || xhrTimeout
   };
   const responseTransformers = [];
   const axiosInstance = axios.create();

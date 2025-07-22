@@ -1,6 +1,7 @@
 import {
   useExport,
   useExportConfirmation,
+  useExportRejection,
   useExportStatus,
   useExistingExports,
   useExistingExportsConfirmation
@@ -31,35 +32,125 @@ describe('ToolbarFieldExport Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should expose an export polling status confirmation', async () => {
+  it.each([
+    {
+      description: 'app not loaded',
+      params: {
+        useProduct: () => ({
+          productId: 'loremIpsum'
+        })
+      },
+      data: {}
+    },
+    {
+      description: 'app loaded, no data',
+      params: {
+        useAppLoad: () => () => true,
+        useProduct: () => ({
+          productId: 'loremIpsum'
+        })
+      },
+      data: {}
+    },
+    {
+      description: 'pending notification',
+      params: {
+        useAppLoad: () => () => true,
+        useProduct: () => ({
+          productId: 'loremIpsum'
+        })
+      },
+      data: {
+        isAnything: true
+      },
+      retryCount: -1
+    },
+    {
+      description: 'completed notification',
+      params: {
+        useAppLoad: () => () => true,
+        useProduct: () => ({
+          productId: 'loremIpsum'
+        })
+      },
+      data: {
+        completed: [{ id: 'dolorSit', fileName: 'dolorSitFileName' }],
+        failed: [],
+        isAnything: true,
+        isCompleted: true,
+        isFailed: false,
+        isPending: false,
+        pending: []
+      }
+    },
+    {
+      description: 'failed notification',
+      params: {
+        useAppLoad: () => () => true,
+        useProduct: () => ({
+          productId: 'loremIpsum'
+        })
+      },
+      data: {
+        completed: [],
+        failed: [{ id: 'dolorSit', fileName: 'dolorSitFileName' }],
+        isAnything: true,
+        isCompleted: false,
+        isFailed: true,
+        isPending: false,
+        pending: []
+      }
+    },
+    {
+      description: 'multi-status no notification',
+      params: {
+        useAppLoad: () => () => true,
+        useProduct: () => ({
+          productId: 'loremIpsum'
+        })
+      },
+      data: {
+        completed: [{ id: 'loremIpsum', fileName: 'loremIpsumFileName' }],
+        failed: [{ id: 'dolorSit', fileName: 'dolorSitFileName' }],
+        isAnything: true,
+        isCompleted: false,
+        isFailed: false,
+        isPending: true,
+        pending: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }]
+      }
+    }
+  ])('should expose an export polling status confirmation, $description', async ({ data, params, retryCount }) => {
+    const mockNotification = jest.fn();
     const { result: statusConfirmation, unmount } = await renderHook(() =>
       useExportConfirmation({
-        useAppLoad: () => () => true,
-        useProduct: () => ({ productId: 'loremIpsum' })
+        useNotifications: () => ({
+          addNotification: mockNotification
+        }),
+        ...params
       })
     );
 
-    statusConfirmation({
-      data: {
-        data: {
-          completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],
-          isCompleted: false,
-          isPending: true,
-          pending: [{ id: 'dolorSit', fileName: 'dolorSitFileName' }],
-          products: {
-            loremIpsum: {
-              completed: [{ id: 'helloWorld', fileName: 'helloWorldFileName' }],
-              isCompleted: false,
-              isPending: true,
-              pending: [{ id: 'dolorSit', fileName: 'dolorSitFileName' }]
-            }
-          }
-        }
-      }
-    });
-
+    statusConfirmation({ data: { data } }, retryCount);
     await unmount();
-    expect(mockDispatch.mock.calls).toMatchSnapshot('statusConfirmation');
+    expect({
+      notification: mockNotification.mock.calls,
+      dispatch: mockDispatch.mock.calls
+    }).toMatchSnapshot();
+  });
+
+  it('should expose an export polling status rejection', async () => {
+    const mockNotification = jest.fn();
+    const { result: statusRejection, unmount } = await renderHook(() =>
+      useExportRejection({
+        useNotifications: () => ({
+          addNotification: mockNotification
+        })
+      })
+    );
+
+    statusRejection();
+    await unmount();
+    expect(mockNotification.mock.calls).toMatchSnapshot('status rejection');
   });
 
   it('should allow export service calls', async () => {
@@ -76,7 +167,6 @@ describe('ToolbarFieldExport Component', () => {
 
     const { unmount } = await renderHook((...args) => {
       useExistingExports({
-        addNotification: mockService,
         getExistingExports: mockService,
         getExistingExportsStatus: mockService,
         deleteExistingExports: mockService,
@@ -120,19 +210,18 @@ describe('ToolbarFieldExport Component', () => {
     expect(mockService.mock.calls).toMatchSnapshot('confirmation');
   });
 
-  it('should aggregate export status, polling status with a hook', async () => {
-    const { result: basic, unmount: unmountBasic } = await renderHook(() =>
-      useExportStatus({
+  it.each([
+    {
+      description: 'basic status',
+      params: {
         useProduct: () => ({
           productId: 'loremIpsum'
         })
-      })
-    );
-    await unmountBasic();
-    expect(basic).toMatchSnapshot('status, basic');
-
-    const { result: polling, unmount: unmountPolling } = await renderHook(() =>
-      useExportStatus({
+      }
+    },
+    {
+      description: 'polling status',
+      params: {
         useProduct: () => ({
           productId: 'loremIpsum'
         }),
@@ -145,13 +234,11 @@ describe('ToolbarFieldExport Component', () => {
             }
           ]
         })
-      })
-    );
-    await unmountPolling();
-    expect(polling).toMatchSnapshot('status, polling');
-
-    const { result: completed, unmount: unmountCompleted } = await renderHook(() =>
-      useExportStatus({
+      }
+    },
+    {
+      description: 'polling completed',
+      params: {
         useProduct: () => ({
           productId: 'loremIpsum'
         }),
@@ -159,9 +246,11 @@ describe('ToolbarFieldExport Component', () => {
           isPending: false,
           pending: []
         })
-      })
-    );
-    await unmountCompleted();
-    expect(completed).toMatchSnapshot('status, completed');
+      }
+    }
+  ])('should aggregate export status, polling status with a hook, $description', async ({ params }) => {
+    const { result, unmount } = await renderHook(() => useExportStatus(params));
+    await unmount();
+    expect(result).toMatchSnapshot();
   });
 });

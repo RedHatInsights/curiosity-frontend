@@ -73,9 +73,13 @@ exports[`Platform Transformers should attempt to parse an exports response: expo
 {
   "data": {
     "completed": [],
+    "failed": [],
+    "isAnything": false,
     "isAnythingCompleted": false,
+    "isAnythingFailed": false,
     "isAnythingPending": false,
     "isCompleted": false,
+    "isFailed": false,
     "isPending": false,
     "pending": [],
     "products": {},
@@ -88,9 +92,13 @@ exports[`Platform Transformers should attempt to parse an exports response: expo
 {
   "data": {
     "completed": [],
+    "failed": [],
+    "isAnything": true,
     "isAnythingCompleted": false,
+    "isAnythingFailed": false,
     "isAnythingPending": true,
     "isCompleted": false,
+    "isFailed": false,
     "isPending": true,
     "pending": [
       {
@@ -105,7 +113,9 @@ exports[`Platform Transformers should attempt to parse an exports response: expo
     "products": {
       "RHEL for x86": {
         "completed": [],
+        "failed": [],
         "isCompleted": false,
+        "isFailed": false,
         "isPending": true,
         "pending": [
           {

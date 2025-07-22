@@ -8,6 +8,8 @@
 </dd>
 <dt><a href="#Platform.module_PlatformConstants">PlatformConstants</a></dt>
 <dd></dd>
+<dt><a href="#Platform.module_PlatformHelpers">PlatformHelpers</a></dt>
+<dd></dd>
 <dt><a href="#Platform.module_PlatformSchemas">PlatformSchemas</a></dt>
 <dd></dd>
 <dt><a href="#Platform.module_PlatformServices">PlatformServices</a></dt>
@@ -370,6 +372,50 @@ Platform response of USER PERMISSION type values.
 Schema/map of expected response identity user permission types.
 
 **Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformHelpers"></a>
+
+## PlatformHelpers
+
+* [PlatformHelpers](#Platform.module_PlatformHelpers)
+    * [~getExportProductId(str)](#Platform.module_PlatformHelpers..getExportProductId) ⇒ <code>undefined</code> \| <code>string</code>
+    * [~getExportStatus(str)](#Platform.module_PlatformHelpers..getExportStatus) ⇒ <code>string</code>
+
+<a name="Platform.module_PlatformHelpers..getExportProductId"></a>
+
+### PlatformHelpers~getExportProductId(str) ⇒ <code>undefined</code> \| <code>string</code>
+Normalize a product id pulled from an export name. Fallback filtering for product identifiers.
+
+**Kind**: inner method of [<code>PlatformHelpers</code>](#Platform.module_PlatformHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>str</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Platform.module_PlatformHelpers..getExportStatus"></a>
+
+### PlatformHelpers~getExportStatus(str) ⇒ <code>string</code>
+Normalize an export status to be either `pending`, `complete`, or `failed`.
+
+**Kind**: inner method of [<code>PlatformHelpers</code>](#Platform.module_PlatformHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>str</td><td><code>PLATFORM_API_EXPORT_STATUS_TYPES</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Platform.module_PlatformSchemas"></a>
 
 ## PlatformSchemas

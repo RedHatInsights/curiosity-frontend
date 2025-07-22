@@ -8,6 +8,7 @@ import {
   PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES as RESOURCE_TYPES
 } from './platformConstants';
 import { helpers, dateHelpers } from '../../common';
+import { platformHelpers } from './platformHelpers';
 
 /**
  * Transform export responses. Combines multiple exports, or a single export,
@@ -33,50 +34,17 @@ const exports = response => {
     [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.STATUS]: status
   } = response || {};
 
+  updatedResponse.data.isAnything = false;
   updatedResponse.data.isAnythingPending = false;
   updatedResponse.data.isAnythingCompleted = false;
+  updatedResponse.data.isAnythingFailed = false;
   updatedResponse.data.isPending = false;
   updatedResponse.data.isCompleted = false;
+  updatedResponse.data.isFailed = false;
   updatedResponse.data.pending ??= [];
   updatedResponse.data.completed ??= [];
+  updatedResponse.data.failed ??= [];
   updatedResponse.data.products = {};
-
-  /**
-   * Pull a product id from an export name. Fallback filtering for product identifiers.
-   *
-   * @param {string} str
-   * @returns {undefined|string}
-   */
-  const getProductId = str => {
-    const updatedStr = str;
-    const attemptId = updatedStr?.replace(`${helpers.CONFIG_EXPORT_SERVICE_NAME_PREFIX}-`, '')?.trim();
-
-    if (attemptId === updatedStr) {
-      return undefined;
-    }
-
-    return attemptId;
-  };
-
-  /**
-   * Get a refined export status
-   *
-   * @param {string} str
-   * @returns {string}
-   */
-  const getStatus = str => {
-    const updatedStr = str;
-    let updatedStatus = PLATFORM_API_EXPORT_STATUS_TYPES.PENDING;
-
-    if (
-      updatedStr === PLATFORM_API_EXPORT_STATUS_TYPES.FAILED ||
-      updatedStr === PLATFORM_API_EXPORT_STATUS_TYPES.COMPLETE
-    ) {
-      updatedStatus = updatedStr;
-    }
-
-    return updatedStatus;
-  };
 
   /**
    * Restructures export response to allow for product identifiers.
@@ -88,8 +56,8 @@ const exports = response => {
    * @param {string} params.exportId
    */
   const restructureResponse = ({ exportName, exportStatus, exportFormat, exportId } = {}) => {
-    const productId = getProductId(exportName);
-    const focusedStatus = getStatus(exportStatus);
+    const productId = platformHelpers.getExportProductId(exportName);
+    const focusedStatus = platformHelpers.getExportStatus(exportStatus);
 
     const updatedExportData = {
       fileName: `${moment.utc(dateHelpers.getCurrentDate()).format('YYYYMMDD_HHmmss')}_${exportFormat}_${helpers.CONFIG_EXPORT_FILENAME.replace('{0}', _snakeCase(productId))}`,
@@ -103,13 +71,21 @@ const exports = response => {
     updatedResponse.data.products[productId] ??= {};
     updatedResponse.data.products[productId].pending ??= [];
     updatedResponse.data.products[productId].completed ??= [];
+    updatedResponse.data.products[productId].failed ??= [];
 
-    if (focusedStatus === PLATFORM_API_EXPORT_STATUS_TYPES.PENDING) {
-      updatedResponse.data.pending.push(updatedExportData);
-      updatedResponse.data.products[productId].pending.push(updatedExportData);
-    } else if (focusedStatus === PLATFORM_API_EXPORT_STATUS_TYPES.COMPLETE) {
-      updatedResponse.data.completed.push(updatedExportData);
-      updatedResponse.data.products[productId].completed.push(updatedExportData);
+    switch (focusedStatus) {
+      case PLATFORM_API_EXPORT_STATUS_TYPES.PENDING:
+        updatedResponse.data.pending.push(updatedExportData);
+        updatedResponse.data.products[productId].pending.push(updatedExportData);
+        break;
+      case PLATFORM_API_EXPORT_STATUS_TYPES.COMPLETE:
+        updatedResponse.data.completed.push(updatedExportData);
+        updatedResponse.data.products[productId].completed.push(updatedExportData);
+        break;
+      case PLATFORM_API_EXPORT_STATUS_TYPES.FAILED:
+        updatedResponse.data.failed.push(updatedExportData);
+        updatedResponse.data.products[productId].failed.push(updatedExportData);
+        break;
     }
   };
 
@@ -134,16 +110,43 @@ const exports = response => {
 
   updatedResponse.data.isAnythingPending = updatedResponse.data.pending.length > 0;
   updatedResponse.data.isAnythingCompleted = updatedResponse.data.completed.length > 0;
+  updatedResponse.data.isAnythingFailed = updatedResponse.data.failed.length > 0;
+  updatedResponse.data.isAnything =
+    updatedResponse.data.isAnythingPending ||
+    updatedResponse.data.isAnythingCompleted ||
+    updatedResponse.data.isAnythingFailed;
 
-  Object.entries(updatedResponse.data.products).forEach(([productId, { pending, completed }]) => {
+  if (updatedResponse.data.isAnything === false) {
+    return updatedResponse;
+  }
+
+  Object.entries(updatedResponse.data.products).forEach(([productId, { pending, completed, failed } = {}]) => {
+    // Anything pending still
     updatedResponse.data.products[productId].isPending = pending.length > 0;
+
+    // Only consider the entire product line as `complete` if there are no `pending` exports.
     updatedResponse.data.products[productId].isCompleted =
       (completed.length > 0 && !updatedResponse.data.products[productId].isPending) || false;
+
+    // Only consider the entire product line as `failed` if there are no `pending` or `completed` exports.
+    updatedResponse.data.products[productId].isFailed =
+      (failed.length > 0 &&
+        !updatedResponse.data.products[productId].isPending &&
+        !updatedResponse.data.products[productId].isCompleted) ||
+      false;
   });
 
+  // Anything pending still
   updatedResponse.data.isPending = updatedResponse.data.pending.length > 0;
+
+  // Only consider the entire line as `complete` if there are no `pending` exports.
   updatedResponse.data.isCompleted =
     (updatedResponse.data.completed.length > 0 && !updatedResponse.data.isPending) || false;
+
+  // Only consider the entire line as `failed` if there are no `pending` or `completed` exports.
+  updatedResponse.data.isFailed =
+    (updatedResponse.data.failed.length > 0 && !updatedResponse.data.isPending && !updatedResponse.data.isCompleted) ||
+    false;
 
   return updatedResponse;
 };
