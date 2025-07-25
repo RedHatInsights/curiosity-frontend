@@ -39,13 +39,15 @@ const authorizeUser =
 const getExistingExports =
   (existingExports, callbacks = {}) =>
   dispatch =>
-    dispatch({
-      type: platformTypes.GET_PLATFORM_EXPORT_EXISTING,
-      payload: platformServices.getExistingExports(existingExports),
-      meta: {
-        ...callbacks
-      }
-    });
+    Promise.resolve(
+      dispatch({
+        type: platformTypes.GET_PLATFORM_EXPORT_EXISTING,
+        payload: platformServices.getExistingExports(existingExports),
+        meta: {
+          ...callbacks
+        }
+      })
+    );
 
 /**
  * Delete all existing exports. Includes toast notifications through the callbacks parameter
@@ -91,14 +93,16 @@ const getExistingExportsStatus = callbacks => dispatch =>
 const createExport =
   (id, data = {}, options = {}, callbacks = {}) =>
   dispatch =>
-    dispatch({
-      type: platformTypes.SET_PLATFORM_EXPORT_CREATE,
-      payload: platformServices.postExport(data, options),
-      meta: {
-        id,
-        ...callbacks
-      }
-    });
+    Promise.resolve(
+      dispatch({
+        type: platformTypes.SET_PLATFORM_EXPORT_CREATE,
+        payload: platformServices.postExport(data, options),
+        meta: {
+          id,
+          ...callbacks
+        }
+      })
+    );
 
 const platformActions = {
   authorizeUser,
