@@ -20,5 +20,9 @@ exports[`General code checks should only have specific console.[warn|log|info|er
   "services/common/serviceConfig.js:320:                console.error(err);",
   "services/common/serviceConfig.js:340:                console.error(err);",
   "services/common/serviceConfig.js:351:                console.error(err);",
+  "services/platform/platformServices.js:423:              console.warn('Failed to delete exports:', error);",
+  "services/platform/platformServices.js:432:              console.warn('Failed to download exports:', error);",
+  "services/platform/platformServices.js:554:                console.warn('Failed to delete export:', error);",
+  "services/platform/platformServices.js:568:                console.warn('Failed to download export:', error);",
 ]
 `;
