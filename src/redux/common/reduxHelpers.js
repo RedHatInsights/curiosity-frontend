@@ -395,27 +395,6 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
       ...data
     };
 
-  /*
-   * Apply a meta pendingCallback property for one-off scenarios where you want to immediately apply a
-   * promise-like-pending
-   */
-  const pendingCallback = data =>
-    (typeof action.meta?.pendingCallback === 'function' && action.meta?.pendingCallback(data)) || null;
-
-  /*
-   * Apply a meta resolveCallback property for one-off scenarios where you want to immediately apply a
-   * promise-like-resolve
-   */
-  const resolveCallback = data =>
-    (typeof action.meta?.resolveCallback === 'function' && action.meta?.resolveCallback(data)) || null;
-
-  /*
-   * Apply a meta rejectCallback property for one-off scenarios where you want to immediately apply a
-   * promise-like-reject
-   */
-  const rejectCallback = data =>
-    (typeof action.meta?.rejectCallback === 'function' && action.meta?.rejectCallback(data)) || null;
-
   switch (type) {
     case REJECTED_ACTION(whichType.type || whichType):
       const errorMessage = getMessageFromResults(action);
@@ -434,12 +413,10 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
         };
       }
 
-      rejectCallback(action);
       return setStateProp(whichType.ref || null, setId(errorResponse), {
         state
       });
     case PENDING_ACTION(whichType.type || whichType):
-      pendingCallback(action);
       return setStateProp(
         whichType.ref || null,
         setId({
@@ -451,7 +428,6 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
       );
 
     case FULFILLED_ACTION(whichType.type || whichType):
-      resolveCallback(action);
       return setStateProp(
         whichType.ref || null,
         setId({
