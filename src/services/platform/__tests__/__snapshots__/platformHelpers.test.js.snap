@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlatformHelpers should have specific functions: platformHelpers 1`] = `
+{
+  "getExportProductId": [Function],
+  "getExportStatus": [Function],
+}
+`;

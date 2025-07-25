@@ -456,6 +456,8 @@
     "notifications_export_completed_titleGlobal_other": "Existing exports ready",
     "notifications_export_error_description": "Something went wrong with the export generator. Try exporting again.",
     "notifications_export_error_title": "Export cannot be generated",
+    "notifications_export_failed_description": "Please try again in a moment. If the problem persists, contact your organization administrator or visit our <0>status page</0> for known outages.",
+    "notifications_export_failed_title": "Export service failed",
     "notifications_export_pending_title": "Generating export in progress",
     "notifications_export_pending_titleGlobal": "Continuing exports download",
     "placeholder": "Select",
