@@ -529,7 +529,11 @@ exports[`ToolbarFieldExport Component should allow service calls on user confirm
     },
   ],
   "getService": [],
-  "notification": [],
+  "notification": [
+    [
+      "swatch-exports-status",
+    ],
+  ],
 }
 `;
 

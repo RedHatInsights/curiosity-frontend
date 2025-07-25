@@ -159,7 +159,7 @@ const useExistingExportsConfirmation = ({
 } = {}) => {
   const dispatch = useAliasDispatch();
   const confirmAppLoaded = useAliasAppLoad();
-  const { addNotification } = useAliasNotifications();
+  const { addNotification, removeNotification } = useAliasNotifications();
 
   return useCallback(
     async (confirmation, allResults) => {
@@ -170,6 +170,7 @@ const useExistingExportsConfirmation = ({
       // clean up unused exports
       if (confirmation === 'no') {
         dispatch(deleteAliasExistingExports(allResults));
+        removeNotification('swatch-exports-status');
         return;
       }
 
@@ -217,7 +218,15 @@ const useExistingExportsConfirmation = ({
         dispatch([{ type: reduxTypes.platform.SET_PLATFORM_EXPORT_RESET }]);
       }
     },
-    [addNotification, confirmAppLoaded, dispatch, deleteAliasExistingExports, getAliasExistingExports, t]
+    [
+      addNotification,
+      confirmAppLoaded,
+      dispatch,
+      deleteAliasExistingExports,
+      getAliasExistingExports,
+      removeNotification,
+      t
+    ]
   );
 };
 
