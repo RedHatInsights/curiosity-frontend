@@ -153,7 +153,6 @@ const setI18nTestElement = ({ defaultTestId, testId }) => {
   }
 
   if (React.isValidElement(testId)) {
-    // eslint-disable-next-line
     return function TestElementNode({ children }) {
       return React.cloneElement(testId, {}, children);
     };
