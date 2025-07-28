@@ -34,10 +34,10 @@ const productConfigs = (() => {
      */
     if (process.env.REACT_APP_ENV === 'test' && require) {
       return [
-        ...require('fs') // eslint-disable-line
-          ?.readdirSync('./src/config') // eslint-disable-line
-          ?.filter(file => /product\.[a-z]+\.js/i.test(file)) // eslint-disable-line
-          ?.map(file => require(`./${file}`)) // eslint-disable-line
+        ...require('fs') // eslint-disable-line no-unsafe-optional-chaining, n/global-require
+          ?.readdirSync('./src/config')
+          ?.filter(file => /product\.[a-z]+\.js/i.test(file))
+          ?.map(file => require(`./${file}`)) // eslint-disable-line n/global-require, import/no-dynamic-require
       ];
     }
 
