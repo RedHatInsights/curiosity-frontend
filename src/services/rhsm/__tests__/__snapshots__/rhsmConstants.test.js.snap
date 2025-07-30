@@ -62,7 +62,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": {
     "AWS": "aws",
     "AZURE": "azure",
-    "RED_HAT": "red hat",
   },
   "RHSM_API_QUERY_CATEGORY_TYPES": {
     "CLOUD": "cloud",
@@ -180,7 +179,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
     "AWS": "aws",
     "AZURE": "azure",
-    "RED_HAT": "red hat",
   },
   "RHSM_API_RESPONSE_DATA": "data",
   "RHSM_API_RESPONSE_ERRORS": "errors",
@@ -346,7 +344,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": {
       "AWS": "aws",
       "AZURE": "azure",
-      "RED_HAT": "red hat",
     },
     "RHSM_API_QUERY_CATEGORY_TYPES": {
       "CLOUD": "cloud",
@@ -464,7 +461,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
       "AWS": "aws",
       "AZURE": "azure",
-      "RED_HAT": "red hat",
     },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERRORS": "errors",
@@ -631,7 +627,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": {
       "AWS": "aws",
       "AZURE": "azure",
-      "RED_HAT": "red hat",
     },
     "RHSM_API_QUERY_CATEGORY_TYPES": {
       "CLOUD": "cloud",
@@ -749,7 +744,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
       "AWS": "aws",
       "AZURE": "azure",
-      "RED_HAT": "red hat",
     },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERRORS": "errors",
@@ -920,7 +914,6 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": {
     "AWS": "aws",
     "AZURE": "azure",
-    "RED_HAT": "red hat",
   },
   "RHSM_API_QUERY_CATEGORY_TYPES": {
     "CLOUD": "cloud",
@@ -1038,7 +1031,6 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
     "AWS": "aws",
     "AZURE": "azure",
-    "RED_HAT": "red hat",
   },
   "RHSM_API_RESPONSE_DATA": "data",
   "RHSM_API_RESPONSE_ERRORS": "errors",
