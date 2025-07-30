@@ -178,11 +178,12 @@ exports[`Tabs Component should render a basic component: basic 1`] = `
     id=""
   >
     <div
-      class="pf-v6-c-tabs pf-m-inset-none pf-m-inset-lg-on-md curiosity-tabs__no-scroll "
+      class="pf-v6-c-tabs pf-m-animate-current pf-m-inset-none pf-m-inset-lg-on-md pf-m-initializing-accent curiosity-tabs__no-scroll "
       data-ouia-component-id="OUIA-Generated-Tabs-1"
       data-ouia-component-type="PF6/Tabs"
       data-ouia-safe="true"
       id="generatedid-"
+      style="--pf-v6-c-tabs--link-accent--length: 0px; --pf-v6-c-tabs--link-accent--start: 0px;"
     >
       <ul
         class="pf-v6-c-tabs__list"
