@@ -2088,7 +2088,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *         {
  *           "number_of_guests": 70,
  *           "category": "cloud",
- *           "billing_provider": "red hat",
+ *           "billing_provider": "aws",
  *           "cloud_provider": "aws",
  *           "billing_account_id": "XXXXXXXXXX",
  *           "inventory_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
@@ -2217,7 +2217,7 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *         {
  *           "sku": "RH00011",
  *           "product_name": "Red Hat Enterprise Linux Server, Premium (Physical and 4 Virtual Nodes)(L3 Only)",
- *           "billing_provider": "red hat",
+ *           "billing_provider": "azure",
  *           "service_level": "Premium",
  *           "usage": "Production",
  *           "subscriptions": [

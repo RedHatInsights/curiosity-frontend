@@ -271,10 +271,9 @@ const RHSM_API_RESPONSE_GRANULARITY_TYPES = {
 /**
  * RHSM response, query parameters for BILLING_PROVIDER
  *
- * @type {{AZURE: string, GCP: string, RED_HAT: string, NONE: string, AWS: string, ORACLE: string}}
+ * @type {{AZURE: string, GCP: string, NONE: string, AWS: string, ORACLE: string}}
  */
 const RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES = {
-  RED_HAT: 'red hat',
   AWS: 'aws',
   // GCP: 'gcp',
   AZURE: 'azure'
@@ -501,14 +500,14 @@ const RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES = {
  *     RHEL_COMPUTE_NODE: string, RHEL_X86_ELS_PAYG: string, OPENSHIFT: string, RHACM: string, RHEL_X86_RS: string,
  *     SATELLITE_SERVER: string, RHEL_X86_ELS_PAYG_ADDON: string, OPENSHIFT_DEDICATED_METRICS: string, RHEL_X86_HA:
  *     string, ANSIBLE: string, RHEL_AUS_ADDON: string, SATELLITE_CAPSULE: string, RHEL_IBM_Z: string, RHEL_IBM_POWER:
- *     string, RHACS: string}, RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string, RED_HAT: string,
+ *     string, RHACS: string}, RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string,
  *     NONE: string, AWS: string, ORACLE: string}, RHSM_API_QUERY_SET_BILLING_ACCOUNT_ID_TYPES: {ORG_ID: string,
  *     PRODUCT_TAG: string}, RHSM_API_RESPONSE_ERRORS_TYPES: {CODE: string},
  *     RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES: {DATE: string, HAS_DATA: string, VALUE: string,
  *     HAS_INFINITE_QUANTITY: string}, RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES: {TOTAL_MONTHLY: string, DATE:
  *     string, PRODUCT: string, HAS_CLOUDIGRADE_DATA: string, HAS_CLOUDIGRADE_MISMATCH: string, HAS_DATA: string,
  *     METRIC_ID: string, COUNT: string, VALUE: string}, RHSM_API_QUERY_BILLING_PROVIDER_TYPES: {AZURE: string, GCP:
- *     string, RED_HAT: string, NONE: string, AWS: string, ORACLE: string}, RHSM_API_RESPONSE_ID: string,
+ *     string, NONE: string, AWS: string, ORACLE: string}, RHSM_API_RESPONSE_ID: string,
  *     RHSM_API_QUERY_CATEGORY_TYPES: {CLOUD: string, PHYSICAL: string, ON_DEMAND: string, HYPERVISOR: string, PREPAID:
  *     string, VIRTUAL: string}, RHSM_API_QUERY_USAGE_TYPES: {UNSPECIFIED: string, DISASTER: string, DEVELOPMENT:
  *     string, PRODUCTION: string}, RHSM_API_QUERY_SLA_TYPES: {PREMIUM: string, SELF: string, NONE: string, STANDARD:
