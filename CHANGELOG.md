@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.18.1](https://github.com/RedHatInsights/curiosity-frontend/compare/758f8aa44cca96a0fc50db93bc2f0b119ed0f8ea...281872516ab06ddc47415c84a86e05ae151587e2) (2025-08-01)
+
+
+### Continuous Integrations
+*  Update build-tools digest to 37ab5d0 ([#1668](https://github.com/RedHatInsights/curiosity-frontend/pull/1668)) ([b89e2f3](https://github.com/RedHatInsights/curiosity-frontend/commit/b89e2f381bfd285a1fc4161b43008f9c8c2e96b6))
+*  sw-3764 fix e2e ci.int.devshift.net ([#1657](https://github.com/RedHatInsights/curiosity-frontend/pull/1657)) ([45150b7](https://github.com/RedHatInsights/curiosity-frontend/commit/45150b74da018171ecfa7c3812addf980b4c0d86))
+
+### Code Refactoring
+*  sw-3804 Remove Red Hat billing provider reference ([#1662](https://github.com/RedHatInsights/curiosity-frontend/pull/1662)) ([81f33e7](https://github.com/RedHatInsights/curiosity-frontend/commit/81f33e7fb1cfe328b7d383f84c5e20a79c897d58))
+
+### Builds
+* **deps** update group with 11 updates ([#1667](https://github.com/RedHatInsights/curiosity-frontend/pull/1667)) ([2818725](https://github.com/RedHatInsights/curiosity-frontend/commit/281872516ab06ddc47415c84a86e05ae151587e2))
+* **deps** sw-3819 migrate to eslint 9 ([#1665](https://github.com/RedHatInsights/curiosity-frontend/pull/1665)) ([fabb089](https://github.com/RedHatInsights/curiosity-frontend/commit/fabb089423ee4944bf0bd44614bb08e7031f252d))
+
 ## [4.18.0](https://github.com/RedHatInsights/curiosity-frontend/compare/7c11b23a4b7f6b0bc684f0ce038faf70ef9a61a1...b9da281a8d77dda89a072119e80c17e03dafb282) (2025-08-01)
 
 
