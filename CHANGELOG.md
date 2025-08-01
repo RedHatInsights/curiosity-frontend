@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.18.0](https://github.com/RedHatInsights/curiosity-frontend/compare/7c11b23a4b7f6b0bc684f0ce038faf70ef9a61a1...b9da281a8d77dda89a072119e80c17e03dafb282) (2025-08-01)
+
+
+### Performance Improvements
+* **components** sw-3639 pf6 component adjustments ([#1629](https://github.com/RedHatInsights/curiosity-frontend/pull/1629)) ([847eedf](https://github.com/RedHatInsights/curiosity-frontend/commit/847eedf0209cdcc0af35c6d4b963af7e0247c4e7))
+
+### Continuous Integrations
+*  Update Konflux references ([#1658](https://github.com/RedHatInsights/curiosity-frontend/pull/1658)) ([22016fc](https://github.com/RedHatInsights/curiosity-frontend/commit/22016fcb081199097c79cfb2679f3327327aa2e7))
+*  Update build-tools digest to 07aeb0d ([#1656](https://github.com/RedHatInsights/curiosity-frontend/pull/1656)) ([b654129](https://github.com/RedHatInsights/curiosity-frontend/commit/b65412996d45d9b367e4b5be167bb9b837392294))
+*  Update Konflux references ([#1654](https://github.com/RedHatInsights/curiosity-frontend/pull/1654)) ([a61f9fb](https://github.com/RedHatInsights/curiosity-frontend/commit/a61f9fb11c2649644e3a8b76d88bc73c68445690))
+*  Update Konflux references ([#1649](https://github.com/RedHatInsights/curiosity-frontend/pull/1649)) ([c7ea929](https://github.com/RedHatInsights/curiosity-frontend/commit/c7ea929c3b583729eea0d13c677120c5fc51b0ce))
+*  Reset konflux pipelines ([#1646](https://github.com/RedHatInsights/curiosity-frontend/pull/1646)) ([92be895](https://github.com/RedHatInsights/curiosity-frontend/commit/92be8950116c811f1dda155862b37bcb672bf00a))
+*  Update Konflux references ([#1639](https://github.com/RedHatInsights/curiosity-frontend/pull/1639)) ([5da02e8](https://github.com/RedHatInsights/curiosity-frontend/commit/5da02e87c8a9fe06f1cb813da9a111e40ada714d))
+*  Update Konflux references ([#1635](https://github.com/RedHatInsights/curiosity-frontend/pull/1635)) ([98c9b26](https://github.com/RedHatInsights/curiosity-frontend/commit/98c9b26f9b717cd52020d195bbaab62320ac7101))
+* **pr_check** sw-3595 ephemeral, remove rh marketplace ([#1633](https://github.com/RedHatInsights/curiosity-frontend/pull/1633)) ([fbf4b54](https://github.com/RedHatInsights/curiosity-frontend/commit/fbf4b54a99e380abd5aa80c8389ba8fbb1fcb7e2))
+*  Update Konflux references ([#1631](https://github.com/RedHatInsights/curiosity-frontend/pull/1631)) ([9c917a2](https://github.com/RedHatInsights/curiosity-frontend/commit/9c917a2b7e8746cc448043da26f48184b2e1df4f))
+*  Update Konflux references ([#1627](https://github.com/RedHatInsights/curiosity-frontend/pull/1627)) ([6e225cb](https://github.com/RedHatInsights/curiosity-frontend/commit/6e225cb196d63067100eaff3da8b6c592945053d))
+
+### Code Refactoring
+* **deps** sw-3639 toast notifications ([#1630](https://github.com/RedHatInsights/curiosity-frontend/pull/1630)) ([e29d714](https://github.com/RedHatInsights/curiosity-frontend/commit/e29d714f7c9e68cd215f8c1f352dfe2d0abdee32))
+* **bannerMessagesModal** sw-3639 pf6 replace deprecated ([#1629](https://github.com/RedHatInsights/curiosity-frontend/pull/1629)) ([2ab9dd4](https://github.com/RedHatInsights/curiosity-frontend/commit/2ab9dd405864a60c62abc10b6cfea40117a05a3c))
+* **deps** sw-3639 pf6 updates ([#1626](https://github.com/RedHatInsights/curiosity-frontend/pull/1626)) ([3c8954c](https://github.com/RedHatInsights/curiosity-frontend/commit/3c8954c0ecdb8c6690b4f96311908b6dfebcf38c))
+
+### Builds
+* **deps** bump axios from 1.9.0 to 1.11.0 ([#1663](https://github.com/RedHatInsights/curiosity-frontend/pull/1663)) ([b9da281](https://github.com/RedHatInsights/curiosity-frontend/commit/b9da281a8d77dda89a072119e80c17e03dafb282))
+* **deps-dev** bump the dev group with 4 updates ([#1659](https://github.com/RedHatInsights/curiosity-frontend/pull/1659)) ([7b487df](https://github.com/RedHatInsights/curiosity-frontend/commit/7b487df96d47299b5a6f527b97d61fbf8c22bbfc))
+* **deps-dev** bump cspell from 9.1.3 to 9.1.5 ([#1655](https://github.com/RedHatInsights/curiosity-frontend/pull/1655)) ([72dc0be](https://github.com/RedHatInsights/curiosity-frontend/commit/72dc0be501f63b32ede7b6c406233983d16c8b54))
+* **deps-dev** bump dev group with 7 updates ([#1652](https://github.com/RedHatInsights/curiosity-frontend/pull/1652)) ([fee501c](https://github.com/RedHatInsights/curiosity-frontend/commit/fee501c387660ee386e93b97da870b405104580b))
+*  expand codeowners for konflux ([#1651](https://github.com/RedHatInsights/curiosity-frontend/pull/1651)) ([99abfa1](https://github.com/RedHatInsights/curiosity-frontend/commit/99abfa130bf788507935168b21fe56706689bcfb))
+* **deps-dev** bump the dev group with 3 updates ([#1640](https://github.com/RedHatInsights/curiosity-frontend/pull/1640)) ([e72c299](https://github.com/RedHatInsights/curiosity-frontend/commit/e72c299c40fc0c8eff0bc4015591f82241737c17))
+* **deps-dev** bump dev group with 4 updates ([#1637](https://github.com/RedHatInsights/curiosity-frontend/pull/1637)) ([0e5b530](https://github.com/RedHatInsights/curiosity-frontend/commit/0e5b53057d035d9373ed48df2f84cdbfa46b371c))
+* **deps-dev** bump the dev group with 4 updates ([#1632](https://github.com/RedHatInsights/curiosity-frontend/pull/1632)) ([8d4386c](https://github.com/RedHatInsights/curiosity-frontend/commit/8d4386c3cf5751035c088a75a7e9a59c6d861f4b))
+*  sw-3439 migrate to feo ([#1625](https://github.com/RedHatInsights/curiosity-frontend/pull/1625)) ([995a45f](https://github.com/RedHatInsights/curiosity-frontend/commit/995a45f632b8409449d96c4ae74fdecb573480ba))
+* **deps-dev** bump the dev group with 2 updates ([#1628](https://github.com/RedHatInsights/curiosity-frontend/pull/1628)) ([e6b6168](https://github.com/RedHatInsights/curiosity-frontend/commit/e6b6168008256ccfc3ab4cac13c8c6750106a2b4))
+* **deps** bump group with 6 updates ([#1622](https://github.com/RedHatInsights/curiosity-frontend/pull/1622)) ([2f2e3a3](https://github.com/RedHatInsights/curiosity-frontend/commit/2f2e3a390557b0b541822f128581509f565ccca5))
+
+### Bug Fixes
+* **toolbarFieldExportContext** sw-3639 expose failed exports ([#1660](https://github.com/RedHatInsights/curiosity-frontend/pull/1660)) ([d2be071](https://github.com/RedHatInsights/curiosity-frontend/commit/d2be071f702936a43f798e5dc719f826a5252bc1))
+*  sw-3639 pf6 layout adjustments ([#1634](https://github.com/RedHatInsights/curiosity-frontend/pull/1634)) ([95d2415](https://github.com/RedHatInsights/curiosity-frontend/commit/95d24157253b308fccb17f5b17a032cbd47792b0))
+
 ## [4.17.0](https://github.com/RedHatInsights/curiosity-frontend/compare/9571d20520cbff7920450aa438ff60ed72b2878d...1a45ebb866cd90d9248be98a230a17323b50c4cf) (2025-06-03)
 
 
