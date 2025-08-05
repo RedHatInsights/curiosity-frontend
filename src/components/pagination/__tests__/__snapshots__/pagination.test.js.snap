@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Pagination Component should handle per-page limit, and page offset updates through props: page, offset 1`] = `
 {

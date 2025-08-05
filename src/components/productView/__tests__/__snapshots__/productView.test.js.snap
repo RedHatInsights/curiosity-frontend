@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ProductView Component should allow custom inventory displays via config: custom tabs, basic inventory tables 1`] = `
 <PageLayout>

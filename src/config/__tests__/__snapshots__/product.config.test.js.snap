@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Product specific configurations should apply graph filters and settings: graph axes 1`] = `
 [
@@ -4722,7 +4722,6 @@ exports[`Product specific configurations should apply variations in inventory fi
                   lorem
                 </Button>
                  
-                
               </React.Fragment>,
               "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift Container Platform"})",
               "header": [Function],
@@ -4849,7 +4848,6 @@ exports[`Product specific configurations should apply variations in inventory fi
                   lorem
                 </Button>
                  
-                
               </React.Fragment>,
               "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-dedicated-metrics"})",
               "header": [Function],
@@ -4981,7 +4979,6 @@ exports[`Product specific configurations should apply variations in inventory fi
                   lorem
                 </Button>
                  
-                
               </React.Fragment>,
               "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-metrics"})",
               "header": [Function],
@@ -6103,7 +6100,6 @@ exports[`Product specific configurations should apply variations in inventory fi
               "content": <React.Fragment>
                 lorem
                  
-                
               </React.Fragment>,
               "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift Container Platform"})",
               "header": [Function],
@@ -6223,7 +6219,6 @@ exports[`Product specific configurations should apply variations in inventory fi
               "content": <React.Fragment>
                 lorem
                  
-                
               </React.Fragment>,
               "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-dedicated-metrics"})",
               "header": [Function],
@@ -6348,7 +6343,6 @@ exports[`Product specific configurations should apply variations in inventory fi
               "content": <React.Fragment>
                 lorem
                  
-                
               </React.Fragment>,
               "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-metrics"})",
               "header": [Function],

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ToolbarFieldDisplayName Component should handle clearing display name through redux state: clear display name 1`] = `
 [

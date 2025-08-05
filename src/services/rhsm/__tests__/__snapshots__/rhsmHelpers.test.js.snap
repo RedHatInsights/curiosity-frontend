@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`RhsmHelpers billingMetrics should return parsed API responses in a consumable metric format, basic 1`] = `{}`;
 

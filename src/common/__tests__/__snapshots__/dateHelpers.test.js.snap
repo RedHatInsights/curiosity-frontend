@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`DateHelpers should add milliseconds from date: add milliseconds 1`] = `2019-07-21T00:00:00.000Z`;
 
