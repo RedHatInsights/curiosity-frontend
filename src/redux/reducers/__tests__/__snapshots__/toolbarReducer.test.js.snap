@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ToolbarReducer should handle specific defined types: defined type SET_ACTIVE_FILTERS 1`] = `
 {

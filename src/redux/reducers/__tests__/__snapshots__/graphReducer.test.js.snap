@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_CAPACITY_RHSM 1`] = `
 {

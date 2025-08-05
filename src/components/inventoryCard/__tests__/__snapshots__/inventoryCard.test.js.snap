@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
 <Card

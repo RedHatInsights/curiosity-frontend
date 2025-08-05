@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`TableEmpty Component should have fallback checks for certain props: fallback display 1`] = `
 <EmptyTable>

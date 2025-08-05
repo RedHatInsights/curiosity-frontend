@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`BannerMessagesContext should apply a hook for retrieving messages data from a selector and apply new messages: dispatch 1`] = `
 [

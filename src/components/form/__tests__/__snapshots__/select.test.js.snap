@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Select should allow being disabled with missing options: no options 1`] = `
 <select
@@ -348,8 +348,8 @@ exports[`Select should return an emulated onselect/onchange event, single: defau
       "nativeEvent": MouseEvent {
         "isTrusted": false,
       },
-      "pageX": undefined,
-      "pageY": undefined,
+      "pageX": 0,
+      "pageY": 0,
       "relatedTarget": null,
       "screenX": 0,
       "screenY": 0,
