@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`General code checks should only have specific console.[warn|log|info|error] methods: console methods 1`] = `
 [

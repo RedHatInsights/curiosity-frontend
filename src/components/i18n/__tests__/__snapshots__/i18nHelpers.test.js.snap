@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`I18nHelpers should attempt to perform a component translate: translated component 1`] = `
 <withtranslation

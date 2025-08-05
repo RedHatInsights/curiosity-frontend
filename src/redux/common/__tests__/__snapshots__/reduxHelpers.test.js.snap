@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ReduxHelpers should automate creating general promise action reducers: generatedPromiseActionReducer basic updated state 1`] = `
 {

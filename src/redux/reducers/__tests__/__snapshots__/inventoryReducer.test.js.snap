@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`InventoryReducer should handle all defined error types: rejected types GET_INSTANCES_INVENTORY_GUESTS_RHSM 1`] = `
 {
