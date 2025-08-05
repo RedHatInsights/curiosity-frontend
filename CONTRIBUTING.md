@@ -65,7 +65,7 @@ Commit messages follow three basic guidelines
   ```
   [message] (#1234)
   ```
-  
+
   You can also include the pull request number on a single commit, but
   GitHub will automatically apply the pull request number when the
   `squash` button is used on a pull request.
@@ -156,7 +156,7 @@ To merge code into production stable a maintainer must run the release commit pr
    1. `$ npm install`
    1. `$ npm run release --dry-run` to confirm the release output version and commits.
    1. `$ npm run release` to generate file changes, and then commit them.
-      
+
       >If the version recommended should be different you can run the command with an override version following a semver format
       >  ```
       >  $ npm run release --override X.X.X
@@ -170,7 +170,7 @@ To merge code into production stable a maintainer must run the release commit pr
 1. Using the [Curiosity GitHub releases interface](https://github.com/RedHatInsights/curiosity-frontend/releases)
    1. Draft a new release from `stable` confirming you are aligned with the `chore(release): X.X.X` commit hash
    1. Create the new tag using the **SAME** semver version created by the release commit but add a `v` prefix to it, i.e. `vX.X.X`, for consistency.
-   
+
    > To avoid issues with inconsistent Git tagging use it is recommended you use the GitHub releases interface.
 1. Finally, submit a merge request to update the `app-interface` deployment yaml
    - Copy the tagged Git hash and update the `app-interface` configuration hash within `[app-interface-insights-rhsm]/deploy-clowder.yml`
@@ -345,7 +345,7 @@ affects various aspects of both `local` and `proxy` development.
     REACT_APP_DEBUG_PERMISSION_APP_ONE=subscriptions:*:*
     REACT_APP_DEBUG_PERMISSION_APP_TWO=inventory:*:*
     ```
-   
+
 #### Advanced dotenv files
 The dotenv files are structured to cascade each additional dotenv file settings from a root `.env` file.
 ```
@@ -662,17 +662,54 @@ If you're having trouble getting an accurate code coverage report, or it's faili
   ```
   $ npm run test:clearCache
   ```
-  
+
 #### Integration-like testing
 To run tests associated with checking build output run
    ```
    $ npm run build
    $ npm run test:integration
    ```
-   
+
 ##### Updating integration-like test snapshots
 To update snapshots from the terminal run 
   ```
   $ npm run test:integration-dev
   ```
+</details>
+
+## AI Agent
+<details>
+<summary><h3 style="display: inline-block">Guidelines</h3></summary>
+
+If you're using an AI assistant to help with development in this repository, please prompt it to `> review the repo guidelines` first to ensure it follows the project's conventions and best practices.
+
+#### User Section
+
+Current agent interaction can be triggered with the chat command
+
+- **`review the repo guidelines`** - Your agent should attempt to scan common files like `README.md` and `CONTRIBUTING.md`
+
+##### Customizing developer experience
+
+As developers, we often have our own flavor of working, and now that includes working with AI agents. To that point we've added agent guidance
+to allow customization through a gitignored directory `./.agent` in the root of the project. If you, as a developer, come across
+refinements that are unique to you, feel free to ask the agent to save guidance there. And if you think it's something that can be refined
+for all developers, you're encouraged to contribute it back towards the [guidelines directory](./guidelines).
+
+##### Noting AI Agent contributions
+
+> This section will be updated as we explore agent/developer interactions. The current rules are based on openness. 
+
+Asking the agent to review the repo and its git history should provide code-style references your agent can leverage based on this codebase's patterns. That
+helps alleviate some concerns around where your agent is generating/pulling references from, but not all.
+
+To help us minimally keep track of assisted contributions and pure generated work, we've created some base guidelines for users:
+
+| Level of work | How to track                                                                                                                                                                                                                 |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Partial Bot   | Just use the `bot-assisted` PR/MR label.                                                                                                                                                                                     |
+| Full Bot      | Use the `bot-created` PR/MR label. And make sure your PR/MR contains notes about the tooling used. The work will be blocked if this information is not included, vague, or appears to be coming from an unknown bot-account. |
+
+> By contributing AI-assisted or AI-generated work, you accept liability for work that infringes or uses copyrighted material outside the scope of the related license.  
+
 </details>

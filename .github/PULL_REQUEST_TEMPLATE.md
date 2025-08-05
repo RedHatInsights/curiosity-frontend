@@ -1,19 +1,24 @@
 ## What's included
-<!-- Summary of changes/additions -->
+<!-- Summary of changes/additions/commits -->
 ...
 
 <!-- ### Notes -->
-<!-- Any issues that aren't resolved by this merge request, or things of note? -->
 <!--
-When moving between environments notify a specific party
-1. local > CI, Dev, Design should be assigned when relative
-1. CI > QA, QE, CCS/docs should be notified
-1. QA > Stage, QE and CCS/docs should be notified, AND applied as PR reviewers
-1. Stage > Prod, QE and CCS/docs should be notified, AND applied as PR reviewers
+- Any issues that aren't resolved by this merge request, or things of note? 
+- Did you use an AI Agent to help with this work? By contributing AI-assisted or AI-generated work, you accept liability for work that infringes or uses copyrighted material outside the scope of the related license. Please follow ./CONTRIBUTING.md guidelines (see bottom of the file). 
+-->
+<!--
+- This is bot-created work, I am but a passenger on this wild-ride. AI agent tooling and model leveraged are:
+   - tooling: [IDE/Chat]
+   - model: [Specific/IDE specific/Auto-selection]
 -->
 
 ## How to test
 <!-- Are there directions to test/review? -->
+<!--
+### Prompt an agent to
+1. `> [test prompt]`
+-->
 <!--
 ### Coverage and basic unit test check
 1. update the NPM packages with `$ npm install`
