@@ -116,14 +116,10 @@ const ToolbarFieldBillingAccount = ({
   } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
   const options = useAliasToolbarFieldOptions();
-  const updatedOptions = options.map(option => ({
-    ...option,
-    isSelected: option.value === updatedValue
-  }));
 
   // Select an account on provider update
   useEffect(() => {
-    const selectedAccount = updatedOptions.find(({ isSelected }) => isSelected === true)?.value;
+    const selectedAccount = options.find(({ value }) => value === updatedValue)?.value;
 
     if (selectedAccount) {
       onSelect({ value: selectedAccount });
@@ -134,10 +130,10 @@ const ToolbarFieldBillingAccount = ({
   return (
     <Select
       isInline={isInline}
-      isReadOnly={updatedOptions.length === 1}
+      isReadOnly={options.length === 1}
       aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'billing_account' })}
       onSelect={onSelect}
-      options={updatedOptions}
+      options={options}
       selectedOptions={updatedValue}
       placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'billing_account' })}
       alignment={{ position }}

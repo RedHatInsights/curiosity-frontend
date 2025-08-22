@@ -136,7 +136,7 @@ const useOnSelect = ({
 };
 
 /**
- * Return filtered category options, current, and initial value.
+ * Return filtered configured category options, current, and initial value.
  *
  * @param {object} options
  * @param {toolbarFieldOptions} [options.categoryOptions=toolbarFieldOptions]
@@ -168,8 +168,7 @@ const useSelectCategoryOptions = ({
       }
 
       return {
-        ...option,
-        isSelected: (updatedValue === undefined && isSelected) || updatedValue === option.value
+        ...option
       };
     });
 
