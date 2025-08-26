@@ -106,7 +106,7 @@ exports[`ToolbarFieldGranularity Component should render a basic component: basi
         "value": "Daily",
       },
       {
-        "isSelected": true,
+        "isSelected": false,
         "title": "t(curiosity-toolbar.label_granularity, {"context":"Weekly"})",
         "value": "Weekly",
       },

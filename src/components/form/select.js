@@ -145,7 +145,8 @@ updateOptions.memo = helpers.memo(updateOptions);
  * @returns {Array|Array<"NaN"|"null"|unknown>}
  */
 const updateSelectedOptions = options =>
-  (Array.isArray(options) && options) ||
+  (Array.isArray(options) &&
+    options.map(value => (value === null && 'null') || (value === undefined && 'undefined') || value)) ||
   (options !== undefined && options !== null && !Number.isNaN(options) && [options]) ||
   (options === null && ['null']) ||
   (Number.isNaN(options) && ['NaN']) ||
@@ -170,7 +171,7 @@ const updateOptionsSelectedOptions = ({ options, selectedOptions = [], variant =
   const memoSelectedOptions = updateSelectedOptions.memo(selectedOptions);
 
   const updatedOptions = memoOptions.map(option => {
-    const { isSelected, title, value, ...meta } = option;
+    const { isSelected, title, value, index, ...meta } = option;
     let updateIsSelected = isSelected;
 
     if (updateIsSelected === true && !memoSelectedOptions.length) {
@@ -188,13 +189,23 @@ const updateOptionsSelectedOptions = ({ options, selectedOptions = [], variant =
       updateIsSelected = memoSelectedOptions.includes(value);
     }
 
+    if (!updateIsSelected) {
+      updateIsSelected = memoSelectedOptions.includes(title);
+    }
+
     if (!updateIsSelected && _isPlainObject(meta)) {
       updateIsSelected =
         memoSelectedOptions.find(activeOption => Object.values(meta).includes(activeOption)) !== undefined;
     }
 
     if (!updateIsSelected) {
-      updateIsSelected = memoSelectedOptions.includes(title);
+      const foundIndex = memoSelectedOptions.find(
+        activeOption => _isPlainObject(activeOption) && activeOption.index === index
+      );
+
+      if (foundIndex) {
+        updateIsSelected = true;
+      }
     }
 
     return {

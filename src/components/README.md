@@ -1467,8 +1467,8 @@ A bundled wrapper for PF Select, Dropdown.
         * [.memo](#Form.module_Select..updateOptions.memo)
     * [~updateSelectedOptions(options)](#Form.module_Select..updateSelectedOptions) ⇒ <code>Array</code> \| <code>Array.&lt;(&quot;NaN&quot;\|&quot;null&quot;\|unknown)&gt;</code>
         * [.memo](#Form.module_Select..updateSelectedOptions.memo)
-    * [~updateSelectedProp(params)](#Form.module_Select..updateSelectedProp) ⇒ <code>Object</code> \| <code>undefined</code> \| <code>Array.&lt;{isSelected:boolean}&gt;</code> \| <code>Array</code>
-        * [.memo](#Form.module_Select..updateSelectedProp.memo)
+    * [~updateOptionsSelectedOptions(params)](#Form.module_Select..updateOptionsSelectedOptions) ⇒ <code>Object</code> \| <code>undefined</code> \| <code>Array.&lt;{isSelected:boolean}&gt;</code> \| <code>Array</code>
+        * [.memo](#Form.module_Select..updateOptionsSelectedOptions.memo)
     * [~formatEvent(params)](#Form.module_Select..formatEvent) ⇒ <code>CustomEvent.&lt;{keyCode, currentTarget: {}, name, checked: \*, id: \*, persist: function(), value, target: {}, selected: (unknown\|Array.&lt;unknown&gt;), selectedIndex: Array.&lt;number&gt;, type: (&quot;select-one&quot;\|&quot;select-multiple&quot;), value: unknown}&gt;</code>
     * [~setSelectElements([variant])](#Form.module_Select..setSelectElements) ⇒ <code>Object</code>
         * [.memo](#Form.module_Select..setSelectElements.memo)
@@ -1569,9 +1569,9 @@ Update selected list options for consumption.
 A memoized response for the updateSelectedOptions function. Assigned to a property for testing function.
 
 **Kind**: static property of [<code>updateSelectedOptions</code>](#Form.module_Select..updateSelectedOptions)  
-<a name="Form.module_Select..updateSelectedProp"></a>
+<a name="Form.module_Select..updateOptionsSelectedOptions"></a>
 
-### Select~updateSelectedProp(params) ⇒ <code>Object</code> \| <code>undefined</code> \| <code>Array.&lt;{isSelected:boolean}&gt;</code> \| <code>Array</code>
+### Select~updateOptionsSelectedOptions(params) ⇒ <code>Object</code> \| <code>undefined</code> \| <code>Array.&lt;{isSelected:boolean}&gt;</code> \| <code>Array</code>
 Update the isSelected property for formatted options.
 
 **Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
@@ -1593,16 +1593,16 @@ Update the isSelected property for formatted options.
     </tr>  </tbody>
 </table>
 
-<a name="Form.module_Select..updateSelectedProp.memo"></a>
+<a name="Form.module_Select..updateOptionsSelectedOptions.memo"></a>
 
-#### updateSelectedProp.memo
-A memoized response for the updateSelectedProp function. Assigned to a property for testing function.
+#### updateOptionsSelectedOptions.memo
+A memoized response for the updateOptionsSelectedOptions function. Assigned to a property for testing function.
 
-**Kind**: static property of [<code>updateSelectedProp</code>](#Form.module_Select..updateSelectedProp)  
+**Kind**: static property of [<code>updateOptionsSelectedOptions</code>](#Form.module_Select..updateOptionsSelectedOptions)  
 <a name="Form.module_Select..formatEvent"></a>
 
 ### Select~formatEvent(params) ⇒ <code>CustomEvent.&lt;{keyCode, currentTarget: {}, name, checked: \*, id: \*, persist: function(), value, target: {}, selected: (unknown\|Array.&lt;unknown&gt;), selectedIndex: Array.&lt;number&gt;, type: (&quot;select-one&quot;\|&quot;select-multiple&quot;), value: unknown}&gt;</code>
-Expand returned event for select responses.
+Expand the returned event for select responses.
 
 **Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
 <table>
@@ -6884,7 +6884,7 @@ On select update category.
 <a name="Toolbar.module_ToolbarFieldSelectCategory..useSelectCategoryOptions"></a>
 
 ### ToolbarFieldSelectCategory~useSelectCategoryOptions(options) ⇒ <code>Object</code>
-Return filtered category options, current, and initial value.
+Return filtered configured category options, current, and initial value.
 
 **Kind**: inner method of [<code>ToolbarFieldSelectCategory</code>](#Toolbar.module_ToolbarFieldSelectCategory)  
 <table>
