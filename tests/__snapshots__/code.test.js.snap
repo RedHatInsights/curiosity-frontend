@@ -3,8 +3,8 @@
 exports[`General code checks should only have specific console.[warn|log|info|error] methods: console methods 1`] = `
 [
   "components/bannerMessages/bannerMessagesContext.js:124:        console.warn(",
-  "components/form/select.js:289:          console.warn(\`Selected option at key "\${key}" doesn't exist in \${JSON.stringify(updatedOptions)}\`);",
-  "components/form/select.js:292:          console.warn(\`Selected option at index "\${selectedOptionIndex}" is disabled or has no value.\`);",
+  "components/form/select.js:311:          console.warn(\`Selected option at key "\${key}" doesn't exist in \${JSON.stringify(updatedOptions)}\`);",
+  "components/form/select.js:314:          console.warn(\`Selected option at index "\${selectedOptionIndex}" is disabled or has no value.\`);",
   "components/inventoryCardInstances/inventoryCardInstancesContext.js:268:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "components/inventoryCardSubscriptions/inventoryCardSubscriptionsContext.js:191:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "components/notifications/notificationsContext.js:112:        console.warn(",

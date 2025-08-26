@@ -5,7 +5,7 @@ import {
   useOnSelect,
   updateOptions,
   updateSelectedOptions,
-  updateSelectedProp,
+  updateOptionsSelectedOptions,
   updateDataAttributes,
   formatEvent,
   SelectVariant
@@ -91,7 +91,7 @@ describe('helpers', () => {
     },
     {
       options: ['a', 'b', 3],
-      selectedOptions: 'a',
+      selectedOptions: 3,
       description: 'number'
     },
     {
@@ -113,13 +113,13 @@ describe('helpers', () => {
       options: ['a', { value: 'lorem ipsum', isSelected: true }, { value: 3, isSelected: true }, 'b', 4],
       selectedOptions: undefined,
       variant: 'mock',
-      description: 'multiple preselected'
+      description: 'multiple preselected, single selected'
     },
     {
       options: ['a', { value: 'lorem ipsum' }, 3, 'b', 4],
-      selectedOptions: [3, 'a', 'lorem ipsum'],
-      variant: 'mock',
-      description: 'multiple'
+      selectedOptions: [3, 'a', 'lorem ipsum', { index: 4 }],
+      variant: SelectVariant.checkbox,
+      description: 'multiple selected'
     },
     {
       options: ['a', undefined, 3, 'b', 4],
@@ -188,10 +188,10 @@ describe('helpers', () => {
       description: 'purposeful NaN value as array lookup'
     }
   ])(
-    'updateSelectedProp should add isSelected enhancements to options, $description',
+    'updateOptionsSelectedOptions should add isSelected enhancements to options, $description',
     ({ options, selectedOptions, variant }) => {
       expect(
-        updateSelectedProp({
+        updateOptionsSelectedOptions({
           options: updateOptions(options),
           selectedOptions: updateSelectedOptions(selectedOptions),
           variant

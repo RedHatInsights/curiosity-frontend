@@ -96,17 +96,13 @@ const ToolbarFieldRangedMonthly = ({
   const { [RHSM_API_QUERY_SET_TYPES.START_DATE]: updatedValue } = useAliasProductGraphTallyQuery();
   const onSelect = useAliasOnSelect();
 
-  const updatedOptions = options.map(option => ({
-    ...option,
-    isSelected: option.title === updatedValue || option.value.startDate.toISOString() === updatedValue
-  }));
-
   return (
     <Select
       isInline={isInline}
       aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'rangedMonthly' })}
       onSelect={onSelect}
-      options={updatedOptions}
+      options={options}
+      selectedOptions={updatedValue}
       placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'rangedMonthly' })}
       maxHeight={250}
       alignment={{ position }}
