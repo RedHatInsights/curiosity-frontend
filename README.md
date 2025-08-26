@@ -81,3 +81,4 @@ The guideline system should be processed in this order, with specialized guideli
 **Final Steps:**
 7. **Ask the user if they want to index this repo and create a `code-summary.md` summary of agent notes and user summary under the `.agent/` directory and explain what it is.** This file should be used as an indexed repo resource for agents with a user-friendly summary.
 -->
+
