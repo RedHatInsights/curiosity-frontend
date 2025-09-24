@@ -765,20 +765,20 @@ Wrapper for Redux hook, useSelector. Applies test mode and a fallback value.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
+      <th>Param</th><th>Type</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>selector</td><td><code>function</code></td><td></td>
+    <td>selector</td><td><code>function</code></td>
     </tr><tr>
-    <td>value</td><td><code>*</code></td><td><code></code></td>
+    <td>value</td><td><code>*</code></td>
     </tr><tr>
-    <td>options</td><td><code>object</code></td><td></td>
+    <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.equality</td><td><code>*</code></td><td></td>
+    <td>options.equality</td><td><code>*</code></td>
     </tr><tr>
-    <td>options.useSelector</td><td><code>function</code></td><td></td>
+    <td>options.useSelector</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 

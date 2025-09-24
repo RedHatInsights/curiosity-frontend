@@ -195,6 +195,7 @@ const getRangedMonthDateTime = (month, defaultLocale = helpers.UI_LOCALE_DEFAULT
 
   while (endDateUpdated > startDateUpdated || startDateUpdated.getUTCMonth() === endDateUpdated.getUTCMonth()) {
     const dateTime = {
+      startDateString: setStartOfDay(startDateUpdated).toISOString(),
       value: {
         startDate: new Date(setStartOfDay(startDateUpdated))
       }
@@ -210,6 +211,7 @@ const getRangedMonthDateTime = (month, defaultLocale = helpers.UI_LOCALE_DEFAULT
     const isNextYear = currentYear !== startDateUpdated.getUTCFullYear();
     dateTime.title = (isNextYear && titleYear) || title;
     dateTime._title = title.toLowerCase();
+    dateTime.endDateString = setEndOfMonth(startDateUpdated).toISOString();
     dateTime.value.endDate = setEndOfMonth(startDateUpdated);
 
     startDateUpdated.setUTCMonth(startDateUpdated.getUTCMonth() + 1);
