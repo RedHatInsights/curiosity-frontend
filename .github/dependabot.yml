@@ -4,7 +4,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      day: monday
+      day: wednesday
+    cooldown:
+      default-days: 14
     open-pull-requests-limit: 3
     target-branch: "main"
     versioning-strategy: increase
@@ -35,7 +37,9 @@ updates:
     directory: /
     schedule:
       interval: monthly
-      day: monday
+      day: wednesday
+    cooldown:
+      default-days: 14
     open-pull-requests-limit: 2
     target-branch: "main"
     labels:

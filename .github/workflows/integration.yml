@@ -32,7 +32,9 @@ jobs:
             ${{ runner.os }}-${{ matrix.node-version }}-modules
       - name: Install Node.js packages
         if: ${{ steps.modules-cache.outputs.cache-hit != 'true' }}
-        run: npm install
+        run: npm ci
+      - name: Audit packages
+        run: npm audit --audit-level=high
       - name: Lint and test
         run: npm test
       - name: Code coverage
