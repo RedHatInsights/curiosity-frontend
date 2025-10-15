@@ -32,9 +32,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
         "allowAbsoluteUrls": true,
         "cacheResponse": false,
         "cancelToken": CancelToken {
-          "promise": Promise {
-            "then": [Function],
-          },
+          "promise": Promise {},
         },
         "data": undefined,
         "env": {
@@ -73,9 +71,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
           "allowAbsoluteUrls": true,
           "cacheResponse": false,
           "cancelToken": CancelToken {
-            "promise": Promise {
-              "then": [Function],
-            },
+            "promise": Promise {},
           },
           "data": undefined,
           "env": {
@@ -130,9 +126,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
         "allowAbsoluteUrls": true,
         "cacheResponse": false,
         "cancelToken": CancelToken {
-          "promise": Promise {
-            "then": [Function],
-          },
+          "promise": Promise {},
         },
         "data": undefined,
         "env": {
@@ -170,9 +164,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
           "allowAbsoluteUrls": true,
           "cacheResponse": false,
           "cancelToken": CancelToken {
-            "promise": Promise {
-              "then": [Function],
-            },
+            "promise": Promise {},
           },
           "data": undefined,
           "env": {
@@ -225,9 +217,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
         "allowAbsoluteUrls": true,
         "cacheResponse": false,
         "cancelToken": CancelToken {
-          "promise": Promise {
-            "then": [Function],
-          },
+          "promise": Promise {},
         },
         "data": undefined,
         "env": {
@@ -265,9 +255,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
           "allowAbsoluteUrls": true,
           "cacheResponse": false,
           "cancelToken": CancelToken {
-            "promise": Promise {
-              "then": [Function],
-            },
+            "promise": Promise {},
           },
           "data": undefined,
           "env": {
