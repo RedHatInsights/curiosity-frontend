@@ -3,10 +3,10 @@
 # precedence
 
 # Default owner(s) for everything. Added to PR reviews
-* @cdcabrera
+* @cdcabrera @lindseyburnett
 
 # CODEOWNERS permissions
-/.github/CODEOWNERS @barnabycourt @cdcabrera
+/.github/CODEOWNERS @barnabycourt @cdcabrera @lindseyburnett
 
 # Automated dependency updates
 package*.json @vbusch @kflahert @cdcabrera @lindseyburnett
