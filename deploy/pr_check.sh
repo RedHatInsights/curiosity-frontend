@@ -37,7 +37,7 @@ CICD_URL=https://raw.githubusercontent.com/RedHatInsights/bonfire/master/cicd
 curl -s $CICD_URL/bootstrap.sh > .cicd_bootstrap.sh && source .cicd_bootstrap.sh
 
 export APP_NAME="rhsm"
-export REF_ENV="insights-production"
+export REF_ENV="insights-stage"
 export DEPLOY_FRONTENDS="true"
 export EXTRA_DEPLOY_ARGS="--timeout 1800 "
 export DEPLOY_TIMEOUT="1800"
