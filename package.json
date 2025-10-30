@@ -112,8 +112,8 @@
     "victory-create-container": "37.3.6"
   },
   "devDependencies": {
-    "@babel/core": "7.28.4",
-    "@babel/eslint-parser": "7.28.4",
+    "@babel/core": "7.28.5",
+    "@babel/eslint-parser": "7.28.5",
     "@eslint/compat": "^1.4.0",
     "@eslint/js": "^9.37.0",
     "@redhat-cloud-services/frontend-components-config": "6.6.11",
