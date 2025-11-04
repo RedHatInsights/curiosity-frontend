@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.18.2](https://github.com/RedHatInsights/curiosity-frontend/compare/ac2a647c31b503ea455cf9f7c416fccfb971765c...3ee8a83b3d523ab79cb880f9fd11de4095f93403) (2025-11-04)
+
+
+### Continuous Integrations
+*  sw-4180 limit Konflux to tekton dependency updates ([#1749](https://github.com/RedHatInsights/curiosity-frontend/pull/1749)) ([07b6b43](https://github.com/RedHatInsights/curiosity-frontend/commit/07b6b4325e3e28ea2bafe312e0027dbe5a2033ef))
+*  Update build-tools digest to 098cc75 ([#1745](https://github.com/RedHatInsights/curiosity-frontend/pull/1745)) ([9418ba3](https://github.com/RedHatInsights/curiosity-frontend/commit/9418ba392cf24771d116b4a857ce6de5f18f40b9))
+*  Update Konflux references ([#1744](https://github.com/RedHatInsights/curiosity-frontend/pull/1744)) ([b3226cb](https://github.com/RedHatInsights/curiosity-frontend/commit/b3226cbc517a19844537a231600beaf77a1bb5fa))
+*  Update Konflux references ([#1732](https://github.com/RedHatInsights/curiosity-frontend/pull/1732)) ([b45f641](https://github.com/RedHatInsights/curiosity-frontend/commit/b45f641a7ea0248c9903c626bc50e65b07bd117a))
+*  default configs from stage for ephemeral deploy ([#1731](https://github.com/RedHatInsights/curiosity-frontend/pull/1731)) ([731c2ed](https://github.com/RedHatInsights/curiosity-frontend/commit/731c2edc7a02c4212d5868baf23b9ccf85a0cf58))
+*  Update build-tools submodule to 4eea3e7 ([#1728](https://github.com/RedHatInsights/curiosity-frontend/pull/1728)) ([1b3e1d9](https://github.com/RedHatInsights/curiosity-frontend/commit/1b3e1d902a435fe3f65e154c653f1c0c81538597))
+*  Update build-tools digest to 0b159e8 ([#1721](https://github.com/RedHatInsights/curiosity-frontend/pull/1721)) ([2f795c1](https://github.com/RedHatInsights/curiosity-frontend/commit/2f795c1bc8aebf35ff84fe19fa2041a50396bc8f))
+*  Update Konflux references ([#1720](https://github.com/RedHatInsights/curiosity-frontend/pull/1720)) ([876fcbe](https://github.com/RedHatInsights/curiosity-frontend/commit/876fcbe8e2d7bf06080c8c87987c6c661626bb17))
+*  Update build-tools digest to bcba942 ([#1716](https://github.com/RedHatInsights/curiosity-frontend/pull/1716)) ([6a54401](https://github.com/RedHatInsights/curiosity-frontend/commit/6a5440144eaca35d8d6d90e26dea84466ef74d90))
+*  Update Konflux references ([#1713](https://github.com/RedHatInsights/curiosity-frontend/pull/1713)) ([76ee4b2](https://github.com/RedHatInsights/curiosity-frontend/commit/76ee4b23f31f4f89fd838b06818e3169c973a4a9))
+*  Update Konflux references ([#1704](https://github.com/RedHatInsights/curiosity-frontend/pull/1704)) ([9625e9b](https://github.com/RedHatInsights/curiosity-frontend/commit/9625e9bf2be2732e2a3a13b44a9818d1b07e7255))
+*  Update build-tools digest to ee2fed7 ([#1707](https://github.com/RedHatInsights/curiosity-frontend/pull/1707)) ([6c36be9](https://github.com/RedHatInsights/curiosity-frontend/commit/6c36be9a620228291055b0570748a8eda5a57009))
+*  Update build-tools digest to 8bdd145 ([#1703](https://github.com/RedHatInsights/curiosity-frontend/pull/1703)) ([7167b4d](https://github.com/RedHatInsights/curiosity-frontend/commit/7167b4da4df8d213ba0018b64818e7da97ae745a))
+*  Update Konflux references ([#1700](https://github.com/RedHatInsights/curiosity-frontend/pull/1700)) ([bd1aa4a](https://github.com/RedHatInsights/curiosity-frontend/commit/bd1aa4a74b4b463ba8cc860e14110e002661b115))
+*  Update Konflux references ([#1691](https://github.com/RedHatInsights/curiosity-frontend/pull/1691)) ([3ae3887](https://github.com/RedHatInsights/curiosity-frontend/commit/3ae3887aff1e2345958cc4ca03f2686954d21126))
+*  Update build-tools digest to 967d954 ([#1693](https://github.com/RedHatInsights/curiosity-frontend/pull/1693)) ([ec7306e](https://github.com/RedHatInsights/curiosity-frontend/commit/ec7306e57da3b84255f665bdeaf58d5f1fe0ae18))
+*  Update Konflux references ([#1687](https://github.com/RedHatInsights/curiosity-frontend/pull/1687)) ([c2ccff7](https://github.com/RedHatInsights/curiosity-frontend/commit/c2ccff776534f8607c8f2edf0ea69d4d49360dab))
+*  Update Konflux references ([#1681](https://github.com/RedHatInsights/curiosity-frontend/pull/1681)) ([98d5ccd](https://github.com/RedHatInsights/curiosity-frontend/commit/98d5ccd51e9a836d2877b6c624e42db77bebe53f))
+*  Update Konflux references ([#1677](https://github.com/RedHatInsights/curiosity-frontend/pull/1677)) ([f4ce4bb](https://github.com/RedHatInsights/curiosity-frontend/commit/f4ce4bbe82a4f7b351ba6398f3a854833584a4fb))
+*  Update build-tools digest to b496d0a ([#1675](https://github.com/RedHatInsights/curiosity-frontend/pull/1675)) ([96762dd](https://github.com/RedHatInsights/curiosity-frontend/commit/96762dd9d239fc06600b44453e44fd5fbbd4075c))
+*  Update Konflux references ([#1672](https://github.com/RedHatInsights/curiosity-frontend/pull/1672)) ([7394f11](https://github.com/RedHatInsights/curiosity-frontend/commit/7394f1109933ce5c9b56c8ba2e3e57da1e97e669))
+
+### Builds
+* **deps** bump actions/setup-node from 5 to 6 ([#1743](https://github.com/RedHatInsights/curiosity-frontend/pull/1743)) ([3ee8a83](https://github.com/RedHatInsights/curiosity-frontend/commit/3ee8a83b3d523ab79cb880f9fd11de4095f93403))
+* **deps-dev** bump the dev group with 3 updates ([#1722](https://github.com/RedHatInsights/curiosity-frontend/pull/1722)) ([eee7d00](https://github.com/RedHatInsights/curiosity-frontend/commit/eee7d00d8fba1f313c8ca07c3a6553b94f377200))
+*  expand codeowners defaults ([#1729](https://github.com/RedHatInsights/curiosity-frontend/pull/1729)) ([56dfd97](https://github.com/RedHatInsights/curiosity-frontend/commit/56dfd971eae1363f1ad067a256957e1caeae8e65))
+* **deps** bump lru-cache from 11.2.1 to 11.2.2 ([#1708](https://github.com/RedHatInsights/curiosity-frontend/pull/1708)) ([c421b04](https://github.com/RedHatInsights/curiosity-frontend/commit/c421b047fb712688f8aa72bff33c0ac8c6f06cd1))
+* **deps-dev** bump dev group with 10 updates ([#1719](https://github.com/RedHatInsights/curiosity-frontend/pull/1719)) ([6075dff](https://github.com/RedHatInsights/curiosity-frontend/commit/6075dff5dcd5338a8d7c52ea01c1e0eb5fa78387))
+* **deps** bump actions/github-script from 7 to 8 ([#1718](https://github.com/RedHatInsights/curiosity-frontend/pull/1718)) ([bfb4aaa](https://github.com/RedHatInsights/curiosity-frontend/commit/bfb4aaa0a140d2a41b0942b5fcfc8dcd096514b4))
+*  dependabot, package cooldown ([#1717](https://github.com/RedHatInsights/curiosity-frontend/pull/1717)) ([2a868a1](https://github.com/RedHatInsights/curiosity-frontend/commit/2a868a1dc0195c2edf8d677d41feaf81fa7a90c2))
+* **deps** bump actions/checkout from 4 to 5 ([#1712](https://github.com/RedHatInsights/curiosity-frontend/pull/1712)) ([7feee73](https://github.com/RedHatInsights/curiosity-frontend/commit/7feee73f2554beddd066b26f7bd05fd1b04f90f0))
+* **deps** bump actions/setup-node from 4 to 5 ([#1711](https://github.com/RedHatInsights/curiosity-frontend/pull/1711)) ([2297474](https://github.com/RedHatInsights/curiosity-frontend/commit/2297474b3e6a0975aa1812c43b961c9daa8cc6d5))
+* **deps** bump axios from 1.11.0 to 1.12.2 ([#1702](https://github.com/RedHatInsights/curiosity-frontend/pull/1702)) ([4be94f8](https://github.com/RedHatInsights/curiosity-frontend/commit/4be94f85ad6ebb2d3a82eb7b46accae874893863))
+* **deps-dev** bump dev group with 3 updates ([#1701](https://github.com/RedHatInsights/curiosity-frontend/pull/1701)) ([1372726](https://github.com/RedHatInsights/curiosity-frontend/commit/1372726536cf6b9c4cb16f5d039eb60af3b6ef84))
+* **deps-dev** bump the dev group with 9 updates ([#1696](https://github.com/RedHatInsights/curiosity-frontend/pull/1696)) ([42dd833](https://github.com/RedHatInsights/curiosity-frontend/commit/42dd833933bf8ea2d247c19653cb2bf59650eff5))
+* **deps** bump lru-cache from 11.1.0 to 11.2.1 ([#1695](https://github.com/RedHatInsights/curiosity-frontend/pull/1695)) ([5272008](https://github.com/RedHatInsights/curiosity-frontend/commit/52720084cdad3358104f45753cdc2d519ca6eed2))
+* **deps-dev** bump the dev group with 7 updates ([#1692](https://github.com/RedHatInsights/curiosity-frontend/pull/1692)) ([77ed7ba](https://github.com/RedHatInsights/curiosity-frontend/commit/77ed7ba4e55b33ba5ceef6685ffe1353d5561295))
+* **deps** bump joi from 17.13.3 to 18.0.1 ([#1684](https://github.com/RedHatInsights/curiosity-frontend/pull/1684)) ([663957b](https://github.com/RedHatInsights/curiosity-frontend/commit/663957b1c16b23be39eb30d769bb2d1d1759eb28))
+* **deps-dev** bump dev group with 2 updates ([#1688](https://github.com/RedHatInsights/curiosity-frontend/pull/1688)) ([dc576b2](https://github.com/RedHatInsights/curiosity-frontend/commit/dc576b2739f74e59dc10eb5598a2d528ee2c0261))
+* **deps** bump group with 4 updates ([#1685](https://github.com/RedHatInsights/curiosity-frontend/pull/1685)) ([09044d9](https://github.com/RedHatInsights/curiosity-frontend/commit/09044d96a5f530b1fa2bc3d3799727c1e2cdb1ef))
+* **deps-dev** bump eslint-plugin-jsdoc from 51.4.1 to 54.1.1 ([#1683](https://github.com/RedHatInsights/curiosity-frontend/pull/1683)) ([6013d8b](https://github.com/RedHatInsights/curiosity-frontend/commit/6013d8bd7cdccf566345c17502b3c4451e8f5775))
+* **deps-dev** bump the dev group with 4 updates ([#1680](https://github.com/RedHatInsights/curiosity-frontend/pull/1680)) ([dcefcd1](https://github.com/RedHatInsights/curiosity-frontend/commit/dcefcd1cdaeaffc992702a8c19e75619ba3fbf78))
+* **deps-dev** bump group with 7 updates ([#1676](https://github.com/RedHatInsights/curiosity-frontend/pull/1676)) ([d9271b0](https://github.com/RedHatInsights/curiosity-frontend/commit/d9271b01731a3640b1f314c0096b1fc97d61d088))
+*  sw-3714 base agent guidelines ([#1648](https://github.com/RedHatInsights/curiosity-frontend/pull/1648)) ([726610f](https://github.com/RedHatInsights/curiosity-frontend/commit/726610f0e81a96b9d724a37e3b0df00553e6b831))
+* **deps-dev** typescript from 5.8.3 to 5.9.2 ([#1674](https://github.com/RedHatInsights/curiosity-frontend/pull/1674)) ([395a354](https://github.com/RedHatInsights/curiosity-frontend/commit/395a3543c6393e16ea4364db3da2ea37f9e36e37))
+
 ## [4.18.1](https://github.com/RedHatInsights/curiosity-frontend/compare/758f8aa44cca96a0fc50db93bc2f0b119ed0f8ea...281872516ab06ddc47415c84a86e05ae151587e2) (2025-08-01)
 
 
