@@ -106,29 +106,24 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
         options={
           [
             {
-              "isSelected": undefined,
               "title": "lorem",
               "value": "lorem",
             },
             {
-              "isSelected": undefined,
               "title": "ipsum",
               "value": "ipsum",
             },
             {
-              "isSelected": undefined,
               "title": "dolor",
               "value": "dolor",
             },
             {
-              "isSelected": undefined,
               "title": "sit",
               "value": "sit",
             },
           ]
         }
         placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-        selectedOptions={null}
       />
     </ToolbarItem>
   </ForwardRef>
@@ -168,19 +163,16 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
           options={
             [
               {
-                "isSelected": undefined,
                 "title": "lorem",
                 "value": "lorem",
               },
               {
-                "isSelected": undefined,
                 "title": "ipsum",
                 "value": "ipsum",
               },
             ]
           }
           placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-          selectedOptions={null}
         />
       </ToolbarItem>
     </ForwardRef>
