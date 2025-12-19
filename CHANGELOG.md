@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.18.3](https://github.com/RedHatInsights/curiosity-frontend/compare/8463dfaf4a40543975cf9233b06499ed6e240148...3c6751c9063e7acf2927660bf721107b4496adbf) (2025-12-18)
+
+
+### Continuous Integrations
+*  Update Konflux references ([#1767](https://github.com/RedHatInsights/curiosity-frontend/pull/1767)) ([869e3cd](https://github.com/RedHatInsights/curiosity-frontend/commit/869e3cd30d18bc8fc50cc5ab6750a6cc41e55c25))
+*  Update Konflux references ([#1766](https://github.com/RedHatInsights/curiosity-frontend/pull/1766)) ([c3a6109](https://github.com/RedHatInsights/curiosity-frontend/commit/c3a610985904280cf7412cd6cb7a91371e8c04b9))
+*  Update Konflux references ([#1760](https://github.com/RedHatInsights/curiosity-frontend/pull/1760)) ([967a6ec](https://github.com/RedHatInsights/curiosity-frontend/commit/967a6ecc9f638989f9be36431753220abc9f5baf))
+*  Update Konflux references ([#1757](https://github.com/RedHatInsights/curiosity-frontend/pull/1757)) ([2d11893](https://github.com/RedHatInsights/curiosity-frontend/commit/2d11893edf1a62304f555737a3ed96b75ab8d4ea))
+
+### Builds
+* **deps-dev** bump @eslint/compat from 1.4.1 to 2.0.0 ([#1764](https://github.com/RedHatInsights/curiosity-frontend/pull/1764)) ([3c6751c](https://github.com/RedHatInsights/curiosity-frontend/commit/3c6751c9063e7acf2927660bf721107b4496adbf))
+* **deps-dev** bump glob from 11.1.0 to 13.0.0 ([#1765](https://github.com/RedHatInsights/curiosity-frontend/pull/1765)) ([2fcc9de](https://github.com/RedHatInsights/curiosity-frontend/commit/2fcc9de295490a30089a9ea94964390c0ef6f850))
+* **deps** bump group with 14 updates ([#1762](https://github.com/RedHatInsights/curiosity-frontend/pull/1762)) ([2207b80](https://github.com/RedHatInsights/curiosity-frontend/commit/2207b8090e3e0c2fa7ebb93e4c11fdb676513297))
+* **deps-dev** bump the dev group with 3 updates ([#1758](https://github.com/RedHatInsights/curiosity-frontend/pull/1758)) ([0185670](https://github.com/RedHatInsights/curiosity-frontend/commit/0185670ca00e5afa7dfcab1f5163e12c1ede3ef6))
+* **deps-dev** bump npm-check-updates from 18.1.1 to 19.1.1 ([#1754](https://github.com/RedHatInsights/curiosity-frontend/pull/1754)) ([004c303](https://github.com/RedHatInsights/curiosity-frontend/commit/004c3035db3fc4d7623f93744c2308b330847d50))
+* **deps-dev** bump cspell from 9.2.1 to 9.2.2 ([#1756](https://github.com/RedHatInsights/curiosity-frontend/pull/1756)) ([4eef5fa](https://github.com/RedHatInsights/curiosity-frontend/commit/4eef5faea3360eb65650d4d11ff5c20805edf2e6))
+* **deps-dev** bump the dev group with 3 updates ([#1753](https://github.com/RedHatInsights/curiosity-frontend/pull/1753)) ([26a02c4](https://github.com/RedHatInsights/curiosity-frontend/commit/26a02c47527a337ddec55f483096751d307bd856))
+
 ## [4.18.2](https://github.com/RedHatInsights/curiosity-frontend/compare/ac2a647c31b503ea455cf9f7c416fccfb971765c...3ee8a83b3d523ab79cb880f9fd11de4095f93403) (2025-11-04)
 
 
