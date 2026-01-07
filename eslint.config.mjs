@@ -118,6 +118,8 @@ export default [
       ],
       'jsdoc/no-defaults': 0,
       'jsdoc/no-undefined-types': 0,
+      'jsdoc/reject-any-type': 0,
+      'jsdoc/reject-function-type': 0,
       'jsdoc/require-jsdoc': 2,
       'jsdoc/require-param': 2,
       'jsdoc/require-param-description': 0,
