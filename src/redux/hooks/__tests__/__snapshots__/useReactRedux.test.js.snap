@@ -38,6 +38,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "cancelledCancelledById": {
     "cancelled": true,
@@ -77,6 +81,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "errorCancelled": {
     "cancelled": false,
@@ -103,6 +111,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "errorError": {
     "cancelled": false,
@@ -133,6 +145,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "errorErrorById": {
     "cancelled": false,
@@ -176,6 +192,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "fulfilledCancelled": {
     "cancelled": false,
@@ -202,6 +222,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "fulfilledError": {
     "cancelled": false,
@@ -228,6 +252,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "fulfilledFulfilled": {
     "cancelled": false,
@@ -254,6 +282,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "fulfilledFulfilledById": {
     "cancelled": false,
@@ -293,6 +325,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "fulfilledPending": {
     "cancelled": false,
@@ -312,6 +348,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "pendingCancelled": {
     "cancelled": false,
@@ -331,6 +371,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "pendingError": {
     "cancelled": false,
@@ -357,6 +401,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "pendingPending": {
     "cancelled": false,
@@ -376,6 +424,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
   "pendingPendingById": {
     "cancelled": false,
@@ -406,6 +458,10 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
         },
       ],
     },
+    "status": undefined,
+    "statusList": [
+      undefined,
+    ],
   },
 }
 `;

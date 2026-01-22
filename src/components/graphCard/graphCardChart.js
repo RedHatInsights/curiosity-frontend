@@ -50,7 +50,7 @@ const GraphCardChart = ({
   const { stringId } = settings;
 
   const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
-  const { pending, error, message, dataSets = [] } = useAliasGetMetrics();
+  const { pending, error, status, statusList, message, dataSets = [] } = useAliasGetMetrics();
 
   const cardHeaderProps = {};
 
@@ -79,7 +79,16 @@ const GraphCardChart = ({
       </CardHeader>
       <MinHeight key="bodyMinHeight">
         <CardBody className="curiosity-card__body">
-          {(error && <ErrorMessage message={message} title={t('curiosity-graph.error_title')} />) ||
+          {(error && (
+            <ErrorMessage
+              message={message}
+              title={t('curiosity-graph.error', {
+                http: status,
+                context: ['title', status && 'service', status && 'status'],
+                count: statusList?.length
+              })}
+            />
+          )) ||
             (pending && <Loader variant="graph" />) || (
               <Chart
                 {...graphCardHelpers.generateExtendedChartSettings({ settings, granularity })}

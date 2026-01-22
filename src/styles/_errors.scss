@@ -1,10 +1,11 @@
 .curiosity {
   .curiosity-error {
-    &__link {
-      > span {
-        color: var(--pf-global--color--gray) !important;
-      }
+    &__link-row {
+      display: flex;
+      flex-direction: row-reverse;
     }
+
+    &__link {}
 
     &__textarea {
       display: block;

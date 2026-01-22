@@ -25,6 +25,8 @@ exports[`ProductViewOnloadContext should apply a hook for product configuration 
     "id": {},
     "list": [],
   },
+  "status": undefined,
+  "statusList": [],
 }
 `;
 
@@ -42,6 +44,8 @@ exports[`ProductViewOnloadContext should apply a hook for product configuration 
     "id": {},
     "list": [],
   },
+  "status": undefined,
+  "statusList": [],
 }
 `;
 

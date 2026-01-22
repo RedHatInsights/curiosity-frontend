@@ -11,72 +11,71 @@ exports[`ErrorMessage Component should allow displaying an error cause: error 1`
     aria-live="polite"
     class="fadein"
   >
-    <button
-      class="pf-v6-c-button pf-m-link curiosity-error__link"
-      data-ouia-component-id="OUIA-Generated-Button-link-1"
-      data-ouia-component-type="PF6/Button"
-      data-ouia-safe="true"
-      style="float: right;"
-      title="t(curiosity-view.error, {"context":"debug"})"
-      type="button"
+    <div
+      class="curiosity-error__link-row"
     >
-      <span
-        class="pf-v6-c-button__icon pf-m-start"
-      >
-        <svg
-          aria-hidden="true"
-          class="pf-v6-svg"
-          fill="currentColor"
-          height="1em"
-          role="img"
-          viewBox="0 0 512 512"
-          width="1em"
-        >
-          <path
-            d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"
-          />
-        </svg>
-      </span>
-      <span
-        class="pf-v6-c-button__text"
+      <button
+        class="pf-v6-c-button pf-m-link curiosity-error__link"
+        data-ouia-component-id="OUIA-Generated-Button-link-1"
+        data-ouia-component-type="PF6/Button"
+        data-ouia-safe="true"
+        title="t(curiosity-view.error_debug, {"context":"return"})"
+        type="button"
       >
         <span
-          class="sr-only"
+          class="pf-v6-c-button__icon pf-m-start"
         >
-          t(curiosity-view.error, {"context":"debug"})
+          <svg
+            aria-hidden="true"
+            class="pf-v6-svg"
+            fill="currentColor"
+            height="1em"
+            role="img"
+            viewBox="0 0 352 512"
+            width="1em"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+            />
+          </svg>
         </span>
-      </span>
-    </button>
-    <button
-      class="pf-v6-c-button pf-m-link"
-      data-ouia-component-id="OUIA-Generated-Button-link-2"
-      data-ouia-component-type="PF6/Button"
-      data-ouia-safe="true"
-      type="button"
-    >
-      <span
-        class="pf-v6-c-button__icon pf-m-start"
-      >
-        <svg
-          aria-hidden="true"
-          class="pf-v6-svg"
-          fill="currentColor"
-          height="1em"
-          role="img"
-          viewBox="0 0 1024 1024"
-          width="1em"
+        <span
+          class="pf-v6-c-button__text"
         >
-          <path
-            d="M975.8,636.9 L870.9,741.8 L457.9,328.6 C452.1,322.8 445.4,319.9 437.9,319.9 C430.4,319.9 423.7,322.8 417.9,328.6 L328.8,417.7 C323,423.5 320.1,430.2 320.1,437.7 C320.1,445.2 323,451.9 328.8,457.7 L742,870.7 L636.9,975.8 C610.5,1002.2 619.4,1024 656.8,1024 L956,1024 C1014.5,1024 1024,1013.7 1024,955.9 L1024,656.7 C1023.9,619.4 1002.2,610.5 975.8,636.9 Z M128,128 L896,128 L896,361.7 C896.007942,370.182681 899.389907,378.313788 905.4,384.3 L996.7,475.6 C1006.8,485.7 1024,478.5 1024,464.3 L1024,22.7 C1024,16.1 1021.9,10.7 1017.6,6.4 C1013.3,2.1 1007.9,0 1001.3,0 L22.7,0 C16.1,0 10.7,2.1 6.4,6.4 C2.1,10.7 0,16.1 0,22.7 L0,1001.3 C0,1007.9 2.1,1013.3 6.4,1017.6 C10.7,1021.9 16.1,1024 22.7,1024 L463.4,1024 C469.862884,1023.98894 475.684489,1020.0908 478.156232,1014.11925 C480.627976,1008.14769 479.264428,1001.27548 474.7,996.7 L383.4,905.4 C377.413788,899.389907 369.282681,896.007942 360.8,896 L128,896 L128,128 Z"
-          />
-        </svg>
-      </span>
-      <span
-        class="pf-v6-c-button__text"
+          t(curiosity-view.error_debug, {"context":"return"})
+        </span>
+      </button>
+      <button
+        class="pf-v6-c-button pf-m-link"
+        data-ouia-component-id="OUIA-Generated-Button-link-2"
+        data-ouia-component-type="PF6/Button"
+        data-ouia-safe="true"
+        type="button"
       >
-        t(curiosity-view.error, {"context":"download"})
-      </span>
-    </button>
+        <span
+          class="pf-v6-c-button__icon pf-m-start"
+        >
+          <svg
+            aria-hidden="true"
+            class="pf-v6-svg"
+            fill="currentColor"
+            height="1em"
+            role="img"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M975.8,636.9 L870.9,741.8 L457.9,328.6 C452.1,322.8 445.4,319.9 437.9,319.9 C430.4,319.9 423.7,322.8 417.9,328.6 L328.8,417.7 C323,423.5 320.1,430.2 320.1,437.7 C320.1,445.2 323,451.9 328.8,457.7 L742,870.7 L636.9,975.8 C610.5,1002.2 619.4,1024 656.8,1024 L956,1024 C1014.5,1024 1024,1013.7 1024,955.9 L1024,656.7 C1023.9,619.4 1002.2,610.5 975.8,636.9 Z M128,128 L896,128 L896,361.7 C896.007942,370.182681 899.389907,378.313788 905.4,384.3 L996.7,475.6 C1006.8,485.7 1024,478.5 1024,464.3 L1024,22.7 C1024,16.1 1021.9,10.7 1017.6,6.4 C1013.3,2.1 1007.9,0 1001.3,0 L22.7,0 C16.1,0 10.7,2.1 6.4,6.4 C2.1,10.7 0,16.1 0,22.7 L0,1001.3 C0,1007.9 2.1,1013.3 6.4,1017.6 C10.7,1021.9 16.1,1024 22.7,1024 L463.4,1024 C469.862884,1023.98894 475.684489,1020.0908 478.156232,1014.11925 C480.627976,1008.14769 479.264428,1001.27548 474.7,996.7 L383.4,905.4 C377.413788,899.389907 369.282681,896.007942 360.8,896 L128,896 L128,128 Z"
+            />
+          </svg>
+        </span>
+        <span
+          class="pf-v6-c-button__text"
+        >
+          t(curiosity-view.error, {"context":"download"})
+        </span>
+      </button>
+    </div>
     <textarea
       class="curiosity-error__textarea"
       readonly=""
@@ -98,6 +97,9 @@ exports[`ErrorMessage Component should display custom messages: messages 1`] = `
   aria-live="polite"
   className="fadein"
 >
+  <div
+    className="curiosity-error__link-row"
+  />
   <EmptyState
     icon={[Function]}
     titleText={
@@ -122,6 +124,9 @@ exports[`ErrorMessage Component should render a basic component: basic render 1`
   aria-live="polite"
   className="fadein"
 >
+  <div
+    className="curiosity-error__link-row"
+  />
   <EmptyState
     icon={[Function]}
     titleText={
