@@ -214,7 +214,7 @@ const axiosServiceCall = async (
       emulatedResponse = await serviceHelpers.timeoutFunctionCancel(emulateCallback, { timeout: xhrTimeout });
     } catch (err) {
       isSuccess = false;
-      message = err.message || err;
+      message = err?.message || err || 'Unknown error';
       emulatedErrorStatus = err?.status || err?.response?.status || emulatedErrorStatus;
     }
 
