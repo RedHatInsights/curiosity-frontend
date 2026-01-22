@@ -665,4 +665,14 @@ describe('Emulate a service call with a function', () => {
 
     expect(responses.map(({ reason }) => reason.response.data)).toMatchSnapshot('error transformation');
   });
+
+  it('should handle passed http status with emulated, grouped service calls', async () => {
+    const responses = await Promise.allSettled([
+      serviceConfig.axiosServiceCall({
+        url: () => Promise.reject({ status: 403, statusText: 'Forbidden', message: 'dolor.sit' }), // eslint-disable-line
+      })
+    ]);
+
+    expect(responses[0].reason.status).toBe(403);
+  });
 });
