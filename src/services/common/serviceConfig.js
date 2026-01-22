@@ -208,12 +208,14 @@ const axiosServiceCall = async (
     let message = 'success, emulated';
     let emulatedResponse;
     let isSuccess = true;
+    let emulatedErrorStatus = 418;
 
     try {
       emulatedResponse = await serviceHelpers.timeoutFunctionCancel(emulateCallback, { timeout: xhrTimeout });
-    } catch (e) {
+    } catch (err) {
       isSuccess = false;
-      message = e.message || e;
+      message = err.message || err;
+      emulatedErrorStatus = err?.status || err?.response?.status || emulatedErrorStatus;
     }
 
     if (isSuccess) {
@@ -229,7 +231,7 @@ const axiosServiceCall = async (
         Promise.reject({ // eslint-disable-line
           ...new Error(message),
           message,
-          status: 418,
+          status: emulatedErrorStatus,
           config: adapterConfig
         });
     }
