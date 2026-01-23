@@ -168,10 +168,10 @@ const axiosServiceCall = async (
         if (updatedResponse?.message === cancelledMessage) {
           return Promise.reject(updatedResponse);
         }
-
+        // Note: Reevaluate memoClone, it was removed from data/message because it was interfering with passed errors.
         const { data, error: normalizeError } = serviceHelpers.passDataToCallback(
           errorTransform,
-          serviceHelpers.memoClone(updatedResponse?.data || updatedResponse?.message),
+          updatedResponse?.data || updatedResponse?.message,
           serviceHelpers.memoClone(updatedResponse.config)
         );
 
@@ -213,6 +213,7 @@ const axiosServiceCall = async (
     try {
       emulatedResponse = await serviceHelpers.timeoutFunctionCancel(emulateCallback, { timeout: xhrTimeout });
     } catch (err) {
+      emulatedResponse = err?.data || err;
       isSuccess = false;
       message = err?.message || err || 'Unknown error';
       emulatedErrorStatus = err?.status || err?.response?.status || emulatedErrorStatus;
@@ -231,6 +232,7 @@ const axiosServiceCall = async (
         Promise.reject({ // eslint-disable-line
           ...new Error(message),
           message,
+          data: emulatedResponse,
           status: emulatedErrorStatus,
           config: adapterConfig
         });
