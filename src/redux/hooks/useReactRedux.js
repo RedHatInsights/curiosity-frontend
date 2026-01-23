@@ -135,7 +135,8 @@ const useSelectors = (
  * @param {Function} options.useSelectors
  * @param {Function} options.customResponse Callback for customizing your own response
  * @returns {{data: ({}|Array), pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
- *     id: {}, list: Array}, cancelled: boolean, error: boolean, message: null}}
+ *     id: {}, list: Array}, cancelled: boolean, error: boolean, message: null, statusList: Array<string>,
+ *     status: number | undefined}}
  */
 const useSelectorsResponse = (selectors, { useSelectors: useAliasSelectors = useSelectors, customResponse } = {}) => {
   const selectorResponse = useAliasSelectors(selectors, []);
@@ -236,6 +237,8 @@ const useSelectorsResponse = (selectors, { useSelectors: useAliasSelectors = use
 
   const isById = idList.length !== 0 && idList.length === updatedSelectorResponse.length;
 
+  const statusList = Array.from(new Set(responsesByList?.map(({ status }) => status) || []));
+
   const response = {
     responses: {
       id: responsesById,
@@ -246,7 +249,9 @@ const useSelectorsResponse = (selectors, { useSelectors: useAliasSelectors = use
     error: false,
     fulfilled: false,
     message: null,
-    pending: false
+    pending: false,
+    status: undefined,
+    statusList
   };
 
   if (typeof customResponse === 'function') {
@@ -294,6 +299,8 @@ const useSelectorsResponse = (selectors, { useSelectors: useAliasSelectors = use
     );
     response.error = true;
     response.data = (isById && errorDataById) || errorDataByList;
+    response.status = statusList.find(val => val >= 400);
+
     return response;
   }
 
@@ -316,6 +323,7 @@ const useSelectorsResponse = (selectors, { useSelectors: useAliasSelectors = use
   ) {
     response.fulfilled = true;
     response.data = (isById && dataById) || dataByList;
+    response.status = statusList.find(val => val < 400);
     return response;
   }
 

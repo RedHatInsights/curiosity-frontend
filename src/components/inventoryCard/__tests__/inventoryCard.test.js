@@ -43,7 +43,9 @@ describe('InventoryCard Component', () => {
   it('should handle multiple display states, error, pending, fulfilled', async () => {
     const props = {
       useGetInventory: () => ({
-        error: true
+        error: true,
+        status: 400,
+        statusList: [400]
       }),
       useInventoryCardActions: () => undefined,
       useOnPage: () => {},

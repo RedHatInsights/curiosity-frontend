@@ -25,7 +25,7 @@ exports[`GraphCardChart Component should handle API response states: error 1`] =
       className="curiosity-card__body"
     >
       <ErrorMessage
-        title="t(curiosity-graph.error_title)"
+        title="t(curiosity-graph.error_title_service, {"http":400,"context":"status"})"
       />
     </CardBody>
   </MinHeight>

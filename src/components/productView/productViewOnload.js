@@ -28,7 +28,7 @@ const ProductViewOnload = ({
   useProductOnload: useAliasProductOnload = useProductOnload,
   useUsageBanner: useAliasUsageBanner = useUsageBanner
 }) => {
-  const { isReady, error, message, productId } = useAliasProductOnload();
+  const { isReady, error, message, productId, status, statusList } = useAliasProductOnload();
   useAliasUsageBanner();
 
   return (
@@ -37,7 +37,12 @@ const ProductViewOnload = ({
         <CardBody className="curiosity-card__body">
           <ErrorMessage
             message={message}
-            title={t('curiosity-view.error', { product: productId, context: ['title', 'onload'] })}
+            title={t('curiosity-view.error', {
+              product: productId,
+              http: status,
+              context: ['title', 'onload', status && 'service', status && 'status'],
+              count: statusList?.length
+            })}
           />
         </CardBody>
       </Card>

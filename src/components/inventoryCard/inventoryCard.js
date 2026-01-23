@@ -97,6 +97,8 @@ const InventoryCard = ({
   const { filters } = useAliasParseFiltersSettings({ isDisabled });
   const {
     error,
+    status,
+    statusList,
     message,
     pending,
     dataSetColumnHeaders = [],
@@ -168,7 +170,16 @@ const InventoryCard = ({
       </MinHeight>
       <MinHeight key="bodyMinHeight">
         <CardBody className="curiosity-card__body">
-          {(error && <ErrorMessage message={message} title={t('curiosity-inventory.error_title')} />) || (
+          {(error && (
+            <ErrorMessage
+              message={message}
+              title={t('curiosity-inventory.error', {
+                http: status,
+                context: ['title', status && 'service', status && 'status'],
+                count: statusList?.length
+              })}
+            />
+          )) || (
             <div className={(pending && 'fadein') || ''}>
               {(pending && (
                 <Loader

@@ -108,6 +108,10 @@ exports[`InventoryCardInstancesContext should handle a store response using sele
   "resultsCount": undefined,
   "resultsOffset": undefined,
   "resultsPerPage": undefined,
+  "status": undefined,
+  "statusList": [
+    undefined,
+  ],
 }
 `;
 
