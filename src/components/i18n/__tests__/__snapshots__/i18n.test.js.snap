@@ -203,20 +203,20 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/components/optinView/optinView.js",
     "keys": [
       {
-        "key": "curiosity-optin.notificationsErrorTitle",
-        "match": "t('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME })",
-      },
-      {
-        "key": "curiosity-optin.notificationsErrorDescription",
-        "match": "t('curiosity-optin.notificationsErrorDescription')",
-      },
-      {
         "key": "curiosity-optin.notificationsSuccessTitle",
         "match": "t('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME })",
       },
       {
         "key": "curiosity-optin.notificationsSuccessDescription",
         "match": "t('curiosity-optin.notificationsSuccessDescription')",
+      },
+      {
+        "key": "curiosity-optin.notificationsErrorTitle",
+        "match": "t('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      {
+        "key": "curiosity-optin.notificationsErrorDescription",
+        "match": "t('curiosity-optin.notificationsErrorDescription')",
       },
       {
         "key": "curiosity-optin.buttonActivate",

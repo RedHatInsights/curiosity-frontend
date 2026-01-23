@@ -438,15 +438,7 @@ exports[`OptinView Component should render an API state driven view: pending vie
 exports[`OptinView Component should submit an opt-in form: dispatch 1`] = `
 [
   [
-    {
-      "meta": {
-        "query": {},
-        "rejectCallback": [Function],
-        "resolveCallback": [Function],
-      },
-      "payload": Promise {},
-      "type": "UPDATE_USER_OPTIN",
-    },
+    [Function],
   ],
 ]
 `;
