@@ -314,7 +314,7 @@ exports[`Emulate a service call with a function should handle function call resp
 
 exports[`Emulate a service call with a function should handle function call response error with transformations: error transformation 1`] = `
 [
-  "dolor.sit-error-transform",
+  "Error: dolor.sit-error-transform",
 ]
 `;
 

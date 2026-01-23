@@ -52,6 +52,7 @@ exports[`PlatformServices should return a failed getUser: failed authorized user
     "xsrfCookieName": "XSRF-TOKEN",
     "xsrfHeaderName": "X-XSRF-TOKEN",
   },
+  "data": [Error: { getUser } = insights.chrome.auth, platformMethod is not a function],
   "message": "{ getUser } = insights.chrome.auth, platformMethod is not a function",
   "status": 418,
 }
@@ -97,6 +98,7 @@ exports[`PlatformServices should return a failed getUserPermissions: failed user
     "xsrfCookieName": "XSRF-TOKEN",
     "xsrfHeaderName": "X-XSRF-TOKEN",
   },
+  "data": [Error: { getUserPermissions } = insights.chrome, platformMethod is not a function],
   "message": "{ getUserPermissions } = insights.chrome, platformMethod is not a function",
   "status": 418,
 }
