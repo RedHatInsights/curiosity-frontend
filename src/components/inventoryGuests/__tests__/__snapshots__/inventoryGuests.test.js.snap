@@ -14,7 +14,7 @@ exports[`InventoryGuests Component should handle multiple display states, error,
     onScroll={[Function]}
   >
     <ErrorMessage
-      title="t(curiosity-inventory.error_title)"
+      title="t(curiosity-inventory.error, {"context":"title"})"
     />
   </div>
 </div>

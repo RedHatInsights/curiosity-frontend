@@ -46,7 +46,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       className="curiosity-card__body"
     >
       <ErrorMessage
-        title="t(curiosity-inventory.error_title)"
+        title="t(curiosity-inventory.error_title_service, {"http":400,"context":"status","count":1})"
       />
     </CardBody>
   </MinHeight>

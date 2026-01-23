@@ -42,11 +42,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-view.error",
-        "match": "t('curiosity-view.error', { context: 'debug' })",
+        "match": "t('curiosity-view.error', { context: ['debug', isErrorDisplay && 'return'] })",
       },
       {
         "key": "curiosity-view.error",
-        "match": "t('curiosity-view.error', { context: 'debug' })",
+        "match": "t('curiosity-view.error', { context: ['debug', isErrorDisplay && 'return'] })",
       },
       {
         "key": "curiosity-view.error",
@@ -60,6 +60,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "key": "curiosity-view.error",
         "match": "t('curiosity-view.error', { context: 'description' }, [ <Button isInline component="a" variant="link" target="_blank" href={helpers.UI_LINK_PLATFORM_STATUS} /> ])",
       },
+      {
+        "key": "curiosity-view.error",
+        "match": "t('curiosity-view.error', { context: 'debug' })",
+      },
     ],
   },
   {
@@ -70,8 +74,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "t('curiosity-graph.cardHeading', { context: stringId })",
       },
       {
-        "key": "curiosity-graph.error_title",
-        "match": "t('curiosity-graph.error_title')",
+        "key": "curiosity-graph.error",
+        "match": "t('curiosity-graph.error', { http: status, context: ['title', status && 'service', status && 'status'], count: statusList?.length })",
       },
     ],
   },
@@ -155,8 +159,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-inventory.table', { context: ['summary'] })",
       },
       {
-        "key": "curiosity-inventory.error_title",
-        "match": "t('curiosity-inventory.error_title')",
+        "key": "curiosity-inventory.error",
+        "match": "t('curiosity-inventory.error', { http: status, context: ['title', status && 'service', status && 'status'], count: statusList?.length })",
       },
       {
         "key": "curiosity-inventory.table",
@@ -181,8 +185,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/components/inventoryGuests/inventoryGuests.js",
     "keys": [
       {
-        "key": "curiosity-inventory.error_title",
-        "match": "t('curiosity-inventory.error_title')",
+        "key": "curiosity-inventory.error",
+        "match": "t('curiosity-inventory.error', { http: status, context: ['title', status && 'service', status && 'status'], count: statusList?.length })",
       },
     ],
   },
@@ -340,7 +344,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-view.error",
-        "match": "t('curiosity-view.error', { product: productId, context: ['title', 'onload'] })",
+        "match": "t('curiosity-view.error', { product: productId, http: status, context: ['title', 'onload', status && 'service', status && 'status'], count: statusList?.length })",
       },
       {
         "key": "curiosity-view.pending",
@@ -1284,6 +1288,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-banner.modal",
   },
   {
+    "file": "src/components/graphCard/graphCardChart.js",
+    "key": "curiosity-graph.error",
+  },
+  {
     "file": "src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.tab",
   },
@@ -1297,11 +1305,19 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/components/inventoryCard/inventoryCard.js",
+    "key": "curiosity-inventory.error",
+  },
+  {
+    "file": "src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.table",
   },
   {
     "file": "src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.table",
+  },
+  {
+    "file": "src/components/inventoryGuests/inventoryGuests.js",
+    "key": "curiosity-inventory.error",
   },
   {
     "file": "src/components/productView/productViewOnloadContext.js",

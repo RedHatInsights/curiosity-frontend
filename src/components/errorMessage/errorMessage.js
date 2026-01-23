@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
-import { Button, EmptyState, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';
-import { ExportIcon, CogIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
+import {
+  Button,
+  EmptyState,
+  EmptyStateActions,
+  EmptyStateBody,
+  EmptyStateFooter,
+  EmptyStateVariant,
+  Title
+} from '@patternfly/react-core';
+import { ExportIcon, CogIcon, ExclamationCircleIcon, TimesIcon } from '@patternfly/react-icons';
 import { helpers, downloadHelpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -93,23 +101,24 @@ const ErrorMessage = ({
 
   return (
     <div className="fadein" aria-live="polite">
-      {isCauseOrError && (
-        <Button
-          icon={<CogIcon />}
-          className="curiosity-error__link"
-          title={t('curiosity-view.error', { context: 'debug' })}
-          style={{ float: 'right' }}
-          variant="link"
-          onClick={() => onClickShowErrorDisplay()}
-        >
-          <span className="sr-only">{t('curiosity-view.error', { context: 'debug' })}</span>
-        </Button>
-      )}
-      {isDebugCode && isErrorDisplay && isCauseOrError && (
-        <Button variant="link" onClick={() => onClickDownloadLog()} icon={<ExportIcon />}>
-          {t('curiosity-view.error', { context: 'download' })}
-        </Button>
-      )}
+      <div className="curiosity-error__link-row">
+        {isCauseOrError && (
+          <Button
+            icon={(isErrorDisplay && <TimesIcon />) || <CogIcon />}
+            className="curiosity-error__link"
+            title={t('curiosity-view.error', { context: ['debug', isErrorDisplay && 'return'] })}
+            variant="link"
+            onClick={() => onClickShowErrorDisplay()}
+          >
+            {t('curiosity-view.error', { context: ['debug', isErrorDisplay && 'return'] })}
+          </Button>
+        )}
+        {isDebugCode && isErrorDisplay && isCauseOrError && (
+          <Button variant="link" onClick={() => onClickDownloadLog()} icon={<ExportIcon />}>
+            {t('curiosity-view.error', { context: 'download' })}
+          </Button>
+        )}
+      </div>
       {(isErrorDisplay && (cause || errorStr)) || (
         <EmptyState
           titleText={
@@ -126,6 +135,15 @@ const ErrorMessage = ({
                 <Button isInline component="a" variant="link" target="_blank" href={helpers.UI_LINK_PLATFORM_STATUS} />
               ])}
           </EmptyStateBody>
+          {isCauseOrError && (
+            <EmptyStateFooter>
+              <EmptyStateActions>
+                <Button variant="secondary" onClick={() => onClickShowErrorDisplay()}>
+                  {t('curiosity-view.error', { context: 'debug' })}
+                </Button>
+              </EmptyStateActions>
+            </EmptyStateFooter>
+          )}
         </EmptyState>
       )}
     </div>

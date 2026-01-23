@@ -17,7 +17,13 @@ describe('GraphCardChart Component', () => {
     const componentPending = await shallowComponent(<GraphCardChart {...props} />);
     expect(componentPending).toMatchSnapshot('pending');
 
-    props.useGetMetrics = () => ({ pending: false, error: true, fulfilled: false, dataSets: [] });
+    props.useGetMetrics = () => ({
+      pending: false,
+      error: true,
+      status: 400,
+      fulfilled: false,
+      dataSets: []
+    });
     const componentError = await shallowComponent(<GraphCardChart {...props} />);
     expect(componentError).toMatchSnapshot('error');
 

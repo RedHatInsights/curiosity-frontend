@@ -36,6 +36,8 @@ const InventoryGuests = ({
 }) => {
   const {
     error,
+    status,
+    statusList,
     message,
     pending,
     dataSetColumnHeaders = [],
@@ -55,7 +57,16 @@ const InventoryGuests = ({
         className={`curiosity-table-scroll-list${(pending && '__no-scroll') || (updatedHeight < 275 && '__no-scroll') || ''}`}
         onScroll={onScroll}
       >
-        {(error && <ErrorMessage message={message} title={t('curiosity-inventory.error_title')} />) ||
+        {(error && (
+          <ErrorMessage
+            message={message}
+            title={t('curiosity-inventory.error', {
+              http: status,
+              context: ['title', status && 'service', status && 'status'],
+              count: statusList?.length
+            })}
+          />
+        )) ||
           (pending && (
             <div className="curiosity-table-scroll-loader__custom">
               <Loader
