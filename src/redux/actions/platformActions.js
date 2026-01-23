@@ -30,76 +30,62 @@ const authorizeUser =
 
 /**
  * Get all existing exports, if "pending" then poll, and when complete download.
- * Includes toast notifications through the callbacks parameter.
+ * Include toast notifications via a try/catch using the Promise.resolve.
  *
  * @param {Array} existingExports
- * @param {object} callbacks Apply notification callbacks with options
  * @returns {Function}
  */
-const getExistingExports =
-  (existingExports, callbacks = {}) =>
-  dispatch =>
-    Promise.resolve(
-      dispatch({
-        type: platformTypes.GET_PLATFORM_EXPORT_EXISTING,
-        payload: platformServices.getExistingExports(existingExports),
-        meta: {
-          ...callbacks
-        }
-      })
-    );
+const getExistingExports = existingExports => dispatch =>
+  Promise.resolve(
+    dispatch({
+      type: platformTypes.GET_PLATFORM_EXPORT_EXISTING,
+      payload: platformServices.getExistingExports(existingExports),
+      meta: {}
+    })
+  );
 
 /**
- * Delete all existing exports. Includes toast notifications through the callbacks parameter
+ * Delete all existing exports.
  *
  * @param {Array<{ id: string }>} existingExports
- * @param {object} callbacks
  * @returns {Function}
  */
-const deleteExistingExports = (existingExports, callbacks) => dispatch =>
+const deleteExistingExports = existingExports => dispatch =>
   dispatch({
     type: platformTypes.DELETE_PLATFORM_EXPORT_EXISTING,
     payload: Promise.all(existingExports.map(({ id }) => platformServices.deleteExport(id))),
-    meta: {
-      ...callbacks
-    }
+    meta: {}
   });
 
 /**
  * Get a status from any existing exports. Display a confirmation for downloading, or ignoring, the exports.
- * Includes toast notifications through the callbacks parameter
  *
- * @param {object} callbacks
  * @returns {Function}
  */
-const getExistingExportsStatus = callbacks => dispatch =>
+const getExistingExportsStatus = () => dispatch =>
   dispatch({
     type: platformTypes.SET_PLATFORM_EXPORT_EXISTING_STATUS,
     payload: platformServices.getExistingExportsStatus(),
-    meta: {
-      ...callbacks
-    }
+    meta: {}
   });
 
 /**
- * Create an export for download. Includes toast notifications through the callbacks parameter.
+ * Create an export for download. Include toast notifications via a try/catch using the Promise.resolve.
  *
  * @param {string} id
  * @param {object} data
  * @param {object} options Apply polling options
- * @param {object} callbacks
  * @returns {Function}
  */
 const createExport =
-  (id, data = {}, options = {}, callbacks = {}) =>
+  (id, data = {}, options = {}) =>
   dispatch =>
     Promise.resolve(
       dispatch({
         type: platformTypes.SET_PLATFORM_EXPORT_CREATE,
         payload: platformServices.postExport(data, options),
         meta: {
-          id,
-          ...callbacks
+          id
         }
       })
     );

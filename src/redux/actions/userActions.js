@@ -47,20 +47,20 @@ const getAccountOptIn = () => dispatch =>
  * Update a user's opt-in.
  *
  * @param {object} query
- * @param {object} callbacks
  * @returns {Function}
  */
 const updateAccountOptIn =
-  (query = {}, callbacks = {}) =>
+  (query = {}) =>
   dispatch =>
-    dispatch({
-      type: appTypes.UPDATE_USER_OPTIN,
-      payload: userServices.updateAccountOptIn(query),
-      meta: {
-        query,
-        ...callbacks
-      }
-    });
+    Promise.resolve(
+      dispatch({
+        type: appTypes.UPDATE_USER_OPTIN,
+        payload: userServices.updateAccountOptIn(query),
+        meta: {
+          query
+        }
+      })
+    );
 
 const userActions = { getLocale, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };
 

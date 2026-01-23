@@ -63,23 +63,23 @@ const OptinView = ({
    * @event onSubmitOptIn
    * @returns {void}
    */
-  const onSubmitOptIn = () =>
-    updateAccountOptIn(undefined, {
-      rejectCallback: () => {
-        addNotification({
-          variant: NotificationVariant.danger,
-          title: t('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME }),
-          description: t('curiosity-optin.notificationsErrorDescription')
-        });
-      },
-      resolveCallback: () => {
-        addNotification({
-          variant: NotificationVariant.success,
-          title: t('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME }),
-          description: t('curiosity-optin.notificationsSuccessDescription')
-        });
-      }
-    })(dispatch);
+  const onSubmitOptIn = async () => {
+    try {
+      await dispatch(updateAccountOptIn());
+
+      addNotification({
+        variant: NotificationVariant.success,
+        title: t('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME }),
+        description: t('curiosity-optin.notificationsSuccessDescription')
+      });
+    } catch {
+      addNotification({
+        variant: NotificationVariant.danger,
+        title: t('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME }),
+        description: t('curiosity-optin.notificationsErrorDescription')
+      });
+    }
+  };
 
   /**
    * Render opt-in form states.
