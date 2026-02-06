@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.18.4](https://github.com/RedHatInsights/curiosity-frontend/compare/cac09fd3b50d89b7e867c95982075500cb24d3ec...13eeb765762f8888c8a86dac0e4c055f099c6fcf) (2026-02-06)
+
+
+### Continuous Integrations
+*  sw-3848 decommission ci ext jobs ([#1794](https://github.com/RedHatInsights/curiosity-frontend/pull/1794)) ([20fb632](https://github.com/RedHatInsights/curiosity-frontend/commit/20fb6324fc0a2380443fd069fddfa3de4dbe1d33))
+*  Update Konflux references ([#1790](https://github.com/RedHatInsights/curiosity-frontend/pull/1790)) ([951fd42](https://github.com/RedHatInsights/curiosity-frontend/commit/951fd4205164af07862430c78012c9fae128872a))
+*  Update Konflux references ([#1787](https://github.com/RedHatInsights/curiosity-frontend/pull/1787)) ([83d4b11](https://github.com/RedHatInsights/curiosity-frontend/commit/83d4b110cea1db8f1c4f85534d3a0dc281065f74))
+*  Update Konflux references ([#1780](https://github.com/RedHatInsights/curiosity-frontend/pull/1780)) ([e4a2eb3](https://github.com/RedHatInsights/curiosity-frontend/commit/e4a2eb3c7ead2990359780e72a26f07c5ccc4409))
+*  Update Konflux references ([#1779](https://github.com/RedHatInsights/curiosity-frontend/pull/1779)) ([a43f75d](https://github.com/RedHatInsights/curiosity-frontend/commit/a43f75d4e4526a74bff1d66c57d0f2e69c1a9b5c))
+*  Update Konflux references to 0b10508 ([#1773](https://github.com/RedHatInsights/curiosity-frontend/pull/1773)) ([81108b2](https://github.com/RedHatInsights/curiosity-frontend/commit/81108b26ffa1a38dcf0a5d47dc291c7f2df8c391))
+*  Update Konflux references ([#1770](https://github.com/RedHatInsights/curiosity-frontend/pull/1770)) ([1fe5349](https://github.com/RedHatInsights/curiosity-frontend/commit/1fe5349a6595e4bf8fbc36d5bca8f5f39b57754f))
+
+### Code Refactoring
+* **errorMessage** sw-4438 display http status ([#1784](https://github.com/RedHatInsights/curiosity-frontend/pull/1784)) ([88d5b68](https://github.com/RedHatInsights/curiosity-frontend/commit/88d5b68aa47461ba39f36b9b8c39848ee856eb3f))
+
+### Builds
+* **deps** lock update ([#1795](https://github.com/RedHatInsights/curiosity-frontend/pull/1795)) ([13eeb76](https://github.com/RedHatInsights/curiosity-frontend/commit/13eeb765762f8888c8a86dac0e4c055f099c6fcf))
+* **deps-dev** bump dev group with 2 updates ([#1792](https://github.com/RedHatInsights/curiosity-frontend/pull/1792)) ([e381a83](https://github.com/RedHatInsights/curiosity-frontend/commit/e381a83e98001a8072b2880e19dba680815e9cd3))
+* **deps-dev** bump dev group with 9 updates ([#1791](https://github.com/RedHatInsights/curiosity-frontend/pull/1791)) ([5b22add](https://github.com/RedHatInsights/curiosity-frontend/commit/5b22add05eb90a57dd16ef725fbdb31b0e2c75f6))
+* **deps-dev** bump globals from 16.5.0 to 17.0.0 ([#1782](https://github.com/RedHatInsights/curiosity-frontend/pull/1782)) ([74a7c20](https://github.com/RedHatInsights/curiosity-frontend/commit/74a7c20284289b041fec94c31671a87e85dcb9c1))
+* **deps-dev** update dev group with 8 updates ([#1778](https://github.com/RedHatInsights/curiosity-frontend/pull/1778)) ([f65ceb6](https://github.com/RedHatInsights/curiosity-frontend/commit/f65ceb60b4f6911659f4115c08f14ad73099e33c))
+* **deps-dev** bump eslint-plugin-jest from 29.9.0 to 29.11.0 ([#1777](https://github.com/RedHatInsights/curiosity-frontend/pull/1777)) ([a0b17ca](https://github.com/RedHatInsights/curiosity-frontend/commit/a0b17ca90ea876dad6be5500787ee921f37cda21))
+* **deps-dev** bump dev group with 6 updates ([#1774](https://github.com/RedHatInsights/curiosity-frontend/pull/1774)) ([a85e332](https://github.com/RedHatInsights/curiosity-frontend/commit/a85e332e2443c5e0a7023a4c42bb56adc3618559))
+* **deps** bump lru-cache from 11.2.2 to 11.2.4 ([#1772](https://github.com/RedHatInsights/curiosity-frontend/pull/1772)) ([55e03f3](https://github.com/RedHatInsights/curiosity-frontend/commit/55e03f31495056517a729911cd0af8170e15e3bf))
+* **deps** bump actions/cache from 4 to 5 ([#1775](https://github.com/RedHatInsights/curiosity-frontend/pull/1775)) ([9c2ad7d](https://github.com/RedHatInsights/curiosity-frontend/commit/9c2ad7d34f213ded5db17e5ce29004e23ca0303e))
+* **deps** bump actions/checkout from 5 to 6 ([#1776](https://github.com/RedHatInsights/curiosity-frontend/pull/1776)) ([aed489c](https://github.com/RedHatInsights/curiosity-frontend/commit/aed489c215c1014d569cf3c2a4a29356fb071f2f))
+
+### Bug Fixes
+* **build** sw-4451 update build-tools for urllib3 ([#1788](https://github.com/RedHatInsights/curiosity-frontend/pull/1788)) ([73e45f0](https://github.com/RedHatInsights/curiosity-frontend/commit/73e45f004e1436a1050f3da9ba302567058af499))
+* **optin** sw-3639 restore notifications ([#1786](https://github.com/RedHatInsights/curiosity-frontend/pull/1786)) ([3ab67cc](https://github.com/RedHatInsights/curiosity-frontend/commit/3ab67cc6ffb1cc6c0219e04d07607b795b304f45))
+* **serviceConfig** sw-4438 response for grouped calls ([#1785](https://github.com/RedHatInsights/curiosity-frontend/pull/1785)) ([1d3f09f](https://github.com/RedHatInsights/curiosity-frontend/commit/1d3f09f2cdcc2214fb8ea997a6f6c6f78d3824b7))
+* **serviceConfig** sw-4438 expose http status for grouped calls ([#1783](https://github.com/RedHatInsights/curiosity-frontend/pull/1783)) ([64d237e](https://github.com/RedHatInsights/curiosity-frontend/commit/64d237e7812ca98e5892336bab85a02b1d1d6e52))
+
 ## [4.18.3](https://github.com/RedHatInsights/curiosity-frontend/compare/8463dfaf4a40543975cf9233b06499ed6e240148...3c6751c9063e7acf2927660bf721107b4496adbf) (2025-12-18)
 
 
