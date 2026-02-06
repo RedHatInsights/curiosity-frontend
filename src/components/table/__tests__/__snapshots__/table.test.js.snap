@@ -116,7 +116,7 @@ exports[`Table Component should allow expandable row content: expandable content
                 aria-expanded="false"
                 aria-label="Details"
                 aria-labelledby="simple-node0 expand-toggle0"
-                class="pf-v6-c-button pf-m-plain"
+                class="pf-v6-c-button pf-m-plain pf-m-small"
                 data-ouia-component-id="OUIA-Generated-Button-plain-1"
                 data-ouia-component-type="PF6/Button"
                 data-ouia-safe="true"
