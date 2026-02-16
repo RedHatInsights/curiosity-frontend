@@ -45,6 +45,7 @@ exports[`PlatformServices should return a failed getUser: failed authorized user
     "transitional": {
       "clarifyTimeoutError": false,
       "forcedJSONParsing": true,
+      "legacyInterceptorReqResOrdering": true,
       "silentJSONParsing": true,
     },
     "url": "/emulated",
@@ -91,6 +92,7 @@ exports[`PlatformServices should return a failed getUserPermissions: failed user
     "transitional": {
       "clarifyTimeoutError": false,
       "forcedJSONParsing": true,
+      "legacyInterceptorReqResOrdering": true,
       "silentJSONParsing": true,
     },
     "url": "/emulated",

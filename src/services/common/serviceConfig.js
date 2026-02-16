@@ -165,8 +165,10 @@ const axiosServiceCall = async (
       transformers[1] = response => {
         const updatedResponse = { ...(response.response || response) };
 
-        if (updatedResponse?.message === cancelledMessage) {
-          return Promise.reject(updatedResponse);
+        if (updatedResponse?.message === cancelledMessage || updatedResponse?.code === 'ERR_CANCELED') {
+          const updatedCancelResponse = { ...updatedResponse, message: updatedResponse?.message || cancelledMessage };
+
+          return Promise.reject(updatedCancelResponse);
         }
         // Note: Reevaluate memoClone, it was removed from data/message because it was interfering with passed errors.
         const { data, error: normalizeError } = serviceHelpers.passDataToCallback(
