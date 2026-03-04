@@ -115,7 +115,7 @@
     "@babel/core": "7.29.0",
     "@babel/eslint-parser": "7.28.6",
     "@eslint/compat": "^2.0.2",
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.1",
     "@redhat-cloud-services/frontend-components-config": "^6.7.51",
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.53",
     "@stylistic/eslint-plugin": "^5.8.0",
