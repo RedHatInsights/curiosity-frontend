@@ -116,6 +116,7 @@ export default [
           ]
         }
       ],
+      'jsdoc/escape-inline-tags': 0,
       'jsdoc/no-defaults': 0,
       'jsdoc/no-undefined-types': 0,
       'jsdoc/reject-any-type': 0,
@@ -141,6 +142,7 @@ export default [
           startLines: 1
         }
       ],
+      'jsdoc/ts-no-empty-object-type': 0,
       'max-len': [
         'error',
         {
