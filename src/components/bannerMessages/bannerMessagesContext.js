@@ -70,17 +70,14 @@ const useRemoveBannerMessages = ({
  * @param {object} options
  * @param {Function} options.useDispatch
  * @param {Function} options.useProduct
- * @param {Function} options.useBannerMessages
  * @returns {Function}
  */
 const useSetBannerMessages = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useProduct: useAliasProduct = useProduct,
-  useBannerMessages: useAliasBannerMessages = useBannerMessages
+  useProduct: useAliasProduct = useProduct
 } = {}) => {
   const dispatch = useAliasDispatch();
   const { productId } = useAliasProduct();
-  const bannerMessages = useAliasBannerMessages();
 
   /**
    * Set application messages for banner display
@@ -111,14 +108,11 @@ const useSetBannerMessages = ({
           })
           .filter(value => value?.id !== undefined && Object.keys(value).length > 1);
 
-        const updatedBannerMessages = bannerMessages?.filter(
-          ({ id: existingId }) => !updatedMessages.some(({ id: newId }) => newId === existingId)
-        );
-
         dispatch({
           type: reduxTypes.message.SET_BANNER_MESSAGES,
           viewId: productId,
-          bannerMessages: [...updatedBannerMessages, ...updatedMessages]
+          bannerMessages: updatedMessages,
+          append: true
         });
       } else if (helpers.DEV_MODE) {
         console.warn(
@@ -126,7 +120,7 @@ const useSetBannerMessages = ({
         );
       }
     },
-    [bannerMessages, dispatch, productId]
+    [dispatch, productId]
   );
 };
 

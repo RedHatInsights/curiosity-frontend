@@ -12,6 +12,7 @@ exports[`Configuration should have consistent product configuration: products 1`
 exports[`Configuration should have specific config properties: config 1`] = `
 [
   "products",
+  "banners",
   "rbac",
 ]
 `;

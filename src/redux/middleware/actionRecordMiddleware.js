@@ -110,12 +110,15 @@ const recordAction = (action, { id, limit, ...config }) => {
   items.push(actionObj);
   sessionStorage.setItem(
     id,
-    JSON.stringify({
-      browser: navigator.userAgent,
-      timestamp: new Date().toLocaleString(),
-      ...config,
-      actions: items
-    })
+    JSON.stringify(
+      {
+        browser: navigator.userAgent,
+        timestamp: new Date().toLocaleString(),
+        ...config,
+        actions: items
+      },
+      (key, value) => (typeof value === 'function' || value?.$$typeof ? undefined : value)
+    )
   );
 };
 

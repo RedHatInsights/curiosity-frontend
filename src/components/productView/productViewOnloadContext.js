@@ -4,6 +4,7 @@ import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import { useProduct, useProductBillingAccountsQuery, useProductViewContext } from './productViewContext';
 import { BannerMessagesModal, useSetBannerMessages } from '../bannerMessages/bannerMessages';
 import { reduxActions, storeHooks } from '../../redux';
+import { bannersConfig } from '../../config';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18nHelpers';
@@ -178,9 +179,65 @@ const useUsageBanner = ({
   }, [isUsageError]);
 };
 
-const context = {
-  useProductOnload,
-  useUsageBanner
+/**
+ * Apply configurable banners per product variant
+ *
+ * @param {object} options
+ * @param {useProduct} [options.useProduct=useProduct]
+ * @param {useSetBannerMessages} [options.useSetBannerMessages=useSetBannerMessages]
+ */
+const useConfigBanners = ({
+  useProduct: useAliasProduct = useProduct,
+  useSetBannerMessages: useAliasSetBannerMessages = useSetBannerMessages
+} = {}) => {
+  const setBannerMessages = useAliasSetBannerMessages();
+  const { productId } = useAliasProduct();
+
+  useEffect(() => {
+    bannersConfig.forEach(banner => {
+      const { id, title, message, variant, dataTest, productIds, condition, actions } = banner;
+
+      const isAssociated = !productIds || productIds.includes(productId);
+      const isConditionMet = !condition || condition({ productId });
+
+      if (isAssociated && isConditionMet) {
+        setBannerMessages({
+          id: `${productId}-${id}`,
+          title: typeof title === 'function' ? title({ productId }) : title,
+          message: typeof message === 'function' ? message({ productId }) : message,
+          variant: variant || AlertVariant.info,
+          dataTest,
+          actionLinks:
+            (actions?.length && (
+              <React.Fragment>
+                {actions.map((action, index) => (
+                  <AlertActionLink
+                    key={helpers.generateHash(`${productId}-${id}-action-${index}`)}
+                    data-test={`${dataTest}-action-${index}`}
+                    component={action.href ? 'a' : 'button'}
+                    href={action.href}
+                    onClick={action.onClick}
+                    icon={action.isExternal ? <ExternalLinkAltIcon /> : undefined}
+                    iconPosition="right"
+                    target={action.isExternal ? '_blank' : undefined}
+                  >
+                    {typeof action.title === 'function' ? action.title({ productId }) : action.title}
+                  </AlertActionLink>
+                ))}
+              </React.Fragment>
+            )) ||
+            undefined
+        });
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productId]);
 };
 
-export { context as default, context, useProductOnload, useUsageBanner };
+const context = {
+  useProductOnload,
+  useUsageBanner,
+  useConfigBanners
+};
+
+export { context as default, context, useProductOnload, useUsageBanner, useConfigBanners };

@@ -4,6 +4,7 @@ exports[`BannerMessagesContext should apply a hook for retrieving messages data 
 [
   [
     {
+      "append": true,
       "bannerMessages": [
         {
           "id": "new message",

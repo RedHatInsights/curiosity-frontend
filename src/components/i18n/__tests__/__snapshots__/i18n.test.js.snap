@@ -696,6 +696,39 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/config/banners.js",
+    "keys": [
+      {
+        "key": "curiosity-banner.maintenance_title",
+        "match": "translate('curiosity-banner.maintenance_title')",
+      },
+      {
+        "key": "curiosity-banner.maintenance_description",
+        "match": "translate('curiosity-banner.maintenance_description')",
+      },
+      {
+        "key": "curiosity-banner.action_learn_more",
+        "match": "translate('curiosity-banner.action_learn_more')",
+      },
+      {
+        "key": "curiosity-banner.notifications_title",
+        "match": "translate('curiosity-banner.notifications_title')",
+      },
+      {
+        "key": "curiosity-banner.notifications_description",
+        "match": "translate('curiosity-banner.notifications_description', {}, [<strong />])",
+      },
+      {
+        "key": "curiosity-banner.notifications_action_setup",
+        "match": "translate('curiosity-banner.notifications_action_setup')",
+      },
+      {
+        "key": "curiosity-banner.action_learn_more",
+        "match": "translate('curiosity-banner.action_learn_more')",
+      },
+    ],
+  },
+  {
     "file": "src/config/product.ansible.js",
     "keys": [
       {
