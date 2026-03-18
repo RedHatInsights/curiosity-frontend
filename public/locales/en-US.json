@@ -6,6 +6,9 @@
     "maintenance_description": "We are currently undergoing scheduled maintenance and will be back shortly. Thank you for your patience."
   },
   "curiosity-banner": {
+    "maintenance_title": "Maintenance scheduled",
+    "maintenance_description": "We are currently undergoing scheduled maintenance for $t(curiosity-view.title_{{product}}) and will be back shortly.",
+    "action_learn_more": "Learn more",
     "modal_label_close": "Close",
     "usage_alert_title": "Usage that has no matching subscription was found for $t(curiosity-view.title_{{product}})",
     "usage_alert_description": "Usage that has no matching subscription is being reported.",
@@ -15,7 +18,7 @@
     "usage_alert_description_remaining_one": "{{count}} more account",
     "usage_alert_description_remaining_other": "{{count}} more accounts",
     "usage_alert_link_modal": "View details",
-    "usage_alert_link": "Learn more",
+    "usage_alert_link": "$t(curiosity-banner.action_learn_more)",
     "usage_modal_title": "No matching subscriptions",
     "usage_modal_title_one": "No matching subscription",
     "usage_modal_title_other": "No matching subscriptions",

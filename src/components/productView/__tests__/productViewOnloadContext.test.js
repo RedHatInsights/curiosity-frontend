@@ -1,5 +1,11 @@
-import { context, useProductOnload, useUsageBanner } from '../productViewOnloadContext';
+import { context, useProductOnload, useUsageBanner, useConfigBanners } from '../productViewOnloadContext';
+import { bannersConfig } from '../../../config';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
+
+jest.mock('../../../config', () => ({
+  ...jest.requireActual('../../../config'),
+  bannersConfig: []
+}));
 
 describe('ProductViewOnloadContext', () => {
   it('should return specific properties', () => {
@@ -107,5 +113,78 @@ describe('ProductViewOnloadContext', () => {
       })
     );
     expect(mockSetBannerMessagesHook.mock.calls.pop()).toMatchSnapshot();
+  });
+
+  it.each([
+    {
+      description: 'no banners',
+      banners: [],
+      productId: 'lorem',
+      expectedCalls: 0
+    },
+    {
+      description: 'associated banner',
+      banners: [
+        {
+          id: 'banner-1',
+          title: 'title-1',
+          productIds: ['lorem']
+        }
+      ],
+      productId: 'lorem',
+      expectedCalls: 1
+    },
+    {
+      description: 'non-associated banner',
+      banners: [
+        {
+          id: 'banner-1',
+          title: 'title-1',
+          productIds: ['ipsum']
+        }
+      ],
+      productId: 'lorem',
+      expectedCalls: 0
+    },
+    {
+      description: 'banner with condition met',
+      banners: [
+        {
+          id: 'banner-1',
+          title: 'title-1',
+          condition: ({ productId }) => productId === 'lorem'
+        }
+      ],
+      productId: 'lorem',
+      expectedCalls: 1
+    },
+    {
+      description: 'banner with condition NOT met',
+      banners: [
+        {
+          id: 'banner-1',
+          title: 'title-1',
+          condition: ({ productId }) => productId === 'ipsum'
+        }
+      ],
+      productId: 'lorem',
+      expectedCalls: 0
+    }
+  ])('should apply a hook for configured banners, $description', async ({ banners, productId, expectedCalls }) => {
+    bannersConfig.length = 0;
+    bannersConfig.push(...banners);
+
+    const mockSetBannerMessagesHook = jest.fn();
+
+    await renderHook(() =>
+      useConfigBanners({
+        useProduct: () => ({ productId }),
+        useSetBannerMessages: () => mockSetBannerMessagesHook,
+        useSelector: () => ({})
+      })
+    );
+
+    expect(mockSetBannerMessagesHook).toHaveBeenCalledTimes(expectedCalls);
+    expect(mockSetBannerMessagesHook.mock.calls).toMatchSnapshot();
   });
 });

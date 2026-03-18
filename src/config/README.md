@@ -39,6 +39,14 @@
 </dd>
 </dl>
 
+## Constants
+
+<dl>
+<dt><a href="#banners">banners</a> : <code>Array.&lt;{id: string, title: string, message: string, variant: string, dataTest: string, productIds: Array.&lt;string&gt;, condition: function(), actions: Array.&lt;{title: string, href: string, onClick: function(), isExternal: boolean}&gt;}&gt;</code></dt>
+<dd><p>Global banner configurations.</p>
+</dd>
+</dl>
+
 <a name="Products.module_Ansible"></a>
 
 ## Ansible
@@ -520,3 +528,51 @@ Sorted/organized/grouped product configs.
     </tr>  </tbody>
 </table>
 
+<a name="banners"></a>
+
+## banners : <code>Array.&lt;{id: string, title: string, message: string, variant: string, dataTest: string, productIds: Array.&lt;string&gt;, condition: function(), actions: Array.&lt;{title: string, href: string, onClick: function(), isExternal: boolean}&gt;}&gt;</code>
+Global banner configurations.
+
+**Kind**: global constant  
+**Example**  
+```js
+Maintenance banner, add imports and object to the banners list
+// add these imports above
+import React from 'react';
+import { AlertVariant } from '@patternfly/react-core';
+import { translate } from '../components/i18n/i18n';
+import { RHSM_API_PATH_PRODUCT_TYPES } from '../services/rhsm/rhsmConstants';
+
+// add this object to the banners list below
+{
+  id: 'global-maintenance-banner',
+  // Reference your locale identifiers only
+  title: () => translate('curiosity-banner.maintenance_title'),
+  message: () => translate('curiosity-banner.maintenance_description'),
+
+  // The type of banner (affects color)
+  variant: AlertVariant.info,
+
+  // Help automated testing
+  dataTest: 'bannerMaintenance',
+
+  // Optional: Add remove associated products via their IDs.
+  // Remove the entire property to active for all products
+  productIds: [RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86],
+
+  // Optional: Logic to determine if banner should show
+  // Remove the entire property to always be active
+  condition: ({ productId }) => state.someGlobalFlag === true,
+  // Buttons/Actions configuration
+  actions: [
+    {
+      title: () => translate('curiosity-banner.action_learn_more'),
+      href: 'https://status.redhat.com',
+      isExternal: true
+
+      // Optional properties
+      // onClick - Button click handler
+    }
+  ]
+}
+```

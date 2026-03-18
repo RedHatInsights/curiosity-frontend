@@ -25,13 +25,7 @@ describe('BannerMessagesContext', () => {
     const { result } = await renderHook(() =>
       useSetBannerMessages({
         useDispatch: () => mockDispatch,
-        useProduct: () => ({ productId: 'dolorSit' }),
-        useBannerMessages: () => [
-          {
-            id: 'lorem',
-            title: 'ipsum'
-          }
-        ]
+        useProduct: () => ({ productId: 'dolorSit' })
       })
     );
 
