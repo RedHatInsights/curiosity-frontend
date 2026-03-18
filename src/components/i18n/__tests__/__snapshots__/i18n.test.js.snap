@@ -710,6 +710,22 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "key": "curiosity-banner.action_learn_more",
         "match": "translate('curiosity-banner.action_learn_more')",
       },
+      {
+        "key": "curiosity-banner.notifications_title",
+        "match": "translate('curiosity-banner.notifications_title')",
+      },
+      {
+        "key": "curiosity-banner.notifications_description",
+        "match": "translate('curiosity-banner.notifications_description', {}, [<strong />])",
+      },
+      {
+        "key": "curiosity-banner.notifications_action_setup",
+        "match": "translate('curiosity-banner.notifications_action_setup')",
+      },
+      {
+        "key": "curiosity-banner.action_learn_more",
+        "match": "translate('curiosity-banner.action_learn_more')",
+      },
     ],
   },
   {
