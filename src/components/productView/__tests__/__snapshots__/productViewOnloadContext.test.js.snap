@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`ProductViewOnloadContext should apply a hook for configured banners, associated banner 1`] = `
+[
+  [
+    {
+      "actionLinks": undefined,
+      "dataTest": undefined,
+      "id": "lorem-banner-1",
+      "message": undefined,
+      "title": "title-1",
+      "variant": "info",
+    },
+  ],
+]
+`;
+
+exports[`ProductViewOnloadContext should apply a hook for configured banners, banner with condition NOT met 1`] = `[]`;
+
+exports[`ProductViewOnloadContext should apply a hook for configured banners, banner with condition met 1`] = `
+[
+  [
+    {
+      "actionLinks": undefined,
+      "dataTest": undefined,
+      "id": "lorem-banner-1",
+      "message": undefined,
+      "title": "title-1",
+      "variant": "info",
+    },
+  ],
+]
+`;
+
+exports[`ProductViewOnloadContext should apply a hook for configured banners, no banners 1`] = `[]`;
+
+exports[`ProductViewOnloadContext should apply a hook for configured banners, non-associated banner 1`] = `[]`;
+
 exports[`ProductViewOnloadContext should apply a hook for product configuration onload: dispatch 1`] = `
 [
   [
@@ -218,6 +254,7 @@ exports[`ProductViewOnloadContext should apply a hook for usage banner alerts, s
 
 exports[`ProductViewOnloadContext should return specific properties: specific properties 1`] = `
 {
+  "useConfigBanners": [Function],
   "useProductOnload": [Function],
   "useUsageBanner": [Function],
 }

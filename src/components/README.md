@@ -448,8 +448,6 @@ Provide a callback for setting application banner messages from state.
     <td>options.useDispatch</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useProduct</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useBannerMessages</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5019,6 +5017,8 @@ Product conditional configuration loading.
     <td>[props.useProductOnload]</td><td><code>useProductOnload</code></td><td><code>useProductOnload</code></td>
     </tr><tr>
     <td>[props.useUsageBanner]</td><td><code>useUsageBanner</code></td><td><code>useUsageBanner</code></td>
+    </tr><tr>
+    <td>[props.useConfigBanners]</td><td><code>useConfigBanners</code></td><td><code>useConfigBanners</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5031,6 +5031,7 @@ Product view onload hooks. Hooks intended to fire AFTER product query and config
 * [ProductViewOnloadContext](#ProductViewOnload.module_ProductViewOnloadContext)
     * [~useProductOnload(options)](#ProductViewOnload.module_ProductViewOnloadContext..useProductOnload) ⇒ <code>Object</code>
     * [~useUsageBanner(options)](#ProductViewOnload.module_ProductViewOnloadContext..useUsageBanner)
+    * [~useConfigBanners(options)](#ProductViewOnload.module_ProductViewOnloadContext..useConfigBanners)
 
 <a name="ProductViewOnload.module_ProductViewOnloadContext..useProductOnload"></a>
 
@@ -5081,6 +5082,28 @@ Apply a usage related banner notification per product variant
     <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
     <td>[options.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
+    </tr><tr>
+    <td>[options.useSetBannerMessages]</td><td><code>useSetBannerMessages</code></td><td><code>useSetBannerMessages</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="ProductViewOnload.module_ProductViewOnloadContext..useConfigBanners"></a>
+
+### ProductViewOnloadContext~useConfigBanners(options)
+Apply configurable banners per product variant
+
+**Kind**: inner method of [<code>ProductViewOnloadContext</code>](#ProductViewOnload.module_ProductViewOnloadContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr><tr>
     <td>[options.useSetBannerMessages]</td><td><code>useSetBannerMessages</code></td><td><code>useSetBannerMessages</code></td>
     </tr>  </tbody>

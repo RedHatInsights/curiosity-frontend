@@ -18,6 +18,10 @@ import airbnbConfig from './config/eslint.config.airbnb.mjs';
 
 export default [
   includeIgnoreFile(join(process.cwd(), '.gitignore')),
+  // ignore additional patterns
+  {
+    ignores: ['build-tools']
+  },
   stylisticJsPlugin.configs.all,
   jestPlugin.configs['flat/recommended'],
   jsdocPlugin.configs['flat/recommended'],
