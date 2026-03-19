@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardBody } from '@patternfly/react-core';
 import { BinocularsIcon } from '@patternfly/react-icons';
-import { useProductOnload, useUsageBanner } from './productViewOnloadContext';
+import { useProductOnload, useUsageBanner, useConfigBanners } from './productViewOnloadContext';
 import { ErrorMessage } from '../errorMessage/errorMessage';
 import { MessageView } from '../messageView/messageView';
 import { translate } from '../i18n/i18n';
@@ -20,16 +20,19 @@ import { translate } from '../i18n/i18n';
  * @param {translate} [props.t=translate]
  * @param {useProductOnload} [props.useProductOnload=useProductOnload]
  * @param {useUsageBanner} [props.useUsageBanner=useUsageBanner]
+ * @param {useConfigBanners} [props.useConfigBanners=useConfigBanners]
  * @returns {JSX.Element}
  */
 const ProductViewOnload = ({
   children,
   t = translate,
   useProductOnload: useAliasProductOnload = useProductOnload,
-  useUsageBanner: useAliasUsageBanner = useUsageBanner
+  useUsageBanner: useAliasUsageBanner = useUsageBanner,
+  useConfigBanners: useAliasConfigBanners = useConfigBanners
 }) => {
   const { isReady, error, message, productId, status, statusList } = useAliasProductOnload();
   useAliasUsageBanner();
+  useAliasConfigBanners();
 
   return (
     (error && (

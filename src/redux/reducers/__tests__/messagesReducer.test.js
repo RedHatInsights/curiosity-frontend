@@ -21,4 +21,20 @@ describe('MessagesReducer', () => {
       expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
     });
   });
+
+  it('should handle SET_BANNER_MESSAGES with append', () => {
+    const initialState = {
+      bannerMessages: {
+        test_id: [{ id: 'old' }]
+      }
+    };
+    const action = {
+      type: types.SET_BANNER_MESSAGES,
+      viewId: 'test_id',
+      bannerMessages: [{ id: 'new' }],
+      append: true
+    };
+    const result = messagesReducer(initialState, action);
+    expect(result.bannerMessages.test_id).toEqual([{ id: 'old' }, { id: 'new' }]);
+  });
 });
