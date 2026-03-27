@@ -5378,7 +5378,7 @@ App basePath. Return a base path.
 <a name="Router.module_RouterHelpers..cleanPath"></a>
 
 ### RouterHelpers~cleanPath(params) ⇒ <code>string</code> \| <code>undefined</code>
-Trim, clean, and remove irrelevant strings to help provide more exact product configuration matches.
+Decode URL-encoded characters and strip irrelevant segments to provide exact product configuration matches.
 
 **Kind**: inner method of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
 <table>

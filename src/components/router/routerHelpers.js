@@ -50,7 +50,7 @@ const dynamicPath = ({ pathName = window.location.pathname, appName: application
   pathName.split(applicationName)[1];
 
 /**
- * Trim, clean, and remove irrelevant strings to help provide more exact product configuration matches.
+ * Decode URL-encoded characters and strip irrelevant segments to provide exact product configuration matches.
  *
  * @param {object} params
  * @param {string} params.pathName
@@ -58,8 +58,16 @@ const dynamicPath = ({ pathName = window.location.pathname, appName: application
  * @returns {string | undefined}
  */
 const cleanPath = ({ pathName, appName: applicationName = helpers.UI_NAME } = {}) => {
-  const updatedPathName =
-    (/^http/i.test(pathName) && new URL(pathName).pathname) || (typeof pathName === 'string' && pathName) || undefined;
+  let updatedPathName = pathName;
+
+  if (updatedPathName) {
+    try {
+      updatedPathName = decodeURIComponent(updatedPathName);
+      updatedPathName = new URL(updatedPathName).pathname;
+    } catch {
+      // ignore
+    }
+  }
 
   return updatedPathName
     ?.toLowerCase()
