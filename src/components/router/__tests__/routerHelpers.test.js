@@ -7,6 +7,7 @@ import {
   parseSearchParams,
   pathJoin
 } from '../routerHelpers';
+import { helpers } from '../../../common';
 
 describe('RouterHelpers', () => {
   it('should return specific properties', () => {
@@ -123,6 +124,7 @@ describe('cleanPath', () => {
   it('should decode percent-encoded characters', () => {
     expect(cleanPath({ pathName: '/RHEL%20for%20x86' })).toBe('rhel for x86');
   });
+
   it('should return undefined for undefined input', () => {
     expect(cleanPath({ pathName: undefined })).toBeUndefined();
   });
@@ -147,30 +149,66 @@ describe('product variant routing with custom configs', () => {
   });
 
   it.each([
-    { path: '/Test%20Variant%20space', expected: 'Test Variant space' },
-    { path: '/test-variant-hyphen', expected: 'test-variant-hyphen' }
-  ])('should route $path to $expected with exact matching', ({ path, expected }) => {
+    {
+      path: '/Test%20Variant%20space',
+      expected: 'Test Variant space',
+      description: 'encoded characters'
+    },
+    {
+      path: '/test-variant-hyphen',
+      expected: 'test-variant-hyphen',
+      description: 'hyphenated variant'
+    },
+    {
+      path: 'test-alias',
+      expected: 'TestProduct',
+      description: 'alias'
+    },
+    {
+      path: '/TestProduct',
+      expected: 'TestProduct',
+      description: 'product id'
+    },
+    {
+      path: '/lorem-ipsum/test-variant-hyphen',
+      expected: 'test-variant-hyphen',
+      description: 'nested path'
+    },
+    {
+      path: `https://ci.foo.redhat.com/${helpers.UI_DISPLAY_NAME}/TestProduct`,
+      expected: 'TestProduct',
+      description: 'full URL'
+    },
+    {
+      path: `lorem-ipsum/${helpers.UI_DISPLAY_NAME}/dolor-sit/TestProduct`,
+      expected: 'TestProduct',
+      description: 'additional paths with no root'
+    },
+    {
+      path: '/TestProduct?query=param',
+      expected: 'TestProduct',
+      description: 'URL with search params'
+    },
+    {
+      path: '/TestProduct?query=param#hash',
+      expected: 'TestProduct',
+      description: 'URL with search and hash'
+    }
+  ])('should handle route and config matching, $description: $path', ({ path, expected }) => {
     const result = getRouteConfigByPath({ pathName: path, configs: customConfigs });
     expect(result.isClosest).toBe(false);
     expect(result.firstMatch?.productId).toBe(expected);
   });
 
   it.each([
-    { path: 'test-alias', expected: 'TestProduct', description: 'alias' },
-    { path: '/TestProduct', expected: 'TestProduct', description: 'product id' },
-    { path: '/lorem-ipsum/test-variant-hyphen', expected: 'test-variant-hyphen', description: 'nested path' },
-    { path: 'https://ci.foo.redhat.com/subscriptions/TestProduct', expected: 'TestProduct', description: 'full URL' },
-    { path: '/TestProduct?query=param', expected: 'TestProduct', description: 'URL with search params' },
-    { path: '/TestProduct?query=param#hash', expected: 'TestProduct', description: 'URL with search and hash' }
-  ])('should route $path ($description)', ({ path, expected }) => {
-    const result = getRouteConfigByPath({ pathName: path, configs: customConfigs });
-    expect(result.isClosest).toBe(false);
-    expect(result.firstMatch?.productId).toBe(expected);
-  });
-
-  it.each([
-    { path: '/test-invalid-variant', description: 'invalid variant uses non exact match' },
-    { path: '/lorem-ipsum-missing', description: 'missing path uses non exact match' }
+    {
+      path: '/test-invalid-variant',
+      description: 'invalid variant uses non exact match'
+    },
+    {
+      path: '/lorem-ipsum-missing',
+      description: 'missing path uses non exact match'
+    }
   ])('should use non exact matching for $description: $path', ({ path }) => {
     const result = getRouteConfigByPath({ pathName: path, configs: customConfigs });
     expect(result.isClosest).toBe(true);
