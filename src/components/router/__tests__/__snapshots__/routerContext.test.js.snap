@@ -1,164 +1,118 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, attempt closest disabled but return exact because of variant selection 1`] = `
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, Subscriptions path ansible 1`] = `
 {
-  "detailProps": [
-    "allConfigs",
-    "availableVariants",
-    "firstMatch",
-    "isClosest",
-    "productGroup",
-    "productConfig",
-    "productPath",
-    "productVariant",
-    "disableIsClosestMatch",
-  ],
-  "firstMatch": [
-    "aliases",
-    "productGroup",
-    "productId",
-    "productLabel",
-    "productPath",
-    "productDisplay",
-    "viewId",
-    "productVariants",
-    "query",
-    "graphTallyQuery",
-    "inventoryGuestsQuery",
-    "inventoryHostsQuery",
-    "inventorySubscriptionsQuery",
-    "initialGraphFilters",
-    "initialGraphSettings",
-    "initialGuestsFilters",
-    "initialInventoryFilters",
-    "initialInventorySettings",
-    "initialToolbarFilters",
-  ],
+  "isClosest": false,
+  "productGroup": "ansible-aap-managed",
+  "productId": "ansible-aap-managed",
+  "productPath": "Subscriptions/ansible",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, Subscriptions path openshift 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "openshift",
+  "productId": "OpenShift Container Platform",
+  "productPath": "Subscriptions/openshift",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, Subscriptions path rhel 1`] = `
+{
   "isClosest": false,
   "productGroup": "rhel",
+  "productId": "RHEL for x86",
+  "productPath": "Subscriptions/rhel",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, Subscriptions usage path ansible 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "ansible-aap-managed",
+  "productId": "ansible-aap-managed",
+  "productPath": "Subscriptions/usage/ansible",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, Subscriptions usage path openshift 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "openshift",
+  "productId": "OpenShift Container Platform",
+  "productPath": "Subscriptions/usage/openshift",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, Subscriptions usage path rhel 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "rhel",
+  "productId": "RHEL for x86",
+  "productPath": "Subscriptions/usage/rhel",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, ansible 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "ansible-aap-managed",
+  "productId": "ansible-aap-managed",
+  "productPath": "ansible",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, attempt closest disabled but return exact because of variant selection 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "rhel",
+  "productId": "Satellite Server",
   "productPath": "l",
 }
 `;
 
 exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, closest 1`] = `
 {
-  "detailProps": [
-    "allConfigs",
-    "availableVariants",
-    "firstMatch",
-    "isClosest",
-    "productGroup",
-    "productConfig",
-    "productPath",
-    "productVariant",
-    "disableIsClosestMatch",
-  ],
-  "firstMatch": [
-    "aliases",
-    "productGroup",
-    "productId",
-    "productLabel",
-    "productPath",
-    "productDisplay",
-    "viewId",
-    "productVariants",
-    "query",
-    "graphTallyQuery",
-    "inventoryGuestsQuery",
-    "inventoryHostsQuery",
-    "inventorySubscriptionsQuery",
-    "initialGraphFilters",
-    "initialGraphSettings",
-    "initialGuestsFilters",
-    "initialInventoryFilters",
-    "initialInventorySettings",
-    "initialSubscriptionsInventoryFilters",
-    "initialToolbarFilters",
-  ],
   "isClosest": true,
   "productGroup": "rhel",
+  "productId": "RHEL for x86",
   "productPath": "l",
 }
 `;
 
 exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, closest disabled 1`] = `
 {
-  "detailProps": [
-    "allConfigs",
-    "availableVariants",
-    "firstMatch",
-    "isClosest",
-    "productGroup",
-    "productConfig",
-    "productPath",
-    "productVariant",
-    "disableIsClosestMatch",
-  ],
-  "firstMatch": [
-    "aliases",
-    "productGroup",
-    "productId",
-    "productLabel",
-    "productPath",
-    "productDisplay",
-    "viewId",
-    "productVariants",
-    "query",
-    "graphTallyQuery",
-    "inventoryGuestsQuery",
-    "inventoryHostsQuery",
-    "inventorySubscriptionsQuery",
-    "initialGraphFilters",
-    "initialGraphSettings",
-    "initialGuestsFilters",
-    "initialInventoryFilters",
-    "initialInventorySettings",
-    "initialSubscriptionsInventoryFilters",
-    "initialToolbarFilters",
-  ],
   "isClosest": true,
   "productGroup": "rhel",
+  "productId": "RHEL for x86",
   "productPath": "l",
 }
 `;
 
-exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, exact 1`] = `
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, insights, rhel 1`] = `
 {
-  "detailProps": [
-    "allConfigs",
-    "availableVariants",
-    "firstMatch",
-    "isClosest",
-    "productGroup",
-    "productConfig",
-    "productPath",
-    "productVariant",
-    "disableIsClosestMatch",
-  ],
-  "firstMatch": [
-    "aliases",
-    "productGroup",
-    "productId",
-    "productLabel",
-    "productPath",
-    "productDisplay",
-    "viewId",
-    "productVariants",
-    "query",
-    "graphTallyQuery",
-    "inventoryGuestsQuery",
-    "inventoryHostsQuery",
-    "inventorySubscriptionsQuery",
-    "initialGraphFilters",
-    "initialGraphSettings",
-    "initialGuestsFilters",
-    "initialInventoryFilters",
-    "initialInventorySettings",
-    "initialSubscriptionsInventoryFilters",
-    "initialToolbarFilters",
-  ],
   "isClosest": false,
   "productGroup": "rhel",
+  "productId": "RHEL for x86",
+  "productPath": "insights",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, openshift 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "openshift",
+  "productId": "OpenShift Container Platform",
+  "productPath": "openshift",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, rhel 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "rhel",
+  "productId": "RHEL for x86",
   "productPath": "rhel",
 }
 `;

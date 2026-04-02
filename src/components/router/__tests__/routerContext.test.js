@@ -1,5 +1,6 @@
 import { context, setRouteProduct, useNavigate, useRouteDetail, useSetRouteProduct } from '../routerContext';
 import { RHSM_API_PATH_PRODUCT_TYPES } from '../../../services/rhsm/rhsmConstants';
+import { helpers } from '../../../common';
 
 describe('RouterContext', () => {
   it('should return specific properties', () => {
@@ -32,7 +33,52 @@ describe('RouterContext', () => {
     {
       productPath: 'rhel',
       disableIsClosestMatch: false,
-      description: 'exact'
+      description: 'rhel'
+    },
+    {
+      productPath: 'insights',
+      disableIsClosestMatch: false,
+      description: 'insights, rhel'
+    },
+    {
+      productPath: `${helpers.UI_DISPLAY_NAME}/rhel`,
+      disableIsClosestMatch: false,
+      description: `${helpers.UI_DISPLAY_NAME} path rhel`
+    },
+    {
+      productPath: `${helpers.UI_DISPLAY_NAME}/usage/rhel`,
+      disableIsClosestMatch: false,
+      description: `${helpers.UI_DISPLAY_NAME} usage path rhel`
+    },
+    {
+      productPath: 'openshift',
+      disableIsClosestMatch: false,
+      description: 'openshift'
+    },
+    {
+      productPath: `${helpers.UI_DISPLAY_NAME}/openshift`,
+      disableIsClosestMatch: false,
+      description: `${helpers.UI_DISPLAY_NAME} path openshift`
+    },
+    {
+      productPath: `${helpers.UI_DISPLAY_NAME}/usage/openshift`,
+      disableIsClosestMatch: false,
+      description: `${helpers.UI_DISPLAY_NAME} usage path openshift`
+    },
+    {
+      productPath: 'ansible',
+      disableIsClosestMatch: false,
+      description: 'ansible'
+    },
+    {
+      productPath: `${helpers.UI_DISPLAY_NAME}/ansible`,
+      disableIsClosestMatch: false,
+      description: `${helpers.UI_DISPLAY_NAME} path ansible`
+    },
+    {
+      productPath: `${helpers.UI_DISPLAY_NAME}/usage/ansible`,
+      disableIsClosestMatch: false,
+      description: `${helpers.UI_DISPLAY_NAME} usage path ansible`
     },
     {
       productPath: 'l',
@@ -51,14 +97,13 @@ describe('RouterContext', () => {
       description: 'closest disabled'
     }
   ])('should apply a helper with setRouteProduct and return a product configuration match, $description', params => {
-    const result = setRouteProduct(params);
+    const { firstMatch, isClosest, productGroup, productPath } = setRouteProduct(params);
 
     expect({
-      detailProps: Object.keys(result),
-      isClosest: result.isClosest,
-      productGroup: result.productGroup,
-      productPath: result.productPath,
-      firstMatch: Object.keys(result?.firstMatch || {})
+      isClosest,
+      productGroup,
+      productPath,
+      productId: firstMatch?.productId
     }).toMatchSnapshot();
   });
 
