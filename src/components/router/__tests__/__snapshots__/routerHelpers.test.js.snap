@@ -39,66 +39,6 @@ exports[`RouterHelpers should return parse search parameters into unique key, va
 }
 `;
 
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: NO search and hash 1`] = `
-{
-  "productId": "RHEL for x86",
-}
-`;
-
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: alias insights 1`] = `
-{
-  "productId": "RHEL for x86",
-}
-`;
-
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: closest match 1`] = `
-{
-  "productId": "ansible-aap-managed",
-}
-`;
-
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: match specific path 1`] = `
-{
-  "productId": "RHEL for x86",
-}
-`;
-
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: missing parameters 1`] = `
-{
-  "productId": undefined,
-}
-`;
-
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: missing pathName, closest match 1`] = `
-{
-  "productId": "rhel-aus-addon",
-}
-`;
-
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: specific navigation ID 1`] = `
-{
-  "productId": "rhods",
-}
-`;
-
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: specific product path 1`] = `
-{
-  "productId": "rhods",
-}
-`;
-
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: search 1`] = `
-{
-  "productId": "RHEL for x86",
-}
-`;
-
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: search and hash 1`] = `
-{
-  "productId": "RHEL for x86",
-}
-`;
-
 exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
 {
   "appName": "subscriptions",
