@@ -1,86 +1,60 @@
-# Curiosity Frontend Guidelines
+# Agent Guidelines
 
 ## Overview
+Agent-specific guidelines for curiosity-frontend, optimized for machine processing.
 
-This directory contains agent-specific development and workflow guidelines for the Curiosity Frontend project. These guidelines help ensure consistent agent implementation patterns, proper code organization, and streamlined development processes.
+## Guidelines Index
+
+### Agent Guidelines
+
+- [Agent Behaviors](./agent_behaviors.md) (Critical) - Comprehensive guide to agent behaviors, workflows, and standards
+- [Agent Coding](./agent_coding.md) (High) - Coding standards
+- [Agent Testing](./agent_testing.md) (High) - Testing procedures
+
+### Skills
+- [Product Configuration](./skills/product-configuration/SKILL.md) - Add/update product variants.
+- [Configurable Banners](./skills/configurable-banners/SKILL.md) - Manage global alerts.
+
+**Note:** `guidelines/skills/` is the canonical location for skills. Repo symlinks point here so agents can discover them: `.agents/skills` (Cursor), `.claude/skills` (Claude). The `.agent/` directory (no “s”) is reserved for each developer’s local work and is off limits—do not use it for shared skills or guidelines.
+
+### PatternFly MCP
+- [PatternFly MCP server quick start](https://github.com/patternfly/patternfly-mcp?tab=readme-ov-file#quick-start)
 
 ## User Guide
 
-### Development Guidelines
+### Available Trigger Phrases
 
-The agent guidelines in this directory provide structured approaches for common development tasks in the Curiosity Frontend project:
+Agents should use these phrases as signals to consult specific documentation and source code:
 
-- **Code Standards**: Consistent patterns for file naming, localization, and testing
-- **Implementation Workflows**: Interactive processes that ensure all necessary steps are completed
+| Task / Intent                     | Reference                                                                                                |
+|-----------------------------------|----------------------------------------------------------------------------------------------------------|
+| **"review the repo guidelines"**  | [README.md](../README.md) agent block, this file, `CONTRIBUTING.md#ai-agent`                             |
+| **Product / UI change**           | [Product Configuration skill](./skills/product-configuration/SKILL.md), [Agent Coding](./agent_coding.md)|
+| **Global banner**                 | [Configurable Banners skill](./skills/configurable-banners/SKILL.md), `docs/architecture.md`             |
+| **Release / Deploy**              | [CONTRIBUTING.md](../CONTRIBUTING.md) (Process)                                                          |
+| **Dependencies**                  | [CONTRIBUTING.md](../CONTRIBUTING.md) (NPM maintenance)                                                  |
+| **Git history**                   | [Agent Behaviors](./agent_behaviors.md) (Searchability), [CONTRIBUTING.md](../CONTRIBUTING.md) (Messaging) |
 
-### Getting Started
+## Guidelines Processing Order
 
-#### Workflows
+1. **Guidelines Directory** (all files in the `guidelines/` directory)
+2. **Local guidelines** (`.agent/` directory) — reserved for each user’s agent interaction; gitignored and off limits for shared repo assets. Do not create or reference shared skills or guidelines in `.agent/`.
 
-Activating agent-based workflows and automation has been centered around the use of keyword prompts.
+## Maintaining This Directory
 
-##### Available Prompts
+### File Maintenance Principles
+- Update this index immediately when adding/removing guidelines or skills.
+- Reference `CONTRIBUTING.md` and `docs/` instead of duplicating content.
+- Update references when adding new files.
+- Keep descriptions concise and focused.
 
-TBD.
+### File Naming Convention
+- `agent_*.md`: Always-on rules (behaviors, coding, testing).
+- `skills/<name>/SKILL.md`: Task-specific workflows and triggers.
+- `mcp/plugin-*/`: PatternFly MCP tool plugins.
 
-#### Code Standards
-
-TBD.
-
-#### Patternfly Development
-
-TBD.
-
----
-
-## Agent-Only Index
-
-<!--
-This section is intended for autonomous agents working with this repository.
-Process guidelines in the order listed below, with specialized guidelines taking precedence for their domains.
--->
-
-### Guidelines Processing Order
-
-1. **Core Guidelines** (this file) - Fundamental behavior standards and overview
-2. **Specialized Guidelines** - Domain-specific implementation instructions
-3. **Local Guidelines** (`.agent/` directory) - Agent-generated and session-specific guidance
-
-### Available Guidelines
-
-TBD.
-
-### Core Agent Behavior Standards
-
-<!--
-Before the agent runs `$ date` the agent should explain what it's going to be used for. Agents should attempt to run `$ date` to get the system date before applying dates and times anywhere.
-
-Common uses for dates include:
-- Updating "Last Updated" timestamps in documentation files
-- Adding creation dates to new files or savepoints
-- Timestamping conversation states or session information
-- Recording when changes or updates were made to configuration files
-- Ensuring accurate date references in commit messages or change logs
--->
-
-- **Sequential Processing**: Ask questions one at a time, wait for responses
-- **Reference-Based Implementation**: Always review git reference commits before implementation
-- **Validation Required**: Follow file checklists completely and run validation commands
-- **Confirmation Required**: Ask for user confirmation of success before completion
-- **State Management**: Use `.agent/` directory for session continuity and repository context
-
-### Agent Notes: Maintaining This File
-
-**Important**: This file serves as an index and reference system only.
-
-#### File Maintenance Principles
-- **DO NOT recreate existing guidelines** - This file should only reference and index specialized guidelines, not duplicate their content
-- **DO update agent-specific references** - When new guideline markdown files are added to the `guidelines/` directory, update the "Available Guidelines" section with appropriate metadata
-- **Keep it concise** - Focus on indexing and referencing rather than comprehensive implementation details
-
-#### When Adding New Guidelines
-1. Add new guideline entry to "Available Guidelines" section
-2. Include essential metadata: File, Version, Priority, Applies To, Contexts, Key Concepts, Trigger Prefixes
-3. Provide brief description focusing on what the guideline covers
+### Adding New Guidelines
+1. Add entry to "Guidelines Index" section
+2. Include essential metadata
+3. Provide brief description
 4. Update processing order if needed
-5. Maintain alphabetical organization within categories

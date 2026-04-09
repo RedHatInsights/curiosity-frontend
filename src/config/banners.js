@@ -1,6 +1,8 @@
 /**
  * Global banner configurations.
  *
+ * Note: Use `translate` for user-visible copy.
+ *
  * @example Maintenance banner, add imports and object to the banners list
  * // add these imports above
  * import React from 'react';
@@ -27,7 +29,7 @@
  *
  *   // Optional: Logic to determine if banner should show
  *   // Remove the entire property to always be active
- *   condition: ({ productId }) => state.someGlobalFlag === true,
+ *   condition: ({ productId }) => productId === RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86,
  *   // Buttons/Actions configuration
  *   actions: [
  *     {
@@ -41,8 +43,8 @@
  *   ]
  * }
  *
- * @type {Array<{id: string, title: string, message: string, variant: string, dataTest: string,
- *     productIds: string[], condition: Function, actions: Array<{title: string, href: string,
+ * @type {Array<{id: string, title: string|Function, message: string|Function, variant: string, dataTest: string,
+ *     productIds: string[], condition: Function, actions: Array<{title: string|Function, href: string,
  *     onClick: Function, isExternal: boolean}>}>}
  */
 const banners = [];

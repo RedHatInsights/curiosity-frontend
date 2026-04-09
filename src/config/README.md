@@ -42,8 +42,9 @@
 ## Constants
 
 <dl>
-<dt><a href="#banners">banners</a> : <code>Array.&lt;{id: string, title: string, message: string, variant: string, dataTest: string, productIds: Array.&lt;string&gt;, condition: function(), actions: Array.&lt;{title: string, href: string, onClick: function(), isExternal: boolean}&gt;}&gt;</code></dt>
+<dt><a href="#banners">banners</a> : <code>Array.&lt;{id: string, title: (string|function()), message: (string|function()), variant: string, dataTest: string, productIds: Array.&lt;string&gt;, condition: function(), actions: Array.&lt;{title: (string|function()), href: string, onClick: function(), isExternal: boolean}&gt;}&gt;</code></dt>
 <dd><p>Global banner configurations.</p>
+<p>Note: Use <code>translate</code> for user-visible copy.</p>
 </dd>
 </dl>
 
@@ -530,8 +531,10 @@ Sorted/organized/grouped product configs.
 
 <a name="banners"></a>
 
-## banners : <code>Array.&lt;{id: string, title: string, message: string, variant: string, dataTest: string, productIds: Array.&lt;string&gt;, condition: function(), actions: Array.&lt;{title: string, href: string, onClick: function(), isExternal: boolean}&gt;}&gt;</code>
+## banners : <code>Array.&lt;{id: string, title: (string\|function()), message: (string\|function()), variant: string, dataTest: string, productIds: Array.&lt;string&gt;, condition: function(), actions: Array.&lt;{title: (string\|function()), href: string, onClick: function(), isExternal: boolean}&gt;}&gt;</code>
 Global banner configurations.
+
+Note: Use `translate` for user-visible copy.
 
 **Kind**: global constant  
 **Example**  
@@ -562,7 +565,7 @@ import { RHSM_API_PATH_PRODUCT_TYPES } from '../services/rhsm/rhsmConstants';
 
   // Optional: Logic to determine if banner should show
   // Remove the entire property to always be active
-  condition: ({ productId }) => state.someGlobalFlag === true,
+  condition: ({ productId }) => productId === RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86,
   // Buttons/Actions configuration
   actions: [
     {
