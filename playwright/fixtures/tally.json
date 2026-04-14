@@ -1,0 +1,169 @@
+{
+  "data": [
+    {
+      "date": "2026-03-14T00:00:00.000Z",
+      "value": 120,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-15T00:00:00.000Z",
+      "value": 125,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-16T00:00:00.000Z",
+      "value": 130,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-17T00:00:00.000Z",
+      "value": 128,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-18T00:00:00.000Z",
+      "value": 135,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-19T00:00:00.000Z",
+      "value": 140,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-20T00:00:00.000Z",
+      "value": 145,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-21T00:00:00.000Z",
+      "value": 138,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-22T00:00:00.000Z",
+      "value": 132,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-23T00:00:00.000Z",
+      "value": 142,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-24T00:00:00.000Z",
+      "value": 150,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-25T00:00:00.000Z",
+      "value": 155,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-26T00:00:00.000Z",
+      "value": 148,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-27T00:00:00.000Z",
+      "value": 152,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-28T00:00:00.000Z",
+      "value": 146,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-29T00:00:00.000Z",
+      "value": 140,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-30T00:00:00.000Z",
+      "value": 158,
+      "has_data": true
+    },
+    {
+      "date": "2026-03-31T00:00:00.000Z",
+      "value": 165,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-01T00:00:00.000Z",
+      "value": 170,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-02T00:00:00.000Z",
+      "value": 162,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-03T00:00:00.000Z",
+      "value": 168,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-04T00:00:00.000Z",
+      "value": 175,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-05T00:00:00.000Z",
+      "value": 172,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-06T00:00:00.000Z",
+      "value": 165,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-07T00:00:00.000Z",
+      "value": 180,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-08T00:00:00.000Z",
+      "value": 185,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-09T00:00:00.000Z",
+      "value": 178,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-10T00:00:00.000Z",
+      "value": 182,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-11T00:00:00.000Z",
+      "value": 188,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-12T00:00:00.000Z",
+      "value": 190,
+      "has_data": true
+    },
+    {
+      "date": "2026-04-13T00:00:00.000Z",
+      "value": 195,
+      "has_data": true
+    }
+  ],
+  "links": {
+    "first": "/api/rhsm-subscriptions/v1/tally/products/RHEL%20for%20x86/Sockets?offset=0",
+    "last": "/api/rhsm-subscriptions/v1/tally/products/RHEL%20for%20x86/Sockets?offset=0"
+  },
+  "meta": {
+    "count": 31,
+    "product": "RHEL for x86",
+    "granularity": "daily",
+    "metric_id": "Sockets"
+  }
+}
