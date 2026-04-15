@@ -1,715 +1,339 @@
 # Contributing
-Contributing encompasses repository specific requirements.
+Interested in contributing to the project? Review the following guidelines and our [architecture](./docs/architecture.md) to make sure your contribution is aligned with the project's goals.
 
-## Process
-<details>
-<summary><h3 style="display: inline-block">Using Git</h3></summary>
+- [General development](#general-development)
+- [Design and PatternFly](#design-and-patternfly)
+- [Maintenance](#maintenance)
+- [AI agent](#ai-agent)
 
-Curiosity makes use of
-- GitHub's fork and pull workflow.
-- A linear commit process and rebasing. GitHub merge commits, and squashing are discouraged in favor of smaller independent commits
+## General development
 
-> Working directly on the main repository is highly discouraged. Continuous Integration is dependent on branch structure.
+### Environment setup
 
-#### Main repository branches and continuous integration
-Curiosity makes use of the branches `main`, `stable`.
-- `main` branch is a representation of development, `stage`.
-   - When a branch push happens the `main` branch is automatically deployed for `https://console.stage.redhat.com/`
-- `stable` branch is a representation of a single environment, `prod`.
-   - Commits can be parked on `stable`. We no longer automatically deploy commits on the `stable` branch.
-   - To release to `prod` a Git hash is submitted with a GitLab Merge Request within the `app-interface` repository. This will be deployed to `https://console.redhat.com`
-      - It is preferable if releasing to `prod` that a tag is created for the latest commit. The commit message should use
-        the form `chore(release): [version number]`
+#### Tools
+- [Node.js](https://nodejs.org/en/download/package-manager)
+- npm (Yarn install is discouraged)
+- Git configured with your GitHub account
 
-#### Branch syncing
-Linear commit history for Curiosity makes syncing concise
-- `main` is always rebased from `stable`
-   - typically after a release
-   - or in prep for a fast-forward of `stable`
-- `stable` is fast-forwarded from `main`
-   - typically when commits are prepared for release
-
-</details>
-
-<details>
-<summary><h3 style="display: inline-block">Pull request workflow, and testing</h3></summary>
-
-All development work should be handled through GitHub's fork and pull workflow.
-
-#### Setting up a pull request
-Development pull requests (PRs) should be opened against the `main` branch. Development PRs directly to `stable` are discouraged since branch structure
-represents environment. However, exceptions are allowed, as long those updates are also rebased against the `stable` branch, for...
-- bug fixes
-- build updates
-
-> If your pull request work contains any of the following warning signs 
->  - out of sync commits (is not rebased against the `main` branch)
->  - poorly structured commits and messages
->  - any one commit relies on other commits to work at all, in the same pull request
->  - dramatic file restructures that attempt complex behavior
->  - missing, relaxed, or removed unit tests
->  - dramatic unit test snapshot updates
->  - affects any file not directly associated with the associated issue being resolved
->  - affects "many" files
->
-> You will be encouraged to restructure your commits to help in review.
-
-#### Pull request commits, messaging
-
-Your pull request should contain Git commit messaging that follows the use of [conventional commit types](https://www.conventionalcommits.org/)
-to provide consistent history and help generate [CHANGELOG.md](./CHANGELOG.md) updates.
-
-Commit messages follow three basic guidelines
-- No more than `65` characters for the first line
-- If your pull request has more than a single commit you should include the pull request number in your message using the below format. This additional copy is not counted towards the `65` character limit.
-  ```
-  [message] (#1234)
-  ```
-
-  You can also include the pull request number on a single commit, but
-  GitHub will automatically apply the pull request number when the
-  `squash` button is used on a pull request.
-
-- Commit message formats follow the structure
-  ```
-  <type>(<scope>): <issue number><description>
-  ```
-  Where
-  - Type = the type of work the commit resolves.
-     - Basic types include `feat` (feature), `fix`, `chore`, `build`.
-     - See [conventional commit types](https://www.conventionalcommits.org/) for additional types.
-  - Scope = the area of code affected.
-     - Can be a directory or filenames
-     - Does not have to encompass all file names affected
-  - Issue number = the Jira issue number
-     - Currently, the prefix `sw-[issue number]` represents `SWATCH-[issue number]`
-  - Description = what the commit work encompasses
-
-  Example
-  ```
-  feat(config): sw-123 rhel, activate instance inventory
-  ```
-> Not all commits need an issue number. But it is encouraged you attempt to associate
-> a commit with an issue for tracking. In a scenario where no issue is available
-> exceptions are made for `fix`, `chore`, and `build`.
-
-#### Pull request test failures
-Creating a pull request activates the following checks through GitHub actions.
-- Commit message linting, see [commit_lint.yml](./.github/workflows/commit_lint.yml)
-- Code documentation linting, see [documentation_lint.yml](./.github/workflows/documentation_lint.yml)
-- Pull request spelling, code linting, unit tests and repo-level integration tests, see [integration](./.github/workflows/integration.yml)
-  - The spelling config dictionary is here [cspell.config.json](./config/cspell.config.json)
-- Jenkins integration testing. Currently, Jenkins re-runs the same tests being used in [integration](./.github/workflows/integration.yml)
-
-For additional information on failures for
-- Commit messages, see [Pull request commits, messaging](#pull-request-commits-messaging)
-- Code documentation, see [Updating code documentation](#documentation)
-- Pull request code, see [Updating unit tests during development](#testing)
-<!-- Jenkins integration can be ignored until it actively runs integration testing. -->
-
-> You can always attempt to restart Jenkins testing by placing a pull request comment
-> with the copy `/retest`.
-
-> To resolve failures for any GitHub actions make sure you first review the results of the test by
-clicking the `checks` tab on the related pull request.
-
-> Caching for GitHub actions and NPM packages is active. This caching allows subsequent pull request
-> updates to avoid reinstalling npm dependencies. 
-> 
-> Occasionally test failures can occur after recent NPM package updates either in the pull request
-> itself or in a prior commit to the pull request. The most common reason for this failure presents when
-> a NPM package has changed its support for different versions of NodeJS and those packages are updated
-> in the `main` branch. 
-> 
-> If test failures are happening shortly after a NPM package update you may need to clear the
-> GitHub actions cache and restart the related tests.
-
-</details>
-
-<details>
-<summary><h3 style="display: inline-block">Releasing code for all environments</h3></summary>
-
-Curiosity releases code to the following environments
-   - stage
-   - production
-
-> After pushing code, or tagging, a repository hook notifies continuous integration and starts the process of
-> environment updates.
-
-#### Release for stage
-Merging code into stage is simplistic
-1. Merge a pull request into `main`
-   ```
-   pull-request -> main -> stage
-   ```
-
-#### Release for production stable
-To merge code into production stable a maintainer must run the release commit process locally.
-
-   ```
-   local main repo, stable branch -> create a release commit -> push/merge commit to stable -> release tag on commit -> `app-interface` merge request on commit hash -> production release
-   ```
-
-1. Clone the main repository, within the repo confirm you're on the `stable` branch and **SYNCED** with `origin` `stable`
-1. Run
-   1. `$ git checkout stable`
-   1. `$ npm install`
-   1. `$ npm run release --dry-run` to confirm the release output version and commits.
-   1. `$ npm run release` to generate file changes, and then commit them.
-
-      >If the version recommended should be different you can run the command with an override version following a semver format
-      >  ```
-      >  $ npm run release --override X.X.X
-      >  ``` 
-1. Confirm you now have a release commit with the format `chore(release): X.X.X` and there are updates to
-   - [`package.json`](./package.json)
-   - [`CHANGELOG.md`](./CHANGELOG.md)
-
-   If there are issues with the file updates you can correct them and squish any fixes into the `chore(release): X.X.X` commit
-1. Push the **SINGLE** commit to `origin` `stable`
-1. Using the [Curiosity GitHub releases interface](https://github.com/RedHatInsights/curiosity-frontend/releases)
-   1. Draft a new release from `stable` confirming you are aligned with the `chore(release): X.X.X` commit hash
-   1. Create the new tag using the **SAME** semver version created by the release commit but add a `v` prefix to it, i.e. `vX.X.X`, for consistency.
-
-   > To avoid issues with inconsistent Git tagging use it is recommended you use the GitHub releases interface.
-1. Finally, submit a merge request to update the `app-interface` deployment yaml
-   - Copy the tagged Git hash and update the `app-interface` configuration hash within `[app-interface-insights-rhsm]/deploy-clowder.yml`
-</details>
-
-<details>
-<summary><h3 style="display: inline-block">NPM dependency maintenance</h3></summary>
-
-#### Automated cycle for updating NPMs
-Automation primarily makes use of `dependabot`.
-> Configuration for `dependabot` is located under the [github directory](.github/).
-
-Our current schedule for automated dependency updates
-- dependabot running once a week on low-level dev packages that only require testing confirmation. Low-level is indicated by semver version `minor` and `patch` updates.
-
-#### Manual cycle for updating NPMs
-Our schedule for updating NPMs
-- 1x a month: running our aggregated dependency update script for all low level packages that require only testing confirmation
-   - `$ npm run build:deps`
-- 1x a month: running updates on NPMs that require additional visual and build confirmation. **These packages' semver confidence is labeled as suspect. Breaking changes have been introduced as minor and patch versions. If a package consistently adheres to semver, subject to discussion, they'll be removed from this list.** This includes...
-   - dependency-name: "@patternfly/*"
-   - dependency-name: "@redhat-cloud-services/frontend*"
-   - dependency-name: "victory*"
-
-#### Process for manually updating NPMs
-To update packages in bulk there are 2 pre-defined paths, "basic" and "core".
-
-> For most users, it is **highly discouraged** that you rely on updating ANY `lock` file section ONLY. This potentially creates long-term issues when NPM references in `package.json` potentially require specific
-> dependencies, or have built around specific package functionality that could be inadvertently altered by updating a dependencies' dependency.
-> 
-> For the knowledge, there is a parallel technique for forcing dependency updates based on the syntax leveraged inside of [`package.json`](./package.json). The `caret` character used in
-> [`package.json`](./package.json), for example, indicates `minor` and `patch` versions are backwards compatible with a major package version. By deleting the entire `lock` file, and for simplicity the `node_modules`
-> directory too, then running `$ npm install` you can effectively trigger NPM's install process for leveraging the syntax inside your [`package.json`](./package.json) along with subsequent dependencies.
-> This is useful in scenarios where a dependency of a dependency spans multiple packages and is triggering an alert, or when debugging problematic packages becomes time intensive. However, this should be used sparingly,
-> to avoid breaking changes, and tested thoroughly.
-
-##### Basic NPM updates
-> You can see a listing of all outdated packages by running `$ npm outdated` in the repo context.
-
-1. Clone the repository locally, or bring your fork up-to-date with the development branch. [Make sure development tooling is installed](#install-tooling). 
-1. Open a terminal instance in the repository context and run
-    ```
-    $ npm run build:deps
-    ```
-   This will cycle through ALL basic NPM dependencies, running both unit tests, build and local integration checks. If
-   any errors are throw the package update is skipped.
-1. After the updates have completed **YOU MUST VISUALLY CONFIRM** the updates were successful by running both local development start scripts.
-   - Visually confirm that local development still functions and can be navigated with... 
-      ```
-      $ npm start
-      ```
-   - Visually confirm that proxy development still functions and can be navigated with...
-      1. Start VPN
-      1. Run
-         ```
-         $ npm run start:proxy
-         ```
-      > Proxy run is reserved for internal uses, if you do not have access you can skip this part of the process and provide a reviewer note in your pull request 
-1. After you've confirmed everything is functioning correctly, check and commit the related changes to `package.json` and `package-lock.json`, then open a pull request towards the development branch.
-> If any part of the "basic path" process fails you'll need to figure out which NPM is the offender and remove it from the update. OR resolve to fix the issue
-> since future updates will be affected by skipping potentially any package update.
-> A `dependency-update-log.txt" file is generated in the root of the repository after each run of `$ npm run build:deps` this should contain a listing of the skipped packages.
-
-##### Core NPM updates
-1. Clone the repository locally, or bring your fork up-to-date with the development branch. [Make sure development tooling is installed](#install-tooling). 
-1. Open a terminal instance in the repository context and run
-    ```
-    $ npm run build:deps-core
-    ```
-   This will cycle through ALL core NPM dependencies, running both unit tests, build and local integration checks. If
-   any errors are throw the package update is skipped.
-1. After the updates have completed **YOU MUST VISUALLY CONFIRM** the updates were successful by running both local development start scripts.
-   - Visually confirm that local development still functions and can be navigated with... 
-      ```
-      $ npm start
-      ```
-   - Visually confirm that proxy development still functions and can be navigated with...
-      1. Start VPN
-      1. Run
-         ```
-         $ npm run start:proxy
-         ```
-      > Proxy run is reserved for internal uses, if you do not have access you can skip this part of the process and provide a reviewer note in your pull request
-1. After you've confirmed everything is functioning correctly, check and commit the related changes to `package.json` and `package-lock.json`, then open a pull request towards the development branch.
-> If any part of the "core path" process fails you'll need to figure out which NPM is the offender and remove it from the update. OR resolve to fix the issue
-> since future updates will be affected by skipping potentially any package update.
-> A `dependency-update-log.txt" file is generated in the root of the repository after each run of `$ npm run build:deps-core` this should contain a listing of the skipped packages.
-
-##### Manual fallback NPM updates
-This is the slowest part of package updates. If any packages are skipped during the "basic" and "core" automation runs. Those packages will need to be updated manually.
-1. Clone the repository locally, or bring your fork up-to-date with the development branch. [Make sure development tooling is installed](#install-tooling).
-1. Remove/delete the `node_modules` directory (there may be differences between branches that create package alterations) 
-1. Run
-   ```
+#### Project setup
+- Fork and clone the repository
+- Install project dependencies
+   ```sh
    $ npm install
    ```
-   To re-install the baseline packages.
-1. Start working your way down the list of `dependencies` and `devDependencies` in [`package.json`](./package.json). It is normal to start on the `dev-dependencies` since the related NPMs support build process. Build process updates at more consistent interval without breaking the application.
-   > Some text editors fill in the next available NPM package version when you go to modify the package version. If this isn't available you can always use [NPM directly](https://www.npmjs.com/)... start searching =).
-1. After each package version update in [`package.json`](./package.json) you'll run the follow scripts
-   - `$ npm test`, if it fails you'll need to run `$ npm run test:dev` and update the related tests
-   - `$ npm run build`, if it fails you'll need to run `$ npm run test:integration-dev` and update the related tests
-   - `$ npm start`, confirm that local run is still accessible and that no design alterations have happened. Fix accordingly.
-   - Make sure VPN is active, then type `$ npm run start:proxy`. Confirm that proxy run is still accessible and that no design alterations have happened. Fix accordingly.
-1. If the package is now working commit the change and move on to the next package.
-   - If the package fails, or you want to skip the update, take the minimally easy path and remove/delete `node_modules` then rollback `package-lock.json` **BEFORE** you run the next package update.
-> There are alternatives to resetting `node_modules`, we're providing the most direct path.
->
-> Not updating a package is not the end-of-the-world. A package is not going to randomly break because you haven't updated to the latest version.
-
-> Security warnings on NPM packages should be reviewed on a "per-alert basis" since **they generally do not make a distinction between build resources and what is within the applications compiled output**. Blindly following a security
-> update recommendation is not always the optimal path.
-
-</details>
-
-<details>
-<summary><h3 style="display: inline-block">Build maintenance</h3></summary>
-
-- Webpack configuration. The build uses an extended consoledot configuration combined with NPM scripts found in [`package.json`](./package.json).
-   - Webpack build files
-     - [`./config`](./config)
-     - [`./scripts/post.sh`](./scripts/post.sh)
-     - [`./scripts/pre.sh`](./scripts/pre.sh)
-- Continuous Integration. The build currently has both old, and new, continuous integration running. Continuous integration makes use of Webpack build files.
-   - Ephemeral build files
-      - [`./deploy`](deploy) 
-   - Konflux
-- GitHub Actions
-   - Action files
-      - [`./.github/workflows`](.github/workflows)
-   - Related script files
-      - [`./.scripts/actions.commit.js`](./scripts/actions.commit.js)
-      - [`./.scripts/actions.documentation.js`](./scripts/actions.documentation.js)
-</details>
-
-## Development
-<details>
-<summary><h3 style="display: inline-block">Install tooling</h3></summary>
-
-Before developing you'll need to install:
- * [NodeJS and NPM](https://nodejs.org/)
-    * Yarn install is now discouraged. There are dependency install issues with Yarn `1.x.x` versions.
-
-#### OS support
-The tooling for Curiosity is `Mac OS` centered.
-
-While some aspects of the tooling have been expanded for Linux there may still be issues. It is encouraged that OS tooling
-changes are contributed back while maintaining existing `Mac OS` functionality.
-
-If you are unable to test additional OS support it is imperative that code reviews take place before integrating/merging build changes.
-
-#### NodeJS and NPM
-The Curiosity build attempts to align to the current NodeJS LTS version. It is possible to test future versions of NodeJS LTS. See CI Testing for more detail. 
-
-#### NPM
-NPM is automatically packaged with your NodeJS install.
-</details>
-
-<details>
-<summary><h3 style="display: inline-block">dotenv file setup</h3></summary>
-
-"dotenv" files contain shared configuration settings across the Curiosity code and build structure. These settings are imported through [helpers](./src/common/helpers.js), or through other various `process.env.[dotenv parameter names]` within the code or build.
-
-#### Setup basic dotenv files
-Before you can start any local development you need to relax permissions associated with the platform. This
-affects various aspects of both `local` and `proxy` development.
-
-1. Create a local dotenv file in the root of `curiosity-frontend` called `.env.local` and add the following contents
-    ```
-    REACT_APP_DEBUG_MIDDLEWARE=true
-    REACT_APP_DEBUG_ORG_ADMIN=true
-    REACT_APP_DEBUG_PERMISSION_APP_ONE=subscriptions:*:*
-    REACT_APP_DEBUG_PERMISSION_APP_TWO=inventory:*:*
-    ```
-
-#### Advanced dotenv files
-The dotenv files are structured to cascade each additional dotenv file settings from a root `.env` file.
-```
- .env = base dotenv file settings
- .env.local = a gitignored file to allow local settings overrides
- .env -> .env.development = local run development settings that enhances the base .env settings file
- .env -> .env.proxy = local run proxy settings that enhances the base .env settings file
- .env -> .env.production = build modifications associated with all environments
- .env -> .env.production.local = a gitignored, dynamically generated build modifications associated with all environments
- .env -> .env.test = testing framework settings that enhances the base .env settings file
-```
-
-##### Current directly available _developer/debugging/test_ dotenv parameters
-
-> Technically all dotenv parameters come across as strings when imported through `process.env`. It is important to cast them accordingly if "type" is required.
-
-| dotenv parameter                   | definition                                                                                                                                                                     |
-|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DEV_PORT                           | A local proxy build modification for running against a custom port                                                                                                             |
-| DEV_BRANCH                         | A local proxy build modification for running against a custom environment branch. Available options include `stage*`, `prod*`                                                  |
-| GENERATE_SOURCEMAP                 | A static boolean that disables local run source map generation only. May speed up local development re-compiles. May eventually be moved into `.env.development`.              | 
-| REACT_APP_DEBUG_DEFAULT_DATETIME   | A static string associated with overriding the assumed UI/application date in the form of `YYYY-MM-DD`                                                                         |
-| REACT_APP_DEBUG_MIDDLEWARE         | A static boolean that activates the console state debugging messages associated with Redux.                                                                                    |
-| REACT_APP_DEBUG_ORG_ADMIN          | A static boolean associated with local development only that overrides the organization admin. Useful in determining UI/application behavior when permissions are missing.     |
-| REACT_APP_DEBUG_PERMISSION_APP_ONE | A static string associated with local development only that overrides RBAC associated permissions. Useful in determining UI/application behavior when permissions are missing. |
-| REACT_APP_DEBUG_PERMISSION_APP_TWO | A static string associated with local development only that overrides RBAC associated permissions. Useful in determining UI/application behavior when permissions are missing. |
-
-##### Current directly available _build_ dotenv parameters
-
-> Technically all dotenv parameters come across as strings when imported through `process.env`. It is important to cast them accordingly if "type" is required.
-
- | dotenv parameter                                  | definition                                                                                                                                                     |
- |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
- | REACT_APP_UI_VERSION                              | A dynamically build populated package.json version reference                                                                                                   |
- | REACT_APP_UI_NAME                                 | A static string populated reference similar to the consoledot application name                                                                                 |
- | REACT_APP_UI_DISPLAY_NAME                         | A static string populated reference to the display version of the application name                                                                             |
- | REACT_APP_UI_DISPLAY_CONFIG_NAME                  | A static string populated reference to the configuration version of the application name                                                                       |
- | REACT_APP_UI_DISPLAY_START_NAME                   | A static string populated reference to the "sentence start" application name                                                                                   |
- | ~~REACT_APP_UI_DEPLOY_PATH_PREFIX~~               | A legacy parameter. Originally, a dynamically build populated beta/preview environment path reference                                                                                          |                                                               
- | ~~REACT_APP_UI_DEPLOY_PATH_LINK_PREFIX~~          | A legacy parameter. Originally, a dynamically build populated beta/preview environment path reference that may or may not be equivalent to `REACT_APP_UI_DEPLOY_PATH_PREFIX`                   |
- | PUBLIC_URL                                        | A dynamically prefix populated reference to where the application lives on consoledot                                                                          |                                                                                                           
- | REACT_APP_UI_LINK_CONTACT_US                      | A static contact us link for populating a link reference NOT directly controlled by the application and subject to randomly changing.                          |
- | REACT_APP_UI_LINK_LEARN_MORE                      | A static learn more link for populating a link reference NOT directly controlled by the application and subject to randomly changing.                          |
- | REACT_APP_UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS | A static mismatched content link for populating a link reference NOT directly controlled by the application and subject to randomly changing.                  |
- | REACT_APP_UI_DISABLED                             | A static boolean for disabling/hiding the entire UI/application                                                                                                |
- | REACT_APP_UI_DISABLED_NOTIFICATIONS               | A static boolean for disabling/hiding consoledot integrated notifications/toasts                                                                               |
- | REACT_APP_UI_DISABLED_TOOLBAR                     | A static boolean for disabling/hiding the UI/application product view primary toolbar                                                                          |
- | REACT_APP_UI_DISABLED_TOOLBAR_GROUP_VARIANT       | A static boolean for disabling/hiding the UI/application group variant toolbar and group variant select list                                                   |
- | REACT_APP_UI_DISABLED_GRAPH                       | A static boolean for disabling/hiding the UI/application graph card(s)                                                                                         |
- | REACT_APP_UI_DISABLED_TABLE                       | A static boolean for disabling/hiding ALL UI/application inventory displays                                                                                    |
- | REACT_APP_UI_DISABLED_TABLE_HOSTS                 | A static boolean for disabling/hiding ALL UI/application host inventory displays                                                                               |
- | REACT_APP_UI_DISABLED_TABLE_INSTANCES             | A static boolean for disabling/hiding ALL UI/application instances inventory displays                                                                          |
- | REACT_APP_UI_DISABLED_TABLE_SUBSCRIPTIONS         | A static boolean for disabling/hiding ALL UI/application subscription inventory displays                                                                       |
- | REACT_APP_UI_LOGGER_ID                            | A static string associated with the session storage name of debugger log files                                                                                 |
- | REACT_APP_UI_LOGGER_FILE                          | A static string associated with the session storage file name download of debugger log files.                                                                  |
- | REACT_APP_UI_WINDOW_ID                            | A static string associated with accessing browser console UI/application methods such as `$ curiosity.UI_VERSION`                                              |
- | REACT_APP_AJAX_TIMEOUT                            | A static number associated with the milliseconds ALL AJAX/XHR/Fetch calls timeout.                                                                             |
- | REACT_APP_AJAX_CACHE                              | A static number associated with the milliseconds ALL AJAX/XHR/Fetch calls have their response cache timeout.                                                   |
- | REACT_APP_AJAX_POLL_INTERVAL                      | A static number associated with the milliseconds ALL AJAX/XHR/Fetch export polling calls are called.                                                           |
- | REACT_APP_SELECTOR_CACHE                          | Currently NOT used, originally associated with the cache, similar to `REACT_APP_AJAX_CACHE` but for transformed Redux selectors.                               |
- | REACT_APP_CONFIG_EXPORT_EXPIRE                    | A static number used for the platform export data expiration.                                                                                                  |
- | REACT_APP_CONFIG_EXPORT_FILE_EXT                  | A static string used for the platform export download file extension.                                                                                          |
- | REACT_APP_CONFIG_EXPORT_FILE_TYPE                 | A static string used for the platform export download file MIME type.                                                                                          |
- | REACT_APP_CONFIG_EXPORT_FILENAME                  | A static tokenized string used for the platform export download filename.                                                                                      |
- | REACT_APP_CONFIG_EXPORT_SERVICE_NAME_PREFIX       | A static string used to prefix the platform export request name. Also used to filter and determine product identifiers combined with the export request name.  |
- | REACT_APP_CONFIG_SERVICE_LOCALES_COOKIE           | A static string associated with the platform cookie name used to store locale information                                                                      |
- | REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG      | A static string associated with the UI/application default locale language                                                                                     |
- | REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG_DESC | A static string describing the UI/application default locale language                                                                                          |
- | REACT_APP_CONFIG_SERVICE_LOCALES                  | A dynamically prefixed string referencing a JSON resource for available UI/application locales                                                                 |
- | REACT_APP_CONFIG_SERVICE_LOCALES_PATH             | A dynamically prefixed string referencing JSON resources for available UI/application locale strings                                                           |
- | REACT_APP_CONFIG_SERVICE_LOCALES_EXPIRE           | A dynamically prefixed string referencing the milliseconds the UI/application locale strings/files expire                                                      |
- | REACT_APP_SERVICES_RHSM_VERSION                   | A static string referencing the RHSM API spec                                                                                                                  |
- | REACT_APP_SERVICES_RHSM_REPORT                    | A static string referencing the RHSM API spec                                                                                                                  |
- | REACT_APP_SERVICES_RHSM_TALLY                     | A static tokenized string referencing the RHSM API spec                                                                                                        |
- | REACT_APP_SERVICES_RHSM_CAPACITY                  | A static tokenized string referencing the RHSM API spec                                                                                                        |
- | REACT_APP_SERVICES_RHSM_CAPACITY_DEPRECATED       | A static tokenized string referencing the RHSM API spec                                                                                                        |
- | REACT_APP_SERVICES_RHSM_INVENTORY                 | A static string referencing the RHSM API spec                                                                                                                  |
- | REACT_APP_SERVICES_RHSM_INVENTORY_GUESTS          | A static tokenized string referencing the RHSM API spec                                                                                                        |
- | REACT_APP_SERVICES_RHSM_INVENTORY_INSTANCES       | A static string referencing the RHSM API spec                                                                                                                  |
- | REACT_APP_SERVICES_RHSM_INVENTORY_SUBSCRIPTIONS   | A static string referencing the RHSM API spec                                                                                                                  |
- | REACT_APP_SERVICES_RHSM_OPTIN                     | A static tokenized string referencing the RHSM API spec                                                                                                        |
-
-</details>
-
-<details>
-<summary><h3 style="display: inline-block">Local and proxy development</h3></summary>
-
-#### Start writing code with local run
-This is a non-networked local run designed to function with minimal resources and a mock API.
-
-1. Confirm you've installed all recommended tooling
-1. Confirm you've installed resources through npm
-1. Create a local dotenv file called `.env.local` in the root of Curiosity, and add the following contents
-    ```
-    REACT_APP_DEBUG_MIDDLEWARE=true
-    REACT_APP_DEBUG_ORG_ADMIN=true
-    REACT_APP_DEBUG_PERMISSION_APP_ONE=subscriptions:*:*
-    REACT_APP_DEBUG_PERMISSION_APP_TWO=inventory:*:*
-    ```
-1. Open a couple of instances of Terminal and run...
+- Create a local dotenv file in the root of the project called `.env.local` and add the following contents
    ```
+   REACT_APP_DEBUG_MIDDLEWARE=true
+   REACT_APP_DEBUG_ORG_ADMIN=true
+   REACT_APP_DEBUG_PERMISSION_APP_ONE=subscriptions:*:*
+   REACT_APP_DEBUG_PERMISSION_APP_TWO=inventory:*:*
+   ```
+- Start the local development server against mock API responses
+   ```sh
    $ npm start
    ```
-   and, optionally,
-   ```
+   Start developing against files in `./src`. Linting feedback will be automatically enabled through the terminal output
+- Run unit tests while developing
+   ```sh
    $ npm run test:dev
    ```
-   > If issues happen with the mock server port of `3030` you can set a custom port by exporting a parameter when you run start-up
-   > ie. `$ export MOCK_PORT=5000; npm start`    
-
-1. Make sure your browser opened around the domain `https://localhost:3000/`
-1. Start developing...
-
-> The UI uses basic permissions in certain components to adjust the display. You can adjust permissions during development
-> by adding in 3 dotenv params to a gitignored `.env.local` file in the root of the repository, similar to the `REACT_APP_DEBUG_MIDDLEWARE`
-> mentioned above.
-> 
-> The 3 dotenv params below are... 
-> - REACT_APP_DEBUG_ORG_ADMIN
-> - REACT_APP_DEBUG_PERMISSION_APP_ONE 
-> - REACT_APP_DEBUG_PERMISSION_APP_TWO
-> 
-> The `REACT_APP_DEBUG_ORG_ADMIN` was previously used as a convenience parameter for determining if a user is the organization admin used during the "opt-in" process.
-> It may no longer be actively used.
-> 
-> The remaining 2 parameters are actively used during development. To apply development read-only permissions set the params as...
-> ```
-> REACT_APP_DEBUG_PERMISSION_APP_ONE=subscriptions:reports:read
-> REACT_APP_DEBUG_PERMISSION_APP_TWO=inventory:reports:read
-> ```
-> 
-> You will have to rerun the local run "start command" for the changes to be applied.
-
-#### Start writing code on proxy
-This is a networked run that has the ability to proxy prod and stage with a live API.
-
-1. Confirm you've installed all recommended tooling
-1. Confirm you've installed resources through npm
-1. Create a local dotenv file called `.env.local` in the root of Curiosity, and add the following contents
-    ```
-    REACT_APP_DEBUG_MIDDLEWARE=true
-    ```
-1. **Confirm you are connected to the network**
-1. Open a couple of instances of Terminal and run...
-    ```
-    $ npm run start:proxy
-    ```
-    and, optionally,
-    ```
-    $ npm run test:dev
-    ```
-1. Make sure you open your browser around the domain `https://*.foo.redhat.com/`
-   > You may have to scroll, but the terminal output will have some available domains for you to pick from.
-1. Start developing...
-
-</details>
-
-
-<details>
-<summary><h3 style="display: inline-block">Reserved CSS classNames, and attributes</h3></summary>
-
-#### Reserved CSS classNames
-
-The code makes use of reserved CSS class prefixes used by external resources. 
-> Updating elements with these classes should be done with the knowledge "you are affecting an external resource in a potentially unanticipated way".
-
-1. Prefix `uxui-`
-
-   CSS classes with the prefix `uxui-` are used by external resources to identify elements for use in 3rd party tooling. Changes to the class name or element should be broadcast towards our UI/UX team members. 
-
-#### Reserved testing attributes
-This project makes use of reserved DOM attributes and string identifiers used by the testing team.
-> Updating elements with these attributes, or settings, should be done with the knowledge "you are affecting" the testing team's ability to test.
-> And it is recommended you coordinate with the testing team before altering these attributes, settings.
-
-1. Attribute `data-test`
-
-   - DOM attributes with `data-test=""` are used by the testing team as a means to identify specific DOM elements.
-   - To use simply place `data-test="[your-id-coordinated-with-testing-team]`" onto a DOM element.
-
-2. `testId` used with i18next `translate` or `t`
-
-   - The i18next `translate` or `t` function supports the use of a `testId` setting. This `testId` wraps a
-   `<span data-test=[testId|locale string id]>[locale string]</span>` around copy content.
-   - To use add the `testId` to your locale string function call use
-      - `t('locale.string.id', { testId: true })`. In this example, this would populate `locale.string.id` as the testId.
-      - or `t('locale.string.id', { testId: 'custom-id-coordinated-with-testing-team' })`
-      - or `t('locale.string.id', { testId: <div data-test="custom-element-wrapper-and-id" /> })`
-</details>
-
-<details>
-<summary><h3 style="display: inline-block">Debugging</h3></summary>
-
-#### Debugging in environments
-You can access basic dotenv config values via a global window object unique to the application. You'll need to access the GUI through a browser, open the development console and type
-   ```
-   curiosity
-   ```
-   or
-   ```
-   window.curiosity
-   ```
-
-This should expose a quick grouping of string values (along with a few superfluous helper functions) enabling you to identify things such as the `release version`.
-
-The name of the window value can be found under the dotenv file `.env`
-   ```
-   REACT_APP_UI_LOGGER_ID=curiosity
-   ```
-
-#### Debugging development
-You can apply overrides during local development by adding a `.env.local` (dotenv) file in the repository root directory.
-
-Once you have made the dotenv file and/or changes, like the below "debug" flags, restart the project and the flags should be active.
-
-*Any changes you make to the `.env.local` file should be ignored with `.gitignore`.*
-
-#### Debugging Redux
-This project makes use of React & Redux. To enable Redux browser console logging add the following line to your `.env.local` file.
-  ```
-  REACT_APP_DEBUG_MIDDLEWARE=true
-  ```
-
-#### Debugging in environment
-Sporadically, an issue in the staging, or production, environment will cause the GUI to behave with a failure. The most common reasons for this failure relate to the GUI and API interaction.
-This type of failure can result from a range of issues such as incorrect search/query parameters, and/or the API simply being unavailable.
-
-GUI code architecture is structured around failing gracefully. This means a debugging feature is now conveniently presented in environment
-to avoid having to dig into the GUI code, or open the browser console.
-
-This feature is presented as a `gear icon` in the upper right corner of the...
-- graph card(s)
-- inventory card(s)
-- and inventory guests (when available)
-
-Clicking the `gear icon` will...
-- Display the immediate service failure(s) in context to the GUI component, state, and service layers along with the API response within a selectable `textarea`.
-</details>
-
-<details>
-<summary><h3 style="display: inline-block">Documentation</h3></summary>
-
-#### Code documentation
-The build, currently, makes use of JSDoc comments to autocorrect, potentially generate, lint, and build code markdown files.
-
-##### Correcting comments
-After you've added comments you can attempt to have the linting tools autocorrect any issues, such as comment line-lengths
-
-To update these files after updating comments
-  ```
-  $ npm run test:lintfix
-  ```
-
-> Certain editors, if setup correctly, provide a convenience method to allow you to run similar repo level linting corrections by right-clicking on the file and running a general ESLint "fix" command.
-
-##### Adding comments
-You can attempt to autogenerate comments by running the same command as the `Correcting comments` above.
-
-To update files with generated comments run
-  ```
-  $ npm run test:lintfix
-  ```
-
-This will provide a very **ROUGH** outline for you to **FURTHER** populate with more accurate information.
-
-> It is encouraged you emulate existing JSDoc comments found within the repo, and/or read up on using [JSDoc](https://jsdoc.app). You may be asked to correct your
-copy if it does not align to existing comments.
->
-> Some Typescript shortcut syntax is not fully compatible with all JSDoc plugins, characters like the Array brackets `[]` or optional `?` question mark. In those cases more basic syntax may need to be used. For example, in the case of Array you would instead use
-> `Array<TYPE GOES HERE>`.
-
-> JSDoc comments, similar to Typescript typings, are for development reference. But while comments won't necessarily block development, the more accurate they are the more helpful.
-
-##### Updating documentation
-Adding or modifying existing JSDoc comments creates the requirement to update code level documentation. This requirement is represented by `README.md` files located underneath the first directory tier of the [source directory](./src).
-
-To update these files after updating comments 
-  ```
-  $ npm run build:docs
-  ```
-
-> A PR/MR linting check currently runs to confirm you've updated documentation, so you'll need to add these files to your PR/MR.
-</details>
-
-<details>
-<summary><h3 style="display: inline-block">Testing</h3></summary>
-
-> Blindly updating unit test snapshots is not recommended. Within this code-base snapshots have been created
-> to specifically call out when updates happen. If a snapshot is updating, and it is unexpected, this is our first 
-> line of checks against bugs/issues.
-
-#### Unit testing
-To run the unit tests with a watch during development you'll need to open an additional terminal instance, then run
-  ```
-  $ npm run test:dev
-  ```
-
-##### Updating test snapshots
-To update snapshots from the terminal run 
-  ```
-  $ npm run test:dev
-  ```
-
-From there you'll be presented with a few choices, one of them is "update", you can then hit the "u" key. Once the update script has run you should see additional changed files within Git, make sure to commit them along with your changes or continuous integration testing will fail.
-
-##### Checking code coverage
-To check the coverage report from the terminal run
-  ```
-  $ npm test
-  ```
-
-##### Code coverage failing to update?
-If you're having trouble getting an accurate code coverage report, or it's failing to provide updated results (i.e. you renamed files) you can try running
-  ```
-  $ npm run test:clearCache
-  ```
-
-#### Integration-like testing
-To run tests associated with checking build output run
-   ```
+- Exit the process, `ctrl + c` or OS specific key combination
+- Run the build and related integration tests
+   ```sh
    $ npm run build
-   $ npm run test:integration
    ```
 
-##### Updating integration-like test snapshots
-To update snapshots from the terminal run 
+For more detailed development guidance see [Development Guide](./docs/development.md).
+
+##### Windows and repository symlinks
+The repo uses **symlinks** so agent tools can find shared skills (for example `.agents/skills` points at `guidelines/skills`). On **Windows**, a plain clone can leave those as plain files instead of links, which breaks that layout.
+
+- Prefer **Developer Mode** (Settings → Privacy & security → For developers) so Git can create symlinks without running as Administrator, **or** clone with symlink support enabled (for example `git clone -c core.symlinks=true …`).
+- If symlinks were not created, enable `core.symlinks` and re-check out the affected paths, or work from **WSL** / **Git for Windows** with symlink support configured.
+
+#### Development workflow
+- Make changes to the codebase
+- Run tests and build to verify your changes do not break existing functionality
+- Commit your changes and push them to your fork
+- Open a pull request
+
+### Using Git
+
+#### Workflow
+Our process follows the standard GitHub fork and pull request workflow.
+
+- Fork the repository
+- Create a branch for your changes
+- Submit a pull request towards the main repository default branch (`main`)
+
+##### Main repository branches
+- `main` branch is a representation of development and `stage`.
+- `stable` branch is a representation of the `prod` environment.
+
+> Note: The only PRs ever merged into the `stable` branch are those from `main` and a pull request to merge a release commit, see [release process](#release-process)
+
+#### Pull requests
+Development pull requests (PRs) should be opened against the `main` branch.
+
+> If your pull request work contains any of the following warning signs:
+>  - has no related issue (sw-XXXX)
+>  - ignores existing code style (functional components, dependency injection, storeHooks)
+>  - out-of-sync commits (not rebased against the `main` branch)
+>  - poorly structured commits and messages
+>  - any one commit relies on other commits to work
+>  - dramatic file restructures that attempt complex behavior
+>  - missing, relaxed, or removed linting and tests
+>  - dramatic unit test snapshot updates
+>  - affects any file not directly associated with the issue being resolved
+>  - affects "many" files
+>  - provides a bot-generated explanation that cannot be explained by the human counterpart
+>
+> You will be asked to either:
+> - restructure your commits
+> - break the work into multiple pull requests
+> - close the PR
+
+#### Pull request commits, messaging
+Your pull request should contain Git commit messaging that follows [conventional commit types](https://www.conventionalcommits.org/) to provide consistent history and help generate [CHANGELOG.md](./CHANGELOG.md) updates.
+
+Commit messages follow two basic guidelines:
+- No more than `65` characters for the first line.
+- Commit message formats follow the structure:
   ```
-  $ npm run test:integration-dev
+  <type>(<scope>): <issue number> <description> (#PR_NUMBER)
   ```
-</details>
+  Example: `feat(config): sw-123 rhel, activate instance inventory (#456)`
 
-## AI Agent
-<details>
-<summary><h3 style="display: inline-block">Guidelines</h3></summary>
+  Where:
+  - **Type**: The type of work the commit resolves (e.g., `feat`, `fix`, `chore`, `docs`, `refactor`, `test`).
+  - **Scope**: The optional area of code affected (directory, filename, or concept).
+  - **Issue number**: The issue number typically from the current issue tracker (e.g., `ent-123`, `sw-123`).
+  - **Description**: What the commit work encompasses.
+  - **#PR_NUMBER**: The pull request number. Typically added automatically during merge/squash operations. Including it manually is optional. It can help with traceability during review.
 
-If you're using an AI assistant to help with development in this repository, please prompt it to `> review the repo guidelines` first to ensure it follows the project's conventions and best practices.
+> The codebase since its inception and up to version `4.19.0` strictly adheres to messaging guidelines specifically for searchability and [CHANGELOG generation](./CHANGELOG.md). It is encouraged that this practice be maintained as these commit messages can be leveraged by agents for highly accurate history searches based on conventional commits and the descriptions associated with them.
+>
+> Helpful hints for searchable commit messages:
+>   - Filler words can be used but are often unnecessary when leveraging Conventional Commit types (e.g., `fix`, `feat`, `build`).
+>   - Keep the subject line concise yet descriptive. If previous coding work was done on the same files, consider using the same commit message for searchability.
+>   - Do not over describe, add unnecessary details.
+>   - State facts and be consistent, do not inject personal opinions. Facts and consistency help searchability. Opinions can be applied to issue/story comments and work great if there's a story number already on the commit message.
+>   - Include a body if affecting multiple files, be concise. Past messages list files and the changes applied to them instead of broad descriptions. This helps searchability.
 
-#### User Section
+> If your **pull request contains multiple commits**, they may be squashed into a single commit before merging, and the messaging altered to reflect current guidelines.
 
+> Settings, like extending the allowed number of message characters, for pull request commit linting can be found in [scripts/actions.commit.js](./scripts/actions.commit.js).
+
+#### Pull request test failures
+Before any review takes place, all tests should pass. Creating a pull request activates GitHub actions for:
+- commit linting
+- documentation linting
+- spelling
+- unit tests
+- build integration tests
+
+> If you are unsure why your tests are failing, you should [review testing documentation](./docs/development.md#testing).
+
+### Release process
+
+The codebase makes use of linear Git commit history to ensure sequentially released features and fixes. This approach simplifies the release process by minimizing merge conflicts
+and providing a straightforward history for tracking changes.
+
+#### Staging release
+Staging code is automatically released to the `staging` environment on merge into the `main` branch.
+
+#### Production release
+Production code is currently maintained in the `stable` branch. Only maintainers are allowed to merge into this branch.
+
+##### Release process
+- Open a pull request from `main` to `stable`. (You can leverage past PRs as an example)
+- Ensure all tests pass in the `staging` environment.
+- **REBASE MERGE ONLY** the pull request into the `stable` branch. (It is currently discouraged that you squash commits into `stable` since it blocks/destroys the CHANGELOG.md generation.)
+- A maintainer creates a release commit on their local machine from the `stable` branch, by
+   1. Creating a release commit with a CHANGELOG.md update 
+      ```sh
+       $ npm run release
+       // or if you want to force a version
+       $ npm run release -- --override "0.0.0"
+      ```
+   2. Open a PR to the `stable` branch with this release commit
+   3. Let CI pass and then merge the PR. (It is now encouraged to add a PR number to the release commit since it improves transparency and traceability.)
+   4. Tag the stable branch commit. Tagging is not technically necessary for release but does provide potential known points in time that can be rolled back in an emergency. (Leverage existing tags as an example, currently they start with `v` followed by the version number, e.g., `v0.0.0`)
+   5. Next, rebase the `main` branch from the `stable` branch, this ensures the CHANGELOG.md log will continue to align with the release history.
+   6. Finally, update the AppSRE hash associated with the release commit hash. The application display should be released to production within a variable timeframe. 
+ 
+> The release process can be simplified with the simple removal of the `stable` branch. This would eliminate the ping-pong rebase that currently takes place and still maintain the CHANGELOG.md generator. The downside of removing a pristine production branch that is not directly manipulated, like `stable`, is that direct manipulation of the development branch `main` would go away.
+> 
+> It is still encouraged that the release for CHANGELOG.md is maintained since it helps update 3 files, `CHANGELOG.md`, `package.json`, and `package-lock.json`. An added benefit is that the version displayed in `package.json` is broadcast in the application display for debugging purposes (and currently located at the bottom left of the application display).
+
+> The CHANGELOG.md generator
+> - Does not rely on the Git commit hash of the release commit, allowing it to be added in with a PR. The tool forms a range from the previous release commit and is reliant on a specific release commit message format. Altering the release commit format may break the CHANGELOG.md generation.
+> - Will call out non-conventional commits, using the setting `--non-cc`.
+> - Will denote breaking changes if the conventional commit syntax is used with a `!`, (e.g. `fix!: sw-123 lorem ipsum`, `feat(aScope)!: sw-123 lorem ipsum`)
+> - Has a `dry run` option that prints the proposed changes to the terminal/console, `$ npm run release:rc`
+
+### Code style guidance and conventions
+Basic code style guidelines are enforced by ESLint, but there are additional guidelines.
+
+#### File Structure
+- File names use lowerCamelCase reflective of the parent directory and functionality (e.g., `authentication.js`, `authenticationContext.js`).
+- The directory structure is organized by React, Redux, and service layer, with all relevant application files maintained in the src directory.
+
+#### Functionality, testing
+- Functions should attempt to maintain a single responsibility.
+- Function annotations follow a minimal JSDoc style; descriptions are encouraged.
+- Functions leverage dependency injection to facilitate reusability and unit testing with mocks.
+- Tests should focus on functionality.
+- Tests should not be written for external packages. That is the responsibility of the external package, or it shouldn't be used.
+
+#### TypeScript
+- Typings are handled through JSDoc comments.
+- TypeScript is currently not implemented.
+
+> If a refactor towards TypeScript is started, it is highly recommended that unit tests and E2E tests are updated and working before that effort. The level of React context and complex Redux state being used in the application can be deceptive in its complexity and behavior, and without a baseline set of checks you risk functionality gaps.
+
+#### React and Components
+- Use **functional components** and React hooks.
+- Leverage dependency injection for
+   - separating React lifecycle and component logic
+   - reusability of components
+   - unit testing with mocks
+- Align with PatternFly by wrapping PatternFly components that are
+   - complex
+   - experience failure
+   - are prone to change or be deprecated between PatternFly versions
+- Group external (PF/React) imports, then internal (`services/`, `redux/`), then relative.
+
+#### Redux and State
+- Use the custom Redux surface: import **`storeHooks`** from `src/redux`.
+- Use `storeHooks.reactRedux` helpers (e.g., `useDispatch`, `useSelector`).
+- Review `src/redux/index.js` before adding new state.
+
+#### i18n and locale
+- User-visible strings MUST use `public/locales/en-US.json` via i18n helpers.
+
+> Locale strings are loaded using XHR and make heavy use of the internal methods provided by the i18n library to prevent duplication.
+
+### Testing
+Testing is based on Jest and **React Testing Library** (RTL).
+
+#### Unit tests
+Unit tests are located in `__tests__` directories parallel to the source files.
+
+#### E2E tests
+Integration, or E2E, tests are located in the root `./tests` directory and are currently focused on consistent and clean build output.
+
+#### Snapshots
+Update snapshots **only** for expected output changes!
+- Update for unit tests, use `npm run test:dev` and press `u` for targeted updates.
+- Update for E2E tests, use `npm run build`, if the build checks fail use `npm run test:integration-dev` and press `u` for targeted updates.
+- Update for documentation, use `npm run build:docs` to ensure generated README files are synchronized with source code JSDoc.
+
+> Snapshots in this repository are leveraged as fast unit test implementations and are purposefully loud to alert development.
+> If you're seeing updates, it's likely due to changes in the build output or configuration, sometimes caused by build updates, but not always.
+> Please review your changes carefully and ensure they align with the expected behavior, failure to acknowledge these alerts may result in production issues.
+
+## Design and PatternFly
+
+The PatternFly design system is used to ensure a consistent and accessible user interface and is generally coordinated with a UI/UX designer. It provides a set of reusable components and guidelines for building applications that are visually appealing and easy to use.
+
+Becoming familiar with the [PatternFly documentation and guidelines](https://www.patternfly.org/) helps ensure your contributions align with the project's design principles.
+
+### PatternFly resources
+
+- [PatternFly documentation and guidelines](https://www.patternfly.org)
+- [PatternFly MCP for AI agent interfacing with components, writing, design, accessibility, and general questions](https://github.com/patternfly/patternfly-mcp?tab=readme-ov-file#quick-start)
+- [PatternFly AI agent resources for best practices and skills](https://github.com/patternfly/ai-helpers?tab=readme-ov-file#quick-start)
+
+## Maintenance
+
+### Node.js engine bumps
+
+The `Node.js` engine requirements are updated on a predictable biannual schedule to ensure the server remains secure, leverages modern runtime features, and provides stability for consumers.
+
+> Our engine requirements are intended to be the minimum to run the application. They are not intended to be a maximum, as newer versions may introduce breaking changes or require additional configuration.
+
+#### Schedule and process
+- **Timing**: Bumps are generally targeted for **Spring (April/May)** and **Fall (October/November)**, aligned with the [Node.js release schedule](https://nodejs.org/en/about/previous-releases) as versions enter or exit LTS.
+- **Security**: Out-of-band updates may be performed if critical security considerations arise.
+- **Version Targets**:
+  - Focus on the latest **even-numbered (LTS/Stable)** versions (e.g., bumping to 22, 24, or 26).
+  - GitHub Workflows should be updated to include the latest available even version.
+
+#### Acceptance criteria for bumps
+- Update `package.json` engine requirements.
+- Update related GitHub Action workflows (CI/CD).
+- Update "Environmental Requirements" in documentation, typically README.md and CONTRIBUTING.md
+- Ensure all tests pass on the new target version.
+
+### NPM dependencies
+
+NPM dependencies are managed through three methods
+- GitHub Dependabot automation
+- Direct management of `PatternFly` and `Consoledot` dependencies.
+- Direct lockfile management, and one-off manual updates as needed.
+
+#### GitHub Dependabot
+GitHub Dependabot configuration is located under [.github/dependabot.yml](./.github/dependabot.yml) and is currently set to ignore `PatternFly` and `Consoledot` dependencies.
+
+> With the uptick in NPM hacks, Dependabot is set to a two-week delay from release to give any security issues time to be addressed.
+
+#### PatternFly and Consoledot dependencies
+Currently, directly managed to ensure compatibility with specific versions and to avoid unnecessary updates that could break the application. 
+
+> These dependencies are currently ignored under GitHub Dependabot but could be reinstated if needed. Reinstating them should be done with test restructures to refactor related Jest snapshots which may cause churn.
+
+#### Direct lockfile management
+Given the uptick of NPM hacks a cycle of maintainers running `$ npm audit` and `$ npm audit fix` should be performed monthly to ensure the lockfile is up to date.
+
+1. Make sure your `Node.js` version aligns to the `package.json` `engines` field.
+2. Run `$ npm audit`
+3. Review the results and assess the impact on the application
+4. If necessary, run `$ npm audit fix` to update the lockfile
+5. Verify the application still functions as expected after the update by running tests and the build.
+6. Open a PR to perform additional validation and merge the update into `main`
+
+> Additional measures should be reviewed and updated periodically
+> - Pinning dependencies (removing the caret) on manual updates should be considered. Pinning can mitigate risks around NPM hacks disguised as release patches.
+> - Disabling "post install." Disabling `postinstall` scripts can mitigate risks around malicious scripts. If issues start with build compiles and platform dependencies then review updating the `ignore-scripts=true` in `.npmrc`
+
+> **IMPORTANT** Just because a dependency is noted as "critical" or "high" severity does not mean it is an immediate security risk. 
+> Technically, the application display is already compiled and reintroducing "updated packages" by retriggering the build process can actually have the reverse intention by exposing vulnerabilities and integrating compromised packages.
+> Make sure to review security advisories and assess the impact on the application before taking action.
+
+## AI agent
+
+### User section
 Current agent interaction can be triggered with the chat command
 
-- **`review the repo guidelines`** - Your agent should attempt to scan common files like `README.md` and `CONTRIBUTING.md`
+- **`review the repo guidelines`** - Your agent should attempt to scan common Markdown files and the guidelines directory
 
-##### Customizing developer experience
+For detailed information on agent interaction, see [guidelines/README.md](./guidelines/README.md).
 
-As developers, we often have our own flavor of working, and now that includes working with AI agents. To that point we've added agent guidance
-to allow customization through a gitignored directory `./.agent` in the root of the project. If you, as a developer, come across
-refinements that are unique to you, feel free to ask the agent to save guidance there. And if you think it's something that can be refined
-for all developers, you're encouraged to contribute it back towards the [guidelines directory](./guidelines).
+#### Customizing developer experience
+As developers, we often have our own preferred workflows, and that includes working with AI agents. To that point, we've added agent guidance
+to allow customization for your work environment through a tool-agnostic git-ignored directory `./.agent` in the root of the project.
 
-##### Noting AI Agent contributions
+#### Noting AI agent contributions
+Please reference Red Hat's AI-assisted development guidelines for guidance on how to acknowledge AI agent contributions.
 
-> This section will be updated as we explore agent/developer interactions. The current rules are based on openness. 
+### Agent only
+Agents: This repository contains a hierarchical guideline system. Agents should review agent-only comment blocks.
 
-Asking the agent to review the repo and its git history should provide code-style references your agent can leverage based on this codebase's patterns. That
-helps alleviate some concerns around where your agent is generating/pulling references from, but not all.
+<!--
+Agents must analyze these files when asked for guidance:
 
-To help us minimally keep track of assisted contributions and pure generated work, we've created some base guidelines for users:
+**Guidelines review order:**
+1. **`./README.md`** - Entry point and high-level overview
+2. **`./CONTRIBUTING.md`** - Maintainer processes and AI policy (#ai-agent)
+3. **`./guidelines/README.md`** - Core agent guidance and behavior standards
+4. **`./guidelines/**/*.md`** - Specialized workflow and domain-specific instructions
+5. **`./.agent/**/*.md`** - gitignored directory and local guidelines intended for agent-specific state and new agent-generated guidance, and user workflows that enhance the core guidelines
 
-| Level of work | How to track                                                                                                                                                                                                                 |
-|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Partial Bot   | Just use the `bot-assisted` PR/MR label.                                                                                                                                                                                     |
-| Full Bot      | Use the `bot-created` PR/MR label. And make sure your PR/MR contains notes about the tooling used. The work will be blocked if this information is not included, vague, or appears to be coming from an unknown bot-account. |
+The guideline system should be processed in this order, with specialized guidelines taking precedence for their specific domains, and local guidelines overriding general guidelines when present.
 
-> By contributing AI-assisted or AI-generated work, you accept liability for work that infringes or uses copyrighted material outside the scope of the related license.  
-
-</details>
+**Next Steps:**
+1. **Review guidance under the `./.agent/**/*.md` directory.** If the `./.agent` directory exists, the user may ask the agent about the guidance located here.
+2. **If the `./.agent` directory does not exist, ask the user if they want to create it.** The agent should explain how it's going to be used.
+3. **If the user does not have the PatternFly MCP available within their project, suggest they explore the [PatternFly MCP for AI agent interfacing with components, writing, design, accessibility, and general questions](https://github.com/patternfly/patternfly-mcp) to enhance their AI agent capabilities.**
+-->
