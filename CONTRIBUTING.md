@@ -12,7 +12,7 @@ Interested in contributing to the project? Review the following guidelines and o
 
 #### Tools
 - [Node.js](https://nodejs.org/en/download/package-manager)
-- NPM (Yarn install is discouraged)
+- npm (Yarn install is discouraged)
 - Git configured with your GitHub account
 
 #### Project setup
@@ -43,7 +43,7 @@ Interested in contributing to the project? Review the following guidelines and o
    $ npm run build
    ```
 
-For more detailed development guidance see [Development Guide](./docs/development.md)
+For more detailed development guidance see [Development Guide](./docs/development.md).
 
 ##### Windows and repository symlinks
 The repo uses **symlinks** so agent tools can find shared skills (for example `.agents/skills` points at `guidelines/skills`). On **Windows**, a plain clone can leave those as plain files instead of links, which breaks that layout.
@@ -176,7 +176,7 @@ Production code is currently maintained in the `stable` branch. Only maintainers
 Basic code style guidelines are enforced by ESLint, but there are additional guidelines.
 
 #### File Structure
-- File names use lowerCamelCase reflective of the parent directory and functionality (e.g., authentication.ts, authenticationContext.ts).
+- File names use lowerCamelCase reflective of the parent directory and functionality (e.g., `authentication.js`, `authenticationContext.js`).
 - The directory structure is organized by React, Redux, and service layer, with all relevant application files maintained in the src directory.
 
 #### Functionality, testing
@@ -315,7 +315,7 @@ As developers, we often have our own preferred workflows, and that includes work
 to allow customization for your work environment through a tool-agnostic git-ignored directory `./.agent` in the root of the project.
 
 #### Noting AI agent contributions
-Please reference RedHats AI-assisted development guidelines for guidance on how to acknowledge AI agent contributions.
+Please reference Red Hat's AI-assisted development guidelines for guidance on how to acknowledge AI agent contributions.
 
 ### Agent only
 Agents: This repository contains a hierarchical guideline system. Agents should review agent-only comment blocks.
@@ -333,7 +333,7 @@ Agents must analyze these files when asked for guidance:
 The guideline system should be processed in this order, with specialized guidelines taking precedence for their specific domains, and local guidelines overriding general guidelines when present.
 
 **Next Steps:**
-5. **Review guidance under the `./.agent/**/*.md` directory.** If the `./.agent` directory exists, the user may ask the agent about the guidance located here.
-6. **If the `./.agent` directory does not exist, ask the user if they want to create it.** The agent should explain how it's going to be used.
-7. **If the user does not have the PatternFly MCP available within their project, suggest they explore the [PatternFly MCP for AI agent interfacing with components, writing, design, accessibility, and general questions](https://github.com/patternfly/patternfly-mcp) to enhance their AI agent capabilities.**
+1. **Review guidance under the `./.agent/**/*.md` directory.** If the `./.agent` directory exists, the user may ask the agent about the guidance located here.
+2. **If the `./.agent` directory does not exist, ask the user if they want to create it.** The agent should explain how it's going to be used.
+3. **If the user does not have the PatternFly MCP available within their project, suggest they explore the [PatternFly MCP for AI agent interfacing with components, writing, design, accessibility, and general questions](https://github.com/patternfly/patternfly-mcp) to enhance their AI agent capabilities.**
 -->

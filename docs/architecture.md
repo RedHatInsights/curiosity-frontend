@@ -46,11 +46,11 @@ The configuration layer (found in [`src/config/`](../src/config/)) defines produ
 ### React
 React is organized into top-level **Product Views** with primary groupings for **toolbar**, **graphs**, and **inventory displays**.
 
-- Subscriptions opt-in is an alternative view driven by RHSM API http response. Originally intended to help throttle usage while the application built out infrastructure. It is being considered for deprecation.
+- Subscriptions opt-in is an alternative view driven by RHSM API HTTP response. Originally intended to help throttle usage while the application built out infrastructure. It is being considered for deprecation.
 - Extensive use of **React context and hooks** integrated with **Redux state** is what drives the **Toolbar filters** to provide updates across the application display.
 - Lifecycle hooks (e.g. `useEffect`, `useMemo` placed in `context` suffixed files like `[aComponent]Context`) and component display logic have been separated with dependency injection to enable better testability, "potential" reusability, and maintainability.
 - Redux enables the application to drive components that are not part of the immediate component context.
-- Each component grouping has its own level of debugging/error card display, typically driven by http status on RHSM responses. This is possible because of how lifecycle hooks and component display have been separated and integrated via Redux state.
+- Each component grouping has its own level of debugging/error card display, typically driven by HTTP status on RHSM responses. This is possible because of how lifecycle hooks and component display have been separated and integrated via Redux state.
 
 ```mermaid
 flowchart LR

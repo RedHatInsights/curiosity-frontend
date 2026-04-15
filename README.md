@@ -10,7 +10,7 @@ Curiosity Frontend provides a comprehensive UI for managing and reporting on Red
 
 ## Requirements
 - [Node.js 20+](https://nodejs.org/)
-- NPM
+- npm
 
 ## Quick start
 
@@ -43,7 +43,7 @@ This is the base context for running a local UI against a mock API and styling.
    ```
 1. Start developing against files in `./src`. Linting feedback will be automatically enabled through the terminal output
 
-For in-depth local run guidance review [docs/development.md](./docs/development.md)
+For in-depth local run guidance review [docs/development.md](./docs/development.md).
 
 ### Unit testing
 Run and update unit tests during development. In a new terminal instance:
@@ -55,7 +55,7 @@ Run and update unit tests during development. In a new terminal instance:
 2. Test files are located in `__tests__` directories parallel to the source files. Test failures for
    recently edited files will be available in the terminal output along with basic testing framework use directions.
 
-For in-depth testing guidance review [docs/development.md](./docs/development.md)
+For in-depth testing guidance review [docs/development.md](./docs/development.md).
 
 ## Documentation
 

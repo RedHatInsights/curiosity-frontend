@@ -304,7 +304,7 @@ Run tests using
 Run build integration tests using
 - Use `$ npm run build` for building then running the follow-up build integration checks.
   
-  If the build integration checks fail, you can update them with `$npm run test:integration-dev` and enter Jest watch mode.
+  If the build integration checks fail, you can update them with `$ npm run test:integration-dev` and enter Jest watch mode.
 
 ### Local and proxy runs
 Debugging locally, and while using the platform proxy, follows general frontend development practices.
@@ -320,18 +320,18 @@ Setting `REACT_APP_DEBUG_MIDDLEWARE=true` enables `redux-logger` in the browser 
 As a last resort, or first, you can recreate API response behavior by leveraging the mock API server.
 
 API mocks are stored as JSDoc styled comments in the service files, see
-- `src/services/rhsmServices.js` - RHSM related service mocks
-- `src/services/platformServices.js` - Export related service mocks
+- `src/services/rhsm/rhsmServices.js` - RHSM related service mocks
+- `src/services/platform/platformServices.js` - Export related service mocks
 
-The mocking tool is [`apidoc-mock`](https://github.com/cdcabrera/apidoc-mock). See the tool for how-to-use, but the basics involve adding JSDoc style comments like
-- `@apiMock {ForceStatus} [HTTP STATUS]` - force a specific http status like `404`, `500`, etc.
+The mocking tool is [`apidoc-mock`](https://github.com/cdcabrera/apidoc-mock). For usage, see the linked repository. The basics involve adding JSDoc style comments like
+- `@apiMock {ForceStatus} [HTTP STATUS]` - force a specific HTTP status like `404`, `500`, etc.
 - `@apiMock {DelayResponse} [MILLISECONDS]` - force (in milliseconds) a delayed response to see if the application is resilient to slow API responses
 
 ### Staging and production
 Debugging in staging and production means leveraging exposed tools and displays.
 - **Version number** - The `src/components/productView/productView.js` exposes the released version number and related Git hash of the application display (in environment it is located in the bottom left of the application display). This is useful for narrowing down offending commits.
 - **Redux state log** - The last 100 sanitized entries of the Redux state log can be accessed via the `curiosity` object in the browser console. Open the browser developer console and type `$ curiosity.debugLog()` then hit the `enter` key. This log is helpful for diagnosing state-related issues.
-- **Error message cards** - The `src/components/errorMessage/errorMessage.js` component provides a standardized way to display error messages to the user. It is typically used to display errors from API responses. The error card component automatically displays on error (typically http status) in the view and provides access to the offending Redux state log in a form field.
+- **Error message cards** - The `src/components/errorMessage/errorMessage.js` component provides a standardized way to display error messages to the user. It is typically used to display errors from API responses. The error card component automatically displays on error (typically HTTP status) in the view and provides access to the offending Redux state log in a form field.
     - Additionally, typing the word `debug` while focused on the state error display field will provide a `Download UI state log` link that can be used to download the noted `Redux state log`.
   <p style="display: flex;">
     <img src="./images/debugging_errorMessage.png" width="400" alt="Error message card example" />
