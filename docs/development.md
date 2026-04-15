@@ -144,14 +144,14 @@ The dotenv files are structured to cascade each additional dotenv file settings 
 
 | dotenv parameter                                  | definition                                                                                                                                                     |
 |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| REACT_APP_UI_VERSION                              | A dynamically build populated package.json version reference                                                                                                   |
+| REACT_APP_UI_VERSION                              | UI version string populated from `package.json` at build time                                                                                                |
 | REACT_APP_UI_NAME                                 | A static string populated reference similar to the consoledot application name                                                                                 |
 | REACT_APP_UI_DISPLAY_NAME                         | A static string populated reference to the display version of the application name                                                                             |
 | REACT_APP_UI_DISPLAY_CONFIG_NAME                  | A static string populated reference to the configuration version of the application name                                                                       |
 | REACT_APP_UI_DISPLAY_START_NAME                   | A static string populated reference to the "sentence start" application name                                                                                   |
-| ~~REACT_APP_UI_DEPLOY_PATH_PREFIX~~               | A legacy parameter. Originally, a dynamically build populated beta/preview environment path reference                                                                                          |                                                               
-| ~~REACT_APP_UI_DEPLOY_PATH_LINK_PREFIX~~          | A legacy parameter. Originally, a dynamically build populated beta/preview environment path reference that may or may not be equivalent to `REACT_APP_UI_DEPLOY_PATH_PREFIX`                   |
-| PUBLIC_URL                                        | A dynamically prefix populated reference to where the application lives on consoledot                                                                          |                                                                                                           
+| ~~REACT_APP_UI_DEPLOY_PATH_PREFIX~~               | A legacy parameter. Originally, a beta/preview environment path prefix populated at build time                                                                                          |                                                               
+| ~~REACT_APP_UI_DEPLOY_PATH_LINK_PREFIX~~          | A legacy parameter. Originally, a beta/preview environment path prefix populated at build time; may or may not match `REACT_APP_UI_DEPLOY_PATH_PREFIX`                   |
+| PUBLIC_URL                                        | Base URL for the application on Consoledot, populated at build time                                                                          |                                                                                                           
 | REACT_APP_UI_LINK_CONTACT_US                      | A static contact us link for populating a link reference NOT directly controlled by the application and subject to randomly changing.                          |
 | REACT_APP_UI_LINK_LEARN_MORE                      | A static learn more link for populating a link reference NOT directly controlled by the application and subject to randomly changing.                          |
 | REACT_APP_UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS | A static mismatched content link for populating a link reference NOT directly controlled by the application and subject to randomly changing.                  |
@@ -215,7 +215,7 @@ The `module` section defines how the application's micro-frontend modules are ex
 ## Development methodology and teams
 
 ### Dependency injection
-A primary focus for components in this application is about amplifying unit testing, dependency injection is key to this.
+A primary focus for components in this application is amplifying unit testing; dependency injection is central to that approach.
 
 Dependency injection within this codebase allows for lighter components focused on
 - display logic
@@ -345,7 +345,7 @@ We follow a consistent pattern of structuring components against the concepts of
 
 Basic guidelines for implementing React with Redux in Curiosity
 - `lowerCamelCase` file names and directories
-- Component index files are not leveraged in favor of naming them 
+- Directory-level `index.js` barrel files are avoided; name component files explicitly (for example, `productView.js` alongside related `*Context.js` files).
 - Prefer assigned function/arrow function components
 - Not all components need context or state.
 - Services are not typically called directly from components, prefer React/Redux hooks and helpers.
@@ -376,7 +376,7 @@ To reduce boilerplate, we use legacy custom helpers located in [`src/redux/commo
 ### Middleware
 The application uses several custom middlewares:
 - **ActionRecordMiddleware**: Logs actions for debugging and session replay capabilities. Integrates with downloading the debug log, `$ curiosity.debugLog()`.
-- **MultiActionMiddleware**: Combines multiple actions into a single action for batch processing. **Epically useful** for optimizing performance and combining API calls at the application level with Redux. See [`src/redux/middleware/multiActionMiddleware.js`](../src/redux/middleware/multiActionMiddleware.js) for implementation details.
+- **MultiActionMiddleware**: Combines multiple actions into a single action for batch processing. **Especially useful** for optimizing performance and combining API calls at the application level with Redux. See [`src/redux/middleware/multiActionMiddleware.js`](../src/redux/middleware/multiActionMiddleware.js) for implementation details.
 - **PromiseMiddleware**: Handles actions with a promise payload, dispatching `PENDING`, `FULFILLED`, and `REJECTED` actions. Customized with a `catch` to help squash Promise related errors, see [`src/redux/middleware/promiseMiddleware.js`](../src/redux/middleware/promiseMiddleware.js) and `isCatchRejection`.
 - **StatusMiddleware**: Intercepts HTTP status codes to trigger global notifications or errors. Useful for handling global errors with Redux reducers.
 
