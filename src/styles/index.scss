@@ -8,8 +8,13 @@ $pf-global--breakpoint--md: $pf-v6-global--breakpoint--md;
 $pf-global--breakpoint--lg: $pf-v6-global--breakpoint--lg;
 
 .curiosity {
-  --pf-global--color--background--light: var(--pf-t--global--background--color--100);
   --pf-global--color--background--dark: var(--pf-t--global--background--color--400);
+
+  [class*="-theme-dark"] {
+    --pf-global--color--background--dark: var(--pf-t--global--background--color--200);
+  }
+
+  --pf-global--color--background--light: var(--pf-t--global--background--color--100);
   --pf-global--color--gray: var(--pf-t--color--gray--40);
   --pf-global--color--gray-dark: var(--pf-t--color--gray--70);
 
@@ -25,6 +30,8 @@ $pf-global--breakpoint--lg: $pf-v6-global--breakpoint--lg;
 
   --pf-global--BorderWidth--sm: var(--pf-t--global--border--width--regular);
   --pf-global--BorderColor--100: var(--pf-t--global--border--color--100);
+  --pf-global--BorderColor--300: var(--pf-t--global--border--color--300);
+  --pf-global--BorderColor--400: var(--pf-t--global--border--color--400);
 
   --pf-c-page__main-section--PaddingLeft: var(--pf-v6-c-page__main-section--PaddingInlineStart);
   --pf-c-page__main-section--PaddingRight: var(--pf-v6-c-page__main-section--PaddingInlineEnd);
