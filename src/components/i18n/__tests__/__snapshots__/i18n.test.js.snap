@@ -302,6 +302,23 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/components/pageLayout/pageThemeSwitcher.js",
+    "keys": [
+      {
+        "key": "curiosity-view.theme-toggle",
+        "match": "t('curiosity-view.theme-toggle')",
+      },
+      {
+        "key": "curiosity-view.theme-toggle",
+        "match": "t('curiosity-view.theme-toggle', { context: ['light'] })",
+      },
+      {
+        "key": "curiosity-view.theme-toggle",
+        "match": "t('curiosity-view.theme-toggle', { context: ['dark'] })",
+      },
+    ],
+  },
+  {
     "file": "src/components/productView/productView.js",
     "keys": [
       {

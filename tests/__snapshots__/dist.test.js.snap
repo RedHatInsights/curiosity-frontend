@@ -11,6 +11,8 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/133*js",
   "./dist/js/139*js",
   "./dist/js/146*js",
+  "./dist/js/218*js",
+  "./dist/js/218*txt",
   "./dist/js/223*js",
   "./dist/js/247*js",
   "./dist/js/335*js",

@@ -148,7 +148,7 @@ const GraphCardChartLegend = ({
               position={TooltipPosition.top}
               enableFlip
             >
-              <span className="pf-c-button pf-m-link curiosity-graph__legend-item-wrapper curiosity-usage-graph__legend-item-wrapper">
+              <span className="curiosity-graph__legend-item-wrapper curiosity-usage-graph__legend-item-wrapper">
                 {button}
               </span>
             </Tooltip>
