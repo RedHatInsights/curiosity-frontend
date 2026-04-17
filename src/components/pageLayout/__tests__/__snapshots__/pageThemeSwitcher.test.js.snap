@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`PageThemeSwitcher Component should render a basic component: basic 1`] = `
+<ToggleGroup
+  aria-label="t(curiosity-view.theme-toggle)"
+  className="lorem"
+>
+  <ToggleGroupItem
+    aria-label="t(curiosity-view.theme-toggle, {"context":"light"})"
+    buttonId="curiosity-theme-toggle-light"
+    icon={<SunIcon />}
+    isSelected={true}
+    onChange={[Function]}
+  />
+  <ToggleGroupItem
+    aria-label="t(curiosity-view.theme-toggle, {"context":"dark"})"
+    buttonId="curiosity-theme-toggle-dark"
+    icon={<MoonIcon />}
+    isSelected={false}
+    onChange={[Function]}
+  />
+</ToggleGroup>
+`;
