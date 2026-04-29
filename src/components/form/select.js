@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Badge,
   ButtonVariant,
@@ -13,7 +13,7 @@ import {
 import _cloneDeep from 'lodash/cloneDeep';
 import _isPlainObject from 'lodash/isPlainObject';
 import _findIndex from 'lodash/findIndex';
-import { useDeepCompareEffect, useMount } from 'react-use';
+import { useMount } from 'react-use';
 import { createMockEvent } from './formHelpers';
 import { helpers } from '../../common';
 
@@ -145,7 +145,8 @@ updateOptions.memo = helpers.memo(updateOptions);
  * @returns {Array|Array<"NaN"|"null"|unknown>}
  */
 const updateSelectedOptions = options =>
-  (Array.isArray(options) && options) ||
+  (Array.isArray(options) &&
+    options.map(value => (value === null && 'null') || (value === undefined && 'undefined') || value)) ||
   (options !== undefined && options !== null && !Number.isNaN(options) && [options]) ||
   (options === null && ['null']) ||
   (Number.isNaN(options) && ['NaN']) ||
@@ -165,45 +166,67 @@ updateSelectedOptions.memo = helpers.memo(updateSelectedOptions, { cacheLimit: 2
  * @param {SelectVariant|string} params.variant
  * @returns {{isSelected:boolean}|undefined|Array<{isSelected:boolean}>|Array}
  */
-const updateSelectedProp = ({ options, selectedOptions = [], variant = SelectVariant.single } = {}) =>
-  options
-    .map(option => {
-      const { isSelected, title, value } = option;
-      let updateIsSelected = isSelected;
+const updateOptionsSelectedOptions = ({ options, selectedOptions = [], variant = SelectVariant.single } = {}) => {
+  const memoOptions = _cloneDeep(updateOptions.memo(options));
+  const memoSelectedOptions = updateSelectedOptions.memo(selectedOptions);
 
-      if (updateIsSelected === true) {
-        return option;
+  const updatedOptions = memoOptions.map(option => {
+    const { isSelected, title, value, index, ...meta } = option;
+    let updateIsSelected = isSelected;
+
+    if (updateIsSelected === true && !memoSelectedOptions.length) {
+      return option;
+    }
+
+    if (_isPlainObject(value)) {
+      updateIsSelected = _findIndex(memoSelectedOptions, value) > -1;
+
+      if (!isSelected) {
+        updateIsSelected =
+          memoSelectedOptions.find(activeOption => Object.values(value).includes(activeOption)) !== undefined;
       }
+    } else {
+      updateIsSelected = memoSelectedOptions.includes(value);
+    }
 
-      if (_isPlainObject(value)) {
-        updateIsSelected = _findIndex(selectedOptions, value) > -1;
+    if (!updateIsSelected) {
+      updateIsSelected = memoSelectedOptions.includes(title);
+    }
 
-        if (!isSelected) {
-          updateIsSelected =
-            selectedOptions.find(activeOption => Object.values(value).includes(activeOption)) !== undefined;
-        }
-      } else {
-        updateIsSelected = selectedOptions.includes(value);
+    if (!updateIsSelected && _isPlainObject(meta)) {
+      updateIsSelected =
+        memoSelectedOptions.find(activeOption => Object.values(meta).includes(activeOption)) !== undefined;
+    }
+
+    if (!updateIsSelected) {
+      const foundIndex = memoSelectedOptions.find(
+        activeOption => _isPlainObject(activeOption) && activeOption.index === index
+      );
+
+      if (foundIndex) {
+        updateIsSelected = true;
       }
+    }
 
-      if (!updateIsSelected) {
-        updateIsSelected = selectedOptions.includes(title);
-      }
+    return {
+      ...option,
+      isSelected: updateIsSelected
+    };
+  });
 
-      return {
-        ...option,
-        isSelected: updateIsSelected
-      };
-    })
-    [(variant === SelectVariant.single && 'find') || 'filter'](opt => opt.isSelected === true);
+  return {
+    options: updatedOptions,
+    selected: updatedOptions[(variant === SelectVariant.checkbox && 'filter') || 'find'](opt => opt.isSelected === true)
+  };
+};
 
 /**
- * A memoized response for the updateSelectedProp function. Assigned to a property for testing function.
+ * A memoized response for the updateOptionsSelectedOptions function. Assigned to a property for testing function.
  */
-updateSelectedProp.memo = helpers.memo(updateSelectedProp, { cacheLimit: 25 });
+updateOptionsSelectedOptions.memo = helpers.memo(updateOptionsSelectedOptions, { cacheLimit: 25 });
 
 /**
- * Expand returned event for select responses.
+ * Expand the returned event for select responses.
  *
  * @param {object} params
  * @param {object} params.event
@@ -262,23 +285,22 @@ setSelectElements.memo = helpers.memo(setSelectElements);
  * @returns {{options: Array, selectedOption: undefined, onSelect: Function}}
  */
 const useOnSelect = ({ options: baseOptions, onSelect, selectedOptions, variant } = {}) => {
+  // True memo. Update and "re-update", base/initial arrays/objects only when necessary
+  const { options: initialOptions, selected: initialSelectedOption } = updateOptionsSelectedOptions.memo({
+    options: baseOptions,
+    selectedOptions,
+    variant
+  });
+
   const [selectedOption, setSelectedOption] = React.useState();
-  const [options, setOptions] = useState();
+  const [options, setOptions] = useState(initialOptions);
 
-  // Update, and allow "re-updating", base/initial options
-  useDeepCompareEffect(() => {
-    const updatedOptions = _cloneDeep(updateOptions.memo(baseOptions));
-    const updatedSelected = updateSelectedProp.memo({
-      options: updatedOptions,
-      selectedOptions: updateSelectedOptions.memo(selectedOptions),
-      variant
-    });
+  useEffect(() => {
+    setOptions(initialOptions);
+    setSelectedOption(initialSelectedOption);
+  }, [initialOptions, initialSelectedOption]);
 
-    setOptions(updatedOptions);
-    setSelectedOption(updatedSelected);
-  }, [baseOptions, selectedOptions]);
-
-  // Update local state with user selected options
+  // Update the local state with user-selected options
   const onSelectCallback = useCallback(
     (event, key) => {
       const updatedOptions = _cloneDeep(options);
@@ -402,7 +424,10 @@ const Select = ({
       setIsExpanded(false);
     }
     if (!isReadOnly) {
-      // Remove "timeStamp". Assumption is its intended to help cycle updates. Causes issues with mock events in testing
+      /*
+       * Remove "timeStamp", the assumption is it's intended to help cycle updates.
+       * Causes issues with mock events in testing
+       */
       onSelect({ ...event, timeStamp: undefined }, value);
     }
   };
@@ -498,7 +523,7 @@ export {
   setSelectElements,
   updateDataAttributes,
   updateOptions,
-  updateSelectedProp,
+  updateOptionsSelectedOptions,
   updateSelectedOptions,
   useOnSelect
 };
