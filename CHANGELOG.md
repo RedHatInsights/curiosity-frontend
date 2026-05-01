@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.19.1](https://github.com/RedHatInsights/curiosity-frontend/compare/73338d3a1d332a8623a36b0d182df00ff4b9197e...6c9fe343ff1d24e89f41979c2db01b57455bb813) (2026-05-01)
+
+
+### Documentation
+*  agent ready documentation, guidelines ([#1839](https://github.com/RedHatInsights/curiosity-frontend/pull/1839)) ([6c9fe34](https://github.com/RedHatInsights/curiosity-frontend/commit/6c9fe343ff1d24e89f41979c2db01b57455bb813))
+
+### Continuous Integrations
+*  Update Konflux references ([#1838](https://github.com/RedHatInsights/curiosity-frontend/pull/1838)) ([cde81fd](https://github.com/RedHatInsights/curiosity-frontend/commit/cde81fd2a25e6cae6b6bdfec2d2cc45612d5840e))
+
+### Builds
+* **deps-dev** bump eslint-plugin-jsdoc from 62.8.1 to 62.9.0 ([#1840](https://github.com/RedHatInsights/curiosity-frontend/pull/1840)) ([39fcdf1](https://github.com/RedHatInsights/curiosity-frontend/commit/39fcdf14b7cb0af7a78d8faf67a4542c26e2f152))
+* **deps** bump group with 4 updates ([#1837](https://github.com/RedHatInsights/curiosity-frontend/pull/1837)) ([da17895](https://github.com/RedHatInsights/curiosity-frontend/commit/da178952ba6fd9c6cd038407056401df14650843))
+* **deps-dev** bump dev group with 6 updates ([#1836](https://github.com/RedHatInsights/curiosity-frontend/pull/1836)) ([40b6117](https://github.com/RedHatInsights/curiosity-frontend/commit/40b61173230dda38f6672c9c96f3d7301a160a1a))
+* **deps** bump lru-cache from 11.2.6 to 11.2.7 ([#1830](https://github.com/RedHatInsights/curiosity-frontend/pull/1830)) ([6d7ec72](https://github.com/RedHatInsights/curiosity-frontend/commit/6d7ec723f9be3d5f4647b44a45e7e47c223435a4))
+* **deps-dev** bump dev group with 4 updates ([#1832](https://github.com/RedHatInsights/curiosity-frontend/pull/1832)) ([9b61140](https://github.com/RedHatInsights/curiosity-frontend/commit/9b61140e75be6ac03f263ec2a829be733ac3671c))
+
 ## [4.19.0](https://github.com/RedHatInsights/curiosity-frontend/compare/06505c58779f7ba23e2f94bf00ec0249966332c4...d8aceb32b087b9d09e2ea17c0671e8a05e9a3a19) (2026-04-08)
 
 
