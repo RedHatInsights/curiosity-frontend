@@ -144,7 +144,7 @@ const ChartElements = ({ chartTypeDefaults = chartElementsDefaults }) => {
       updatedXAxisProps.axisLabelComponent = <AxisLabelComponent />;
     }
 
-    xAxis = <ChartAxis {...updatedXAxisProps} animate={false} />;
+    xAxis = <ChartAxis name="curiosity-chartarea__x-axis" {...updatedXAxisProps} animate={false} />;
   }
 
   /**
@@ -161,7 +161,14 @@ const ChartElements = ({ chartTypeDefaults = chartElementsDefaults }) => {
         updatedAxisProps.axisLabelComponent = <AxisLabelComponent />;
       }
 
-      return <ChartAxis key={`yaxis-${axisProps.orientation}`} {...updatedAxisProps} animate={false} />;
+      return (
+        <ChartAxis
+          name="curiosity-chartarea__y-axis"
+          key={`yaxis-${axisProps.orientation}`}
+          {...updatedAxisProps}
+          animate={false}
+        />
+      );
     });
   }
 

@@ -123,6 +123,8 @@ recreate the core component.
 <dd></dd>
 <dt><a href="#PageLayout.module_PageSection">PageSection</a></dt>
 <dd></dd>
+<dt><a href="#PageLayout.module_PageThemeSwitcher">PageThemeSwitcher</a></dt>
+<dd></dd>
 <dt><a href="#PageLayout.module_PageToolbar">PageToolbar</a></dt>
 <dd></dd>
 <dt><a href="#Components.module_Pagination">Pagination</a></dt>
@@ -4265,6 +4267,36 @@ Render a platform page section.
     <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
     <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="PageLayout.module_PageThemeSwitcher"></a>
+
+## PageThemeSwitcher
+<a name="PageLayout.module_PageThemeSwitcher..PageThemeSwitcher"></a>
+
+### PageThemeSwitcher~PageThemeSwitcher(props) ⇒ <code>JSX.Element</code>
+Render a light/dark theme toggle. Toggling "dark" adds the
+`pf-v6-theme-dark` class to the root `<html>` element; toggling "light"
+removes it.
+
+Note: This component is only intended to be used within the development run of the application.
+The hardcoded className is only used here for development purposes.
+
+**Kind**: inner method of [<code>PageThemeSwitcher</code>](#PageLayout.module_PageThemeSwitcher)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr>  </tbody>
 </table>
 

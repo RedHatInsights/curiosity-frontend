@@ -608,6 +608,9 @@
     "title_Satellite": "Red Hat Satellite",
     "title_Satellite Capsule": "$t(curiosity-view.title_Satellite)",
     "title_Satellite Server": "$t(curiosity-view.title_Satellite)",
+    "theme-toggle": "Dark theme toggle group",
+    "theme-toggle_dark": "Dark theme toggle",
+    "theme-toggle_light": "Light theme toggle",
     "version": "gui {{guiVersion}}"
   }
 }
