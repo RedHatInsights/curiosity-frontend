@@ -9,15 +9,12 @@
   }
 
   &__tooltip {
-    color: var(--pf-global--color--background--light);
+    background-color: var(--pf-t--global--background--color--inverse--default);
+    color: var(--pf-t--global--text--color--inverse);
     font-size: 0.9em;
     padding: 0.3rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-
-    [class*="-theme-dark"] & {
-      color: var(--pf-t--global--text--color--inverse);
-    }
 
     table {
       tbody {
@@ -174,20 +171,14 @@
 
   &__tooltip {
     transition: width 1s ease-in-out, left 1s ease-in-out;
-    background-color: var(--pf-t--global--background--color--400);
-    border: 2px var(--pf-global--BorderColor--400) solid;
+    background-color: var(--pf-t--global--background--color--inverse--default);
+    border: 2px var(--pf-t--global--background--color--inverse--default) solid;
     border-top: transparent;
     border-bottom: transparent;
     border-radius: .25rem;
-    color: var(--pf-global--color--background--light);
+    color: var(--pf-t--global--text--color--inverse);
     margin-left: 10px;
     margin-right: 15px;
-
-    [class*="-theme-dark"] & {
-      background-color: var(--pf-t--global--background--color--inverse--default);
-      border-color: var(--pf-t--global--background--color--inverse--default);
-      color: var(--pf-t--global--text--color--inverse);
-    }
 
     &-container {
       margin: auto;
@@ -201,37 +192,25 @@
     &-right:after {
       border-width: 10px;
       border-style: solid;
-      border-color: transparent var(--pf-global--BorderColor--400) transparent transparent;
+      border-color: transparent var(--pf-t--global--background--color--inverse--default) transparent transparent;
       content: "";
       left: -9px;  //-10px Compensate for Firefox pixel diff, match margin-left
       margin-left: 0;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-
-      [class*="-theme-dark"] & {
-        border-color: transparent var(--pf-t--global--background--color--inverse--default) transparent transparent;
-      }
     }
 
     &-right:after {
-      border-color: transparent transparent transparent var(--pf-global--BorderColor--400);
+      border-color: transparent transparent transparent var(--pf-t--global--background--color--inverse--default);
       left: calc(100% - 16px); //-15px Compensate for Firefox pixel diff, match margin-right
       margin-left: 0;
-
-      [class*="-theme-dark"] & {
-        border-color: transparent transparent transparent var(--pf-t--global--background--color--inverse--default);
-      }
     }
   }
 
   [id^="curiosity-chartarea__x-axis"] > tspan,
   [id^="curiosity-chartarea__y-axis"] > tspan {
-    fill: var(--pf-global--BorderColor--300) !important;
-
-    [class*="-theme-dark"] & {
-      fill: var(--pf-t--color--gray--10) !important;
-    }
+    fill: var(--pf-t--global--text--color--subtle) !important;
   }
 
   &__axis-label-container {
@@ -239,12 +218,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    color: var(--pf-global--BorderColor--300) !important;
+    color: var(--pf-t--global--text--color--subtle) !important;
     font-size: var(--pf-global--FontSize--xs);
-
-    [class*="-theme-dark"] & {
-      color: var(--pf-t--color--gray--10) !important;
-    }
 
     &-x {
       > .curiosity-chartarea__axis-label-container-content {
@@ -276,10 +251,6 @@
 
   > div > svg > line[role="presentation"][vector-effect="non-scaling-stroke"] {
     position: relative;
-    stroke: var(--pf-global--BorderColor--400) !important;
-
-    [class*="-theme-dark"] & {
-      stroke: var(--pf-t--global--background--color--inverse--default) !important;
-    }
+    stroke: var(--pf-t--global--border--color--default) !important;
   }
 }
