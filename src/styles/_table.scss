@@ -1,4 +1,10 @@
 .curiosity {
+  .pf-v6-c-pagination__nav-page-select {
+    [class*="-theme-dark"] & {
+      color: var(--pf-t--global--text--color--regular);
+    }
+  }
+
   .curiosity-table__td-expand {
     padding-left: 0 !important;
   }

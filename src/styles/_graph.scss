@@ -15,6 +15,10 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 
+    [class*="-theme-dark"] & {
+      color: var(--pf-t--global--text--color--inverse);
+    }
+
     table {
       tbody {
       }
@@ -179,6 +183,12 @@
     margin-left: 10px;
     margin-right: 15px;
 
+    [class*="-theme-dark"] & {
+      background-color: var(--pf-t--global--background--color--inverse--default);
+      border-color: var(--pf-t--global--background--color--inverse--default);
+      color: var(--pf-t--global--text--color--inverse);
+    }
+
     &-container {
       margin: auto;
       max-width: 300px;
@@ -198,18 +208,30 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+
+      [class*="-theme-dark"] & {
+        border-color: transparent var(--pf-t--global--background--color--inverse--default) transparent transparent;
+      }
     }
 
     &-right:after {
       border-color: transparent transparent transparent var(--pf-global--BorderColor--400);
       left: calc(100% - 16px); //-15px Compensate for Firefox pixel diff, match margin-right
       margin-left: 0;
+
+      [class*="-theme-dark"] & {
+        border-color: transparent transparent transparent var(--pf-t--global--background--color--inverse--default);
+      }
     }
   }
 
   [id^="curiosity-chartarea__x-axis"] > tspan,
   [id^="curiosity-chartarea__y-axis"] > tspan {
     fill: var(--pf-global--BorderColor--300) !important;
+
+    [class*="-theme-dark"] & {
+      fill: var(--pf-t--color--gray--10) !important;
+    }
   }
 
   &__axis-label-container {
@@ -219,6 +241,10 @@
     position: relative;
     color: var(--pf-global--BorderColor--300) !important;
     font-size: var(--pf-global--FontSize--xs);
+
+    [class*="-theme-dark"] & {
+      color: var(--pf-t--color--gray--10) !important;
+    }
 
     &-x {
       > .curiosity-chartarea__axis-label-container-content {
@@ -251,5 +277,9 @@
   > div > svg > line[role="presentation"][vector-effect="non-scaling-stroke"] {
     position: relative;
     stroke: var(--pf-global--BorderColor--400) !important;
+
+    [class*="-theme-dark"] & {
+      stroke: var(--pf-t--global--background--color--inverse--default) !important;
+    }
   }
 }
