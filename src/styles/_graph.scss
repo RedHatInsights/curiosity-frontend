@@ -9,7 +9,8 @@
   }
 
   &__tooltip {
-    color: var(--pf-global--color--background--light);
+    background-color: var(--pf-t--global--background--color--inverse--default);
+    color: var(--pf-t--global--text--color--inverse);
     font-size: 0.9em;
     padding: 0.3rem;
     padding-left: 0.5rem;
@@ -41,10 +42,13 @@
 
   &__legend-item-wrapper {
     > :first-child {
-      padding-left: 0;
-
       &[class*='disabled'] {
         background-color: transparent !important;
+        color: inherit;
+
+        > * {
+          color: inherit;
+        }
       }
     }
   }
@@ -135,7 +139,6 @@
         }
 
         &-footer {
-          color: var(--pf-global--color--background--dark);
           font-size: var(--pf-global--FontSize--xs);
         }
       }
@@ -155,7 +158,6 @@
   }
 }
 
-
 .curiosity-chartarea {
   &__legend {
     background-color: var(--pf-global--BackgroundColor--100);
@@ -169,8 +171,12 @@
 
   &__tooltip {
     transition: width 1s ease-in-out, left 1s ease-in-out;
-    background-color: var(--pf-global--color--background--dark);
-    color: var(--pf-global--color--background--light);
+    background-color: var(--pf-t--global--background--color--inverse--default);
+    border: 2px var(--pf-t--global--background--color--inverse--default) solid;
+    border-top: transparent;
+    border-bottom: transparent;
+    border-radius: .25rem;
+    color: var(--pf-t--global--text--color--inverse);
     margin-left: 10px;
     margin-right: 15px;
 
@@ -186,7 +192,7 @@
     &-right:after {
       border-width: 10px;
       border-style: solid;
-      border-color: transparent var(--pf-global--color--background--dark) transparent transparent;
+      border-color: transparent var(--pf-t--global--background--color--inverse--default) transparent transparent;
       content: "";
       left: -9px;  //-10px Compensate for Firefox pixel diff, match margin-left
       margin-left: 0;
@@ -196,10 +202,15 @@
     }
 
     &-right:after {
-      border-color: transparent transparent transparent var(--pf-global--color--background--dark);
+      border-color: transparent transparent transparent var(--pf-t--global--background--color--inverse--default);
       left: calc(100% - 16px); //-15px Compensate for Firefox pixel diff, match margin-right
       margin-left: 0;
     }
+  }
+
+  [id^="curiosity-chartarea__x-axis"] > tspan,
+  [id^="curiosity-chartarea__y-axis"] > tspan {
+    fill: var(--pf-t--global--text--color--subtle) !important;
   }
 
   &__axis-label-container {
@@ -207,7 +218,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    color: var(--pf-global--color--background--dark);
+    color: var(--pf-t--global--text--color--subtle) !important;
     font-size: var(--pf-global--FontSize--xs);
 
     &-x {
@@ -240,6 +251,6 @@
 
   > div > svg > line[role="presentation"][vector-effect="non-scaling-stroke"] {
     position: relative;
-    stroke: var(--pf-global--color--background--dark) !important;
+    stroke: var(--pf-t--global--border--color--default) !important;
   }
 }

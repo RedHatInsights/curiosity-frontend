@@ -110,7 +110,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-graph.label",
-        "match": "t('curiosity-graph.label', { context: ['threshold', 'infinite'] }, [ tempDataFacet.color && ( <ChartIcon symbol="infinity" size="1.1rem" fill="#ffffff" title={t('curiosity-graph.label', { context: ['threshold', 'infinite'] })",
+        "match": "t('curiosity-graph.label', { context: ['threshold', 'infinite'] }, [ tempDataFacet.color && ( <ChartIcon symbol="infinity" size="1.1rem" fill="currentColor" title={t('curiosity-graph.label', { context: ['threshold', 'infinite'] })",
       },
       {
         "key": "curiosity-graph.label",
@@ -298,6 +298,23 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-view.subtitle",
         "match": "t(\`curiosity-view.subtitle\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel }, [ <Button isInline component="a" variant="link" icon={<ExternalLinkAltIcon />} iconPosition="right" target="_blank" href={helpers.UI_LINK_LEARN_MORE} /> ])",
+      },
+    ],
+  },
+  {
+    "file": "src/components/pageLayout/pageThemeSwitcher.js",
+    "keys": [
+      {
+        "key": "curiosity-view.theme-toggle",
+        "match": "t('curiosity-view.theme-toggle')",
+      },
+      {
+        "key": "curiosity-view.theme-toggle",
+        "match": "t('curiosity-view.theme-toggle', { context: ['light'] })",
+      },
+      {
+        "key": "curiosity-view.theme-toggle",
+        "match": "t('curiosity-view.theme-toggle', { context: ['dark'] })",
       },
     ],
   },

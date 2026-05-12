@@ -69,7 +69,7 @@ const GraphCardChartTooltip = ({
               <ChartIcon
                 symbol="infinity"
                 size="1.1rem"
-                fill="#ffffff"
+                fill="currentColor"
                 title={t('curiosity-graph.label', { context: ['threshold', 'infinite'] })}
               />
             )
