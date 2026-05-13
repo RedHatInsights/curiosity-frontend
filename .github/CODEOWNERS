@@ -9,5 +9,5 @@
 /.github/CODEOWNERS @barnabycourt @vbusch @lindseyburnett
 
 # Automated dependency updates
-package*.json @vbusch @lindseyburnett
-/.tekton/ @vbusch @barnabycourt @lindseyburnett
+package*.json @vbusch @lindseyburnett @diegomaranhao @Mantzounis @mmusil @Sgitario @TommasoLencioni
+/.tekton/ @vbusch @barnabycourt @lindseyburnett @diegomaranhao @Mantzounis @mmusil @Sgitario @TommasoLencioni
