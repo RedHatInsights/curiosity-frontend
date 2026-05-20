@@ -49,6 +49,7 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/860*js",
   "./dist/js/93*js",
   "./dist/js/93*txt",
+  "./dist/js/945*js",
   "./dist/js/App*js",
   "./dist/js/exposed-./RootApp*js",
   "./dist/locales/en-US.json",
