@@ -39,10 +39,12 @@ Interested in contributing to the project? Review the following guidelines and o
    $ npm run test:dev
    ```
 - Exit the process, `ctrl + c` or OS specific key combination
-- Run the build and related integration tests
+- Run the build, then related integration tests
    ```sh
    $ npm run build
+   $ npm run test:integration
    ```
+   (Or use `npm run build:ephemeral` / `npm run build:prod` for a combined compile + integration workflow.)
 
 For more detailed development guidance see [Development Guide](./docs/development.md).
 
@@ -221,7 +223,7 @@ Integration, or E2E, tests are located in the root `./tests` directory and are c
 #### Snapshots
 Update snapshots **only** for expected output changes!
 - Update for unit tests, use `npm run test:dev` and press `u` for targeted updates.
-- Update for E2E tests, use `npm run build`, if the build checks fail use `npm run test:integration-dev` and press `u` for targeted updates.
+- Update for E2E / build integration tests, use `npm run build` then `npm run test:integration`; if the checks fail use `npm run test:integration-dev` and press `u` for targeted updates.
 - Update for documentation, use `npm run build:docs` to ensure generated README files are synchronized with source code JSDoc.
 
 > Snapshots in this repository are leveraged as fast unit test implementations and are purposefully loud to alert development.

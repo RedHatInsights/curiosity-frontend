@@ -49,6 +49,6 @@ Agents MUST validate all code outputs using the project's quality suite:
 
 1. **Linting**: `npm run test:lint` (Ensures style consistency)
 2. **Documentation**: `npm run test:spell` and `npm run test:spell-support` (CSpell validation)
-3. **Testing**: `npm run test` (Unit) and `npm run test:integration` (E2E)
-4. **Build**: `npm run build` (Webpack compilation and bundling and integration testing)
-5. **Build Integration Testing**: `npm run build` Ensure all tests pass and no snapshot errors are present before committing. If errors persist, run `npm run test:integration-dev` to enter Jest watch mode and update snapshots.
+3. **Testing**: `npm run test` (Unit) and `npm run test:integration` (build integration / E2E against `dist/`)
+4. **Build**: `npm run build` (Webpack compilation and bundling only)
+5. **Build Integration Testing**: After `npm run build`, run `npm run test:integration`. Ensure all tests pass and no snapshot errors are present before committing. If errors persist, run `npm run test:integration-dev` to enter Jest watch mode and update snapshots. Combined compile + integration: `npm run build:ephemeral` / `npm run build:prod`.

@@ -28,9 +28,9 @@ For all available NPM scripts see [package.json](../package.json).
 
 | Intent        | Command                                                                                                                                             |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Develop**   | `npm run test:dev` (Watch mode), `npm run build` (Compile and run integration tests), `npm run test:integration-dev` (Watch mode for build compile) |
-| **Pipeline**  | `npm test` (Lints, spells, unit tests)                                                                                                              |
-| **CI / Done** | `npm run build` (Compile and run integration tests)                                                                                                 |
+| **Develop**   | `npm run test:dev` (Watch mode), `npm run build` (Compile only), `npm run test:integration` / `test:integration-dev` (build integration) |
+| **Pipeline**  | `npm test` (Lints, spells, unit tests)                                                                                                   |
+| **CI / Done** | `npm run build` then `npm run test:integration` (or `build:ephemeral` / `build:prod` for combined)                                       |
 | **Lint**      | `npm run test:lint` / `npm run test:lintfix`                                                                                                        |
 | **Spelling**  | `npm run test:spell` (locale strings and code), `npm run test:spell-support` (for `docs/` and `guidelines/`)                                        |
 | **Docs**      | `npm run build:docs` (Spells, lints, and updates documentation READMEs)                                                                             |
@@ -41,7 +41,7 @@ For all available NPM scripts see [package.json](../package.json).
 
 ### 3.1 Integration Test Snapshots
 - **Intentionality**: Update snapshots **only** for expected output changes.
-- **Workflow**: Use `npm run build` to confirm tests complete without issue. If test snapshots fail, run `npm run test:integration-dev` and press `u` for targeted updates. Inspect all diffs.
+- **Workflow**: Use `npm run build` then `npm run test:integration` to confirm tests complete without issue. If test snapshots fail, run `npm run test:integration-dev` and press `u` for targeted updates. Inspect all diffs.
 
 ## 4. Definition of Done
 1. **Linting**: `npm run test:lint` passes.
