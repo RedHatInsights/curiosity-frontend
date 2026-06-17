@@ -45,19 +45,13 @@ spec:
 
     # Deployment configuration
     - name: REF_ENV
-      value: "insights-stage"
+      value: "insights-production"
     - name: EXTRA_DEPLOY_ARGS
       # TEMPORARY: pin chrome-service, insights-chrome, storage-broker to prod (app-interface).
       # Remove when Konflux publishes images for those components on main again.
       value: >-
         --no-remove-resources app:rhsm
         --exclude-components unleash-proxy
-        --set-template-ref chrome-service=06bb9b76cc845de7d8d3278d1be4bc8c514f5edc
-        --set-template-ref insights-chrome=a351281389bb8d860974db82d0c16311fefd1c5b
-        --set-template-ref storage-broker=3e02a457370c867c63f45bb847f2dd52b6362c41
-        --set-image-tag quay.io/redhat-services-prod/hcc-platex-services/chrome-service=06bb9b7
-        --set-image-tag quay.io/redhat-services-prod/hcc-platex-services-tenant/insights-chrome=a351281
-        --set-image-tag quay.io/redhat-services-prod/hcc-integrations-tenant/storage-broker=3e02a45
     - name: DEPLOY_FRONTENDS
       value: "true"
     - name: DEPLOY_TIMEOUT
