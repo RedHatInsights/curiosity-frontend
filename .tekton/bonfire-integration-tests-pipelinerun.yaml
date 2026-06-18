@@ -47,8 +47,6 @@ spec:
     - name: REF_ENV
       value: "insights-production"
     - name: EXTRA_DEPLOY_ARGS
-      # TEMPORARY: pin chrome-service, insights-chrome, storage-broker to prod (app-interface).
-      # Remove when Konflux publishes images for those components on main again.
       value: >-
         --no-remove-resources app:rhsm
         --exclude-components unleash-proxy
