@@ -118,6 +118,13 @@ spec:
       type: string
       description: Value to set for ENV_FOR_DYNACONF
       default: "ephemeral"
+    - name: IQE_ENV_VARS
+      type: string
+      description: >-
+        Comma-separated extra env vars for the IQE pod (see bonfire-tekton run-iqe-cji).
+        Ephemeral Bonfire runs outside the cluster; use identity auth for rhsm_subscriptions
+        API setup (clowder_smoke sets this in YAML; ephemeral does not).
+      default: "DYNACONF_HTTP__DEFAULT_AUTH_TYPE=identity"
     - name: IQE_IMAGE_REPOSITORY
       type: string
       description: IQE image repository without tag (must match Bonfire deploy); shown with tag in PR test comments
@@ -576,6 +583,8 @@ spec:
           value: "$(params.IQE_CJI_TIMEOUT)"
         - name: IQE_ENV
           value: "$(params.IQE_ENV)"
+        - name: IQE_ENV_VARS
+          value: "$(params.IQE_ENV_VARS)"
         - name: IQE_IMAGE_TAG
           value: "$(tasks.extract-metadata.results.IQE_IMAGE_TAG)"
         - name: IQE_PARALLEL_ENABLED

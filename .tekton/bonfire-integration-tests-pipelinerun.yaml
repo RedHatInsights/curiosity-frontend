@@ -74,6 +74,8 @@ spec:
       value: ""
     - name: IQE_ENV
       value: "ephemeral"
+    - name: IQE_ENV_VARS
+      value: "DYNACONF_HTTP__DEFAULT_AUTH_TYPE=identity"
     - name: IQE_IMAGE_TAG
       value: "curiosity"
     - name: IQE_PLAYWRIGHT
