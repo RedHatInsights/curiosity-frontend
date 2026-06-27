@@ -33,7 +33,7 @@ spec:
     - name: artifacts
   steps:
     - name: post-comment
-      image: quay.io/konflux-ci/task-runner:v1
+      image: quay.io/konflux-ci/task-runner:v2
       env:
         - name: GITHUB_TOKEN
           valueFrom:
