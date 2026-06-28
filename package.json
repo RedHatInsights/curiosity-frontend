@@ -102,7 +102,7 @@
     "react-dom": "18.3.1",
     "react-i18next": "^15.5.2",
     "react-redux": "^9.3.0",
-    "react-use": "^17.6.0",
+    "react-use": "^17.6.1",
     "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^3.1.0",
