@@ -77,7 +77,7 @@ spec:
     - name: REF_ENV
       type: string
       description: Reference environment for app-interface templates
-      default: "insights-stage"
+      default: "insights-production"
     - name: EXTRA_DEPLOY_ARGS
       type: string
       description: Extra arguments for the deployment
