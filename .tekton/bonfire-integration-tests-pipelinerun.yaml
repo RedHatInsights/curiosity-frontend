@@ -43,21 +43,51 @@ spec:
     - name: COMPONENTS_W_RESOURCES
       value: "app:rhsm"
 
-    # Deployment configuration
     - name: REF_ENV
-      value: "insights-stage"
+      value: "insights-production"
     - name: EXTRA_DEPLOY_ARGS
-      # TEMPORARY: pin chrome-service, insights-chrome, storage-broker to prod (app-interface).
-      # Remove when Konflux publishes images for those components on main again.
       value: >-
         --no-remove-resources app:rhsm
         --exclude-components unleash-proxy
-        --set-template-ref chrome-service=06bb9b76cc845de7d8d3278d1be4bc8c514f5edc
-        --set-template-ref insights-chrome=a351281389bb8d860974db82d0c16311fefd1c5b
-        --set-template-ref storage-broker=3e02a457370c867c63f45bb847f2dd52b6362c41
-        --set-image-tag quay.io/redhat-services-prod/hcc-platex-services/chrome-service=06bb9b7
-        --set-image-tag quay.io/redhat-services-prod/hcc-platex-services-tenant/insights-chrome=a351281
-        --set-image-tag quay.io/redhat-services-prod/hcc-integrations-tenant/storage-broker=3e02a45
+        -p swatch-api/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-api
+        -p swatch-billable-usage/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-billable-usage
+        -p swatch-contracts/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-contracts
+        -p swatch-metrics/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-metrics
+        -p swatch-metrics-hbi/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-metrics-hbi
+        -p swatch-producer-aws/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-producer-aws
+        -p swatch-producer-azure/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-producer-azure
+        -p swatch-system-conduit/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-system-conduit
+        -p swatch-tally/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-tally
+        -p swatch-utilization/IMAGE=quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-utilization
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-api=latest
+        --set-template-ref swatch-api=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-contracts=latest
+        --set-template-ref swatch-contracts=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-billable-usage=latest
+        --set-template-ref swatch-billable-usage=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-producer-aws=latest
+        --set-template-ref swatch-producer-aws=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-producer-azure=latest
+        --set-template-ref swatch-producer-azure=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-system-conduit=latest
+        --set-template-ref swatch-system-conduit=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-metrics=latest
+        --set-template-ref swatch-metrics=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-metrics-hbi=latest
+        --set-template-ref swatch-metrics-hbi=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-tally=latest
+        --set-template-ref swatch-tally=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/swatch-utilization=latest
+        --set-template-ref swatch-utilization=stable
+        --set-template-ref swatch-database=stable
+        --set-template-ref rhsm=stable
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/nginx-otel=latest
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/wiremock-consoledot=latest
+        --set-template-ref wiremock=main
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/artemis=latest
+        --set-template-ref artemis=main
+        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/prometheus=latest
+        --set-template-ref prometheus=main
     - name: DEPLOY_FRONTENDS
       value: "true"
     - name: DEPLOY_TIMEOUT
