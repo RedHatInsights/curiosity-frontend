@@ -267,6 +267,7 @@ describe('ToolbarFieldExport Component', () => {
         getExistingExports: mockService,
         getExistingExportsStatus: mockService,
         deleteExistingExports: mockService,
+        useProduct: () => ({ productId: 'loremIpsum' }),
         useNotifications: () => ({
           addNotification: mockNotification,
           hasNotification: () => false,
@@ -276,10 +277,12 @@ describe('ToolbarFieldExport Component', () => {
           data: [
             {
               data: {
-                isAnythingPending: false,
-                isAnythingCompleted: true,
-                pending: [],
-                completed: [{ dolor: 'sit' }]
+                products: {
+                  loremIpsum: {
+                    pending: [],
+                    completed: [{ dolor: 'sit', productId: 'loremIpsum' }]
+                  }
+                }
               }
             }
           ],
@@ -292,6 +295,116 @@ describe('ToolbarFieldExport Component', () => {
     await unmount();
     expect(mockNotification.mock.calls).toMatchSnapshot('existingExports');
   });
+
+  it.each([
+    {
+      description: 'export matches current product in completed',
+      currentProductId: 'loremIpsum',
+      completed: [{ productId: 'loremIpsum' }],
+      pending: []
+    },
+    {
+      description: 'export matches current product in pending',
+      currentProductId: 'loremIpsum',
+      completed: [],
+      pending: [{ productId: 'loremIpsum' }]
+    },
+    {
+      description: 'exports for multiple products, current product included',
+      currentProductId: 'loremIpsum',
+      completed: [{ productId: 'loremIpsum' }, { productId: 'dolorSit' }],
+      pending: []
+    }
+  ])(
+    'should show notification when existing export matches current product, $description',
+    async ({ currentProductId, completed, pending }) => {
+      const mockNotification = jest.fn();
+
+      const { unmount } = await renderHook(() => {
+        useExistingExports({
+          cache: { get: () => false, set: jest.fn() },
+          getExistingExportsStatus: mockService,
+          useProduct: () => ({ productId: currentProductId }),
+          useNotifications: () => ({
+            addNotification: mockNotification,
+            hasNotification: () => false,
+            removeNotification: () => mockNotification
+          }),
+          useSelectorsResponse: () => ({
+            data: [
+              {
+                data: {
+                  products: {
+                    [currentProductId]: { completed, pending }
+                  }
+                }
+              }
+            ],
+            fulfilled: true
+          })
+        });
+      });
+
+      await unmount();
+
+      expect(mockNotification).toHaveBeenCalled();
+    }
+  );
+
+  it.each([
+    {
+      description: 'export belongs to a different product variant',
+      currentProductId: 'loremIpsum',
+      completed: [{ productId: 'dolorSit' }],
+      pending: []
+    },
+    {
+      description: 'export has no productId',
+      currentProductId: 'loremIpsum',
+      completed: [{ dolor: 'sit' }],
+      pending: []
+    },
+    {
+      description: 'no exports exist',
+      currentProductId: 'loremIpsum',
+      completed: [],
+      pending: []
+    }
+  ])(
+    'should not show notification when no existing exports match current product, $description',
+    async ({ currentProductId, completed, pending }) => {
+      const mockNotification = jest.fn();
+
+      const { unmount } = await renderHook(() => {
+        useExistingExports({
+          cache: { get: () => false, set: jest.fn() },
+          getExistingExportsStatus: mockService,
+          useProduct: () => ({ productId: currentProductId }),
+          useNotifications: () => ({
+            addNotification: mockNotification,
+            hasNotification: () => false,
+            removeNotification: () => mockNotification
+          }),
+          useSelectorsResponse: () => ({
+            data: [
+              {
+                data: {
+                  products: {
+                    dolorSit: { completed, pending }
+                  }
+                }
+              }
+            ],
+            fulfilled: true
+          })
+        });
+      });
+
+      await unmount();
+
+      expect(mockNotification).not.toHaveBeenCalled();
+    }
+  );
 
   it.each([
     {

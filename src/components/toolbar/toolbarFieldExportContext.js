@@ -240,6 +240,7 @@ const useExistingExportsConfirmation = ({
  * @param {storeHooks.reactRedux.useDispatch} options.useDispatch
  * @param {useExistingExportsConfirmation} options.useExistingExportsConfirmation
  * @param {NotificationsContext.useNotifications} options.useNotifications
+ * @param {useProduct} options.useProduct
  * @param {storeHooks.reactRedux.useSelectorsResponse} options.useSelectorsResponse
  */
 const useExistingExports = ({
@@ -249,13 +250,15 @@ const useExistingExports = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useExistingExportsConfirmation: useAliasExistingExportsConfirmation = useExistingExportsConfirmation,
   useNotifications: useAliasNotifications = NotificationsContext.useNotifications,
+  useProduct: useAliasProduct = useProduct,
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
   const dispatch = useAliasDispatch();
   const { addNotification, removeNotification, hasNotification } = useAliasNotifications();
   const onConfirmation = useAliasExistingExportsConfirmation();
+  const { productId: currentProductId } = useAliasProduct();
   const { data } = useAliasSelectorsResponse(({ app }) => app?.exportsExisting);
-  const { completed = [], isAnythingPending, isAnythingCompleted, pending = [] } = data?.[0]?.data || {};
+  const { completed = [], pending = [] } = data?.[0]?.data?.products?.[currentProductId] || {};
   const hasCache = cache.get('isExistingExports');
 
   useMount(() => {
@@ -269,12 +272,12 @@ const useExistingExports = ({
   });
 
   useEffect(() => {
-    const isAnythingAvailable = isAnythingCompleted || isAnythingPending || false;
+    const isAnythingAvailable = completed.length > 0 || pending.length > 0;
     const totalResults = completed.length + pending.length;
     const isExistingNotifications =
       hasNotification('swatch-exports-individual-status') || hasNotification('swatch-exports-status');
 
-    if (!hasCache && !isExistingNotifications && isAnythingAvailable && totalResults) {
+    if (!hasCache && !isExistingNotifications && isAnythingAvailable) {
       cache.set('isExistingExports', true);
 
       addNotification({
@@ -323,17 +326,7 @@ const useExistingExports = ({
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    addNotification,
-    completed,
-    hasCache,
-    hasNotification,
-    isAnythingCompleted,
-    isAnythingPending,
-    onConfirmation,
-    pending,
-    t
-  ]);
+  }, [addNotification, completed, hasCache, hasNotification, onConfirmation, pending, t]);
 };
 
 /**

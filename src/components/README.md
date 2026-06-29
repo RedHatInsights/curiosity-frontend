@@ -6635,6 +6635,8 @@ Apply an existing exports hook for user abandoned reports. Allow bulk polling st
     </tr><tr>
     <td>options.useNotifications</td><td><code>NotificationsContext.useNotifications</code></td>
     </tr><tr>
+    <td>options.useProduct</td><td><code>useProduct</code></td>
+    </tr><tr>
     <td>options.useSelectorsResponse</td><td><code>storeHooks.reactRedux.useSelectorsResponse</code></td>
     </tr>  </tbody>
 </table>
