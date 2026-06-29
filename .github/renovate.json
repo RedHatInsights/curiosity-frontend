@@ -8,5 +8,5 @@
     "on Tuesday after 3am and before 10am"
   ],
   "timezone": "America/New_York",
-  "enabledManagers": ["tekton"]
+  "enabledManagers": ["tekton", "git-submodules"]
 }
