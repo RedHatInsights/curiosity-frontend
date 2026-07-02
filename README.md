@@ -9,7 +9,7 @@ A web user interface for subscription reporting, based on [PatternFly](https://w
 Curiosity Frontend provides a comprehensive UI for managing and reporting on Red Hat subscriptions, usage, and capacity.
 
 ## Requirements
-- [Node.js 20+](https://nodejs.org/)
+- [Node.js 22+](https://nodejs.org/)
 - npm
 
 ## Quick start
