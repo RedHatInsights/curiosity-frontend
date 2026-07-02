@@ -79,14 +79,12 @@ const ToolbarFieldUsage = ({
   const { [RHSM_API_QUERY_SET_TYPES.USAGE]: updatedValue } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
 
-  const updatedOptions = options.map(option => ({ ...option, isSelected: option.value === updatedValue }));
-
   return (
     <Select
       isInline={isInline}
       aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'usage' })}
       onSelect={onSelect}
-      options={updatedOptions}
+      options={options}
       selectedOptions={updatedValue}
       placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'usage' })}
       alignment={{ position }}

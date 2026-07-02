@@ -120,10 +120,6 @@ const ToolbarFieldBillingProvider = ({
   const { [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: updatedValue } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
   const options = useAliasToolbarFieldOptions();
-  const updatedOptions = options.map(option => ({
-    ...option,
-    isSelected: updatedValue && option.value === updatedValue
-  }));
 
   return (
     <React.Fragment>
@@ -135,7 +131,7 @@ const ToolbarFieldBillingProvider = ({
             context: 'billing_provider'
           })}
           onSelect={onSelect}
-          options={updatedOptions}
+          options={options}
           selectedOptions={updatedValue}
           placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, {
             context: 'billing_provider'

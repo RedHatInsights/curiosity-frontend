@@ -4,8 +4,10 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
 [
   {
     "_title": "current",
+    "endDateString": "2019-07-31T23:59:59.999Z",
     "isCurrent": true,
     "isSelected": false,
+    "startDateString": "2019-07-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"current"})",
     "value": {
       "endDate": 2019-07-31T23:59:59.999Z,
@@ -14,7 +16,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "june",
+    "endDateString": "2019-06-30T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2019-06-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"June"})",
     "value": {
       "endDate": 2019-06-30T23:59:59.999Z,
@@ -23,7 +27,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "may",
+    "endDateString": "2019-05-31T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2019-05-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"May"})",
     "value": {
       "endDate": 2019-05-31T23:59:59.999Z,
@@ -32,7 +38,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "april",
+    "endDateString": "2019-04-30T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2019-04-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"April"})",
     "value": {
       "endDate": 2019-04-30T23:59:59.999Z,
@@ -41,7 +49,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "march",
+    "endDateString": "2019-03-31T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2019-03-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"March"})",
     "value": {
       "endDate": 2019-03-31T23:59:59.999Z,
@@ -50,7 +60,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "february",
+    "endDateString": "2019-02-28T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2019-02-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"February"})",
     "value": {
       "endDate": 2019-02-28T23:59:59.999Z,
@@ -59,7 +71,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "january",
+    "endDateString": "2019-01-31T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2019-01-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"January"})",
     "value": {
       "endDate": 2019-01-31T23:59:59.999Z,
@@ -68,7 +82,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "december",
+    "endDateString": "2018-12-31T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2018-12-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"December 2018"})",
     "value": {
       "endDate": 2018-12-31T23:59:59.999Z,
@@ -77,7 +93,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "november",
+    "endDateString": "2018-11-30T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2018-11-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"November 2018"})",
     "value": {
       "endDate": 2018-11-30T23:59:59.999Z,
@@ -86,7 +104,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "october",
+    "endDateString": "2018-10-31T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2018-10-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"October 2018"})",
     "value": {
       "endDate": 2018-10-31T23:59:59.999Z,
@@ -95,7 +115,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "september",
+    "endDateString": "2018-09-30T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2018-09-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"September 2018"})",
     "value": {
       "endDate": 2018-09-30T23:59:59.999Z,
@@ -104,7 +126,9 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
   },
   {
     "_title": "august",
+    "endDateString": "2018-08-31T23:59:59.999Z",
     "isSelected": false,
+    "startDateString": "2018-08-01T00:00:00.000Z",
     "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"August 2018"})",
     "value": {
       "endDate": 2018-08-31T23:59:59.999Z,
@@ -130,8 +154,10 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
     [
       {
         "_title": "current",
+        "endDateString": "2019-07-31T23:59:59.999Z",
         "isCurrent": true,
         "isSelected": false,
+        "startDateString": "2019-07-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"current"})",
         "value": {
           "endDate": 2019-07-31T23:59:59.999Z,
@@ -140,7 +166,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "june",
+        "endDateString": "2019-06-30T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-06-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"June"})",
         "value": {
           "endDate": 2019-06-30T23:59:59.999Z,
@@ -149,7 +177,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "may",
+        "endDateString": "2019-05-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-05-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"May"})",
         "value": {
           "endDate": 2019-05-31T23:59:59.999Z,
@@ -158,7 +188,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "april",
+        "endDateString": "2019-04-30T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-04-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"April"})",
         "value": {
           "endDate": 2019-04-30T23:59:59.999Z,
@@ -167,7 +199,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "march",
+        "endDateString": "2019-03-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-03-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"March"})",
         "value": {
           "endDate": 2019-03-31T23:59:59.999Z,
@@ -176,7 +210,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "february",
+        "endDateString": "2019-02-28T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-02-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"February"})",
         "value": {
           "endDate": 2019-02-28T23:59:59.999Z,
@@ -185,7 +221,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "january",
+        "endDateString": "2019-01-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-01-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"January"})",
         "value": {
           "endDate": 2019-01-31T23:59:59.999Z,
@@ -194,7 +232,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "december",
+        "endDateString": "2018-12-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2018-12-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"December 2018"})",
         "value": {
           "endDate": 2018-12-31T23:59:59.999Z,
@@ -203,7 +243,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "november",
+        "endDateString": "2018-11-30T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2018-11-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"November 2018"})",
         "value": {
           "endDate": 2018-11-30T23:59:59.999Z,
@@ -212,7 +254,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "october",
+        "endDateString": "2018-10-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2018-10-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"October 2018"})",
         "value": {
           "endDate": 2018-10-31T23:59:59.999Z,
@@ -221,7 +265,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "september",
+        "endDateString": "2018-09-30T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2018-09-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"September 2018"})",
         "value": {
           "endDate": 2018-09-30T23:59:59.999Z,
@@ -230,7 +276,9 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
       },
       {
         "_title": "august",
-        "isSelected": true,
+        "endDateString": "2018-08-31T23:59:59.999Z",
+        "isSelected": false,
+        "startDateString": "2018-08-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"August 2018"})",
         "value": {
           "endDate": 2018-08-31T23:59:59.999Z,
@@ -240,6 +288,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
+  selectedOptions="2018-08-01T00:00:00.000Z"
 />
 `;
 
@@ -321,8 +370,10 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
     [
       {
         "_title": "current",
+        "endDateString": "2019-07-31T23:59:59.999Z",
         "isCurrent": true,
         "isSelected": false,
+        "startDateString": "2019-07-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"current"})",
         "value": {
           "endDate": 2019-07-31T23:59:59.999Z,
@@ -331,7 +382,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "june",
+        "endDateString": "2019-06-30T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-06-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"June"})",
         "value": {
           "endDate": 2019-06-30T23:59:59.999Z,
@@ -340,7 +393,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "may",
+        "endDateString": "2019-05-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-05-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"May"})",
         "value": {
           "endDate": 2019-05-31T23:59:59.999Z,
@@ -349,7 +404,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "april",
+        "endDateString": "2019-04-30T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-04-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"April"})",
         "value": {
           "endDate": 2019-04-30T23:59:59.999Z,
@@ -358,7 +415,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "march",
+        "endDateString": "2019-03-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-03-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"March"})",
         "value": {
           "endDate": 2019-03-31T23:59:59.999Z,
@@ -367,7 +426,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "february",
+        "endDateString": "2019-02-28T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-02-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"February"})",
         "value": {
           "endDate": 2019-02-28T23:59:59.999Z,
@@ -376,7 +437,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "january",
+        "endDateString": "2019-01-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2019-01-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"January"})",
         "value": {
           "endDate": 2019-01-31T23:59:59.999Z,
@@ -385,7 +448,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "december",
+        "endDateString": "2018-12-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2018-12-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"December 2018"})",
         "value": {
           "endDate": 2018-12-31T23:59:59.999Z,
@@ -394,7 +459,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "november",
+        "endDateString": "2018-11-30T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2018-11-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"November 2018"})",
         "value": {
           "endDate": 2018-11-30T23:59:59.999Z,
@@ -403,7 +470,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "october",
+        "endDateString": "2018-10-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2018-10-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"October 2018"})",
         "value": {
           "endDate": 2018-10-31T23:59:59.999Z,
@@ -412,7 +481,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "september",
+        "endDateString": "2018-09-30T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2018-09-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"September 2018"})",
         "value": {
           "endDate": 2018-09-30T23:59:59.999Z,
@@ -421,7 +492,9 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
       },
       {
         "_title": "august",
+        "endDateString": "2018-08-31T23:59:59.999Z",
         "isSelected": false,
+        "startDateString": "2018-08-01T00:00:00.000Z",
         "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"August 2018"})",
         "value": {
           "endDate": 2018-08-31T23:59:59.999Z,
@@ -431,5 +504,6 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
+  selectedOptions="t(curiosity-toolbar.granularityRangedMonthly, {"context":"current"})"
 />
 `;

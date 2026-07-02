@@ -558,6 +558,868 @@ exports[`helpers updateOptions should allow an array of varied options, string, 
 ]
 `;
 
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, multiple preselected, single selected 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c689449643",
+      "title": "undefined",
+      "value": "lorem ipsum",
+    },
+    {
+      "index": 2,
+      "isSelected": true,
+      "key": "c1578675715",
+      "title": "undefined",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c689449643",
+    "title": "undefined",
+    "value": "lorem ipsum",
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, multiple selected 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": true,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c689449643",
+      "title": "undefined",
+      "value": "lorem ipsum",
+    },
+    {
+      "index": 2,
+      "isSelected": true,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": true,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": [
+    {
+      "index": 0,
+      "isSelected": true,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c689449643",
+      "title": "undefined",
+      "value": "lorem ipsum",
+    },
+    {
+      "index": 2,
+      "isSelected": true,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 4,
+      "isSelected": true,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, none 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+  ],
+  "selected": undefined,
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, number 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 2,
+      "isSelected": true,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+  ],
+  "selected": {
+    "index": 2,
+    "isSelected": true,
+    "key": "c-1939168410",
+    "title": "3",
+    "value": 3,
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, object 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c689449643",
+      "title": "undefined",
+      "value": "lorem ipsum",
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c689449643",
+    "title": "undefined",
+    "value": "lorem ipsum",
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, object as value 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c-1505147529",
+      "title": "undefined",
+      "value": {
+        "data": "lorem ipsum",
+      },
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c-1505147529",
+    "title": "undefined",
+    "value": {
+      "data": "lorem ipsum",
+    },
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, preselected 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c689449643",
+      "title": "undefined",
+      "value": "lorem ipsum",
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c689449643",
+    "title": "undefined",
+    "value": "lorem ipsum",
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful NaN value 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c926437026",
+      "title": "NaN",
+      "value": NaN,
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c926437026",
+    "title": "NaN",
+    "value": NaN,
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful NaN value as array lookup 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c926437026",
+      "title": "NaN",
+      "value": NaN,
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c926437026",
+    "title": "NaN",
+    "value": NaN,
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful NaN value as title string lookup 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c926437026",
+      "title": "NaN",
+      "value": NaN,
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c926437026",
+    "title": "NaN",
+    "value": NaN,
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful empty value 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c2055062677",
+      "title": "Empty",
+      "value": "",
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c2055062677",
+    "title": "Empty",
+    "value": "",
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful empty value as array lookup 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c2055062677",
+      "title": "Empty",
+      "value": "",
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c2055062677",
+    "title": "Empty",
+    "value": "",
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful null value 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c261075650",
+      "title": "null",
+      "value": null,
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c261075650",
+    "title": "null",
+    "value": null,
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful null value as array lookup 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c261075650",
+      "title": "null",
+      "value": null,
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c261075650",
+    "title": "null",
+    "value": null,
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful null value as title string lookup 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c261075650",
+      "title": "null",
+      "value": null,
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c261075650",
+    "title": "null",
+    "value": null,
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful undefined as title string lookup 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c505095949",
+      "title": "undefined",
+      "value": undefined,
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c505095949",
+    "title": "undefined",
+    "value": undefined,
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful undefined value, this will fail 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": false,
+      "key": "c505095949",
+      "title": "undefined",
+      "value": undefined,
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": undefined,
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, purposeful undefined with required array lookup 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": false,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": true,
+      "key": "c505095949",
+      "title": "undefined",
+      "value": undefined,
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+    {
+      "index": 3,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 4,
+      "isSelected": false,
+      "key": "c-1726893976",
+      "title": "4",
+      "value": 4,
+    },
+  ],
+  "selected": {
+    "index": 1,
+    "isSelected": true,
+    "key": "c505095949",
+    "title": "undefined",
+    "value": undefined,
+  },
+}
+`;
+
+exports[`helpers updateOptionsSelectedOptions should add isSelected enhancements to options, string 1`] = `
+{
+  "options": [
+    {
+      "index": 0,
+      "isSelected": true,
+      "key": "c108532930",
+      "title": "a",
+      "value": "a",
+    },
+    {
+      "index": 1,
+      "isSelected": false,
+      "key": "c-1081172732",
+      "title": "b",
+      "value": "b",
+    },
+    {
+      "index": 2,
+      "isSelected": false,
+      "key": "c-1939168410",
+      "title": "3",
+      "value": 3,
+    },
+  ],
+  "selected": {
+    "index": 0,
+    "isSelected": true,
+    "key": "c108532930",
+    "title": "a",
+    "value": "a",
+  },
+}
+`;
+
 exports[`helpers updateSelectedOptions should only allow lists or any single option type, NaN 1`] = `
 [
   "NaN",
@@ -589,8 +1451,8 @@ exports[`helpers updateSelectedOptions should only allow lists or any single opt
   {
     "value": "hello",
   },
-  null,
-  undefined,
+  "null",
+  "undefined",
   NaN,
 ]
 `;
@@ -617,227 +1479,6 @@ exports[`helpers updateSelectedOptions should only allow lists or any single opt
 
 exports[`helpers updateSelectedOptions should only allow lists or any single option type, undefined 1`] = `[]`;
 
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, multiple 1`] = `
-[
-  {
-    "index": 0,
-    "isSelected": true,
-    "key": "c108532930",
-    "title": "a",
-    "value": "a",
-  },
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c689449643",
-    "title": "undefined",
-    "value": "lorem ipsum",
-  },
-  {
-    "index": 2,
-    "isSelected": true,
-    "key": "c-1939168410",
-    "title": "3",
-    "value": 3,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, multiple preselected 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c689449643",
-    "title": "undefined",
-    "value": "lorem ipsum",
-  },
-  {
-    "index": 2,
-    "isSelected": true,
-    "key": "c1578675715",
-    "title": "undefined",
-    "value": 3,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, none 1`] = `undefined`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, number 1`] = `
-{
-  "index": 0,
-  "isSelected": true,
-  "key": "c108532930",
-  "title": "a",
-  "value": "a",
-}
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, object 1`] = `
-{
-  "index": 1,
-  "isSelected": true,
-  "key": "c689449643",
-  "title": "undefined",
-  "value": "lorem ipsum",
-}
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, object as value 1`] = `
-{
-  "index": 1,
-  "isSelected": true,
-  "key": "c-1505147529",
-  "title": "undefined",
-  "value": {
-    "data": "lorem ipsum",
-  },
-}
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, preselected 1`] = `
-{
-  "index": 1,
-  "isSelected": true,
-  "key": "c689449643",
-  "title": "undefined",
-  "value": "lorem ipsum",
-}
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful NaN value 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c926437026",
-    "title": "NaN",
-    "value": NaN,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful NaN value as array lookup 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c926437026",
-    "title": "NaN",
-    "value": NaN,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful NaN value as title string lookup 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c926437026",
-    "title": "NaN",
-    "value": NaN,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful empty value 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c2055062677",
-    "title": "Empty",
-    "value": "",
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful empty value as array lookup 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c2055062677",
-    "title": "Empty",
-    "value": "",
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful null value 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c261075650",
-    "title": "null",
-    "value": null,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful null value as array lookup 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c261075650",
-    "title": "null",
-    "value": null,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful null value as title string lookup 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c261075650",
-    "title": "null",
-    "value": null,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful undefined as title string lookup 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c505095949",
-    "title": "undefined",
-    "value": undefined,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful undefined value, this will fail 1`] = `[]`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, purposeful undefined with required array lookup 1`] = `
-[
-  {
-    "index": 1,
-    "isSelected": true,
-    "key": "c505095949",
-    "title": "undefined",
-    "value": undefined,
-  },
-]
-`;
-
-exports[`helpers updateSelectedProp should add isSelected enhancements to options, string 1`] = `
-{
-  "index": 0,
-  "isSelected": true,
-  "key": "c108532930",
-  "title": "a",
-  "value": "a",
-}
-`;
-
 exports[`useOnSelect should ignore returning updated options' state through the returned onSelect callback when option is disabled: disabled 1`] = `[]`;
 
 exports[`useOnSelect should return consistent, updated options, and a selected title: properties 1`] = `
@@ -846,7 +1487,7 @@ exports[`useOnSelect should return consistent, updated options, and a selected t
   "options": [
     {
       "index": 0,
-      "isSelected": false,
+      "isSelected": true,
       "key": "c1605625444",
       "title": "hello",
       "value": "hello",

@@ -68,11 +68,8 @@ const useDispatch = () => dispatchEvent => store.dispatch(dispatchEvent);
  * @param {Function} options.useSelector
  * @returns {*}
  */
-const useSelector = (
-  selector,
-  value = null,
-  { equality, useSelector: useAliasSelector = useReactReduxSelector } = {}
-) => useAliasSelector(selector, equality) ?? value;
+const useSelector = (selector, value, { equality, useSelector: useAliasSelector = useReactReduxSelector } = {}) =>
+  useAliasSelector(selector, equality) ?? value;
 
 /**
  * Generate a selector from multiple selectors for use in "useSelector".
