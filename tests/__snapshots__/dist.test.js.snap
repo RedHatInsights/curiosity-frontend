@@ -47,6 +47,8 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/824*js",
   "./dist/js/827*js",
   "./dist/js/860*js",
+  "./dist/js/923*js",
+  "./dist/js/923*txt",
   "./dist/js/93*js",
   "./dist/js/93*txt",
   "./dist/js/945*js",
