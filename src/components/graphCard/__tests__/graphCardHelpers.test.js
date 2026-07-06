@@ -117,7 +117,9 @@ describe('GraphCardHelpers', () => {
         const multiplier = i < 1 ? i : Math.pow(10, i);
         for (let k = 1; k < 16; k++) {
           const incrementMultiplier = k * multiplier;
-          ticks[incrementMultiplier] = method({ tick: incrementMultiplier });
+          // Normalize to 12 significant figures to ensure consistency across Node versions
+          const normalizedTick = parseFloat(incrementMultiplier.toPrecision(12));
+          ticks[normalizedTick] = method({ tick: normalizedTick });
         }
       }
       return ticks;
