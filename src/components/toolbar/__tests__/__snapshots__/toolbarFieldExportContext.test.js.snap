@@ -461,48 +461,6 @@ exports[`ToolbarFieldExport Component should allow and export, and expose pollin
 }
 `;
 
-exports[`ToolbarFieldExport Component should allow export service calls on existing exports: existingExports 1`] = `
-[
-  [
-    {
-      "autoDismiss": false,
-      "description": <div
-        aria-live="polite"
-      >
-        t(curiosity-toolbar.notifications_export_completed_description_existing, {"context":"completed","count":1,"completed":1,"pending":0})
-        <div
-          style={
-            {
-              "paddingTop": "0.5rem",
-            }
-          }
-        >
-          <Button
-            autoFocus={true}
-            data-test="exportButtonConfirm"
-            onClick={[Function]}
-            variant="primary"
-          >
-            t(curiosity-toolbar.button, {"context":"yes"})
-          </Button>
-           
-          <Button
-            data-test="exportButtonCancel"
-            onClick={[Function]}
-            variant="plain"
-          >
-            t(curiosity-toolbar.button, {"context":"no"})
-          </Button>
-        </div>
-      </div>,
-      "dismissable": false,
-      "swatchId": "swatch-exports-status",
-      "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":1,"testId":"exportNotification-existing-confirmation"})",
-    },
-  ],
-]
-`;
-
 exports[`ToolbarFieldExport Component should allow service calls on user confirmation, app not loaded 1`] = `
 {
   "deleteService": [],
@@ -645,4 +603,130 @@ exports[`ToolbarFieldExport Component should allow service calls on user confirm
     ],
   ],
 }
+`;
+
+exports[`ToolbarFieldExport Component should set cache and show notification when completed exports found: notification 1`] = `
+[
+  [
+    {
+      "autoDismiss": false,
+      "description": <div
+        aria-live="polite"
+      >
+        t(curiosity-toolbar.notifications_export_completed_description_existing, {"context":"completed","count":1,"completed":1,"pending":0})
+        <div
+          style={
+            {
+              "paddingTop": "0.5rem",
+            }
+          }
+        >
+          <Button
+            autoFocus={true}
+            data-test="exportButtonConfirm"
+            onClick={[Function]}
+            variant="primary"
+          >
+            t(curiosity-toolbar.button, {"context":"yes"})
+          </Button>
+           
+          <Button
+            data-test="exportButtonCancel"
+            onClick={[Function]}
+            variant="plain"
+          >
+            t(curiosity-toolbar.button, {"context":"no"})
+          </Button>
+        </div>
+      </div>,
+      "dismissable": false,
+      "swatchId": "swatch-exports-status",
+      "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":1,"testId":"exportNotification-existing-confirmation"})",
+    },
+  ],
+]
+`;
+
+exports[`ToolbarFieldExport Component should show notification when exports are both pending and completed: notification 1`] = `
+[
+  [
+    {
+      "autoDismiss": false,
+      "description": <div
+        aria-live="polite"
+      >
+        t(curiosity-toolbar.notifications_export_completed_description_existing_completed, {"context":"pending","count":2,"completed":1,"pending":1})
+        <div
+          style={
+            {
+              "paddingTop": "0.5rem",
+            }
+          }
+        >
+          <Button
+            autoFocus={true}
+            data-test="exportButtonConfirm"
+            onClick={[Function]}
+            variant="primary"
+          >
+            t(curiosity-toolbar.button, {"context":"yes"})
+          </Button>
+           
+          <Button
+            data-test="exportButtonCancel"
+            onClick={[Function]}
+            variant="plain"
+          >
+            t(curiosity-toolbar.button, {"context":"no"})
+          </Button>
+        </div>
+      </div>,
+      "dismissable": false,
+      "swatchId": "swatch-exports-status",
+      "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":2,"testId":"exportNotification-existing-confirmation"})",
+    },
+  ],
+]
+`;
+
+exports[`ToolbarFieldExport Component should show notification when exports are pending: notification 1`] = `
+[
+  [
+    {
+      "autoDismiss": false,
+      "description": <div
+        aria-live="polite"
+      >
+        t(curiosity-toolbar.notifications_export_completed_description_existing, {"context":"pending","count":1,"completed":0,"pending":1})
+        <div
+          style={
+            {
+              "paddingTop": "0.5rem",
+            }
+          }
+        >
+          <Button
+            autoFocus={true}
+            data-test="exportButtonConfirm"
+            onClick={[Function]}
+            variant="primary"
+          >
+            t(curiosity-toolbar.button, {"context":"yes"})
+          </Button>
+           
+          <Button
+            data-test="exportButtonCancel"
+            onClick={[Function]}
+            variant="plain"
+          >
+            t(curiosity-toolbar.button, {"context":"no"})
+          </Button>
+        </div>
+      </div>,
+      "dismissable": false,
+      "swatchId": "swatch-exports-status",
+      "title": "t(curiosity-toolbar.notifications_export_completed_title, {"context":"existing","count":1,"testId":"exportNotification-existing-confirmation"})",
+    },
+  ],
+]
 `;

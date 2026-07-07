@@ -9,7 +9,6 @@ import { PLATFORM_API_EXPORT_STATUS_TYPES } from '../../../services/platform/pla
 
 describe('ToolbarFieldExport Component', () => {
   let mockDispatch;
-  let mockService;
 
   beforeEach(() => {
     mockDispatch = jest
@@ -18,12 +17,6 @@ describe('ToolbarFieldExport Component', () => {
         type =>
           (Array.isArray(type) && type.map(value => (typeof value === 'function' && value.toString()) || value)) || type
       );
-
-    mockService = jest.fn().mockImplementation(
-      (...args) =>
-        dispatch =>
-          Promise.resolve(dispatch(...args))
-    );
   });
 
   afterEach(() => {
@@ -258,19 +251,111 @@ describe('ToolbarFieldExport Component', () => {
     }
   );
 
-  it('should allow export service calls on existing exports', async () => {
-    const mockNotification = jest.fn();
+  it('should dispatch getExistingExportsStatus on mount when no cache', async () => {
+    const mockGetExistingExportsStatus = jest.fn().mockImplementation(
+      (...args) =>
+        dispatch =>
+          Promise.resolve(dispatch(...args))
+    );
 
-    const { unmount } = await renderHook((...args) => {
+    const { unmount } = await renderHook(() =>
       useExistingExports({
-        addNotification: mockService,
-        getExistingExports: mockService,
-        getExistingExportsStatus: mockService,
-        deleteExistingExports: mockService,
+        cache: { get: () => false, set: jest.fn() },
+        getExistingExportsStatus: mockGetExistingExportsStatus,
+        useNotifications: () => ({
+          addNotification: jest.fn(),
+          hasNotification: () => false,
+          removeNotification: jest.fn()
+        }),
+        useSelectorsResponse: () => ({ data: [] })
+      })
+    );
+
+    await unmount();
+    expect(mockGetExistingExportsStatus).toHaveBeenCalledTimes(1);
+    expect(mockGetExistingExportsStatus).toHaveBeenCalledWith();
+    expect(mockDispatch).toHaveBeenCalledWith(mockGetExistingExportsStatus.mock.results[0].value);
+  });
+
+  it('should not dispatch getExistingExportsStatus on mount when cache is set', async () => {
+    const mockGetExistingExportsStatus = jest.fn().mockImplementation(
+      (...args) =>
+        dispatch =>
+          Promise.resolve(dispatch(...args))
+    );
+
+    const { unmount } = await renderHook(() =>
+      useExistingExports({
+        cache: { get: () => true, set: jest.fn() },
+        getExistingExportsStatus: mockGetExistingExportsStatus,
+        useNotifications: () => ({
+          addNotification: jest.fn(),
+          hasNotification: () => false,
+          removeNotification: jest.fn()
+        }),
+        useSelectorsResponse: () => ({ data: [] })
+      })
+    );
+
+    await unmount();
+    expect(mockGetExistingExportsStatus).not.toHaveBeenCalled();
+  });
+
+  it('should show notification when exports are pending', async () => {
+    const mockNotification = jest.fn();
+    const mockCache = { get: () => false, set: jest.fn() };
+
+    const { unmount } = await renderHook(() =>
+      useExistingExports({
+        cache: mockCache,
+        getExistingExportsStatus: jest.fn().mockImplementation(
+          (...args) =>
+            dispatch =>
+              Promise.resolve(dispatch(...args))
+        ),
         useNotifications: () => ({
           addNotification: mockNotification,
           hasNotification: () => false,
-          removeNotification: () => mockNotification
+          removeNotification: jest.fn()
+        }),
+        useSelectorsResponse: () => ({
+          data: [
+            {
+              data: {
+                isAnythingPending: true,
+                isAnythingCompleted: false,
+                pending: [{ id: 'loremIpsum' }],
+                completed: []
+              }
+            }
+          ]
+        })
+      })
+    );
+
+    await unmount();
+    expect(mockCache.set).toHaveBeenCalledWith('isExistingExports', true);
+    expect(mockNotification).toHaveBeenCalledTimes(1);
+    expect(mockNotification.mock.calls).toMatchSnapshot('notification');
+  });
+
+  it('should not show notification when existing notification is present', async () => {
+    const mockNotification = jest.fn();
+    const mockCache = { get: () => false, set: jest.fn() };
+    const mockGetExistingExportsStatus = jest.fn().mockImplementation(
+      (...args) =>
+        dispatch =>
+          Promise.resolve(dispatch(...args))
+    );
+
+    const { unmount } = await renderHook(() =>
+      useExistingExports({
+        cache: mockCache,
+        getExistingExportsStatus: mockGetExistingExportsStatus,
+        useNotifications: () => ({
+          addNotification: mockNotification,
+          hasNotification: key => key === 'swatch-exports-individual-status' || key === 'swatch-exports-status',
+          removeNotification: jest.fn()
         }),
         useSelectorsResponse: () => ({
           data: [
@@ -279,19 +364,247 @@ describe('ToolbarFieldExport Component', () => {
                 isAnythingPending: false,
                 isAnythingCompleted: true,
                 pending: [],
-                completed: [{ dolor: 'sit' }]
+                completed: [{ id: 'loremIpsum' }]
               }
             }
-          ],
-          fulfilled: true
-        }),
-        ...args?.[0]
-      });
-    });
+          ]
+        })
+      })
+    );
 
     await unmount();
-    expect(mockNotification.mock.calls).toMatchSnapshot('existingExports');
+    expect(mockGetExistingExportsStatus).toHaveBeenCalledTimes(1);
+    expect(mockNotification).not.toHaveBeenCalled();
+    expect(mockCache.set).not.toHaveBeenCalled();
   });
+
+  it('should not show notification when existing notification is present and exports are pending', async () => {
+    const mockNotification = jest.fn();
+    const mockCache = { get: () => false, set: jest.fn() };
+    const mockGetExistingExportsStatus = jest.fn().mockImplementation(
+      (...args) =>
+        dispatch =>
+          Promise.resolve(dispatch(...args))
+    );
+
+    const { unmount } = await renderHook(() =>
+      useExistingExports({
+        cache: mockCache,
+        getExistingExportsStatus: mockGetExistingExportsStatus,
+        useNotifications: () => ({
+          addNotification: mockNotification,
+          hasNotification: key => key === 'swatch-exports-individual-status' || key === 'swatch-exports-status',
+          removeNotification: jest.fn()
+        }),
+        useSelectorsResponse: () => ({
+          data: [
+            {
+              data: {
+                isAnythingPending: true,
+                isAnythingCompleted: false,
+                pending: [{ id: 'loremIpsum' }],
+                completed: []
+              }
+            }
+          ]
+        })
+      })
+    );
+
+    await unmount();
+    expect(mockGetExistingExportsStatus).toHaveBeenCalledTimes(1);
+    expect(mockNotification).not.toHaveBeenCalled();
+    expect(mockCache.set).not.toHaveBeenCalled();
+  });
+
+  it('should set cache and show notification when completed exports found', async () => {
+    const mockNotification = jest.fn();
+    const mockCache = { get: () => false, set: jest.fn() };
+
+    const { unmount } = await renderHook(() =>
+      useExistingExports({
+        cache: mockCache,
+        getExistingExportsStatus: jest.fn().mockImplementation(
+          (...args) =>
+            dispatch =>
+              Promise.resolve(dispatch(...args))
+        ),
+        useNotifications: () => ({
+          addNotification: mockNotification,
+          hasNotification: () => false,
+          removeNotification: jest.fn()
+        }),
+        useSelectorsResponse: () => ({
+          data: [
+            {
+              data: {
+                isAnythingPending: false,
+                isAnythingCompleted: true,
+                pending: [],
+                completed: [{ id: 'loremIpsum' }]
+              }
+            }
+          ]
+        })
+      })
+    );
+
+    await unmount();
+    expect(mockCache.set).toHaveBeenCalledWith('isExistingExports', true);
+    expect(mockNotification).toHaveBeenCalledTimes(1);
+    expect(mockNotification.mock.calls).toMatchSnapshot('notification');
+  });
+
+  it('should not show notification or set cache when no exports found', async () => {
+    const mockNotification = jest.fn();
+    const mockCache = { get: () => false, set: jest.fn() };
+
+    const { unmount } = await renderHook(() =>
+      useExistingExports({
+        cache: mockCache,
+        getExistingExportsStatus: jest.fn().mockImplementation(
+          (...args) =>
+            dispatch =>
+              Promise.resolve(dispatch(...args))
+        ),
+        useNotifications: () => ({
+          addNotification: mockNotification,
+          hasNotification: () => false,
+          removeNotification: jest.fn()
+        }),
+        useSelectorsResponse: () => ({ data: [] })
+      })
+    );
+
+    await unmount();
+    expect(mockNotification).not.toHaveBeenCalled();
+    expect(mockCache.set).not.toHaveBeenCalled();
+  });
+
+  it('should remove notification on unmount', async () => {
+    const mockNotification = jest.fn();
+    const mockRemoveNotification = jest.fn();
+
+    const { unmount } = await renderHook(() =>
+      useExistingExports({
+        cache: { get: () => false, set: jest.fn() },
+        getExistingExportsStatus: jest.fn().mockImplementation(
+          (...args) =>
+            dispatch =>
+              Promise.resolve(dispatch(...args))
+        ),
+        useNotifications: () => ({
+          addNotification: mockNotification,
+          hasNotification: () => false,
+          removeNotification: mockRemoveNotification
+        }),
+        useSelectorsResponse: () => ({
+          data: [
+            {
+              data: {
+                isAnythingPending: false,
+                isAnythingCompleted: true,
+                pending: [],
+                completed: [{ id: 'loremIpsum' }]
+              }
+            }
+          ]
+        })
+      })
+    );
+
+    await unmount();
+    expect(mockNotification).toHaveBeenCalledTimes(1);
+    expect(mockRemoveNotification).toHaveBeenCalledTimes(1);
+    expect(mockRemoveNotification).toHaveBeenCalledWith('swatch-exports-status');
+  });
+
+  it('should show notification when exports are both pending and completed', async () => {
+    const mockNotification = jest.fn();
+    const mockCache = { get: () => false, set: jest.fn() };
+
+    const { unmount } = await renderHook(() =>
+      useExistingExports({
+        cache: mockCache,
+        getExistingExportsStatus: jest.fn().mockImplementation(
+          (...args) =>
+            dispatch =>
+              Promise.resolve(dispatch(...args))
+        ),
+        useNotifications: () => ({
+          addNotification: mockNotification,
+          hasNotification: () => false,
+          removeNotification: jest.fn()
+        }),
+        useSelectorsResponse: () => ({
+          data: [
+            {
+              data: {
+                isAnythingPending: true,
+                isAnythingCompleted: true,
+                pending: [{ id: 'loremIpsum' }],
+                completed: [{ id: 'dolorSit' }]
+              }
+            }
+          ]
+        })
+      })
+    );
+
+    await unmount();
+    expect(mockCache.set).toHaveBeenCalledWith('isExistingExports', true);
+    expect(mockNotification).toHaveBeenCalledTimes(1);
+    expect(mockNotification.mock.calls).toMatchSnapshot('notification');
+  });
+
+  it.each([
+    { description: 'confirm', buttonTestId: 'exportButtonConfirm', confirmation: 'yes' },
+    { description: 'cancel', buttonTestId: 'exportButtonCancel', confirmation: 'no' }
+  ])(
+    'should call onConfirmation with combined completed and pending on $description button click',
+    async ({ buttonTestId, confirmation }) => {
+      const mockOnConfirmation = jest.fn();
+      const completed = [{ id: 'dolorSit' }];
+      const pending = [{ id: 'loremIpsum' }];
+      const mockNotification = jest.fn();
+
+      const { unmount } = await renderHook(() =>
+        useExistingExports({
+          cache: { get: () => false, set: jest.fn() },
+          getExistingExportsStatus: jest.fn().mockImplementation(
+            (...args) =>
+              dispatch =>
+                Promise.resolve(dispatch(...args))
+          ),
+          useExistingExportsConfirmation: () => mockOnConfirmation,
+          useNotifications: () => ({
+            addNotification: mockNotification,
+            hasNotification: () => false,
+            removeNotification: jest.fn()
+          }),
+          useSelectorsResponse: () => ({
+            data: [
+              {
+                data: {
+                  isAnythingPending: true,
+                  isAnythingCompleted: true,
+                  pending,
+                  completed
+                }
+              }
+            ]
+          })
+        })
+      );
+
+      const component = renderComponent(mockNotification.mock.calls[0][0].description);
+      component.fireEvent.click(component.find(`[data-test="${buttonTestId}"]`));
+
+      await unmount();
+
+      expect(mockOnConfirmation).toHaveBeenCalledWith(confirmation, [...completed, ...pending]);
+    }
+  );
 
   it.each([
     {
