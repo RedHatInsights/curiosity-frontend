@@ -83,6 +83,7 @@
     "@patternfly/react-styles": "6.4.0",
     "@patternfly/react-table": "6.4.1",
     "@patternfly/react-tokens": "6.4.0",
+    "@project-kessel/react-kessel-access-check": "^0.5.1",
     "@redhat-cloud-services/frontend-components": "7.8.0",
     "@redhat-cloud-services/frontend-components-notifications": "6.10.0",
     "@redhat-cloud-services/frontend-components-utilities": "7.4.0",

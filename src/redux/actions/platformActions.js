@@ -9,23 +9,18 @@ import { platformServices } from '../../services/platform/platformServices';
  */
 
 /**
- * Get an emulated and combined API response from the platforms "getUser" and "getUserPermissions" global methods.
+ * Get an emulated API response from the platform's "getUser" global method.
  *
  * @param {object} params
- * @param {string|Array} params.appName
  * @param {Function} params.getUser
- * @param {Function} params.getUserPermissions
  * @returns {Function}
  */
 const authorizeUser =
-  ({ appName, getUser, getUserPermissions } = {}) =>
+  ({ getUser } = {}) =>
   dispatch =>
     dispatch({
       type: platformTypes.PLATFORM_USER_AUTH,
-      payload: Promise.all([
-        platformServices.getUser({ getUser }),
-        platformServices.getUserPermissions(appName, { getUserPermissions })
-      ])
+      payload: Promise.all([platformServices.getUser({ getUser })])
     });
 
 /**

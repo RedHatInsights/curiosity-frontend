@@ -1,5 +1,4 @@
 import React from 'react';
-import { helpers } from '../../../common';
 import { Authentication } from '../authentication';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 
@@ -10,11 +9,11 @@ describe('Authentication Component', () => {
         error: false,
         pending: false,
         data: {
-          authorized: {},
           errorCodes: [],
           errorStatus: undefined
         }
-      })
+      }),
+      useHasRelation: () => ({ has: false, isLoading: false })
     };
 
     const component = await shallowComponent(
@@ -32,11 +31,11 @@ describe('Authentication Component', () => {
         error: true,
         pending: false,
         data: {
-          authorized: {},
           errorCodes: [],
           errorStatus: undefined
         }
-      })
+      }),
+      useHasRelation: () => ({ has: false, isLoading: false })
     };
     const component = await shallowComponent(
       <Authentication {...props}>
@@ -54,13 +53,11 @@ describe('Authentication Component', () => {
         error: false,
         pending: false,
         data: {
-          authorized: {
-            [helpers.UI_NAME]: true
-          },
           errorCodes: [],
           errorStatus: undefined
         }
-      })
+      }),
+      useHasRelation: () => ({ has: false, isLoading: false })
     };
     const component = await shallowComponent(
       <Authentication {...props}>
@@ -77,11 +74,11 @@ describe('Authentication Component', () => {
         error: true,
         pending: false,
         data: {
-          authorized: {},
           errorCodes: [],
           errorStatus: 418
         }
-      })
+      }),
+      useHasRelation: () => ({ has: false, isLoading: false })
     };
     const component = await shallowComponent(
       <Authentication {...props}>
@@ -98,11 +95,11 @@ describe('Authentication Component', () => {
         error: true,
         pending: false,
         data: {
-          authorized: {},
           errorCodes: [rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN],
           errorStatus: 403
         }
-      })
+      }),
+      useHasRelation: () => ({ has: false, isLoading: false })
     };
     const component = await shallowComponent(
       <Authentication {...props}>
@@ -117,11 +114,11 @@ describe('Authentication Component', () => {
         error: true,
         pending: false,
         data: {
-          authorized: {},
           errorCodes: [],
           errorStatus: 403
         }
-      })
+      }),
+      useHasRelation: () => ({ has: false, isLoading: false })
     });
 
     expect(propsUpdated).toMatchSnapshot('403 error');
@@ -133,11 +130,11 @@ describe('Authentication Component', () => {
         error: true,
         pending: false,
         data: {
-          authorized: {},
           errorCodes: [],
           errorStatus: 401
         }
-      })
+      }),
+      useHasRelation: () => ({ has: false, isLoading: false })
     };
     const component = await shallowComponent(
       <Authentication {...props}>
@@ -154,11 +151,11 @@ describe('Authentication Component', () => {
         error: false,
         pending: true,
         data: {
-          authorized: {},
           errorCodes: [],
           errorStatus: undefined
         }
-      })
+      }),
+      useHasRelation: () => ({ has: false, isLoading: false })
     };
     const component = await shallowComponent(
       <Authentication {...props}>
@@ -175,13 +172,11 @@ describe('Authentication Component', () => {
         error: false,
         pending: false,
         data: {
-          authorized: {
-            [helpers.UI_NAME]: true
-          },
           errorCodes: [],
           errorStatus: undefined
         }
-      })
+      }),
+      useHasRelation: () => ({ has: true, isLoading: false })
     };
     const component = await shallowComponent(
       <Authentication {...props}>
