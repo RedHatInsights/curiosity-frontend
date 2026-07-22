@@ -1,14 +1,19 @@
 import React from 'react';
+import { helpers } from '../../../common';
 import { Authentication } from '../authentication';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 
 describe('Authentication Component', () => {
+  const mockUseChrome = () => ({ visibilityFunctions: { featureFlag: () => false } });
+
   it('should render a basic component', async () => {
     const props = {
+      useChrome: mockUseChrome,
       useGetAuthorization: () => ({
         error: false,
         pending: false,
         data: {
+          authorized: {},
           errorCodes: [],
           errorStatus: undefined
         }
@@ -27,10 +32,12 @@ describe('Authentication Component', () => {
 
   it('should render a component error', async () => {
     const props = {
+      useChrome: mockUseChrome,
       useGetAuthorization: () => ({
         error: true,
         pending: false,
         data: {
+          authorized: {},
           errorCodes: [],
           errorStatus: undefined
         }
@@ -49,10 +56,14 @@ describe('Authentication Component', () => {
   it('should allow being disabled', async () => {
     const props = {
       isDisabled: true,
+      useChrome: mockUseChrome,
       useGetAuthorization: () => ({
         error: false,
         pending: false,
         data: {
+          authorized: {
+            [helpers.UI_NAME]: true
+          },
           errorCodes: [],
           errorStatus: undefined
         }
@@ -70,10 +81,12 @@ describe('Authentication Component', () => {
 
   it('should return a redirect on 418 error', async () => {
     const props = {
+      useChrome: mockUseChrome,
       useGetAuthorization: () => ({
         error: true,
         pending: false,
         data: {
+          authorized: {},
           errorCodes: [],
           errorStatus: 418
         }
@@ -91,10 +104,12 @@ describe('Authentication Component', () => {
 
   it('should return a redirect on a specific 403 error and error code', async () => {
     const props = {
+      useChrome: mockUseChrome,
       useGetAuthorization: () => ({
         error: true,
         pending: false,
         data: {
+          authorized: {},
           errorCodes: [rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN],
           errorStatus: 403
         }
@@ -110,10 +125,12 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('403 redirect error');
 
     const propsUpdated = await component.setProps({
+      useChrome: mockUseChrome,
       useGetAuthorization: () => ({
         error: true,
         pending: false,
         data: {
+          authorized: {},
           errorCodes: [],
           errorStatus: 403
         }
@@ -126,10 +143,12 @@ describe('Authentication Component', () => {
 
   it('should return a message on 401 error', async () => {
     const props = {
+      useChrome: mockUseChrome,
       useGetAuthorization: () => ({
         error: true,
         pending: false,
         data: {
+          authorized: {},
           errorCodes: [],
           errorStatus: 401
         }
@@ -147,10 +166,12 @@ describe('Authentication Component', () => {
 
   it('should render a component pending', async () => {
     const props = {
+      useChrome: mockUseChrome,
       useGetAuthorization: () => ({
         error: false,
         pending: true,
         data: {
+          authorized: {},
           errorCodes: [],
           errorStatus: undefined
         }
@@ -168,15 +189,19 @@ describe('Authentication Component', () => {
 
   it('should render a component authorized', async () => {
     const props = {
+      useChrome: mockUseChrome,
       useGetAuthorization: () => ({
         error: false,
         pending: false,
         data: {
+          authorized: {
+            [helpers.UI_NAME]: true
+          },
           errorCodes: [],
           errorStatus: undefined
         }
       }),
-      useHasRelation: () => ({ has: true, isLoading: false })
+      useHasRelation: () => ({ has: false, isLoading: false })
     };
     const component = await shallowComponent(
       <Authentication {...props}>

@@ -47,6 +47,7 @@ const useGetAuthorization = ({
   const dispatch = useAliasDispatch();
   const {
     auth = { getUser: helpers.noop },
+    getUserPermissions = helpers.noop,
     hideGlobalFilter = helpers.noop,
     updateDocumentTitle = helpers.noop
   } = useAliasChrome();
@@ -60,7 +61,7 @@ const useGetAuthorization = ({
   ]);
 
   useMount(async () => {
-    await dispatch(authorizeUser({ getUser: auth?.getUser }));
+    await dispatch(authorizeUser({ getUser: auth?.getUser, getUserPermissions }));
     updateDocumentTitle(appName);
     hideGlobalFilter();
   });
