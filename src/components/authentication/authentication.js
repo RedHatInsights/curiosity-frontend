@@ -2,6 +2,8 @@ import React from 'react';
 import { BinocularsIcon } from '@patternfly/react-icons';
 import { Maintenance } from '@redhat-cloud-services/frontend-components/Maintenance';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import { routerHelpers } from '../router';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
 import { MessageView } from '../messageView/messageView';
@@ -18,27 +20,38 @@ import { useHasRelation, Relation } from './useHasRelation';
  * @property {module} AuthenticationContext
  */
 
+const KESSEL_FLAG = 'swatch.common-security.use-kessel-rbac';
+
 /**
  * An authentication pass-through component.
  *
  * @param {object} props
+ * @param {string} [props.appName=routerHelpers.appName]
  * @param {React.ReactNode} props.children
  * @param {boolean} [props.isDisabled=helpers.UI_DISABLED]
  * @param {translate} [props.t=translate]
+ * @param {Function} [props.useChrome=useChrome]
  * @param {useGetAuthorization} [props.useGetAuthorization=useGetAuthorization]
  * @param {Function} [props.useHasRelation=useHasRelation]
  * @returns {JSX.Element}
  */
 const Authentication = ({
+  appName = routerHelpers.appName,
   children,
   isDisabled = helpers.UI_DISABLED,
   t = translate,
+  useChrome: useAliasChrome = useChrome,
   useGetAuthorization: useAliasGetAuthorization = useGetAuthorization,
   useHasRelation: useAliasHasRelation = useHasRelation
 }) => {
+  const { visibilityFunctions } = useAliasChrome();
+  const kesselEnabled = visibilityFunctions?.featureFlag?.(KESSEL_FLAG, true) ?? false;
+
   const { pending, data = {} } = useAliasGetAuthorization();
-  const { errorCodes, errorStatus } = data;
-  const { has: isAuthorized, isLoading: authPending } = useAliasHasRelation(Relation.INVENTORY_VIEW);
+  const { authorized = {}, errorCodes, errorStatus } = data;
+  const { has: kesselAuthorized, isLoading: kesselPending } = useAliasHasRelation(Relation.INVENTORY_VIEW);
+
+  const isAuthorized = kesselEnabled ? kesselAuthorized : authorized[appName];
 
   const renderContent = () => {
     if (isDisabled) {
@@ -53,7 +66,7 @@ const Authentication = ({
       return children;
     }
 
-    if (pending || authPending) {
+    if (pending || (kesselEnabled && kesselPending)) {
       return (
         <MessageView
           pageTitle="&nbsp;"

@@ -72,7 +72,7 @@ Platform service wrappers for dispatch, state update.
 <a name="Actions.module_PlatformActions..authorizeUser"></a>
 
 ### PlatformActions~authorizeUser(params) ⇒ <code>function</code>
-Get an emulated API response from the platform's "getUser" global method.
+Get an emulated and combined API response from the platforms "getUser" and "getUserPermissions" global methods.
 
 **Kind**: inner method of [<code>PlatformActions</code>](#Actions.module_PlatformActions)  
 <table>
@@ -85,7 +85,11 @@ Get an emulated API response from the platform's "getUser" global method.
 <tr>
     <td>params</td><td><code>object</code></td>
     </tr><tr>
+    <td>params.appName</td><td><code>string</code> | <code>Array</code></td>
+    </tr><tr>
     <td>params.getUser</td><td><code>function</code></td>
+    </tr><tr>
+    <td>params.getUserPermissions</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 

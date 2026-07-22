@@ -242,11 +242,15 @@ An authentication pass-through component.
 <tr>
     <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
+    <td>[props.appName]</td><td><code>string</code></td><td><code>routerHelpers.appName</code></td>
+    </tr><tr>
     <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
     <td>[props.isDisabled]</td><td><code>boolean</code></td><td><code>helpers.UI_DISABLED</code></td>
     </tr><tr>
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
+    </tr><tr>
+    <td>[props.useChrome]</td><td><code>function</code></td><td><code>useChrome</code></td>
     </tr><tr>
     <td>[props.useGetAuthorization]</td><td><code>useGetAuthorization</code></td><td><code>useGetAuthorization</code></td>
     </tr><tr>
