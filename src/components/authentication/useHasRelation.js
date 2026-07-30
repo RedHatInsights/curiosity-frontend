@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAccessCheckContext } from '@project-kessel/react-kessel-access-check';
 import { checkSelf } from '@project-kessel/react-kessel-access-check/core/api-client';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { helpers } from '../../common';
 
 /**
@@ -13,7 +14,7 @@ const Relation = {
 };
 
 /**
- * Check if the current user has a given Kessel relation on the default workspace.
+ * Check if the current user has a given Kessel relation on their tenant.
  * In dev mode always returns authorized unless REACT_APP_DEBUG_KESSEL_AUTHORIZED=false.
  *
  * @param {string} relation
@@ -21,6 +22,7 @@ const Relation = {
  */
 const useHasRelation = relation => {
   const accessCheckContext = useAccessCheckContext();
+  const chrome = useChrome();
 
   const [has, setHas] = useState(helpers.DEV_MODE ? process.env.REACT_APP_DEBUG_KESSEL_AUTHORIZED !== 'false' : false);
   const [isLoading, setIsLoading] = useState(!helpers.DEV_MODE);
@@ -32,11 +34,15 @@ const useHasRelation = relation => {
     let cancelled = false;
     (async () => {
       try {
+        const user = await chrome.auth.getUser();
+        if (!user) {
+          throw new Error('user does not exist');
+        }
         const result = await checkSelf(accessCheckContext, {
           relation,
           resource: {
-            id: 'default',
-            type: 'workspace',
+            id: `redhat/${user.identity.org_id}`,
+            type: 'tenant',
             reporter: { type: 'rbac' }
           }
         });

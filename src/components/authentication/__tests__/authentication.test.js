@@ -211,4 +211,100 @@ describe('Authentication Component', () => {
 
     expect(component).toMatchSnapshot('authorized');
   });
+
+  const mockUseChromeKesselOn = () => ({ visibilityFunctions: { featureFlag: () => true } });
+
+  it('should render authorized via kessel when flag is on', async () => {
+    const props = {
+      useChrome: mockUseChromeKesselOn,
+      useGetAuthorization: () => ({
+        error: false,
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      }),
+      useHasRelation: () => ({ has: true, isLoading: false })
+    };
+    const component = await shallowComponent(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
+    );
+
+    expect(component).toMatchSnapshot('kessel authorized');
+  });
+
+  it('should render not authorized via kessel when flag is on', async () => {
+    const props = {
+      useChrome: mockUseChromeKesselOn,
+      useGetAuthorization: () => ({
+        error: false,
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      }),
+      useHasRelation: () => ({ has: false, isLoading: false })
+    };
+    const component = await shallowComponent(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
+    );
+
+    expect(component).toMatchSnapshot('kessel not authorized');
+  });
+
+  it('should render pending via kessel when flag is on and loading', async () => {
+    const props = {
+      useChrome: mockUseChromeKesselOn,
+      useGetAuthorization: () => ({
+        error: false,
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      }),
+      useHasRelation: () => ({ has: false, isLoading: true })
+    };
+    const component = await shallowComponent(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
+    );
+
+    expect(component).toMatchSnapshot('kessel pending');
+  });
+
+  it('should use kessel over legacy rbac when flag is on', async () => {
+    const props = {
+      useChrome: mockUseChromeKesselOn,
+      useGetAuthorization: () => ({
+        error: false,
+        pending: false,
+        data: {
+          authorized: {
+            [helpers.UI_NAME]: false
+          },
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      }),
+      useHasRelation: () => ({ has: true, isLoading: false })
+    };
+    const component = await shallowComponent(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
+    );
+
+    expect(component).toMatchSnapshot('kessel overrides legacy');
+  });
 });
