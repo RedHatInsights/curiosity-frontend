@@ -242,7 +242,7 @@ An authentication pass-through component.
 <tr>
     <td>props</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>[props.appName]</td><td><code>string</code></td><td><code>routerHelpers.appName</code></td>
+    <td>[props.appName]</td><td><code>string</code></td><td><code>&quot;routerHelpers.appName&quot;</code></td>
     </tr><tr>
     <td>props.children</td><td><code>React.ReactNode</code></td><td></td>
     </tr><tr>
@@ -332,7 +332,7 @@ Return session data from authentication context.
 <a name="Authentication.module_useHasRelation..useHasRelation"></a>
 
 ### useHasRelation~useHasRelation(relation) ⇒ <code>Object</code>
-Check if the current user has a given Kessel relation on the default workspace.
+Check if the current user has a given Kessel relation on their tenant.
 In dev mode always returns authorized unless REACT_APP_DEBUG_KESSEL_AUTHORIZED=false.
 
 **Kind**: inner method of [<code>useHasRelation</code>](#Authentication.module_useHasRelation)  
