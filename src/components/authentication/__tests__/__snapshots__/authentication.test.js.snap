@@ -214,6 +214,36 @@ exports[`Authentication Component should return a redirect on a specific 403 err
 </Context.Provider>
 `;
 
+exports[`Authentication Component should show optin when kessel authorized and 418 error: kessel authorized 418 optin 1`] = `
+<Context.Provider
+  value={
+    {
+      "authorized": {},
+      "errorCodes": [],
+      "errorStatus": 418,
+    }
+  }
+>
+  <OptinView />
+</Context.Provider>
+`;
+
+exports[`Authentication Component should show optin when kessel authorized but optin required: kessel authorized optin required 1`] = `
+<Context.Provider
+  value={
+    {
+      "authorized": {},
+      "errorCodes": [
+        "SUBSCRIPTIONS1004",
+      ],
+      "errorStatus": 403,
+    }
+  }
+>
+  <OptinView />
+</Context.Provider>
+`;
+
 exports[`Authentication Component should use kessel over legacy rbac when flag is on: kessel overrides legacy 1`] = `
 <Context.Provider
   value={

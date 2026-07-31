@@ -283,6 +283,52 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('kessel pending');
   });
 
+  it('should show optin when kessel authorized but optin required', async () => {
+    const props = {
+      useChrome: mockUseChromeKesselOn,
+      useGetAuthorization: () => ({
+        error: true,
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN],
+          errorStatus: 403
+        }
+      }),
+      useHasRelation: () => ({ has: true, isLoading: false })
+    };
+    const component = await shallowComponent(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
+    );
+
+    expect(component).toMatchSnapshot('kessel authorized optin required');
+  });
+
+  it('should show optin when kessel authorized and 418 error', async () => {
+    const props = {
+      useChrome: mockUseChromeKesselOn,
+      useGetAuthorization: () => ({
+        error: true,
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: 418
+        }
+      }),
+      useHasRelation: () => ({ has: true, isLoading: false })
+    };
+    const component = await shallowComponent(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
+    );
+
+    expect(component).toMatchSnapshot('kessel authorized 418 optin');
+  });
+
   it('should use kessel over legacy rbac when flag is on', async () => {
     const props = {
       useChrome: mockUseChromeKesselOn,

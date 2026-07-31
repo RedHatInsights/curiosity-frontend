@@ -18,17 +18,19 @@ const Relation = {
  * In dev mode always returns authorized unless REACT_APP_DEBUG_KESSEL_AUTHORIZED=false.
  *
  * @param {string} relation
+ * @param {object} [options]
+ * @param {boolean} [options.enabled=true]
  * @returns {{ has: boolean, isLoading: boolean }}
  */
-const useHasRelation = relation => {
+const useHasRelation = (relation, { enabled = true } = {}) => {
   const accessCheckContext = useAccessCheckContext();
   const chrome = useChrome();
 
   const [has, setHas] = useState(helpers.DEV_MODE ? process.env.REACT_APP_DEBUG_KESSEL_AUTHORIZED !== 'false' : false);
-  const [isLoading, setIsLoading] = useState(!helpers.DEV_MODE);
+  const [isLoading, setIsLoading] = useState(!helpers.DEV_MODE && enabled);
 
   useEffect(() => {
-    if (helpers.DEV_MODE) {
+    if (helpers.DEV_MODE || !enabled) {
       return () => {};
     }
     let cancelled = false;
@@ -50,7 +52,8 @@ const useHasRelation = relation => {
           setHas(result?.allowed === 'ALLOWED_TRUE');
           setIsLoading(false);
         }
-      } catch {
+      } catch (e) {
+        console.error('useHasRelation checkSelf error:', e);
         if (!cancelled) {
           setHas(false);
           setIsLoading(false);

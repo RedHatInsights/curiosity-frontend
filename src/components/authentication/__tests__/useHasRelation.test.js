@@ -69,6 +69,16 @@ describe('useHasRelation', () => {
     expect(mockCheckSelf).not.toHaveBeenCalled();
   });
 
+  it('should skip checkSelf when enabled is false', async () => {
+    mockCheckSelf.mockResolvedValue({ allowed: 'ALLOWED_TRUE' });
+
+    const { result } = await renderHook(() => useHasRelation(Relation.INVENTORY_VIEW, { enabled: false }));
+
+    expect(result.has).toBe(false);
+    expect(result.isLoading).toBe(false);
+    expect(mockCheckSelf).not.toHaveBeenCalled();
+  });
+
   it('should call checkSelf with tenant resource using org_id', async () => {
     mockCheckSelf.mockResolvedValue({ allowed: 'ALLOWED_TRUE' });
 
