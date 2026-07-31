@@ -49,7 +49,9 @@ const Authentication = ({
 
   const { pending, data = {} } = useAliasGetAuthorization();
   const { authorized = {}, errorCodes, errorStatus } = data;
-  const { has: kesselAuthorized, isLoading: kesselPending } = useAliasHasRelation(Relation.INVENTORY_VIEW);
+  const { has: kesselAuthorized, isLoading: kesselPending } = useAliasHasRelation(Relation.INVENTORY_VIEW, {
+    enabled: kesselEnabled
+  });
 
   const isAuthorized = kesselEnabled ? kesselAuthorized : authorized[appName];
 
@@ -63,6 +65,13 @@ const Authentication = ({
     }
 
     if (isAuthorized) {
+      if (
+        kesselEnabled &&
+        ((errorCodes && errorCodes.includes(rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN)) ||
+          errorStatus === 418)
+      ) {
+        return <OptinView />;
+      }
       return children;
     }
 

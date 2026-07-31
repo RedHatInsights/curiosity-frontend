@@ -331,7 +331,7 @@ Return session data from authentication context.
 ## useHasRelation
 <a name="Authentication.module_useHasRelation..useHasRelation"></a>
 
-### useHasRelation~useHasRelation(relation) ⇒ <code>Object</code>
+### useHasRelation~useHasRelation(relation, [options]) ⇒ <code>Object</code>
 Check if the current user has a given Kessel relation on their tenant.
 In dev mode always returns authorized unless REACT_APP_DEBUG_KESSEL_AUTHORIZED=false.
 
@@ -339,12 +339,16 @@ In dev mode always returns authorized unless REACT_APP_DEBUG_KESSEL_AUTHORIZED=f
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>relation</td><td><code>string</code></td>
+    <td>relation</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>[options]</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.enabled]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr>  </tbody>
 </table>
 
