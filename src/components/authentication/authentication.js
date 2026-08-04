@@ -64,17 +64,6 @@ const Authentication = ({
       );
     }
 
-    if (isAuthorized) {
-      if (
-        kesselEnabled &&
-        ((errorCodes && errorCodes.includes(rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN)) ||
-          errorStatus === 418)
-      ) {
-        return <OptinView />;
-      }
-      return children;
-    }
-
     if (pending || (kesselEnabled && kesselPending)) {
       return (
         <MessageView
@@ -90,6 +79,10 @@ const Authentication = ({
       errorStatus === 418
     ) {
       return <OptinView />;
+    }
+
+    if (isAuthorized) {
+      return children;
     }
 
     return (

@@ -283,6 +283,30 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('kessel pending');
   });
 
+  it('should render pending when kessel authorized but chrome auth not yet initialized', async () => {
+    const props = {
+      useChrome: mockUseChromeKesselOn,
+      useGetAuthorization: () => ({
+        error: false,
+        pending: true,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      }),
+      useHasRelation: () => ({ has: true, isLoading: false })
+    };
+    const component = await shallowComponent(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
+    );
+
+    expect(component.find('.fadein')).not.toBeNull();
+    expect(component.find('.test')).toBeNull();
+  });
+
   it('should show optin when kessel authorized but optin required', async () => {
     const props = {
       useChrome: mockUseChromeKesselOn,
