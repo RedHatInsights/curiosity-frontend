@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
@@ -40,7 +40,7 @@ jobs:
         run: npm test
       - name: Code coverage
         if: ${{ success() && contains(matrix.node-version, env.COV_NODE_VERSION) }}
-        uses: codecov/codecov-action@v6
+        uses: codecov/codecov-action@v7
         env:
           CODECOV_TOKEN: ${{ secrets.COV_TOKEN }}
       - name: Confirm integration
