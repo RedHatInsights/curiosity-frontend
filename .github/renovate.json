@@ -10,6 +10,17 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
+<<<<<<< Updated upstream
+=======
+      "matchManagers": ["tekton"],
+      "prPriority": 10
+    },
+    {
+      "matchManagers": ["npm"],
+      "minimumReleaseAge": "14 days"
+    },
+    {
+>>>>>>> Stashed changes
       "matchPackageNames": [
         "@patternfly/*",
         "@redhat-cloud-services/frontend*"
