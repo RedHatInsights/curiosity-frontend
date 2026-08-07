@@ -128,7 +128,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-comment-length": "^2.3.1",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-jest": "^29.15.5",
+    "eslint-plugin-jest": "^29.16.0",
     "eslint-plugin-jsdoc": "^62.9.0",
     "eslint-plugin-json": "^4.0.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
