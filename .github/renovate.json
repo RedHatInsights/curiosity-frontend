@@ -10,6 +10,10 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
+      "matchManagers": ["tekton"],
+      "prPriority": 10
+    },
+    {
       "matchManagers": ["npm"],
       "minimumReleaseAge": "14 days"
     },
