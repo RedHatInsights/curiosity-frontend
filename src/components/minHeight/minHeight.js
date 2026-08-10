@@ -24,35 +24,30 @@ const MinHeight = ({
   minHeight = 0,
   useResizeObserver: useAliasResizeObserver = useResizeObserver
 }) => {
-  const [tracking, setTracking] = useState({ containerWidth: undefined, isLoaded: false });
+  const [tracking, setTracking] = useState({ containerWidth: undefined, isLoaded: false, updatedHeight: 0 });
   const containerRef = useRef(null);
   const innerContainerRef = useRef(null);
   const { height: containerHeight, width: containerWidth } = useAliasResizeObserver(containerRef);
 
   useEffect(() => {
     if (!isOnLoad || (isOnLoad && !tracking.isLoaded)) {
-      const { current: domElement = {} } = containerRef;
       const { current: innerDomElement = {} } = innerContainerRef;
+      let updatedHeight = innerDomElement?.clientHeight || 0;
 
-      if (domElement?.style) {
-        let updatedHeight = innerDomElement?.clientHeight || 0;
-
-        if (minHeight > containerHeight) {
-          updatedHeight = minHeight;
-        }
-
-        domElement.style.minHeight = `${updatedHeight}px`;
-        setTracking(() => ({
-          containerWidth,
-          isLoaded: isOnLoad,
-          updatedHeight
-        }));
+      if (minHeight > containerHeight) {
+        updatedHeight = minHeight;
       }
+
+      setTracking(() => ({
+        containerWidth,
+        isLoaded: isOnLoad,
+        updatedHeight
+      }));
     }
-  }, [containerHeight, containerWidth, containerRef, innerContainerRef, isOnLoad, minHeight, tracking.isLoaded]);
+  }, [containerHeight, containerWidth, innerContainerRef, isOnLoad, minHeight, tracking.isLoaded]);
 
   return (
-    <div className="curiosity-minheight" ref={containerRef}>
+    <div className="curiosity-minheight" style={{ minHeight: `${tracking.updatedHeight}px` }} ref={containerRef}>
       <div className="curiosity-minheight__inner" ref={innerContainerRef}>
         {children}
       </div>

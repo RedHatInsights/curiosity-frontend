@@ -777,8 +777,10 @@ Graph layer status.
 * [ChartElements](#Chart.module_ChartElements)
     * [~InterpolationTypes](#Chart.module_ChartElements..InterpolationTypes) : <code>Object</code>
     * [~chartElementsDefaults](#Chart.module_ChartElements..chartElementsDefaults) : <code>Object</code>
+    * [~VictoryVoronoiCursorContainer](#Chart.module_ChartElements..VictoryVoronoiCursorContainer) : <code>function</code>
+    * [~TooltipLabelWrapper(props)](#Chart.module_ChartElements..TooltipLabelWrapper) ⇒ <code>JSX.Element</code>
+    * [~AxisLabelWrapper(props)](#Chart.module_ChartElements..AxisLabelWrapper) ⇒ <code>JSX.Element</code>
     * [~ChartElements(props)](#Chart.module_ChartElements..ChartElements) ⇒ <code>JSX.Element</code>
-        * [~VictoryVoronoiCursorContainer](#Chart.module_ChartElements..ChartElements..VictoryVoronoiCursorContainer)
     * [~ChartTypeDefault](#Chart.module_ChartElements..ChartTypeDefault) : <code>object</code>
 
 <a name="Chart.module_ChartElements..InterpolationTypes"></a>
@@ -793,6 +795,60 @@ Available chart interpolation types
 Chart elements default prop settings
 
 **Kind**: inner constant of [<code>ChartElements</code>](#Chart.module_ChartElements)  
+<a name="Chart.module_ChartElements..VictoryVoronoiCursorContainer"></a>
+
+### ChartElements~VictoryVoronoiCursorContainer : <code>function</code>
+Combined Victory voronoi and cursor container for chart tooltip interaction.
+
+**Kind**: inner constant of [<code>ChartElements</code>](#Chart.module_ChartElements)  
+<a name="Chart.module_ChartElements..TooltipLabelWrapper"></a>
+
+### ChartElements~TooltipLabelWrapper(props) ⇒ <code>JSX.Element</code>
+Stable wrapper for the chart tooltip label component. Defined outside render to prevent
+component identity changes per render.
+
+**Kind**: inner method of [<code>ChartElements</code>](#Chart.module_ChartElements)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.chartSettings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.chartContainerRef</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.chartTooltipRef</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Chart.module_ChartElements..AxisLabelWrapper"></a>
+
+### ChartElements~AxisLabelWrapper(props) ⇒ <code>JSX.Element</code>
+Stable wrapper for the chart axis label component. Defined outside render to prevent
+component identity changes per render.
+
+**Kind**: inner method of [<code>ChartElements</code>](#Chart.module_ChartElements)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>props.axis</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>[props.index]</td><td><code>number</code></td><td><code>0</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Chart.module_ChartElements..ChartElements"></a>
 
 ### ChartElements~ChartElements(props) ⇒ <code>JSX.Element</code>
@@ -813,13 +869,6 @@ Aggregate, generate, a compatible Victory chart element/facet component.
     </tr>  </tbody>
 </table>
 
-<a name="Chart.module_ChartElements..ChartElements..VictoryVoronoiCursorContainer"></a>
-
-#### ChartElements~VictoryVoronoiCursorContainer
-Note: both cursor and voronoiDimension attrs required if the need is to have...
-the tooltip populate consistently without being "near" a chart element y axis point
-
-**Kind**: inner constant of [<code>ChartElements</code>](#Chart.module_ChartElements..ChartElements)  
 <a name="Chart.module_ChartElements..ChartTypeDefault"></a>
 
 ### ChartElements~ChartTypeDefault : <code>object</code>

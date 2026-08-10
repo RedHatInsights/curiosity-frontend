@@ -156,22 +156,27 @@ const useSelectCategoryOptions = ({
   const { currentFilter: updatedValue } = useAliasSelector(({ toolbar }) => toolbar.filters?.[productId], {});
   const { filters = [] } = useAliasProductToolbarConfig();
 
-  let initialValue;
+  const relevantFilters = filters.filter(({ isItem, isSecondary }) => !isItem && !isSecondary);
 
-  const updatedOptions = filters
-    .filter(({ isItem, isSecondary }) => !isItem && !isSecondary)
-    .map(({ id, isSelected }) => {
-      const option = categoryOptions.find(({ value }) => id === value);
+  const initialValue =
+    updatedValue !== undefined
+      ? undefined
+      : relevantFilters.reduce((acc, { id, isSelected }) => {
+          if (!isSelected) {
+            return acc;
+          }
 
-      if (updatedValue === undefined && isSelected) {
-        initialValue = option.value;
-      }
+          return categoryOptions.find(({ value }) => id === value)?.value ?? acc;
+        }, undefined);
 
-      return {
-        ...option,
-        isSelected: (updatedValue === undefined && isSelected) || updatedValue === option.value
-      };
-    });
+  const updatedOptions = relevantFilters.map(({ id, isSelected }) => {
+    const option = categoryOptions.find(({ value }) => id === value);
+
+    return {
+      ...option,
+      isSelected: (updatedValue === undefined && isSelected) || updatedValue === option.value
+    };
+  });
 
   return {
     currentCategory: updatedValue,
