@@ -1,17 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "commitMessagePrefix": "build",
+  "commitMessagePrefix": "build(deps):",
+  "commitMessageMaxLength": 65,
   "commitMessageLowerCase": "auto",
   "labels": ["build"],
   "rebaseWhen": "auto",
   "prConcurrentLimit": 3,
   "timezone": "America/New_York",
-  "minimumReleaseAge": "14 days",
   "rangeStrategy": "bump",
   "packageRules": [
     {
-<<<<<<< Updated upstream
-=======
       "matchManagers": ["tekton"],
       "prPriority": 10
     },
@@ -20,7 +18,6 @@
       "minimumReleaseAge": "14 days"
     },
     {
->>>>>>> Stashed changes
       "matchPackageNames": [
         "@patternfly/*",
         "@redhat-cloud-services/frontend*"
