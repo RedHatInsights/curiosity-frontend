@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "commitMessagePrefix": "build(deps):",
-  "commitMessageMaxLength": 65,
+  "commitMessageTopic": "{{depName}}",
   "commitMessageLowerCase": "auto",
   "labels": ["build"],
   "rebaseWhen": "auto",
