@@ -88,6 +88,7 @@ spec:
         --set-template-ref artemis=main
         --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/prometheus=latest
         --set-template-ref prometheus=main
+        --set-parameter landing-page-frontend/IMAGE=quay.io/redhat-services-prod/rh-platform-experien-tenant/landing-page-frontend
     - name: DEPLOY_FRONTENDS
       value: "true"
     - name: DEPLOY_TIMEOUT
