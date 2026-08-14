@@ -30,7 +30,7 @@ export default [
   importPlugin.flatConfigs.recommended,
   eslintPluginJs.configs.recommended,
   reactPlugin.configs.flat.recommended,
-  reactHooksPlugin.configs['recommended-latest'],
+  reactHooksPlugin.configs.flat['recommended-latest'],
   ...airbnbConfig,
   prettierPlugin,
   jsonPlugin.configs.recommended,
