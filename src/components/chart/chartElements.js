@@ -69,6 +69,37 @@ const chartElementsDefaults = {
 };
 
 /**
+ * Combined Victory voronoi and cursor container for chart tooltip interaction.
+ *
+ * @type {Function}
+ */
+const VictoryVoronoiCursorContainer = createContainer('voronoi', 'cursor');
+
+/**
+ * Stable wrapper for the chart tooltip label component. Defined outside render to prevent
+ * component identity changes per render.
+ *
+ * @param {object} props
+ * @param {object} props.chartSettings
+ * @param {Function} props.chartContainerRef
+ * @param {Function} props.chartTooltipRef
+ * @returns {JSX.Element}
+ */
+const TooltipLabelWrapper = ({ chartSettings, chartContainerRef, chartTooltipRef, ...victoryProps }) =>
+  chartTooltip({ chartSettings, chartContainerRef, chartTooltipRef })(victoryProps);
+
+/**
+ * Stable wrapper for the chart axis label component. Defined outside render to prevent
+ * component identity changes per render.
+ *
+ * @param {object} props
+ * @param {string} props.axis
+ * @param {number} [props.index=0]
+ * @returns {JSX.Element}
+ */
+const AxisLabelWrapper = ({ axis, index = 0, ...victoryProps }) => chartAxisLabel({ axis, index })(victoryProps);
+
+/**
  * FixMe: Victory Charts v3.8.3+ conversion to TS alters props applied around VictoryTooltip
  * Recent conversions to TS for Victory Charts has altered the behavior around props
  * applied to custom label components, specifically for VictoryTooltip and the associated
@@ -103,13 +134,10 @@ const ChartElements = ({ chartTypeDefaults = chartElementsDefaults }) => {
   let stackedChartElements = [];
 
   if (hasData) {
-    /**
+    /*
      * Note: both cursor and voronoiDimension attrs required if the need is to have...
      * the tooltip populate consistently without being "near" a chart element y axis point
      */
-    const VictoryVoronoiCursorContainer = createContainer('voronoi', 'cursor');
-    const TooltipLabelComponent = chartTooltip({ chartSettings, chartContainerRef, chartTooltipRef });
-
     containerComponent = (
       <VictoryVoronoiCursorContainer
         cursorDimension="x"
@@ -122,7 +150,13 @@ const ChartElements = ({ chartTypeDefaults = chartElementsDefaults }) => {
             y={0}
             centerOffset={{ x: 0, y: 0 }}
             flyoutStyle={{ fill: 'transparent', stroke: 'transparent' }}
-            labelComponent={<TooltipLabelComponent />}
+            labelComponent={
+              <TooltipLabelWrapper
+                chartSettings={chartSettings}
+                chartContainerRef={chartContainerRef}
+                chartTooltipRef={chartTooltipRef}
+              />
+            }
           />
         }
         voronoiPadding={(padding && Object.values(padding).sort()?.[0]) || 0}
@@ -140,8 +174,7 @@ const ChartElements = ({ chartTypeDefaults = chartElementsDefaults }) => {
     };
 
     if (updatedXAxisProps.label) {
-      const AxisLabelComponent = chartAxisLabel({ axis: 'x' });
-      updatedXAxisProps.axisLabelComponent = <AxisLabelComponent />;
+      updatedXAxisProps.axisLabelComponent = <AxisLabelWrapper axis="x" />;
     }
 
     xAxis = <ChartAxis name="curiosity-chartarea__x-axis" {...updatedXAxisProps} animate={false} />;
@@ -157,8 +190,7 @@ const ChartElements = ({ chartTypeDefaults = chartElementsDefaults }) => {
       };
 
       if (updatedAxisProps.label) {
-        const AxisLabelComponent = chartAxisLabel({ axis: 'y', index });
-        updatedAxisProps.axisLabelComponent = <AxisLabelComponent />;
+        updatedAxisProps.axisLabelComponent = <AxisLabelWrapper axis="y" index={index} />;
       }
 
       return (
