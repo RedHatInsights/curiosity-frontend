@@ -45,4 +45,4 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.COV_TOKEN }}
       - name: Confirm integration
         if: ${{ success() }}
-        run: npm run build
+        run: npm run build && npm run test:integration
