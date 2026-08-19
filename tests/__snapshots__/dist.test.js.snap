@@ -3,7 +3,7 @@
 exports[`Build distribution should match a specific file output 1`] = `
 [
   "",
-  "./dist/css/661*css",
+  "./dist/css/632*css",
   "./dist/css/827*css",
   "./dist/fed-mods.json",
   "./dist/fonts/graph2x.png",
@@ -18,6 +18,8 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/335*js",
   "./dist/js/388*js",
   "./dist/js/393*js",
+  "./dist/js/395*js",
+  "./dist/js/395*txt",
   "./dist/js/398*js",
   "./dist/js/436*js",
   "./dist/js/454*js",
@@ -31,9 +33,7 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/628*js",
   "./dist/js/630*js",
   "./dist/js/630*txt",
-  "./dist/js/661*js",
-  "./dist/js/673*js",
-  "./dist/js/673*txt",
+  "./dist/js/632*js",
   "./dist/js/7*js",
   "./dist/js/716*js",
   "./dist/js/73*js",
