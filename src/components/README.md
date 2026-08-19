@@ -6,6 +6,8 @@
 </dd>
 <dt><a href="#Authentication.module_AuthenticationContext">AuthenticationContext</a></dt>
 <dd></dd>
+<dt><a href="#Authentication.module_useHasRelation">useHasRelation</a></dt>
+<dd></dd>
 <dt><a href="#Components.module_BannerMessages">BannerMessages</a></dt>
 <dd><p>Banner alert messages for a product view.</p>
 </dd>
@@ -248,7 +250,11 @@ An authentication pass-through component.
     </tr><tr>
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
+    <td>[props.useChrome]</td><td><code>function</code></td><td><code>useChrome</code></td>
+    </tr><tr>
     <td>[props.useGetAuthorization]</td><td><code>useGetAuthorization</code></td><td><code>useGetAuthorization</code></td>
+    </tr><tr>
+    <td>[props.useHasRelation]</td><td><code>function</code></td><td><code>useHasRelation</code></td>
     </tr>  </tbody>
 </table>
 
@@ -317,6 +323,32 @@ Return session data from authentication context.
   <tbody>
 <tr>
     <td>useAliasAuthContext</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Authentication.module_useHasRelation"></a>
+
+## useHasRelation
+<a name="Authentication.module_useHasRelation..useHasRelation"></a>
+
+### useHasRelation~useHasRelation(relation, [options]) ⇒ <code>Object</code>
+Check if the current user has a given Kessel relation on their tenant.
+In dev mode always returns authorized unless REACT_APP_DEBUG_KESSEL_AUTHORIZED=false.
+
+**Kind**: inner method of [<code>useHasRelation</code>](#Authentication.module_useHasRelation)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>relation</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>[options]</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.enabled]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr>  </tbody>
 </table>
 

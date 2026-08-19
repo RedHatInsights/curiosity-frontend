@@ -94,6 +94,15 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
   })
 }));
 
+jest.mock('@project-kessel/react-kessel-access-check', () => ({
+  useAccessCheckContext: () => ({}),
+  AccessCheck: { Provider: ({ children }) => children }
+}));
+
+jest.mock('@project-kessel/react-kessel-access-check/core/api-client', () => ({
+  checkSelf: () => Promise.resolve({ allowed: 'ALLOWED_FALSE' })
+}));
+
 /**
  * Mock an object property, restore with mockClear.
  * A consistent object property mock for scenarios where the property is not a function/Jest fails.
