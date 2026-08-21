@@ -46,6 +46,7 @@ Curiosity application start.
 ### AppEntry~AppEntry() ⇒ <code>JSX.Element</code>
 Application entry.
 - A platform required file, including how it's cased.
+App is lazy-loaded so Kessel/auth are not evaluated in the same module pass.
 
 **Kind**: inner method of [<code>AppEntry</code>](#Base.module_AppEntry)  
 <a name="Base.module_Bootstrap"></a>
