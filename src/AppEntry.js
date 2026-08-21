@@ -8,25 +8,24 @@ import './styles/index.scss';
  * @module AppEntry
  */
 
-
 const App = React.lazy(() => import('./app'));
 
 /**
+ * ToDo: review consolidating between this and app.js
+ */
+/**
  * Application entry.
  * - A platform required file, including how it's cased.
- * Function declaration is hoisted so Chrome can resolve this export during circular init.
  * App is lazy-loaded so Kessel/auth are not evaluated in the same module pass.
  *
  * @returns {JSX.Element}
  */
-function AppEntry() {
-  return (
-    <Provider store={store}>
-      <Suspense fallback={null}>
-        <App />
-      </Suspense>
-    </Provider>
-  );
-}
+const AppEntry = () => (
+  <Provider store={store}>
+    <Suspense fallback={null}>
+      <App />
+    </Suspense>
+  </Provider>
+);
 
 export { AppEntry as default, AppEntry };
