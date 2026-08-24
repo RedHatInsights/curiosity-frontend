@@ -5,6 +5,7 @@ exports[`Authentication Component should allow being disabled: disabled 1`] = `
   value={
     {
       "authorized": {
+        "inventory": true,
         "subscriptions": true,
       },
       "errorCodes": [],
@@ -43,6 +44,7 @@ exports[`Authentication Component should render a component authorized: authoriz
   value={
     {
       "authorized": {
+        "inventory": true,
         "subscriptions": true,
       },
       "errorCodes": [],
@@ -98,7 +100,10 @@ exports[`Authentication Component should render authorized via kessel when flag 
 <Context.Provider
   value={
     {
-      "authorized": {},
+      "authorized": {
+        "inventory": true,
+        "subscriptions": true,
+      },
       "errorCodes": [],
       "errorStatus": undefined,
     }
@@ -218,7 +223,10 @@ exports[`Authentication Component should show optin when kessel authorized and 4
 <Context.Provider
   value={
     {
-      "authorized": {},
+      "authorized": {
+        "inventory": true,
+        "subscriptions": true,
+      },
       "errorCodes": [],
       "errorStatus": 418,
     }
@@ -232,7 +240,10 @@ exports[`Authentication Component should show optin when kessel authorized but o
 <Context.Provider
   value={
     {
-      "authorized": {},
+      "authorized": {
+        "inventory": true,
+        "subscriptions": true,
+      },
       "errorCodes": [
         "SUBSCRIPTIONS1004",
       ],
@@ -249,7 +260,8 @@ exports[`Authentication Component should use kessel over legacy rbac when flag i
   value={
     {
       "authorized": {
-        "subscriptions": false,
+        "inventory": true,
+        "subscriptions": true,
       },
       "errorCodes": [],
       "errorStatus": undefined,

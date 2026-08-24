@@ -63,9 +63,9 @@ const useHasRelation = (relation, { enabled = true } = {}) => {
     return () => {
       cancelled = true;
     };
-    // intentional: run once on mount, matches React Query one-shot behavior
+    // re-run if Chrome feature flags arrive after first paint
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [enabled]);
 
   return { has, isLoading };
 };
