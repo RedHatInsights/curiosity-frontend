@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { BinocularsIcon } from '@patternfly/react-icons';
 import { Maintenance } from '@redhat-cloud-services/frontend-components/Maintenance';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
@@ -55,6 +55,34 @@ const Authentication = ({
 
   const isAuthorized = kesselEnabled ? kesselAuthorized : authorized[appName];
 
+  /*
+   * Instance table links read session.authorized.inventory. RBAC v1 inventory is empty in v2 orgs
+   * (Kessel on or off), so overlay it whenever the user is allowed to see the app.
+   */
+  const sessionData = useMemo(
+    () => ({
+      ...data,
+      authorized: {
+        ...authorized,
+        ...(isAuthorized && {
+          [appName]: true,
+          inventory: true
+        })
+      }
+    }),
+    [data, authorized, isAuthorized, appName]
+  );
+
+  helpers.browserExpose({
+    authDebug: {
+      kesselEnabled,
+      kesselAuthorized,
+      kesselPending,
+      isAuthorized,
+      authorized: sessionData.authorized
+    }
+  });
+
   const renderContent = () => {
     if (isDisabled) {
       return (
@@ -92,7 +120,7 @@ const Authentication = ({
     );
   };
 
-  return <AuthenticationContext.Provider value={data}>{renderContent()}</AuthenticationContext.Provider>;
+  return <AuthenticationContext.Provider value={sessionData}>{renderContent()}</AuthenticationContext.Provider>;
 };
 
 export { Authentication as default, Authentication };
