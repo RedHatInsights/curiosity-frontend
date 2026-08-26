@@ -96,4 +96,18 @@ describe('useHasRelation', () => {
       })
     );
   });
+
+  it('should call checkSelf when enabled transitions from false to true', async () => {
+    mockCheckSelf.mockResolvedValue({ allowed: 'ALLOWED_TRUE' });
+
+    const { rerender, act: hookAct } = await renderHook((enabled = false) =>
+      useHasRelation(Relation.INVENTORY_VIEW, { enabled })
+    );
+
+    expect(mockCheckSelf).not.toHaveBeenCalled();
+
+    await hookAct(async () => rerender(true));
+
+    expect(mockCheckSelf).toHaveBeenCalledTimes(1);
+  });
 });
