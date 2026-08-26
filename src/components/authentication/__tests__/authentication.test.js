@@ -210,6 +210,10 @@ describe('Authentication Component', () => {
     );
 
     expect(component).toMatchSnapshot('authorized');
+    expect(component.props.value.authorized).toEqual({
+      [helpers.UI_NAME]: true,
+      inventory: true
+    });
   });
 
   const mockUseChromeKesselOn = () => ({ visibilityFunctions: { featureFlag: () => true } });
@@ -235,6 +239,10 @@ describe('Authentication Component', () => {
     );
 
     expect(component).toMatchSnapshot('kessel authorized');
+    expect(component.props.value.authorized).toEqual({
+      [helpers.UI_NAME]: true,
+      inventory: true
+    });
   });
 
   it('should render not authorized via kessel when flag is on', async () => {
