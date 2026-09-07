@@ -29,6 +29,28 @@ describe('RouterContext', () => {
     expect(mockWindowHistory.mock.calls).toMatchSnapshot('navigation push');
   });
 
+  it('should strip OIDC params from query and hash during navigation', async () => {
+    const mockWindowHistory = jest.fn();
+    const { result: navigate } = await renderHook(() =>
+      useNavigate({
+        useLocation: () => ({
+          search: '?lorem=ipsum&state=abc123&code=xyz789',
+          hash: '#anchor&session_state=def456'
+        }),
+        windowHistory: { pushState: mockWindowHistory }
+      })
+    );
+
+    navigate('rhel');
+
+    const pushedUrl = mockWindowHistory.mock.calls[0][2];
+    expect(pushedUrl).toContain('?lorem=ipsum');
+    expect(pushedUrl).toContain('#anchor');
+    expect(pushedUrl).not.toContain('state=');
+    expect(pushedUrl).not.toContain('code=');
+    expect(pushedUrl).not.toContain('session_state=');
+  });
+
   it.each([
     {
       productPath: 'rhel',
@@ -119,6 +141,47 @@ describe('RouterContext', () => {
     );
 
     expect(mockSetProduct.mock.calls).toMatchSnapshot('hook');
+  });
+
+  describe('useSetRouteProduct OIDC URL cleanup', () => {
+    let replaceStateSpy;
+
+    beforeEach(() => {
+      replaceStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      replaceStateSpy.mockRestore();
+    });
+
+    const mountWithLocation = async ({ search = '', hash = '' } = {}) => {
+      const mockSetProduct = jest.fn();
+      mockSetProduct.memo = mockSetProduct;
+      return renderHook(() =>
+        useSetRouteProduct({
+          setProduct: mockSetProduct,
+          useLocation: () => ({ pathname: 'rhel', search, hash })
+        })
+      );
+    };
+
+    it('should remove OIDC params while preserving legitimate query and hash params', async () => {
+      await mountWithLocation({
+        search: '?lorem=ipsum&state=abc123',
+        hash: '#anchor&code=xyz789'
+      });
+      expect(replaceStateSpy).toHaveBeenCalledTimes(1);
+      const url = replaceStateSpy.mock.calls[0][2];
+      expect(url).toContain('?lorem=ipsum');
+      expect(url).toContain('#anchor');
+      expect(url).not.toContain('state=');
+      expect(url).not.toContain('code=');
+    });
+
+    it('should not replace an already-clean URL', async () => {
+      await mountWithLocation({ search: '?lorem=ipsum', hash: '#anchor' });
+      expect(replaceStateSpy).not.toHaveBeenCalled();
+    });
   });
 
   it('should apply a hook for useRouteDetail', async () => {

@@ -15,6 +15,53 @@ import { productConfig } from '../../config';
 const appName = helpers.UI_NAME;
 
 /**
+ * OIDC/Keycloak OAuth callback params that the Chrome shell may leave in the URL
+ * after a silent token refresh. Used to strip them at bootstrap time and reactively.
+ *
+ * @type {string[]}
+ */
+const OIDC_FRAGMENT_PARAMS = [
+  'access_token',
+  'code',
+  'error',
+  'error_description',
+  'expires_in',
+  'id_token',
+  'iss',
+  'kc_action',
+  'kc_action_status',
+  'response',
+  'session_state',
+  'state',
+  'token_type'
+];
+
+/**
+ * Remove OIDC callback parameters from the current URL while preserving
+ * application parameters such as global filters and partner links.
+ *
+ * @param {object} params
+ * @param {string} [params.search='']
+ * @param {string} [params.hash='']
+ * @returns {{search: string, hash: string}}
+ */
+const sanitizeOidcParams = ({ search = '', hash = '' } = {}) => {
+  const searchParams = new URLSearchParams(search.startsWith('?') ? search.slice(1) : search);
+  OIDC_FRAGMENT_PARAMS.forEach(param => searchParams.delete(param));
+
+  const rawHash = hash.startsWith('#') ? hash.slice(1) : hash;
+  const remainingHash = rawHash
+    .split('&')
+    .filter(entry => entry.length > 0 && !OIDC_FRAGMENT_PARAMS.includes(entry.split('=')[0]))
+    .join('&');
+
+  return {
+    search: searchParams.toString() ? `?${searchParams.toString()}` : '',
+    hash: remainingHash ? `#${remainingHash}` : ''
+  };
+};
+
+/**
  * The app baseName. Return an assumed route baseName directory based on existing app name.
  * App name is defined in dotenv and package.json/insights.appname
  * [environment]/[OPTIONAL]/[OPTIONAL]/[APP NAME]
@@ -163,6 +210,8 @@ const routerHelpers = {
   dynamicBasePath,
   dynamicPath,
   getRouteConfigByPath,
+  OIDC_FRAGMENT_PARAMS,
+  sanitizeOidcParams,
   parseSearchParams,
   pathJoin
 };
@@ -176,6 +225,8 @@ export {
   dynamicBasePath,
   dynamicPath,
   getRouteConfigByPath,
+  OIDC_FRAGMENT_PARAMS,
+  sanitizeOidcParams,
   parseSearchParams,
   pathJoin
 };

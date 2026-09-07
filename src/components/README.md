@@ -5344,9 +5344,11 @@ Consumes useSetRouteProduct to return a display configuration for use in product
 
 * [RouterHelpers](#Router.module_RouterHelpers)
     * [~appName](#Router.module_RouterHelpers..appName) : <code>string</code>
+    * [~OIDC_FRAGMENT_PARAMS](#Router.module_RouterHelpers..OIDC_FRAGMENT_PARAMS) : <code>Array.&lt;string&gt;</code>
     * [~getRouteConfigByPath](#Router.module_RouterHelpers..getRouteConfigByPath) ⇒ <code>Object</code>
     * [~parseSearchParams](#Router.module_RouterHelpers..parseSearchParams) ⇒ <code>Object</code>
     * [~pathJoin](#Router.module_RouterHelpers..pathJoin) ⇒ <code>string</code>
+    * [~sanitizeOidcParams(params)](#Router.module_RouterHelpers..sanitizeOidcParams) ⇒ <code>Object</code>
     * [~dynamicBaseName(params)](#Router.module_RouterHelpers..dynamicBaseName) ⇒ <code>string</code>
     * [~dynamicBasePath(params)](#Router.module_RouterHelpers..dynamicBasePath) ⇒ <code>string</code>
     * [~dynamicPath(params)](#Router.module_RouterHelpers..dynamicPath) ⇒ <code>string</code>
@@ -5356,6 +5358,13 @@ Consumes useSetRouteProduct to return a display configuration for use in product
 
 ### RouterHelpers~appName : <code>string</code>
 Platform name/id.
+
+**Kind**: inner constant of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
+<a name="Router.module_RouterHelpers..OIDC_FRAGMENT_PARAMS"></a>
+
+### RouterHelpers~OIDC\_FRAGMENT\_PARAMS : <code>Array.&lt;string&gt;</code>
+OIDC/Keycloak OAuth callback params that the Chrome shell may leave in the URL
+after a silent token refresh. Used to strip them at bootstrap time and reactively.
 
 **Kind**: inner constant of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
 <a name="Router.module_RouterHelpers..getRouteConfigByPath"></a>
@@ -5417,6 +5426,29 @@ Basic path join, minor emulation for path.join. Related to the webpack 5 migrati
   <tbody>
 <tr>
     <td>paths</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterHelpers..sanitizeOidcParams"></a>
+
+### RouterHelpers~sanitizeOidcParams(params) ⇒ <code>Object</code>
+Remove OIDC callback parameters from the current URL while preserving
+application parameters such as global filters and partner links.
+
+**Kind**: inner method of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[params.search]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[params.hash]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
     </tr>  </tbody>
 </table>
 

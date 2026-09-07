@@ -53,9 +53,18 @@ Application entry.
 ## Bootstrap
 
 * [Bootstrap](#Base.module_Bootstrap)
+    * [~cleanUrl](#Base.module_Bootstrap..cleanUrl)
     * [~element](#Base.module_Bootstrap..element) : <code>HTMLElement</code>
     * [~Render](#Base.module_Bootstrap..Render) : <code>function</code>
 
+<a name="Base.module_Bootstrap..cleanUrl"></a>
+
+### Bootstrap~cleanUrl
+Strip OIDC/Keycloak callback params from the URL fragment before React mounts.
+Covers the initial page-load case; proxy-mode is handled reactively
+in useSetRouteProduct via a useEffect watching the URL.
+
+**Kind**: inner constant of [<code>Bootstrap</code>](#Base.module_Bootstrap)  
 <a name="Base.module_Bootstrap..element"></a>
 
 ### Bootstrap~element : <code>HTMLElement</code>

@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { useLocation } from 'react-use';
-import { routerHelpers } from './routerHelpers';
+import { routerHelpers, sanitizeOidcParams } from './routerHelpers';
 import { helpers } from '../../common/helpers';
 import { storeHooks } from '../../redux';
 import { translate } from '../i18n/i18n';
@@ -26,6 +26,7 @@ const useNavigate = ({
 } = {}) => {
   const windowHistory = aliasWindowHistory;
   const { search = '', hash = '' } = useAliasLocation();
+  const cleanUrl = sanitizeOidcParams({ search, hash });
 
   return useCallback(
     (pathLocation, options) => {
@@ -36,14 +37,19 @@ const useNavigate = ({
         return windowHistory.pushState(
           {},
           '',
-          `${routerHelpers.pathJoin(routerHelpers.dynamicBaseName(), firstMatch?.productPath)}${search}${hash}`,
+          `${routerHelpers.pathJoin(routerHelpers.dynamicBaseName(), firstMatch?.productPath)}${cleanUrl.search}${cleanUrl.hash}`,
           options
         );
       }
 
-      return windowHistory.pushState({}, '', (pathName && `${pathName}${search}${hash}`) || pathLocation, options);
+      return windowHistory.pushState(
+        {},
+        '',
+        (pathName && `${pathName}${cleanUrl.search}${cleanUrl.hash}`) || pathLocation,
+        options
+      );
     },
-    [hash, search, windowHistory]
+    [cleanUrl.hash, cleanUrl.search, windowHistory]
   );
 };
 
@@ -118,8 +124,15 @@ const useSetRouteProduct = ({
   useLocation: useAliasLocation = useLocation,
   useSelector: useAliasSelector = storeHooks.reactRedux.useSelector
 } = {}) => {
-  const { pathname: productPath } = useAliasLocation();
+  const { pathname: productPath, search = '', hash = '' } = useAliasLocation();
   const productVariant = useAliasSelector(({ view }) => view?.product?.variant, {});
+
+  useEffect(() => {
+    const cleanUrl = sanitizeOidcParams({ search, hash });
+    if (cleanUrl.search !== search || cleanUrl.hash !== hash) {
+      window.history.replaceState(null, '', window.location.pathname + cleanUrl.search + cleanUrl.hash);
+    }
+  }, [hash, search]);
 
   return setProduct.memo({ disableIsClosestMatch, productPath, productVariant });
 };

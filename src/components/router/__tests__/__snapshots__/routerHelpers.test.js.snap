@@ -41,6 +41,21 @@ exports[`RouterHelpers should return parse search parameters into unique key, va
 
 exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
 {
+  "OIDC_FRAGMENT_PARAMS": [
+    "access_token",
+    "code",
+    "error",
+    "error_description",
+    "expires_in",
+    "id_token",
+    "iss",
+    "kc_action",
+    "kc_action_status",
+    "response",
+    "session_state",
+    "state",
+    "token_type",
+  ],
   "appName": "subscriptions",
   "cleanPath": [Function],
   "dynamicBaseName": [Function],
@@ -49,5 +64,6 @@ exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
   "getRouteConfigByPath": [Function],
   "parseSearchParams": [Function],
   "pathJoin": [Function],
+  "sanitizeOidcParams": [Function],
 }
 `;
