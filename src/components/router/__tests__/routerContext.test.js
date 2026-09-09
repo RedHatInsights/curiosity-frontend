@@ -1,4 +1,11 @@
-import { context, setRouteProduct, useNavigate, useRouteDetail, useSetRouteProduct } from '../routerContext';
+import {
+  context,
+  setRouteProduct,
+  useNavigate,
+  useRouteDetail,
+  useSanitizeOidcParams,
+  useSetRouteProduct
+} from '../routerContext';
 import { RHSM_API_PATH_PRODUCT_TYPES } from '../../../services/rhsm/rhsmConstants';
 import { helpers } from '../../../common';
 
@@ -143,35 +150,25 @@ describe('RouterContext', () => {
     expect(mockSetProduct.mock.calls).toMatchSnapshot('hook');
   });
 
-  describe('useSetRouteProduct OIDC URL cleanup', () => {
-    let replaceStateSpy;
-
-    beforeEach(() => {
-      replaceStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
-    });
-
-    afterEach(() => {
-      replaceStateSpy.mockRestore();
-    });
-
+  describe('useSanitizeOidcParams', () => {
     const mountWithLocation = async ({ search = '', hash = '' } = {}) => {
-      const mockSetProduct = jest.fn();
-      mockSetProduct.memo = mockSetProduct;
-      return renderHook(() =>
-        useSetRouteProduct({
-          setProduct: mockSetProduct,
-          useLocation: () => ({ pathname: 'rhel', search, hash })
+      const mockWindowHistory = { replaceState: jest.fn() };
+      await renderHook(() =>
+        useSanitizeOidcParams({
+          useLocation: () => ({ pathname: '/subscriptions/rhel', search, hash }),
+          windowHistory: mockWindowHistory
         })
       );
+      return mockWindowHistory;
     };
 
     it('should remove OIDC params while preserving legitimate query and hash params', async () => {
-      await mountWithLocation({
+      const windowHistory = await mountWithLocation({
         search: '?lorem=ipsum&state=abc123',
         hash: '#anchor&code=xyz789'
       });
-      expect(replaceStateSpy).toHaveBeenCalledTimes(1);
-      const url = replaceStateSpy.mock.calls[0][2];
+      expect(windowHistory.replaceState).toHaveBeenCalledTimes(1);
+      const url = windowHistory.replaceState.mock.calls[0][2];
       expect(url).toContain('?lorem=ipsum');
       expect(url).toContain('#anchor');
       expect(url).not.toContain('state=');
@@ -179,8 +176,8 @@ describe('RouterContext', () => {
     });
 
     it('should not replace an already-clean URL', async () => {
-      await mountWithLocation({ search: '?lorem=ipsum', hash: '#anchor' });
-      expect(replaceStateSpy).not.toHaveBeenCalled();
+      const windowHistory = await mountWithLocation({ search: '?lorem=ipsum', hash: '#anchor' });
+      expect(windowHistory.replaceState).not.toHaveBeenCalled();
     });
   });
 

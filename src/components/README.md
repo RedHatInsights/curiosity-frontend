@@ -5228,6 +5228,7 @@ Apply configurable banners per product variant
 
 * [RouterContext](#Router.module_RouterContext)
     * [~useNavigate(options)](#Router.module_RouterContext..useNavigate) ⇒ <code>function</code>
+    * [~useSanitizeOidcParams(options)](#Router.module_RouterContext..useSanitizeOidcParams) ⇒ <code>void</code>
     * [~setRouteProduct(params)](#Router.module_RouterContext..setRouteProduct) ⇒ <code>Object</code>
         * [.memo](#Router.module_RouterContext..setRouteProduct.memo) : <code>function</code>
     * [~useSetRouteProduct(options)](#Router.module_RouterContext..useSetRouteProduct) ⇒ <code>Object</code>
@@ -5253,6 +5254,28 @@ update. Dispatches the same type leveraged by the initialize hook, useSetRouteDe
     <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
     </tr><tr>
     <td>[options.windowHistory]</td><td><code>*</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterContext..useSanitizeOidcParams"></a>
+
+### RouterContext~useSanitizeOidcParams(options) ⇒ <code>void</code>
+Remove OIDC callback parameters whenever the application URL changes.
+
+**Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
+    </tr><tr>
+    <td>[options.windowHistory]</td><td><code>*</code></td><td><code>window.history</code></td>
     </tr>  </tbody>
 </table>
 

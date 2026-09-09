@@ -9,7 +9,7 @@ import { sanitizeOidcParams } from './components/router/routerHelpers';
  */
 
 /**
- * Strip OIDC/Keycloak callback params from the URL fragment before React mounts.
+ * Strip OIDC/Keycloak callback params from the URL query and fragment before React mounts.
  * Covers the initial page-load case; proxy-mode is handled reactively
  * in useSetRouteProduct via a useEffect watching the URL.
  */
