@@ -4,8 +4,10 @@ import {
   dynamicBaseName,
   dynamicBasePath,
   getRouteConfigByPath,
+  OIDC_FRAGMENT_PARAMS,
   parseSearchParams,
-  pathJoin
+  pathJoin,
+  sanitizeOidcParams
 } from '../routerHelpers';
 import { helpers } from '../../../common';
 
@@ -117,6 +119,32 @@ describe('RouterHelpers', () => {
 
   it('should return parse search parameters into unique key, value pairs', () => {
     expect(parseSearchParams('?lorem=ipsum&dolor=sit&lorem=hello%20world')).toMatchSnapshot('unique pairs');
+  });
+
+  it('should remove OIDC params while preserving legitimate URL parameters', () => {
+    expect(
+      sanitizeOidcParams({
+        search: '?lorem=ipsum&state=abc123&code=xyz789',
+        hash: '#anchor&session_state=def456'
+      })
+    ).toEqual({
+      search: '?lorem=ipsum',
+      hash: '#anchor'
+    });
+  });
+
+  it('should remove every reserved OIDC parameter from query and fragment', () => {
+    const reservedParams = OIDC_FRAGMENT_PARAMS.map(param => `${param}=value`).join('&');
+
+    expect(
+      sanitizeOidcParams({
+        search: `?lorem=ipsum&${reservedParams}`,
+        hash: `#anchor&${reservedParams}`
+      })
+    ).toEqual({
+      search: '?lorem=ipsum',
+      hash: '#anchor'
+    });
   });
 });
 

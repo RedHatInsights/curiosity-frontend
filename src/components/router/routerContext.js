@@ -1,7 +1,7 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useLayoutEffect } from 'react';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { useLocation } from 'react-use';
-import { routerHelpers } from './routerHelpers';
+import { routerHelpers, sanitizeOidcParams } from './routerHelpers';
 import { helpers } from '../../common/helpers';
 import { storeHooks } from '../../redux';
 import { translate } from '../i18n/i18n';
@@ -26,25 +26,52 @@ const useNavigate = ({
 } = {}) => {
   const windowHistory = aliasWindowHistory;
   const { search = '', hash = '' } = useAliasLocation();
+  const cleanUrl = sanitizeOidcParams({ search, hash });
 
   return useCallback(
     (pathLocation, options) => {
       const pathName = (typeof pathLocation === 'string' && pathLocation) || pathLocation?.pathname;
       const { firstMatch } = routerHelpers.getRouteConfigByPath({ pathName });
+      const targetPath = firstMatch?.productPath
+        ? routerHelpers.pathJoin(routerHelpers.dynamicBaseName(), firstMatch?.productPath)
+        : pathName;
 
       if (firstMatch?.productPath) {
-        return windowHistory.pushState(
-          {},
-          '',
-          `${routerHelpers.pathJoin(routerHelpers.dynamicBaseName(), firstMatch?.productPath)}${search}${hash}`,
-          options
-        );
+        return windowHistory.pushState({}, '', `${targetPath}${cleanUrl.search}${cleanUrl.hash}`, options);
       }
 
-      return windowHistory.pushState({}, '', (pathName && `${pathName}${search}${hash}`) || pathLocation, options);
+      return windowHistory.pushState(
+        {},
+        '',
+        (pathName && `${pathName}${cleanUrl.search}${cleanUrl.hash}`) || pathLocation,
+        options
+      );
     },
-    [hash, search, windowHistory]
+    [cleanUrl.hash, cleanUrl.search, windowHistory]
   );
+};
+
+/**
+ * Remove OIDC callback parameters whenever the application URL changes.
+ *
+ * @param {object} options
+ * @param {useLocation} [options.useLocation=useLocation]
+ * @param {*} [options.windowHistory=window.history]
+ * @returns {void}
+ */
+const useSanitizeOidcParams = ({
+  useLocation: useAliasLocation = useLocation,
+  windowHistory: aliasWindowHistory = window.history
+} = {}) => {
+  const windowHistory = aliasWindowHistory;
+  const { pathname = window.location.pathname, search = '', hash = '' } = useAliasLocation();
+
+  useLayoutEffect(() => {
+    const cleanUrl = sanitizeOidcParams({ search, hash });
+    if (cleanUrl.search !== search || cleanUrl.hash !== hash) {
+      windowHistory.replaceState(null, '', pathname + cleanUrl.search + cleanUrl.hash);
+    }
+  }, [hash, pathname, search, windowHistory]);
 };
 
 /**
@@ -162,8 +189,17 @@ const useRouteDetail = ({
 const context = {
   setRouteProduct,
   useNavigate,
+  useSanitizeOidcParams,
   useRouteDetail,
   useSetRouteProduct
 };
 
-export { context as default, context, setRouteProduct, useNavigate, useRouteDetail, useSetRouteProduct };
+export {
+  context as default,
+  context,
+  setRouteProduct,
+  useNavigate,
+  useSanitizeOidcParams,
+  useRouteDetail,
+  useSetRouteProduct
+};

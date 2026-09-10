@@ -6,6 +6,7 @@ import { I18n } from './components/i18n/i18n';
 import { Notifications } from './components/notifications/notifications';
 import { Authentication } from './components/authentication/authentication';
 import { Loader } from './components/loader/loader';
+import { routerContext } from './components/router';
 const ProductView = React.lazy(() => import('./components/productView/productView'));
 
 /**
@@ -31,6 +32,7 @@ const App = ({
 }) => {
   const dispatch = useDispatch();
   const { value: locale } = useSelector(({ app }) => app?.locale?.data, {});
+  routerContext.useSanitizeOidcParams();
 
   useMount(() => {
     if (!locale) {
