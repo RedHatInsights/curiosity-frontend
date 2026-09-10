@@ -166,6 +166,7 @@ exports[`RouterContext should return specific properties: specific properties 1`
   "setRouteProduct": [Function],
   "useNavigate": [Function],
   "useRouteDetail": [Function],
+  "useSanitizeOidcParams": [Function],
   "useSetRouteProduct": [Function],
 }
 `;
