@@ -7,6 +7,13 @@
   "rebaseWhen": "auto",
   "prConcurrentLimit": 3,
   "timezone": "America/New_York",
+  "schedule": ["* * * * 1-5"],
+  "lockFileMaintenance": {
+    "schedule": ["* * * * 1-5"]
+  },
+  "tekton": {
+    "schedule": ["* * * * 1-5"]
+  },
   "rangeStrategy": "bump",
   "packageRules": [
     {
