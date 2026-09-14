@@ -8,14 +8,22 @@ exports[`PageThemeSwitcher Component should render a basic component: basic 1`] 
   <ToggleGroupItem
     aria-label="t(curiosity-view.theme-toggle, {"context":"light"})"
     buttonId="curiosity-theme-toggle-light"
-    icon={<SunIcon />}
+    icon={
+      <SunIcon
+        noDefaultStyle={false}
+      />
+    }
     isSelected={true}
     onChange={[Function]}
   />
   <ToggleGroupItem
     aria-label="t(curiosity-view.theme-toggle, {"context":"dark"})"
     buttonId="curiosity-theme-toggle-dark"
-    icon={<MoonIcon />}
+    icon={
+      <MoonIcon
+        noDefaultStyle={false}
+      />
+    }
     isSelected={false}
     onChange={[Function]}
   />

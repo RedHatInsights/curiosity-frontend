@@ -41,7 +41,7 @@ exports[`PageLayout Component should render header and section children: multipl
 >
   <section
     class="pf-v6-l-page-header pf-v6-c-page-header pf-v6-l-page__main-section pf-v6-c-page__main-section pf-m-light"
-    data-ouia-component-id="OUIA-Generated-RHI/Header-true-1"
+    data-ouia-component-id="OUIA-Generated-RHI/Header-true-:r0:"
     data-ouia-component-type="RHI/Header"
     data-ouia-safe="true"
     widget-type="InsightsPageHeader"
@@ -60,7 +60,7 @@ exports[`PageLayout Component should render header and section children: multipl
           >
             <h1
               class="pf-v6-c-title pf-m-2xl pf-u-mb-sm"
-              data-ouia-component-id="OUIA-Generated-RHI/Header-true-2"
+              data-ouia-component-id="OUIA-Generated-RHI/Header-true-:r1:"
               data-ouia-component-type="RHI/Header"
               data-ouia-safe="true"
               widget-type="InsightsPageHeaderTitle"

@@ -8,7 +8,6 @@ exports[`Tabs Component should allow config activation of a tab: config 1`] = `
     activeKey={1}
     backScrollAriaLabel="Scroll back"
     className="curiosity-tabs__no-scroll "
-    component="div"
     forwardScrollAriaLabel="Scroll forward"
     hasNoBorderBottom={false}
     id="generatedid-"
@@ -20,6 +19,7 @@ exports[`Tabs Component should allow config activation of a tab: config 1`] = `
     }
     isBox={false}
     isFilled={false}
+    isNav={false}
     isSubtab={false}
     isVertical={false}
     leftScrollAriaLabel="Scroll left"
@@ -63,7 +63,6 @@ exports[`Tabs Component should allow specific activation of a tab: specific 1`] 
     activeKey={2}
     backScrollAriaLabel="Scroll back"
     className="curiosity-tabs__no-scroll "
-    component="div"
     forwardScrollAriaLabel="Scroll forward"
     hasNoBorderBottom={false}
     id="generatedid-"
@@ -75,6 +74,7 @@ exports[`Tabs Component should allow specific activation of a tab: specific 1`] 
     }
     isBox={false}
     isFilled={false}
+    isNav={false}
     isSubtab={false}
     isVertical={false}
     leftScrollAriaLabel="Scroll left"
@@ -128,7 +128,6 @@ exports[`Tabs Component should handle no tabs: no tabs 1`] = `
     activeKey={0}
     backScrollAriaLabel="Scroll back"
     className="curiosity-tabs__no-scroll "
-    component="div"
     forwardScrollAriaLabel="Scroll forward"
     hasNoBorderBottom={false}
     id="generatedid-"
@@ -140,6 +139,7 @@ exports[`Tabs Component should handle no tabs: no tabs 1`] = `
     }
     isBox={false}
     isFilled={false}
+    isNav={false}
     isSubtab={false}
     isVertical={false}
     leftScrollAriaLabel="Scroll left"
@@ -172,14 +172,14 @@ exports[`Tabs Component should render a basic component: basic 1`] = `
 >
   <div
     class="pf-v6-c-card pf-m-plain"
-    data-ouia-component-id="OUIA-Generated-Card-1"
+    data-ouia-component-id="OUIA-Generated-Card-:r0:"
     data-ouia-component-type="PF6/Card"
     data-ouia-safe="true"
     id=""
   >
     <div
       class="pf-v6-c-tabs pf-m-animate-current pf-m-inset-none pf-m-inset-lg-on-md pf-m-initializing-accent curiosity-tabs__no-scroll "
-      data-ouia-component-id="OUIA-Generated-Tabs-1"
+      data-ouia-component-id="OUIA-Generated-Tabs-:r2:"
       data-ouia-component-type="PF6/Tabs"
       data-ouia-safe="true"
       id="generatedid-"

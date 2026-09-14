@@ -328,7 +328,9 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
   selectedOptions="sla"
   toggle={
     {
-      "icon": <FilterIcon />,
+      "icon": <FilterIcon
+        noDefaultStyle={false}
+      />,
     }
   }
 />
