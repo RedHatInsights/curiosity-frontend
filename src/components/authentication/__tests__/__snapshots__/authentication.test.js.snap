@@ -89,7 +89,11 @@ exports[`Authentication Component should render a component pending: pending 1`]
   }
 >
   <MessageView
-    icon={<BinocularsIcon />}
+    icon={
+      <BinocularsIcon
+        noDefaultStyle={false}
+      />
+    }
     message="t(curiosity-auth.pending, {"context":"description"})"
     pageTitle=" "
   />
@@ -146,7 +150,11 @@ exports[`Authentication Component should render pending via kessel when flag is 
   }
 >
   <MessageView
-    icon={<BinocularsIcon />}
+    icon={
+      <BinocularsIcon
+        noDefaultStyle={false}
+      />
+    }
     message="t(curiosity-auth.pending, {"context":"description"})"
     pageTitle=" "
   />

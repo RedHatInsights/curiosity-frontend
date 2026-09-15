@@ -13,7 +13,7 @@ exports[`TextInput Component should handle readOnly, disabled: active 1`] = `
   >
     <input
       aria-invalid="false"
-      data-ouia-component-id="OUIA-Generated-TextInputBase-4"
+      data-ouia-component-id="OUIA-Generated-TextInputBase-:r7:"
       data-ouia-component-type="PF6/TextInput"
       data-ouia-safe="true"
       id="generatedid-"
@@ -38,7 +38,7 @@ exports[`TextInput Component should handle readOnly, disabled: disabled 1`] = `
   >
     <input
       aria-invalid="false"
-      data-ouia-component-id="OUIA-Generated-TextInputBase-3"
+      data-ouia-component-id="OUIA-Generated-TextInputBase-:r5:"
       data-ouia-component-type="PF6/TextInput"
       data-ouia-safe="true"
       disabled=""
@@ -63,7 +63,7 @@ exports[`TextInput Component should handle readOnly, disabled: readOnly 1`] = `
   >
     <input
       aria-invalid="false"
-      data-ouia-component-id="OUIA-Generated-TextInputBase-2"
+      data-ouia-component-id="OUIA-Generated-TextInputBase-:r3:"
       data-ouia-component-type="PF6/TextInput"
       data-ouia-safe="true"
       id="generatedid-"
@@ -87,7 +87,7 @@ exports[`TextInput Component should render a basic component: basic component 1`
   >
     <input
       aria-invalid="false"
-      data-ouia-component-id="OUIA-Generated-TextInputBase-1"
+      data-ouia-component-id="OUIA-Generated-TextInputBase-:r1:"
       data-ouia-component-type="PF6/TextInput"
       data-ouia-safe="true"
       id="generatedid-"
@@ -108,7 +108,7 @@ exports[`TextInput Component should return an emulated onClear event on escape: 
       "checked": false,
       "currentTarget": <input
         aria-invalid="false"
-        data-ouia-component-id="OUIA-Generated-TextInputBase-6"
+        data-ouia-component-id="OUIA-Generated-TextInputBase-:rb:"
         data-ouia-component-type="PF6/TextInput"
         data-ouia-safe="true"
         id="test-id"
@@ -122,7 +122,7 @@ exports[`TextInput Component should return an emulated onClear event on escape: 
       "persist": [Function],
       "target": <input
         aria-invalid="false"
-        data-ouia-component-id="OUIA-Generated-TextInputBase-6"
+        data-ouia-component-id="OUIA-Generated-TextInputBase-:rb:"
         data-ouia-component-type="PF6/TextInput"
         data-ouia-safe="true"
         id="test-id"
