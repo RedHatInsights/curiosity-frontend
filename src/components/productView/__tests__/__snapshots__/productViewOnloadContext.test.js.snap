@@ -130,7 +130,11 @@ exports[`ProductViewOnloadContext should apply a hook for usage banner alerts, m
         component="a"
         data-test="bannerUsageLearnMoreLink"
         href="https://access.redhat.com/solutions/7110681"
-        icon={<ExternalLinkAltIcon />}
+        icon={
+          <ExternalLinkAltIcon
+            noDefaultStyle={false}
+          />
+        }
         iconPosition="right"
         target="_blank"
       >
@@ -185,7 +189,11 @@ exports[`ProductViewOnloadContext should apply a hook for usage banner alerts, m
         component="a"
         data-test="bannerUsageLearnMoreLink"
         href="https://access.redhat.com/solutions/7110681"
-        icon={<ExternalLinkAltIcon />}
+        icon={
+          <ExternalLinkAltIcon
+            noDefaultStyle={false}
+          />
+        }
         iconPosition="right"
         target="_blank"
       >
@@ -236,7 +244,11 @@ exports[`ProductViewOnloadContext should apply a hook for usage banner alerts, s
         component="a"
         data-test="bannerUsageLearnMoreLink"
         href="https://access.redhat.com/solutions/7110681"
-        icon={<ExternalLinkAltIcon />}
+        icon={
+          <ExternalLinkAltIcon
+            noDefaultStyle={false}
+          />
+        }
         iconPosition="right"
         target="_blank"
       >

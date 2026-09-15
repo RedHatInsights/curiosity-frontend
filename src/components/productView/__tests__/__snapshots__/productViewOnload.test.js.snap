@@ -18,7 +18,11 @@ exports[`ProductViewOnload Component should handle display error responses: erro
 
 exports[`ProductViewOnload Component should handle pending responses: pending 1`] = `
 <MessageView
-  icon={<BinocularsIcon />}
+  icon={
+    <BinocularsIcon
+      noDefaultStyle={false}
+    />
+  }
   message="t(curiosity-view.pending, {"context":"description"})"
   pageTitle=" "
 />

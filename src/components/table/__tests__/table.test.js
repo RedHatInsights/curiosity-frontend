@@ -118,7 +118,7 @@ describe('Table Component', () => {
     const component = renderComponent(<Table {...props} />);
     expect(component.find('tbody tr')).toMatchSnapshot('select row content');
 
-    const input = component.find('input[name="checkrow1"]');
+    const input = component.find('input[id="select-1"]');
     component.fireEvent.click(input, { currentTarget: {}, target: { checked: true }, checked: true });
 
     expect(mockOnSelect.mock.calls).toMatchSnapshot('select row input');
