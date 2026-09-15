@@ -8,7 +8,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
 >
   <div
     class="pf-v6-c-card curiosity-graph__totals curiosity-usage-graph__totals"
-    data-ouia-component-id="OUIA-Generated-Card-2"
+    data-ouia-component-id="OUIA-Generated-Card-:r1:"
     data-ouia-component-type="PF6/Card"
     data-ouia-safe="true"
     data-test="graphMetricTotals-hello-world"
@@ -21,7 +21,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
       >
         <div
           class="pf-v6-c-card pf-m-plain curiosity-graph__totals-column-card curiosity-usage-graph__totals-column-card "
-          data-ouia-component-id="OUIA-Generated-Card-3"
+          data-ouia-component-id="OUIA-Generated-Card-:r2:"
           data-ouia-component-type="PF6/Card"
           data-ouia-safe="true"
           data-test="graphMetricTotalsCard-0"
@@ -41,7 +41,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
                 >
                   <h2
                     class="pf-v6-c-title pf-m-md"
-                    data-ouia-component-id="OUIA-Generated-Title-1"
+                    data-ouia-component-id="OUIA-Generated-Title-:r4:"
                     data-ouia-component-type="PF6/Title"
                     data-ouia-safe="true"
                   >
@@ -68,7 +68,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
         </div>
         <div
           class="pf-v6-c-card pf-m-plain curiosity-graph__totals-column-card curiosity-usage-graph__totals-column-card "
-          data-ouia-component-id="OUIA-Generated-Card-4"
+          data-ouia-component-id="OUIA-Generated-Card-:r5:"
           data-ouia-component-type="PF6/Card"
           data-ouia-safe="true"
           data-test="graphMetricTotalsCard-1"
@@ -88,7 +88,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
                 >
                   <h2
                     class="pf-v6-c-title pf-m-md"
-                    data-ouia-component-id="OUIA-Generated-Title-2"
+                    data-ouia-component-id="OUIA-Generated-Title-:r7:"
                     data-ouia-component-type="PF6/Title"
                     data-ouia-safe="true"
                   >
@@ -115,7 +115,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
         </div>
         <div
           class="pf-v6-c-card pf-m-plain curiosity-graph__totals-column-card curiosity-usage-graph__totals-column-card "
-          data-ouia-component-id="OUIA-Generated-Card-5"
+          data-ouia-component-id="OUIA-Generated-Card-:r8:"
           data-ouia-component-type="PF6/Card"
           data-ouia-safe="true"
           data-test="graphMetricTotalsCard-2"
@@ -135,7 +135,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
                 >
                   <h2
                     class="pf-v6-c-title pf-m-md"
-                    data-ouia-component-id="OUIA-Generated-Title-3"
+                    data-ouia-component-id="OUIA-Generated-Title-:ra:"
                     data-ouia-component-type="PF6/Title"
                     data-ouia-safe="true"
                   >
@@ -353,7 +353,7 @@ exports[`GraphCardMetricTotals Component should render a basic component: basic 
 >
   <div
     class="pf-v6-c-card curiosity-graph__standalone curiosity-usage-graph__standalone"
-    data-ouia-component-id="OUIA-Generated-Card-1"
+    data-ouia-component-id="OUIA-Generated-Card-:r0:"
     data-ouia-component-type="PF6/Card"
     data-ouia-safe="true"
     data-test="graphStandalone"

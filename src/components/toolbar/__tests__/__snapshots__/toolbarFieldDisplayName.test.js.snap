@@ -63,7 +63,11 @@ exports[`ToolbarFieldDisplayName Component should render a basic component: basi
     <TextInput
       aria-label="t(curiosity-toolbar.placeholder_filter, {"context":"displayName"})"
       className="curiosity-input__display-name"
-      customIcon={<SearchIcon />}
+      customIcon={
+        <SearchIcon
+          noDefaultStyle={false}
+        />
+      }
       data-test="toolbarFieldDisplayName"
       maxLength={255}
       onClear={[Function]}
