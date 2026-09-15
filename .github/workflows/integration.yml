@@ -6,7 +6,7 @@ on:
       - "*"
   pull_request:
 env:
-  COV_NODE_VERSION: 20
+  COV_NODE_VERSION: 22
   BRANCH: ${{ github.base_ref }}
 
 jobs:
@@ -14,16 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20.x, 22.x]
+        node-version: [22.x, 24.x]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
       - name: Node.js modules cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6.1.0
         id: modules-cache
         with:
           path: ${{ github.workspace }}/node_modules
@@ -40,7 +40,7 @@ jobs:
         run: npm test
       - name: Code coverage
         if: ${{ success() && contains(matrix.node-version, env.COV_NODE_VERSION) }}
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         env:
           CODECOV_TOKEN: ${{ secrets.COV_TOKEN }}
       - name: Confirm integration

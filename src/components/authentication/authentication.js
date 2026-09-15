@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { BinocularsIcon } from '@patternfly/react-icons';
 import { Maintenance } from '@redhat-cloud-services/frontend-components/Maintenance';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { routerHelpers } from '../router';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
@@ -9,6 +10,7 @@ import { MessageView } from '../messageView/messageView';
 import { OptinView } from '../optinView/optinView';
 import { translate } from '../i18n/i18n';
 import { AuthenticationContext, useGetAuthorization } from './authenticationContext';
+import { useHasRelation, Relation } from './useHasRelation';
 
 /**
  * Authentication component wrapper.
@@ -18,6 +20,8 @@ import { AuthenticationContext, useGetAuthorization } from './authenticationCont
  * @property {module} AuthenticationContext
  */
 
+const KESSEL_FLAG = 'swatch.common-security.use-kessel-rbac';
+
 /**
  * An authentication pass-through component.
  *
@@ -26,7 +30,9 @@ import { AuthenticationContext, useGetAuthorization } from './authenticationCont
  * @param {React.ReactNode} props.children
  * @param {boolean} [props.isDisabled=helpers.UI_DISABLED]
  * @param {translate} [props.t=translate]
+ * @param {Function} [props.useChrome=useChrome]
  * @param {useGetAuthorization} [props.useGetAuthorization=useGetAuthorization]
+ * @param {Function} [props.useHasRelation=useHasRelation]
  * @returns {JSX.Element}
  */
 const Authentication = ({
@@ -34,11 +40,48 @@ const Authentication = ({
   children,
   isDisabled = helpers.UI_DISABLED,
   t = translate,
-  useGetAuthorization: useAliasGetAuthorization = useGetAuthorization
+  useChrome: useAliasChrome = useChrome,
+  useGetAuthorization: useAliasGetAuthorization = useGetAuthorization,
+  useHasRelation: useAliasHasRelation = useHasRelation
 }) => {
+  const { visibilityFunctions } = useAliasChrome();
+  const kesselEnabled = visibilityFunctions?.featureFlag?.(KESSEL_FLAG, true) ?? false;
+
   const { pending, data = {} } = useAliasGetAuthorization();
   const { authorized = {}, errorCodes, errorStatus } = data;
-  const { [appName]: isAuthorized } = authorized;
+  const { has: kesselAuthorized, isLoading: kesselPending } = useAliasHasRelation(Relation.INVENTORY_VIEW, {
+    enabled: kesselEnabled
+  });
+
+  const isAuthorized = kesselEnabled ? kesselAuthorized : authorized[appName];
+
+  /*
+   * Instance table links read session.authorized.inventory. RBAC v1 inventory is empty in v2 orgs
+   * (Kessel on or off), so overlay it whenever the user is allowed to see the app.
+   */
+  const sessionData = useMemo(
+    () => ({
+      ...data,
+      authorized: {
+        ...authorized,
+        ...(isAuthorized && {
+          [appName]: true,
+          inventory: true
+        })
+      }
+    }),
+    [data, authorized, isAuthorized, appName]
+  );
+
+  helpers.browserExpose({
+    authDebug: {
+      kesselEnabled,
+      kesselAuthorized,
+      kesselPending,
+      isAuthorized,
+      authorized: sessionData.authorized
+    }
+  });
 
   const renderContent = () => {
     if (isDisabled) {
@@ -49,11 +92,7 @@ const Authentication = ({
       );
     }
 
-    if (isAuthorized) {
-      return children;
-    }
-
-    if (pending) {
+    if (pending || (kesselEnabled && kesselPending)) {
       return (
         <MessageView
           pageTitle="&nbsp;"
@@ -70,6 +109,10 @@ const Authentication = ({
       return <OptinView />;
     }
 
+    if (isAuthorized) {
+      return children;
+    }
+
     return (
       <MessageView>
         <NotAuthorized serviceName={helpers.UI_DISPLAY_NAME} />
@@ -77,7 +120,7 @@ const Authentication = ({
     );
   };
 
-  return <AuthenticationContext.Provider value={data}>{renderContent()}</AuthenticationContext.Provider>;
+  return <AuthenticationContext.Provider value={sessionData}>{renderContent()}</AuthenticationContext.Provider>;
 };
 
 export { Authentication as default, Authentication };

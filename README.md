@@ -9,7 +9,7 @@ A web user interface for subscription reporting, based on [PatternFly](https://w
 Curiosity Frontend provides a comprehensive UI for managing and reporting on Red Hat subscriptions, usage, and capacity.
 
 ## Requirements
-- [Node.js 20+](https://nodejs.org/)
+- [Node.js 22+](https://nodejs.org/)
 - npm
 
 ## Quick start
@@ -37,6 +37,7 @@ This is the base context for running a local UI against a mock API and styling.
     REACT_APP_DEBUG_PERMISSION_APP_ONE=subscriptions:*:*
     REACT_APP_DEBUG_PERMISSION_APP_TWO=inventory:*:*
    ```
+   Set `REACT_APP_DEBUG_KESSEL_AUTHORIZED=false` to test the unauthorized state locally (dev mode defaults to authorized).
 1. In a terminal instance within the repository root, run:
    ```
    $ npm start

@@ -1,12 +1,59 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "commitMessagePrefix": "ci:",
+  "commitMessagePrefix": "build(deps):",
+  "commitMessageTopic": "{{depName}}",
   "commitMessageLowerCase": "auto",
   "labels": ["build"],
   "rebaseWhen": "auto",
-  "schedule": [
-    "on Tuesday after 3am and before 10am"
-  ],
+  "prConcurrentLimit": 3,
   "timezone": "America/New_York",
-  "enabledManagers": ["tekton"]
+  "schedule": ["* * * * 1-5"],
+  "lockFileMaintenance": {
+    "schedule": ["* * * * 1-5"]
+  },
+  "tekton": {
+    "schedule": ["* * * * 1-5"]
+  },
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "matchManagers": ["tekton"],
+      "prPriority": 10
+    },
+    {
+      "matchManagers": ["npm"],
+      "minimumReleaseAge": "14 days"
+    },
+    {
+      "matchPackageNames": [
+        "@patternfly/*",
+        "@redhat-cloud-services/frontend*"
+      ],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["minor"],
+      "groupName": "prod",
+      "dependencyDashboardApproval": true
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dev"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "prod"
+    }
+  ]
 }

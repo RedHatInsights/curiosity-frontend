@@ -17,7 +17,9 @@ exports[`GraphCardChartTitleTooltip Component should render a basic component: b
   <span
     className="curiosity-icon__question"
   >
-    <OutlinedQuestionCircleIcon />
+    <OutlinedQuestionCircleIcon
+      noDefaultStyle={false}
+    />
   </span>
 </Tooltip>
 `;

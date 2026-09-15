@@ -6,6 +6,8 @@
 </dd>
 <dt><a href="#Authentication.module_AuthenticationContext">AuthenticationContext</a></dt>
 <dd></dd>
+<dt><a href="#Authentication.module_useHasRelation">useHasRelation</a></dt>
+<dd></dd>
 <dt><a href="#Components.module_BannerMessages">BannerMessages</a></dt>
 <dd><p>Banner alert messages for a product view.</p>
 </dd>
@@ -122,6 +124,8 @@ recreate the core component.
 <dt><a href="#PageLayout.module_PageMessages">PageMessages</a></dt>
 <dd></dd>
 <dt><a href="#PageLayout.module_PageSection">PageSection</a></dt>
+<dd></dd>
+<dt><a href="#PageLayout.module_PageThemeSwitcher">PageThemeSwitcher</a></dt>
 <dd></dd>
 <dt><a href="#PageLayout.module_PageToolbar">PageToolbar</a></dt>
 <dd></dd>
@@ -246,7 +250,11 @@ An authentication pass-through component.
     </tr><tr>
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
+    <td>[props.useChrome]</td><td><code>function</code></td><td><code>useChrome</code></td>
+    </tr><tr>
     <td>[props.useGetAuthorization]</td><td><code>useGetAuthorization</code></td><td><code>useGetAuthorization</code></td>
+    </tr><tr>
+    <td>[props.useHasRelation]</td><td><code>function</code></td><td><code>useHasRelation</code></td>
     </tr>  </tbody>
 </table>
 
@@ -315,6 +323,32 @@ Return session data from authentication context.
   <tbody>
 <tr>
     <td>useAliasAuthContext</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Authentication.module_useHasRelation"></a>
+
+## useHasRelation
+<a name="Authentication.module_useHasRelation..useHasRelation"></a>
+
+### useHasRelation~useHasRelation(relation, [options]) ⇒ <code>Object</code>
+Check if the current user has a given Kessel relation on their tenant.
+In dev mode always returns authorized unless REACT_APP_DEBUG_KESSEL_AUTHORIZED=false.
+
+**Kind**: inner method of [<code>useHasRelation</code>](#Authentication.module_useHasRelation)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>relation</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>[options]</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.enabled]</td><td><code>boolean</code></td><td><code>true</code></td>
     </tr>  </tbody>
 </table>
 
@@ -775,8 +809,10 @@ Graph layer status.
 * [ChartElements](#Chart.module_ChartElements)
     * [~InterpolationTypes](#Chart.module_ChartElements..InterpolationTypes) : <code>Object</code>
     * [~chartElementsDefaults](#Chart.module_ChartElements..chartElementsDefaults) : <code>Object</code>
+    * [~VictoryVoronoiCursorContainer](#Chart.module_ChartElements..VictoryVoronoiCursorContainer) : <code>function</code>
+    * [~TooltipLabelWrapper(props)](#Chart.module_ChartElements..TooltipLabelWrapper) ⇒ <code>JSX.Element</code>
+    * [~AxisLabelWrapper(props)](#Chart.module_ChartElements..AxisLabelWrapper) ⇒ <code>JSX.Element</code>
     * [~ChartElements(props)](#Chart.module_ChartElements..ChartElements) ⇒ <code>JSX.Element</code>
-        * [~VictoryVoronoiCursorContainer](#Chart.module_ChartElements..ChartElements..VictoryVoronoiCursorContainer)
     * [~ChartTypeDefault](#Chart.module_ChartElements..ChartTypeDefault) : <code>object</code>
 
 <a name="Chart.module_ChartElements..InterpolationTypes"></a>
@@ -791,6 +827,60 @@ Available chart interpolation types
 Chart elements default prop settings
 
 **Kind**: inner constant of [<code>ChartElements</code>](#Chart.module_ChartElements)  
+<a name="Chart.module_ChartElements..VictoryVoronoiCursorContainer"></a>
+
+### ChartElements~VictoryVoronoiCursorContainer : <code>function</code>
+Combined Victory voronoi and cursor container for chart tooltip interaction.
+
+**Kind**: inner constant of [<code>ChartElements</code>](#Chart.module_ChartElements)  
+<a name="Chart.module_ChartElements..TooltipLabelWrapper"></a>
+
+### ChartElements~TooltipLabelWrapper(props) ⇒ <code>JSX.Element</code>
+Stable wrapper for the chart tooltip label component. Defined outside render to prevent
+component identity changes per render.
+
+**Kind**: inner method of [<code>ChartElements</code>](#Chart.module_ChartElements)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.chartSettings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.chartContainerRef</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.chartTooltipRef</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Chart.module_ChartElements..AxisLabelWrapper"></a>
+
+### ChartElements~AxisLabelWrapper(props) ⇒ <code>JSX.Element</code>
+Stable wrapper for the chart axis label component. Defined outside render to prevent
+component identity changes per render.
+
+**Kind**: inner method of [<code>ChartElements</code>](#Chart.module_ChartElements)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>props.axis</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>[props.index]</td><td><code>number</code></td><td><code>0</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Chart.module_ChartElements..ChartElements"></a>
 
 ### ChartElements~ChartElements(props) ⇒ <code>JSX.Element</code>
@@ -811,13 +901,6 @@ Aggregate, generate, a compatible Victory chart element/facet component.
     </tr>  </tbody>
 </table>
 
-<a name="Chart.module_ChartElements..ChartElements..VictoryVoronoiCursorContainer"></a>
-
-#### ChartElements~VictoryVoronoiCursorContainer
-Note: both cursor and voronoiDimension attrs required if the need is to have...
-the tooltip populate consistently without being "near" a chart element y axis point
-
-**Kind**: inner constant of [<code>ChartElements</code>](#Chart.module_ChartElements..ChartElements)  
 <a name="Chart.module_ChartElements..ChartTypeDefault"></a>
 
 ### ChartElements~ChartTypeDefault : <code>object</code>
@@ -4268,6 +4351,36 @@ Render a platform page section.
     </tr>  </tbody>
 </table>
 
+<a name="PageLayout.module_PageThemeSwitcher"></a>
+
+## PageThemeSwitcher
+<a name="PageLayout.module_PageThemeSwitcher..PageThemeSwitcher"></a>
+
+### PageThemeSwitcher~PageThemeSwitcher(props) ⇒ <code>JSX.Element</code>
+Render a light/dark theme toggle. Toggling "dark" adds the
+`pf-v6-theme-dark` class to the root `<html>` element; toggling "light"
+removes it.
+
+Note: This component is only intended to be used within the development run of the application.
+The hardcoded className is only used here for development purposes.
+
+**Kind**: inner method of [<code>PageThemeSwitcher</code>](#PageLayout.module_PageThemeSwitcher)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[props.className]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="PageLayout.module_PageToolbar"></a>
 
 ## PageToolbar
@@ -5115,6 +5228,7 @@ Apply configurable banners per product variant
 
 * [RouterContext](#Router.module_RouterContext)
     * [~useNavigate(options)](#Router.module_RouterContext..useNavigate) ⇒ <code>function</code>
+    * [~useSanitizeOidcParams(options)](#Router.module_RouterContext..useSanitizeOidcParams) ⇒ <code>void</code>
     * [~setRouteProduct(params)](#Router.module_RouterContext..setRouteProduct) ⇒ <code>Object</code>
         * [.memo](#Router.module_RouterContext..setRouteProduct.memo) : <code>function</code>
     * [~useSetRouteProduct(options)](#Router.module_RouterContext..useSetRouteProduct) ⇒ <code>Object</code>
@@ -5140,6 +5254,28 @@ update. Dispatches the same type leveraged by the initialize hook, useSetRouteDe
     <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
     </tr><tr>
     <td>[options.windowHistory]</td><td><code>*</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterContext..useSanitizeOidcParams"></a>
+
+### RouterContext~useSanitizeOidcParams(options) ⇒ <code>void</code>
+Remove OIDC callback parameters whenever the application URL changes.
+
+**Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
+    </tr><tr>
+    <td>[options.windowHistory]</td><td><code>*</code></td><td><code>window.history</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5231,9 +5367,11 @@ Consumes useSetRouteProduct to return a display configuration for use in product
 
 * [RouterHelpers](#Router.module_RouterHelpers)
     * [~appName](#Router.module_RouterHelpers..appName) : <code>string</code>
+    * [~OIDC_FRAGMENT_PARAMS](#Router.module_RouterHelpers..OIDC_FRAGMENT_PARAMS) : <code>Array.&lt;string&gt;</code>
     * [~getRouteConfigByPath](#Router.module_RouterHelpers..getRouteConfigByPath) ⇒ <code>Object</code>
     * [~parseSearchParams](#Router.module_RouterHelpers..parseSearchParams) ⇒ <code>Object</code>
     * [~pathJoin](#Router.module_RouterHelpers..pathJoin) ⇒ <code>string</code>
+    * [~sanitizeOidcParams(params)](#Router.module_RouterHelpers..sanitizeOidcParams) ⇒ <code>Object</code>
     * [~dynamicBaseName(params)](#Router.module_RouterHelpers..dynamicBaseName) ⇒ <code>string</code>
     * [~dynamicBasePath(params)](#Router.module_RouterHelpers..dynamicBasePath) ⇒ <code>string</code>
     * [~dynamicPath(params)](#Router.module_RouterHelpers..dynamicPath) ⇒ <code>string</code>
@@ -5243,6 +5381,13 @@ Consumes useSetRouteProduct to return a display configuration for use in product
 
 ### RouterHelpers~appName : <code>string</code>
 Platform name/id.
+
+**Kind**: inner constant of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
+<a name="Router.module_RouterHelpers..OIDC_FRAGMENT_PARAMS"></a>
+
+### RouterHelpers~OIDC\_FRAGMENT\_PARAMS : <code>Array.&lt;string&gt;</code>
+OIDC/Keycloak OAuth callback params that the Chrome shell may leave in the URL
+after a silent token refresh. Used to strip them at bootstrap time and reactively.
 
 **Kind**: inner constant of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
 <a name="Router.module_RouterHelpers..getRouteConfigByPath"></a>
@@ -5304,6 +5449,29 @@ Basic path join, minor emulation for path.join. Related to the webpack 5 migrati
   <tbody>
 <tr>
     <td>paths</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterHelpers..sanitizeOidcParams"></a>
+
+### RouterHelpers~sanitizeOidcParams(params) ⇒ <code>Object</code>
+Remove OIDC callback parameters from the current URL while preserving
+application parameters such as global filters and partner links.
+
+**Kind**: inner method of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[params.search]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
+    </tr><tr>
+    <td>[params.hash]</td><td><code>string</code></td><td><code>&quot;&#x27;&#x27;&quot;</code></td>
     </tr>  </tbody>
 </table>
 

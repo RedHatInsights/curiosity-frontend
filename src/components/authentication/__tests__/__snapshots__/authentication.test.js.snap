@@ -5,6 +5,7 @@ exports[`Authentication Component should allow being disabled: disabled 1`] = `
   value={
     {
       "authorized": {
+        "inventory": true,
         "subscriptions": true,
       },
       "errorCodes": [],
@@ -43,6 +44,7 @@ exports[`Authentication Component should render a component authorized: authoriz
   value={
     {
       "authorized": {
+        "inventory": true,
         "subscriptions": true,
       },
       "errorCodes": [],
@@ -87,7 +89,72 @@ exports[`Authentication Component should render a component pending: pending 1`]
   }
 >
   <MessageView
-    icon={<BinocularsIcon />}
+    icon={
+      <BinocularsIcon
+        noDefaultStyle={false}
+      />
+    }
+    message="t(curiosity-auth.pending, {"context":"description"})"
+    pageTitle=" "
+  />
+</Context.Provider>
+`;
+
+exports[`Authentication Component should render authorized via kessel when flag is on: kessel authorized 1`] = `
+<Context.Provider
+  value={
+    {
+      "authorized": {
+        "inventory": true,
+        "subscriptions": true,
+      },
+      "errorCodes": [],
+      "errorStatus": undefined,
+    }
+  }
+>
+  <span
+    className="test"
+  >
+    lorem
+  </span>
+</Context.Provider>
+`;
+
+exports[`Authentication Component should render not authorized via kessel when flag is on: kessel not authorized 1`] = `
+<Context.Provider
+  value={
+    {
+      "authorized": {},
+      "errorCodes": [],
+      "errorStatus": undefined,
+    }
+  }
+>
+  <MessageView>
+    <NotAuthorized
+      serviceName="Subscriptions"
+    />
+  </MessageView>
+</Context.Provider>
+`;
+
+exports[`Authentication Component should render pending via kessel when flag is on and loading: kessel pending 1`] = `
+<Context.Provider
+  value={
+    {
+      "authorized": {},
+      "errorCodes": [],
+      "errorStatus": undefined,
+    }
+  }
+>
+  <MessageView
+    icon={
+      <BinocularsIcon
+        noDefaultStyle={false}
+      />
+    }
     message="t(curiosity-auth.pending, {"context":"description"})"
     pageTitle=" "
   />
@@ -157,5 +224,62 @@ exports[`Authentication Component should return a redirect on a specific 403 err
   }
 >
   <OptinView />
+</Context.Provider>
+`;
+
+exports[`Authentication Component should show optin when kessel authorized and 418 error: kessel authorized 418 optin 1`] = `
+<Context.Provider
+  value={
+    {
+      "authorized": {
+        "inventory": true,
+        "subscriptions": true,
+      },
+      "errorCodes": [],
+      "errorStatus": 418,
+    }
+  }
+>
+  <OptinView />
+</Context.Provider>
+`;
+
+exports[`Authentication Component should show optin when kessel authorized but optin required: kessel authorized optin required 1`] = `
+<Context.Provider
+  value={
+    {
+      "authorized": {
+        "inventory": true,
+        "subscriptions": true,
+      },
+      "errorCodes": [
+        "SUBSCRIPTIONS1004",
+      ],
+      "errorStatus": 403,
+    }
+  }
+>
+  <OptinView />
+</Context.Provider>
+`;
+
+exports[`Authentication Component should use kessel over legacy rbac when flag is on: kessel overrides legacy 1`] = `
+<Context.Provider
+  value={
+    {
+      "authorized": {
+        "inventory": true,
+        "subscriptions": true,
+      },
+      "errorCodes": [],
+      "errorStatus": undefined,
+    }
+  }
+>
+  <span
+    className="test"
+  >
+    lorem
+  </span>
 </Context.Provider>
 `;

@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [24.x]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
       - name: Node.js modules cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6.1.0
         id: modules-cache
         with:
           path: ${{ github.workspace }}/node_modules
@@ -37,7 +37,7 @@ jobs:
           echo 'EOF' >> $GITHUB_ENV
       - name: Lint
         if: ${{ success() }}
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const actionCommit = require(`${process.env.GITHUB_WORKSPACE}/scripts/actions.documentation.js`)

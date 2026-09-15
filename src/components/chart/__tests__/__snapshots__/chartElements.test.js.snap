@@ -29,7 +29,229 @@ exports[`ChartElements Component should handle basic element settings from conte
             }
           }
           groupComponent={<g />}
-          labelComponent={<Unknown />}
+          labelComponent={
+            <TooltipLabelWrapper
+              chartSettings={
+                {
+                  "chartDomain": {
+                    "domain": {
+                      "y": [
+                        0,
+                        3,
+                      ],
+                    },
+                  },
+                  "chartElementsProps": {
+                    "elements": [
+                      {
+                        "chartType": undefined,
+                        "props": {
+                          "data": [
+                            {
+                              "x": 1,
+                              "xAxisLabel": "1 x axis label",
+                              "y": 1,
+                            },
+                            {
+                              "x": 2,
+                              "xAxisLabel": "2 x axis label",
+                              "y": 2,
+                            },
+                          ],
+                          "key": "chart-ipsumGraph-",
+                          "name": "chart-ipsumGraph-",
+                          "style": {
+                            "data": {
+                              "fill": "#ipsum",
+                              "stroke": "#lorem",
+                              "strokeDasharray": "4,3",
+                              "strokeWidth": 3,
+                            },
+                          },
+                          "themeColor": undefined,
+                          "themeVariant": undefined,
+                          "x": undefined,
+                          "y": [Function],
+                        },
+                      },
+                    ],
+                    "elementsById": {
+                      "ipsumGraph": {
+                        "chartType": undefined,
+                        "props": {
+                          "data": [
+                            {
+                              "x": 1,
+                              "xAxisLabel": "1 x axis label",
+                              "y": 1,
+                            },
+                            {
+                              "x": 2,
+                              "xAxisLabel": "2 x axis label",
+                              "y": 2,
+                            },
+                          ],
+                          "key": "chart-ipsumGraph-",
+                          "name": "chart-ipsumGraph-",
+                          "style": {
+                            "data": {
+                              "fill": "#ipsum",
+                              "stroke": "#lorem",
+                              "strokeDasharray": "4,3",
+                              "strokeWidth": 3,
+                            },
+                          },
+                          "themeColor": undefined,
+                          "themeVariant": undefined,
+                          "x": undefined,
+                          "y": [Function],
+                        },
+                      },
+                    },
+                    "stackedElements": [
+                      {
+                        "chartType": undefined,
+                        "props": {
+                          "data": [
+                            {
+                              "x": 1,
+                              "xAxisLabel": "1 x axis label",
+                              "y": 1,
+                            },
+                            {
+                              "x": 2,
+                              "xAxisLabel": "2 x axis label",
+                              "y": 2,
+                            },
+                          ],
+                          "key": "chart-loremGraph-",
+                          "name": "chart-loremGraph-",
+                          "style": {
+                            "data": {
+                              "fill": "#ipsum",
+                              "stroke": "#lorem",
+                              "strokeWidth": 2,
+                            },
+                          },
+                          "themeColor": undefined,
+                          "themeVariant": undefined,
+                          "x": undefined,
+                          "y": [Function],
+                        },
+                      },
+                    ],
+                    "stackedElementsById": {
+                      "loremGraph": {
+                        "chartType": undefined,
+                        "props": {
+                          "data": [
+                            {
+                              "x": 1,
+                              "xAxisLabel": "1 x axis label",
+                              "y": 1,
+                            },
+                            {
+                              "x": 2,
+                              "xAxisLabel": "2 x axis label",
+                              "y": 2,
+                            },
+                          ],
+                          "key": "chart-loremGraph-",
+                          "name": "chart-loremGraph-",
+                          "style": {
+                            "data": {
+                              "fill": "#ipsum",
+                              "stroke": "#lorem",
+                              "strokeWidth": 2,
+                            },
+                          },
+                          "themeColor": undefined,
+                          "themeVariant": undefined,
+                          "x": undefined,
+                          "y": [Function],
+                        },
+                      },
+                    },
+                  },
+                  "chartLegend": null,
+                  "chartWidth": 0,
+                  "dataSets": [
+                    {
+                      "data": [
+                        {
+                          "x": 1,
+                          "xAxisLabel": "1 x axis label",
+                          "y": 1,
+                        },
+                        {
+                          "x": 2,
+                          "xAxisLabel": "2 x axis label",
+                          "y": 2,
+                        },
+                      ],
+                      "fill": "#ipsum",
+                      "id": "loremGraph",
+                      "isStacked": true,
+                      "stroke": "#lorem",
+                      "strokeWidth": 2,
+                    },
+                    {
+                      "data": [
+                        {
+                          "x": 1,
+                          "xAxisLabel": "1 x axis label",
+                          "y": 1,
+                        },
+                        {
+                          "x": 2,
+                          "xAxisLabel": "2 x axis label",
+                          "y": 2,
+                        },
+                      ],
+                      "fill": "#ipsum",
+                      "id": "ipsumGraph",
+                      "isThreshold": true,
+                      "stroke": "#lorem",
+                      "strokeDasharray": "4,3",
+                      "strokeWidth": 3,
+                    },
+                  ],
+                  "hasData": true,
+                  "isMultiYAxis": false,
+                  "maxX": 2,
+                  "maxY": 2,
+                  "padding": {
+                    "bottom": 75,
+                    "left": 55,
+                    "right": 55,
+                    "top": 50,
+                  },
+                  "themeColor": "blue",
+                  "tooltipDataSetLookUp": {},
+                  "xAxisProps": {
+                    "fixLabelOverlap": true,
+                    "tickFormat": [Function],
+                    "tickValues": [
+                      1,
+                      2,
+                    ],
+                  },
+                  "yAxisProps": [
+                    {
+                      "dependentAxis": true,
+                      "orientation": "left",
+                      "showGrid": true,
+                      "style": {
+                        "axis": {},
+                        "tickLabels": {},
+                      },
+                      "tickFormat": [Function],
+                    },
+                  ],
+                }
+              }
+            />
+          }
           renderInPortal={true}
           y={0}
         />
@@ -62,6 +284,7 @@ exports[`ChartElements Component should handle basic element settings from conte
   <ChartAxis
     animate={false}
     fixLabelOverlap={true}
+    name="curiosity-chartarea__x-axis"
     tickFormat={[Function]}
     tickValues={
       [
@@ -73,6 +296,7 @@ exports[`ChartElements Component should handle basic element settings from conte
   <ChartAxis
     animate={false}
     dependentAxis={true}
+    name="curiosity-chartarea__y-axis"
     orientation="left"
     showGrid={true}
     style={
@@ -185,7 +409,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke: var(--pf-v6-chart-axis--axis--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--axis--Fill, transparent); stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"
+          style="stroke: var(--pf-v6-chart-axis--axis--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--axis--Fill, transparent); stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"
           vector-effect="non-scaling-stroke"
           x1="50"
           x2="400"
@@ -198,7 +422,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="120"
             x2="120"
@@ -229,7 +453,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="190"
             x2="190"
@@ -260,7 +484,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="260"
             x2="260"
@@ -291,7 +515,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="330"
             x2="330"
@@ -322,7 +546,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="400"
             x2="400"
@@ -354,7 +578,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke: var(--pf-v6-chart-axis--axis--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--axis--Fill, transparent); stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"
+          style="stroke: var(--pf-v6-chart-axis--axis--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--axis--Fill, transparent); stroke-width: 1; stroke-linecap: round; stroke-linejoin: round;"
           vector-effect="non-scaling-stroke"
           x1="50"
           x2="50"
@@ -367,7 +591,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="45"
@@ -398,7 +622,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="45"
@@ -429,7 +653,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="45"
@@ -460,7 +684,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="45"
@@ -491,7 +715,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #c7c7c7); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
+            style="stroke: var(--pf-v6-chart-axis--tick--stroke--Color, #e0e0e0); fill: var(--pf-v6-chart-axis--tick--Fill, transparent); size: 5px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1;"
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="45"

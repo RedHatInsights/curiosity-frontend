@@ -1,6 +1,10 @@
 .curiosity {
+  .pf-v6-c-pagination__nav-page-select {
+    color: var(--pf-t--global--text--color--regular);
+  }
+
   .curiosity-table__td-expand {
-    padding: 0 !important;
+    padding-left: 0 !important;
   }
 
   .curiosity-table__td-expand-expanded.curiosity-table__td-expand-wrapper {

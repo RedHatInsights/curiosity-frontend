@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [24.x]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Git commits
@@ -22,11 +22,11 @@ jobs:
           git cherry -v ssh-origin/${{ env.BRANCH }} | grep "+" >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
       - name: Lint
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const actionCommit = require(`${process.env.GITHUB_WORKSPACE}/scripts/actions.commit.js`)

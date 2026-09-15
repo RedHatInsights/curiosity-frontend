@@ -70,7 +70,7 @@ const useSelectorGuests = (
 
   useEffect(() => {
     if (response?.fulfilled) {
-      setDataSetRows([...(parsedData?.dataSetRows || [])]);
+      setDataSetRows([...(parsedData?.dataSetRows || [])]); // eslint-disable-line react-hooks/set-state-in-effect
     }
   }, [response?.fulfilled, parsedData?.dataSetRows]);
 
