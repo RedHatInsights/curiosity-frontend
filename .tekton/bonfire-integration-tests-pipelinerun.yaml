@@ -84,8 +84,6 @@ spec:
         --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/nginx-otel=latest
         --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/wiremock-consoledot=latest
         --set-template-ref wiremock=main
-        --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/artemis=latest
-        --set-template-ref artemis=main
         --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/prometheus=latest
         --set-template-ref prometheus=main
         --set-parameter landing-page-frontend/IMAGE=quay.io/redhat-services-prod/rh-platform-experien-tenant/landing-page-frontend
