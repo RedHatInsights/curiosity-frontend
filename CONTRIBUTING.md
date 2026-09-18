@@ -2,6 +2,7 @@
 Interested in contributing to the project? Review the following guidelines and our [architecture](./docs/architecture.md) to make sure your contribution is aligned with the project's goals.
 
 - [General development](#general-development)
+- [Production release](#production-release)
 - [Design and PatternFly](#design-and-patternfly)
 - [Maintenance](#maintenance)
 - [AI agent](#ai-agent)
@@ -140,31 +141,25 @@ The codebase makes use of linear Git commit history to ensure sequentially relea
 and providing a straightforward history for tracking changes.
 
 #### Staging release
-Staging code is automatically released to the `staging` environment on merge into the `main` branch.
+Staging code is automatically released to the `stage` environment on merge into the `main` branch.
 
 #### Production release
-Production code is currently maintained in the `stable` branch. Only maintainers are allowed to merge into this branch.
+The releases are created from the `main` branch.
 
 ##### Release process
-- Open a pull request from `main` to `stable`. (You can leverage past PRs as an example)
-- Ensure all tests pass in the `staging` environment.
-- **REBASE MERGE ONLY** the pull request into the `stable` branch. (It is currently discouraged that you squash commits into `stable` since it blocks/destroys the CHANGELOG.md generation.)
-- A maintainer creates a release commit on their local machine from the `stable` branch, by
+- Ensure all tests pass in the `stage` environment. Check the [`stage-periodic-check health` dashboard](https://ibutsu.insights.corp.redhat.com/project/3915c900-85fc-1222-833c-10d51af56f2e/dashboard/72a99440-b965-42c6-86a8-a169275a71e7) for curiosity.
+- A maintainer creates a release commit on their local machine from the `main` branch, by
    1. Creating a release commit with a CHANGELOG.md update 
       ```sh
        $ npm run release
        // or if you want to force a version
        $ npm run release -- --override "0.0.0"
       ```
-   2. Open a PR to the `stable` branch with this release commit
+      Three updated files are included: `CHANGELOG.md`, `package.json`, and `package-lock.json`. An added benefit is that the version displayed in `package.json` is broadcast in the application display for debugging purposes (and currently located at the bottom left of the application display)
+   2. Open a PR to the `main` branch with this release commit
    3. Let CI pass and then merge the PR. (It is now encouraged to add a PR number to the release commit since it improves transparency and traceability.)
-   4. Tag the stable branch commit. Tagging is not technically necessary for release but does provide potential known points in time that can be rolled back in an emergency. (Leverage existing tags as an example, currently they start with `v` followed by the version number, e.g., `v0.0.0`)
-   5. Next, rebase the `main` branch from the `stable` branch, this ensures the CHANGELOG.md log will continue to align with the release history.
-   6. Finally, update the AppSRE hash associated with the release commit hash. The application display should be released to production within a variable timeframe. 
- 
-> The release process can be simplified with the simple removal of the `stable` branch. This would eliminate the ping-pong rebase that currently takes place and still maintain the CHANGELOG.md generator. The downside of removing a pristine production branch that is not directly manipulated, like `stable`, is that direct manipulation of the development branch `main` would go away.
-> 
-> It is still encouraged that the release for CHANGELOG.md is maintained since it helps update 3 files, `CHANGELOG.md`, `package.json`, and `package-lock.json`. An added benefit is that the version displayed in `package.json` is broadcast in the application display for debugging purposes (and currently located at the bottom left of the application display).
+   4. Go to GitHub and create a release after the Release PR is merged and before more commits are pushed to `main`. This will create a tag in the format `v` followed by the version number (e.g., `v4.20.0`). If other commits have been merged since the release commit, create the tag manually on the release commit hash first, then create the release from that tag. Tagging provides known points in time that can be rolled back in an emergency.
+   5. Finally, update the AppSRE hash associated with the release commit hash. The application display should be released to production within a variable timeframe. 
 
 > The CHANGELOG.md generator
 > - Does not rely on the Git commit hash of the release commit, allowing it to be added in with a PR. The tool forms a range from the previous release commit and is reliant on a specific release commit message format. Altering the release commit format may break the CHANGELOG.md generation.
