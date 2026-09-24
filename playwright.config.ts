@@ -14,7 +14,8 @@ dotenv.config();
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  globalSetup: require.resolve('@redhat-cloud-services/playwright-test-auth/global-setup'),
+  // The package global setup does not forward use.proxy to its Chromium instance.
+  globalSetup: require.resolve('./playwright/global-setup.ts'),
   testDir: './playwright',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -33,7 +34,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     storageState: 'playwright/.auth/user.json',
-    trace: 'retain-on-failure',
+    trace: 'off',
     proxy: {
       server: 'http://squid.corp.redhat.com:3128',
     },

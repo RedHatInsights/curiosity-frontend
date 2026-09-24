@@ -4,10 +4,13 @@
  * Provides helpers for testing PatternFly React Charts (SVG-based)
  */
 
-import { Page, Locator, expect } from '@playwright/test';
+import { expect, type Locator, type Page } from '@playwright/test';
 
 export class ChartUtils {
-  constructor(private page: Page) {}
+  constructor(
+    private readonly page: Page,
+    private readonly chartRoot: Locator = page.locator('[data-test="graphStandalone"]')
+  ) {}
 
   /**
    * Get Y-axis maximum value (highest value displayed on chart)
@@ -51,9 +54,7 @@ export class ChartUtils {
    * Get chart area locator
    */
   getChartArea(): Locator {
-    return this.page
-      .locator('[data-test="graphStandalone"]')
-      .locator('[data-test="curiosity-chartarea"]');
+    return this.chartRoot.locator('[data-test="curiosity-chartarea"]');
   }
 
   /**

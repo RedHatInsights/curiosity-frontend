@@ -7,32 +7,22 @@
  * 3. Real Stage API (integration validation)
  */
 
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../helpers/test-fixtures';
 import { disableCookiePrompt } from '@redhat-cloud-services/playwright-test-auth';
-import { RhsmMocker } from '../helpers/rhsm-mocks';
-import { ChartUtils } from '../helpers/chart-utils';
+import { RHEL_METRIC, RHEL_PRODUCT } from '../pages/rhel-page';
 
 test.beforeEach(async ({ page }) => {
   await disableCookiePrompt(page);
-  await page.goto('/');
 });
 
 test.describe('POC: Stage Tests with Mocking', () => {
-  let mocker: RhsmMocker;
-  let chartUtils: ChartUtils;
-
-  test.beforeEach(async ({ page }) => {
-    mocker = new RhsmMocker(page);
-    chartUtils = new ChartUtils(page);
-  });
-
   // ============================================
   // Tests with Mocked API (Test UI code)
   // ============================================
 
-  test('system table displays mocked data on Stage', async ({ page }) => {
+  test('system table displays mocked data on Stage', async ({ rhelPage, mocker }) => {
     // Mock API BEFORE navigation
-    await mocker.mockInstances('RHEL for x86', {
+    await mocker.mockInstances(RHEL_PRODUCT, {
       data: {
         data: [
           {
@@ -62,32 +52,31 @@ test.describe('POC: Stage Tests with Mocking', () => {
           first: '/api/rhsm-subscriptions/v1/instances/products/RHEL%20for%20x86?offset=0',
           last: '/api/rhsm-subscriptions/v1/instances/products/RHEL%20for%20x86?offset=0'
         },
-        meta: { count: 2, product: 'RHEL for x86', measurements: ['Sockets'] }
+        meta: { count: 2, product: RHEL_PRODUCT, measurements: [RHEL_METRIC] }
       }
     });
 
     // Navigate to Stage
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
 
     // Click "Current instances" tab
-    await page.getByRole('tab', { name: 'Current instances' }).click();
+    await rhelPage.navigateToInstances();
 
     // Wait for table - but we get MOCKED data!
-    await page.waitForTimeout(2000);
+    await rhelPage.waitForInstances();
 
     // Verify mocked host names appear
-    await expect(page.getByText('physical_1f50f4e3zxifxjpk.example.dev'))
-      .toBeVisible({ timeout: 10000 });
+    await rhelPage.expectInstanceVisible('physical_1f50f4e3zxifxjpk.example.dev');
 
     console.log('✅ Mocked data displayed successfully on Stage!');
   });
 
-  test('chart displays with mocked tally data on Stage', async ({ page }) => {
+  test('chart displays with mocked tally data on Stage', async ({ rhelPage, mocker, chartUtils }) => {
     // Mock tally API with default fixture (31 days: March 14 - April 13, 2026)
     // Values range from 120-195, below capacity threshold of 200
-    await mocker.mockTally('RHEL for x86', 'Sockets');
+    await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
     // Wait for chart
     await chartUtils.waitForChart();
 
@@ -129,32 +118,31 @@ test.describe('POC: Stage Tests with Mocking', () => {
     console.log('✅ Chart data verified - displaying category breakdown with values below threshold');
   });
 
-  test('empty state test with mocked empty data on Stage', async ({ page }) => {
+  test('empty state test with mocked empty data on Stage', async ({ rhelPage, mocker }) => {
     // Mock empty instances
-    await mocker.mockEmptyInstances('RHEL for x86');
-    await mocker.mockEmptyTally('RHEL for x86', 'Sockets');
+    await mocker.mockEmptyInstances(RHEL_PRODUCT);
+    await mocker.mockEmptyTally(RHEL_PRODUCT, RHEL_METRIC);
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
     // Click instances tab
-    await page.getByRole('tab', { name: 'Current instances' }).click();
+    await rhelPage.navigateToInstances();
 
     // Should show empty state
-    await expect(page.locator('.curiosity-inventory-card').getByRole('heading', { name: 'No results found' }))
-      .toBeVisible({ timeout: 10000 });
+    await rhelPage.waitForEmptyState();
 
     console.log('✅ Empty state displayed correctly with mocked empty data');
   });
 
-  test('chart handles mocked data spike on Stage', async ({ page }) => {
+  test('chart handles mocked data spike on Stage', async ({ rhelPage, mocker, chartUtils }) => {
     // Mock tally with spike
-    await mocker.mockTallyWithSpike('RHEL for x86', 'Sockets', {
+    await mocker.mockTallyWithSpike(RHEL_PRODUCT, RHEL_METRIC, {
       spikeDay: 3,
       spikeValue: 1000,
       baseValue: 100,
       days: 7
     });
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
     await chartUtils.waitForChart();
 
     // Verify Y-axis scales to spike
@@ -170,45 +158,36 @@ test.describe('POC: Stage Tests with Mocking', () => {
     console.log('✅ Chart handles spike correctly');
   });
 
-  test('API error handling with mocked error on Stage', async ({ page }) => {
+  test('API error handling with mocked error on Stage', async ({ rhelPage, mocker }) => {
     // Mock error response
     await mocker.mockError('**/api/rhsm-subscriptions/**', 500, 'Service Unavailable');
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
     // Should show error message
-    await expect(page.getByText('Internal service error. Graph display is unavailable.'))
-      .toBeVisible({ timeout: 10000 });
-    await expect(page.getByRole('button', { name: 'View error' }).first())
-      .toBeVisible({ timeout: 10000 });
+    await rhelPage.waitForError();
+    await expect(rhelPage.viewErrorButton).toBeVisible({ timeout: 10000 });
 
     console.log('✅ Error state displayed correctly');
   });
 });
 
 test.describe('POC: Stage Tests with Real API', () => {
-  let chartUtils: ChartUtils;
-
-  test.beforeEach(async ({ page }) => {
-    chartUtils = new ChartUtils(page);
-  });
-
   // ============================================
   // Tests with Real Stage API (Integration)
   // ============================================
 
-  test('system table displays real Stage data', async ({ page }) => {
+  test('system table displays real Stage data', async ({ rhelPage }) => {
     // NO MOCKING - use real Stage API
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
     // Click instances tab
-    await page.getByRole('tab', { name: 'Current instances' }).click();
+    await rhelPage.navigateToInstances();
 
     // Wait for table with real data
-    const table = page.locator('tbody tr');
-    await expect(table.first()).toBeVisible({ timeout: 20000 });
+    await rhelPage.waitForInstances(20000);
 
     // Count rows
-    const rowCount = await table.count();
+    const rowCount = await rhelPage.getInstanceCount();
     console.log(`Real Stage data: ${rowCount} instances found`);
 
     expect(rowCount).toBeGreaterThan(0);
@@ -216,10 +195,10 @@ test.describe('POC: Stage Tests with Real API', () => {
     console.log('✅ Real Stage data displayed successfully');
   });
 
-  test('chart displays with real Stage tally data', async ({ page }) => {
+  test('chart displays with real Stage tally data', async ({ rhelPage, chartUtils }) => {
     // NO MOCKING - use real Stage API
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
     // Wait for chart to load
     await chartUtils.waitForChart();
 
@@ -238,10 +217,10 @@ test.describe('POC: Stage Tests with Real API', () => {
     console.log('✅ Real Stage chart data displayed');
   });
 
-  test('verify chart data matches API response', async ({ page }) => {
+  test('verify chart data matches API response', async ({ rhelPage, chartUtils }) => {
     // NO MOCKING - test integration
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
     // Wait for chart
     await chartUtils.waitForChart();
 
@@ -261,19 +240,15 @@ test.describe('POC: Stage Tests with Real API', () => {
     console.log('✅ Chart data retrieved and validated');
   });
 
-  test('tooltip shows real data on hover', async ({ page }) => {
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+  test('tooltip shows real data on hover', async ({ rhelPage, chartUtils }) => {
+    await rhelPage.goto();
     await chartUtils.waitForChart();
 
     // Hover over data point
     await chartUtils.hoverDataPoint(0);
 
-    // Wait for tooltip
-    await page.waitForTimeout(500);
-
     // Verify tooltip appears (selector may vary)
-    const tooltip = page.locator('[role="tooltip"], .pf-c-tooltip, .VictoryTooltip');
-    const tooltipCount = await tooltip.count();
+    const tooltipCount = await rhelPage.chartTooltip.count();
 
     console.log(`Tooltip elements found: ${tooltipCount}`);
 
@@ -281,39 +256,18 @@ test.describe('POC: Stage Tests with Real API', () => {
     console.log('✅ Hover interaction successful');
   });
 
-  test('pagination works with real Stage data', async ({ page }) => {
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
-    await page.getByRole('tab', { name: 'Current instances' }).click();
+  test('pagination works with real Stage data', async ({ rhelPage }) => {
+    await rhelPage.goto();
+    await rhelPage.navigateToInstances();
 
     // Wait for table
-    await expect(page.locator('tbody tr').first()).toBeVisible({ timeout: 20000 });
+    await rhelPage.waitForInstances(20000);
 
     // Check if pagination exists
-    const nextButton = page.getByRole('button', { name: /next|Next page/i }).first();
-
-    if (await nextButton.isVisible({ timeout: 2000 })) {
-      const isEnabled = await nextButton.isEnabled();
-
-      if (isEnabled) {
-        // Get current page indicator
-        const paginationText = await page.locator('.pf-c-pagination__nav-page-select').first().textContent();
-        console.log('Before pagination:', paginationText);
-
-        // Click next
-        await nextButton.click();
-
-        // Wait for page to change
-        await page.waitForTimeout(1000);
-
-        const newPaginationText = await page.locator('.pf-c-pagination__nav-page-select').first().textContent();
-        console.log('After pagination:', newPaginationText);
-
-        console.log('✅ Pagination works with real data');
-      } else {
-        console.log('✅ Pagination disabled (single page of data)');
-      }
+    if (await rhelPage.goToNextPage()) {
+      console.log('✅ Pagination works with real data');
     } else {
-      console.log('✅ No pagination needed (small dataset)');
+      console.log('✅ Pagination disabled or not needed (small dataset)');
     }
   });
 });
@@ -325,12 +279,9 @@ test.describe('POC: Hybrid Tests (Stage Auth + Mocked Data)', () => {
   // - Mocked API to test specific UI scenarios
   // ============================================
 
-  test('test new UI feature with Stage auth but mocked data', async ({ page }) => {
-    const mocker = new RhsmMocker(page);
-    const chartUtils = new ChartUtils(page);
-
+  test('test new UI feature with Stage auth but mocked data', async ({ rhelPage, mocker }) => {
     // Mock specific test scenario
-    await mocker.mockInstances('RHEL for x86', {
+    await mocker.mockInstances(RHEL_PRODUCT, {
       data: {
         data: [
           {
@@ -345,38 +296,34 @@ test.describe('POC: Hybrid Tests (Stage Auth + Mocked Data)', () => {
             inventory_id: 'test-inv-id'
           }
         ],
-        meta: { count: 1, product: 'RHEL for x86', measurements: ['Sockets'] },
+        meta: { count: 1, product: RHEL_PRODUCT, measurements: [RHEL_METRIC] },
         links: { first: '', last: '' }
       }
     });
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
 
     // But we see MOCKED data (controlled test scenario)
-    await page.getByRole('tab', { name: 'Current instances' }).click();
+    await rhelPage.navigateToInstances();
 
     // Verify mocked hypervisor
-    await expect(page.getByText('test-hypervisor.example.com'))
-      .toBeVisible({ timeout: 10000 });
+    await rhelPage.expectInstanceVisible('test-hypervisor.example.com');
 
     // Verify guest count (from mocked data)
-    await expect(page.getByText('150')).toBeVisible();
+    await rhelPage.expectGuestCountVisible(150);
 
     console.log('✅ Hybrid test: Stage auth + mocked data works!');
   });
 
-  test('test usage chart with day gaps', async ({ page }) => {
-    const mocker = new RhsmMocker(page);
-    const chartUtils = new ChartUtils(page);
-
+  test('test usage chart with day gaps', async ({ rhelPage, mocker, chartUtils }) => {
     // Mock edge case: gaps in data
-    await mocker.mockTallyWithGaps('RHEL for x86', 'Sockets', {
+    await mocker.mockTallyWithGaps(RHEL_PRODUCT, RHEL_METRIC, {
       gapDays: [2, 3, 4], // Weekend gap
       baseValue: 100,
       days: 7
     });
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
     await chartUtils.waitForChart();
 
     // Chart should handle gaps
@@ -387,34 +334,32 @@ test.describe('POC: Hybrid Tests (Stage Auth + Mocked Data)', () => {
 });
 
 test.describe('POC: Visual Regression on Stage', () => {
-  test('chart baseline screenshot on Stage', async ({ page }) => {
-    const mocker = new RhsmMocker(page);
-    const chartUtils = new ChartUtils(page);
-
+  test('chart baseline screenshot on Stage', async ({ rhelPage, mocker, chartUtils }) => {
     // Use consistent mock data for visual regression
-    await mocker.mockTally('RHEL for x86', 'Sockets', {
+    await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC, {
       data: {
-        data: Array(30).fill(null).map((_, i) => ({
-          date: new Date(2026, 3, i + 1).toISOString(),
-          value: 100 + Math.sin(i / 7) * 20,
-          has_data: true
-        })),
+        data: Array(30)
+          .fill(null)
+          .map((_, i) => ({
+            date: new Date(2026, 3, i + 1).toISOString(),
+            value: 100 + Math.sin(i / 7) * 20,
+            has_data: true
+          })),
         meta: {
           count: 30,
-          product: 'RHEL for x86',
+          product: RHEL_PRODUCT,
           granularity: 'daily',
-          metric_id: 'Sockets'
+          metric_id: RHEL_METRIC
         }
       }
     });
 
-    await page.goto('https://console.stage.redhat.com/subscriptions/usage/rhel');
+    await rhelPage.goto();
     // Wait for chart to stabilize
     await chartUtils.waitForChartStable(2000);
 
     // Take screenshot
-    const chartArea = chartUtils.getChartArea();
-    await expect(chartArea).toHaveScreenshot('stage-rhel-chart-baseline.png', {
+    await expect(rhelPage.chartArea).toHaveScreenshot('stage-rhel-chart-baseline.png', {
       maxDiffPixels: 100,
       threshold: 0.2,
       animations: 'disabled'

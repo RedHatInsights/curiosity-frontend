@@ -37,3 +37,8 @@ public/locales/*.json
 
 # agent
 .agent
+
+# Playwright runtime artifacts
+/playwright-report/
+/test-results/
+/playwright/.auth/
