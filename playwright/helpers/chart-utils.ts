@@ -106,8 +106,8 @@ export class ChartUtils {
   async getXAxisLabels(): Promise<string[]> {
     const svg = this.getSvg();
 
-    // X-axis labels have IDs starting with "chart-axis-0-ChartLabel"
-    const labels = svg.locator('[id^="chart-axis-0-ChartLabel"]');
+    // The application's chart wrapper gives X-axis labels stable ChartLabel IDs.
+    const labels = svg.locator('[id^="curiosity-chartarea__x-axis-ChartLabel-"]');
     const count = await labels.count();
 
     const texts: string[] = [];
@@ -127,8 +127,8 @@ export class ChartUtils {
   async getYAxisLabels(): Promise<string[]> {
     const svg = this.getSvg();
 
-    // Y-axis labels have IDs starting with "chart-axis-1-ChartLabel"
-    const labels = svg.locator('[id^="chart-axis-1-ChartLabel"]');
+    // The application's chart wrapper gives Y-axis labels stable ChartLabel IDs.
+    const labels = svg.locator('[id^="curiosity-chartarea__y-axis-ChartLabel-"]');
     const count = await labels.count();
 
     const texts: string[] = [];
@@ -152,20 +152,21 @@ export class ChartUtils {
    * parseYAxisValue("500") // 500
    */
   parseYAxisValue(value: string): number {
-    const trimmed = value.trim();
+    const trimmed = value.trim().replace(/,/g, '');
+    const suffix = trimmed.slice(-1).toUpperCase();
 
     // Handle K (thousands)
-    if (trimmed.endsWith('K')) {
+    if (suffix === 'K') {
       return parseFloat(trimmed.slice(0, -1)) * 1000;
     }
 
     // Handle M (millions)
-    if (trimmed.endsWith('M')) {
+    if (suffix === 'M') {
       return parseFloat(trimmed.slice(0, -1)) * 1000000;
     }
 
     // Handle B (billions)
-    if (trimmed.endsWith('B')) {
+    if (suffix === 'B') {
       return parseFloat(trimmed.slice(0, -1)) * 1000000000;
     }
 

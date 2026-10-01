@@ -95,14 +95,20 @@ export class RHELPage {
    * Loading indicator displayed while the view is fetching data.
    */
   get loadingIndicator(): Locator {
-    return this.page.locator('.pf-c-spinner, [role="progressbar"]').first();
+    return this.page
+      .locator(
+        '.curiosity-skeleton-table, .curiosity-skeleton-container, .pf-v6-c-spinner, .pf-c-spinner, [role="progressbar"]'
+      )
+      .first();
   }
 
   /**
    * Pagination range for the instances table.
    */
   get paginationRange(): Locator {
-    return this.page.getByText(/^\d+[-–]\d+ of \d+$/).first();
+    return this.page
+      .getByRole('button', { name: /^\d+\s*[-–]\s*\d+\s+of\s+\d+$/ })
+      .first();
   }
 
   /**
@@ -217,7 +223,7 @@ export class RHELPage {
    * @param timeout - Maximum wait time in milliseconds.
    */
   async expectPaginationRange(range: RegExp | string, timeout: number = 10000): Promise<void> {
-    await expect(this.page.getByText(range).first()).toBeVisible({ timeout });
+    await expect(this.paginationRange).toHaveText(range, { timeout });
   }
 
   /**

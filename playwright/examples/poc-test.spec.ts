@@ -1,5 +1,5 @@
 /**
- * POC Example Tests using RhsmMocker and ChartUtils
+ * POC Example Tests using RhsmMocker and ChartUtils against Stage.
  *
  * This demonstrates the complete testing workflow:
  * 1. Mock API responses
@@ -8,12 +8,15 @@
  * 4. Test edge cases
  */
 
+import { disableCookiePrompt } from '@redhat-cloud-services/playwright-test-auth';
 import { test, expect } from '../helpers/test-fixtures';
 import { RHEL_METRIC, RHEL_PRODUCT } from '../pages/rhel-page';
 
-const LOCAL_RHEL_URL = 'http://localhost:3000/subscriptions/usage/rhel';
+test.beforeEach(async ({ page }) => {
+  await disableCookiePrompt(page);
+});
 
-test.describe('POC: RHEL System Table and Chart Tests', () => {
+test.describe('POC: Stage RHEL System Table and Chart Tests', () => {
   // ============================================
   // Basic Chart Tests
   // ============================================
@@ -21,9 +24,10 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
   test('chart renders with default mock data', async ({ rhelPage, mocker, chartUtils }) => {
     // Mock tally API with default fixture data
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
     // Navigate to RHEL view
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
 
     // Wait for chart to load
     await chartUtils.waitForChart();
@@ -34,12 +38,15 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
     // Count data points
     const pointCount = await chartUtils.countDataPoints();
     console.log(`Chart has ${pointCount} data points`);
-    expect(pointCount).toBeGreaterThan(0);
+
+    // Area charts do not render circle markers, so a zero marker count is valid.
+    expect(await chartUtils.countDataSeries()).toBeGreaterThan(0);
   });
 
   test('chart displays correct axis labels', async ({ rhelPage, mocker, chartUtils }) => {
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await mocker.mockCapacity(RHEL_PRODUCT);
+    await rhelPage.goto();
     await chartUtils.waitForChart();
 
     // Get axis labels
@@ -64,8 +71,9 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
     // Mock both APIs
     await mocker.mockInstances(RHEL_PRODUCT);
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
 
     // Click "Current instances" tab
     await rhelPage.navigateToInstances();
@@ -91,8 +99,9 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
     // Mock empty response
     await mocker.mockEmptyInstances(RHEL_PRODUCT);
     await mocker.mockEmptyTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT, { data: { data: [], meta: {} } });
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
 
     // Should show empty state message
     await rhelPage.waitForEmptyState();
@@ -106,16 +115,19 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
       baseValue: 100,
       days: 8
     });
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
     await chartUtils.waitForChart();
 
     // Verify Y-axis scales to accommodate spike
     const yLabels = await chartUtils.getYAxisLabels();
+    const yValues = await chartUtils.getYAxisValues();
     console.log('Y-axis labels with spike:', yLabels);
+    console.log('Y-axis values with spike:', yValues);
 
     // Should have labels near 1000
-    const hasHighValue = yLabels.some(label => parseInt(label) >= 900);
+    const hasHighValue = yValues.some(value => value >= 900);
     expect(hasHighValue).toBeTruthy();
   });
 
@@ -126,8 +138,9 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
       baseValue: 100,
       days: 8
     });
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
     await chartUtils.waitForChart();
 
     // Chart should still render (just with gaps)
@@ -138,7 +151,7 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
     // Mock error response
     await mocker.mockError('**/api/rhsm-subscriptions/**', 500, 'Service Unavailable');
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
 
     // Should show error message
     await rhelPage.waitForError();
@@ -148,7 +161,7 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
     // Mock slow API (3 second delay)
     await mocker.mockSlowApi('**/api/rhsm-subscriptions/**', 3000);
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
 
     // Should show loading spinner
     await rhelPage.waitForLoading();
@@ -165,18 +178,19 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
     // Mock 1000 instances
     await mocker.mockLargeInstancesDataset(RHEL_PRODUCT, 1000);
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
 
     // Click instances tab
     await rhelPage.navigateToInstances();
 
     // Should show pagination
-    await rhelPage.expectPaginationRange(/1-100 of 1000|1-20 of 1000/);
+    await rhelPage.expectPaginationRange(/1\s*-\s*100 of 1000|1\s*-\s*20 of 1000/);
 
     // Should be able to navigate pages
     if (await rhelPage.goToNextPage()) {
-      await rhelPage.expectPaginationRange(/101-200|21-40/, 5000);
+      await rhelPage.expectPaginationRange(/101\s*-\s*200|21\s*-\s*40/, 5000);
     }
   });
 
@@ -186,7 +200,8 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
 
   test('tooltip shows on chart hover', async ({ rhelPage, mocker, chartUtils }) => {
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await mocker.mockCapacity(RHEL_PRODUCT);
+    await rhelPage.goto();
     await chartUtils.waitForChart();
 
     // Hover over first data point
@@ -204,7 +219,7 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
     // Mock all APIs for a complete scenario
     await mocker.mockCompleteScenario(RHEL_PRODUCT, 'populated');
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
 
     // Verify chart
     await chartUtils.waitForChart();
@@ -219,7 +234,7 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
     // Mock all APIs for empty scenario
     await mocker.mockCompleteScenario(RHEL_PRODUCT, 'empty');
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
 
     // Should show empty state
     await rhelPage.waitForEmptyState();
@@ -231,9 +246,13 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
 
   test('chart visual regression baseline', async ({ rhelPage, mocker, chartUtils }) => {
     // Use consistent mock data
+    // Keep the page height deterministic so Stage inventory volume cannot
+    // change the scrollbar and therefore the chart width.
+    await mocker.mockInstances(RHEL_PRODUCT);
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
 
     // Wait for chart to stabilize
     await chartUtils.waitForChartStable(2000);
@@ -252,7 +271,7 @@ test.describe('POC: RHEL System Table and Chart Tests', () => {
 
   test.skip('debug SVG structure', async ({ rhelPage, mocker, chartUtils }) => {
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
-    await rhelPage.goto(LOCAL_RHEL_URL);
+    await rhelPage.goto();
     await chartUtils.waitForChart();
 
     // Log SVG structure for exploration

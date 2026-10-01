@@ -15,25 +15,32 @@ playwright/
 │   ├── tally.json          # Mock tally data (31 days: March 14 - April 13, 2026)
 │   └── capacity.json       # Mock capacity data (threshold: 600)
 ├── examples/
-│   ├── poc-stage-test.spec.ts  # Main POC - Stage environment tests ⭐
-│   └── poc-test.spec.ts        # Reference - localhost tests
+│   ├── poc-stage-test.spec.ts  # Stage environment tests ⭐
+│   └── poc-test.spec.ts        # Additional Stage tests
 └── README.md               # This file
 ```
 
 ## 🚀 Quick Start
 
-### 1. Set Stage Password
+### 1. Set Stage credentials
 
 ```bash
-export RH_STAGE_PASSWORD="your-stage-password"
+export E2E_USER="your-stage-username"
+export E2E_PASSWORD="your-stage-password"
 ```
 
-### 2. Run the POC Tests
+### 2. Run the complete Stage suite
 
 ```bash
 # From curiosity-frontend root directory
 
-# Run all Stage POC tests
+# Run every Playwright test against Stage
+npx playwright test
+
+# Run every test with the browser visible
+npx playwright test --headed
+
+# Run only the Stage POC tests
 npx playwright test examples/poc-stage-test.spec.ts
 
 # Run with UI mode (recommended for exploration)
@@ -65,19 +72,14 @@ npx playwright show-trace playwright-report/trace.zip
 
 ## 📚 Usage Examples
 
-### Stage Login Helper
+### Stage authentication
 
-All tests use the `loginToStage()` helper:
+Global setup signs in once with `E2E_USER` and `E2E_PASSWORD`, then saves the reusable
+session to `playwright/.auth/user.json`. Specs use that storage state and navigate to
+the RHEL view through `RHELPage`.
 
-```typescript
-import { Page } from '@playwright/test';
-
-async function loginToStage(page: Page) {
-  // Handles cookie banner, login form, and authentication
-  // Uses RH_STAGE_PASSWORD env variable
-  // Username: curiosity-automation-user
-}
-```
+Cookie prompts are disabled through `disableCookiePrompt()` in the global setup and
+each spec's `beforeEach` hook.
 
 ### Basic Mock Usage on Stage
 
@@ -335,7 +337,7 @@ const pointCount = await chartUtils.countDataPoints();  // Note: may be 0 for ar
 ### Reading Chart Data
 
 ```typescript
-// Get axis labels (uses chart IDs: chart-axis-0-ChartLabel, chart-axis-1-ChartLabel)
+// Get axis labels (uses the application's curiosity-chartarea ChartLabel IDs)
 const xLabels = await chartUtils.getXAxisLabels();  // ['March 14', 'March 15', ...]
 const yLabels = await chartUtils.getYAxisLabels();  // ['0', '100', '200', '1K', '2K']
 
@@ -455,7 +457,7 @@ npx playwright show-trace playwright-report/trace.zip
 
 ```bash
 # Set Stage password
-export RH_STAGE_PASSWORD="your-password"
+export E2E_PASSWORD="your-password"
 
 # Install Playwright browsers (if not done)
 npx playwright install
@@ -641,7 +643,7 @@ test('monthly data', async ({ page }) => {
 
 ```typescript
 // Check password is set
-console.log('Password set:', !!process.env.RH_STAGE_PASSWORD);
+console.log('Password set:', !!process.env.E2E_PASSWORD);
 
 // Increase login timeouts
 await expect(page.getByRole('textbox', { name: 'Red Hat login' }))

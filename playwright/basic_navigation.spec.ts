@@ -1,10 +1,16 @@
+import { disableCookiePrompt } from '@redhat-cloud-services/playwright-test-auth';
 import { test, expect } from './helpers/test-fixtures';
 import { RHEL_METRIC, RHEL_PRODUCT } from './pages/rhel-page';
+
+test.beforeEach(async ({ page }) => {
+  await disableCookiePrompt(page);
+});
 
 test.describe('RHEL navigation', () => {
   test('navigates to RHEL for x86', async ({ rhelPage, mocker }) => {
     await mocker.mockInstances(RHEL_PRODUCT);
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
     await rhelPage.goto();
 
@@ -16,6 +22,7 @@ test.describe('RHEL navigation', () => {
   test('displays mocked RHEL for x86 instances', async ({ rhelPage, mocker }) => {
     await mocker.mockInstances(RHEL_PRODUCT);
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
     await rhelPage.goto();
     await rhelPage.navigateToInstances();

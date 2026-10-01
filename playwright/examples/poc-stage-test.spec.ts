@@ -7,8 +7,8 @@
  * 3. Real Stage API (integration validation)
  */
 
-import { test, expect } from '../helpers/test-fixtures';
 import { disableCookiePrompt } from '@redhat-cloud-services/playwright-test-auth';
+import { test, expect } from '../helpers/test-fixtures';
 import { RHEL_METRIC, RHEL_PRODUCT } from '../pages/rhel-page';
 
 test.beforeEach(async ({ page }) => {
@@ -55,6 +55,8 @@ test.describe('POC: Stage Tests with Mocking', () => {
         meta: { count: 2, product: RHEL_PRODUCT, measurements: [RHEL_METRIC] }
       }
     });
+    await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
     // Navigate to Stage
     await rhelPage.goto();
@@ -73,8 +75,9 @@ test.describe('POC: Stage Tests with Mocking', () => {
 
   test('chart displays with mocked tally data on Stage', async ({ rhelPage, mocker, chartUtils }) => {
     // Mock tally API with default fixture (31 days: March 14 - April 13, 2026)
-    // Values range from 120-195, below capacity threshold of 200
+    // Values range from 120-195, below the mocked capacity threshold of 600
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
     await rhelPage.goto();
     // Wait for chart
@@ -92,12 +95,14 @@ test.describe('POC: Stage Tests with Mocking', () => {
     // Verify we found data points (should find ~31 points from March 14 - April 13)
     expect(dataPoints.length).toBeGreaterThan(0);
 
-    // Each data point has categories (Physical, Virtual, Hypervisor, Public cloud, Subscription threshold)
-    // Extract all values across all categories
+    // Each data point has categories (Physical, Virtual, Hypervisor, Public cloud, Subscription threshold).
+    // Exclude the threshold line when checking usage values.
     const allValues: number[] = [];
     dataPoints.forEach(dp => {
-      Object.values(dp.categories).forEach(value => {
-        allValues.push(value);
+      Object.entries(dp.categories).forEach(([category, value]) => {
+        if (!/threshold/i.test(category)) {
+          allValues.push(value);
+        }
       });
     });
 
@@ -106,7 +111,7 @@ test.describe('POC: Stage Tests with Mocking', () => {
     // Verify we have data
     expect(allValues.length).toBeGreaterThan(0);
 
-    // Verify chart displays reasonable values (below capacity threshold of 200)
+    // Verify chart displays reasonable usage values (below the mocked threshold of 600)
     const hasNonZeroValues = allValues.some(v => v > 0);
     expect(hasNonZeroValues).toBeTruthy();
 
@@ -122,6 +127,7 @@ test.describe('POC: Stage Tests with Mocking', () => {
     // Mock empty instances
     await mocker.mockEmptyInstances(RHEL_PRODUCT);
     await mocker.mockEmptyTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT, { data: { data: [], meta: {} } });
 
     await rhelPage.goto();
     // Click instances tab
@@ -141,6 +147,7 @@ test.describe('POC: Stage Tests with Mocking', () => {
       baseValue: 100,
       days: 7
     });
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
     await rhelPage.goto();
     await chartUtils.waitForChart();
@@ -300,6 +307,8 @@ test.describe('POC: Hybrid Tests (Stage Auth + Mocked Data)', () => {
         links: { first: '', last: '' }
       }
     });
+    await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC);
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
     await rhelPage.goto();
 
@@ -322,6 +331,7 @@ test.describe('POC: Hybrid Tests (Stage Auth + Mocked Data)', () => {
       baseValue: 100,
       days: 7
     });
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
     await rhelPage.goto();
     await chartUtils.waitForChart();
@@ -336,6 +346,9 @@ test.describe('POC: Hybrid Tests (Stage Auth + Mocked Data)', () => {
 test.describe('POC: Visual Regression on Stage', () => {
   test('chart baseline screenshot on Stage', async ({ rhelPage, mocker, chartUtils }) => {
     // Use consistent mock data for visual regression
+    // Keep the page height deterministic so Stage inventory volume cannot
+    // change the scrollbar and therefore the chart width.
+    await mocker.mockInstances(RHEL_PRODUCT);
     await mocker.mockTally(RHEL_PRODUCT, RHEL_METRIC, {
       data: {
         data: Array(30)
@@ -353,6 +366,7 @@ test.describe('POC: Visual Regression on Stage', () => {
         }
       }
     });
+    await mocker.mockCapacity(RHEL_PRODUCT);
 
     await rhelPage.goto();
     // Wait for chart to stabilize
