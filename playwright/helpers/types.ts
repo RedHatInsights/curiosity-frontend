@@ -95,6 +95,10 @@ export interface TallyGraphData {
   };
 }
 
+export type TallyGraphDataTemplate = Omit<TallyGraphData, 'data'> & {
+  data: Array<Omit<TallySnapshot, 'date'>>;
+};
+
 /*
  * ============================================
  * Capacity API Types

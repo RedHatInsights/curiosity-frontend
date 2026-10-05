@@ -15,9 +15,6 @@ const proxyServer = process.env.PLAYWRIGHT_PROXY_SERVER ?? 'http://squid.corp.re
  * dotenv.config({ path: path.resolve(__dirname, '.env') });
  */
 
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 export default defineConfig({
   // The package global setup does not forward use.proxy to its Chromium instance.
   globalSetup: require.resolve('./playwright/global-setup.ts'),

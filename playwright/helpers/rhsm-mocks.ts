@@ -10,7 +10,7 @@
  */
 
 import { type Page, type Route } from '@playwright/test';
-import type { CapacityData, InstancesData, SubscriptionsData, TallyGraphData } from './types';
+import type { CapacityData, InstancesData, SubscriptionsData, TallyGraphData, TallyGraphDataTemplate } from './types';
 
 // Import fixtures (will create these next)
 import instancesFixture from '../fixtures/instances.json';
@@ -20,6 +20,82 @@ import capacityFixture from '../fixtures/capacity.json';
 type RouteMatcher = Parameters<Page['route']>[0];
 type RouteHandler = Parameters<Page['route']>[1];
 
+const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
+
+const generateRecentDailyDates = (days: number): string[] => {
+  const today = new Date();
+  today.setUTCHours(0, 0, 0, 0);
+
+  return Array(days)
+    .fill(null)
+    .map((_, i) => {
+      const date = new Date(today);
+      date.setUTCDate(today.getUTCDate() - days + i + 1);
+      return date.toISOString();
+    });
+};
+
+const generateDailyDatesFromRequest = (requestUrl: string): string[] | undefined => {
+  const request = new URL(requestUrl);
+  const beginning = request.searchParams.get('beginning');
+  const ending = request.searchParams.get('ending');
+  if (!beginning || !ending) {
+    return undefined;
+  }
+
+  const startDate = new Date(beginning);
+  const endDate = new Date(ending);
+  if (Number.isNaN(startDate.getTime()) || Number.isNaN(endDate.getTime())) {
+    return undefined;
+  }
+
+  startDate.setUTCHours(0, 0, 0, 0);
+  endDate.setUTCHours(0, 0, 0, 0);
+  const dayCount = Math.floor((endDate.getTime() - startDate.getTime()) / MILLISECONDS_PER_DAY) + 1;
+  if (dayCount < 1) {
+    return undefined;
+  }
+
+  return Array.from({ length: dayCount }, (_, i) => {
+    const date = new Date(startDate);
+    date.setUTCDate(startDate.getUTCDate() + i);
+    return date.toISOString();
+  });
+};
+
+const hasTallyDates = (data: TallyGraphData | TallyGraphDataTemplate): data is TallyGraphData =>
+  data.data.length === 0 || 'date' in data.data[0];
+
+const createTallyResponse = (
+  data: TallyGraphData | TallyGraphDataTemplate,
+  requestUrl: string,
+  productId: string,
+  metricId: string
+): TallyGraphData => {
+  if (hasTallyDates(data)) {
+    return data;
+  }
+
+  const request = new URL(requestUrl);
+  const dates = generateDailyDatesFromRequest(requestUrl) ?? generateRecentDailyDates(data.data.length);
+  const points = dates.map((date, i) => ({
+    ...data.data[i % data.data.length],
+    date
+  }));
+
+  return {
+    ...data,
+    data: points,
+    meta: {
+      ...data.meta,
+      count: points.length,
+      product: productId,
+      granularity: request.searchParams.get('granularity') ?? data.meta?.granularity ?? 'daily',
+      metric_id: metricId
+    }
+  };
+};
+
 export interface MockOptions<TData extends object = object> {
   statusCode?: number;
   delay?: number;
@@ -27,7 +103,7 @@ export interface MockOptions<TData extends object = object> {
   waitForRelease?: Promise<void>;
 }
 
-export interface TallyMockOptions extends MockOptions<TallyGraphData> {
+export interface TallyMockOptions extends MockOptions<TallyGraphData | TallyGraphDataTemplate> {
   category?: 'physical' | 'virtual' | 'hypervisor' | 'cloud';
   granularity?: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
 }
@@ -71,7 +147,7 @@ export class RhsmMocker {
    * await mocker.mockTally('RHEL for x86', 'Sockets', { category: 'physical', granularity: 'daily' });
    */
   async mockTally(productId: string, metricId: string = 'Sockets', options: TallyMockOptions = {}) {
-    const { statusCode = 200, delay = 0, data = tallyFixture, category, granularity, waitForRelease } = options;
+    const { statusCode = 200, delay = 0, data, category, granularity, waitForRelease } = options;
 
     await this.registerRoute(
       url => {
@@ -92,7 +168,8 @@ export class RhsmMocker {
         return true;
       },
       async (route: Route) => {
-        await this.fulfill(route, statusCode, data, delay, waitForRelease);
+        const responseData = createTallyResponse(data ?? tallyFixture, route.request().url(), productId, metricId);
+        await this.fulfill(route, statusCode, responseData, delay, waitForRelease);
       }
     );
   }
@@ -270,15 +347,13 @@ export class RhsmMocker {
     metricId: string = 'Sockets',
     { spikeDay = 15, spikeValue = 1000, baseValue = 100, days = 30 } = {}
   ) {
-    const data = Array(days)
-      .fill(null)
-      .map((_, i) => {
-        return {
-          date: new Date(Date.UTC(2026, 3, 1 + i)).toISOString(),
-          value: i === spikeDay ? spikeValue : baseValue,
-          has_data: true
-        };
-      });
+    const data = generateRecentDailyDates(days).map((date, i) => {
+      return {
+        date,
+        value: i === spikeDay ? spikeValue : baseValue,
+        has_data: true
+      };
+    });
 
     await this.mockTally(productId, metricId, {
       data: {
@@ -304,15 +379,13 @@ export class RhsmMocker {
     metricId: string = 'Sockets',
     { gapDays = [5, 6, 7], baseValue = 100, days = 30 } = {}
   ) {
-    const data = Array(days)
-      .fill(null)
-      .map((_, i) => {
-        return {
-          date: new Date(Date.UTC(2026, 3, 1 + i)).toISOString(),
-          value: gapDays.includes(i) ? 0 : baseValue,
-          has_data: !gapDays.includes(i)
-        };
-      });
+    const data = generateRecentDailyDates(days).map((date, i) => {
+      return {
+        date,
+        value: gapDays.includes(i) ? 0 : baseValue,
+        has_data: !gapDays.includes(i)
+      };
+    });
 
     await this.mockTally(productId, metricId, {
       data: {
