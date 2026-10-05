@@ -4,7 +4,7 @@
  * Provides helpers for testing PatternFly React Charts (SVG-based)
  */
 
-import { expect, type Locator, type Page } from '@playwright/test';
+import { errors, expect, type Locator, type Page } from '@playwright/test';
 
 export class ChartUtils {
   constructor(
@@ -20,7 +20,11 @@ export class ChartUtils {
    * expect(maxValue).toBeGreaterThanOrEqual(125); // Mocked data max was 130
    */
   async getYAxisMaxValue(): Promise<number> {
-    const values = await this.getYAxisValues();
+    const values = (await this.getYAxisValues()).filter(Number.isFinite);
+    if (values.length === 0) {
+      throw new Error('The chart did not render any numeric Y-axis labels.');
+    }
+
     return Math.max(...values);
   }
 
@@ -61,9 +65,8 @@ export class ChartUtils {
    * Get SVG locator (main chart SVG, not legend icons)
    */
   getSvg(): Locator {
-    // Chart area contains multiple SVGs (main chart + legend icon SVGs)
-    // Get the first SVG which is the main chart container
-    return this.getChartArea().locator('svg').first();
+    // Chart area contains multiple SVGs (main chart + legend icon SVGs).
+    return this.getChartArea().locator('svg[role="img"]').first();
   }
 
   /**
@@ -74,14 +77,7 @@ export class ChartUtils {
    * expect(seriesCount).toBe(3); // Physical, Virtual, Cloud
    */
   async countDataSeries(): Promise<number> {
-    const svg = this.getSvg();
-
-    // PatternFly charts render data series as paths
-    const paths = svg.locator('path[role="presentation"]').filter({
-      hasNot: this.page.locator('[fill="none"]')
-    });
-
-    return paths.count();
+    return this.getDataPaths().count();
   }
 
   /**
@@ -106,8 +102,8 @@ export class ChartUtils {
   async getXAxisLabels(): Promise<string[]> {
     const svg = this.getSvg();
 
-    // X-axis labels have IDs starting with "chart-axis-0-ChartLabel"
-    const labels = svg.locator('[id^="chart-axis-0-ChartLabel"]');
+    // The application's chart wrapper gives X-axis labels stable ChartLabel IDs.
+    const labels = svg.locator('[id^="curiosity-chartarea__x-axis-ChartLabel-"]');
     const count = await labels.count();
 
     const texts: string[] = [];
@@ -127,8 +123,8 @@ export class ChartUtils {
   async getYAxisLabels(): Promise<string[]> {
     const svg = this.getSvg();
 
-    // Y-axis labels have IDs starting with "chart-axis-1-ChartLabel"
-    const labels = svg.locator('[id^="chart-axis-1-ChartLabel"]');
+    // The application's chart wrapper gives Y-axis labels stable ChartLabel IDs.
+    const labels = svg.locator('[id^="curiosity-chartarea__y-axis-ChartLabel-"]');
     const count = await labels.count();
 
     const texts: string[] = [];
@@ -144,7 +140,7 @@ export class ChartUtils {
 
   /**
    * Parse Y-axis label to number
-   * Handles formatted values like "1K" (1000), "2.5M" (2500000)
+   * Handles formatted values like "1K" (1000), "1.234K" (1234), "2.5M" (2500000)
    *
    * @example
    * parseYAxisValue("1K") // 1000
@@ -152,25 +148,15 @@ export class ChartUtils {
    * parseYAxisValue("500") // 500
    */
   parseYAxisValue(value: string): number {
-    const trimmed = value.trim();
-
-    // Handle K (thousands)
-    if (trimmed.endsWith('K')) {
-      return parseFloat(trimmed.slice(0, -1)) * 1000;
+    const normalized = value.trim().replace(/[\s,]/g, '');
+    const match = normalized.match(/^([+-]?(?:\d+(?:\.\d*)?|\.\d+))([KMB])?$/i);
+    if (!match) {
+      return Number.NaN;
     }
 
-    // Handle M (millions)
-    if (trimmed.endsWith('M')) {
-      return parseFloat(trimmed.slice(0, -1)) * 1000000;
-    }
-
-    // Handle B (billions)
-    if (trimmed.endsWith('B')) {
-      return parseFloat(trimmed.slice(0, -1)) * 1000000000;
-    }
-
-    // Plain number
-    return parseFloat(trimmed);
+    const multipliers: Record<string, number> = { K: 1_000, M: 1_000_000, B: 1_000_000_000 };
+    const multiplier = match[2] ? multipliers[match[2].toUpperCase()] : 1;
+    return Number(match[1]) * multiplier;
   }
 
   /**
@@ -203,19 +189,17 @@ export class ChartUtils {
       await circles.nth(index).hover();
     } else {
       // Fallback: hover over path at specific point
-      const paths = svg.locator('path[role="presentation"]').first();
+      const paths = this.getDataPaths().first();
       const box = await paths.boundingBox();
 
-      if (box) {
-        // Hover at different points along the path
-        const x = box.x + (box.width / 10) * (index + 1);
-        const y = box.y + box.height / 2;
-        await this.page.mouse.move(x, y);
+      if (!box) {
+        throw new Error('Cannot find a chart data point to hover.');
       }
-    }
 
-    // Wait a bit for tooltip animation
-    await this.page.waitForTimeout(500);
+      // Keep the pointer inside the plot while moving between representative X positions.
+      const relativeX = Math.min(0.95, Math.max(0.05, (index + 1) / 10));
+      await this.page.mouse.move(box.x + box.width * relativeX, box.y + box.height / 2);
+    }
   }
 
   /**
@@ -228,10 +212,8 @@ export class ChartUtils {
    * // { date: 'March 20', categories: { Physical: 40, Virtual: 24, ... } }
    */
   async getTooltipData(): Promise<{ date: string; categories: Record<string, number> } | null> {
-    const tooltip = this.page.locator('.curiosity-chartarea__tooltip');
-    const count = await tooltip.count();
-
-    if (count === 0) {
+    const tooltip = this.getTooltip();
+    if (!(await tooltip.isVisible())) {
       return null;
     }
 
@@ -252,9 +234,9 @@ export class ChartUtils {
 
       if (category && valueText) {
         const cleanCategory = category.replace(/\s+/g, ' ').trim();
-        const value = parseInt(valueText.trim());
+        const value = this.parseYAxisValue(valueText);
 
-        if (!isNaN(value)) {
+        if (Number.isFinite(value)) {
           categories[cleanCategory] = value;
         }
       }
@@ -274,10 +256,8 @@ export class ChartUtils {
    * const value = await chartUtils.getTooltipValue();
    */
   async getTooltipValue(): Promise<string | null> {
-    const tooltip = this.page.locator('.curiosity-chartarea__tooltip');
-    const count = await tooltip.count();
-
-    if (count > 0) {
+    const tooltip = this.getTooltip();
+    if (await tooltip.isVisible()) {
       const text = await tooltip.textContent();
       if (text && text.trim()) {
         return text.trim();
@@ -294,7 +274,6 @@ export class ChartUtils {
    *
    * @example
    * const dataPoints = await chartUtils.getAllDataValuesBySweep();
-   * console.log(dataPoints);
    * // [{ date: 'March 20', categories: { Physical: 40, Virtual: 24, ... } }, ...]
    */
   async getAllDataValuesBySweep(): Promise<Array<{ date: string; categories: Record<string, number> }>> {
@@ -307,7 +286,7 @@ export class ChartUtils {
 
     const dataPoints: Array<{ date: string; categories: Record<string, number> }> = [];
     let previousDate = '';
-    const pixelStep = 20; // Move 10 pixels at a time
+    const pixelStep = 20;
 
     // Sweep horizontally across the chart
     for (let x = box.x + 50; x < box.x + box.width - 50; x += pixelStep) {
@@ -315,7 +294,7 @@ export class ChartUtils {
 
       // Move mouse to this position
       await this.page.mouse.move(x, y);
-      await this.page.waitForTimeout(100);
+      await this.waitForTooltip(500);
 
       // Read tooltip data
       const tooltipData = await this.getTooltipData();
@@ -346,6 +325,7 @@ export class ChartUtils {
 
     for (let i = 0; i < maxPoints; i++) {
       await this.hoverDataPoint(i);
+      await this.waitForTooltip(1000);
       const value = await this.getTooltipValue();
 
       if (value) {
@@ -363,39 +343,28 @@ export class ChartUtils {
    */
   async assertHasData(): Promise<void> {
     await this.waitForChart();
-
-    const svg = this.getSvg();
-    const paths = svg.locator('path[role="presentation"]');
-    const pathCount = await paths.count();
-
-    expect(pathCount).toBeGreaterThan(0);
+    await expect.poll(() => this.getPrimaryDataPaths().count(), { timeout: 5000 }).toBeGreaterThan(0);
   }
 
   /**
    * Verify chart is empty
    */
   async assertIsEmpty(): Promise<void> {
-    // Chart area should exist but have no paths
-    const chartArea = this.getChartArea();
-    await expect(chartArea).toBeVisible();
-
-    const svg = this.getSvg();
-    const paths = svg.locator('path[role="presentation"]').filter({
-      hasNot: this.page.locator('[fill="none"]')
-    });
-    const pathCount = await paths.count();
-
-    expect(pathCount).toBe(0);
+    await this.waitForChart();
+    await expect.poll(() => this.getPrimaryDataPaths().count(), { timeout: 5000 }).toBe(0);
   }
 
   /**
    * Wait for chart to finish loading/animating
    */
-  async waitForChartStable(timeout: number = 2000): Promise<void> {
+  async waitForChartStable(): Promise<void> {
     await this.waitForChart();
 
-    // Wait for any animations to complete
-    await this.page.waitForTimeout(timeout);
+    /*
+     * Chart animations are disabled in the application. Waiting for fonts avoids a
+     * screenshot race without relying on a fixed sleep.
+     */
+    await this.page.evaluate(() => document.fonts.ready);
   }
 
   /**
@@ -408,21 +377,29 @@ export class ChartUtils {
     return chartArea.screenshot();
   }
 
-  /**
-   * Debug helper: log all SVG elements
-   */
-  async debugSvgStructure(): Promise<void> {
-    const svg = this.getSvg();
-    const elements = await svg.locator('*').all();
+  private getDataPaths(): Locator {
+    // Axis elements are lines/text; a path with a `d` attribute is chart geometry.
+    return this.getSvg().locator('path[role="presentation"][d]');
+  }
 
-    console.log('=== SVG Structure ===');
-    for (const element of elements) {
-      const tagName = await element.evaluate(el => el.tagName);
-      const role = await element.getAttribute('role');
-      const text = await element.textContent();
+  private getPrimaryDataPaths(): Locator {
+    // RHSM capacity/threshold data is rendered as a dashed path; exclude it from usage state assertions.
+    return this.getSvg().locator('path[role="presentation"][d]:not([style*="stroke-dasharray"])');
+  }
 
-      console.log(`<${tagName}${role ? ` role="${role}"` : ''}>`, text || '');
+  private getTooltip(): Locator {
+    return this.getChartArea().locator('.curiosity-chartarea__tooltip').first();
+  }
+
+  private async waitForTooltip(timeout: number): Promise<void> {
+    try {
+      await this.getTooltip().waitFor({ state: 'visible', timeout });
+    } catch (error) {
+      if (!(error instanceof errors.TimeoutError)) {
+        throw error;
+      }
+
+      // Callers use a missing tooltip to detect the end of a sweep.
     }
-    console.log('===================');
   }
 }

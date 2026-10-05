@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id": "test-hypervisor-1",
+      "instance_id": "hypervisor-uuid",
+      "display_name": "test-hypervisor.example.com",
+      "measurements": [32],
+      "last_seen": "2026-04-08T12:00:00.000Z",
+      "number_of_guests": 150,
+      "category": "hypervisor",
+      "subscription_manager_id": "test-sm-id",
+      "inventory_id": "test-inv-id"
+    }
+  ],
+  "meta": {
+    "count": 1,
+    "product": "RHEL for x86",
+    "measurements": ["Sockets"]
+  },
+  "links": {
+    "first": "",
+    "last": ""
+  }
+}

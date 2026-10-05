@@ -4,9 +4,11 @@
  * These types mirror the API responses from rhsm-subscriptions service
  */
 
-// ============================================
-// Instances API Types
-// ============================================
+/*
+ * ============================================
+ * Instances API Types
+ * ============================================
+ */
 
 export interface Instance {
   id: string;
@@ -38,9 +40,37 @@ export interface InstancesData {
   };
 }
 
-// ============================================
-// Tally/Graph API Types
-// ============================================
+export interface Subscription extends Partial<Instance> {
+  has_infinite_quantity?: boolean | null;
+  metric_id?: string | null;
+  next_event_date?: string | null;
+  product_name?: string | null;
+  quantity?: number | null;
+  service_level?: string | null;
+  total_capacity?: number | null;
+}
+
+export interface SubscriptionsData {
+  data: Subscription[];
+  meta: {
+    count: number;
+    measurements?: string[];
+    product?: string;
+    subscription_type?: string | null;
+  };
+  links?: {
+    first?: string;
+    last?: string;
+    previous?: string;
+    next?: string;
+  };
+}
+
+/*
+ * ============================================
+ * Tally/Graph API Types
+ * ============================================
+ */
 
 export interface TallySnapshot {
   date: string;
@@ -65,9 +95,11 @@ export interface TallyGraphData {
   };
 }
 
-// ============================================
-// Capacity API Types
-// ============================================
+/*
+ * ============================================
+ * Capacity API Types
+ * ============================================
+ */
 
 export interface CapacitySnapshot {
   date: string;
@@ -83,9 +115,11 @@ export interface CapacityData {
   };
 }
 
-// ============================================
-// Query Parameters
-// ============================================
+/*
+ * ============================================
+ * Query Parameters
+ * ============================================
+ */
 
 export interface BaseQueryParams {
   granularity?: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';

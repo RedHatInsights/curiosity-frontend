@@ -1,4 +1,5 @@
 import { join } from 'node:path';
+import { createRequire } from 'node:module';
 import { includeIgnoreFile } from '@eslint/compat';
 import babelParser from '@babel/eslint-parser';
 import globals from 'globals';
@@ -15,6 +16,27 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import prettierPlugin from 'eslint-plugin-prettier/recommended';
 import airbnbConfig from './config/eslint.config.airbnb.mjs';
+
+const require = createRequire(import.meta.url);
+// eslint-disable-next-line import/no-unresolved -- the resolver does not understand package exports
+const typescriptEslintParser = require('@typescript-eslint/parser');
+// eslint-disable-next-line import/no-unresolved -- the resolver does not understand package exports
+const typescriptEslintPlugin = require('@typescript-eslint/eslint-plugin');
+
+const playwrightFiles = ['playwright.config.ts', 'playwright/**/*.ts'];
+const typescriptEslintRecommended = typescriptEslintPlugin.configs['flat/recommended'].map(config => ({
+  ...config,
+  files: playwrightFiles,
+  languageOptions: {
+    ...config.languageOptions,
+    parser: typescriptEslintParser,
+    parserOptions: {
+      ...config.languageOptions?.parserOptions,
+      project: './tsconfig.playwright.json',
+      tsconfigRootDir: process.cwd()
+    }
+  }
+}));
 
 export default [
   includeIgnoreFile(join(process.cwd(), '.gitignore')),
@@ -229,6 +251,57 @@ export default [
           }
         }
       ]
+    }
+  },
+  ...typescriptEslintRecommended,
+  {
+    files: playwrightFiles,
+    languageOptions: {
+      parser: typescriptEslintParser,
+      parserOptions: {
+        project: './tsconfig.playwright.json',
+        tsconfigRootDir: process.cwd()
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
+    },
+    settings: {
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+        }
+      }
+    },
+    rules: {
+      // TypeScript annotations make these JSDoc requirements redundant for Playwright helpers.
+      'jsdoc/require-jsdoc': 0,
+      'jsdoc/require-param': 0,
+      'jsdoc/require-param-type': 0,
+      'jsdoc/require-returns': 0,
+      'jsdoc/require-returns-type': 0
+    }
+  },
+  {
+    files: ['playwright/helpers/chart-utils.ts', 'playwright/helpers/rhsm-mocks.ts'],
+    rules: {
+      // These helper classes intentionally contain pure utilities and ordered browser operations.
+      'class-methods-use-this': 0,
+      'no-await-in-loop': 0
+    }
+  },
+  {
+    files: ['playwright/helpers/chart-utils.ts'],
+    rules: {
+      'import/prefer-default-export': 0
+    }
+  },
+  {
+    files: ['playwright/helpers/test-fixtures.ts'],
+    rules: {
+      // Playwright fixture callbacks expose a parameter named `use`, which React Hooks misidentifies.
+      'react-hooks/rules-of-hooks': 0
     }
   }
 ];

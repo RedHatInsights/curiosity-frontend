@@ -3,6 +3,7 @@ import { expect, type Locator, type Page } from '@playwright/test';
 export const RHEL_PRODUCT = 'RHEL for x86';
 export const RHEL_METRIC = 'Sockets';
 export const RHEL_PATH = '/subscriptions/usage/rhel';
+const INSTANCES_TABLE_NAME = 'Subscriptions systems inventory table.';
 
 export interface RHELPageOptions {
   url?: string;
@@ -46,7 +47,7 @@ export class RHELPage {
    * Tooltip rendered by the chart or PatternFly.
    */
   get chartTooltip(): Locator {
-    return this.page.locator('[role="tooltip"], .pf-c-tooltip, .VictoryTooltip, .curiosity-chartarea__tooltip').first();
+    return this.chartArea.locator('.curiosity-chartarea__tooltip').first();
   }
 
   /**
@@ -60,21 +61,24 @@ export class RHELPage {
    * The current instances table.
    */
   get instancesTable(): Locator {
-    return this.page.locator('.curiosity-inventory-card table');
+    return this.page.getByRole('grid', { name: INSTANCES_TABLE_NAME });
   }
 
   /**
    * Rows in the current instances table.
    */
   get instanceRows(): Locator {
-    return this.instancesTable.locator('tbody tr');
+    return this.instancesTable.locator('tbody').getByRole('row');
   }
 
   /**
-   * Empty-state content displayed when no instances or graph data is available.
+   * Empty-state content displayed by the current instances table.
    */
   get emptyState(): Locator {
-    return this.page.getByText(/no data|no results|clear some or all filters/i).first();
+    return this.page
+      .locator('.curiosity-inventory-card')
+      .getByText(/no results|clear some or all filters/i)
+      .first();
   }
 
   /**
@@ -88,28 +92,36 @@ export class RHELPage {
    * Button that opens the graph error details.
    */
   get viewErrorButton(): Locator {
-    return this.page.getByRole('button', { name: 'View error' }).first();
+    return this.page.getByRole('button', { name: 'View error' });
   }
 
   /**
    * Loading indicator displayed while the view is fetching data.
    */
   get loadingIndicator(): Locator {
-    return this.page.locator('.pf-c-spinner, [role="progressbar"]').first();
+    return this.page
+      .locator(
+        '.curiosity-skeleton-table, .curiosity-skeleton-container, .pf-v6-c-spinner, .pf-c-spinner, [role="progressbar"]'
+      )
+      .first();
   }
 
   /**
    * Pagination range for the instances table.
    */
   get paginationRange(): Locator {
-    return this.page.getByText(/^\d+[-–]\d+ of \d+$/).first();
+    return this.page
+      .getByRole('button', {
+        name: /^\d+\s*[-–]\s*\d+\s+of\s+\d+$/
+      })
+      .first();
   }
 
   /**
    * Button used to move to the next instances page.
    */
   get nextPageButton(): Locator {
-    return this.page.getByRole('button', { name: /next|Next page/i }).first();
+    return this.page.getByRole('button', { name: 'Go to next page' }).first();
   }
 
   /**
@@ -152,7 +164,7 @@ export class RHELPage {
    * @param displayName - Host name rendered in the instances table.
    */
   instance(displayName: string): Locator {
-    return this.instancesTable.getByText(displayName, { exact: true });
+    return this.instancesTable.getByRole('link', { name: displayName, exact: true });
   }
 
   /**
@@ -171,11 +183,16 @@ export class RHELPage {
    * @param guestCount - Number of guests rendered in the table.
    */
   async expectGuestCountVisible(guestCount: number): Promise<void> {
-    await expect(this.instancesTable.getByText(String(guestCount), { exact: true }).first()).toBeVisible();
+    await expect(
+      this.instancesTable.getByRole('gridcell', {
+        name: String(guestCount),
+        exact: true
+      })
+    ).toBeVisible();
   }
 
   /**
-   * Wait for the view's empty state.
+   * Wait for the current instances table's empty state.
    *
    * @param timeout - Maximum wait time in milliseconds.
    */
@@ -217,7 +234,15 @@ export class RHELPage {
    * @param timeout - Maximum wait time in milliseconds.
    */
   async expectPaginationRange(range: RegExp | string, timeout: number = 10000): Promise<void> {
-    await expect(this.page.getByText(range).first()).toBeVisible({ timeout });
+    await expect(this.paginationRange).toHaveText(range, { timeout });
+  }
+
+  /**
+   * Return the currently rendered pagination range.
+   */
+  async getPaginationRangeText(): Promise<string> {
+    await expect(this.paginationRange).toBeVisible();
+    return (await this.paginationRange.textContent())?.trim() ?? '';
   }
 
   /**
@@ -230,7 +255,11 @@ export class RHELPage {
       return false;
     }
 
+    const currentRange = await this.getPaginationRangeText();
     await this.nextPageButton.click();
+    await expect
+      .poll(async () => (await this.paginationRange.textContent())?.trim() ?? '', { timeout: 10000 })
+      .not.toBe(currentRange);
     return true;
   }
 }

@@ -9,34 +9,36 @@
  *   await mocker.mockTally('RHEL for x86', 'Sockets');
  */
 
-import { Page, Route } from '@playwright/test';
-import type {
-  InstancesData,
-  TallyGraphData,
-  CapacityData
-} from './types';
+import { type Page, type Route } from '@playwright/test';
+import type { CapacityData, InstancesData, SubscriptionsData, TallyGraphData } from './types';
 
 // Import fixtures (will create these next)
 import instancesFixture from '../fixtures/instances.json';
 import tallyFixture from '../fixtures/tally.json';
 import capacityFixture from '../fixtures/capacity.json';
 
-export interface MockOptions {
+type RouteMatcher = Parameters<Page['route']>[0];
+type RouteHandler = Parameters<Page['route']>[1];
+
+export interface MockOptions<TData extends object = object> {
   statusCode?: number;
   delay?: number;
-  data?: any;
+  data?: TData;
+  waitForRelease?: Promise<void>;
 }
 
-export interface TallyMockOptions extends MockOptions {
-  category?: string; // 'physical', 'virtual', 'hypervisor', 'cloud'
+export interface TallyMockOptions extends MockOptions<TallyGraphData> {
+  category?: 'physical' | 'virtual' | 'hypervisor' | 'cloud';
   granularity?: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
 }
 
-export interface CapacityMockOptions extends MockOptions {
+export interface CapacityMockOptions extends MockOptions<CapacityData> {
   granularity?: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
 }
 
 export class RhsmMocker {
+  private readonly rhsmRoutes: Array<{ matcher: RouteMatcher; handler: RouteHandler }> = [];
+
   constructor(private page: Page) {}
 
   /**
@@ -47,32 +49,17 @@ export class RhsmMocker {
    * await mocker.mockInstances('RHEL for x86', { data: customData });
    * await mocker.mockInstances('RHEL for x86', { statusCode: 500 });
    */
-  async mockInstances(productId: string, options: MockOptions = {}) {
-    const {
-      statusCode = 200,
-      delay = 0,
-      data = instancesFixture
-    } = options;
+  async mockInstances(productId: string, options: MockOptions<InstancesData> = {}) {
+    const { statusCode = 200, delay = 0, data = instancesFixture, waitForRelease } = options;
 
-    // Match any query params (metric_id, offset, etc.)
-    const pattern = `**/api/rhsm-subscriptions/v1/instances/products/${this.encodeProduct(productId)}*`;
+    const path = this.instancesPath(productId);
 
-    await this.page.route(pattern, async (route: Route) => {
-      console.log(`[Mock] Instances API called: ${route.request().url()}`);
-
-      if (delay > 0) {
-        await new Promise(resolve => setTimeout(resolve, delay));
+    await this.registerRoute(
+      url => url.pathname === path,
+      async (route: Route) => {
+        await this.fulfill(route, statusCode, data, delay, waitForRelease);
       }
-
-      await route.fulfill({
-        status: statusCode,
-        contentType: 'application/json',
-        body: JSON.stringify(data),
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        }
-      });
-    });
+    );
   }
 
   /**
@@ -83,24 +70,13 @@ export class RhsmMocker {
    * await mocker.mockTally('RHEL for x86', 'Cores', { granularity: 'monthly' });
    * await mocker.mockTally('RHEL for x86', 'Sockets', { category: 'physical', granularity: 'daily' });
    */
-  async mockTally(
-    productId: string,
-    metricId: string = 'Sockets',
-    options: TallyMockOptions = {}
-  ) {
-    const {
-      statusCode = 200,
-      delay = 0,
-      data = tallyFixture,
-      category,
-      granularity
-    } = options;
+  async mockTally(productId: string, metricId: string = 'Sockets', options: TallyMockOptions = {}) {
+    const { statusCode = 200, delay = 0, data = tallyFixture, category, granularity, waitForRelease } = options;
 
-    await this.page.route(
-      (url) => {
-        // Match base path
-        const basePath = `/api/rhsm-subscriptions/v1/tally/products/${this.encodeProduct(productId)}/${metricId}`;
-        if (!url.pathname.includes(basePath)) {
+    await this.registerRoute(
+      url => {
+        const path = `/api/rhsm-subscriptions/v1/tally/products/${this.encodeProduct(productId)}/${encodeURIComponent(metricId)}`;
+        if (url.pathname !== path) {
           return false;
         }
 
@@ -116,20 +92,7 @@ export class RhsmMocker {
         return true;
       },
       async (route: Route) => {
-        console.log(`[Mock] Tally API called: ${route.request().url()}`);
-
-        if (delay > 0) {
-          await new Promise(resolve => setTimeout(resolve, delay));
-        }
-
-        await route.fulfill({
-          status: statusCode,
-          contentType: 'application/json',
-          body: JSON.stringify(data),
-          headers: {
-            'Access-Control-Allow-Origin': '*'
-          }
-        });
+        await this.fulfill(route, statusCode, data, delay, waitForRelease);
       }
     );
   }
@@ -142,18 +105,12 @@ export class RhsmMocker {
    * await mocker.mockCapacity('RHEL for x86', { granularity: 'monthly' });
    */
   async mockCapacity(productId: string, options: CapacityMockOptions = {}) {
-    const {
-      statusCode = 200,
-      delay = 0,
-      data = capacityFixture,
-      granularity
-    } = options;
+    const { statusCode = 200, delay = 0, data = capacityFixture, granularity, waitForRelease } = options;
 
-    await this.page.route(
-      (url) => {
-        // Match base path
+    await this.registerRoute(
+      url => {
         const basePath = `/api/rhsm-subscriptions/v1/capacity/products/${this.encodeProduct(productId)}`;
-        if (!url.pathname.includes(basePath)) {
+        if (!url.pathname.startsWith(`${basePath}/`)) {
           return false;
         }
 
@@ -165,20 +122,7 @@ export class RhsmMocker {
         return true;
       },
       async (route: Route) => {
-        console.log(`[Mock] Capacity API called: ${route.request().url()}`);
-
-        if (delay > 0) {
-          await new Promise(resolve => setTimeout(resolve, delay));
-        }
-
-        await route.fulfill({
-          status: statusCode,
-          contentType: 'application/json',
-          body: JSON.stringify(data),
-          headers: {
-            'Access-Control-Allow-Origin': '*'
-          }
-        });
+        await this.fulfill(route, statusCode, data, delay, waitForRelease);
       }
     );
   }
@@ -186,36 +130,24 @@ export class RhsmMocker {
   /**
    * Mock subscriptions API
    */
-  async mockSubscriptions(options: MockOptions = {}) {
-    const {
-      statusCode = 200,
-      delay = 0,
-      data = { data: [], meta: { count: 0 } }
-    } = options;
+  async mockSubscriptions(productId: string, options: MockOptions<SubscriptionsData> = {}) {
+    const { statusCode = 200, delay = 0, data = { data: [], meta: { count: 0 } }, waitForRelease } = options;
 
-    const pattern = `**/api/rhsm-subscriptions/v1/subscriptions*`;
+    const path = `/api/rhsm-subscriptions/v2/subscriptions/products/${this.encodeProduct(productId)}`;
 
-    await this.page.route(pattern, async (route: Route) => {
-      console.log(`[Mock] Subscriptions API called: ${route.request().url()}`);
-
-      if (delay > 0) {
-        await new Promise(resolve => setTimeout(resolve, delay));
+    await this.registerRoute(
+      url => url.pathname === path,
+      async (route: Route) => {
+        await this.fulfill(route, statusCode, data, delay, waitForRelease);
       }
-
-      await route.fulfill({
-        status: statusCode,
-        contentType: 'application/json',
-        body: JSON.stringify(data),
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        }
-      });
-    });
+    );
   }
 
-  // ============================================
-  // Convenience Methods (Common Scenarios)
-  // ============================================
+  /*
+   * ============================================
+   * Convenience Methods (Common Scenarios)
+   * ============================================
+   */
 
   /**
    * Mock empty instances response
@@ -249,52 +181,37 @@ export class RhsmMocker {
   /**
    * Mock API error response
    *
-   * Pattern should be a glob like: `*​*​/api/rhsm-subscriptions/*​*​`
+   * Pattern should be a glob matching the RHSM subscriptions API URL.
    *
    * @param pattern - URL pattern to match
    * @param statusCode - HTTP status code (default: 500)
    * @param message - Error message (default: 'Internal Server Error')
    */
-  async mockError(
-    pattern: string,
-    statusCode: number = 500,
-    message: string = 'Internal Server Error'
-  ) {
-    await this.page.route(pattern, async (route: Route) => {
-      console.log(`[Mock] Error response: ${statusCode} ${message}`);
-
-      await route.fulfill({
-        status: statusCode,
-        contentType: 'application/json',
-        body: JSON.stringify({
-          errors: [
-            {
-              status: String(statusCode),
-              code: `SUBSCRIPTIONS${statusCode}`,
-              title: message,
-              detail: message
-            }
-          ]
-        }),
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        }
+  async mockError(pattern: string, statusCode: number = 500, message: string = 'Internal Server Error') {
+    await this.registerRoute(pattern, async (route: Route) => {
+      await this.fulfill(route, statusCode, {
+        errors: [
+          {
+            status: String(statusCode),
+            code: `SUBSCRIPTIONS${statusCode}`,
+            title: message,
+            detail: message
+          }
+        ]
       });
     });
   }
 
   /**
-   * Mock slow API (for testing loading states)
+   * Return a controlled response after a delay.
    *
    * @param pattern - URL pattern to match
    * @param delay - Delay in milliseconds (default: 5000)
+   * @param data - JSON response body (default: an empty API response)
    */
-  async mockSlowApi(pattern: string, delay: number = 5000) {
-    await this.page.route(pattern, async (route: Route) => {
-      console.log(`[Mock] Slow API (${delay}ms delay)`);
-
-      await new Promise(resolve => setTimeout(resolve, delay));
-      await route.continue();
+  async mockSlowApi(pattern: string, delay: number = 5000, data: object = { data: [], meta: { count: 0 } }) {
+    await this.registerRoute(pattern, async route => {
+      await this.fulfill(route, 200, data, delay);
     });
   }
 
@@ -305,29 +222,41 @@ export class RhsmMocker {
    * await mocker.mockLargeInstancesDataset('RHEL for x86', 1000);
    */
   async mockLargeInstancesDataset(productId: string, count: number = 1000) {
-    const instances = Array(count).fill(null).map((_, i) => ({
+    if (!Number.isInteger(count) || count < 0) {
+      throw new RangeError('The mocked instance count must be a non-negative integer.');
+    }
+
+    const instances = Array.from({ length: count }, (_, i) => ({
       id: `instance-${i}`,
       instance_id: `uuid-${i}`,
       display_name: `host-${i}.example.com`,
-      measurements: [Math.floor(Math.random() * 16)],
-      last_seen: new Date().toISOString(),
-      number_of_guests: Math.floor(Math.random() * 10),
+      measurements: [(i % 16) + 1],
+      last_seen: '2026-04-08T12:00:00.000Z',
+      number_of_guests: i % 10,
       category: ['physical', 'virtual', 'cloud'][i % 3] as 'physical' | 'virtual' | 'cloud',
       subscription_manager_id: `sm-${i}`,
       inventory_id: `inv-${i}`
     }));
 
-    await this.mockInstances(productId, {
-      data: {
-        data: instances,
-        links: { first: '', last: '' },
-        meta: {
-          count: instances.length,
-          product: productId,
-          measurements: ['Sockets']
-        }
+    const path = this.instancesPath(productId);
+    await this.registerRoute(
+      url => url.pathname === path,
+      async (route: Route) => {
+        const offset = this.queryInteger(route.request().url(), 'offset', 0);
+        const limit = this.queryInteger(route.request().url(), 'limit', instances.length) || instances.length;
+        const response: InstancesData = {
+          data: instances.slice(offset, offset + limit),
+          links: { first: '', last: '' },
+          meta: {
+            count: instances.length,
+            product: productId,
+            measurements: ['Sockets']
+          }
+        };
+
+        await this.fulfill(route, 200, response);
       }
-    });
+    );
   }
 
   /**
@@ -341,16 +270,15 @@ export class RhsmMocker {
     metricId: string = 'Sockets',
     { spikeDay = 15, spikeValue = 1000, baseValue = 100, days = 30 } = {}
   ) {
-    const data = Array(days).fill(null).map((_, i) => {
-      const date = new Date('2026-04-01');
-      date.setDate(date.getDate() + i);
-
-      return {
-        date: date.toISOString(),
-        value: i === spikeDay ? spikeValue : baseValue,
-        has_data: true
-      };
-    });
+    const data = Array(days)
+      .fill(null)
+      .map((_, i) => {
+        return {
+          date: new Date(Date.UTC(2026, 3, 1 + i)).toISOString(),
+          value: i === spikeDay ? spikeValue : baseValue,
+          has_data: true
+        };
+      });
 
     await this.mockTally(productId, metricId, {
       data: {
@@ -376,16 +304,15 @@ export class RhsmMocker {
     metricId: string = 'Sockets',
     { gapDays = [5, 6, 7], baseValue = 100, days = 30 } = {}
   ) {
-    const data = Array(days).fill(null).map((_, i) => {
-      const date = new Date('2026-04-01');
-      date.setDate(date.getDate() + i);
-
-      return {
-        date: date.toISOString(),
-        value: gapDays.includes(i) ? 0 : baseValue,
-        has_data: !gapDays.includes(i)
-      };
-    });
+    const data = Array(days)
+      .fill(null)
+      .map((_, i) => {
+        return {
+          date: new Date(Date.UTC(2026, 3, 1 + i)).toISOString(),
+          value: gapDays.includes(i) ? 0 : baseValue,
+          has_data: !gapDays.includes(i)
+        };
+      });
 
     await this.mockTally(productId, metricId, {
       data: {
@@ -408,16 +335,13 @@ export class RhsmMocker {
    * await mocker.mockCompleteScenario('RHEL for x86', 'empty');
    * await mocker.mockCompleteScenario('RHEL for x86', 'error');
    */
-  async mockCompleteScenario(
-    productId: string,
-    scenario: 'empty' | 'populated' | 'error' = 'populated'
-  ) {
+  async mockCompleteScenario(productId: string, scenario: 'empty' | 'populated' | 'error' = 'populated') {
     switch (scenario) {
       case 'empty':
         await this.mockEmptyInstances(productId);
         await this.mockEmptyTally(productId, 'Sockets');
         await this.mockCapacity(productId, {
-          data: { data: [], meta: {} }
+          data: { data: [], meta: { count: 0, product: productId } }
         });
         break;
 
@@ -441,14 +365,63 @@ export class RhsmMocker {
    * await mocker.passthroughAll();
    */
   async passthroughAll() {
-    await this.page.unroute('**/api/rhsm-subscriptions/**');
+    const rhsmRoutes = this.rhsmRoutes.splice(0);
+    await Promise.all(rhsmRoutes.map(({ matcher, handler }) => this.page.unroute(matcher, handler)));
   }
 
-  // ============================================
-  // Helper Methods
-  // ============================================
+  /*
+   * ============================================
+   * Helper Methods
+   * ============================================
+   */
+
+  private async registerRoute(matcher: RouteMatcher, handler: RouteHandler): Promise<void> {
+    await this.page.route(matcher, handler);
+    this.rhsmRoutes.push({ matcher, handler });
+  }
 
   private encodeProduct(productId: string): string {
     return encodeURIComponent(productId);
+  }
+
+  private instancesPath(productId: string): string {
+    return `/api/rhsm-subscriptions/v1/instances/products/${this.encodeProduct(productId)}`;
+  }
+
+  private queryInteger(url: string, name: string, fallback: number): number {
+    const value = Number.parseInt(new URL(url).searchParams.get(name) ?? '', 10);
+    return Number.isInteger(value) && value >= 0 ? value : fallback;
+  }
+
+  private async fulfill(
+    route: Route,
+    statusCode: number,
+    data: object,
+    delay: number = 0,
+    waitForRelease?: Promise<void>
+  ): Promise<void> {
+    if (waitForRelease) {
+      await waitForRelease;
+    }
+
+    if (delay > 0) {
+      await new Promise(resolve => {
+        globalThis.setTimeout(resolve, delay);
+      });
+    }
+
+    const body = JSON.stringify(data);
+    if (body === undefined) {
+      throw new TypeError('Mock response data must be JSON serializable.');
+    }
+
+    await route.fulfill({
+      status: statusCode,
+      contentType: 'application/json',
+      body,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
   }
 }
