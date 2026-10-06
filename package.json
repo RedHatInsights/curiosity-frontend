@@ -124,7 +124,7 @@
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.3",
-    "apidoc-mock": "^7.0.1",
+    "apidoc-mock": "^7.0.2",
     "babel-jest": "^30.5.2",
     "changelog-light": "^3.1.0",
     "cspell": "^10.3.3",
@@ -152,7 +152,7 @@
     "prettier": "^3.9.8",
     "ts-patch": "^4.0.1",
     "typescript": "^5.9.3",
-    "weldable": "^6.0.3",
+    "weldable": "^6.0.4",
     "yamljs": "^0.3.0"
   }
 }
