@@ -65,6 +65,8 @@
     "test:e2e": "playwright test",
     "test:e2e:live": "playwright test --grep @live",
     "test:e2e:mocked": "playwright test --grep-invert @live",
+    "test:e2e:visual:update": "playwright test specs/rhel-usage-visual.spec.ts --update-snapshots",
+    "test:e2e:visual:update:linux:container": "podman run --rm --volume \"$PWD:/work\" --volume curiosity-frontend-playwright-node-modules:/work/node_modules --workdir /work --env E2E_USER --env E2E_PASSWORD mcr.microsoft.com/playwright:v1.63.0-noble bash -lc 'npm ci && npx playwright test specs/rhel-usage-visual.spec.ts --update-snapshots'",
     "test:e2e:typecheck": "tsc --noEmit -p tsconfig.playwright.json",
     "test:docs": "run-s test:spell test:spell-support test:lint",
     "test:integration": "jest ./tests",

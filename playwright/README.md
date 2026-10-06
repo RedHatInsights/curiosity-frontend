@@ -270,14 +270,27 @@ const apiData = await response.json();
 
 ## Visual regression
 
-Visual tests use fixed mocked data and Chromium. Run or update a baseline deliberately:
+Visual tests use fixed mocked data and Chromium. Playwright keeps baselines per operating system because text and pixel rendering can differ across platforms. From the repository root, run the test without updating baselines to check the current system:
 
 ```bash
 npx playwright test specs/rhel-usage-visual.spec.ts
-npx playwright test specs/rhel-usage-visual.spec.ts --update-snapshots
 ```
 
-Review updated PNGs as part of the change. Do not update snapshots merely to make a failing test pass.
+To deliberately regenerate the baseline for the OS where the command runs, use:
+
+```bash
+npm run test:e2e:visual:update
+```
+
+When the host OS is macOS and you need to regenerate the Linux baseline, run the npm script that launches Playwright in a Podman Linux container:
+
+```bash
+npm run test:e2e:visual:update:linux:container
+```
+
+The container uses the matching Playwright Linux image and a separate named volume for Linux `node_modules`; the updated PNG is written into `playwright/specs/rhel-usage-visual.spec.ts-snapshots/`. This requires Podman, Stage credentials (`E2E_USER` and `E2E_PASSWORD`), and access to the configured Stage URL and proxy. Generate Darwin baselines on macOS or a macOS runner; a Linux container cannot reproduce macOS rendering.
+
+Review updated PNGs as part of the change and commit the baseline for each supported OS. Do not update snapshots merely to make a failing test pass.
 
 ## Troubleshooting
 
