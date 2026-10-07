@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "id": "fdf1ed33-ed61-4acb-8d57-e3c5b79fd0d4",
+      "instance_id": "d7bd052f-3ba6-46fd-9ef8-ba84b4a1976e",
+      "display_name": "physical_1f50f4e3zxifxjpk.example.dev",
+      "measurements": [4.0],
+      "last_seen": "2026-04-08T11:45:41.088467Z",
+      "number_of_guests": 0,
+      "category": "physical",
+      "subscription_manager_id": "d8e38990-4c30-4792-8012-e705ba8db1f8",
+      "inventory_id": "d7bd052f-3ba6-46fd-9ef8-ba84b4a1976e"
+    },
+    {
+      "id": "9760babb-8cb7-4d7b-a729-a9c3f5a99bc9",
+      "instance_id": "bde3f04e-de7b-4327-8a16-cfeaba61b4c0",
+      "display_name": "physical_d3d85d36rizjgqbv.example.gov",
+      "measurements": [2.0],
+      "last_seen": "2026-04-08T11:45:41.086609Z",
+      "number_of_guests": 0,
+      "category": "physical",
+      "subscription_manager_id": "53ee6c45-724d-474b-be0e-51e919bb8a18",
+      "inventory_id": "bde3f04e-de7b-4327-8a16-cfeaba61b4c0"
+    },
+    {
+      "id": "a1b2c3d4-e5f6-4a5b-9c8d-7e6f5a4b3c2d",
+      "instance_id": "virtual-uuid-1234",
+      "display_name": "virtual_host.example.com",
+      "measurements": [8.0],
+      "last_seen": "2026-04-08T12:00:00.000000Z",
+      "number_of_guests": 0,
+      "category": "virtual",
+      "subscription_manager_id": "virtual-sm-id-123",
+      "inventory_id": "virtual-inv-id-123"
+    }
+  ],
+  "links": {
+    "first": "/api/rhsm-subscriptions/v1/instances/products/RHEL%20for%20x86?dir=desc&ending=2026-04-08T23:59:59.999Z&limit=100&metric_id=Sockets&sort=last_seen&beginning=2026-03-09T00:00:00.000Z&offset=0",
+    "last": "/api/rhsm-subscriptions/v1/instances/products/RHEL%20for%20x86?dir=desc&ending=2026-04-08T23:59:59.999Z&limit=100&metric_id=Sockets&sort=last_seen&beginning=2026-03-09T00:00:00.000Z&offset=0"
+  },
+  "meta": {
+    "count": 3,
+    "product": "RHEL for x86",
+    "measurements": ["Sockets"]
+  }
+}

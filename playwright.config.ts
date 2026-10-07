@@ -1,0 +1,88 @@
+import { defineConfig, devices } from '@playwright/test';
+
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? 'https://console.stage.redhat.com';
+const proxyServer = process.env.PLAYWRIGHT_PROXY_SERVER ?? 'http://squid.corp.redhat.com:3128';
+/**
+ * Read environment variables from file.
+ * https://github.com/motdotla/dotenv
+ */
+/*
+ * import dotenv from 'dotenv';
+ * import path from 'path';
+ * dotenv.config({ path: path.resolve(__dirname, '.env') });
+ */
+
+export default defineConfig({
+  // The package global setup does not forward use.proxy to its Chromium instance.
+  globalSetup: require.resolve('./playwright/global-setup.ts'),
+  testDir: './playwright',
+  /* Run tests in files in parallel */
+  fullyParallel: true,
+  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  forbidOnly: !!process.env.CI,
+  /* Retry on CI only */
+  retries: process.env.CI ? 2 : 0,
+  /* Keep the default Stage run serial; pass --workers to opt into parallel execution. */
+  workers: 1,
+  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  reporter: 'html',
+  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  use: {
+    /* Base URL to use in actions like `await page.goto('')`. */
+    baseURL,
+
+    /* Keep traces for failed tests to make Stage failures diagnosable. */
+    storageState: 'playwright/.auth/user.json',
+    trace: 'retain-on-failure',
+    proxy: proxyServer ? { server: proxyServer } : undefined,
+    viewport: { width: 1920, height: 1024 }
+  },
+  timeout: 60000,
+
+  /* Configure projects for major browsers */
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'], viewport: { width: 1920, height: 1024 } }
+    }
+
+    /*
+     * {
+     *   name: 'firefox',
+     *   use: { ...devices['Desktop Firefox'] },
+     * },
+     *
+     * {
+     *   name: 'webkit',
+     *   use: { ...devices['Desktop Safari'] },
+     * },
+     */
+
+    /* Test against mobile viewports. */
+    /*
+     * {
+     *   name: 'Mobile Chrome',
+     *   use: { ...devices['Pixel 5'] },
+     * },
+     * {
+     *   name: 'Mobile Safari',
+     *   use: { ...devices['iPhone 12'] },
+     * },
+     */
+
+    /* Test against branded browsers. */
+    /*
+     * {
+     *   name: 'Microsoft Edge',
+     *   use: { ...devices['Desktop Edge'], channel: 'msedge' },
+     * },
+     * {
+     *   name: 'Google Chrome',
+     *   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+     * },
+     */
+  ]
+});
