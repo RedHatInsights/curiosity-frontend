@@ -87,7 +87,6 @@ spec:
         --set-image-tag quay.io/redhat-services-prod/rh-subs-watch-tenant/prometheus=latest
         --set-template-ref prometheus=main
         --set-image-tag quay.io/redhat-services-prod/project-kessel-tenant/kessel-kafka-connect=latest
-        --set-image-tag quay.io/redhat-services-prod/hcc-platex-services-tenant/insights-chrome=658b92b
     - name: DEPLOY_FRONTENDS
       value: "true"
     - name: DEPLOY_TIMEOUT
