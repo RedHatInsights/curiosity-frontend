@@ -138,7 +138,7 @@
     "apidoc-mock": "^7.0.2",
     "babel-jest": "^30.5.2",
     "changelog-light": "^3.1.0",
-    "cspell": "^10.3.3",
+    "cspell": "^10.3.4",
     "dotenv": "^16.6.1",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
