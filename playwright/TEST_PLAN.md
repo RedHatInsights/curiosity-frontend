@@ -1374,6 +1374,26 @@ These ten cases are the implementation cap for SWATCH-5215.
   - A success notification then appears
   - The success body contains the product id in export filename form and the selected format
 
+**export-TC002 - A failed export shows an error and starts no download**
+- **Description**: Choosing an export when the mocked export status is failed shows an error notification and does not start a download. Playwright serves that failed response. JSON and CSV share this path, so one format is enough.
+- **Setup**:
+  - RHEL for x86 page
+  - Shared login storage state
+  - Export format: JSON
+  - Mocked export response whose status is failed
+  - Any existing export confirmation is cancelled before the run
+- **Action**:
+  - Open the RHEL page
+  - Choose "Export to JSON"
+- **Verification**:
+  - Read the notification
+  - Confirm that no download starts
+- **Expected Result**:
+  - A pending info notification appears
+  - An error notification then appears
+  - The error title is "Export service failed"
+  - No download starts
+
 **billing-modal-TC001 - RHEL ELS On-Demand lists billing accounts that have usage and no subscription**
 - **Description**: When ELS On-Demand usage is reported for billing accounts that are not linked to a subscription, a banner opens a modal that lists those accounts.
 - **Setup**:
@@ -1476,17 +1496,21 @@ These cases come from the feature notes. No current Jest or plugin test covers t
 - **Setup**:
   - RHEL for x86 page
   - Shared login storage state
-  - Mocked tally with every value set to 0 and `has_data` false
+  - Fixed browser clock and timezone, so today does not move at a date boundary
+  - Mocked tally inside the requested range, with every value set to 0 and `has_data` false
+  - One point on a fixed past day, and one point on today
 - **Action**:
   - Open the RHEL page
-  - Read the chart empty state and current usage
-  - Hover the chart
+  - Read the chart empty state and current usage for today
+  - Hover the past day
 - **Verification**:
-  - Read the chart empty state, the tooltip, and current usage
+  - Read the chart empty state
+  - Read the tooltip on the past day
+  - Read current usage for today
 - **Expected Result**:
   - The chart empty state shows "No data"
-  - The tooltip shows "no data"
-  - Current usage shows "No data"
+  - The past day's tooltip shows "no data"
+  - Current usage for today shows "No data"
   - The page remains usable
 
 **chart-edge-TC002 - Usage above capacity shows the above-threshold state**
@@ -1788,6 +1812,7 @@ The epic implements ten cases. Every other case stays in this catalog.
 * instances-table-TC014. Later feature work. Mocked hypervisor guest rows.
 * instances-table-TC015. Later feature work. Mocked hypervisor with 100 or more guests.
 * instances-table-TC016. Later feature work. Thousand-row render.
+* export-TC002. Later feature work. Mocked failed export with no download.
 * billing-modal-TC001. Later feature work. Mocked billing accounts that have usage and no subscription.
 * error-states-TC003. Later feature work. Subscriptions error after the chart and instances errors.
 * error-states-TC004. Later feature work. Billing-account preflight on ROSA.
