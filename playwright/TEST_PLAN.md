@@ -61,10 +61,10 @@ These ten cases are the implementation cap for SWATCH-5215.
 | toolbar-TC001 | RHEL granularity dropdown shows Daily, Weekly, Monthly, and Quarterly |
 | toolbar-TC002 | RHEL SLA, Usage, and Type filters select and clear |
 | subscriptions-table-TC002 | RHEL subscriptions table renders the subscriptions response |
-| instances-table-TC004 | RHEL instances table renders the instances response |
+| instances-table-TC004 | RHEL instances table shows one row per socket category and matches today's graph total |
 | export-TC001 | Subscription export downloads JSON and CSV |
 | error-states-TC001 | Tally HTTP 500 shows an error in the chart card |
-| error-states-TC002 | Instances HTTP 500 shows an error in the instances card |
+| error-states-TC002 | Instances HTTP 500 shows an error in the instances card and leaves the chart visible |
 | chart-edge-TC001 | All-zero tally shows the chart empty state |
 | chart-edge-TC005 | Switching granularity refetches tally and updates the chart |
 
@@ -99,20 +99,20 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Setup**:
   - Stage session
   - Expected group after filtering: Subscriptions and Spend
-  - Expected entries: Subscriptions Usage and Resource Optimization under Red Hat Enterprise Linux, Subscriptions Usage and Cost Management under OpenShift, Subscriptions Usage under Ansible, Subscriptions Inventory and Subscriptions Usage under Subscription Services
+  - Expected entries: Subscriptions Usage under Red Hat Enterprise Linux, OpenShift, Ansible, and Subscription Services
   - Link targets: `subscriptions/usage/ansible`, `subscriptions/usage/openshift`, `subscriptions/usage/rhel`
 - **Action**:
   - Open All Services from the Services menu
   - Read the unfiltered catalog
   - Filter the catalog with "Subscriptions and Spend"
-  - Read each product link
+  - Read each Subscriptions Usage link
 - **Verification**:
   - Compare the filtered Subscriptions and Spend group with the unfiltered group
-  - Compare link paths with the expected usage URLs
+  - Compare the Subscriptions Usage link paths with the expected usage URLs
 - **Expected Result**:
   - The filtered catalog contains only Subscriptions and Spend
   - The filtered group matches the unfiltered Subscriptions and Spend group
-  - Each product link path matches the expected usage URL
+  - Each Subscriptions Usage link path matches the expected usage URL
 
 **navigation-TC004 - Insights menu opens RHEL usage**
 - **Description**: The Insights left navigation includes a Subscriptions entry that opens RHEL usage and leaves the RHEL menu active.
@@ -225,6 +225,7 @@ These ten cases are the implementation cap for SWATCH-5215.
   - Shared login storage state
   - Granularity values: Daily, Weekly, Monthly, Quarterly
   - Mocked sockets tally for each granularity
+  - Fixed browser clock and timezone, so the expected ticks stay the same across a date boundary
 - **Action**:
   - Open the RHEL page
   - Select each granularity
@@ -682,24 +683,28 @@ These ten cases are the implementation cap for SWATCH-5215.
   - The graph matches the API response at each granularity
 
 **rhel-graph-TC014 - A higher mocked subscription quantity increases the threshold**
-- **Description**: The RHEL daily threshold agrees across the graph, tally, capacity, and the current subscriptions table. A second set of mocks, with one extra socket subscription, shows a higher threshold, and the updated values still agree. IQE added SKU RH00004 and synced capacity. Playwright swaps in that increased payload.
+- **Description**: The RHEL daily graph threshold matches capacity and the current subscriptions quantity. Usage matches tally. A second set of mocks, with one extra socket subscription, shows a higher threshold, and the updated threshold still matches capacity and the subscriptions quantity. IQE added SKU RH00004 and synced capacity. Playwright swaps in that increased payload.
 - **Setup**:
   - RHEL for x86 page
   - Daily granularity
-  - First mocks: tally, capacity, and subscriptions that share one threshold
-  - Second mocks: the same payloads with the threshold increased by one socket, matching the result of adding SKU RH00004
+  - First mocks: tally for usage, plus capacity and subscriptions that share one threshold
+  - Second mocks: the same payloads with capacity and the subscriptions quantity increased by one socket, matching the result of adding SKU RH00004
 - **Action**:
   - Open the RHEL page at Daily with the first mocks
-  - Read the graph threshold and the sockets sum from the current subscriptions table
+  - Read the graph threshold, usage, and the subscriptions quantity
   - Switch to the second mocks and refresh
   - Read the same values again
 - **Verification**:
-  - Compare the graph threshold with the mocked tally, capacity, and subscriptions sum before the switch
-  - Compare them again after the switch
+  - Compare the graph threshold to capacity and the subscriptions quantity before the switch
+  - Compare usage to tally before the switch
+  - Compare the graph threshold to capacity and the subscriptions quantity after the switch
+  - Compare usage to tally after the switch
   - Compare the new graph threshold with the original graph threshold
 - **Expected Result**:
-  - Before the switch, the graph threshold, tally threshold, capacity, and subscriptions sum are equal
-  - After the switch, those values are equal again
+  - Before the switch, the graph threshold equals capacity and the subscriptions quantity
+  - Before the switch, usage equals tally
+  - After the switch, the graph threshold equals capacity and the subscriptions quantity
+  - After the switch, usage equals tally
   - The updated graph threshold is greater than the original graph threshold
 
 ## OpenShift graph
@@ -786,19 +791,21 @@ These ten cases are the implementation cap for SWATCH-5215.
   - Days after today show "no data" for Core hours
 
 **openshift-graph-TC006 - OpenShift Dedicated graphs omit future days**
-- **Description**: The OpenShift Dedicated core hours and instance hours graphs together match the current-month tally, and days after today have no data.
+- **Description**: The OpenShift Dedicated core hours graph matches the current-month cores tally, and the instance hours graph matches the current-month instance hours tally. Days after today have no data.
 - **Setup**:
   - OpenShift Dedicated page (`OpenShift-dedicated-metrics`)
   - Current calendar month
-  - Mocked hourly tally
+  - Mocked hourly tally for core hours and for instance hours
 - **Action**:
   - Open the Dedicated page
   - Read the core hours graph and the instance hours graph
 - **Verification**:
-  - Combine the two graphs and compare them with the monthly tally
+  - Compare the core hours graph with the monthly cores tally
+  - Compare the instance hours graph with the monthly instance hours tally
   - Check days after today
 - **Expected Result**:
-  - The combined graph matches the tally
+  - The core hours graph matches the cores tally
+  - The instance hours graph matches the instance hours tally
   - Days after today show "no data" for Core hours and for Instance hours
 
 **openshift-graph-TC007 - Advanced Cluster Security graph matches the monthly card**
@@ -1142,7 +1149,7 @@ These ten cases are the implementation cap for SWATCH-5215.
   - Read the graph and the instances table
 - **Verification**:
   - Compare the rounded cores column with the graph core hours total
-  - Compare the table with the Core-seconds instances response
+  - Compare the table with the CORES field in the instances response
   - Compare the graph with the cores tally
 - **Expected Result**:
   - The instances table is displayed
@@ -1150,29 +1157,25 @@ These ten cases are the implementation cap for SWATCH-5215.
   - The table matches the instances response
   - The graph matches the tally
 
-**instances-table-TC004 - RHEL instances table renders the instances response**
-- **Description**: The RHEL instances table matches the instances response, and the sockets column total equals today's graph total across Physical, Virtual, Public cloud, and Hypervisor.
+**instances-table-TC004 - RHEL instances table shows one row per socket category and matches today's graph total**
+- **Description**: The RHEL instances table shows one mocked row for each socket category, and the Sockets column total equals today's graph total across those categories.
 - **Setup**:
   - RHEL for x86 page
   - Shared login storage state
-  - Mocked instances response and a matching sockets tally for today
-  - At least one instance so the table has rows
+  - Four mocked instance rows on one page, one each for Physical, Virtual, Public cloud, and Hypervisor, with known names and socket counts
+  - Today's mocked sockets tally equals the sum of those rows
 - **Action**:
   - Open the RHEL instances tab
   - Read today's graph and the table
-  - Move to the last page at 10 rows per page, then set 100 rows per page
 - **Verification**:
-  - Sum the Sockets column and compare it with today's graph
-  - Compare the table with the instances response
-  - Confirm the table is still displayed after the page-size change
+  - Read each row's name, type, and socket count
+  - Sum the Sockets column and compare it with today's graph total across Physical, Virtual, Public cloud, and Hypervisor
 - **Expected Result**:
-  - The instances table is displayed
-  - The sockets column total equals today's graph total
-  - The table matches the instances response
-  - The table remains displayed at 100 rows per page
+  - All four rows appear with their names, types, and socket counts
+  - The Sockets sum equals today's graph total across Physical, Virtual, Public cloud, and Hypervisor
 
 **instances-table-TC005 - OpenShift Dedicated instances match the graph totals**
-- **Description**: The OpenShift Dedicated instances table matches the instances response. Rounded core hours and instance hours match the graphs, and the graphs match tally.
+- **Description**: The OpenShift Dedicated instances table matches the instances response. Rounded core hours match the core hours graph, and rounded instance hours match the instance hours graph. Each graph matches its tally.
 - **Setup**:
   - OpenShift Dedicated page (`OpenShift-dedicated-metrics`)
   - Current calendar month
@@ -1181,13 +1184,17 @@ These ten cases are the implementation cap for SWATCH-5215.
   - Open the Dedicated page
   - Read both graphs and the instances table
 - **Verification**:
-  - Compare rounded column totals with the graph totals
+  - Compare the rounded Core hours column with the core hours graph
+  - Compare the rounded Instance hours column with the instance hours graph
   - Compare the table with the instances response
-  - Compare the combined graph with the tally
+  - Compare the core hours graph with the monthly cores tally
+  - Compare the instance hours graph with the monthly instance hours tally
 - **Expected Result**:
-  - Rounded Core hours and Instance hours match the graph totals
+  - Rounded Core hours match the core hours graph
+  - Rounded Instance hours match the instance hours graph
   - The table matches the instances response
-  - The combined graph matches the tally
+  - The core hours graph matches the cores tally
+  - The instance hours graph matches the instance hours tally
 
 **instances-table-TC006 - Self-Support filter clears the RHEL instances table**
 - **Description**: When the account has Premium RHEL instances and no Self-Support instances, selecting SLA Self-Support shows an empty table. This is the regression for SWATCH-703, where the old rows stayed on screen with zeroed values.
@@ -1401,19 +1408,22 @@ These cases come from the feature notes. No current Jest or plugin test covers t
 - **Expected Result**:
   - The chart card body shows an error message whose title reports HTTP 500
 
-**error-states-TC002 - Instances HTTP 500 shows an error in the instances card**
-- **Description**: A failed instances request shows an error in the instances card body and hides the instances card header and footer.
+**error-states-TC002 - Instances HTTP 500 shows an error in the instances card and leaves the chart visible**
+- **Description**: A failed instances request shows an error in the instances card body and hides the instances card header and footer. The tally succeeds, so the chart still renders.
 - **Setup**:
   - RHEL for x86 page
   - Shared login storage state
   - `GET` instances requests respond with HTTP 500
-  - Tally responds with HTTP 200 so the rest of the page can render
+  - Tally responds with HTTP 200 and chart data
 - **Action**:
   - Open the RHEL page
+  - Read the chart
   - Open the current instances tab
 - **Verification**:
+  - Read the chart
   - Read the instances card body, header, and footer
 - **Expected Result**:
+  - The chart renders the tally data
   - The instances card body shows an error message
   - The instances card header and footer are hidden
 
@@ -1430,23 +1440,7 @@ These cases come from the feature notes. No current Jest or plugin test covers t
 - **Expected Result**:
   - The subscriptions tab shows an error message
 
-**error-states-TC004 - A failed instances request leaves the chart visible**
-- **Description**: When tally succeeds and the instances request fails, the chart still renders and only the instances tab shows an error.
-- **Setup**:
-  - RHEL for x86 page
-  - Tally responds with HTTP 200 and chart data
-  - Instances requests respond with HTTP 500
-- **Action**:
-  - Open the RHEL page
-  - Read the chart
-  - Open the current instances tab
-- **Verification**:
-  - Read the chart and the instances card
-- **Expected Result**:
-  - The chart renders the tally data
-  - The instances tab shows an error message
-
-**error-states-TC005 - Billing account HTTP 500 does not leave the product view spinning**
+**error-states-TC004 - Billing account HTTP 500 does not leave the product view spinning**
 - **Description**: A failed billing-account preflight on a product that loads billing accounts shows an error and still renders the product view.
 - **Setup**:
   - ROSA page, or another product that prefetches billing accounts
@@ -1461,7 +1455,7 @@ These cases come from the feature notes. No current Jest or plugin test covers t
   - The page does not stay on an infinite spinner
   - The product view shows the billing-account error
 
-**error-states-TC006 - A warning banner can be dismissed**
+**error-states-TC005 - A warning banner can be dismissed**
 - **Description**: A warning banner from the banner API is visible, and closing it removes it. The ELS billing-account modal in billing-modal-TC001 is a different banner.
 - **Setup**:
   - RHEL for x86 page
@@ -1478,17 +1472,21 @@ These cases come from the feature notes. No current Jest or plugin test covers t
 ## Chart edge cases
 
 **chart-edge-TC001 - All-zero tally shows the chart empty state**
-- **Description**: A tally whose values are all zero and whose `has_data` flag is false shows the chart empty state and does not crash the page.
+- **Description**: A tally whose values are all zero and whose `has_data` flag is false shows the chart empty state, a tooltip, and current usage as no data. The page does not crash.
 - **Setup**:
   - RHEL for x86 page
   - Shared login storage state
   - Mocked tally with every value set to 0 and `has_data` false
 - **Action**:
   - Open the RHEL page
+  - Read the chart empty state and current usage
+  - Hover the chart
 - **Verification**:
-  - Read the chart empty state
+  - Read the chart empty state, the tooltip, and current usage
 - **Expected Result**:
-  - The chart empty state is rendered
+  - The chart empty state shows "No data"
+  - The tooltip shows "no data"
+  - Current usage shows "No data"
   - The page remains usable
 
 **chart-edge-TC002 - Usage above capacity shows the above-threshold state**
@@ -1711,6 +1709,7 @@ These notes do not get a second case.
 * The notes mention a manual JSON download. That function is not in the current plugin. JSON and CSV automatic download are export-TC001.
 * The notes mention `test_ui_system_table_sort`. That function is not in the current plugin. Column sort stays with the Jest table tests.
 * Feature-note rows that name an existing plugin test are the matching case above. Examples: granularity and history dropdowns, SLA and usage filters, subscriptions and instances tables, RHEL graph filters, and chart legend labels.
+* The check that a failed instances request leaves the chart visible is error-states-TC002.
 
 # Not in the first suite
 
@@ -1791,9 +1790,8 @@ The epic implements ten cases. Every other case stays in this catalog.
 * instances-table-TC016. Later feature work. Thousand-row render.
 * billing-modal-TC001. Later feature work. Mocked billing accounts that have usage and no subscription.
 * error-states-TC003. Later feature work. Subscriptions error after the chart and instances errors.
-* error-states-TC004. Later feature work. Partial failure after the two single-request errors.
-* error-states-TC005. Later feature work. Billing-account preflight on ROSA.
-* error-states-TC006. Later feature work. Generic banner dismiss.
+* error-states-TC004. Later feature work. Billing-account preflight on ROSA.
+* error-states-TC005. Later feature work. Generic banner dismiss.
 * chart-edge-TC002. Later feature work. Above-threshold visual.
 * chart-edge-TC003. Later feature work. Large y-axis values.
 * chart-edge-TC004. Later feature work. Mocked infinity card.
