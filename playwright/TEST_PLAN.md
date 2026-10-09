@@ -376,18 +376,23 @@ These ten cases are the implementation cap for SWATCH-5215.
   - The instances table matches the filtered instances response
 
 **toolbar-TC006 - Instances table returns to the same rows after filters are cleared**
-- **Description**: Applying the available filters and then clearing them restores the instances table that was visible before the filters were applied.
+- **Description**: Applying a named filter and then clearing it restores the instances table that was visible before the filter was applied.
 - **Setup**:
   - Mocked instances for the destination. The unfiltered response and the response after clear return the same rows.
+  - Mocked filtered responses for the named selections below
   - Destinations: RhelAll, RedHatOpenShift, Satellite, RhelSAP, RhelEUS, RhelHA, RhelRS, RhelELSOnDemand, RhelELSAnnual, RedHatAdvancedClusterSecurity, RedHatOpenShiftAI
+  - SLA selection: Premium
+  - Billing selection: Amazon Web Services and a known billing account id
 - **Action**:
   - Open the destination and read the instances table
-  - Select a random primary filter and, when a second control is present, a random value for each category
+  - On RhelAll, Satellite, RhelSAP, RhelEUS, RhelHA, RhelRS, and RhelELSAnnual, select SLA and then Premium
+  - On RedHatOpenShift, select Premium
+  - On RhelELSOnDemand, RedHatAdvancedClusterSecurity, and RedHatOpenShiftAI, select Amazon Web Services and the known billing account
   - Clear all filters and read the table again
 - **Verification**:
   - Compare the table before filtering with the table after clear
 - **Expected Result**:
-  - Each selected filter value is shown on its control
+  - The selected filter value is shown on its control
   - After clear, the instances table matches the table captured before filtering
 
 **toolbar-TC007 - Display name search returns that RHEL instance**
@@ -1395,20 +1400,24 @@ These ten cases are the implementation cap for SWATCH-5215.
   - No download starts
 
 **billing-modal-TC001 - RHEL ELS On-Demand lists billing accounts that have usage and no subscription**
-- **Description**: When ELS On-Demand usage is reported for billing accounts that are not linked to a subscription, a banner opens a modal that lists those accounts.
+- **Description**: When the instances billing-account endpoint returns account IDs that the subscriptions billing-account endpoint omits, a banner opens a modal that lists those omitted accounts.
 - **Setup**:
   - RHEL ELS On-Demand page (`rhel-for-x86-els-payg-addon`)
-  - Mocked billing accounts that have usage and no subscription
+  - Mocked `GET /v1/instances/billing_account_ids` for this product, with multiple account IDs for each provider
+  - Mocked `GET /v1/subscriptions/billing_account_ids` for this product
+  - Each account ID is used once, so the same ID is not listed under another provider
+  - The subscriptions response is an empty list, or it includes only some of the instance account IDs
+  - At least one instance account ID is absent from the subscriptions response
 - **Action**:
   - Open the ELS On-Demand page
   - Open the banner action
   - Read the modal list
   - Close the modal
 - **Verification**:
-  - Compare the modal list with the billing accounts returned for usage without a subscription
+  - Compare the modal list with the instance account IDs that the subscriptions response omits
 - **Expected Result**:
   - The banner is displayed
-  - The modal lists those billing accounts
+  - The modal lists those omitted account IDs
   - Closing the modal hides it
 
 ## Error states
@@ -1421,6 +1430,7 @@ These cases come from the feature notes. No current Jest or plugin test covers t
   - RHEL for x86 page
   - Shared login storage state
   - `GET` tally requests respond with HTTP 500
+  - `GET` capacity requests respond with HTTP 200
 - **Action**:
   - Open the RHEL page
 - **Verification**:
@@ -1488,6 +1498,22 @@ These cases come from the feature notes. No current Jest or plugin test covers t
 - **Expected Result**:
   - The warning banner is visible
   - After close, the banner is gone
+
+**error-states-TC006 - Capacity HTTP 500 shows a chart error while subscriptions succeed**
+- **Description**: A failed capacity request shows a chart error while the separate subscriptions request succeeds.
+- **Setup**:
+  - RHEL for x86 page with shared login storage state
+  - Capacity requests respond with HTTP 500
+  - Tally, instances, and subscriptions requests respond with HTTP 200
+- **Action**:
+  - Open the RHEL page
+  - Open the subscriptions tab
+- **Verification**:
+  - Check the chart card error
+  - Check the subscriptions response status and table
+- **Expected Result**:
+  - The chart card shows an error for the failed capacity request
+  - The subscriptions API returns HTTP 200 and its table renders
 
 ## Chart edge cases
 
@@ -1645,17 +1671,20 @@ These cases come from the feature notes. No current Jest or plugin test covers t
 
 ## Routing and theme
 
-**routing-TC001 - An unknown Subscriptions route shows the missing view**
-- **Description**: Opening a Subscriptions path that has no product view shows the missing-product view.
+**routing-TC001 - An unknown Subscriptions route shows the nearest product view**
+- **Description**: Closest matching stays enabled, so an unknown Subscriptions path shows the nearest product view.
 - **Setup**:
   - Shared login storage state
-  - Path `/subscriptions/bogus`
+  - `/subscriptions/bogus` is nearest to `/subscriptions/overview`
+  - `/subscriptions/usage/bogus` is nearest to `/subscriptions/usage/rhel`
 - **Action**:
   - Open `/subscriptions/bogus`
+  - Open `/subscriptions/usage/bogus`
 - **Verification**:
-  - Read the page body
+  - Read the view shown for each path
 - **Expected Result**:
-  - The missing product view is rendered
+  - `/subscriptions/bogus` shows the overview content
+  - `/subscriptions/usage/bogus` shows the RHEL usage content
 
 **routing-TC002 - An SLA query parameter preselects the SLA filter**
 - **Description**: Opening the RHEL page with `sla=Premium` in the query string shows Premium already selected.
@@ -1683,21 +1712,7 @@ These cases come from the feature notes. No current Jest or plugin test covers t
 - **Expected Result**:
   - The document element has the `pf-v6-theme-dark` class
 
-## Large instance sets and visual regression
-
-**instances-table-TC016 - The instances table renders 1000 rows**
-- **Description**: A mocked instances response with 1000 rows renders the instances table and its pager.
-- **Setup**:
-  - RHEL for x86 page
-  - Mocked instances response with 1000 rows
-- **Action**:
-  - Open the RHEL instances tab
-- **Verification**:
-  - Read the table and the pager
-- **Expected Result**:
-  - The table is displayed
-  - The pager reports the full result set
-  - The page does not crash
+## Visual regression
 
 **visual-regression-TC001 - The RHEL chart matches its screenshot baseline**
 - **Description**: The RHEL chart with a fixed mocked tally matches a stored screenshot baseline.
@@ -1811,9 +1826,8 @@ The epic implements ten cases. Every other case stays in this catalog.
 * instances-table-TC013. Product-matrix duplicate of instances-table-TC004.
 * instances-table-TC014. Later feature work. Mocked hypervisor guest rows.
 * instances-table-TC015. Later feature work. Mocked hypervisor with 100 or more guests.
-* instances-table-TC016. Later feature work. Thousand-row render.
 * export-TC002. Later feature work. Mocked failed export with no download.
-* billing-modal-TC001. Later feature work. Mocked billing accounts that have usage and no subscription.
+* billing-modal-TC001. Later feature work. Instance billing-account IDs omitted from subscriptions.
 * error-states-TC003. Later feature work. Subscriptions error after the chart and instances errors.
 * error-states-TC004. Later feature work. Billing-account preflight on ROSA.
 * error-states-TC005. Later feature work. Generic banner dismiss.
@@ -1825,7 +1839,7 @@ The epic implements ten cases. Every other case stays in this catalog.
 * chart-tooltips-TC001. Later feature work. Chart hover tooltip.
 * loading-states-TC001. Later feature work. Chart skeleton.
 * loading-states-TC002. Later feature work. Instances skeleton.
-* routing-TC001. Later feature work. Unknown route.
+* routing-TC001. Later feature work. Unknown routes fall back to the nearest product view.
 * routing-TC002. Later feature work. Query-string filter.
 * theme-TC001. Later feature work. Dark mode toggle.
 * visual-regression-TC001. Later feature work. Screenshot baseline.
