@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.20.1](https://github.com/RedHatInsights/curiosity-frontend/compare/a896ee4d9afca9bc84d550fe0c017fcc5ba9e3ea...4dc5388878719d00cab881c5eacdf597ffc4a072) (2026-10-09)
+
+
+### Tests
+* **e2e** add Playwright POC implementation ([#2044](https://github.com/RedHatInsights/curiosity-frontend/pull/2044)) ([bfa8780](https://github.com/RedHatInsights/curiosity-frontend/commit/bfa8780c49008a2520e3f46d80919188f78aa7a9))
+
+### Documentation
+* **release** sw-5282  Update for simplified one branch ([#2022](https://github.com/RedHatInsights/curiosity-frontend/pull/2022)) ([f9df119](https://github.com/RedHatInsights/curiosity-frontend/commit/f9df119b22d4d3d1c8f84b3d37820fc16a5307b9))
+
+### Continuous Integrations
+* **Revert bonfire deploy** Temp fix to use older insights-chrome ([#20342054](https://github.com/RedHatInsights/curiosity-frontend/pull/20342054)) ([441950e](https://github.com/RedHatInsights/curiosity-frontend/commit/441950e90fbf45875043e6c2c98426cf2a350e28))
+* **bonfire deploy** Temporary fix to use older insights-chrome ([#2034](https://github.com/RedHatInsights/curiosity-frontend/pull/2034)) ([6b60b5f](https://github.com/RedHatInsights/curiosity-frontend/commit/6b60b5f39f65d50438c94e6cbeabd9655f1ce8cb))
+
+### Builds
+* **deps** Update Konflux references ([#2055](https://github.com/RedHatInsights/curiosity-frontend/pull/2055)) ([4dc5388](https://github.com/RedHatInsights/curiosity-frontend/commit/4dc5388878719d00cab881c5eacdf597ffc4a072))
+* **deps** Update redhat-cloud-services-frontend ([#2053](https://github.com/RedHatInsights/curiosity-frontend/pull/2053)) ([c60fcdb](https://github.com/RedHatInsights/curiosity-frontend/commit/c60fcdbf73d31e0b8b9f72247aa5e39f8399facb))
+* **deps** Lock file maintenance ([#2052](https://github.com/RedHatInsights/curiosity-frontend/pull/2052)) ([e01c08b](https://github.com/RedHatInsights/curiosity-frontend/commit/e01c08b660b1271d990ab8706a151e492956ba77))
+* **deps** Update build-tools digest to a63e0d2 ([#2051](https://github.com/RedHatInsights/curiosity-frontend/pull/2051)) ([1e9bf90](https://github.com/RedHatInsights/curiosity-frontend/commit/1e9bf90deaaa28ade464b9b41d03a614ec25ddeb))
+* **deps** Update dev ([#2049](https://github.com/RedHatInsights/curiosity-frontend/pull/2049)) ([79cc6a8](https://github.com/RedHatInsights/curiosity-frontend/commit/79cc6a889c667c04ce0ec4b9a9a75277de3c07af))
+* **deps** Update Konflux references ([#2048](https://github.com/RedHatInsights/curiosity-frontend/pull/2048)) ([5fc0a51](https://github.com/RedHatInsights/curiosity-frontend/commit/5fc0a5192f6d55979cf0a7e8a2aac12a066d5ad7))
+* **deps** Update Node.js to >=22.23.3 ([#2050](https://github.com/RedHatInsights/curiosity-frontend/pull/2050)) ([eff1be5](https://github.com/RedHatInsights/curiosity-frontend/commit/eff1be5a3374093ab891c716f560a263feeef943))
+* **deps** Update dev ([#2047](https://github.com/RedHatInsights/curiosity-frontend/pull/2047)) ([0684b9a](https://github.com/RedHatInsights/curiosity-frontend/commit/0684b9ab63a31c591585344b1ce8dec6b53f66b0))
+* **deps** Update Konflux references to 950ff25 ([#2046](https://github.com/RedHatInsights/curiosity-frontend/pull/2046)) ([144559b](https://github.com/RedHatInsights/curiosity-frontend/commit/144559be323f92f3773adbca4e98ebc15fe04264))
+* **deps** Update dev ([#2043](https://github.com/RedHatInsights/curiosity-frontend/pull/2043)) ([4a28f34](https://github.com/RedHatInsights/curiosity-frontend/commit/4a28f34d963a0e6fc7bb8e98c2c5226a1415b72c))
+* **deps** Update Konflux references ([#2041](https://github.com/RedHatInsights/curiosity-frontend/pull/2041)) ([9a7fbd8](https://github.com/RedHatInsights/curiosity-frontend/commit/9a7fbd82444e79bcc2002272a3bd5dc834cac8d9))
+* **deps** Update prettier to ^3.9.8 ([#2042](https://github.com/RedHatInsights/curiosity-frontend/pull/2042)) ([d420cc1](https://github.com/RedHatInsights/curiosity-frontend/commit/d420cc1617191772c1fbdf70b156dbbb4a51f869))
+* **deps** Update dev ([#2040](https://github.com/RedHatInsights/curiosity-frontend/pull/2040)) ([513d4d2](https://github.com/RedHatInsights/curiosity-frontend/commit/513d4d2ca8aacf4ca6d692cbba60df5796136d5d))
+* **deps** Update cspell to ^10.3.2 ([#2039](https://github.com/RedHatInsights/curiosity-frontend/pull/2039)) ([84e095c](https://github.com/RedHatInsights/curiosity-frontend/commit/84e095c81ed29a0343467efaddfe21801c9b216b))
+* **deps** Update build-tools digest to 8039562 ([#2037](https://github.com/RedHatInsights/curiosity-frontend/pull/2037)) ([9f71024](https://github.com/RedHatInsights/curiosity-frontend/commit/9f710249b6c5e739c3540e7b02a3320254508177))
+* **deps** Update Konflux references ([#2036](https://github.com/RedHatInsights/curiosity-frontend/pull/2036)) ([a607703](https://github.com/RedHatInsights/curiosity-frontend/commit/a60770303853bcf165ac9bb0348d98384182fc29))
+* **deps** Update Konflux references ([#2031](https://github.com/RedHatInsights/curiosity-frontend/pull/2031)) ([1a35f4f](https://github.com/RedHatInsights/curiosity-frontend/commit/1a35f4f8f59381e571b8d4074e1653f1513f8c55))
+* **deps** Update dev ([#2032](https://github.com/RedHatInsights/curiosity-frontend/pull/2032)) ([c6c9817](https://github.com/RedHatInsights/curiosity-frontend/commit/c6c981733f31f28463b31f075dd2747033974870))
+* **deps** Lock file maintenance ([#2030](https://github.com/RedHatInsights/curiosity-frontend/pull/2030)) ([780bc2a](https://github.com/RedHatInsights/curiosity-frontend/commit/780bc2a32275fefaf9ffb17397b758fa40c95e73))
+* **deps** Update build-tools digest to 4f13726 ([#2029](https://github.com/RedHatInsights/curiosity-frontend/pull/2029)) ([7c7cf17](https://github.com/RedHatInsights/curiosity-frontend/commit/7c7cf1707c5eeb27010ba055a804cf248b935413))
+* **deps** Update Konflux references ([#2028](https://github.com/RedHatInsights/curiosity-frontend/pull/2028)) ([dd19ebc](https://github.com/RedHatInsights/curiosity-frontend/commit/dd19ebc7a4fb8a1c344943a826b076e3d08643c8))
+* **deps** Lock file maintenance ([#2027](https://github.com/RedHatInsights/curiosity-frontend/pull/2027)) ([b05232c](https://github.com/RedHatInsights/curiosity-frontend/commit/b05232c014b687753aaa3327b0b64d0dd4190e31))
+* **deps** Update cspell to ^10.2.2 ([#2026](https://github.com/RedHatInsights/curiosity-frontend/pull/2026)) ([588e8a4](https://github.com/RedHatInsights/curiosity-frontend/commit/588e8a4f8814ef9f04f829f17ea0fd2ce288e4a4))
+* **deps** Update dev ([#2024](https://github.com/RedHatInsights/curiosity-frontend/pull/2024)) ([b17d310](https://github.com/RedHatInsights/curiosity-frontend/commit/b17d3109c9e71ab5bd15be7cbf4bc9194f5f4142))
+* **deps** Update build-tools digest to 49d9006 ([#2023](https://github.com/RedHatInsights/curiosity-frontend/pull/2023)) ([0cce0f0](https://github.com/RedHatInsights/curiosity-frontend/commit/0cce0f08d55056997e6e72cbd06041937e3a5684))
+* **deps** Lock file maintenance ([#2020](https://github.com/RedHatInsights/curiosity-frontend/pull/2020)) ([6875762](https://github.com/RedHatInsights/curiosity-frontend/commit/6875762d21022f8ccf1eeca867b6d2b59f5ec18d))
+
 ## [4.20.0](https://github.com/RedHatInsights/curiosity-frontend/compare/7d9d428b84741e7b759f4098daecdc541c601809...d57bfc7a881e8ec2967b08f3b22770eb238664e4) (2026-09-17)
 
 
