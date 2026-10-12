@@ -94,27 +94,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - The RHEL page is displayed
 
-**navigation-TC003 - All Services lists Subscriptions and Spend**
-- **Description**: The All Services catalog shows the Subscriptions and Spend entries, and their links point at the product usage paths.
-- **Setup**:
-  - Stage session
-  - Expected group after filtering: Subscriptions and Spend
-  - Expected entries: Subscriptions Usage under Red Hat Enterprise Linux, OpenShift, Ansible, and Subscription Services
-  - Link targets: `subscriptions/usage/ansible`, `subscriptions/usage/openshift`, `subscriptions/usage/rhel`
-- **Action**:
-  - Open All Services from the Services menu
-  - Read the unfiltered catalog
-  - Filter the catalog with "Subscriptions and Spend"
-  - Read each Subscriptions Usage link
-- **Verification**:
-  - Compare the filtered Subscriptions and Spend group with the unfiltered group
-  - Compare the Subscriptions Usage link paths with the expected usage URLs
-- **Expected Result**:
-  - The filtered catalog contains only Subscriptions and Spend
-  - The filtered group matches the unfiltered Subscriptions and Spend group
-  - Each Subscriptions Usage link path matches the expected usage URL
-
-**navigation-TC004 - Insights menu opens RHEL usage**
+**navigation-TC003 - Insights menu opens RHEL usage**
 - **Description**: The Insights left navigation includes a Subscriptions entry that opens RHEL usage and leaves the RHEL menu active.
 - **Setup**:
   - Stage session on the Insights dashboard
@@ -130,7 +110,7 @@ These ten cases are the implementation cap for SWATCH-5215.
   - The RHEL link href is `/subscriptions/usage/rhel`
   - The RHEL usage page is displayed with the RHEL menu
 
-**navigation-TC005 - OpenShift menu opens OpenShift usage**
+**navigation-TC004 - OpenShift menu opens OpenShift usage**
 - **Description**: The OpenShift console left navigation includes a Subscriptions entry that opens OpenShift usage and leaves the OpenShift menu active.
 - **Setup**:
   - Stage session on the OpenShift overview
@@ -348,7 +328,8 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Description**: On RHEL ELS On-Demand, the billing provider list matches the instance billing providers. Choosing a provider fills the account list, selects the first account, and can switch to the last account.
 - **Setup**:
   - RHEL for x86 ELS On-Demand page (`rhel-for-x86-els-payg-addon`)
-  - Mocked instances that carry billing provider and billing account ids
+  - Mock both `/v1/instances/billing_account_ids` and `/v1/subscriptions/billing_account_ids` endpoints for this product, with multiple account IDs per provider
+  - billing_account_ids from both endpoints match
 - **Action**:
   - Open the ELS On-Demand page
   - Read the provider list
@@ -365,7 +346,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Description**: On the ROSA page, filtering by the AWS billing provider and one billing account shows the instances that belong to that account.
 - **Setup**:
   - ROSA page (`rosa`)
-  - Mocked instances with an AWS billing account id
+  - Mocked instances with various AWS billing account id
 - **Action**:
   - Open the ROSA page
   - Select the AWS billing provider and the last billing account for that provider
@@ -431,40 +412,6 @@ These ten cases are the implementation cap for SWATCH-5215.
   - The dropdown has 12 items
   - The first item is "This month"
   - The last item is the month, and the year when that month is in a previous year
-  - The graph data after the selection differs from the current month
-
-**toolbar-TC009 - OpenShift Dedicated history dropdown changes the graph**
-- **Description**: The OpenShift Dedicated history dropdown lists this month and the previous eleven months. Choosing another month changes the graph.
-- **Setup**:
-  - OpenShift Dedicated page
-  - Mocked monthly tally for the current month and for one earlier month
-  - Same twelve labels as toolbar-TC008
-- **Action**:
-  - Open the Dedicated page
-  - Read the history dropdown
-  - Select a month other than "This month"
-- **Verification**:
-  - Compare dropdown items with the twelve expected labels
-  - Compare the graph before and after the selection
-- **Expected Result**:
-  - The dropdown has 12 correctly labeled items, starting with "This month"
-  - The graph data after the selection differs from the current month
-
-**toolbar-TC010 - Advanced Cluster Security history dropdown changes the graph**
-- **Description**: The Advanced Cluster Security history dropdown lists this month and the previous eleven months. Choosing another month changes the graph.
-- **Setup**:
-  - Red Hat Advanced Cluster Security page
-  - Mocked monthly tally for the current month and for one earlier month
-  - Same twelve labels as toolbar-TC008
-- **Action**:
-  - Open the Advanced Cluster Security page
-  - Read the history dropdown
-  - Select a month other than "This month"
-- **Verification**:
-  - Compare dropdown items with the twelve expected labels
-  - Compare the graph before and after the selection
-- **Expected Result**:
-  - The dropdown has 12 correctly labeled items, starting with "This month"
   - The graph data after the selection differs from the current month
 
 ## RHEL graph
@@ -553,28 +500,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - The graph matches the combined-filter tally
 
-**rhel-graph-TC006 - RHEL graph stays correct with the navigation sidebar closed**
-- **Description**: Closing the left navigation and applying the Premium SLA still shows the Premium daily sockets graph.
-- **Setup**:
-  - RHEL for x86 page
-  - Daily granularity
-  - SLA Premium
-  - Mocked tally for that filter
-- **Action**:
-  - Open the RHEL page
-  - Close the navigation sidebar
-  - Clear existing filters, select Daily, and apply SLA Premium
-  - Read the graph
-  - Open the sidebar and clear filters
-- **Verification**:
-  - Confirm the sidebar is hidden while the graph is read
-  - Compare the graph with the Premium daily sockets tally
-- **Expected Result**:
-  - The navigation sidebar is hidden
-  - The graph matches the Premium daily tally
-  - The sidebar is visible again after the check
-
-**rhel-graph-TC007 - Infinite-capacity RHEL graph matches tally**
+**rhel-graph-TC006 - Infinite-capacity RHEL graph matches tally**
 - **Description**: A mocked capacity response with unlimited RHEL quantity shows a sockets graph that matches the mocked tally at each granularity. IQE logged in as an account that owned an infinite-quantity SKU. Playwright serves that capacity flag.
 - **Setup**:
   - RHEL for x86 page
@@ -590,7 +516,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - The graph matches the API response at each granularity
 
-**rhel-graph-TC008 - RHEL for SAP graph matches tally**
+**rhel-graph-TC007 - RHEL for SAP graph matches tally**
 - **Description**: The RHEL for SAP x86 sockets graph matches tally at each granularity.
 - **Setup**:
   - RHEL for SAP x86 page (`rhel-for-sap-x86`)
@@ -605,7 +531,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - The graph matches the API response at each granularity
 
-**rhel-graph-TC009 - RHEL EUS graph matches tally**
+**rhel-graph-TC008 - RHEL EUS graph matches tally**
 - **Description**: The RHEL for x86 EUS sockets graph matches tally at each granularity.
 - **Setup**:
   - RHEL for x86 EUS page (`rhel-for-x86-eus`)
@@ -620,7 +546,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - The graph matches the API response at each granularity
 
-**rhel-graph-TC010 - RHEL HA graph matches tally**
+**rhel-graph-TC009 - RHEL HA graph matches tally**
 - **Description**: The RHEL for x86 HA sockets graph matches tally at each granularity.
 - **Setup**:
   - RHEL for x86 HA page (`rhel-for-x86-ha`)
@@ -635,7 +561,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - The graph matches the API response at each granularity
 
-**rhel-graph-TC011 - RHEL Resilient Storage graph matches tally**
+**rhel-graph-TC010 - RHEL Resilient Storage graph matches tally**
 - **Description**: The RHEL for x86 Resilient Storage sockets graph matches tally at each granularity.
 - **Setup**:
   - RHEL for x86 Resilient Storage page (`rhel-for-x86-rs`)
@@ -650,7 +576,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - The graph matches the API response at each granularity
 
-**rhel-graph-TC012 - RHEL ELS On-Demand vCPU graph matches the monthly card**
+**rhel-graph-TC011 - RHEL ELS On-Demand vCPU graph matches the monthly card**
 - **Description**: The ELS On-Demand vCPU hours graph matches tally, future days in the month stay empty, and the monthly card matches the monthly total. The check covers the unfiltered page and the AWS billing-provider filter.
 - **Setup**:
   - Destinations: RHEL ELS On-Demand (`rhel-for-x86-els-payg-addon`) and RHEL ELS On-Demand for Third Party Linux Migration (`rhel-for-x86-els-payg`)
@@ -672,7 +598,7 @@ These ten cases are the implementation cap for SWATCH-5215.
   - Days after today show "no data" for the vCPU hours series
   - The monthly card equals the formatted monthly total
 
-**rhel-graph-TC013 - RHEL ELS Annual graph matches tally**
+**rhel-graph-TC012 - RHEL ELS Annual graph matches tally**
 - **Description**: The RHEL ELS Annual sockets graph matches tally at each granularity.
 - **Setup**:
   - RHEL ELS Annual page (`rhel-for-x86-els-unconverted`)
@@ -687,7 +613,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - The graph matches the API response at each granularity
 
-**rhel-graph-TC014 - A higher mocked subscription quantity increases the threshold**
+**rhel-graph-TC013 - A higher mocked subscription quantity increases the threshold**
 - **Description**: The RHEL daily graph threshold matches capacity and the current subscriptions quantity. Usage matches tally. A second set of mocks, with one extra socket subscription, shows a higher threshold, and the updated threshold still matches capacity and the subscriptions quantity. IQE added SKU RH00004 and synced capacity. Playwright swaps in that increased payload.
 - **Setup**:
   - RHEL for x86 page
@@ -744,27 +670,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - Both graphs match the tally for the selected SLA
 
-**openshift-graph-TC003 - OpenShift graph stays correct with the navigation sidebar closed**
-- **Description**: Closing the left navigation and applying the Standard SLA still shows the Standard cores and sockets graphs.
-- **Setup**:
-  - OpenShift Container Platform page
-  - SLA Standard
-  - Mocked tally for that SLA
-- **Action**:
-  - Open the OpenShift page
-  - Close the navigation sidebar
-  - Apply Standard
-  - Read both graphs
-  - Open the sidebar
-- **Verification**:
-  - Confirm the sidebar is hidden while the graphs are read
-  - Compare both graphs with the Standard tally
-- **Expected Result**:
-  - The navigation sidebar is hidden
-  - Both graphs match the Standard tally
-  - The sidebar is visible again after the check
-
-**openshift-graph-TC004 - Infinite-capacity OpenShift graph matches tally**
+**openshift-graph-TC003 - Infinite-capacity OpenShift graph matches tally**
 - **Description**: A mocked capacity response with unlimited OpenShift quantity shows cores and sockets graphs that match the mocked tally. IQE logged in as an account that owned an infinite-quantity SKU. Playwright serves that capacity flag.
 - **Setup**:
   - OpenShift Container Platform page
@@ -778,7 +684,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Expected Result**:
   - Both graphs match the API response
 
-**openshift-graph-TC005 - OpenShift On-Demand core hours omit future days**
+**openshift-graph-TC004 - OpenShift On-Demand core hours omit future days**
 - **Description**: The OpenShift On-Demand core hours graph matches the current-month tally, and days after today have no data.
 - **Setup**:
   - OpenShift On-Demand page (`OpenShift-metrics`)
@@ -795,7 +701,7 @@ These ten cases are the implementation cap for SWATCH-5215.
   - The graph matches the tally
   - Days after today show "no data" for Core hours
 
-**openshift-graph-TC006 - OpenShift Dedicated graphs omit future days**
+**openshift-graph-TC005 - OpenShift Dedicated graphs omit future days**
 - **Description**: The OpenShift Dedicated core hours graph matches the current-month cores tally, and the instance hours graph matches the current-month instance hours tally. Days after today have no data.
 - **Setup**:
   - OpenShift Dedicated page (`OpenShift-dedicated-metrics`)
@@ -813,7 +719,7 @@ These ten cases are the implementation cap for SWATCH-5215.
   - The instance hours graph matches the instance hours tally
   - Days after today show "no data" for Core hours and for Instance hours
 
-**openshift-graph-TC007 - Advanced Cluster Security graph matches the monthly card**
+**openshift-graph-TC006 - Advanced Cluster Security graph matches the monthly card**
 - **Description**: The Advanced Cluster Security cores graph matches tally, future days stay empty, and the monthly card matches the monthly total.
 - **Setup**:
   - Red Hat Advanced Cluster Security page (`rhacs`)
@@ -832,7 +738,7 @@ These ten cases are the implementation cap for SWATCH-5215.
   - Days after today show "no data" for the vCPU hours series
   - The monthly card equals the formatted monthly total
 
-**openshift-graph-TC008 - OpenShift AI graph matches the monthly card**
+**openshift-graph-TC007 - OpenShift AI graph matches the monthly card**
 - **Description**: The OpenShift AI cores graph matches tally, future days stay empty, and the monthly card matches the monthly total.
 - **Setup**:
   - Red Hat OpenShift AI page (`rhods`)
@@ -851,7 +757,7 @@ These ten cases are the implementation cap for SWATCH-5215.
   - Days after today show "no data" for the vCPU hours series
   - The monthly card equals the formatted monthly total
 
-**openshift-graph-TC009 - ROSA graph totals match the rounded instances table**
+**openshift-graph-TC008 - ROSA graph totals match the rounded instances table**
 - **Description**: ROSA vCPU hours and control plane hours on the graph equal the rounded sums of those columns in the instances table.
 - **Setup**:
   - ROSA page
@@ -866,7 +772,7 @@ These ten cases are the implementation cap for SWATCH-5215.
   - The vCPU graph total equals the rounded vCPU hours column
   - The control plane graph total equals the rounded control plane hours column
 
-**openshift-graph-TC010 - ROSA remaining capacity matches capacity minus tally**
+**openshift-graph-TC009 - ROSA remaining capacity matches capacity minus tally**
 - **Description**: ROSA remaining vCPU hours and remaining control plane hours equal today's capacity minus the monthly prepaid tally, and they never display a negative value.
 - **Setup**:
   - ROSA page
@@ -1280,7 +1186,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Setup**:
   - RHEL for x86 page
   - Page sizes: 10, 20, 50, 100
-  - Mocked instances response
+  - Mocked instances response with at least 100 instances, using the mocker's `mockLargeInstancesDataset` helper
 - **Action**:
   - Open the RHEL instances tab
   - Set each page size
@@ -1363,7 +1269,7 @@ These ten cases are the implementation cap for SWATCH-5215.
 - **Description**: Choosing Export to JSON or Export to CSV shows an info notification, then a success notification whose body names the product and the format. JSON and CSV share one case because they use the same export path.
 - **Setup**:
   - Shared login storage state
-  - A Subscriptions product page. The plugin picks a product at random. The first suite uses the RHEL page.
+  - The fixed RHEL for x86 Subscriptions product (`product_tag=RHEL for x86`) for every run.
   - Export formats: JSON and CSV
   - Mocked export response that completes the download
   - Any existing export confirmation is cancelled before the run
@@ -1758,13 +1664,12 @@ The epic implements ten cases. Every other case stays in this catalog.
 * navigation-TC002. Platform chrome outside this repo.
 * navigation-TC003. Platform chrome outside this repo.
 * navigation-TC004. Platform chrome outside this repo.
-* navigation-TC005. Platform chrome outside this repo.
 * rbac-TC001. Account data setup, with no UI assertion of its own.
 * rbac-TC002. Multi-user RBAC.
 * rbac-TC003. Multi-user RBAC.
 * chart-labels-TC001. Product-matrix duplicate of the RHEL legend case.
 * chart-labels-TC003. Later feature work. OpenShift legend toggle.
-* chart-labels-TC004. Later feature work. The first suite checks that the RHEL legend labels render.
+* chart-labels-TC004. Later feature work. RHEL legend items stay enabled when clicked.
 * chart-labels-TC005. Product-matrix duplicate. RHEL x-axis ticks are part of chart-labels-TC002.
 * toolbar-TC003. Product-matrix duplicate of toolbar-TC002.
 * toolbar-TC004. Later feature work. Mocked billing providers and accounts.
@@ -1772,32 +1677,28 @@ The epic implements ten cases. Every other case stays in this catalog.
 * toolbar-TC006. Later feature work. Mocked rows before and after clear.
 * toolbar-TC007. Later feature work. Display name search against mocked instances.
 * toolbar-TC008. Later feature work. History dropdown on OpenShift On-Demand.
-* toolbar-TC009. Product-matrix duplicate of toolbar-TC008.
-* toolbar-TC010. Product-matrix duplicate of toolbar-TC008.
 * rhel-graph-TC001. Later feature work. Mocked tally and capacity across granularities.
 * rhel-graph-TC002. Later feature work. Mocked SLA-filtered tally. Filter controls are toolbar-TC002.
 * rhel-graph-TC003. Later feature work. Mocked usage-filtered tally. Filter controls are toolbar-TC002.
 * rhel-graph-TC004. Later feature work. Mocked type-filtered tally. Filter controls are toolbar-TC002.
 * rhel-graph-TC005. Later feature work. Mocked combined-filter tally. Filter controls are toolbar-TC002.
-* rhel-graph-TC006. Later feature work. Mocked tally with the console sidebar closed.
-* rhel-graph-TC007. Later feature work. Mocked infinite capacity. The metric card is chart-edge-TC004.
+* rhel-graph-TC006. Later feature work. Mocked infinite capacity.
+* rhel-graph-TC007. Later feature work. Mocked RHEL for SAP tally.
 * rhel-graph-TC008. Product-matrix duplicate of rhel-graph-TC001.
 * rhel-graph-TC009. Product-matrix duplicate of rhel-graph-TC001.
 * rhel-graph-TC010. Product-matrix duplicate of rhel-graph-TC001.
-* rhel-graph-TC011. Product-matrix duplicate of rhel-graph-TC001.
-* rhel-graph-TC012. Later feature work. Mocked ELS On-Demand vCPU graph and monthly card.
-* rhel-graph-TC013. Product-matrix duplicate of rhel-graph-TC001.
-* rhel-graph-TC014. Later feature work. Mocked threshold before and after a subscription increase.
+* rhel-graph-TC011. Later feature work. Mocked ELS On-Demand vCPU graph and monthly card.
+* rhel-graph-TC012. Product-matrix duplicate of rhel-graph-TC001.
+* rhel-graph-TC013. Later feature work. Mocked threshold before and after a subscription increase.
 * openshift-graph-TC001. Later feature work. Mocked cores and sockets tally.
 * openshift-graph-TC002. Later feature work. Mocked SLA-filtered tally.
-* openshift-graph-TC003. Later feature work. Mocked tally with the console sidebar closed.
-* openshift-graph-TC004. Later feature work. Mocked infinite capacity.
-* openshift-graph-TC005. Later feature work. Mocked hourly tally.
-* openshift-graph-TC006. Later feature work. Mocked hourly tally.
-* openshift-graph-TC007. Product-matrix duplicate of the monthly graph and card check.
-* openshift-graph-TC008. Product-matrix duplicate of the monthly graph and card check.
-* openshift-graph-TC009. Later feature work. Mocked ROSA graph and table totals.
-* openshift-graph-TC010. Later feature work. Mocked ROSA remaining capacity.
+* openshift-graph-TC003. Later feature work. Mocked infinite capacity.
+* openshift-graph-TC004. Later feature work. Mocked On-Demand hourly tally and future-day behavior.
+* openshift-graph-TC005. Later feature work. Mocked Dedicated hourly tallies and future-day behavior.
+* openshift-graph-TC006. Later feature work. Mocked Advanced Cluster Security graph and monthly card.
+* openshift-graph-TC007. Later feature work. Mocked OpenShift AI graph and monthly card.
+* openshift-graph-TC008. Later feature work. Mocked ROSA graph and table totals.
+* openshift-graph-TC009. Later feature work. Mocked ROSA remaining capacity.
 * subscriptions-table-TC001. Later feature work. Empty IBM z subscriptions state.
 * subscriptions-table-TC003. Product-matrix duplicate of subscriptions-table-TC002.
 * subscriptions-table-TC004. Product-matrix duplicate of subscriptions-table-TC002.
@@ -1831,6 +1732,7 @@ The epic implements ten cases. Every other case stays in this catalog.
 * error-states-TC003. Later feature work. Subscriptions error after the chart and instances errors.
 * error-states-TC004. Later feature work. Billing-account preflight on ROSA.
 * error-states-TC005. Later feature work. Generic banner dismiss.
+* error-states-TC006. Later feature work. Capacity HTTP 500 while subscriptions succeed.
 * chart-edge-TC002. Later feature work. Above-threshold visual.
 * chart-edge-TC003. Later feature work. Large y-axis values.
 * chart-edge-TC004. Later feature work. Mocked infinity card.
@@ -1843,5 +1745,3 @@ The epic implements ten cases. Every other case stays in this catalog.
 * routing-TC002. Later feature work. Query-string filter.
 * theme-TC001. Later feature work. Dark mode toggle.
 * visual-regression-TC001. Later feature work. Screenshot baseline.
-
-
