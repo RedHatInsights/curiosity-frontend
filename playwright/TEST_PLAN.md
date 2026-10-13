@@ -68,64 +68,6 @@ These ten cases are the implementation cap for SWATCH-5215.
 | chart-edge-TC001 | All-zero tally shows the chart empty state |
 | chart-edge-TC005 | Switching granularity refetches tally and updates the chart |
 
-## Navigation and login
-
-**navigation-TC001 - Product pages load after login**
-- **Description**: Each Subscriptions product destination renders its page for an authenticated user.
-- **Setup**:
-  - Stage session with permission to Subscriptions and an existing opt-in
-  - Destinations: RhelAll, RedHatOpenShift, RedHatOpenShiftOnDemand, OpenShiftDedicated, RedHatOpenShiftAI, Satellite, RedHatAdvancedClusterSecurity, HostedControlPlanes, RhelSAP, RhelEUS, RhelHA, RhelRS, RhelELSOnDemand, RhelELSOnDemand3rdParty, RhelELSAnnual, AnsibleAWS, RhelAUSAnnual, AdvancedClusterManagement
-- **Action**:
-  - Open each destination
-- **Verification**:
-  - Check that the destination view is displayed
-- **Expected Result**:
-  - Every destination page is displayed
-
-**navigation-TC002 - Services menu opens the RHEL page**
-- **Description**: Navigation through the top Services menu lands on the RHEL Subscriptions page.
-- **Setup**:
-  - Stage session
-  - Destination: RhelAllMenu
-- **Action**:
-  - Open the RHEL page through the Services menu
-- **Verification**:
-  - Check that the destination view is displayed
-- **Expected Result**:
-  - The RHEL page is displayed
-
-**navigation-TC003 - Insights menu opens RHEL usage**
-- **Description**: The Insights left navigation includes a Subscriptions entry that opens RHEL usage and leaves the RHEL menu active.
-- **Setup**:
-  - Stage session on the Insights dashboard
-- **Action**:
-  - Open the Insights dashboard
-  - Read the left navigation tree
-  - Open RHEL usage from that menu
-- **Verification**:
-  - Check the Business and Subscriptions entries and the RHEL link href
-  - Check the menu type after navigation
-- **Expected Result**:
-  - The tree contains Business and Subscriptions
-  - The RHEL link href is `/subscriptions/usage/rhel`
-  - The RHEL usage page is displayed with the RHEL menu
-
-**navigation-TC004 - OpenShift menu opens OpenShift usage**
-- **Description**: The OpenShift console left navigation includes a Subscriptions entry that opens OpenShift usage and leaves the OpenShift menu active.
-- **Setup**:
-  - Stage session on the OpenShift overview
-- **Action**:
-  - Open the OpenShift overview
-  - Read the left navigation tree
-  - Open OpenShift usage from Cloud console settings, Subscriptions
-- **Verification**:
-  - Check the Subscriptions and OpenShift Usage entries and the OpenShift link href
-  - Check the menu type after navigation
-- **Expected Result**:
-  - Cloud console settings contains Subscriptions, and Subscriptions contains OpenShift Usage
-  - The OpenShift link href is `/subscriptions/usage/openshift`
-  - The OpenShift usage page is displayed with the OpenShift menu
-
 ## RBAC and opt-in
 
 **rbac-TC001 - Mocked host data for a non-admin account**
@@ -1655,15 +1597,12 @@ These notes do not get a second case.
 * The notes mention `test_ui_system_table_sort`. That function is not in the current plugin. Column sort stays with the Jest table tests.
 * Feature-note rows that name an existing plugin test are the matching case above. Examples: granularity and history dropdowns, SLA and usage filters, subscriptions and instances tables, RHEL graph filters, and chart legend labels.
 * The check that a failed instances request leaves the chart visible is error-states-TC002.
+* Menu navigation checks stay in `iqe-curiosity-plugin`.
 
 # Not in the first suite
 
 The epic implements ten cases. Every other case stays in this catalog.
 
-* navigation-TC001. Real authentication across the product matrix. The first suite reuses the SWATCH-5638 login state on the RHEL page.
-* navigation-TC002. Platform chrome outside this repo.
-* navigation-TC003. Platform chrome outside this repo.
-* navigation-TC004. Platform chrome outside this repo.
 * rbac-TC001. Account data setup, with no UI assertion of its own.
 * rbac-TC002. Multi-user RBAC.
 * rbac-TC003. Multi-user RBAC.
