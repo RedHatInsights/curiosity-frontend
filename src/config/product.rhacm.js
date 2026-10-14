@@ -55,6 +55,45 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.RHACM;
  */
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHACM;
 
+const graphFiltersForMetric = metric => ({
+  filters: [
+    {
+      metric,
+      fill: chartColorBlueLight.value,
+      stroke: chartColorBlueDark.value,
+      color: chartColorBlueDark.value,
+      query: {
+        [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.PREPAID
+      }
+    },
+    {
+      metric,
+      fill: chartColorGoldLight.value,
+      stroke: chartColorGoldDark.value,
+      color: chartColorGoldDark.value,
+      query: {
+        [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.ON_DEMAND
+      }
+    },
+    {
+      metric,
+      chartType: ChartTypeVariant.threshold
+    }
+  ]
+});
+
+const renderMetricMeasurement = (metric, row = {}) => {
+  const total = row[metric];
+  const value = typeof total === 'number' || (typeof total === 'string' && total.trim() !== '') ? Number(total) : NaN;
+  const hasValue = Number.isFinite(value);
+
+  return translate('curiosity-inventory.measurement', {
+    context: hasValue ? 'value' : undefined,
+    total: hasValue ? value.toFixed(2) : undefined,
+    testId: <span data-test={`instances-cell-${metric}`} data-value={`${total}`} />
+  });
+};
+
 /**
  * Product configuration
  *
@@ -99,32 +138,8 @@ const config = {
     [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
   },
   initialGraphFilters: [
-    {
-      filters: [
-        {
-          metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
-          fill: chartColorBlueLight.value,
-          stroke: chartColorBlueDark.value,
-          color: chartColorBlueDark.value,
-          query: {
-            [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.PREPAID
-          }
-        },
-        {
-          metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
-          fill: chartColorGoldLight.value,
-          stroke: chartColorGoldDark.value,
-          color: chartColorGoldDark.value,
-          query: {
-            [RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY]: CATEGORY_TYPES.ON_DEMAND
-          }
-        },
-        {
-          metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
-          chartType: ChartTypeVariant.threshold
-        }
-      ]
-    }
+    graphFiltersForMetric(RHSM_API_PATH_METRIC_TYPES.VCPUS),
+    graphFiltersForMetric(RHSM_API_PATH_METRIC_TYPES.VCPUS_SELF_MANAGED)
   ],
   initialGraphSettings: {
     cards: [
@@ -282,12 +297,14 @@ const config = {
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.VCPUS,
-      cell: ({ [RHSM_API_PATH_METRIC_TYPES.VCPUS]: total } = {}) =>
-        translate('curiosity-inventory.measurement', {
-          context: (total && 'value') || undefined,
-          total: (total && Number.parseFloat(total).toFixed(2)) || undefined,
-          testId: <span data-test={`instances-cell-${RHSM_API_PATH_METRIC_TYPES.VCPUS}`} data-value={`${total}`} />
-        }),
+      cell: row => renderMetricMeasurement(RHSM_API_PATH_METRIC_TYPES.VCPUS, row),
+      isSort: true,
+      isWrap: true,
+      width: 15
+    },
+    {
+      metric: RHSM_API_PATH_METRIC_TYPES.VCPUS_SELF_MANAGED,
+      cell: row => renderMetricMeasurement(RHSM_API_PATH_METRIC_TYPES.VCPUS_SELF_MANAGED, row),
       isSort: true,
       isWrap: true,
       width: 15
