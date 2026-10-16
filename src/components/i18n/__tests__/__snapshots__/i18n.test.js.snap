@@ -957,6 +957,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/config/product.rhacm.js",
     "keys": [
       {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: hasValue ? 'value' : undefined, total: hasValue ? value.toFixed(2)",
+      },
+      {
         "key": "curiosity-graph.cardHeadingMetric",
         "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['remainingCapacity', dataSets?.[0]?.display?.chartId], testId: 'graphRemainingCapacityCard-header' })",
       },
@@ -987,10 +991,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none'] })",
-      },
-      {
-        "key": "curiosity-inventory.measurement",
-        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
       {
         "key": "curiosity-inventory.label",
