@@ -27,7 +27,11 @@ exports[`Toolbar Component should handle displaying a group variant field: group
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
           deleteLabel={[Function]}
-          labels={[]}
+          labels={
+            [
+              "t(curiosity-toolbar.label_sla, {"context":"Premium","value":"Premium"})",
+            ]
+          }
           showToolbarItem={true}
         >
           <Sla
@@ -86,7 +90,11 @@ exports[`Toolbar Component should handle displaying secondary components, fields
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
           deleteLabel={[Function]}
-          labels={[]}
+          labels={
+            [
+              "t(curiosity-toolbar.label_sla, {"context":"Premium","value":"Premium"})",
+            ]
+          }
           showToolbarItem={true}
         >
           <Sla
@@ -212,7 +220,11 @@ exports[`Toolbar Component should hide categories when a single filter is availa
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
           deleteLabel={[Function]}
-          labels={[]}
+          labels={
+            [
+              "t(curiosity-toolbar.label_sla, {"context":"Premium","value":"Premium"})",
+            ]
+          }
           showToolbarItem={true}
         >
           <Sla
@@ -264,7 +276,11 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
           deleteLabel={[Function]}
-          labels={[]}
+          labels={
+            [
+              "t(curiosity-toolbar.label_sla, {"context":"Premium","value":"Premium"})",
+            ]
+          }
           showToolbarItem={false}
         >
           <Sla
@@ -274,7 +290,11 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"usage"})"
           deleteLabel={[Function]}
-          labels={[]}
+          labels={
+            [
+              "t(curiosity-toolbar.label_usage, {"context":"Production","value":"Production"})",
+            ]
+          }
           showToolbarItem={false}
         >
           <Usage
