@@ -2,10 +2,16 @@ import React, { useContext, useMemo } from 'react';
 import { useShallowCompareEffect } from 'react-use';
 import { ToolbarItem } from '@patternfly/react-core';
 import { reduxActions, storeHooks } from '../../redux';
-import { useProduct, useProductGraphConfig, useProductGraphTallyQuery } from '../productView/productViewContext';
+import {
+  useProduct,
+  useProductGraphConfig,
+  useProductGraphTallyQuery,
+  useProductToolbarConfig
+} from '../productView/productViewContext';
 import { toolbarFieldOptions } from '../toolbar/toolbarFieldSelectCategory';
 import { helpers } from '../../common/helpers';
 import { graphCardHelpers } from './graphCardHelpers';
+import { normalizeSlaUsageQuery, useResolvedSlaUsageFilteringEnabled } from '../productView/slaUsageHelpers';
 
 /**
  * @memberof GraphCard
@@ -117,6 +123,8 @@ const useMetricsSelector = ({
  * @param {Function} params.useMetricsSelector
  * @param {Function} params.useProduct
  * @param {Function} params.useProductGraphTallyQuery
+ * @param {Function} params.useProductToolbarConfig
+ * @param {Function} params.useResolvedSlaUsageFilteringEnabled
  * @returns {{data: {}, pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
  *     id: {}, list: Array}, cancelled: boolean, dataSets: Array, message: null, error: boolean}}
  */
@@ -126,7 +134,9 @@ const useGetMetrics = ({
   useGraphCardContext: useAliasGraphCardContext = useGraphCardContext,
   useMetricsSelector: useAliasMetricsSelector = useMetricsSelector,
   useProduct: useAliasProduct = useProduct,
-  useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery
+  useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery,
+  useProductToolbarConfig: useAliasProductToolbarConfig = useProductToolbarConfig,
+  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled
 } = {}) => {
   const { productId } = useAliasProduct();
   const query = useAliasProductGraphTallyQuery();
@@ -134,16 +144,18 @@ const useGetMetrics = ({
   const response = useAliasMetricsSelector();
   const { settings = {} } = useAliasGraphCardContext();
   const { metrics = [] } = settings;
+  const { filters } = useAliasProductToolbarConfig();
+  const resolvedSlaUsageFilteringEnabled = useAliasResolvedSlaUsageFilteringEnabled();
 
   useShallowCompareEffect(() => {
     const updatedMetrics = metrics.map(({ metric: metricId, isCapacity, query: metricQuery }) => ({
       id: productId,
       metric: metricId,
       isCapacity,
-      query: metricQuery
+      query: normalizeSlaUsageQuery({ ...query, ...metricQuery }, filters, resolvedSlaUsageFilteringEnabled)
     }));
     getGraphMetrics(updatedMetrics, query)(dispatch);
-  }, [metrics, productId, query]);
+  }, [filters, metrics, productId, query, resolvedSlaUsageFilteringEnabled]);
 
   return response;
 };

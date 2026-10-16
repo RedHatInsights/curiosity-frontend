@@ -18,7 +18,17 @@ import {
   useProductInventorySubscriptionsConfig,
   useProductToolbarConfig
 } from '../productViewContext';
-import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
+import {
+  rhsmConstants,
+  RHSM_API_QUERY_SET_TYPES as QUERY_TYPES,
+  RHSM_API_QUERY_SLA_TYPES as SLA_TYPES,
+  RHSM_API_QUERY_USAGE_TYPES as USAGE_TYPES
+} from '../../../services/rhsm/rhsmConstants';
+import { config as rhelConfig } from '../../../config/product.rhel';
+import { config as rhelPaygConfig } from '../../../config/product.rhelElsPayg';
+import { config as openshiftConfig } from '../../../config/product.openshiftContainer';
+
+const enableResolvedSlaUsageFiltering = () => true;
 
 describe('ProductViewContext', () => {
   it('should return specific properties', () => {
@@ -120,6 +130,154 @@ describe('ProductViewContext', () => {
     );
     expect(result).toMatchSnapshot();
   });
+
+  it('should resolve cleared SLA and Usage filters to their defaults', async () => {
+    const { result } = await renderHook(() =>
+      useProductQuery({
+        useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+        useProductQueryFactory: () => ({
+          [QUERY_TYPES.SLA]: null,
+          [QUERY_TYPES.USAGE]: null
+        })
+      })
+    );
+
+    expect(result).toEqual({
+      [QUERY_TYPES.SLA]: SLA_TYPES.PREMIUM,
+      [QUERY_TYPES.USAGE]: USAGE_TYPES.PRODUCTION
+    });
+  });
+
+  it('should leave cleared SLA and Usage filters unchanged while the feature flag is disabled by default', async () => {
+    const { result } = await renderHook(() =>
+      useProductQuery({
+        useProductQueryFactory: () => ({
+          [QUERY_TYPES.SLA]: null,
+          [QUERY_TYPES.USAGE]: null
+        })
+      })
+    );
+
+    expect(result).toEqual({
+      [QUERY_TYPES.SLA]: null,
+      [QUERY_TYPES.USAGE]: null
+    });
+  });
+
+  it.each([
+    [
+      'annual RHEL',
+      rhelConfig,
+      {
+        [QUERY_TYPES.SLA]: SLA_TYPES.PREMIUM,
+        [QUERY_TYPES.USAGE]: USAGE_TYPES.PRODUCTION
+      }
+    ],
+    ['PAYG RHEL', rhelPaygConfig, {}],
+    ['annual OpenShift', openshiftConfig, { [QUERY_TYPES.SLA]: SLA_TYPES.PREMIUM }]
+  ])('should resolve only supported inventory filters for %s', async (_description, productConfig, expectedFilters) => {
+    const { result, unmount } = await renderHook(() =>
+      useProductInventorySubscriptionsQuery({
+        useProductViewContext: () => productConfig,
+        useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+        useProductQuery: () => ({
+          [QUERY_TYPES.SLA]: SLA_TYPES.STANDARD,
+          [QUERY_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT
+        }),
+        useProductQueryFactory: () => ({
+          [QUERY_TYPES.SLA]: '',
+          [QUERY_TYPES.USAGE]: 'unsupported',
+          [QUERY_TYPES.LIMIT]: 100
+        })
+      })
+    );
+
+    expect(result).toEqual({ [QUERY_TYPES.LIMIT]: 100, ...expectedFilters });
+
+    await unmount();
+  });
+
+  it.each([
+    ['base', useProductQuery],
+    ['graph', useProductGraphTallyQuery],
+    ['guest inventory', useProductInventoryGuestsQuery],
+    ['host inventory', useProductInventoryHostsQuery],
+    ['subscription inventory', useProductInventorySubscriptionsQuery]
+  ])('should omit Usage from annual OpenShift %s queries', async (_description, useQuery) => {
+    const { result, unmount } = await renderHook(() =>
+      useQuery({
+        useProductViewContext: () => openshiftConfig,
+        useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+        useProductQuery: () => ({
+          [QUERY_TYPES.SLA]: null,
+          [QUERY_TYPES.USAGE]: null
+        }),
+        useProductQueryFactory: () => ({
+          [QUERY_TYPES.SLA]: '',
+          [QUERY_TYPES.USAGE]: 'unsupported'
+        })
+      })
+    );
+
+    expect(result).toEqual({ [QUERY_TYPES.SLA]: SLA_TYPES.PREMIUM });
+
+    await unmount();
+  });
+
+  it('should omit Usage from annual OpenShift export requests', async () => {
+    const { result, unmount } = await renderHook(() =>
+      useProductExportQuery({
+        useProduct: () => ({ productId: openshiftConfig.productId }),
+        useProductViewContext: () => openshiftConfig,
+        useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+        useProductToolbarQuery: () => ({
+          [QUERY_TYPES.SLA]: null,
+          [QUERY_TYPES.USAGE]: null
+        })
+      })
+    );
+
+    expect(result).toEqual({
+      product_id: openshiftConfig.productId,
+      [QUERY_TYPES.SLA]: SLA_TYPES.PREMIUM
+    });
+
+    await unmount();
+  });
+
+  it.each([
+    [
+      'invalid endpoint values',
+      { [QUERY_TYPES.SLA]: null, [QUERY_TYPES.USAGE]: 'unsupported' },
+      SLA_TYPES.PREMIUM,
+      USAGE_TYPES.PRODUCTION
+    ],
+    [
+      'valid endpoint values',
+      { [QUERY_TYPES.SLA]: SLA_TYPES.SELF, [QUERY_TYPES.USAGE]: USAGE_TYPES.DISASTER },
+      SLA_TYPES.SELF,
+      USAGE_TYPES.DISASTER
+    ]
+  ])(
+    'should resolve endpoint filters after merging global values: %s',
+    async (_description, endpointQuery, sla, usage) => {
+      const { result } = await renderHook(() =>
+        useProductGraphTallyQuery({
+          useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+          useProductQuery: () => ({
+            [QUERY_TYPES.SLA]: SLA_TYPES.STANDARD,
+            [QUERY_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT
+          }),
+          useProductQueryFactory: () => endpointQuery
+        })
+      );
+
+      expect(result).toEqual({
+        [QUERY_TYPES.SLA]: sla,
+        [QUERY_TYPES.USAGE]: usage
+      });
+    }
+  );
 
   it('should apply a hook for retrieving product context', async () => {
     const mockContextValue = {

@@ -19,11 +19,45 @@ describe('ToolbarFieldSla Component', () => {
 
   it('should render a basic component', async () => {
     const props = {
-      useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT })
+      useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT }),
+      useResolvedSlaUsageFilteringEnabled: () => true
     };
     const component = await shallowComponent(<ToolbarFieldUsage {...props} />);
 
     expect(component).toMatchSnapshot('basic');
+  });
+
+  it('should hide blank and unspecified Usage options', async () => {
+    const options = [
+      ...toolbarFieldOptions,
+      { title: 'Whitespace', value: '  ', isSelected: false },
+      { title: 'Missing', value: null, isSelected: false }
+    ];
+    const component = await shallowComponent(
+      <ToolbarFieldUsage
+        options={options}
+        useOnSelect={() => jest.fn()}
+        useResolvedSlaUsageFilteringEnabled={() => true}
+        useProductQuery={() => ({ [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.PRODUCTION })}
+      />
+    );
+
+    expect(component.props.options.map(({ value }) => value)).toEqual([
+      USAGE_TYPES.PRODUCTION,
+      USAGE_TYPES.DEVELOPMENT,
+      USAGE_TYPES.DISASTER
+    ]);
+  });
+
+  it('should retain the Unspecified Usage option while the feature flag is disabled by default', async () => {
+    const component = await shallowComponent(
+      <ToolbarFieldUsage
+        useOnSelect={() => jest.fn()}
+        useProductQuery={() => ({ [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.PRODUCTION })}
+      />
+    );
+
+    expect(component.props.options.map(({ value }) => value)).toContain(USAGE_TYPES.UNSPECIFIED);
   });
 
   it('should export select options', () => {
@@ -31,7 +65,7 @@ describe('ToolbarFieldSla Component', () => {
   });
 
   it('should handle updating usage through redux state with component', () => {
-    const props = {};
+    const props = { useResolvedSlaUsageFilteringEnabled: () => true };
 
     const component = renderComponent(<ToolbarFieldUsage {...props} />);
     const input = component.find('button');
@@ -54,5 +88,19 @@ describe('ToolbarFieldSla Component', () => {
       value: 'dolor sit'
     });
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
+  });
+
+  it('should clear the Usage filter to its default', () => {
+    const onSelect = useOnSelect({
+      useDispatch: () => mockDispatch,
+      useProduct: () => ({ productId: 'loremIpsum' })
+    });
+
+    onSelect();
+
+    expect(mockDispatch.mock.calls[0][0][1]).toMatchObject({
+      filter: RHSM_API_QUERY_SET_TYPES.USAGE,
+      value: null
+    });
   });
 });

@@ -4,6 +4,7 @@ import { useProduct, useProductQuery } from '../productView/productViewContext';
 import { Select, SelectPosition } from '../form/select';
 import { RHSM_API_QUERY_USAGE_TYPES as FIELD_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
+import { useResolvedSlaUsageFilteringEnabled } from '../productView/slaUsageHelpers';
 
 /**
  * A standalone Usage select filter.
@@ -64,6 +65,7 @@ const useOnSelect = ({
  * @param {translate} [props.t=translate]
  * @param {useOnSelect} [props.useOnSelect=useOnSelect]
  * @param {useProductQuery} [props.useProductQuery=useProductQuery]
+ * @param {Function} [props.useResolvedSlaUsageFilteringEnabled=useResolvedSlaUsageFilteringEnabled]
  * @fires onSelect
  * @returns {JSX.Element}
  */
@@ -74,12 +76,17 @@ const ToolbarFieldUsage = ({
   position = SelectPosition.left,
   t = translate,
   useOnSelect: useAliasOnSelect = useOnSelect,
-  useProductQuery: useAliasProductQuery = useProductQuery
+  useProductQuery: useAliasProductQuery = useProductQuery,
+  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled
 }) => {
   const { [RHSM_API_QUERY_SET_TYPES.USAGE]: updatedValue } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
+  const resolvedSlaUsageFilteringEnabled = useAliasResolvedSlaUsageFilteringEnabled();
 
-  const updatedOptions = options.map(option => ({ ...option, isSelected: option.value === updatedValue }));
+  const availableOptions = resolvedSlaUsageFilteringEnabled
+    ? options.filter(({ value }) => typeof value === 'string' && value.trim() !== '')
+    : options;
+  const updatedOptions = availableOptions.map(option => ({ ...option, isSelected: option.value === updatedValue }));
 
   return (
     <Select

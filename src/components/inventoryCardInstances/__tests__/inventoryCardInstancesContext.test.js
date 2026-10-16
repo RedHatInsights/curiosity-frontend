@@ -10,10 +10,14 @@ import {
 import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_TYPES as SORT_TYPES,
+  RHSM_API_QUERY_SLA_TYPES as SLA_TYPES,
   RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_QUERY_USAGE_TYPES as USAGE_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES
 } from '../../../services/rhsm/rhsmConstants';
 import { inventoryCardHelpers } from '../../inventoryCard/inventoryCardHelpers';
+import { useProductInventoryHostsQuery } from '../../productView/productViewContext';
+import { config as rhelConfig } from '../../../config/product.rhel';
 
 describe('InventoryCardInstancesContext', () => {
   it('should return specific properties', () => {
@@ -85,6 +89,42 @@ describe('InventoryCardInstancesContext', () => {
     );
 
     expect(disabledResponse).toMatchSnapshot('inventory, disabled');
+  });
+
+  it('should send resolved SLA and Usage values with inventory requests', async () => {
+    const getInventory = jest.fn(() => () => {});
+    const useProductInventoryQuery = () =>
+      useProductInventoryHostsQuery({
+        useResolvedSlaUsageFilteringEnabled: () => true,
+        useProductQuery: () => ({
+          [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.STANDARD,
+          [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT
+        }),
+        useProductQueryFactory: () => ({
+          [RHSM_API_QUERY_SET_TYPES.SLA]: '',
+          [RHSM_API_QUERY_SET_TYPES.USAGE]: 'unsupported',
+          [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100
+        }),
+        useProductViewContext: () => rhelConfig
+      });
+
+    const { unmount } = await renderHook(() =>
+      useGetInstancesInventory({
+        getInventory,
+        useDispatch: () => jest.fn(),
+        useProduct: () => ({ productId: 'rhel' }),
+        useProductInventoryQuery,
+        useSelector: () => ({})
+      })
+    );
+
+    expect(getInventory).toHaveBeenCalledWith('rhel', {
+      [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.PREMIUM,
+      [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.PRODUCTION,
+      [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100
+    });
+
+    await unmount();
   });
 
   it('should apply custom actions', async () => {
