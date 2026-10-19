@@ -29,8 +29,8 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Keep the default Stage run serial; pass --workers to opt into parallel execution. */
   workers: 1,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  /* List each test in CI. The HTML report does not print names to the Tekton log. */
+  reporter: process.env.CI ? [['line'], ['html', { open: 'never' }]] : 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
