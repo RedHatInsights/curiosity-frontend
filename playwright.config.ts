@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? 'https://console.stage.redhat.com';
-const proxyServer = process.env.PLAYWRIGHT_PROXY_SERVER ?? 'http://squid.corp.redhat.com:3128';
+const proxyServer = process.env.PLAYWRIGHT_PROXY_SERVER;
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
