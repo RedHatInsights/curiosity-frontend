@@ -50,14 +50,22 @@ spec:
     value: |
       #!/bin/sh
       set -e
+      # Tekton reruns this script in pipelines-nop-rhel9 when the sidecar stops.
+      # That image has a shell and no caddy. See tektoncd/pipeline#1347.
+      if ! command -v caddy >/dev/null 2>&1; then
+        echo "Caddy not found - running in nop image, exiting gracefully"
+        exit 0
+      fi
       echo "Starting application with the Caddyfile baked into the image..."
-      exec caddy run --config /etc/caddy/Caddyfile
+      exec /usr/bin/caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
   - name: e2e-tests-script
     value: |
       #!/bin/bash
       set -e
       export CI=true
       export PLAYWRIGHT_BASE_URL="https://stage.foo.redhat.com:1337"
+      echo "Waiting for frontend-dev-proxy on port 1337..."
+      timeout 120s bash -c 'until curl -k -s -m 5 https://stage.foo.redhat.com:1337 > /dev/null 2>&1; do sleep 5; done'
       npm run test:e2e
   - name: e2e-credentials-secret
     value: curiosity-frontend-credentials-secret
@@ -82,6 +90,10 @@ spec:
   - pipelineTaskName: run-e2e-tests
     podTemplate:
       hostAliases:
+      - ip: "::1"
+        hostnames:
+        - "stage.foo.redhat.com"
+        - "prod.foo.redhat.com"
       - ip: "127.0.0.1"
         hostnames:
         - "stage.foo.redhat.com"
