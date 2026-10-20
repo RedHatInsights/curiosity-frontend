@@ -318,7 +318,6 @@ Wait for the chart with `chartUtils.waitForChart()` before reading SVG content. 
 
 ## Current limitations
 
-- The default target is Stage. A proxy is used only when `PLAYWRIGHT_PROXY_SERVER` is set.
 - All tests require Stage authentication, including RHSM-mocked tests.
 - Live Stage tests depend on external data and are not suitable as deterministic CI checks.
 - Playwright is not currently invoked by `npm test` or the repository CI workflow.
