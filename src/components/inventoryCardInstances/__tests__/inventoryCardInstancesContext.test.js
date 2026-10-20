@@ -95,7 +95,6 @@ describe('InventoryCardInstancesContext', () => {
     const getInventory = jest.fn(() => () => {});
     const useProductInventoryQuery = () =>
       useProductInventoryHostsQuery({
-        useResolvedSlaUsageFilteringEnabled: () => true,
         useProductQuery: () => ({
           [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.STANDARD,
           [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT
@@ -105,7 +104,7 @@ describe('InventoryCardInstancesContext', () => {
           [RHSM_API_QUERY_SET_TYPES.USAGE]: 'unsupported',
           [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100
         }),
-        useProductViewContext: () => rhelConfig
+        useProductViewContext: () => ({ ...rhelConfig, defaultFilteringEnabled: true })
       });
 
     const { unmount } = await renderHook(() =>

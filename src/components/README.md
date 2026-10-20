@@ -210,9 +210,6 @@ recreate the core component.
 ## Functions
 
 <dl>
-<dt><a href="#useResolvedSlaUsageFilteringEnabled">useResolvedSlaUsageFilteringEnabled(options)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Return whether resolved SLA/Usage filtering is enabled in Unleash.</p>
-</dd>
 <dt><a href="#normalizeSlaUsageQuery">normalizeSlaUsageQuery(query, [availableFilters], [isEnabled])</a> ⇒ <code>object</code></dt>
 <dd><p>Apply the Curiosity SLA and Usage defaults.</p>
 </dd>
@@ -2230,9 +2227,7 @@ Get graph metrics from Tally or Capacity.
     </tr><tr>
     <td>params.useProductGraphTallyQuery</td><td><code>function</code></td>
     </tr><tr>
-    <td>params.useProductToolbarConfig</td><td><code>function</code></td>
-    </tr><tr>
-    <td>params.useResolvedSlaUsageFilteringEnabled</td><td><code>function</code></td>
+    <td>params.useProductViewContext</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4600,6 +4595,8 @@ Display products.
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
     <td>[props.useRouteDetail]</td><td><code>routerContext.useRouteDetail</code></td><td><code>routerContext.useRouteDetail</code></td>
+    </tr><tr>
+    <td>[props.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4612,6 +4609,7 @@ Product view hooks for configuration and query management.
 * [ProductViewContext](#ProductView.module_ProductViewContext)
     * [~DEFAULT_CONTEXT](#ProductView.module_ProductViewContext..DEFAULT_CONTEXT) : <code>React.Context.&lt;{}&gt;</code>
     * [~useProductViewContext()](#ProductView.module_ProductViewContext..useProductViewContext) ⇒ <code>React.Context.&lt;{}&gt;</code>
+    * [~useResolvedSlaUsageFilteringEnabled(options)](#ProductView.module_ProductViewContext..useResolvedSlaUsageFilteringEnabled) ⇒ <code>boolean</code>
     * [~useProductQueryFactory(queryType, options)](#ProductView.module_ProductViewContext..useProductQueryFactory) ⇒ <code>object</code>
     * [~useProductBillingAccountsQuery(options)](#ProductView.module_ProductViewContext..useProductBillingAccountsQuery) ⇒ <code>object</code>
     * [~useProductQueryConditional(options)](#ProductView.module_ProductViewContext..useProductQueryConditional) ⇒ <code>object</code>
@@ -4642,6 +4640,26 @@ Route context.
 Get an updated product view context.
 
 **Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
+<a name="ProductView.module_ProductViewContext..useResolvedSlaUsageFilteringEnabled"></a>
+
+### ProductViewContext~useResolvedSlaUsageFilteringEnabled(options) ⇒ <code>boolean</code>
+Resolve the SLA/Usage feature flag at the product view boundary.
+
+**Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.useChrome]</td><td><code>function</code></td><td><code>useChrome</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="ProductView.module_ProductViewContext..useProductQueryFactory"></a>
 
 ### ProductViewContext~useProductQueryFactory(queryType, options) ⇒ <code>object</code>
@@ -4744,8 +4762,6 @@ Return a base product query
     </tr><tr>
     <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr><tr>
-    <td>[options.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
-    </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
@@ -4775,8 +4791,6 @@ Return the graph query based off of tally and capacity.
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
     <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
-    </tr><tr>
-    <td>[options.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
     </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
@@ -4808,8 +4822,6 @@ Return the inventory query for guests. Use fallback/defaults for guests offset, 
     </tr><tr>
     <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr><tr>
-    <td>[options.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
-    </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
@@ -4840,8 +4852,6 @@ Return an inventory query for hosts.
     </tr><tr>
     <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr><tr>
-    <td>[options.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
-    </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
@@ -4871,8 +4881,6 @@ Return an inventory query for subscriptions.
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
     <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
-    </tr><tr>
-    <td>[options.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
     </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
@@ -5069,8 +5077,6 @@ Return an export query for subscriptions.
     <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES</code></td>
     </tr><tr>
     <td>[options.useProductToolbarQuery]</td><td><code>useProductToolbarQuery</code></td><td><code>useProductToolbarQuery</code></td>
-    </tr><tr>
-    <td>[options.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
     </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
@@ -7234,7 +7240,7 @@ Display a sla field with options.
     </tr><tr>
     <td>[props.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
-    <td>[props.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
+    <td>[props.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -7308,7 +7314,7 @@ Display a usage field with options.
     </tr><tr>
     <td>[props.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
-    <td>[props.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
+    <td>[props.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -7348,26 +7354,6 @@ PF tooltip wrapper component.
     <td>[props.exitDelay]</td><td><code>number</code></td><td><code>0</code></td>
     </tr><tr>
     <td>[props.position]</td><td><code>TooltipPosition</code></td><td><code>TooltipPosition.top</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="useResolvedSlaUsageFilteringEnabled"></a>
-
-## useResolvedSlaUsageFilteringEnabled(options) ⇒ <code>boolean</code>
-Return whether resolved SLA/Usage filtering is enabled in Unleash.
-
-**Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>[options.useChrome]</td><td><code>function</code></td><td><code>useChrome</code></td>
     </tr>  </tbody>
 </table>
 

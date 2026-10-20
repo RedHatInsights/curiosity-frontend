@@ -13,6 +13,7 @@ exports[`ProductView Component should allow custom inventory displays via config
     <Context.Provider
       value={
         {
+          "defaultFilteringEnabled": false,
           "initialInventoryFilters": [],
           "initialSubscriptionsInventoryFilters": [],
           "lorem": "ipsum",
@@ -88,6 +89,7 @@ exports[`ProductView Component should allow custom inventory displays via config
     <Context.Provider
       value={
         {
+          "defaultFilteringEnabled": false,
           "initialInventoryFilters": undefined,
           "initialSubscriptionsInventoryFilters": [],
           "lorem": "ipsum",
@@ -158,6 +160,7 @@ exports[`ProductView Component should allow custom inventory displays via config
     <Context.Provider
       value={
         {
+          "defaultFilteringEnabled": false,
           "initialInventoryFilters": [],
           "initialSubscriptionsInventoryFilters": undefined,
           "lorem": "ipsum",
@@ -228,6 +231,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     <Context.Provider
       value={
         {
+          "defaultFilteringEnabled": false,
           "lorem": "ipsum",
           "productDisplay": "capacity",
           "productId": "lorem",
@@ -291,6 +295,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     <Context.Provider
       value={
         {
+          "defaultFilteringEnabled": false,
           "lorem": "ipsum",
           "productDisplay": "dual-axes",
           "productId": "lorem",
@@ -354,6 +359,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     <Context.Provider
       value={
         {
+          "defaultFilteringEnabled": false,
           "lorem": "ipsum",
           "productDisplay": "hourly",
           "productId": "lorem",
@@ -417,6 +423,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     <Context.Provider
       value={
         {
+          "defaultFilteringEnabled": false,
           "lorem": "ipsum",
           "productDisplay": "legacy",
           "productId": "lorem",
@@ -480,6 +487,7 @@ exports[`ProductView Component should allow custom product views via productDisp
     <Context.Provider
       value={
         {
+          "defaultFilteringEnabled": false,
           "lorem": "ipsum",
           "productDisplay": "partial",
           "productId": "lorem",
@@ -543,6 +551,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
     <Context.Provider
       value={
         {
+          "defaultFilteringEnabled": false,
           "lorem": "ipsum",
           "productId": "lorem",
           "viewId": "viewIpsum",

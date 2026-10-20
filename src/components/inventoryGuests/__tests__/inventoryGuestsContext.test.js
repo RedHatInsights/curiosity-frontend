@@ -74,7 +74,6 @@ describe('InventoryGuestsContext', () => {
     const getInventory = jest.fn(() => () => {});
     const useProductInventoryQuery = ({ options } = {}) =>
       useProductInventoryGuestsQuery({
-        useResolvedSlaUsageFilteringEnabled: () => true,
         useProductQuery: () => ({
           [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.STANDARD,
           [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT
@@ -84,7 +83,7 @@ describe('InventoryGuestsContext', () => {
           [RHSM_API_QUERY_SET_TYPES.USAGE]: '',
           [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
         }),
-        useProductViewContext: () => rhelConfig,
+        useProductViewContext: () => ({ ...rhelConfig, defaultFilteringEnabled: true }),
         options
       });
 

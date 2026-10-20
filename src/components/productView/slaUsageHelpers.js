@@ -1,23 +1,8 @@
-import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import {
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_QUERY_SLA_TYPES,
   RHSM_API_QUERY_USAGE_TYPES
 } from '../../services/rhsm/rhsmConstants';
-
-const RESOLVED_SLA_USAGE_FILTERING_FLAG = 'swatch.resolved-sla-usage-filtering';
-
-/**
- * Return whether resolved SLA/Usage filtering is enabled in Unleash.
- *
- * @param {object} options
- * @param {Function} [options.useChrome=useChrome]
- * @returns {boolean}
- */
-const useResolvedSlaUsageFilteringEnabled = ({ useChrome: useAliasChrome = useChrome } = {}) => {
-  const { visibilityFunctions } = useAliasChrome();
-  return visibilityFunctions?.featureFlag?.(RESOLVED_SLA_USAGE_FILTERING_FLAG, true) ?? false;
-};
 
 const hasValidValue = (value, validValues) => value !== '' && Object.values(validValues).includes(value);
 
@@ -62,9 +47,4 @@ const normalizeSlaUsageQuery = (query = {}, availableFilters, isEnabled = false)
   return normalizedQuery;
 };
 
-export {
-  normalizeSlaUsageQuery as default,
-  normalizeSlaUsageQuery,
-  RESOLVED_SLA_USAGE_FILTERING_FLAG,
-  useResolvedSlaUsageFilteringEnabled
-};
+export { normalizeSlaUsageQuery as default, normalizeSlaUsageQuery };

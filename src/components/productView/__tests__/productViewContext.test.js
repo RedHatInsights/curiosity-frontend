@@ -16,7 +16,9 @@ import {
   useProductInventoryGuestsConfig,
   useProductInventoryHostsConfig,
   useProductInventorySubscriptionsConfig,
-  useProductToolbarConfig
+  useProductToolbarConfig,
+  RESOLVED_SLA_USAGE_FILTERING_FLAG,
+  useResolvedSlaUsageFilteringEnabled
 } from '../productViewContext';
 import {
   rhsmConstants,
@@ -28,11 +30,33 @@ import { config as rhelConfig } from '../../../config/product.rhel';
 import { config as rhelPaygConfig } from '../../../config/product.rhelElsPayg';
 import { config as openshiftConfig } from '../../../config/product.openshiftContainer';
 
-const enableResolvedSlaUsageFiltering = () => true;
-
 describe('ProductViewContext', () => {
   it('should return specific properties', () => {
     expect(context).toMatchSnapshot('specific properties');
+  });
+
+  it('reads the resolved-filter flag from Chrome visibility functions and defaults to disabled', async () => {
+    const featureFlag = jest.fn(() => true);
+    const { result: enabled } = await renderHook(() =>
+      useResolvedSlaUsageFilteringEnabled({
+        useChrome: () => ({ visibilityFunctions: { featureFlag } })
+      })
+    );
+
+    expect(featureFlag).toHaveBeenCalledWith(RESOLVED_SLA_USAGE_FILTERING_FLAG, true);
+    expect(enabled).toBe(true);
+
+    const { result: disabledFlag } = await renderHook(() =>
+      useResolvedSlaUsageFilteringEnabled({
+        useChrome: () => ({ visibilityFunctions: { featureFlag: () => false } })
+      })
+    );
+    const { result: missingFlag } = await renderHook(() =>
+      useResolvedSlaUsageFilteringEnabled({ useChrome: () => ({}) })
+    );
+
+    expect(disabledFlag).toBe(false);
+    expect(missingFlag).toBe(false);
   });
 
   it('should apply a hook factory for retrieving api queries', async () => {
@@ -134,7 +158,7 @@ describe('ProductViewContext', () => {
   it('should resolve cleared SLA and Usage filters to their defaults', async () => {
     const { result } = await renderHook(() =>
       useProductQuery({
-        useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+        useProductViewContext: () => ({ defaultFilteringEnabled: true }),
         useProductQueryFactory: () => ({
           [QUERY_TYPES.SLA]: null,
           [QUERY_TYPES.USAGE]: null
@@ -178,8 +202,7 @@ describe('ProductViewContext', () => {
   ])('should resolve only supported inventory filters for %s', async (_description, productConfig, expectedFilters) => {
     const { result, unmount } = await renderHook(() =>
       useProductInventorySubscriptionsQuery({
-        useProductViewContext: () => productConfig,
-        useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+        useProductViewContext: () => ({ ...productConfig, defaultFilteringEnabled: true }),
         useProductQuery: () => ({
           [QUERY_TYPES.SLA]: SLA_TYPES.STANDARD,
           [QUERY_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT
@@ -206,8 +229,7 @@ describe('ProductViewContext', () => {
   ])('should omit Usage from annual OpenShift %s queries', async (_description, useQuery) => {
     const { result, unmount } = await renderHook(() =>
       useQuery({
-        useProductViewContext: () => openshiftConfig,
-        useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+        useProductViewContext: () => ({ ...openshiftConfig, defaultFilteringEnabled: true }),
         useProductQuery: () => ({
           [QUERY_TYPES.SLA]: null,
           [QUERY_TYPES.USAGE]: null
@@ -228,8 +250,7 @@ describe('ProductViewContext', () => {
     const { result, unmount } = await renderHook(() =>
       useProductExportQuery({
         useProduct: () => ({ productId: openshiftConfig.productId }),
-        useProductViewContext: () => openshiftConfig,
-        useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+        useProductViewContext: () => ({ ...openshiftConfig, defaultFilteringEnabled: true }),
         useProductToolbarQuery: () => ({
           [QUERY_TYPES.SLA]: null,
           [QUERY_TYPES.USAGE]: null
@@ -263,7 +284,7 @@ describe('ProductViewContext', () => {
     async (_description, endpointQuery, sla, usage) => {
       const { result } = await renderHook(() =>
         useProductGraphTallyQuery({
-          useResolvedSlaUsageFilteringEnabled: enableResolvedSlaUsageFiltering,
+          useProductViewContext: () => ({ defaultFilteringEnabled: true }),
           useProductQuery: () => ({
             [QUERY_TYPES.SLA]: SLA_TYPES.STANDARD,
             [QUERY_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT

@@ -60,8 +60,7 @@ describe('ToolbarFieldExport Component', () => {
     const useResolvedExportQuery = () =>
       useProductExportQuery({
         useProduct: () => ({ productId: 'rhel' }),
-        useProductViewContext: () => rhelConfig,
-        useResolvedSlaUsageFilteringEnabled: () => true,
+        useProductViewContext: () => ({ ...rhelConfig, defaultFilteringEnabled: true }),
         useProductToolbarQuery: () => ({
           [QUERY_TYPES.SLA]: null,
           [QUERY_TYPES.USAGE]: ''

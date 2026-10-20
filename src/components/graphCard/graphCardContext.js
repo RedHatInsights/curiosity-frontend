@@ -6,12 +6,13 @@ import {
   useProduct,
   useProductGraphConfig,
   useProductGraphTallyQuery,
-  useProductToolbarConfig
+  useProductViewContext
 } from '../productView/productViewContext';
 import { toolbarFieldOptions } from '../toolbar/toolbarFieldSelectCategory';
 import { helpers } from '../../common/helpers';
 import { graphCardHelpers } from './graphCardHelpers';
-import { normalizeSlaUsageQuery, useResolvedSlaUsageFilteringEnabled } from '../productView/slaUsageHelpers';
+import { normalizeSlaUsageQuery } from '../productView/slaUsageHelpers';
+import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 
 /**
  * @memberof GraphCard
@@ -123,8 +124,7 @@ const useMetricsSelector = ({
  * @param {Function} params.useMetricsSelector
  * @param {Function} params.useProduct
  * @param {Function} params.useProductGraphTallyQuery
- * @param {Function} params.useProductToolbarConfig
- * @param {Function} params.useResolvedSlaUsageFilteringEnabled
+ * @param {Function} params.useProductViewContext
  * @returns {{data: {}, pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
  *     id: {}, list: Array}, cancelled: boolean, dataSets: Array, message: null, error: boolean}}
  */
@@ -135,8 +135,7 @@ const useGetMetrics = ({
   useMetricsSelector: useAliasMetricsSelector = useMetricsSelector,
   useProduct: useAliasProduct = useProduct,
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery,
-  useProductToolbarConfig: useAliasProductToolbarConfig = useProductToolbarConfig,
-  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled
+  useProductViewContext: useAliasProductViewContext = useProductViewContext
 } = {}) => {
   const { productId } = useAliasProduct();
   const query = useAliasProductGraphTallyQuery();
@@ -144,18 +143,28 @@ const useGetMetrics = ({
   const response = useAliasMetricsSelector();
   const { settings = {} } = useAliasGraphCardContext();
   const { metrics = [] } = settings;
-  const { filters } = useAliasProductToolbarConfig();
-  const resolvedSlaUsageFilteringEnabled = useAliasResolvedSlaUsageFilteringEnabled();
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
 
   useShallowCompareEffect(() => {
     const updatedMetrics = metrics.map(({ metric: metricId, isCapacity, query: metricQuery }) => ({
       id: productId,
       metric: metricId,
       isCapacity,
-      query: normalizeSlaUsageQuery({ ...query, ...metricQuery }, filters, resolvedSlaUsageFilteringEnabled)
+      // Keep shared category filters out of the per-metric query: they affect chart identity.
+      query: defaultFilteringEnabled
+        ? normalizeSlaUsageQuery(
+            {
+              [RHSM_API_QUERY_SET_TYPES.SLA]: query[RHSM_API_QUERY_SET_TYPES.SLA],
+              [RHSM_API_QUERY_SET_TYPES.USAGE]: query[RHSM_API_QUERY_SET_TYPES.USAGE],
+              ...metricQuery
+            },
+            initialToolbarFilters,
+            true
+          )
+        : metricQuery
     }));
     getGraphMetrics(updatedMetrics, query)(dispatch);
-  }, [filters, metrics, productId, query, resolvedSlaUsageFilteringEnabled]);
+  }, [initialToolbarFilters, metrics, productId, query, defaultFilteringEnabled]);
 
   return response;
 };

@@ -26,8 +26,10 @@ describe('InventoryCardSubscriptionsContext', () => {
     const getInventory = jest.fn(() => () => {});
     const useOpenShiftInventoryQuery = () =>
       useProductInventorySubscriptionsQuery({
-        useResolvedSlaUsageFilteringEnabled: () => true,
-        useProductViewContext: () => ({ initialToolbarFilters: [{ id: QUERY_TYPES.SLA }] }),
+        useProductViewContext: () => ({
+          initialToolbarFilters: [{ id: QUERY_TYPES.SLA }],
+          defaultFilteringEnabled: true
+        }),
         useProductQuery: () => ({
           [QUERY_TYPES.SLA]: null,
           [QUERY_TYPES.USAGE]: null

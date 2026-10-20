@@ -1,8 +1,4 @@
-import {
-  normalizeSlaUsageQuery,
-  RESOLVED_SLA_USAGE_FILTERING_FLAG,
-  useResolvedSlaUsageFilteringEnabled
-} from '../slaUsageHelpers';
+import { normalizeSlaUsageQuery } from '../slaUsageHelpers';
 import {
   RHSM_API_QUERY_SET_TYPES as QUERY_TYPES,
   RHSM_API_QUERY_SLA_TYPES as SLA_TYPES,
@@ -102,29 +98,5 @@ describe('normalizeSlaUsageQuery', () => {
 
     expect(normalizeSlaUsageQuery(query)).toEqual(query);
     expect(normalizeSlaUsageQuery(query, [{ id: QUERY_TYPES.SLA }], false)).toEqual(query);
-  });
-
-  it('reads the resolved-filter flag from Chrome visibility functions and defaults to disabled', async () => {
-    const featureFlag = jest.fn(() => true);
-    const { result: enabled } = await renderHook(() =>
-      useResolvedSlaUsageFilteringEnabled({
-        useChrome: () => ({ visibilityFunctions: { featureFlag } })
-      })
-    );
-
-    expect(featureFlag).toHaveBeenCalledWith(RESOLVED_SLA_USAGE_FILTERING_FLAG, true);
-    expect(enabled).toBe(true);
-
-    const { result: disabledFlag } = await renderHook(() =>
-      useResolvedSlaUsageFilteringEnabled({
-        useChrome: () => ({ visibilityFunctions: { featureFlag: () => false } })
-      })
-    );
-    const { result: missingFlag } = await renderHook(() =>
-      useResolvedSlaUsageFilteringEnabled({ useChrome: () => ({}) })
-    );
-
-    expect(disabledFlag).toBe(false);
-    expect(missingFlag).toBe(false);
   });
 });

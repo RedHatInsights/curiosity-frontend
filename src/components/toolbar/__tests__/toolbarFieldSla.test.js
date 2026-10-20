@@ -18,7 +18,7 @@ describe('ToolbarFieldSla Component', () => {
   it('should render a basic component', async () => {
     const props = {
       useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.STANDARD }),
-      useResolvedSlaUsageFilteringEnabled: () => true
+      useProductViewContext: () => ({ defaultFilteringEnabled: true })
     };
     const component = await shallowComponent(<ToolbarFieldSla {...props} />);
 
@@ -35,7 +35,7 @@ describe('ToolbarFieldSla Component', () => {
       <ToolbarFieldSla
         options={options}
         useOnSelect={() => jest.fn()}
-        useResolvedSlaUsageFilteringEnabled={() => true}
+        useProductViewContext={() => ({ defaultFilteringEnabled: true })}
         useProductQuery={() => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.PREMIUM })}
       />
     );
@@ -53,16 +53,15 @@ describe('ToolbarFieldSla Component', () => {
     };
     const { result: productQuery } = await renderHook(() =>
       useProductQuery({
-        useProductViewContext: () => slaOnlyProductContext,
-        useProductQueryFactory: () => ({}),
-        useResolvedSlaUsageFilteringEnabled: () => true
+        useProductViewContext: () => ({ ...slaOnlyProductContext, defaultFilteringEnabled: true }),
+        useProductQueryFactory: () => ({})
       })
     );
     const component = await shallowComponent(
       <ToolbarFieldSla
         useProductQuery={() => productQuery}
         useOnSelect={() => jest.fn()}
-        useResolvedSlaUsageFilteringEnabled={() => true}
+        useProductViewContext={() => ({ defaultFilteringEnabled: true })}
       />
     );
 
@@ -94,7 +93,7 @@ describe('ToolbarFieldSla Component', () => {
   });
 
   it('should handle updating sla through redux state with component', () => {
-    const props = { useResolvedSlaUsageFilteringEnabled: () => true };
+    const props = { useProductViewContext: () => ({ defaultFilteringEnabled: true }) };
 
     const component = renderComponent(<ToolbarFieldSla {...props} />);
     const input = component.find('button');

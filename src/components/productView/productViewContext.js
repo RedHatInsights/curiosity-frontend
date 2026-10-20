@@ -1,10 +1,11 @@
 import React, { useContext, useMemo } from 'react';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { useSession } from '../authentication/authenticationContext';
 import { reduxHelpers, storeHooks } from '../../redux';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { platformConstants } from '../../services/platform/platformConstants';
 import { helpers } from '../../common/helpers';
-import { normalizeSlaUsageQuery, useResolvedSlaUsageFilteringEnabled } from './slaUsageHelpers';
+import { normalizeSlaUsageQuery } from './slaUsageHelpers';
 
 /**
  * Product view hooks for configuration and query management.
@@ -28,6 +29,20 @@ const ProductViewContext = React.createContext(DEFAULT_CONTEXT);
  * @returns {React.Context<{}>}
  */
 const useProductViewContext = () => useContext(ProductViewContext);
+
+const RESOLVED_SLA_USAGE_FILTERING_FLAG = 'swatch.resolved-sla-usage-filtering';
+
+/**
+ * Resolve the SLA/Usage feature flag at the product view boundary.
+ *
+ * @param {object} options
+ * @param {Function} [options.useChrome=useChrome]
+ * @returns {boolean}
+ */
+const useResolvedSlaUsageFilteringEnabled = ({ useChrome: useAliasChrome = useChrome } = {}) => {
+  const { visibilityFunctions } = useAliasChrome();
+  return visibilityFunctions?.featureFlag?.(RESOLVED_SLA_USAGE_FILTERING_FLAG, true) ?? false;
+};
 
 /**
  * Return a query object from initial product config and Redux store.
@@ -128,7 +143,6 @@ const useProductQueryConditional = ({
  * @param {string} [options.queryType='query']
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
- * @param {Function} [options.useResolvedSlaUsageFilteringEnabled=useResolvedSlaUsageFilteringEnabled]
  * @param {object} options.options
  * @returns {object}
  */
@@ -137,12 +151,11 @@ const useProductQuery = ({
   // useProductQueryConditional: useAliasProductQueryConditional = useProductQueryConditional,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   useProductViewContext: useAliasProductViewContext = useProductViewContext,
-  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled,
   options
 } = {}) => {
-  const { initialToolbarFilters } = useAliasProductViewContext();
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
   const query = useAliasProductQueryFactory(queryType, options);
-  return normalizeSlaUsageQuery(query, initialToolbarFilters, useAliasResolvedSlaUsageFilteringEnabled());
+  return normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled);
 };
 
 /**
@@ -154,7 +167,6 @@ const useProductQuery = ({
  * @param {useProductQuery} [options.useProductQuery=useProductQuery]
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
- * @param {Function} [options.useResolvedSlaUsageFilteringEnabled=useResolvedSlaUsageFilteringEnabled]
  * @param {object} options.options
  * @returns {object}
  */
@@ -164,16 +176,15 @@ const useProductGraphTallyQuery = ({
   useProductQuery: useAliasProductQuery = useProductQuery,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   useProductViewContext: useAliasProductViewContext = useProductViewContext,
-  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled,
   options
 } = {}) => {
-  const { initialToolbarFilters } = useAliasProductViewContext();
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
   const query = {
     ...useAliasProductQuery(),
     ...useAliasProductQueryFactory(queryType, options)
   };
   return reduxHelpers.setApiQuery(
-    normalizeSlaUsageQuery(query, initialToolbarFilters, useAliasResolvedSlaUsageFilteringEnabled()),
+    normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
 };
@@ -187,7 +198,6 @@ const useProductGraphTallyQuery = ({
  * @param {useProductQuery} [options.useProductQuery=useProductQuery]
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
- * @param {Function} [options.useResolvedSlaUsageFilteringEnabled=useResolvedSlaUsageFilteringEnabled]
  * @param {object} options.options
  * @returns {object}
  */
@@ -197,16 +207,15 @@ const useProductInventoryGuestsQuery = ({
   useProductQuery: useAliasProductQuery = useProductQuery,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   useProductViewContext: useAliasProductViewContext = useProductViewContext,
-  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled,
   options
 } = {}) => {
-  const { initialToolbarFilters } = useAliasProductViewContext();
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
   const query = {
     ...useAliasProductQuery(),
     ...useAliasProductQueryFactory(queryType, options)
   };
   return reduxHelpers.setApiQuery(
-    normalizeSlaUsageQuery(query, initialToolbarFilters, useAliasResolvedSlaUsageFilteringEnabled()),
+    normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
 };
@@ -220,7 +229,6 @@ const useProductInventoryGuestsQuery = ({
  * @param {useProductQuery} [options.useProductQuery=useProductQuery]
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
- * @param {Function} [options.useResolvedSlaUsageFilteringEnabled=useResolvedSlaUsageFilteringEnabled]
  * @param {object} options.options
  * @returns {object}
  */
@@ -230,16 +238,15 @@ const useProductInventoryHostsQuery = ({
   useProductQuery: useAliasProductQuery = useProductQuery,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   useProductViewContext: useAliasProductViewContext = useProductViewContext,
-  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled,
   options
 } = {}) => {
-  const { initialToolbarFilters } = useAliasProductViewContext();
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
   const query = {
     ...useAliasProductQuery(),
     ...useAliasProductQueryFactory(queryType, options)
   };
   return reduxHelpers.setApiQuery(
-    normalizeSlaUsageQuery(query, initialToolbarFilters, useAliasResolvedSlaUsageFilteringEnabled()),
+    normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
 };
@@ -253,7 +260,6 @@ const useProductInventoryHostsQuery = ({
  * @param {useProductQuery} [options.useProductQuery=useProductQuery]
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
  * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
- * @param {Function} [options.useResolvedSlaUsageFilteringEnabled=useResolvedSlaUsageFilteringEnabled]
  * @param {object} options.options
  * @returns {object}
  */
@@ -263,16 +269,15 @@ const useProductInventorySubscriptionsQuery = ({
   useProductQuery: useAliasProductQuery = useProductQuery,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   useProductViewContext: useAliasProductViewContext = useProductViewContext,
-  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled,
   options
 } = {}) => {
-  const { initialToolbarFilters } = useAliasProductViewContext();
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
   const query = {
     ...useAliasProductQuery(),
     ...useAliasProductQueryFactory(queryType, options)
   };
   return reduxHelpers.setApiQuery(
-    normalizeSlaUsageQuery(query, initialToolbarFilters, useAliasResolvedSlaUsageFilteringEnabled()),
+    normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
 };
@@ -416,7 +421,6 @@ const useProductToolbarConfig = ({ useProductContext: useAliasProductContext = u
  * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
  * @param {object} [options.schemaCheck=platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES]
  * @param {useProductToolbarQuery} [options.useProductToolbarQuery=useProductToolbarQuery]
- * @param {Function} [options.useResolvedSlaUsageFilteringEnabled=useResolvedSlaUsageFilteringEnabled]
  * @param {object} options.options
  * @returns {{}}
  */
@@ -425,17 +429,16 @@ const useProductExportQuery = ({
   useProductViewContext: useAliasProductViewContext = useProductViewContext,
   schemaCheck = platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES,
   useProductToolbarQuery: useAliasProductToolbarQuery = useProductToolbarQuery,
-  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled,
   options
 } = {}) => {
   const { productId } = useAliasProduct();
-  const { initialToolbarFilters } = useAliasProductViewContext();
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
   const exportQuery = {
     ...useAliasProductToolbarQuery({ options }),
     [platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES.PRODUCT_ID]: productId
   };
   return reduxHelpers.setApiQuery(
-    normalizeSlaUsageQuery(exportQuery, initialToolbarFilters, useAliasResolvedSlaUsageFilteringEnabled()),
+    normalizeSlaUsageQuery(exportQuery, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
 };
@@ -485,5 +488,7 @@ export {
   useProductInventoryHostsConfig,
   useProductInventorySubscriptionsConfig,
   useProductToolbarConfig,
-  useProductToolbarQuery
+  useProductToolbarQuery,
+  RESOLVED_SLA_USAGE_FILTERING_FLAG,
+  useResolvedSlaUsageFilteringEnabled
 };

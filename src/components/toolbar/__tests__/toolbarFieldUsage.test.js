@@ -20,7 +20,7 @@ describe('ToolbarFieldSla Component', () => {
   it('should render a basic component', async () => {
     const props = {
       useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT }),
-      useResolvedSlaUsageFilteringEnabled: () => true
+      useProductViewContext: () => ({ defaultFilteringEnabled: true })
     };
     const component = await shallowComponent(<ToolbarFieldUsage {...props} />);
 
@@ -37,7 +37,7 @@ describe('ToolbarFieldSla Component', () => {
       <ToolbarFieldUsage
         options={options}
         useOnSelect={() => jest.fn()}
-        useResolvedSlaUsageFilteringEnabled={() => true}
+        useProductViewContext={() => ({ defaultFilteringEnabled: true })}
         useProductQuery={() => ({ [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.PRODUCTION })}
       />
     );
@@ -65,7 +65,7 @@ describe('ToolbarFieldSla Component', () => {
   });
 
   it('should handle updating usage through redux state with component', () => {
-    const props = { useResolvedSlaUsageFilteringEnabled: () => true };
+    const props = { useProductViewContext: () => ({ defaultFilteringEnabled: true }) };
 
     const component = renderComponent(<ToolbarFieldUsage {...props} />);
     const input = component.find('button');

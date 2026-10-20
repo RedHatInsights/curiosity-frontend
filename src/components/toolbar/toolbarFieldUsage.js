@@ -1,10 +1,9 @@
 import React from 'react';
 import { reduxTypes, storeHooks } from '../../redux';
-import { useProduct, useProductQuery } from '../productView/productViewContext';
+import { useProduct, useProductQuery, useProductViewContext } from '../productView/productViewContext';
 import { Select, SelectPosition } from '../form/select';
 import { RHSM_API_QUERY_USAGE_TYPES as FIELD_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
-import { useResolvedSlaUsageFilteringEnabled } from '../productView/slaUsageHelpers';
 
 /**
  * A standalone Usage select filter.
@@ -65,7 +64,7 @@ const useOnSelect = ({
  * @param {translate} [props.t=translate]
  * @param {useOnSelect} [props.useOnSelect=useOnSelect]
  * @param {useProductQuery} [props.useProductQuery=useProductQuery]
- * @param {Function} [props.useResolvedSlaUsageFilteringEnabled=useResolvedSlaUsageFilteringEnabled]
+ * @param {useProductViewContext} [props.useProductViewContext=useProductViewContext]
  * @fires onSelect
  * @returns {JSX.Element}
  */
@@ -77,13 +76,13 @@ const ToolbarFieldUsage = ({
   t = translate,
   useOnSelect: useAliasOnSelect = useOnSelect,
   useProductQuery: useAliasProductQuery = useProductQuery,
-  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled
+  useProductViewContext: useAliasProductViewContext = useProductViewContext
 }) => {
   const { [RHSM_API_QUERY_SET_TYPES.USAGE]: updatedValue } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
-  const resolvedSlaUsageFilteringEnabled = useAliasResolvedSlaUsageFilteringEnabled();
+  const { defaultFilteringEnabled = false } = useAliasProductViewContext();
 
-  const availableOptions = resolvedSlaUsageFilteringEnabled
+  const availableOptions = defaultFilteringEnabled
     ? options.filter(({ value }) => typeof value === 'string' && value.trim() !== '')
     : options;
   const updatedOptions = availableOptions.map(option => ({ ...option, isSelected: option.value === updatedValue }));
