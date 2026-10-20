@@ -1,0 +1,116 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  annotations:
+    build.appstudio.openshift.io/repo: https://github.com/RedHatInsights/curiosity-frontend?rev={{revision}}
+    build.appstudio.redhat.com/commit_sha: '{{revision}}'
+    build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
+    build.appstudio.redhat.com/target_branch: '{{target_branch}}'
+    pipelinesascode.tekton.dev/cancel-in-progress: "true"
+    pipelinesascode.tekton.dev/max-keep-runs: "3"
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && ( target_branch == "main" || target_branch == "stable" )
+    pipelinesascode.tekton.dev/pipeline: https://github.com/RedHatInsights/konflux-pipelines/raw/v1.70.0/pipelines/platform-ui/docker-build-run-all-tests.yaml
+  creationTimestamp: null
+  labels:
+    appstudio.openshift.io/application: curiosity-frontend
+    appstudio.openshift.io/component: curiosity-frontend
+    pipelines.appstudio.openshift.io/type: build
+  name: curiosity-frontend-playwright-on-pull-request
+  namespace: rh-subs-watch-tenant
+spec:
+  params:
+  # Git repository configuration
+  - name: git-url
+    value: '{{source_url}}'
+  - name: revision
+    value: '{{revision}}'
+  - name: output-image
+    value: quay.io/redhat-user-workloads/rh-subs-watch-tenant/curiosity-frontend/curiosity-frontend:on-pr-{{revision}}
+  - name: image-expires-after
+    value: 5d
+  - name: dockerfile
+    value: build-tools/Dockerfile
+  - name: path-context
+    value: .
+  # Install dependencies for the Playwright run. The shared pipeline still
+  # invokes unit-tests-script, so that script exits without running Jest.
+  - name: workspace-setup-script
+    value: |
+      #!/bin/bash
+      set -ex
+      npm ci
+  - name: unit-tests-script
+    value: |
+      #!/bin/bash
+      exit 0
+  # Playwright v1.64.0 matches package-lock.json.
+  - name: e2e-playwright-image
+    value: "mcr.microsoft.com/playwright:v1.64.0-noble"
+  - name: run-app-script
+    value: |
+      #!/bin/sh
+      set -e
+      # Tekton reruns this script in pipelines-nop-rhel9 when the sidecar stops.
+      # That image has a shell and no caddy. See tektoncd/pipeline#1347.
+      if ! command -v caddy >/dev/null 2>&1; then
+        echo "Caddy not found - running in nop image, exiting gracefully"
+        exit 0
+      fi
+      echo "Starting application with the Caddyfile baked into the image..."
+      exec /usr/bin/caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+  - name: e2e-tests-script
+    value: |
+      #!/bin/bash
+      set -e
+      export CI=true
+      export PLAYWRIGHT_BASE_URL="https://stage.foo.redhat.com:1337"
+      echo "Waiting for frontend-dev-proxy on port 1337..."
+      timeout 120s bash -c 'until curl -k -s -m 5 https://stage.foo.redhat.com:1337 > /dev/null 2>&1; do sleep 5; done'
+      npm run test:e2e
+  - name: e2e-credentials-secret
+    value: curiosity-frontend-credentials-secret
+  - name: frontend-proxy-routes-configmap
+    value: curiosity-frontend-dev-proxy-caddyfile
+  - name: e2e-hcc-env
+    value: stage
+  - name: e2e-hcc-env-url
+    value: https://console.stage.redhat.com
+  pipelineRef:
+    resolver: git
+    params:
+    - name: url
+      value: https://github.com/RedHatInsights/konflux-pipelines
+    - name: revision
+      value: v1.70.0
+    - name: pathInRepo
+      value: pipelines/platform-ui/docker-build-run-all-tests.yaml
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-curiosity-frontend
+  taskRunSpecs:
+  - pipelineTaskName: run-e2e-tests
+    podTemplate:
+      hostAliases:
+      - ip: "::1"
+        hostnames:
+        - "stage.foo.redhat.com"
+        - "prod.foo.redhat.com"
+      - ip: "127.0.0.1"
+        hostnames:
+        - "stage.foo.redhat.com"
+        - "prod.foo.redhat.com"
+  workspaces:
+  - name: workspace
+    volumeClaimTemplate:
+      metadata:
+        creationTimestamp: null
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 3Gi
+      status: {}
+  - name: git-auth
+    secret:
+      secretName: '{{ git_auth_secret }}'
+status: {}

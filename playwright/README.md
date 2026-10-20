@@ -48,7 +48,7 @@ npm ci
 npx playwright install chromium
 ```
 
-The current configuration targets `https://console.stage.redhat.com` and uses the Red Hat corporate Squid proxy. It therefore requires access to the Stage environment and the corporate network. Override these defaults with `PLAYWRIGHT_BASE_URL` and `PLAYWRIGHT_PROXY_SERVER` when needed.
+The suite targets `https://console.stage.redhat.com` by default. Override that with `PLAYWRIGHT_BASE_URL`. No proxy is used unless `PLAYWRIGHT_PROXY_SERVER` is set. On the Red Hat corporate network, set it to `http://squid.corp.redhat.com:3128`.
 
 ## Authentication
 
@@ -288,7 +288,7 @@ When the host OS is macOS and you need to regenerate the Linux baseline, run the
 npm run test:e2e:visual:update:linux:container
 ```
 
-The container uses the matching Playwright Linux image and a separate named volume for Linux `node_modules`; the updated PNG is written into `playwright/specs/rhel-usage-visual.spec.ts-snapshots/`. This requires Podman, Stage credentials (`E2E_USER` and `E2E_PASSWORD`), and access to the configured Stage URL and proxy. Generate Darwin baselines on macOS or a macOS runner; a Linux container cannot reproduce macOS rendering.
+The container uses the matching Playwright Linux image and a separate named volume for Linux `node_modules`; the updated PNG is written into `playwright/specs/rhel-usage-visual.spec.ts-snapshots/`. This requires Podman, Stage credentials (`E2E_USER` and `E2E_PASSWORD`), and access to the configured Stage URL. Set `PLAYWRIGHT_PROXY_SERVER` when the network requires a proxy. Generate Darwin baselines on macOS or a macOS runner; a Linux container cannot reproduce macOS rendering.
 
 Review updated PNGs as part of the change and commit the baseline for each supported OS. Do not update snapshots merely to make a failing test pass.
 
@@ -296,7 +296,7 @@ Review updated PNGs as part of the change and commit the baseline for each suppo
 
 ### Authentication fails
 
-Confirm both variables are set and that the Stage URL and corporate proxy are reachable:
+Confirm both variables are set and that the Stage URL is reachable. If `PLAYWRIGHT_PROXY_SERVER` is set, confirm that proxy is reachable too:
 
 ```bash
 test -n "$E2E_USER" && echo "E2E_USER is set"
@@ -318,7 +318,6 @@ Wait for the chart with `chartUtils.waitForChart()` before reading SVG content. 
 
 ## Current limitations
 
-- The configuration is fixed to Stage and a corporate proxy.
 - All tests require Stage authentication, including RHSM-mocked tests.
 - Live Stage tests depend on external data and are not suitable as deterministic CI checks.
 - Playwright is not currently invoked by `npm test` or the repository CI workflow.

@@ -4,7 +4,9 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? 'https://console.stage.redhat.com';
-const proxyServer = process.env.PLAYWRIGHT_PROXY_SERVER ?? 'http://squid.corp.redhat.com:3128';
+const proxyServer = process.env.PLAYWRIGHT_PROXY_SERVER;
+// The in-cluster proxy presents a certificate Chromium does not trust.
+const ignoreHTTPSErrors = /foo\.redhat\.com/.test(baseURL);
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -27,12 +29,13 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Keep the default Stage run serial; pass --workers to opt into parallel execution. */
   workers: 1,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  /* List each test in CI. The HTML report does not print names to the Tekton log. */
+  reporter: process.env.CI ? [['line'], ['html', { open: 'never' }]] : 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL,
+    ignoreHTTPSErrors,
 
     /* Keep traces for failed tests to make Stage failures diagnosable. */
     storageState: 'playwright/.auth/user.json',
