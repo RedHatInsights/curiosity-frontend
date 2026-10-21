@@ -6117,6 +6117,8 @@ Application filter toolbar.
     </tr><tr>
     <td>[props.useSelectCategoryOptions]</td><td><code>useSelectCategoryOptions</code></td><td><code>useSelectCategoryOptions</code></td><td></td>
     </tr><tr>
+    <td>[props.useSeparateSlaTypeUsageFiltersEnabled]</td><td><code>function</code></td><td><code>useSeparateSlaTypeUsageFiltersEnabled</code></td><td></td>
+    </tr><tr>
     <td>[props.useToolbarFieldClear]</td><td><code>useToolbarFieldClear</code></td><td><code>useToolbarFieldClear</code></td><td></td>
     </tr><tr>
     <td>[props.useToolbarFieldClearAll]</td><td><code>useToolbarFieldClearAll</code></td><td><code>useToolbarFieldClearAll</code></td><td></td>
@@ -6176,9 +6178,32 @@ Clear all active filters.
 ## ToolbarContext
 
 * [ToolbarContext](#Toolbar.module_ToolbarContext)
+    * [~useSeparateSlaTypeUsageFiltersEnabled(options)](#Toolbar.module_ToolbarContext..useSeparateSlaTypeUsageFiltersEnabled) ⇒ <code>boolean</code>
     * [~useToolbarFieldClear(options)](#Toolbar.module_ToolbarContext..useToolbarFieldClear) ⇒ <code>function</code>
     * [~useToolbarFieldClearAll(options)](#Toolbar.module_ToolbarContext..useToolbarFieldClearAll) ⇒ <code>function</code>
     * [~useToolbarFields(options)](#Toolbar.module_ToolbarContext..useToolbarFields) ⇒ <code>Array</code>
+
+<a name="Toolbar.module_ToolbarContext..useSeparateSlaTypeUsageFiltersEnabled"></a>
+
+### ToolbarContext~useSeparateSlaTypeUsageFiltersEnabled(options) ⇒ <code>boolean</code>
+Enable separate toolbar filters only when resolved SLA/Usage filtering is also enabled.
+
+**Kind**: inner method of [<code>ToolbarContext</code>](#Toolbar.module_ToolbarContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.useChrome]</td><td><code>function</code></td><td><code>useChrome</code></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr>  </tbody>
+</table>
 
 <a name="Toolbar.module_ToolbarContext..useToolbarFieldClear"></a>
 

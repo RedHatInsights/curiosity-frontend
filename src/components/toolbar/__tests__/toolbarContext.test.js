@@ -1,4 +1,11 @@
-import { context, useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFields } from '../toolbarContext';
+import {
+  context,
+  useToolbarFieldClear,
+  useToolbarFieldClearAll,
+  useToolbarFields,
+  SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG,
+  useSeparateSlaTypeUsageFiltersEnabled
+} from '../toolbarContext';
 import { store } from '../../../redux/store';
 import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../../services/rhsm/rhsmConstants';
 
@@ -15,6 +22,38 @@ describe('ToolbarContext', () => {
 
   it('should return specific properties', () => {
     expect(context).toMatchSnapshot('specific properties');
+  });
+
+  it.each([
+    [false, false, false],
+    [false, true, false],
+    [true, false, false],
+    [true, true, true]
+  ])(
+    'should require both flags for separate filters: resolved=%s, separate=%s',
+    async (defaultFilteringEnabled, separateFiltersEnabled, expected) => {
+      const featureFlag = jest.fn(() => separateFiltersEnabled);
+      const { result } = await renderHook(() =>
+        useSeparateSlaTypeUsageFiltersEnabled({
+          useChrome: () => ({ visibilityFunctions: { featureFlag } }),
+          useProductViewContext: () => ({ defaultFilteringEnabled })
+        })
+      );
+
+      expect(result).toBe(expected);
+      expect(featureFlag).toHaveBeenCalledWith(SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG, true);
+    }
+  );
+
+  it('should keep separate filters disabled when feature flags are unavailable', async () => {
+    const { result } = await renderHook(() =>
+      useSeparateSlaTypeUsageFiltersEnabled({
+        useChrome: () => ({}),
+        useProductViewContext: () => ({ defaultFilteringEnabled: true })
+      })
+    );
+
+    expect(result).toBe(false);
   });
 
   it('should apply a hook for clearing a toolbar field through redux', async () => {
