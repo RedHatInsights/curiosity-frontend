@@ -14,7 +14,8 @@ metadata:
   labels:
     appstudio.openshift.io/application: curiosity-frontend
     appstudio.openshift.io/component: curiosity-frontend
-    pipelines.appstudio.openshift.io/type: build
+    pipelines.appstudio.openshift.io/type: test
+    test.appstudio.openshift.io/optional: "true"
   name: curiosity-frontend-playwright-on-pull-request
   namespace: rh-subs-watch-tenant
 spec:
