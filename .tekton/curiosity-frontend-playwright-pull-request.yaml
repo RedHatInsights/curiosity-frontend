@@ -388,15 +388,17 @@ spec:
     serviceAccountName: build-pipeline-curiosity-frontend
   taskRunSpecs:
   - pipelineTaskName: run-e2e-tests
+    # Tekton does not expand $(params.*) in podTemplate, so these hostnames are
+    # literal. Keep them in sync with the proxy-host param above.
     podTemplate:
       hostAliases:
       - ip: "::1"
         hostnames:
-        - $(params.proxy-host)
+        - "stage.foo.redhat.com"
         - "prod.foo.redhat.com"
       - ip: "127.0.0.1"
         hostnames:
-        - $(params.proxy-host)
+        - "stage.foo.redhat.com"
         - "prod.foo.redhat.com"
   workspaces:
   - name: workspace
