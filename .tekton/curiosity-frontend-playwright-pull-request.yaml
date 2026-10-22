@@ -271,9 +271,12 @@ spec:
               echo "ERROR: HCC_ENV_URL environment variable is not set!"
               exit 1
             fi
-            # Caddy rejects a reverse_proxy upstream that carries a path, and a
-            # bare trailing slash already counts as one. The secret ships the URL
-            # with it, so strip any trailing slashes before adapting the config.
+            # The secret ships http://host/, which this image's Caddyfile cannot
+            # adapt. Its @iop handler sets a TLS transport, so the upstream has
+            # to be https even though the matcher never fires for a non-iop
+            # HCC_ENV, and Caddy rejects any path component on an upstream, a
+            # bare trailing slash included. Normalise both.
+            HCC_ENV_URL="https://${HCC_ENV_URL#*://}"
             while [ "${HCC_ENV_URL%/}" != "${HCC_ENV_URL}" ]; do
               HCC_ENV_URL="${HCC_ENV_URL%/}"
             done
