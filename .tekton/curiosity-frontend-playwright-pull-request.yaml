@@ -271,6 +271,14 @@ spec:
               echo "ERROR: HCC_ENV_URL environment variable is not set!"
               exit 1
             fi
+            # Caddy rejects a reverse_proxy upstream that carries a path, and a
+            # bare trailing slash already counts as one. The secret ships the URL
+            # with it, so strip any trailing slashes before adapting the config.
+            while [ "${HCC_ENV_URL%/}" != "${HCC_ENV_URL}" ]; do
+              HCC_ENV_URL="${HCC_ENV_URL%/}"
+            done
+            export HCC_ENV_URL
+            echo "Proxying unmatched requests to ${HCC_ENV_URL}"
             echo "Waiting for run-application to be ready on port 8000..."
             elapsed=0
             while [ $elapsed -lt $max_wait ]; do
