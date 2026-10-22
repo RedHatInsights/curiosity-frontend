@@ -80,7 +80,9 @@ const ToolbarFieldSla = ({
   const { [RHSM_API_QUERY_SET_TYPES.SLA]: updatedValue } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
 
-  const updatedOptions = options.map(option => ({ ...option, isSelected: option.value === updatedValue }));
+  const updatedOptions = options
+    .filter(({ value }) => typeof value === 'string' && value.trim() !== '')
+    .map(option => ({ ...option, isSelected: option.value === updatedValue }));
 
   return (
     <Select

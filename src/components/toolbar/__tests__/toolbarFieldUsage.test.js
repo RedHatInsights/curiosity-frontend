@@ -26,6 +26,27 @@ describe('ToolbarFieldSla Component', () => {
     expect(component).toMatchSnapshot('basic');
   });
 
+  it('should hide blank and unspecified Usage options', async () => {
+    const options = [
+      ...toolbarFieldOptions,
+      { title: 'Whitespace', value: '  ', isSelected: false },
+      { title: 'Missing', value: null, isSelected: false }
+    ];
+    const component = await shallowComponent(
+      <ToolbarFieldUsage
+        options={options}
+        useOnSelect={() => jest.fn()}
+        useProductQuery={() => ({ [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.PRODUCTION })}
+      />
+    );
+
+    expect(component.props.options.map(({ value }) => value)).toEqual([
+      USAGE_TYPES.PRODUCTION,
+      USAGE_TYPES.DEVELOPMENT,
+      USAGE_TYPES.DISASTER
+    ]);
+  });
+
   it('should export select options', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
@@ -54,5 +75,19 @@ describe('ToolbarFieldSla Component', () => {
       value: 'dolor sit'
     });
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
+  });
+
+  it('should clear the Usage filter to its default', () => {
+    const onSelect = useOnSelect({
+      useDispatch: () => mockDispatch,
+      useProduct: () => ({ productId: 'loremIpsum' })
+    });
+
+    onSelect();
+
+    expect(mockDispatch.mock.calls[0][0][1]).toMatchObject({
+      filter: RHSM_API_QUERY_SET_TYPES.USAGE,
+      value: null
+    });
   });
 });

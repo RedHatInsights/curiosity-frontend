@@ -36,7 +36,7 @@ exports[`ToolbarFieldSla Component should handle updating usage through redux st
       {
         "filter": "usage",
         "type": "SET_QUERY",
-        "value": "",
+        "value": "Disaster Recovery",
         "viewId": undefined,
       },
     ],
@@ -90,11 +90,6 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
         "isSelected": false,
         "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
         "value": "Disaster Recovery",
-      },
-      {
-        "isSelected": false,
-        "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
-        "value": "",
       },
     ]
   }

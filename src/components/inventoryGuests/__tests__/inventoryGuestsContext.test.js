@@ -1,5 +1,11 @@
 import { context, useGetGuestsInventory, useOnScroll } from '../inventoryGuestsContext';
-import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
+import {
+  RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_QUERY_SLA_TYPES as SLA_TYPES,
+  RHSM_API_QUERY_USAGE_TYPES as USAGE_TYPES
+} from '../../../services/rhsm/rhsmConstants';
+import { useProductInventoryGuestsQuery } from '../../productView/productViewContext';
+import { config as rhelConfig } from '../../../config/product.rhel';
 
 describe('InventoryGuestsContext', () => {
   it('should return specific properties', () => {
@@ -62,6 +68,41 @@ describe('InventoryGuestsContext', () => {
     );
 
     expect(disabledResponse).toMatchSnapshot('inventory, disabled');
+  });
+
+  it('should send resolved SLA and Usage values with guest inventory requests', async () => {
+    const getInventory = jest.fn(() => () => {});
+    const useProductInventoryQuery = ({ options } = {}) =>
+      useProductInventoryGuestsQuery({
+        useProductQuery: () => ({
+          [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.STANDARD,
+          [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT
+        }),
+        useProductQueryFactory: () => ({
+          [RHSM_API_QUERY_SET_TYPES.SLA]: null,
+          [RHSM_API_QUERY_SET_TYPES.USAGE]: '',
+          [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
+        }),
+        useProductViewContext: () => rhelConfig,
+        options
+      });
+
+    const { unmount } = await renderHook(() =>
+      useGetGuestsInventory('guest-123', {
+        getInventory,
+        useDispatch: () => jest.fn(),
+        useProductInventoryQuery,
+        useSelector: () => ({})
+      })
+    );
+
+    expect(getInventory).toHaveBeenCalledWith('guest-123', {
+      [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.PREMIUM,
+      [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.PRODUCTION,
+      [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
+    });
+
+    await unmount();
   });
 
   it('should handle an onScroll event', async () => {

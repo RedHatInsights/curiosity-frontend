@@ -207,6 +207,14 @@ recreate the core component.
 </dd>
 </dl>
 
+## Functions
+
+<dl>
+<dt><a href="#normalizeSlaUsageQuery">normalizeSlaUsageQuery(query, [availableFilters])</a> ⇒ <code>object</code></dt>
+<dd><p>Apply the Curiosity SLA and Usage defaults.</p>
+</dd>
+</dl>
+
 <a name="Components.module_Authentication"></a>
 
 ## Authentication
@@ -2218,6 +2226,8 @@ Get graph metrics from Tally or Capacity.
     <td>params.useProduct</td><td><code>function</code></td>
     </tr><tr>
     <td>params.useProductGraphTallyQuery</td><td><code>function</code></td>
+    </tr><tr>
+    <td>params.useProductToolbarConfig</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4727,6 +4737,8 @@ Return a base product query
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
@@ -4754,6 +4766,8 @@ Return the graph query based off of tally and capacity.
     <td>[options.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
@@ -4783,6 +4797,8 @@ Return the inventory query for guests. Use fallback/defaults for guests offset, 
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
@@ -4811,6 +4827,8 @@ Return an inventory query for hosts.
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
@@ -4838,6 +4856,8 @@ Return an inventory query for subscriptions.
     <td>[options.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
@@ -5028,6 +5048,8 @@ Return an export query for subscriptions.
     <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
     <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr><tr>
     <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES</code></td>
     </tr><tr>
@@ -7305,6 +7327,27 @@ PF tooltip wrapper component.
     <td>[props.exitDelay]</td><td><code>number</code></td><td><code>0</code></td>
     </tr><tr>
     <td>[props.position]</td><td><code>TooltipPosition</code></td><td><code>TooltipPosition.top</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="normalizeSlaUsageQuery"></a>
+
+## normalizeSlaUsageQuery(query, [availableFilters]) ⇒ <code>object</code>
+Apply the Curiosity SLA and Usage defaults.
+
+**Kind**: global function  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>query</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[availableFilters]</td><td><code>Array.&lt;{id: string}&gt;</code></td><td><p>Toolbar filters supported by the current product config.</p>
+</td>
     </tr>  </tbody>
 </table>
 

@@ -35,37 +35,47 @@ exports[`ProductViewContext should apply hooks for retrieving specific api queri
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: exportQuery 1`] = `
 {
   "product_id": undefined,
-  "sla": "testSla",
+  "sla": "Premium",
+  "usage": "Production",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: graphTallyQuery 1`] = `
 {
   "granularity": "testGranularity",
+  "sla": "Premium",
+  "usage": "Production",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryGuestsQuery 1`] = `
 {
   "offset": "testOffset",
+  "sla": "Premium",
+  "usage": "Production",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryHostsQuery 1`] = `
 {
   "limit": "testLimit",
+  "sla": "Premium",
+  "usage": "Production",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventorySubscriptionsQuery 1`] = `
 {
-  "sla": "testSla",
+  "sla": "Premium",
+  "usage": "Production",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: query 1`] = `
 {
   "lorem": "ipsum",
+  "sla": "Premium",
+  "usage": "Production",
 }
 `;
 
@@ -74,7 +84,8 @@ exports[`ProductViewContext should apply hooks for retrieving specific api queri
   "granularity": "testGranularity",
   "limit": "testLimit",
   "lorem": "ipsum",
-  "sla": "testSla",
+  "sla": "Premium",
+  "usage": "Production",
 }
 `;
 
