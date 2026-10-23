@@ -9,8 +9,6 @@ metadata:
     pipelinesascode.tekton.dev/cancel-in-progress: "true"
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && ( target_branch == "main" || target_branch == "stable" )
-    pipelinesascode.tekton.dev/pipeline: https://github.com/RedHatInsights/konflux-pipelines/raw/v1.79.0/pipelines/platform-ui/docker-build-run-all-tests.yaml
-  creationTimestamp: null
   labels:
     appstudio.openshift.io/application: curiosity-frontend
     appstudio.openshift.io/component: curiosity-frontend
@@ -20,33 +18,17 @@ metadata:
   namespace: rh-subs-watch-tenant
 spec:
   params:
-  # Git repository configuration
   - name: git-url
     value: '{{source_url}}'
   - name: revision
     value: '{{revision}}'
-  - name: output-image
+  - name: application-image
     value: quay.io/redhat-user-workloads/rh-subs-watch-tenant/curiosity-frontend/curiosity-frontend:on-pr-{{revision}}
-  - name: image-expires-after
-    value: 5d
-  - name: dockerfile
-    value: build-tools/Dockerfile
-  - name: path-context
-    value: .
-  # Install dependencies for the Playwright run. The shared pipeline still
-  # invokes unit-tests-script, so that script exits without running Jest.
-  - name: workspace-setup-script
-    value: |
-      #!/bin/bash
-      set -ex
-      npm ci
-  - name: unit-tests-script
-    value: |
-      #!/bin/bash
-      exit 0
-  # Playwright v1.64.0 matches package-lock.json.
+  # Noble image supplies OS libraries. Chromium is installed from the lockfile.
   - name: e2e-playwright-image
     value: "mcr.microsoft.com/playwright:v1.64.0-noble"
+  - name: e2e-proxy-image
+    value: quay.io/redhat-user-workloads/hcc-platex-services-tenant/frontend-development-proxy@sha256:27e1fd5bc48ac531398eaba37891ccb2f368a0e8d08850966e78dc1996a46409
   - name: run-app-script
     value: |
       #!/bin/sh
@@ -62,11 +44,15 @@ spec:
   - name: e2e-tests-script
     value: |
       #!/bin/bash
-      set -e
+      set -euo pipefail
       export CI=true
-      export PLAYWRIGHT_BASE_URL="https://stage.foo.redhat.com:1337"
-      echo "Waiting for frontend-dev-proxy on port 1337..."
-      timeout 120s bash -c 'until curl -k -s -m 5 https://stage.foo.redhat.com:1337 > /dev/null 2>&1; do sleep 5; done'
+      export PLAYWRIGHT_BASE_URL="https://${PROXY_HOST}:${PROXY_PORT}"
+      echo "Waiting for frontend-dev-proxy on ${PLAYWRIGHT_BASE_URL}..."
+      if ! timeout 120s bash -c 'until curl -k -s -m 5 "$1" > /dev/null 2>&1; do sleep 5; done' bash "$PLAYWRIGHT_BASE_URL"; then
+        echo "Proxy was not ready. Diagnostic request:"
+        curl -kv "$PLAYWRIGHT_BASE_URL" || true
+        exit 1
+      fi
       npm run test:e2e
   - name: e2e-credentials-secret
     value: curiosity-frontend-credentials-secret
@@ -74,21 +60,347 @@ spec:
     value: curiosity-frontend-dev-proxy-caddyfile
   - name: e2e-hcc-env
     value: stage
-  - name: e2e-hcc-env-url
-    value: https://console.stage.redhat.com
-  pipelineRef:
-    resolver: git
+  - name: proxy-host
+    value: stage.foo.redhat.com
+  - name: proxy-port
+    value: "1337"
+  pipelineSpec:
+    description: Run Playwright against the image built by the pull-request pipeline.
     params:
-    - name: url
-      value: https://github.com/RedHatInsights/konflux-pipelines
+    - name: git-url
+      type: string
     - name: revision
-      value: v1.70.0
-    - name: pathInRepo
-      value: pipelines/platform-ui/docker-build-run-all-tests.yaml
+      type: string
+    - name: application-image
+      type: string
+    - name: e2e-playwright-image
+      type: string
+    - name: e2e-proxy-image
+      type: string
+    - name: run-app-script
+      type: string
+    - name: e2e-tests-script
+      type: string
+    - name: e2e-credentials-secret
+      type: string
+    - name: frontend-proxy-routes-configmap
+      type: string
+    - name: e2e-hcc-env
+      type: string
+    - name: proxy-host
+      type: string
+    - name: proxy-port
+      type: string
+    tasks:
+    - name: prepare-sources
+      timeout: 20m
+      params:
+      - name: url
+        value: $(params.git-url)
+      - name: revision
+        value: $(params.revision)
+      - name: playwright-image
+        value: $(params.e2e-playwright-image)
+      workspaces:
+      - name: source
+        workspace: workspace
+      - name: basic-auth
+        workspace: git-auth
+      taskSpec:
+        params:
+        - name: url
+          type: string
+        - name: revision
+          type: string
+        - name: playwright-image
+          type: string
+        workspaces:
+        - name: source
+        - name: basic-auth
+          optional: true
+        steps:
+        - name: clone-and-install
+          image: $(params.playwright-image)
+          workingDir: $(workspaces.source.path)
+          env:
+          - name: HOME
+            value: $(workspaces.source.path)
+          - name: NPM_CONFIG_CACHE
+            value: $(workspaces.source.path)/.npm
+          - name: PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD
+            value: "1"
+          - name: GIT_TERMINAL_PROMPT
+            value: "0"
+          - name: GIT_URL
+            value: $(params.url)
+          - name: GIT_REVISION
+            value: $(params.revision)
+          securityContext:
+            runAsUser: 0
+          script: |
+            #!/bin/bash
+            set -euo pipefail
+            auth="$(workspaces.basic-auth.path)"
+            if [ -f "${auth}/.gitconfig" ]; then
+              cp "${auth}/.gitconfig" "${HOME}/.gitconfig"
+            fi
+            if [ -f "${auth}/.git-credentials" ]; then
+              cp "${auth}/.git-credentials" "${HOME}/.git-credentials"
+              git config --global credential.helper store
+            fi
+            git init
+            git remote add origin "$GIT_URL"
+            git fetch --depth 1 origin "$GIT_REVISION"
+            git checkout --force FETCH_HEAD
+            npm ci
+            npx playwright install chromium
+    - name: wait-for-application-image
+      retries: 3
+      timeout: 20m
+      params:
+      - name: APPLICATION_IMAGE
+        value: $(params.application-image)
+      taskSpec:
+        description: >
+          Block until the pull-request build has pushed the image. Kubelet
+          retries the pull with this pipeline's service account, which can
+          read the tenant image repository.
+        params:
+        - name: APPLICATION_IMAGE
+          type: string
+        steps:
+        - name: confirm
+          image: $(params.APPLICATION_IMAGE)
+          command: ["/bin/sh", "-c"]
+          args:
+          - echo "Pull request image is available"
+    - name: run-e2e-tests
+      runAfter:
+      - prepare-sources
+      - wait-for-application-image
+      params:
+      - name: APPLICATION_IMAGE
+        value: $(params.application-image)
+      - name: e2e-tests-script
+        value: $(params.e2e-tests-script)
+      - name: run-app-script
+        value: $(params.run-app-script)
+      - name: PROXY_ROUTES_CONFIGMAP
+        value: $(params.frontend-proxy-routes-configmap)
+      - name: PLAYWRIGHT_IMAGE
+        value: $(params.e2e-playwright-image)
+      - name: PROXY_IMAGE
+        value: $(params.e2e-proxy-image)
+      - name: CREDENTIALS_SECRET
+        value: $(params.e2e-credentials-secret)
+      - name: HCC_ENV
+        value: $(params.e2e-hcc-env)
+      - name: PROXY_HOST
+        value: $(params.proxy-host)
+      - name: PROXY_PORT
+        value: $(params.proxy-port)
+      workspaces:
+      - name: shared-workspace
+        workspace: workspace
+      taskSpec:
+        description: Run Playwright against the pull-request image.
+        params:
+        - name: APPLICATION_IMAGE
+          type: string
+        - name: e2e-tests-script
+          type: string
+        - name: run-app-script
+          type: string
+        - name: PROXY_ROUTES_CONFIGMAP
+          type: string
+        - name: PLAYWRIGHT_IMAGE
+          type: string
+        - name: PROXY_IMAGE
+          type: string
+        - name: CREDENTIALS_SECRET
+          type: string
+        - name: HCC_ENV
+          type: string
+        - name: PROXY_HOST
+          type: string
+        - name: PROXY_PORT
+          type: string
+        workspaces:
+        - name: shared-workspace
+          mountPath: /var/workdir
+        volumes:
+        - name: proxy-config
+          emptyDir: {}
+        - name: proxy-routes-configmap
+          configMap:
+            name: $(params.PROXY_ROUTES_CONFIGMAP)
+            optional: true
+            items:
+            - key: routes
+              path: routes
+        sidecars:
+        - name: frontend-dev-proxy
+          image: $(params.PROXY_IMAGE)
+          command: ["/bin/sh", "-c"]
+          args:
+          - |
+            #!/bin/sh
+            # Tekton reruns this script in pipelines-nop-rhel9 when the sidecar stops.
+            # That image has a shell and no caddy. See tektoncd/pipeline#1347.
+            if ! command -v caddy >/dev/null 2>&1; then
+              echo "Caddy not found - running in nop image, exiting gracefully"
+              exit 0
+            fi
+            echo "Waiting for /config/routes to be available..."
+            timeout=60
+            max_wait=120
+            elapsed=0
+            while [ ! -f /config/routes ] && [ $elapsed -lt $timeout ]; do
+              echo "Config file not found, waiting... ($elapsed/$timeout seconds)"
+              sleep 2
+              elapsed=$((elapsed + 2))
+            done
+            if [ ! -f /config/routes ]; then
+              echo "ERROR: /config/routes not found after ${timeout} seconds"
+              exit 1
+            fi
+            echo "Config file found!"
+            cat /config/routes
+            export LOCAL_ROUTES="$(cat /config/routes)"
+            if [ -z "${HCC_ENV_URL}" ]; then
+              echo "ERROR: HCC_ENV_URL environment variable is not set!"
+              exit 1
+            fi
+            # The secret ships http://host/, which this image's Caddyfile cannot
+            # adapt. Its @iop handler sets a TLS transport, so the upstream has
+            # to be https even though the matcher never fires for a non-iop
+            # HCC_ENV, and Caddy rejects any path component on an upstream, a
+            # bare trailing slash included. Normalise both.
+            HCC_ENV_URL="https://${HCC_ENV_URL#*://}"
+            while [ "${HCC_ENV_URL%/}" != "${HCC_ENV_URL}" ]; do
+              HCC_ENV_URL="${HCC_ENV_URL%/}"
+            done
+            export HCC_ENV_URL
+            echo "Proxying unmatched requests to ${HCC_ENV_URL}"
+            echo "Waiting for run-application to be ready on port 8000..."
+            elapsed=0
+            while [ $elapsed -lt $max_wait ]; do
+              if wget -q -O /dev/null --timeout=2 http://127.0.0.1:8000 2>/dev/null; then
+                echo "run-application is ready!"
+                break
+              fi
+              echo "Waiting for run-application... ($elapsed/$max_wait seconds)"
+              sleep 2
+              elapsed=$((elapsed + 2))
+            done
+            if [ $elapsed -ge $max_wait ]; then
+              echo "WARNING: run-application did not become ready after ${max_wait} seconds"
+              exit 1
+            fi
+            echo "Starting frontend-development-proxy using container's template Caddyfile..."
+            caddy run --config /etc/caddy/Caddyfile
+          env:
+          - name: NO_PROXY
+            value: "127.0.0.1,localhost"
+          - name: HCC_ENV
+            value: $(params.HCC_ENV)
+          - name: PROXY_PORT
+            value: $(params.PROXY_PORT)
+          - name: HCC_ENV_URL
+            valueFrom:
+              secretKeyRef:
+                name: $(params.CREDENTIALS_SECRET)
+                key: e2e-hcc-env-url
+          securityContext:
+            privileged: false
+          volumeMounts:
+          - name: proxy-config
+            mountPath: /config
+        - name: run-application
+          image: $(params.APPLICATION_IMAGE)
+          command: ["/bin/sh", "-c"]
+          args:
+          - $(params.run-app-script)
+          env:
+          - name: HCC_ENV_URL
+            valueFrom:
+              secretKeyRef:
+                name: $(params.CREDENTIALS_SECRET)
+                key: e2e-hcc-env-url
+          securityContext:
+            privileged: false
+        steps:
+        - name: setup-proxy-routes
+          image: quay.io/quay/busybox
+          script: |
+            #!/bin/sh
+            set -e
+            if [ ! -f /configmap-data/routes ]; then
+              echo "ERROR: ConfigMap routes file not found at /configmap-data/routes"
+              exit 1
+            fi
+            if [ ! -s /configmap-data/routes ]; then
+              echo "ERROR: ConfigMap routes file is empty"
+              exit 1
+            fi
+            cp /configmap-data/routes /config/routes
+            chmod 644 /config/routes
+            cat /config/routes
+          volumeMounts:
+          - name: proxy-config
+            mountPath: /config
+          - name: proxy-routes-configmap
+            mountPath: /configmap-data
+        - name: e2e-tests
+          image: $(params.PLAYWRIGHT_IMAGE)
+          workingDir: /var/workdir
+          env:
+          - name: NO_PROXY
+            value: "$(params.PROXY_HOST),prod.foo.redhat.com"
+          - name: PROXY_HOST
+            value: $(params.PROXY_HOST)
+          - name: PROXY_PORT
+            value: $(params.PROXY_PORT)
+          - name: E2E_TESTS_SCRIPT
+            value: $(params.e2e-tests-script)
+          - name: E2E_USER
+            valueFrom:
+              secretKeyRef:
+                name: $(params.CREDENTIALS_SECRET)
+                key: e2e-user
+          - name: E2E_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: $(params.CREDENTIALS_SECRET)
+                key: e2e-password
+          - name: HCC_ENV_URL
+            valueFrom:
+              secretKeyRef:
+                name: $(params.CREDENTIALS_SECRET)
+                key: e2e-hcc-env-url
+          computeResources:
+            requests:
+              cpu: "2000m"
+              memory: "4Gi"
+            limits:
+              cpu: "4000m"
+              memory: "8Gi"
+          securityContext:
+            runAsUser: 0
+          script: |
+            #!/bin/bash
+            set -euo pipefail
+            bash -c "$E2E_TESTS_SCRIPT"
+    workspaces:
+    - name: workspace
+    - name: git-auth
+      optional: true
   taskRunTemplate:
     serviceAccountName: build-pipeline-curiosity-frontend
   taskRunSpecs:
   - pipelineTaskName: run-e2e-tests
+    # Tekton does not expand $(params.*) in podTemplate, so these hostnames are
+    # literal. Keep them in sync with the proxy-host param above.
     podTemplate:
       hostAliases:
       - ip: "::1"
@@ -102,16 +414,12 @@ spec:
   workspaces:
   - name: workspace
     volumeClaimTemplate:
-      metadata:
-        creationTimestamp: null
       spec:
         accessModes:
         - ReadWriteOnce
         resources:
           requests:
             storage: 6Gi
-      status: {}
   - name: git-auth
     secret:
       secretName: '{{ git_auth_secret }}'
-status: {}
