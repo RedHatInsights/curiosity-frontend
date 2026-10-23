@@ -60,6 +60,24 @@ This is a non-networked local run designed to function with minimal resources, a
 >
 > You will have to rerun the local run "start command" for the changes to be applied.
 
+#### Local feature flag overrides
+
+To enable the separate SLA, Usage, and Type dropdowns with `npm start`, add both overrides to `.env.local`:
+
+```dotenv
+REACT_APP_DEBUG_RESOLVED_SLA_USAGE_FILTERING=true
+REACT_APP_DEBUG_SEPARATE_SLA_TYPE_USAGE_FILTERS=true
+```
+
+These override the Unleash flags `swatch.resolved-sla-usage-filtering` and
+`swatch.separate-sla-type-usage-filters`, respectively. Both flags must be enabled for the separate dropdowns.
+Existing default SLA and Usage behavior is preserved.
+
+Only the exact values `true` and `false` override a flag. Set `false` to force it off; unset, empty, or invalid
+values use Chrome/Unleash instead, defaulting to disabled when no flag provider is available in standalone mode.
+Overrides apply only during development and are ignored in tests and production builds.
+Restart `npm start` after changing `.env.local`.
+
 ### Running proxy development
 This is a networked run that has the ability to proxy production, stage, and ephemeral with a live API.
 

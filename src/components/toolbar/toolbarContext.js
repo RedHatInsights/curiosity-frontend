@@ -20,6 +20,7 @@ const SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG = 'swatch.separate-sla-type-usage-fil
 
 /**
  * Enable separate toolbar filters only when resolved SLA/Usage filtering is also enabled.
+ * Explicit true/false dotenv values override Chrome only during development.
  *
  * @param {object} options
  * @param {Function} [options.useChrome=useChrome]
@@ -32,6 +33,14 @@ const useSeparateSlaTypeUsageFiltersEnabled = ({
 } = {}) => {
   const { visibilityFunctions } = useAliasChrome();
   const { defaultFilteringEnabled = false } = useAliasProductViewContext();
+
+  if (process.env.NODE_ENV === 'development') {
+    const override = process.env.REACT_APP_DEBUG_SEPARATE_SLA_TYPE_USAGE_FILTERS;
+    if (override === 'true' || override === 'false') {
+      return defaultFilteringEnabled && override === 'true';
+    }
+  }
+
   const separateFiltersEnabled =
     visibilityFunctions?.featureFlag?.(SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG, true) ?? false;
 

@@ -42,8 +42,8 @@ import { translate } from '../i18n/i18n';
 
 const separateFilterTypes = [
   RHSM_API_QUERY_SET_TYPES.SLA,
-  RHSM_API_QUERY_SET_TYPES.CATEGORY,
-  RHSM_API_QUERY_SET_TYPES.USAGE
+  RHSM_API_QUERY_SET_TYPES.USAGE,
+  RHSM_API_QUERY_SET_TYPES.CATEGORY
 ];
 
 /**
@@ -194,64 +194,62 @@ const Toolbar = ({
     >
       {!isGroupVariantDisabled && <ToolbarFieldGroupVariant />}
       <ToolbarContent className="curiosity-toolbar__content">
-        {separateOptions.length > 0 && (
-          <ToolbarGroup className="curiosity-toolbar__separate-filters" rowWrap={{ default: 'nowrap' }}>
-            {separateOptions.map(({ title, value, component: OptionComponent }) => (
-              <ToolbarGroup key={value} rowWrap={{ default: 'nowrap' }}>
-                <ToolbarItem variant={ToolbarItemVariant.label}>{title}:</ToolbarItem>
-                <ToolbarItem>
-                  <OptionComponent isFilter isInline />
-                </ToolbarItem>
-              </ToolbarGroup>
-            ))}
-            <ToolbarItem>
-              <Button variant="link" isInline onClick={onClearAll}>
-                {clearFiltersButtonText}
-              </Button>
-            </ToolbarItem>
-          </ToolbarGroup>
-        )}
-        {combinedOptions.length > 0 && (
+        {options.length > 0 && (
           <ToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
-            <ToolbarGroup variant="filter-group">
-              {combinedOptions.length > 1 && (
-                <ToolbarItem>
-                  <ToolbarFieldSelectCategory
-                    {...(separateOptions.length > 0 && {
-                      useSelectCategoryOptions: () => ({
-                        currentCategory: combinedCategory,
-                        initialCategory: combinedCategory !== currentCategory ? combinedCategory : initialCategory,
-                        options: combinedOptions
-                      })
-                    })}
-                  />
-                </ToolbarItem>
-              )}
-              {combinedOptions.map(
-                ({ title, dynamicValue, value: filterName, component: OptionComponent, isClearable }) => {
-                  const labelProps = {
-                    categoryName: title
-                  };
+            {separateOptions.length > 0 && (
+              <ToolbarGroup className="curiosity-toolbar__separate-filters" rowWrap={{ default: 'nowrap' }}>
+                {separateOptions.map(({ title, value, component: OptionComponent }) => (
+                  <ToolbarGroup key={value} rowWrap={{ default: 'nowrap' }}>
+                    <ToolbarItem variant={ToolbarItemVariant.label}>{title}:</ToolbarItem>
+                    <ToolbarItem className="curiosity-toolbar__filter-select">
+                      <OptionComponent isFilter isInline={false} />
+                    </ToolbarItem>
+                    <ToolbarItem variant={ToolbarItemVariant.separator} />
+                  </ToolbarGroup>
+                ))}
+              </ToolbarGroup>
+            )}
+            {combinedOptions.length > 0 && (
+              <ToolbarGroup variant="filter-group">
+                {combinedOptions.length > 1 && (
+                  <ToolbarItem>
+                    <ToolbarFieldSelectCategory
+                      {...(separateOptions.length > 0 && {
+                        useSelectCategoryOptions: () => ({
+                          currentCategory: combinedCategory,
+                          initialCategory: combinedCategory !== currentCategory ? combinedCategory : initialCategory,
+                          options: combinedOptions
+                        })
+                      })}
+                    />
+                  </ToolbarItem>
+                )}
+                {combinedOptions.map(
+                  ({ title, dynamicValue, value: filterName, component: OptionComponent, isClearable }) => {
+                    const labelProps = {
+                      categoryName: title
+                    };
 
-                  const updatedValue = dynamicValue || filterName;
+                    const updatedValue = dynamicValue || filterName;
 
-                  if (isClearable !== false) {
-                    labelProps.labels = setSelectedOptions({ value: updatedValue });
-                    labelProps.deleteLabel = () => onClearFilter({ value: updatedValue });
+                    if (isClearable !== false) {
+                      labelProps.labels = setSelectedOptions({ value: updatedValue });
+                      labelProps.deleteLabel = () => onClearFilter({ value: updatedValue });
+                    }
+
+                    return (
+                      <ToolbarFilter
+                        key={helpers.generateHash(updatedValue)}
+                        showToolbarItem={combinedCategory === updatedValue || combinedOptions.length === 1}
+                        {...labelProps}
+                      >
+                        <OptionComponent isFilter />
+                      </ToolbarFilter>
+                    );
                   }
-
-                  return (
-                    <ToolbarFilter
-                      key={helpers.generateHash(updatedValue)}
-                      showToolbarItem={combinedCategory === updatedValue || combinedOptions.length === 1}
-                      {...labelProps}
-                    >
-                      <OptionComponent isFilter />
-                    </ToolbarFilter>
-                  );
-                }
-              )}
-            </ToolbarGroup>
+                )}
+              </ToolbarGroup>
+            )}
           </ToolbarToggleGroup>
         )}
         <ToolbarGroup key="itemFields">{itemFields}</ToolbarGroup>
@@ -259,6 +257,15 @@ const Toolbar = ({
           {secondaryFields}
         </ToolbarGroup>
       </ToolbarContent>
+      {separateOptions.length > 0 && (
+        <ToolbarContent className="curiosity-toolbar__content curiosity-toolbar__reset-filters">
+          <ToolbarItem>
+            <Button variant="link" isInline onClick={onClearAll}>
+              {clearFiltersButtonText}
+            </Button>
+          </ToolbarItem>
+        </ToolbarContent>
+      )}
     </PfToolbar>
   );
 };

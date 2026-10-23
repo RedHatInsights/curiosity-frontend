@@ -13,6 +13,42 @@ describe('Toolbar Component', () => {
     expect(component).toMatchSnapshot('basic');
   });
 
+  it('should render separate SLA, Usage and Type filters inside the existing toggle group', async () => {
+    const props = {
+      isGroupVariantDisabled: true,
+      useSeparateSlaTypeUsageFiltersEnabled: () => true,
+      useSelectCategoryOptions: () => ({
+        options: [RHSM_API_QUERY_SET_TYPES.SLA, RHSM_API_QUERY_SET_TYPES.CATEGORY, RHSM_API_QUERY_SET_TYPES.USAGE].map(
+          filter => selectCategoryOptions.find(({ value }) => value === filter)
+        )
+      }),
+      useToolbarFields: () => ({ itemFields: [], secondaryFields: [] })
+    };
+    const component = await shallowComponent(<Toolbar {...props} />);
+
+    expect(component).toMatchSnapshot('separate filters');
+  });
+
+  it('should keep separate and combined filters inside the same toggle group', async () => {
+    const props = {
+      isGroupVariantDisabled: true,
+      useSeparateSlaTypeUsageFiltersEnabled: () => true,
+      useSelectCategoryOptions: () => ({
+        currentCategory: RHSM_API_QUERY_SET_TYPES.SLA,
+        initialCategory: RHSM_API_QUERY_SET_TYPES.SLA,
+        options: [
+          RHSM_API_QUERY_SET_TYPES.SLA,
+          RHSM_API_QUERY_SET_TYPES.GRANULARITY,
+          RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME
+        ].map(filter => selectCategoryOptions.find(({ value }) => value === filter))
+      }),
+      useToolbarFields: () => ({ itemFields: [], secondaryFields: [] })
+    };
+    const component = await shallowComponent(<Toolbar {...props} />);
+
+    expect(component).toMatchSnapshot('separate and combined filters');
+  });
+
   it('should return an empty render, or variant filter, when disabled or missing filters', async () => {
     const props = {
       isDisabled: true

@@ -4644,6 +4644,7 @@ Get an updated product view context.
 
 ### ProductViewContext~useResolvedSlaUsageFilteringEnabled(options) ⇒ <code>boolean</code>
 Resolve the SLA/Usage feature flag at the product view boundary.
+Explicit true/false dotenv values override Chrome only during development.
 
 **Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
 <table>
@@ -6187,6 +6188,7 @@ Clear all active filters.
 
 ### ToolbarContext~useSeparateSlaTypeUsageFiltersEnabled(options) ⇒ <code>boolean</code>
 Enable separate toolbar filters only when resolved SLA/Usage filtering is also enabled.
+Explicit true/false dotenv values override Chrome only during development.
 
 **Kind**: inner method of [<code>ToolbarContext</code>](#Toolbar.module_ToolbarContext)  
 <table>

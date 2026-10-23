@@ -1,3 +1,94 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Index.HTML should have a specific html output: html output 1`] = `""`;
+exports[`Index.HTML should have a specific html output: html output 1`] = `
+"
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+
+<head>
+    
+<meta charset="UTF-8">
+    
+<title>
+        Hybrid Cloud Console
+    
+</title>
+    
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: wss: data: blob: 'unsafe-inline' 'unsafe-eval' https://*.redhat.com/ https://www.redhat.com  https://*.openshift.com/ https://*.openshiftapps.com/ https://api.stage.openshift.com/ https://identity.api.openshift.com/ https://www.youtube.com/ https://redhat.sc.omtrdc.net/ https://assets.adobedtm.com https://www.redhat.com https://*.storage.googleapis.com/ https://*.hotjar.com:* https://*.hotjar.io wss://*.hotjar.com https://stage.quay.io https://quay.io;">
+    
+<meta http-equiv="Pragma" content="no-cache">
+    
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<link rel="icon" type="image/png" href="https://access.redhat.com/webassets/avalon/g/favicon.ico">
+    
+<script type="text/javascript">
+        (function () {
+  try {
+    var isLightwellRoute = window.location.pathname.split('/')[1] === 'lightwell';
+
+    // Apply Felt theme on ALL routes before PatternFly CSS loads.
+    // This prevents a flash of non-Felt styles while Unleash feature flags
+    // are still loading. Once flags resolve, React takes over: if auto-felt
+    // is disabled and the user has no saved preference, the class is removed.
+    document.documentElement.classList.add('pf-v6-theme-felt');
+
+    if (isLightwellRoute) {
+      document.documentElement.classList.add('pf-v6-theme-glass', 'lightwell-v1-theme');
+    }
+
+    var savedTheme = localStorage.getItem('chrome:theme');
+    var isDark = savedTheme === 'dark' || (savedTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    if (isDark) {
+      document.documentElement.classList.add('pf-v6-theme-dark');
+    }
+  } catch (error) {
+    // Theme initialization is best effort when storage or media queries are unavailable.
+  }
+})();
+    
+</script>
+    
+<link rel="stylesheet" type="text/css" href="*/apps/chrome/js/pf/pf-v6.css">
+    
+<script type="text/javascript">
+        window.insights = {
+            chrome: {
+                isChrome2: true
+            }
+        }
+    
+</script>
+
+<base href="/">
+<link href="*/apps/chrome/js/main.e156a2394dc0fcb7.css" rel="stylesheet">
+</head>
+
+
+<body class="pf-m-redhat-font">
+    
+<div id="chrome-entry">
+</div>
+    
+<div id="consent_blackbar">
+</div>
+    
+<a id="teconsent" style="display: none;">
+</a>
+
+<script defer src="*/apps/chrome/js/chrome-root.*.js">
+</script>
+<script defer src="*/apps/chrome/js/chrome.*.js">
+</script>
+</body>
+
+</html>
+"
+`;

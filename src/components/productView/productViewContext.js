@@ -34,6 +34,7 @@ const RESOLVED_SLA_USAGE_FILTERING_FLAG = 'swatch.resolved-sla-usage-filtering';
 
 /**
  * Resolve the SLA/Usage feature flag at the product view boundary.
+ * Explicit true/false dotenv values override Chrome only during development.
  *
  * @param {object} options
  * @param {Function} [options.useChrome=useChrome]
@@ -41,6 +42,14 @@ const RESOLVED_SLA_USAGE_FILTERING_FLAG = 'swatch.resolved-sla-usage-filtering';
  */
 const useResolvedSlaUsageFilteringEnabled = ({ useChrome: useAliasChrome = useChrome } = {}) => {
   const { visibilityFunctions } = useAliasChrome();
+
+  if (process.env.NODE_ENV === 'development') {
+    const override = process.env.REACT_APP_DEBUG_RESOLVED_SLA_USAGE_FILTERING;
+    if (override === 'true' || override === 'false') {
+      return override === 'true';
+    }
+  }
+
   return visibilityFunctions?.featureFlag?.(RESOLVED_SLA_USAGE_FILTERING_FLAG, true) ?? false;
 };
 
