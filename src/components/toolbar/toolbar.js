@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   Button,
   Toolbar as PfToolbar,
+  ToolbarContext as PfToolbarContext,
   ToolbarContent,
   ToolbarGroup,
   ToolbarItem,
@@ -45,6 +46,27 @@ const separateFilterTypes = [
   RHSM_API_QUERY_SET_TYPES.USAGE,
   RHSM_API_QUERY_SET_TYPES.CATEGORY
 ];
+
+/**
+ * Register a split filter with PatternFly's applied-filter summary without rendering labels.
+ *
+ * @private
+ * @param {object} props
+ * @param {string} props.categoryName
+ * @param {number} props.count
+ * @returns {null}
+ */
+const ToolbarFilterCount = ({ categoryName, count }) => {
+  const { updateNumberFilters } = useContext(PfToolbarContext);
+
+  useEffect(() => {
+    updateNumberFilters(categoryName, count);
+  }, [categoryName, count, updateNumberFilters]);
+
+  useEffect(() => () => updateNumberFilters(categoryName, 0), [categoryName, updateNumberFilters]);
+
+  return null;
+};
 
 /**
  * Application filter toolbar.
@@ -182,6 +204,20 @@ const Toolbar = ({
   };
 
   const clearFiltersButtonText = t('curiosity-toolbar.clearFilters');
+  const numberOfAppliedFilters = separateOptions.length
+    ? options.reduce(
+        (count, { dynamicValue, value, isClearable }) =>
+          count + (isClearable === false ? 0 : setSelectedOptions({ value: dynamicValue || value }).length),
+        0
+      )
+    : 0;
+  const resetFiltersButton = (
+    <ToolbarItem className="curiosity-toolbar__reset-filters">
+      <Button variant="link" isInline onClick={onClearAll}>
+        {clearFiltersButtonText}
+      </Button>
+    </ToolbarItem>
+  );
 
   return (
     <PfToolbar
@@ -191,6 +227,7 @@ const Toolbar = ({
       collapseListedFiltersBreakpoint="md"
       clearAllFilters={onClearAll}
       clearFiltersButtonText={clearFiltersButtonText}
+      {...(separateOptions.length > 0 && { customLabelGroupContent: resetFiltersButton })}
     >
       {!isGroupVariantDisabled && <ToolbarFieldGroupVariant />}
       <ToolbarContent className="curiosity-toolbar__content">
@@ -198,8 +235,12 @@ const Toolbar = ({
           <ToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
             {separateOptions.length > 0 && (
               <ToolbarGroup className="curiosity-toolbar__separate-filters" rowWrap={{ default: 'nowrap' }}>
-                {separateOptions.map(({ title, value, component: OptionComponent }) => (
+                {separateOptions.map(({ title, value, component: OptionComponent, isClearable }) => (
                   <ToolbarGroup key={value} rowWrap={{ default: 'nowrap' }}>
+                    <ToolbarFilterCount
+                      categoryName={title}
+                      count={isClearable === false ? 0 : setSelectedOptions({ value }).length}
+                    />
                     <ToolbarItem variant={ToolbarItemVariant.label}>{title}:</ToolbarItem>
                     <ToolbarItem className="curiosity-toolbar__filter-select">
                       <OptionComponent isFilter isInline={false} />
@@ -257,14 +298,8 @@ const Toolbar = ({
           {secondaryFields}
         </ToolbarGroup>
       </ToolbarContent>
-      {separateOptions.length > 0 && (
-        <ToolbarContent className="curiosity-toolbar__content curiosity-toolbar__reset-filters">
-          <ToolbarItem>
-            <Button variant="link" isInline onClick={onClearAll}>
-              {clearFiltersButtonText}
-            </Button>
-          </ToolbarItem>
-        </ToolbarContent>
+      {separateOptions.length > 0 && numberOfAppliedFilters === 0 && (
+        <ToolbarContent className="curiosity-toolbar__content">{resetFiltersButton}</ToolbarContent>
       )}
     </PfToolbar>
   );

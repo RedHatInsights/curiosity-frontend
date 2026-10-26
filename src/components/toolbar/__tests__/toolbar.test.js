@@ -1,6 +1,11 @@
 import React from 'react';
 import { Toolbar } from '../toolbar';
-import { RHSM_API_QUERY_SLA_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
+import {
+  RHSM_API_QUERY_SLA_TYPES,
+  RHSM_API_QUERY_USAGE_TYPES,
+  RHSM_API_QUERY_CATEGORY_TYPES,
+  RHSM_API_QUERY_SET_TYPES
+} from '../../../services/rhsm/rhsmConstants';
 import { toolbarFieldOptions as selectCategoryOptions } from '../toolbarFieldSelectCategory';
 
 describe('Toolbar Component', () => {
@@ -17,6 +22,11 @@ describe('Toolbar Component', () => {
     const props = {
       isGroupVariantDisabled: true,
       useSeparateSlaTypeUsageFiltersEnabled: () => true,
+      useProductToolbarQuery: () => ({
+        [RHSM_API_QUERY_SET_TYPES.SLA]: RHSM_API_QUERY_SLA_TYPES.PREMIUM,
+        [RHSM_API_QUERY_SET_TYPES.USAGE]: RHSM_API_QUERY_USAGE_TYPES.PRODUCTION,
+        [RHSM_API_QUERY_SET_TYPES.CATEGORY]: RHSM_API_QUERY_CATEGORY_TYPES.PHYSICAL
+      }),
       useSelectCategoryOptions: () => ({
         options: [RHSM_API_QUERY_SET_TYPES.SLA, RHSM_API_QUERY_SET_TYPES.CATEGORY, RHSM_API_QUERY_SET_TYPES.USAGE].map(
           filter => selectCategoryOptions.find(({ value }) => value === filter)
@@ -33,6 +43,7 @@ describe('Toolbar Component', () => {
     const props = {
       isGroupVariantDisabled: true,
       useSeparateSlaTypeUsageFiltersEnabled: () => true,
+      useProductToolbarQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: RHSM_API_QUERY_SLA_TYPES.PREMIUM }),
       useSelectCategoryOptions: () => ({
         currentCategory: RHSM_API_QUERY_SET_TYPES.SLA,
         initialCategory: RHSM_API_QUERY_SET_TYPES.SLA,

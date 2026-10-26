@@ -239,6 +239,19 @@ exports[`Toolbar Component should keep separate and combined filters inside the 
   clearAllFilters={[Function]}
   clearFiltersButtonText="t(curiosity-toolbar.clearFilters)"
   collapseListedFiltersBreakpoint="md"
+  customLabelGroupContent={
+    <ToolbarItem
+      className="curiosity-toolbar__reset-filters"
+    >
+      <Button
+        isInline={true}
+        onClick={[Function]}
+        variant="link"
+      >
+        t(curiosity-toolbar.clearFilters)
+      </Button>
+    </ToolbarItem>
+  }
   id="curiosity-toolbar"
 >
   <ToolbarContent
@@ -269,6 +282,10 @@ exports[`Toolbar Component should keep separate and combined filters inside the 
             }
           }
         >
+          <ToolbarFilterCount
+            categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
+            count={1}
+          />
           <ToolbarItem
             variant="label"
           >
@@ -283,6 +300,9 @@ exports[`Toolbar Component should keep separate and combined filters inside the 
               isInline={false}
             />
           </ToolbarItem>
+          <ToolbarItem
+            variant="separator"
+          />
         </ForwardRef>
       </ForwardRef>
       <ForwardRef
@@ -322,21 +342,6 @@ exports[`Toolbar Component should keep separate and combined filters inside the 
         }
       }
     />
-  </ToolbarContent>
-  <ToolbarContent
-    className="curiosity-toolbar__content curiosity-toolbar__reset-filters"
-    isExpanded={false}
-    showClearFiltersButton={false}
-  >
-    <ToolbarItem>
-      <Button
-        isInline={true}
-        onClick={[Function]}
-        variant="link"
-      >
-        t(curiosity-toolbar.clearFilters)
-      </Button>
-    </ToolbarItem>
   </ToolbarContent>
 </Toolbar>
 `;
@@ -409,6 +414,19 @@ exports[`Toolbar Component should render separate SLA, Usage and Type filters in
   clearAllFilters={[Function]}
   clearFiltersButtonText="t(curiosity-toolbar.clearFilters)"
   collapseListedFiltersBreakpoint="md"
+  customLabelGroupContent={
+    <ToolbarItem
+      className="curiosity-toolbar__reset-filters"
+    >
+      <Button
+        isInline={true}
+        onClick={[Function]}
+        variant="link"
+      >
+        t(curiosity-toolbar.clearFilters)
+      </Button>
+    </ToolbarItem>
+  }
   id="curiosity-toolbar"
 >
   <ToolbarContent
@@ -439,6 +457,10 @@ exports[`Toolbar Component should render separate SLA, Usage and Type filters in
             }
           }
         >
+          <ToolbarFilterCount
+            categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
+            count={1}
+          />
           <ToolbarItem
             variant="label"
           >
@@ -453,6 +475,9 @@ exports[`Toolbar Component should render separate SLA, Usage and Type filters in
               isInline={false}
             />
           </ToolbarItem>
+          <ToolbarItem
+            variant="separator"
+          />
         </ForwardRef>
         <ForwardRef
           rowWrap={
@@ -461,6 +486,10 @@ exports[`Toolbar Component should render separate SLA, Usage and Type filters in
             }
           }
         >
+          <ToolbarFilterCount
+            categoryName="t(curiosity-toolbar.label_filter, {"context":"usage"})"
+            count={1}
+          />
           <ToolbarItem
             variant="label"
           >
@@ -475,6 +504,9 @@ exports[`Toolbar Component should render separate SLA, Usage and Type filters in
               isInline={false}
             />
           </ToolbarItem>
+          <ToolbarItem
+            variant="separator"
+          />
         </ForwardRef>
         <ForwardRef
           rowWrap={
@@ -483,6 +515,10 @@ exports[`Toolbar Component should render separate SLA, Usage and Type filters in
             }
           }
         >
+          <ToolbarFilterCount
+            categoryName="t(curiosity-toolbar.label_filter, {"context":"category"})"
+            count={1}
+          />
           <ToolbarItem
             variant="label"
           >
@@ -497,6 +533,9 @@ exports[`Toolbar Component should render separate SLA, Usage and Type filters in
               isInline={false}
             />
           </ToolbarItem>
+          <ToolbarItem
+            variant="separator"
+          />
         </ForwardRef>
       </ForwardRef>
     </ToolbarToggleGroup>
@@ -508,21 +547,6 @@ exports[`Toolbar Component should render separate SLA, Usage and Type filters in
         }
       }
     />
-  </ToolbarContent>
-  <ToolbarContent
-    className="curiosity-toolbar__content curiosity-toolbar__reset-filters"
-    isExpanded={false}
-    showClearFiltersButton={false}
-  >
-    <ToolbarItem>
-      <Button
-        isInline={true}
-        onClick={[Function]}
-        variant="link"
-      >
-        t(curiosity-toolbar.clearFilters)
-      </Button>
-    </ToolbarItem>
   </ToolbarContent>
 </Toolbar>
 `;

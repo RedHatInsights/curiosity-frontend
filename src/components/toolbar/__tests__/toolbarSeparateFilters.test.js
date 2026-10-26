@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { ToolbarContext } from '@patternfly/react-core';
 import { Toolbar } from '../toolbar';
 import { useSeparateSlaTypeUsageFiltersEnabled, SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG } from '../toolbarContext';
 import { toolbarFieldOptions } from '../toolbarFieldSelectCategory';
@@ -48,6 +49,15 @@ const FilterToolbar = ({ resolved = true, separate = true, productConfig = rhelC
     </ProductViewContext.Provider>
   );
 };
+
+const useToolbarFieldsWithFilterCount = () => ({
+  itemFields: [],
+  secondaryFields: [
+    <ToolbarContext.Consumer key="filter-count">
+      {({ numberOfFilters }) => <output aria-label="Applied filters">{numberOfFilters}</output>}
+    </ToolbarContext.Consumer>
+  ]
+});
 
 describe('Separate SLA, Usage and Type toolbar filters', () => {
   let mockDispatch;
@@ -106,6 +116,81 @@ describe('Separate SLA, Usage and Type toolbar filters', () => {
   });
 
   it.each([
+    [undefined, 2],
+    [CATEGORY_TYPES.PHYSICAL, 3]
+  ])('should register default and selected filters for the applied-filter summary: Type=%s', (category, count) => {
+    const productConfig = {
+      ...rhelConfig,
+      query: { ...rhelConfig.query, [QUERY_TYPES.CATEGORY]: category }
+    };
+    const component = renderComponent(
+      <FilterToolbar productConfig={productConfig} useToolbarFields={useToolbarFieldsWithFilterCount} />
+    );
+
+    expect(component.getByLabelText('Applied filters').textContent).toBe(String(count));
+    expect(component.find('.pf-v6-c-label-group')).toBeNull();
+    expect(component.getAllByRole('button', { name: 't(curiosity-toolbar.clearFilters)' })).toHaveLength(1);
+  });
+
+  it('should update the applied-filter count when Type is selected and removed', () => {
+    const component = renderComponent(<FilterToolbar useToolbarFields={useToolbarFieldsWithFilterCount} />);
+    const productConfig = {
+      ...rhelConfig,
+      query: { ...rhelConfig.query, [QUERY_TYPES.CATEGORY]: CATEGORY_TYPES.PHYSICAL }
+    };
+
+    expect(component.getByLabelText('Applied filters').textContent).toBe('2');
+    component.rerender(
+      <FilterToolbar productConfig={productConfig} useToolbarFields={useToolbarFieldsWithFilterCount} />
+    );
+    expect(component.getByLabelText('Applied filters').textContent).toBe('3');
+    component.rerender(<FilterToolbar useToolbarFields={useToolbarFieldsWithFilterCount} />);
+    expect(component.getByLabelText('Applied filters').textContent).toBe('2');
+  });
+
+  it('should count separate and remaining clearable filters without counting unsupported or non-clearable fields', () => {
+    const options = [
+      ...toolbarFieldOptions.filter(({ value }) => [QUERY_TYPES.SLA, QUERY_TYPES.USAGE].includes(value)),
+      {
+        title: 'Other filter',
+        value: 'other',
+        dynamicValue: [
+          QUERY_TYPES.BILLING_PROVIDER,
+          { name: QUERY_TYPES.BILLING_ACCOUNT_ID, isDisplayValueOnly: true }
+        ],
+        component: () => <span>Other field</span>
+      },
+      { title: 'Not clearable', value: 'not-clearable', isClearable: false, component: () => null }
+    ];
+    const component = renderComponent(
+      <FilterToolbar
+        useSelectCategoryOptions={() => ({ currentCategory: 'other', options })}
+        useProductToolbarQuery={() => ({
+          [QUERY_TYPES.SLA]: SLA_TYPES.PREMIUM,
+          [QUERY_TYPES.USAGE]: USAGE_TYPES.PRODUCTION,
+          [QUERY_TYPES.BILLING_PROVIDER]: 'aws',
+          [QUERY_TYPES.BILLING_ACCOUNT_ID]: 'account',
+          [QUERY_TYPES.CATEGORY]: CATEGORY_TYPES.PHYSICAL,
+          'not-clearable': 'value'
+        })}
+        useToolbarFields={useToolbarFieldsWithFilterCount}
+      />
+    );
+
+    expect(component.getByLabelText('Applied filters').textContent).toBe('4');
+    expect(component.getAllByRole('button', { name: 't(curiosity-toolbar.clearFilters)' })).toHaveLength(1);
+  });
+
+  it('should retain Reset filters when no applied filters are registered', () => {
+    const component = renderComponent(
+      <FilterToolbar useProductToolbarQuery={() => ({})} useToolbarFields={useToolbarFieldsWithFilterCount} />
+    );
+
+    expect(component.getByLabelText('Applied filters').textContent).toBe('0');
+    expect(component.getAllByRole('button', { name: 't(curiosity-toolbar.clearFilters)' })).toHaveLength(1);
+  });
+
+  it.each([
     ['toolbarFieldSla', QUERY_TYPES.SLA, SLA_TYPES.STANDARD, 3],
     ['toolbarFieldCategory', QUERY_TYPES.CATEGORY, CATEGORY_TYPES.PHYSICAL, 4],
     ['toolbarFieldUsage', QUERY_TYPES.USAGE, USAGE_TYPES.DEVELOPMENT, 3]
@@ -132,12 +217,15 @@ describe('Separate SLA, Usage and Type toolbar filters', () => {
   });
 
   it('should show only SLA for a product that supports only SLA', () => {
-    const component = renderComponent(<FilterToolbar productConfig={openshiftConfig} />);
+    const component = renderComponent(
+      <FilterToolbar productConfig={openshiftConfig} useToolbarFields={useToolbarFieldsWithFilterCount} />
+    );
 
     expect(component.find('[data-test="toolbarFieldSla"]').textContent).toContain(SLA_TYPES.PREMIUM);
     expect(component.find('[data-test="toolbarFieldUsage"]')).toBeNull();
     expect(component.find('[data-test="toolbarFieldCategory"]')).toBeNull();
     expect(component.find('[data-test="toolbarFieldSelectCategory"]')).toBeNull();
+    expect(component.getByLabelText('Applied filters').textContent).toBe('1');
   });
 
   it('should allow resetting Type and restoring the default SLA and Usage', () => {
@@ -184,14 +272,37 @@ describe('Separate SLA, Usage and Type toolbar filters', () => {
         [QUERY_TYPES.CATEGORY]: CATEGORY_TYPES.PHYSICAL
       }
     };
-    const component = renderComponent(<FilterToolbar productConfig={productConfig} />);
+    const component = renderComponent(
+      <FilterToolbar productConfig={productConfig} useToolbarFields={useToolbarFieldsWithFilterCount} />
+    );
 
-    component.rerender(<FilterToolbar productConfig={productConfig} separate={false} />);
+    expect(component.getByLabelText('Applied filters').textContent).toBe('3');
+    component.rerender(
+      <FilterToolbar
+        productConfig={productConfig}
+        separate={false}
+        useToolbarFields={useToolbarFieldsWithFilterCount}
+      />
+    );
     expect(component.find('.curiosity-toolbar__separate-filters')).toBeNull();
-    component.rerender(<FilterToolbar productConfig={productConfig} />);
-    component.rerender(<FilterToolbar productConfig={productConfig} resolved={false} />);
+    expect(component.getByLabelText('Applied filters').textContent).toBe('3');
+    component.rerender(
+      <FilterToolbar productConfig={productConfig} useToolbarFields={useToolbarFieldsWithFilterCount} />
+    );
+    expect(component.getByLabelText('Applied filters').textContent).toBe('3');
+    component.rerender(
+      <FilterToolbar
+        productConfig={productConfig}
+        resolved={false}
+        useToolbarFields={useToolbarFieldsWithFilterCount}
+      />
+    );
     expect(component.find('.curiosity-toolbar__separate-filters')).toBeNull();
-    component.rerender(<FilterToolbar productConfig={productConfig} />);
+    expect(component.getByLabelText('Applied filters').textContent).toBe('3');
+    component.rerender(
+      <FilterToolbar productConfig={productConfig} useToolbarFields={useToolbarFieldsWithFilterCount} />
+    );
+    expect(component.getByLabelText('Applied filters').textContent).toBe('3');
 
     expect(component.find('[data-test="toolbarFieldSla"]').textContent).toContain(SLA_TYPES.STANDARD);
     expect(component.find('[data-test="toolbarFieldUsage"]').textContent).toContain(USAGE_TYPES.DEVELOPMENT);
