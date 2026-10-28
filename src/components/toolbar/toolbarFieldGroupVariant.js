@@ -52,8 +52,10 @@ const useToolbarFieldOptions = ({
 /**
  * On select update.
  *
- * Resets the variant's cached queries, then reflects the selection in the browser URL. The URL, not Redux,
- * carries the selected variant so the view can be bookmarked and restored, see routerContext.useNavigateVariant.
+ * Resets the variant's cached queries, records the selection as the group's last viewed variant, then
+ * reflects it in the browser URL, see routerContext.useNavigateVariant. The URL is what the view resolves
+ * from, the stored value only restores a group when navigation stops at its group path, see
+ * routerContext.setRouteProduct.
  *
  * Note: the query reset is intentionally tied to this explicit user action. Arriving at a variant through a
  * bookmark or browser back/forward deliberately leaves cached queries alone, preserving the restored view and
@@ -62,12 +64,15 @@ const useToolbarFieldOptions = ({
  * @param {object} options
  * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
  * @param {routerContext.useNavigateVariant} [options.useNavigateVariant=routerContext.useNavigateVariant]
+ * @param {useProduct} [options.useProduct=useProduct]
  * @returns {Function}
  */
 const useOnSelect = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useNavigateVariant: useAliasNavigateVariant = routerContext.useNavigateVariant
+  useNavigateVariant: useAliasNavigateVariant = routerContext.useNavigateVariant,
+  useProduct: useAliasProduct = useProduct
 } = {}) => {
+  const { productGroup } = useAliasProduct();
   const dispatch = useAliasDispatch();
   const navigateVariant = useAliasNavigateVariant();
 
@@ -86,6 +91,11 @@ const useOnSelect = ({
       },
       {
         type: reduxTypes.graph.SET_GRAPH_LEGEND_RESET
+      },
+      {
+        type: reduxTypes.app.SET_PRODUCT_VARIANT,
+        variant: value,
+        productGroup
       }
     ]);
 

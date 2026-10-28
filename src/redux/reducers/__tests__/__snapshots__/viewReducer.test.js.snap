@@ -225,6 +225,25 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
 }
 `;
 
+exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT_VARIANT 1`] = `
+{
+  "result": {
+    "billingAccountsQuery": {},
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {},
+    "inventoryHostsQuery": {},
+    "inventorySubscriptionsQuery": {},
+    "product": {
+      "variant": {
+        "test_id": "lorem variant",
+      },
+    },
+    "query": {},
+  },
+  "type": "SET_PRODUCT_VARIANT",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY 1`] = `
 {
   "result": {
@@ -233,6 +252,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
     "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {},
+    "product": {},
     "query": {
       "test_id": {
         "dolorFilter": "sit any value",
@@ -255,6 +275,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
     "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {},
+    "product": {},
     "query": {},
   },
   "type": "SET_QUERY_BILLING_ACCOUNTS",
@@ -273,6 +294,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
     "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {},
+    "product": {},
     "query": {},
   },
   "type": "SET_QUERY_GRAPH",
@@ -291,6 +313,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
     },
     "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {},
+    "product": {},
     "query": {},
   },
   "type": "SET_QUERY_INVENTORY_GUESTS",
@@ -309,6 +332,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
       },
     },
     "inventorySubscriptionsQuery": {},
+    "product": {},
     "query": {},
   },
   "type": "SET_QUERY_INVENTORY_INSTANCES",
@@ -327,6 +351,7 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
         "dolorFilter": "sit any value",
       },
     },
+    "product": {},
     "query": {},
   },
   "type": "SET_QUERY_INVENTORY_SUBSCRIPTIONS",

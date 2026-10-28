@@ -9,6 +9,7 @@ describe('ViewReducer', () => {
 
   it('should handle specific defined types', () => {
     const specificTypes = [
+      appTypes.SET_PRODUCT_VARIANT,
       ...Object.values({
         ...types,
         SET_QUERY_CLEAR: undefined,

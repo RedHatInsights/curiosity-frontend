@@ -143,6 +143,121 @@ describe('RouterContext', () => {
     }).toMatchSnapshot();
   });
 
+  describe('setRouteProduct, last viewed variant', () => {
+    const lastViewed = { rhel: RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM };
+
+    it('should restore the last viewed variant when the path stops at a group', () => {
+      const { firstMatch, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/rhel',
+        productVariant: lastViewed,
+        isRestoreVariant: true
+      });
+
+      expect(firstMatch?.productId).toBe(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM);
+      expect(restoreVariantPath).toBe('/subscriptions/usage/rhel/RHEL%20for%20ARM');
+    });
+
+    it('should restore the last viewed variant when the path stops at an alias', () => {
+      const { firstMatch, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/insights',
+        productVariant: lastViewed,
+        isRestoreVariant: true
+      });
+
+      expect(firstMatch?.productId).toBe(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM);
+      expect(restoreVariantPath).toBe('/subscriptions/usage/rhel/RHEL%20for%20ARM');
+    });
+
+    it('should let a variant named in the path outrank the last viewed variant', () => {
+      const { firstMatch, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/rhel/RHEL%20for%20x86',
+        productVariant: lastViewed,
+        isRestoreVariant: true
+      });
+
+      expect(firstMatch?.productId).toBe(RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86);
+      expect(restoreVariantPath).toBeUndefined();
+    });
+
+    it('should let an existing flat variant path outrank the last viewed variant', () => {
+      const { firstMatch, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/RHEL%20for%20x86',
+        productVariant: lastViewed,
+        isRestoreVariant: true
+      });
+
+      expect(firstMatch?.productId).toBe(RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86);
+      expect(restoreVariantPath).toBeUndefined();
+    });
+
+    it('should not restore for browser back and forward, the url is exact', () => {
+      const { firstMatch, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/rhel',
+        productVariant: lastViewed,
+        isRestoreVariant: false
+      });
+
+      expect(firstMatch?.productId).toBe(RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86);
+      expect(restoreVariantPath).toBeUndefined();
+    });
+
+    it('should not restore across product groups', () => {
+      const { firstMatch, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/openshift',
+        productVariant: lastViewed,
+        isRestoreVariant: true
+      });
+
+      expect(firstMatch?.productGroup).toBe('openshift');
+      expect(restoreVariantPath).toBeUndefined();
+    });
+
+    it('should use the default variant without a stored selection', () => {
+      const { firstMatch, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/rhel',
+        productVariant: {},
+        isRestoreVariant: true
+      });
+
+      expect(firstMatch?.productId).toBe(RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86);
+      expect(restoreVariantPath).toBeUndefined();
+    });
+  });
+
+  describe('useRouteDetail, restored variant url', () => {
+    it('should align the url with a restored variant using replaceState', async () => {
+      const windowHistory = { replaceState: jest.fn() };
+
+      await renderHook(() =>
+        useRouteDetail({
+          useChrome: () => ({}),
+          useSetRouteProduct: () => ({
+            productGroup: 'rhel',
+            restoreVariantPath: '/subscriptions/usage/rhel/RHEL%20for%20ARM'
+          }),
+          windowHistory
+        })
+      );
+
+      expect(windowHistory.replaceState).toHaveBeenCalledTimes(1);
+      expect(windowHistory.replaceState.mock.calls[0][2]).toContain('/subscriptions/usage/rhel/RHEL%20for%20ARM');
+    });
+
+    it('should not touch the url without a restored variant', async () => {
+      const windowHistory = { replaceState: jest.fn() };
+
+      await renderHook(() =>
+        useRouteDetail({
+          useChrome: () => ({}),
+          useSetRouteProduct: () => ({ productGroup: 'rhel' }),
+          windowHistory
+        })
+      );
+
+      expect(windowHistory.replaceState).not.toHaveBeenCalled();
+    });
+  });
+
   it('should apply a hook for the helper setRouteProduct with useSetRouteProduct', async () => {
     const mockSetProduct = jest.fn();
     mockSetProduct.memo = mockSetProduct;
