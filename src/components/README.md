@@ -5368,25 +5368,34 @@ Remove OIDC callback parameters whenever the application URL changes.
 ### RouterContext~setRouteProduct(params) ⇒ <code>Object</code>
 Set a product config based on routing
 
-Note: The URL is the single source of truth for the selected variant. An earlier implementation layered a
-Redux "view.product.variant" override on top of the resolved path, which outranked the URL and left browser
-back/forward unable to restore a prior variant. Variant selections now push a path, see useNavigateVariant,
-so resolution stays a pure function of the location.
+The URL outranks stored state whenever it names a variant, which is what lets browser back and forward
+restore a prior selection. A remembered variant is applied only when the URL stops at a group or alias
+path, i.e. the platform left navigation links to "/subscriptions/usage/rhel", so moving between product
+groups returns to the variant last viewed in each. That restore is skipped for "popstate" so the back and
+forward buttons always land on exactly what the URL describes.
+
+When a variant is restored, "restoreVariantPath" carries the canonical path for the view, see
+useRouteDetail, so a bookmark captures the variant rather than the group.
 
 **Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>params</td><td><code>object</code></td>
+    <td>params</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>params.productPath</td><td><code>string</code></td>
+    <td>params.productPath</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>params.disableIsClosestMatch</td><td><code>boolean</code></td>
+    <td>params.disableIsClosestMatch</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>[params.productVariant]</td><td><code>object</code></td><td><p>Last viewed variant, keyed by productGroup</p>
+</td>
+    </tr><tr>
+    <td>[params.isRestoreVariant]</td><td><code>boolean</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -5417,6 +5426,8 @@ Initialize and store a product path, parameter, in a "state" update parallel to 
     <td>[options.setProduct]</td><td><code>setRouteProduct</code></td><td><code>setRouteProduct</code></td>
     </tr><tr>
     <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
+    </tr><tr>
+    <td>[options.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5443,6 +5454,8 @@ Consumes useSetRouteProduct to return a display configuration for use in product
     <td>[options.useChrome]</td><td><code>useChrome</code></td><td><code>useChrome</code></td>
     </tr><tr>
     <td>[options.useSetRouteProduct]</td><td><code>useSetRouteProduct</code></td><td><code>useSetRouteProduct</code></td>
+    </tr><tr>
+    <td>[options.windowHistory]</td><td><code>*</code></td><td><code>window.history</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5683,10 +5696,16 @@ Levenshtein "closest match" fallback are intentionally excluded, they are not ca
 ### RouterHelpers~getProductPath(params) ⇒ <code>string</code>
 Return a path for a product identifier, relative to the application's current mount point.
 
-Replaces the trailing product identifier when the current path already carries one, otherwise appends. Working
-from the live pathname, instead of a generated baseName, keeps every deployed mount point intact, i.e.
-"/subscriptions/usage", "/insights/subscriptions", "/openshift/subscriptions", plus any environment prefix
-such as "/beta". See deploy/frontend.yaml for the registered routes.
+The identifier is nested below its product group, i.e. "/subscriptions/usage/rhel/RHEL%20for%20ARM". The
+platform "Chroming" navigation resolves its active item by prefix matching the pathname against its
+registered nav links, see deploy/frontend.yaml. Keeping the group path as a prefix leaves the left
+navigation expanded, the item highlighted, and the breadcrumb trail intact. A sibling path, i.e.
+"/subscriptions/usage/<variant>", matches no nav item and collapses them.
+
+Any product identifiers already on the path are rewound first, so repeated selections replace rather than
+accumulate, and alias paths are canonicalized. Working from the live pathname, instead of a generated
+baseName, keeps every deployed mount point intact, i.e. "/subscriptions/usage", "/insights/subscriptions",
+"/openshift/subscriptions", plus any environment prefix such as "/beta".
 
 Note: product identifiers can contain spaces, i.e. "RHEL for ARM", and are encoded accordingly.
 
@@ -5704,6 +5723,8 @@ Note: product identifiers can contain spaces, i.e. "RHEL for ARM", and are encod
     <td>[params.pathName]</td><td><code>string</code></td>
     </tr><tr>
     <td>params.productId</td><td><code>string</code></td>
+    </tr><tr>
+    <td>[params.getRouteConfigByPath]</td><td><code>getRouteConfigByPath</code></td>
     </tr><tr>
     <td>[params.isProductPathId]</td><td><code>isProductPathId</code></td>
     </tr>  </tbody>
@@ -7077,8 +7098,10 @@ Generate select field options from config. Sorted by title string.
 ### ToolbarFieldGroupVariant~useOnSelect(options) ⇒ <code>function</code>
 On select update.
 
-Resets the variant's cached queries, then reflects the selection in the browser URL. The URL, not Redux,
-carries the selected variant so the view can be bookmarked and restored, see routerContext.useNavigateVariant.
+Resets the variant's cached queries, records the selection as the group's last viewed variant, then
+reflects it in the browser URL, see routerContext.useNavigateVariant. The URL is what the view resolves
+from, the stored value only restores a group when navigation stops at its group path, see
+routerContext.setRouteProduct.
 
 Note: the query reset is intentionally tied to this explicit user action. Arriving at a variant through a
 bookmark or browser back/forward deliberately leaves cached queries alone, preserving the restored view and
@@ -7098,6 +7121,8 @@ avoiding the extra API calls described in viewReducer's SET_PRODUCT_VARIANT_QUER
     <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
     <td>[options.useNavigateVariant]</td><td><code>routerContext.useNavigateVariant</code></td><td><code>routerContext.useNavigateVariant</code></td>
+    </tr><tr>
+    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
     </tr>  </tbody>
 </table>
 

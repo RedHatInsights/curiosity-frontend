@@ -3,6 +3,7 @@ import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome'
 import { useLocation } from 'react-use';
 import { routerHelpers, sanitizeOidcParams } from './routerHelpers';
 import { helpers } from '../../common/helpers';
+import { storeHooks } from '../../redux';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -129,23 +130,59 @@ const useSanitizeOidcParams = ({
 /**
  * Set a product config based on routing
  *
+ * The URL outranks stored state whenever it names a variant, which is what lets browser back and forward
+ * restore a prior selection. A remembered variant is applied only when the URL stops at a group or alias
+ * path, i.e. the platform left navigation links to "/subscriptions/usage/rhel", so moving between product
+ * groups returns to the variant last viewed in each. That restore is skipped for "popstate" so the back and
+ * forward buttons always land on exactly what the URL describes.
+ *
+ * When a variant is restored, "restoreVariantPath" carries the canonical path for the view, see
+ * useRouteDetail, so a bookmark captures the variant rather than the group.
+ *
  * @param {object} params
  * @param {string} params.productPath
  * @param {boolean} params.disableIsClosestMatch
+ * @param {object} [params.productVariant] Last viewed variant, keyed by productGroup
+ * @param {boolean} [params.isRestoreVariant]
  * @returns {{
  *   firstMatch: object,
  *   productPath: string,
  *   disableIsClosestMatch: boolean,
  *   productGroup: string,
  *   productVariant: string,
+ *   restoreVariantPath: string|undefined,
  *   isClosest: boolean,
  *   productConfig: Array}}
  */
-const setRouteProduct = ({ productPath, disableIsClosestMatch = false } = {}) => {
-  const routeConfig = routerHelpers.getRouteConfigByPath({
+const setRouteProduct = ({
+  productPath,
+  disableIsClosestMatch = false,
+  productVariant,
+  isRestoreVariant = false
+} = {}) => {
+  let routeConfig = routerHelpers.getRouteConfigByPath({
     pathName: productPath,
     isIgnoreClosest: disableIsClosestMatch
   });
+
+  // Does the path stop at a group or alias, or does it name one of the group's variants outright
+  const trailingPathId = routerHelpers.cleanPath({ pathName: productPath })?.split('/')?.pop();
+  const isVariantInPath =
+    routeConfig?.availableVariants?.some(variant => variant.toLowerCase() === trailingPathId) || false;
+
+  let restoreVariantPath;
+
+  if (!isVariantInPath && isRestoreVariant) {
+    const lastViewedVariant = productVariant?.[routeConfig?.firstMatch?.productGroup];
+
+    if (lastViewedVariant) {
+      routeConfig = routerHelpers.getRouteConfigByPath({
+        pathName: lastViewedVariant,
+        isIgnoreClosest: disableIsClosestMatch
+      });
+      restoreVariantPath = routerHelpers.getProductPath({ pathName: productPath, productId: lastViewedVariant });
+    }
+  }
 
   const { configs, firstMatch, isClosest, ...config } = routeConfig;
 
@@ -157,6 +194,7 @@ const setRouteProduct = ({ productPath, disableIsClosestMatch = false } = {}) =>
     productConfig: (configs?.length && configs) || [],
     productPath,
     productVariant: firstMatch?.productId,
+    restoreVariantPath,
     disableIsClosestMatch:
       (disableIsClosestMatch && isClosest) || (disableIsClosestMatch && routerHelpers.dynamicPath() === '/')
   };
@@ -176,17 +214,26 @@ setRouteProduct.memo = helpers.memo(setRouteProduct, { cacheLimit: 10 });
  * @param {boolean} [options.disableIsClosestMatch]
  * @param {setRouteProduct} [options.setProduct=setRouteProduct]
  * @param {useLocation} [options.useLocation=useLocation]
+ * @param {storeHooks.reactRedux.useSelector} [options.useSelector=storeHooks.reactRedux.useSelector]
  * @returns {{ firstMatch: unknown, isClosest: boolean, productGroup: string, productConfig: Array,
- *     productPath: string, productVariant: string, disableIsClosestMatch:boolean }}
+ *     productPath: string, productVariant: string, restoreVariantPath: string|undefined,
+ *     disableIsClosestMatch:boolean }}
  */
 const useSetRouteProduct = ({
   disableIsClosestMatch = helpers.DEV_MODE === true,
   setProduct = setRouteProduct,
-  useLocation: useAliasLocation = useLocation
+  useLocation: useAliasLocation = useLocation,
+  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector
 } = {}) => {
-  const { pathname: productPath } = useAliasLocation();
+  const { pathname: productPath, trigger } = useAliasLocation();
+  const productVariant = useAliasSelector(({ view }) => view?.product?.variant, {});
 
-  return setProduct.memo({ disableIsClosestMatch, productPath });
+  return setProduct.memo({
+    disableIsClosestMatch,
+    productPath,
+    productVariant,
+    isRestoreVariant: trigger !== 'popstate'
+  });
 };
 
 /**
@@ -197,18 +244,31 @@ const useSetRouteProduct = ({
  * @param {translate} [options.t=translate]
  * @param {useChrome} [options.useChrome=useChrome]
  * @param {useSetRouteProduct} [options.useSetRouteProduct=useSetRouteProduct]
+ * @param {*} [options.windowHistory=window.history]
  * @returns {{firstMatch: *, isClosest: boolean, productGroup: string, productConfig: Array, productPath: string,
  *     productVariant: string, disableIsClosestMatch: boolean}}}
  */
 const useRouteDetail = ({
   t = translate,
   useChrome: useAliasChrome = useChrome,
-  useSetRouteProduct: useAliasSetRouteProduct = useSetRouteProduct
+  useSetRouteProduct: useAliasSetRouteProduct = useSetRouteProduct,
+  windowHistory: aliasWindowHistory = window.history
 } = {}) => {
   const product = useAliasSetRouteProduct();
   const { getBundleData = helpers.noop, updateDocumentTitle = helpers.noop } = useAliasChrome();
   const bundleTitle = getBundleData()?.bundleTitle;
   const productGroup = product?.productGroup;
+  const restoreVariantPath = product?.restoreVariantPath;
+
+  /**
+   * Align the URL with a restored variant. Replaces, instead of pushes, so the platform navigation click
+   * that landed on the group path remains a single history entry.
+   */
+  useLayoutEffect(() => {
+    if (restoreVariantPath && restoreVariantPath !== window.location.pathname) {
+      aliasWindowHistory.replaceState({}, '', `${restoreVariantPath}${window.location.search}${window.location.hash}`);
+    }
+  }, [aliasWindowHistory, restoreVariantPath]);
 
   useEffect(() => {
     // Set platform document title, remove pre-baked suffix

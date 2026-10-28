@@ -14,7 +14,7 @@ import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../services
  * Initial state.
  *
  * @private
- * @type {{graphTallyQuery: {}, inventoryHostsQuery: {}, inventorySubscriptionsQuery: {},
+ * @type {{product: {}, graphTallyQuery: {}, inventoryHostsQuery: {}, inventorySubscriptionsQuery: {},
  *     query: {}, inventoryGuestsQuery: {}, billingAccountsQuery: {}}}
  */
 const initialState = {
@@ -23,7 +23,8 @@ const initialState = {
   graphTallyQuery: {},
   inventoryGuestsQuery: {},
   inventoryHostsQuery: {},
-  inventorySubscriptionsQuery: {}
+  inventorySubscriptionsQuery: {},
+  product: {}
 };
 
 /**
@@ -242,6 +243,25 @@ const viewReducer = (state = initialState, action) => {
           [action.viewId]: {
             ...state.inventorySubscriptionsQuery[action.viewId],
             [action.filter]: action.value
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    /*
+     * Note: The last viewed variant per product group. This is a fallback for paths that stop at a group,
+     * i.e. the platform left navigation, it never outranks a variant named in the URL. See
+     * routerContext.setRouteProduct.
+     */
+    case reduxTypes.app.SET_PRODUCT_VARIANT:
+      return reduxHelpers.setStateProp(
+        'product',
+        {
+          variant: {
+            ...state?.product?.variant,
+            [action.productGroup]: action.variant
           }
         },
         {

@@ -131,7 +131,9 @@ exports[`RouterContext should apply a hook for the helper setRouteProduct with u
   [
     {
       "disableIsClosestMatch": false,
+      "isRestoreVariant": true,
       "productPath": "rhel",
+      "productVariant": {},
     },
   ],
 ]
