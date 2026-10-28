@@ -24,9 +24,20 @@ spec:
   - name: output-image
     value: quay.io/redhat-user-workloads/rh-subs-watch-tenant/curiosity-frontend/curiosity-frontend:{{revision}}
   - name: dockerfile
-    value: build-tools/Dockerfile
+    value: build-tools/Dockerfile.hermetic
   - name: path-context
     value: .
+  - name: hermetic
+    value: "true"
+  - name: prefetch-input
+    value: '{"type": "npm", "path": "."}'
+  # Dockerfile.hermetic defaults to artifact (ubi-micro, no Caddy). Deploy needs
+  # the deploy stage (caddy-ubi). .npmrc is not copied before npm ci.
+  - name: target-stage
+    value: deploy
+  - name: build-args
+    value:
+      - NPM_CI_ARGS=--ignore-scripts
   pipelineSpec:
     description: |
       This pipeline is ideal for building container images from a Containerfile while maintaining trust after pipeline customization.
@@ -63,6 +74,10 @@ spec:
     - default: ""
       description: Build dependencies to be prefetched by Cachi2
       name: prefetch-input
+      type: string
+    - default: ""
+      description: Target stage in Dockerfile to build (deploy = Caddy runtime; empty = last stage)
+      name: target-stage
       type: string
     - default: ""
       description: Image tag expiration time, time values could be something like 1h, 2d, 3w for hours, days, and weeks, respectively.
@@ -207,6 +222,8 @@ spec:
       - name: BUILD_ARGS
         value:
         - $(params.build-args[*])
+      - name: TARGET_STAGE
+        value: $(params.target-stage)
       - name: PRIVILEGED_NESTED
         value: $(params.privileged-nested)
       - name: SOURCE_ARTIFACT

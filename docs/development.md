@@ -104,7 +104,9 @@ Updated NPM scripts can be found in [package.json](../package.json). The most es
 | `npm test`                     | Run the full test suite (lint, spell check, and unit tests).                                     |
 | `npm run test:dev`             | Run unit tests in watch mode during development.                                                 |
 | `npm run test:integration-dev` | Run integration tests in watch mode, typically after running the build and having checks fail. |
-| `npm run build`                | Compile the application and run integration tests for production readiness.                      |
+| `npm run build`                | Compile the application only (Webpack production bundle).                                        |
+| `npm run test:integration`     | Run build integration tests against `dist/` (run after `npm run build`).                         |
+| `npm run build:ephemeral` / `build:prod` | Compile then run integration tests (ephemeral/prod CI workflows).                       |
 | `npm run build:docs`           | Run spelling, linting, and regenerate documentation READMEs from JSDoc.                          |
 | `npm run release`              | Generate CHANGELOG.md, update package.json and package-lock.json semver versions.                |
 
@@ -301,10 +303,9 @@ Run tests using
 ##### Integration testing
 **IMPORTANT: Integration checks require build output before they work! Otherwise, you may potentially be running against a previous build output.**
 
-Run build integration tests using
-- Use `$ npm run build` for building then running the follow-up build integration checks.
-  
-  If the build integration checks fail, you can update them with `$ npm run test:integration-dev` and enter Jest watch mode.
+- Use `$ npm run build` to compile the application, then `$ npm run test:integration` for build integration checks.
+- For a combined compile + integration workflow (CI/ephemeral), use `$ npm run build:ephemeral` or `$ npm run build:prod`.
+- If the build integration checks fail, update them with `$ npm run test:integration-dev` and enter Jest watch mode.
 
 ### Local and proxy runs
 Debugging locally, and while using the platform proxy, follows general frontend development practices.
