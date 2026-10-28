@@ -5274,6 +5274,7 @@ Apply configurable banners per product variant
 
 * [RouterContext](#Router.module_RouterContext)
     * [~useNavigate(options)](#Router.module_RouterContext..useNavigate) ⇒ <code>function</code>
+    * [~useNavigateVariant(options)](#Router.module_RouterContext..useNavigateVariant) ⇒ <code>function</code>
     * [~useSanitizeOidcParams(options)](#Router.module_RouterContext..useSanitizeOidcParams) ⇒ <code>void</code>
     * [~setRouteProduct(params)](#Router.module_RouterContext..setRouteProduct) ⇒ <code>Object</code>
         * [.memo](#Router.module_RouterContext..setRouteProduct.memo) : <code>function</code>
@@ -5300,6 +5301,43 @@ update. Dispatches the same type leveraged by the initialize hook, useSetRouteDe
     <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
     </tr><tr>
     <td>[options.windowHistory]</td><td><code>*</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterContext..useNavigateVariant"></a>
+
+### RouterContext~useNavigateVariant(options) ⇒ <code>function</code>
+Reflect a product variant selection in the browser URL.
+
+The variant is pushed as the trailing path identifier, i.e. "/subscriptions/usage/RHEL%20for%20ARM", instead of
+a search parameter. Variants are already exact, routable identifiers, see sortedProductConfigs
+"byAnythingPathIds", so this introduces no new URL format and every existing format continues to resolve.
+
+Chrome's history is preferred when it is available so the platform router stays in sync. It delegates to
+window.history.pushState, which is the method useLocation patches, so either path re-renders without a
+page reload.
+
+Note: re-selecting the variant already in the URL is a no-op, avoiding duplicate history entries that would
+otherwise require multiple back presses to escape.
+
+**Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.getProductPath]</td><td><code>routerHelpers.getProductPath</code></td><td><code>routerHelpers.getProductPath</code></td>
+    </tr><tr>
+    <td>[options.useChrome]</td><td><code>useChrome</code></td><td><code>useChrome</code></td>
+    </tr><tr>
+    <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
+    </tr><tr>
+    <td>[options.windowHistory]</td><td><code>*</code></td><td><code>window.history</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5330,6 +5368,11 @@ Remove OIDC callback parameters whenever the application URL changes.
 ### RouterContext~setRouteProduct(params) ⇒ <code>Object</code>
 Set a product config based on routing
 
+Note: The URL is the single source of truth for the selected variant. An earlier implementation layered a
+Redux "view.product.variant" override on top of the resolved path, which outranked the URL and left browser
+back/forward unable to restore a prior variant. Variant selections now push a path, see useNavigateVariant,
+so resolution stays a pure function of the location.
+
 **Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
 <table>
   <thead>
@@ -5344,8 +5387,6 @@ Set a product config based on routing
     <td>params.productPath</td><td><code>string</code></td>
     </tr><tr>
     <td>params.disableIsClosestMatch</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>params.productVariant</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5376,8 +5417,6 @@ Initialize and store a product path, parameter, in a "state" update parallel to 
     <td>[options.setProduct]</td><td><code>setRouteProduct</code></td><td><code>setRouteProduct</code></td>
     </tr><tr>
     <td>[options.useLocation]</td><td><code>useLocation</code></td><td><code>useLocation</code></td>
-    </tr><tr>
-    <td>[options.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
     </tr>  </tbody>
 </table>
 
@@ -5422,6 +5461,8 @@ Consumes useSetRouteProduct to return a display configuration for use in product
     * [~dynamicBasePath(params)](#Router.module_RouterHelpers..dynamicBasePath) ⇒ <code>string</code>
     * [~dynamicPath(params)](#Router.module_RouterHelpers..dynamicPath) ⇒ <code>string</code>
     * [~cleanPath(params)](#Router.module_RouterHelpers..cleanPath) ⇒ <code>string</code> \| <code>undefined</code>
+    * [~isProductPathId(params)](#Router.module_RouterHelpers..isProductPathId) ⇒ <code>boolean</code>
+    * [~getProductPath(params)](#Router.module_RouterHelpers..getProductPath) ⇒ <code>string</code>
 
 <a name="Router.module_RouterHelpers..appName"></a>
 
@@ -5608,6 +5649,63 @@ Decode URL-encoded characters and strip irrelevant segments to provide exact pro
     <td>params.pathName</td><td><code>string</code></td>
     </tr><tr>
     <td>params.appName</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterHelpers..isProductPathId"></a>
+
+### RouterHelpers~isProductPathId(params) ⇒ <code>boolean</code>
+Confirm a path segment is an exact, known product identifier.
+
+Compares against the same identifier listing getRouteConfigByPath uses for exact matching, i.e. productGroups,
+productIds, productLabels, productPaths, aliases, and productVariants. Segments that only resolve through the
+Levenshtein "closest match" fallback are intentionally excluded, they are not canonical identifiers.
+
+**Kind**: inner method of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.pathId</td><td><code>string</code></td>
+    </tr><tr>
+    <td>[params.configs]</td><td><code>Array</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Router.module_RouterHelpers..getProductPath"></a>
+
+### RouterHelpers~getProductPath(params) ⇒ <code>string</code>
+Return a path for a product identifier, relative to the application's current mount point.
+
+Replaces the trailing product identifier when the current path already carries one, otherwise appends. Working
+from the live pathname, instead of a generated baseName, keeps every deployed mount point intact, i.e.
+"/subscriptions/usage", "/insights/subscriptions", "/openshift/subscriptions", plus any environment prefix
+such as "/beta". See deploy/frontend.yaml for the registered routes.
+
+Note: product identifiers can contain spaces, i.e. "RHEL for ARM", and are encoded accordingly.
+
+**Kind**: inner method of [<code>RouterHelpers</code>](#Router.module_RouterHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>[params.pathName]</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.productId</td><td><code>string</code></td>
+    </tr><tr>
+    <td>[params.isProductPathId]</td><td><code>isProductPathId</code></td>
     </tr>  </tbody>
 </table>
 
@@ -6979,6 +7077,13 @@ Generate select field options from config. Sorted by title string.
 ### ToolbarFieldGroupVariant~useOnSelect(options) ⇒ <code>function</code>
 On select update.
 
+Resets the variant's cached queries, then reflects the selection in the browser URL. The URL, not Redux,
+carries the selected variant so the view can be bookmarked and restored, see routerContext.useNavigateVariant.
+
+Note: the query reset is intentionally tied to this explicit user action. Arriving at a variant through a
+bookmark or browser back/forward deliberately leaves cached queries alone, preserving the restored view and
+avoiding the extra API calls described in viewReducer's SET_PRODUCT_VARIANT_QUERY_RESET_ALL.
+
 **Kind**: inner method of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant)  
 <table>
   <thead>
@@ -6992,7 +7097,7 @@ On select update.
     </tr><tr>
     <td>[options.useDispatch]</td><td><code>storeHooks.reactRedux.useDispatch</code></td><td><code>storeHooks.reactRedux.useDispatch</code></td>
     </tr><tr>
-    <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
+    <td>[options.useNavigateVariant]</td><td><code>routerContext.useNavigateVariant</code></td><td><code>routerContext.useNavigateVariant</code></td>
     </tr>  </tbody>
 </table>
 
@@ -7026,8 +7131,6 @@ Display a product configuration field with generated options.
     <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
     <td>[props.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
-    </tr><tr>
-    <td>[props.useSelector]</td><td><code>storeHooks.reactRedux.useSelector</code></td><td><code>storeHooks.reactRedux.useSelector</code></td>
     </tr><tr>
     <td>[props.useToolbarFieldOptions]</td><td><code>useToolbarFieldOptions</code></td><td><code>useToolbarFieldOptions</code></td>
     </tr>  </tbody>

@@ -2,6 +2,7 @@ import {
   context,
   setRouteProduct,
   useNavigate,
+  useNavigateVariant,
   useRouteDetail,
   useSanitizeOidcParams,
   useSetRouteProduct
@@ -115,10 +116,16 @@ describe('RouterContext', () => {
       description: 'closest'
     },
     {
-      productPath: 'l',
-      productVariant: { rhel: RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER },
+      productPath: `${helpers.UI_DISPLAY_NAME}/usage/${RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM}`,
       disableIsClosestMatch: true,
-      description: 'attempt closest disabled but return exact because of variant selection'
+      description: 'variant path, resolved from the url'
+    },
+    {
+      productPath: `${helpers.UI_DISPLAY_NAME}/usage/${encodeURIComponent(
+        RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER
+      )}`,
+      disableIsClosestMatch: true,
+      description: 'encoded variant path, resolved from the url'
     },
     {
       productPath: 'l',
@@ -178,6 +185,120 @@ describe('RouterContext', () => {
     it('should not replace an already-clean URL', async () => {
       const windowHistory = await mountWithLocation({ search: '?lorem=ipsum', hash: '#anchor' });
       expect(windowHistory.replaceState).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('useNavigateVariant', () => {
+    const mountWithLocation = async ({
+      pathname = '/subscriptions/usage/rhel',
+      search = '',
+      hash = '',
+      chromeHistory
+    } = {}) => {
+      const windowHistory = { pushState: jest.fn() };
+      const { result: navigateVariant } = await renderHook(() =>
+        useNavigateVariant({
+          useChrome: () => ({ chromeHistory }),
+          useLocation: () => ({ pathname, search, hash }),
+          windowHistory
+        })
+      );
+
+      return { navigateVariant, windowHistory };
+    };
+
+    it('should push a variant nested below its product group', async () => {
+      const { navigateVariant, windowHistory } = await mountWithLocation();
+      navigateVariant(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM);
+
+      expect(windowHistory.pushState).toHaveBeenCalledTimes(1);
+      expect(windowHistory.pushState.mock.calls[0][2]).toBe('/subscriptions/usage/rhel/RHEL%20for%20ARM');
+    });
+
+    it('should replace an existing variant instead of appending', async () => {
+      const { navigateVariant, windowHistory } = await mountWithLocation({
+        pathname: '/subscriptions/usage/rhel/RHEL%20for%20ARM'
+      });
+      navigateVariant('rhel-for-x86-els-payg');
+
+      expect(windowHistory.pushState.mock.calls[0][2]).toBe('/subscriptions/usage/rhel/rhel-for-x86-els-payg');
+    });
+
+    it('should preserve application search and hash params', async () => {
+      const { navigateVariant, windowHistory } = await mountWithLocation({
+        search: '?lorem=ipsum',
+        hash: '#anchor'
+      });
+      navigateVariant(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM);
+
+      expect(windowHistory.pushState.mock.calls[0][2]).toBe(
+        '/subscriptions/usage/rhel/RHEL%20for%20ARM?lorem=ipsum#anchor'
+      );
+    });
+
+    it('should strip OIDC params while navigating', async () => {
+      const { navigateVariant, windowHistory } = await mountWithLocation({
+        search: '?lorem=ipsum&state=abc123&code=xyz789',
+        hash: '#anchor&session_state=def456'
+      });
+      navigateVariant(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM);
+
+      const pushedUrl = windowHistory.pushState.mock.calls[0][2];
+      expect(pushedUrl).toContain('?lorem=ipsum');
+      expect(pushedUrl).toContain('#anchor');
+      expect(pushedUrl).not.toContain('state=');
+      expect(pushedUrl).not.toContain('code=');
+    });
+
+    it('should not push a duplicate entry for the variant already in the url', async () => {
+      const { navigateVariant, windowHistory } = await mountWithLocation({
+        pathname: '/subscriptions/usage/rhel/RHEL%20for%20ARM'
+      });
+      navigateVariant(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM);
+
+      expect(windowHistory.pushState).not.toHaveBeenCalled();
+    });
+
+    it('should ignore an empty variant', async () => {
+      const { navigateVariant, windowHistory } = await mountWithLocation();
+      navigateVariant(null);
+
+      expect(windowHistory.pushState).not.toHaveBeenCalled();
+    });
+
+    it('should prefer chrome history when the platform provides it', async () => {
+      const chromeHistory = { push: jest.fn() };
+      const { navigateVariant, windowHistory } = await mountWithLocation({ chromeHistory });
+      navigateVariant(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM);
+
+      expect(chromeHistory.push).toHaveBeenCalledWith('/subscriptions/usage/rhel/RHEL%20for%20ARM');
+      expect(windowHistory.pushState).not.toHaveBeenCalled();
+    });
+
+    it('should fall back to window history when chrome is unavailable', async () => {
+      const { navigateVariant, windowHistory } = await mountWithLocation({ chromeHistory: {} });
+      navigateVariant(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM);
+
+      expect(windowHistory.pushState).toHaveBeenCalledTimes(1);
+    });
+
+    it.each([
+      { pathname: '/subscriptions/usage', expected: '/subscriptions/usage/rhel/RHEL%20for%20ARM' },
+      { pathname: '/insights/subscriptions', expected: '/insights/subscriptions/rhel/RHEL%20for%20ARM' },
+      { pathname: '/openshift/subscriptions/rhel', expected: '/openshift/subscriptions/rhel/RHEL%20for%20ARM' },
+      { pathname: '/beta/subscriptions/usage/insights', expected: '/beta/subscriptions/usage/rhel/RHEL%20for%20ARM' }
+    ])('should keep the mount point intact for $pathname', async ({ pathname, expected }) => {
+      const { navigateVariant, windowHistory } = await mountWithLocation({ pathname });
+      navigateVariant(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM);
+
+      expect(windowHistory.pushState.mock.calls[0][2]).toBe(expected);
+    });
+
+    it('should keep the group path prefix so chrome navigation stays matched', async () => {
+      const { navigateVariant, windowHistory } = await mountWithLocation();
+      navigateVariant(RHSM_API_PATH_PRODUCT_TYPES.RHACM);
+
+      expect(windowHistory.pushState.mock.calls[0][2]).toBe('/subscriptions/usage/openshift/rhacm');
     });
   });
 

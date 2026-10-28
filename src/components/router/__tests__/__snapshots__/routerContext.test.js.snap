@@ -63,15 +63,6 @@ exports[`RouterContext should apply a helper with setRouteProduct and return a p
 }
 `;
 
-exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, attempt closest disabled but return exact because of variant selection 1`] = `
-{
-  "isClosest": false,
-  "productGroup": "rhel",
-  "productId": "Satellite Server",
-  "productPath": "l",
-}
-`;
-
 exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, closest 1`] = `
 {
   "isClosest": true,
@@ -87,6 +78,15 @@ exports[`RouterContext should apply a helper with setRouteProduct and return a p
   "productGroup": "rhel",
   "productId": "RHEL for x86",
   "productPath": "l",
+}
+`;
+
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, encoded variant path, resolved from the url 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "rhel",
+  "productId": "Satellite Server",
+  "productPath": "Subscriptions/usage/Satellite%20Server",
 }
 `;
 
@@ -117,13 +117,21 @@ exports[`RouterContext should apply a helper with setRouteProduct and return a p
 }
 `;
 
+exports[`RouterContext should apply a helper with setRouteProduct and return a product configuration match, variant path, resolved from the url 1`] = `
+{
+  "isClosest": false,
+  "productGroup": "rhel",
+  "productId": "RHEL for ARM",
+  "productPath": "Subscriptions/usage/RHEL for ARM",
+}
+`;
+
 exports[`RouterContext should apply a hook for the helper setRouteProduct with useSetRouteProduct: hook 1`] = `
 [
   [
     {
       "disableIsClosestMatch": false,
       "productPath": "rhel",
-      "productVariant": {},
     },
   ],
 ]
@@ -165,6 +173,7 @@ exports[`RouterContext should return specific properties: specific properties 1`
 {
   "setRouteProduct": [Function],
   "useNavigate": [Function],
+  "useNavigateVariant": [Function],
   "useRouteDetail": [Function],
   "useSanitizeOidcParams": [Function],
   "useSetRouteProduct": [Function],

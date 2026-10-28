@@ -3,13 +3,16 @@ import {
   cleanPath,
   dynamicBaseName,
   dynamicBasePath,
+  getProductPath,
   getRouteConfigByPath,
+  isProductPathId,
   OIDC_FRAGMENT_PARAMS,
   parseSearchParams,
   pathJoin,
   sanitizeOidcParams
 } from '../routerHelpers';
 import { helpers } from '../../../common';
+import { RHSM_API_PATH_PRODUCT_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('RouterHelpers', () => {
   it('should return specific properties', () => {
@@ -246,5 +249,165 @@ describe('product variant routing with custom configs', () => {
   it('should return undefined for missing parameters', () => {
     const result = getRouteConfigByPath({ configs: customConfigs });
     expect(result.firstMatch?.productId).toBeUndefined();
+  });
+});
+
+describe('isProductPathId', () => {
+  it.each([
+    { pathId: 'rhel', expected: true, description: 'a product group and path' },
+    { pathId: 'RHEL', expected: true, description: 'a product label, case insensitive' },
+    { pathId: 'insights', expected: true, description: 'an alias' },
+    { pathId: 'openshift', expected: true, description: 'another product group' },
+    { pathId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM, expected: true, description: 'a variant containing spaces' },
+    {
+      pathId: encodeURIComponent(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM),
+      expected: true,
+      description: 'an encoded variant'
+    },
+    { pathId: 'rhel-for-x86-els-payg', expected: true, description: 'a hyphenated variant' },
+    { pathId: 'usage', expected: false, description: 'a mount point segment' },
+    { pathId: helpers.UI_NAME, expected: false, description: 'the application name segment' },
+    { pathId: 'rhel-for-arm', expected: false, description: 'a slug that only resolves through closest match' },
+    { pathId: '', expected: false, description: 'an empty segment' },
+    { pathId: undefined, expected: false, description: 'a missing segment' }
+  ])('should identify $description: $pathId', ({ pathId, expected }) => {
+    expect(isProductPathId({ pathId })).toBe(expected);
+  });
+
+  it('should tolerate a malformed percent-encoded segment', () => {
+    expect(isProductPathId({ pathId: '%E0%A4%A' })).toBe(false);
+  });
+});
+
+describe('getProductPath', () => {
+  /**
+   * Treat "lorem", "ipsum", and the group "dolor" as the only known product identifiers,
+   * isolating path manipulation from product configuration.
+   *
+   * @param {object} params
+   * @param {string} params.pathId
+   * @returns {boolean}
+   */
+  const mockIsProductPathId = ({ pathId }) => ['lorem', 'ipsum', 'dolor'].includes(pathId);
+
+  /**
+   * Resolve "ipsum" to the product group "dolor".
+   *
+   * @returns {{firstMatch: {productPath: string}}}
+   */
+  const mockGetRouteConfigByPath = () => ({ firstMatch: { productPath: 'dolor' } });
+
+  const mocks = {
+    getRouteConfigByPath: mockGetRouteConfigByPath,
+    isProductPathId: mockIsProductPathId
+  };
+
+  it.each([
+    {
+      pathName: '/subscriptions/usage/dolor',
+      expected: '/subscriptions/usage/dolor/ipsum',
+      description: 'nest below the group path'
+    },
+    {
+      pathName: '/subscriptions/usage/dolor/lorem',
+      expected: '/subscriptions/usage/dolor/ipsum',
+      description: 'replace an existing variant rather than accumulate'
+    },
+    {
+      pathName: '/subscriptions/usage/lorem',
+      expected: '/subscriptions/usage/dolor/ipsum',
+      description: 'canonicalize a flat variant path'
+    },
+    {
+      pathName: '/subscriptions/usage',
+      expected: '/subscriptions/usage/dolor/ipsum',
+      description: 'append when the mount point carries no product'
+    },
+    {
+      pathName: '/subscriptions/usage/',
+      expected: '/subscriptions/usage/dolor/ipsum',
+      description: 'normalize a trailing slash'
+    },
+    {
+      pathName: '/insights/subscriptions',
+      expected: '/insights/subscriptions/dolor/ipsum',
+      description: 'append for an alternate mount point'
+    },
+    {
+      pathName: '/openshift/subscriptions/dolor',
+      expected: '/openshift/subscriptions/dolor/ipsum',
+      description: 'nest for an alternate mount point'
+    },
+    {
+      pathName: '/beta/subscriptions/usage/dolor/lorem',
+      expected: '/beta/subscriptions/usage/dolor/ipsum',
+      description: 'preserve an environment prefix'
+    },
+    {
+      pathName: '/',
+      expected: '/dolor/ipsum',
+      description: 'handle a root path'
+    },
+    {
+      pathName: '',
+      expected: '/dolor/ipsum',
+      description: 'handle an empty path'
+    }
+  ])('should $description: $pathName', ({ pathName, expected }) => {
+    expect(getProductPath({ pathName, productId: 'ipsum', ...mocks })).toBe(expected);
+  });
+
+  it('should return the path unchanged without a productId', () => {
+    expect(getProductPath({ pathName: '/subscriptions/usage/lorem', ...mocks })).toBe('/subscriptions/usage/lorem');
+  });
+
+  it('should omit a duplicate segment when the product is its own group', () => {
+    expect(
+      getProductPath({
+        pathName: '/subscriptions/usage',
+        productId: 'dolor',
+        ...mocks
+      })
+    ).toBe('/subscriptions/usage/dolor');
+  });
+
+  it('should nest and encode a product identifier containing spaces', () => {
+    expect(
+      getProductPath({
+        pathName: '/subscriptions/usage/rhel',
+        productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM
+      })
+    ).toBe('/subscriptions/usage/rhel/RHEL%20for%20ARM');
+  });
+
+  it('should replace an already encoded variant segment', () => {
+    expect(
+      getProductPath({
+        pathName: `/subscriptions/usage/rhel/${encodeURIComponent(RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM)}`,
+        productId: 'rhel-for-x86-els-payg'
+      })
+    ).toBe('/subscriptions/usage/rhel/rhel-for-x86-els-payg');
+  });
+
+  it('should nest an openshift group variant below its own group', () => {
+    expect(
+      getProductPath({
+        pathName: '/subscriptions/usage/openshift',
+        productId: RHSM_API_PATH_PRODUCT_TYPES.RHACM
+      })
+    ).toBe('/subscriptions/usage/openshift/rhacm');
+  });
+
+  it.each([
+    { productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM, description: 'a variant containing spaces' },
+    { productId: 'rhel-for-x86-els-payg', description: 'a hyphenated variant' },
+    { productId: RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER, description: 'a satellite variant' },
+    { productId: RHSM_API_PATH_PRODUCT_TYPES.RHACM, description: 'an openshift group variant' }
+  ])('should produce a path that routes back to $description', ({ productId }) => {
+    const pathName = getProductPath({ pathName: '/subscriptions/usage/rhel', productId });
+    const { firstMatch, isClosest } = getRouteConfigByPath({ pathName });
+
+    expect(isClosest).toBe(false);
+    expect(firstMatch?.productId).toBe(productId);
   });
 });
