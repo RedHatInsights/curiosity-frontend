@@ -3,7 +3,6 @@ import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome'
 import { useLocation } from 'react-use';
 import { routerHelpers, sanitizeOidcParams } from './routerHelpers';
 import { helpers } from '../../common/helpers';
-import { storeHooks } from '../../redux';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -52,6 +51,59 @@ const useNavigate = ({
 };
 
 /**
+ * Reflect a product variant selection in the browser URL.
+ *
+ * The variant is pushed as the trailing path identifier, i.e. "/subscriptions/usage/RHEL%20for%20ARM", instead of
+ * a search parameter. Variants are already exact, routable identifiers, see sortedProductConfigs
+ * "byAnythingPathIds", so this introduces no new URL format and every existing format continues to resolve.
+ *
+ * Chrome's history is preferred when it is available so the platform router stays in sync. It delegates to
+ * window.history.pushState, which is the method useLocation patches, so either path re-renders without a
+ * page reload.
+ *
+ * Note: re-selecting the variant already in the URL is a no-op, avoiding duplicate history entries that would
+ * otherwise require multiple back presses to escape.
+ *
+ * @param {object} options
+ * @param {routerHelpers.getProductPath} [options.getProductPath=routerHelpers.getProductPath]
+ * @param {useChrome} [options.useChrome=useChrome]
+ * @param {useLocation} [options.useLocation=useLocation]
+ * @param {*} [options.windowHistory=window.history]
+ * @returns {Function}
+ */
+const useNavigateVariant = ({
+  getProductPath: aliasGetProductPath = routerHelpers.getProductPath,
+  useChrome: useAliasChrome = useChrome,
+  useLocation: useAliasLocation = useLocation,
+  windowHistory: aliasWindowHistory = window.history
+} = {}) => {
+  const { chromeHistory } = useAliasChrome() || {};
+  const { pathname = window.location.pathname, search = '', hash = '' } = useAliasLocation();
+  const cleanUrl = sanitizeOidcParams({ search, hash });
+
+  return useCallback(
+    productId => {
+      if (!productId) {
+        return undefined;
+      }
+
+      const targetUrl = `${aliasGetProductPath({ pathName: pathname, productId })}${cleanUrl.search}${cleanUrl.hash}`;
+
+      if (targetUrl === `${pathname}${search}${hash}`) {
+        return undefined;
+      }
+
+      if (typeof chromeHistory?.push === 'function') {
+        return chromeHistory.push(targetUrl);
+      }
+
+      return aliasWindowHistory.pushState({}, '', targetUrl);
+    },
+    [aliasGetProductPath, aliasWindowHistory, chromeHistory, cleanUrl.hash, cleanUrl.search, hash, pathname, search]
+  );
+};
+
+/**
  * Remove OIDC callback parameters whenever the application URL changes.
  *
  * @param {object} options
@@ -80,7 +132,6 @@ const useSanitizeOidcParams = ({
  * @param {object} params
  * @param {string} params.productPath
  * @param {boolean} params.disableIsClosestMatch
- * @param {object} params.productVariant
  * @returns {{
  *   firstMatch: object,
  *   productPath: string,
@@ -90,21 +141,11 @@ const useSanitizeOidcParams = ({
  *   isClosest: boolean,
  *   productConfig: Array}}
  */
-const setRouteProduct = ({ productPath, disableIsClosestMatch = false, productVariant } = {}) => {
-  let routeConfig = routerHelpers.getRouteConfigByPath({
+const setRouteProduct = ({ productPath, disableIsClosestMatch = false } = {}) => {
+  const routeConfig = routerHelpers.getRouteConfigByPath({
     pathName: productPath,
     isIgnoreClosest: disableIsClosestMatch
   });
-
-  if (productVariant) {
-    const selectedVariant = productVariant?.[routeConfig?.firstMatch?.productGroup];
-    if (selectedVariant) {
-      routeConfig = routerHelpers.getRouteConfigByPath({
-        pathName: selectedVariant,
-        isIgnoreClosest: disableIsClosestMatch
-      });
-    }
-  }
 
   const { configs, firstMatch, isClosest, ...config } = routeConfig;
 
@@ -115,7 +156,7 @@ const setRouteProduct = ({ productPath, disableIsClosestMatch = false, productVa
     productGroup: firstMatch?.productGroup,
     productConfig: (configs?.length && configs) || [],
     productPath,
-    productVariant,
+    productVariant: firstMatch?.productId,
     disableIsClosestMatch:
       (disableIsClosestMatch && isClosest) || (disableIsClosestMatch && routerHelpers.dynamicPath() === '/')
   };
@@ -135,20 +176,17 @@ setRouteProduct.memo = helpers.memo(setRouteProduct, { cacheLimit: 10 });
  * @param {boolean} [options.disableIsClosestMatch]
  * @param {setRouteProduct} [options.setProduct=setRouteProduct]
  * @param {useLocation} [options.useLocation=useLocation]
- * @param {storeHooks.reactRedux.useSelector} [options.useSelector=storeHooks.reactRedux.useSelector]
  * @returns {{ firstMatch: unknown, isClosest: boolean, productGroup: string, productConfig: Array,
  *     productPath: string, productVariant: string, disableIsClosestMatch:boolean }}
  */
 const useSetRouteProduct = ({
   disableIsClosestMatch = helpers.DEV_MODE === true,
   setProduct = setRouteProduct,
-  useLocation: useAliasLocation = useLocation,
-  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector
+  useLocation: useAliasLocation = useLocation
 } = {}) => {
   const { pathname: productPath } = useAliasLocation();
-  const productVariant = useAliasSelector(({ view }) => view?.product?.variant, {});
 
-  return setProduct.memo({ disableIsClosestMatch, productPath, productVariant });
+  return setProduct.memo({ disableIsClosestMatch, productPath });
 };
 
 /**
@@ -189,6 +227,7 @@ const useRouteDetail = ({
 const context = {
   setRouteProduct,
   useNavigate,
+  useNavigateVariant,
   useSanitizeOidcParams,
   useRouteDetail,
   useSetRouteProduct
@@ -199,6 +238,7 @@ export {
   context,
   setRouteProduct,
   useNavigate,
+  useNavigateVariant,
   useSanitizeOidcParams,
   useRouteDetail,
   useSetRouteProduct

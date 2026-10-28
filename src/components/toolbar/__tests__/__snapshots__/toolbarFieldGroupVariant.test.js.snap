@@ -44,11 +44,6 @@ exports[`ToolbarFieldGroupVariant Component should handle updating through redux
       {
         "type": "SET_GRAPH_LEGEND_RESET",
       },
-      {
-        "productGroup": undefined,
-        "type": "SET_PRODUCT_VARIANT",
-        "variant": "lorem",
-      },
     ],
   ],
 ]
@@ -67,11 +62,6 @@ exports[`ToolbarFieldGroupVariant Component should handle updating through redux
       },
       {
         "type": "SET_GRAPH_LEGEND_RESET",
-      },
-      {
-        "productGroup": "loremIpsum",
-        "type": "SET_PRODUCT_VARIANT",
-        "variant": "dolor sit",
       },
     ],
   ],
@@ -128,7 +118,6 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
           ]
         }
         placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-        selectedOptions={null}
       />
     </ToolbarItem>
   </ForwardRef>
@@ -180,7 +169,6 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
             ]
           }
           placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-          selectedOptions={null}
         />
       </ToolbarItem>
     </ForwardRef>

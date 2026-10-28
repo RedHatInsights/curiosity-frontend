@@ -52,19 +52,30 @@ const useToolbarFieldOptions = ({
 /**
  * On select update.
  *
+ * Resets the variant's cached queries, then reflects the selection in the browser URL. The URL, not Redux,
+ * carries the selected variant so the view can be bookmarked and restored, see routerContext.useNavigateVariant.
+ *
+ * Note: the query reset is intentionally tied to this explicit user action. Arriving at a variant through a
+ * bookmark or browser back/forward deliberately leaves cached queries alone, preserving the restored view and
+ * avoiding the extra API calls described in viewReducer's SET_PRODUCT_VARIANT_QUERY_RESET_ALL.
+ *
  * @param {object} options
  * @param {storeHooks.reactRedux.useDispatch} [options.useDispatch=storeHooks.reactRedux.useDispatch]
- * @param {useProduct} [options.useProduct=useProduct]
+ * @param {routerContext.useNavigateVariant} [options.useNavigateVariant=routerContext.useNavigateVariant]
  * @returns {Function}
  */
 const useOnSelect = ({
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useProduct: useAliasProduct = useProduct
+  useNavigateVariant: useAliasNavigateVariant = routerContext.useNavigateVariant
 } = {}) => {
-  const { productGroup } = useAliasProduct();
   const dispatch = useAliasDispatch();
+  const navigateVariant = useAliasNavigateVariant();
 
   return ({ value = null } = {}) => {
+    if (!value) {
+      return;
+    }
+
     dispatch([
       {
         type: reduxTypes.app.SET_PRODUCT_VARIANT_QUERY_RESET_ALL,
@@ -75,13 +86,10 @@ const useOnSelect = ({
       },
       {
         type: reduxTypes.graph.SET_GRAPH_LEGEND_RESET
-      },
-      {
-        type: reduxTypes.app.SET_PRODUCT_VARIANT,
-        variant: value,
-        productGroup
       }
     ]);
+
+    navigateVariant(value);
   };
 };
 
@@ -96,7 +104,6 @@ const useOnSelect = ({
  * @param {translate} [props.t=translate]
  * @param {useOnSelect} [props.useOnSelect=useOnSelect]
  * @param {useProduct} [props.useProduct=useProduct]
- * @param {storeHooks.reactRedux.useSelector} [props.useSelector=storeHooks.reactRedux.useSelector]
  * @param {useToolbarFieldOptions} [props.useToolbarFieldOptions=useToolbarFieldOptions]
  * @fires onSelect
  * @returns {JSX.Element}
@@ -109,11 +116,10 @@ const ToolbarFieldGroupVariant = ({
   t = translate,
   useOnSelect: useAliasOnSelect = useOnSelect,
   useProduct: useAliasProduct = useProduct,
-  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector,
   useToolbarFieldOptions: useAliasToolbarFieldOptions = useToolbarFieldOptions
 }) => {
-  const { productGroup } = useAliasProduct();
-  const updatedValue = useAliasSelector(({ view }) => view?.product?.variant?.[productGroup], null);
+  // The resolved productId is the variant the URL routed to, see routerContext.setRouteProduct
+  const { productId: updatedValue } = useAliasProduct();
   const onSelect = useAliasOnSelect();
   const options = useAliasToolbarFieldOptions();
   const updatedOptions = options.map(option => ({

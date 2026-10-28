@@ -160,6 +160,83 @@ const getRouteConfigByPath = helpers.memo(
 );
 
 /**
+ * Confirm a path segment is an exact, known product identifier.
+ *
+ * Compares against the same identifier listing getRouteConfigByPath uses for exact matching, i.e. productGroups,
+ * productIds, productLabels, productPaths, aliases, and productVariants. Segments that only resolve through the
+ * Levenshtein "closest match" fallback are intentionally excluded, they are not canonical identifiers.
+ *
+ * @param {object} params
+ * @param {string} params.pathId
+ * @param {Array} [params.configs]
+ * @returns {boolean}
+ */
+const isProductPathId = ({ pathId, configs = productConfig.sortedConfigs } = {}) => {
+  let decodedPathId = pathId;
+
+  try {
+    decodedPathId = decodeURIComponent(pathId);
+  } catch {
+    // ignore
+  }
+
+  const comparePathId = decodedPathId?.toLowerCase();
+
+  return (comparePathId && configs().byAnythingPathIds.some(value => value.toLowerCase() === comparePathId)) || false;
+};
+
+/**
+ * Return a path for a product identifier, relative to the application's current mount point.
+ *
+ * The identifier is nested below its product group, i.e. "/subscriptions/usage/rhel/RHEL%20for%20ARM". The
+ * platform "Chroming" navigation resolves its active item by prefix matching the pathname against its
+ * registered nav links, see deploy/frontend.yaml. Keeping the group path as a prefix leaves the left
+ * navigation expanded, the item highlighted, and the breadcrumb trail intact. A sibling path, i.e.
+ * "/subscriptions/usage/<variant>", matches no nav item and collapses them.
+ *
+ * Any product identifiers already on the path are rewound first, so repeated selections replace rather than
+ * accumulate, and alias paths are canonicalized. Working from the live pathname, instead of a generated
+ * baseName, keeps every deployed mount point intact, i.e. "/subscriptions/usage", "/insights/subscriptions",
+ * "/openshift/subscriptions", plus any environment prefix such as "/beta".
+ *
+ * Note: product identifiers can contain spaces, i.e. "RHEL for ARM", and are encoded accordingly.
+ *
+ * @param {object} params
+ * @param {string} [params.pathName]
+ * @param {string} params.productId
+ * @param {getRouteConfigByPath} [params.getRouteConfigByPath]
+ * @param {isProductPathId} [params.isProductPathId]
+ * @returns {string}
+ */
+const getProductPath = ({
+  pathName = window.location.pathname,
+  productId,
+  getRouteConfigByPath: aliasGetRouteConfigByPath = getRouteConfigByPath,
+  isProductPathId: aliasIsProductPathId = isProductPathId
+} = {}) => {
+  if (!productId) {
+    return pathName;
+  }
+
+  const segments = `${pathName}`.replace(/\/+$/, '').split('/');
+
+  // Rewind past any product identifiers, back to the application mount point
+  while (segments.length > 1 && aliasIsProductPathId({ pathId: segments[segments.length - 1] })) {
+    segments.pop();
+  }
+
+  const productPath = aliasGetRouteConfigByPath({ pathName: productId })?.firstMatch?.productPath;
+
+  if (productPath && productPath.toLowerCase() !== productId.toLowerCase()) {
+    segments.push(encodeURIComponent(productPath));
+  }
+
+  segments.push(encodeURIComponent(productId));
+
+  return segments.join('/');
+};
+
+/**
  * Parse search parameters from a string, using a set for "uniqueness"
  *
  * @param {string} currentPathAndOrSearch
@@ -209,7 +286,9 @@ const routerHelpers = {
   dynamicBaseName,
   dynamicBasePath,
   dynamicPath,
+  getProductPath,
   getRouteConfigByPath,
+  isProductPathId,
   OIDC_FRAGMENT_PARAMS,
   sanitizeOidcParams,
   parseSearchParams,
@@ -224,7 +303,9 @@ export {
   dynamicBaseName,
   dynamicBasePath,
   dynamicPath,
+  getProductPath,
   getRouteConfigByPath,
+  isProductPathId,
   OIDC_FRAGMENT_PARAMS,
   sanitizeOidcParams,
   parseSearchParams,

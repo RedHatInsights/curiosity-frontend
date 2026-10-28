@@ -14,7 +14,7 @@ import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../services
  * Initial state.
  *
  * @private
- * @type {{product: {}, graphTallyQuery: {}, inventoryHostsQuery: {}, inventorySubscriptionsQuery: {},
+ * @type {{graphTallyQuery: {}, inventoryHostsQuery: {}, inventorySubscriptionsQuery: {},
  *     query: {}, inventoryGuestsQuery: {}, billingAccountsQuery: {}}}
  */
 const initialState = {
@@ -23,8 +23,7 @@ const initialState = {
   graphTallyQuery: {},
   inventoryGuestsQuery: {},
   inventoryHostsQuery: {},
-  inventorySubscriptionsQuery: {},
-  product: {}
+  inventorySubscriptionsQuery: {}
 };
 
 /**
@@ -243,20 +242,6 @@ const viewReducer = (state = initialState, action) => {
           [action.viewId]: {
             ...state.inventorySubscriptionsQuery[action.viewId],
             [action.filter]: action.value
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.app.SET_PRODUCT_VARIANT:
-      return reduxHelpers.setStateProp(
-        'product',
-        {
-          variant: {
-            ...state?.product?.variant,
-            [action.productGroup]: action.variant
           }
         },
         {
