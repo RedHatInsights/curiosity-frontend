@@ -1,9 +1,11 @@
 import React, { useContext, useMemo } from 'react';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { useSession } from '../authentication/authenticationContext';
 import { reduxHelpers, storeHooks } from '../../redux';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { platformConstants } from '../../services/platform/platformConstants';
 import { helpers } from '../../common/helpers';
+import { normalizeSlaUsageQuery } from './slaUsageHelpers';
 
 /**
  * Product view hooks for configuration and query management.
@@ -27,6 +29,29 @@ const ProductViewContext = React.createContext(DEFAULT_CONTEXT);
  * @returns {React.Context<{}>}
  */
 const useProductViewContext = () => useContext(ProductViewContext);
+
+const RESOLVED_SLA_USAGE_FILTERING_FLAG = 'swatch.resolved-sla-usage-filtering';
+
+/**
+ * Resolve the SLA/Usage feature flag at the product view boundary.
+ * Explicit true/false dotenv values override Chrome only during development.
+ *
+ * @param {object} options
+ * @param {Function} [options.useChrome=useChrome]
+ * @returns {boolean}
+ */
+const useResolvedSlaUsageFilteringEnabled = ({ useChrome: useAliasChrome = useChrome } = {}) => {
+  const { visibilityFunctions } = useAliasChrome();
+
+  if (process.env.NODE_ENV === 'development') {
+    const override = process.env.REACT_APP_DEBUG_RESOLVED_SLA_USAGE_FILTERING;
+    if (override === 'true' || override === 'false') {
+      return override === 'true';
+    }
+  }
+
+  return visibilityFunctions?.featureFlag?.(RESOLVED_SLA_USAGE_FILTERING_FLAG, true) ?? false;
+};
 
 /**
  * Return a query object from initial product config and Redux store.
@@ -126,6 +151,7 @@ const useProductQueryConditional = ({
  * @param {object} options
  * @param {string} [options.queryType='query']
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
  * @param {object} options.options
  * @returns {object}
  */
@@ -133,11 +159,13 @@ const useProductQuery = ({
   queryType = 'query',
   // useProductQueryConditional: useAliasProductQueryConditional = useProductQueryConditional,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext,
   options
-} = {}) => ({
-  // ...useAliasProductQueryConditional(),
-  ...useAliasProductQueryFactory(queryType, options)
-});
+} = {}) => {
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
+  const query = useAliasProductQueryFactory(queryType, options);
+  return normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled);
+};
 
 /**
  * Return the graph query based off of tally and capacity.
@@ -147,6 +175,7 @@ const useProductQuery = ({
  * @param {object} [options.schemaCheck=rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES]
  * @param {useProductQuery} [options.useProductQuery=useProductQuery]
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
  * @param {object} options.options
  * @returns {object}
  */
@@ -155,15 +184,19 @@ const useProductGraphTallyQuery = ({
   schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES,
   useProductQuery: useAliasProductQuery = useProductQuery,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext,
   options
-} = {}) =>
-  reduxHelpers.setApiQuery(
-    {
-      ...useAliasProductQuery(),
-      ...useAliasProductQueryFactory(queryType, options)
-    },
+} = {}) => {
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
+  const query = {
+    ...useAliasProductQuery(),
+    ...useAliasProductQueryFactory(queryType, options)
+  };
+  return reduxHelpers.setApiQuery(
+    normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
+};
 
 /**
  * Return the inventory query for guests. Use fallback/defaults for guests offset, limit.
@@ -173,6 +206,7 @@ const useProductGraphTallyQuery = ({
  * @param {object} [options.schemaCheck=rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES]
  * @param {useProductQuery} [options.useProductQuery=useProductQuery]
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
  * @param {object} options.options
  * @returns {object}
  */
@@ -181,15 +215,19 @@ const useProductInventoryGuestsQuery = ({
   schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
   useProductQuery: useAliasProductQuery = useProductQuery,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext,
   options
-} = {}) =>
-  reduxHelpers.setApiQuery(
-    {
-      ...useAliasProductQuery(),
-      ...useAliasProductQueryFactory(queryType, options)
-    },
+} = {}) => {
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
+  const query = {
+    ...useAliasProductQuery(),
+    ...useAliasProductQueryFactory(queryType, options)
+  };
+  return reduxHelpers.setApiQuery(
+    normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
+};
 
 /**
  * Return an inventory query for hosts.
@@ -199,6 +237,7 @@ const useProductInventoryGuestsQuery = ({
  * @param {object} [options.schemaCheck=rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES]
  * @param {useProductQuery} [options.useProductQuery=useProductQuery]
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
  * @param {object} options.options
  * @returns {object}
  */
@@ -207,15 +246,19 @@ const useProductInventoryHostsQuery = ({
   schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
   useProductQuery: useAliasProductQuery = useProductQuery,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext,
   options
-} = {}) =>
-  reduxHelpers.setApiQuery(
-    {
-      ...useAliasProductQuery(),
-      ...useAliasProductQueryFactory(queryType, options)
-    },
+} = {}) => {
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
+  const query = {
+    ...useAliasProductQuery(),
+    ...useAliasProductQueryFactory(queryType, options)
+  };
+  return reduxHelpers.setApiQuery(
+    normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
+};
 
 /**
  * Return an inventory query for subscriptions.
@@ -225,6 +268,7 @@ const useProductInventoryHostsQuery = ({
  * @param {object} [options.schemaCheck=rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES]
  * @param {useProductQuery} [options.useProductQuery=useProductQuery]
  * @param {useProductQueryFactory} [options.useProductQueryFactory=useProductQueryFactory]
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
  * @param {object} options.options
  * @returns {object}
  */
@@ -233,15 +277,19 @@ const useProductInventorySubscriptionsQuery = ({
   schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
   useProductQuery: useAliasProductQuery = useProductQuery,
   useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext,
   options
-} = {}) =>
-  reduxHelpers.setApiQuery(
-    {
-      ...useAliasProductQuery(),
-      ...useAliasProductQueryFactory(queryType, options)
-    },
+} = {}) => {
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
+  const query = {
+    ...useAliasProductQuery(),
+    ...useAliasProductQueryFactory(queryType, options)
+  };
+  return reduxHelpers.setApiQuery(
+    normalizeSlaUsageQuery(query, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
+};
 
 /**
  * Return a unified query for toolbars
@@ -379,6 +427,7 @@ const useProductToolbarConfig = ({ useProductContext: useAliasProductContext = u
  *
  * @param {object} options
  * @param {useProduct} [options.useProduct=useProduct]
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
  * @param {object} [options.schemaCheck=platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES]
  * @param {useProductToolbarQuery} [options.useProductToolbarQuery=useProductToolbarQuery]
  * @param {object} options.options
@@ -386,16 +435,19 @@ const useProductToolbarConfig = ({ useProductContext: useAliasProductContext = u
  */
 const useProductExportQuery = ({
   useProduct: useAliasProduct = useProduct,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext,
   schemaCheck = platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES,
   useProductToolbarQuery: useAliasProductToolbarQuery = useProductToolbarQuery,
   options
 } = {}) => {
   const { productId } = useAliasProduct();
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
+  const exportQuery = {
+    ...useAliasProductToolbarQuery({ options }),
+    [platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES.PRODUCT_ID]: productId
+  };
   return reduxHelpers.setApiQuery(
-    {
-      ...useAliasProductToolbarQuery({ options }),
-      [platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES.PRODUCT_ID]: productId
-    },
+    normalizeSlaUsageQuery(exportQuery, initialToolbarFilters, defaultFilteringEnabled),
     schemaCheck
   );
 };
@@ -445,5 +497,7 @@ export {
   useProductInventoryHostsConfig,
   useProductInventorySubscriptionsConfig,
   useProductToolbarConfig,
-  useProductToolbarQuery
+  useProductToolbarQuery,
+  RESOLVED_SLA_USAGE_FILTERING_FLAG,
+  useResolvedSlaUsageFilteringEnabled
 };

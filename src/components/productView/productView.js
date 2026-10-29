@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Button } from '@patternfly/react-core';
 import { routerContext } from '../router';
-import { ProductViewContext } from './productViewContext';
+import { ProductViewContext, useResolvedSlaUsageFilteringEnabled } from './productViewContext';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages } from '../pageLayout/pageLayout';
 import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
@@ -37,13 +37,23 @@ import { translate } from '../i18n/i18n';
  * @param {object} props
  * @param {translate} [props.t=translate]
  * @param {routerContext.useRouteDetail} [props.useRouteDetail=routerContext.useRouteDetail]
+ * @param {Function} [props.useResolvedSlaUsageFilteringEnabled=useResolvedSlaUsageFilteringEnabled]
  * @returns {JSX.Element}
  */
-const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = routerContext.useRouteDetail }) => {
+const ProductView = ({
+  t = translate,
+  useRouteDetail: useAliasRouteDetail = routerContext.useRouteDetail,
+  useResolvedSlaUsageFilteringEnabled: useAliasResolvedSlaUsageFilteringEnabled = useResolvedSlaUsageFilteringEnabled
+}) => {
   const { disableIsClosestMatch, firstMatch, productGroup } = useAliasRouteDetail();
+  const defaultFilteringEnabled = useAliasResolvedSlaUsageFilteringEnabled();
+  const productContext = useMemo(
+    () => ({ ...firstMatch, defaultFilteringEnabled }),
+    [firstMatch, defaultFilteringEnabled]
+  );
 
   const renderProduct = useMemo(() => {
-    const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productId, viewId } = firstMatch;
+    const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productId, viewId } = productContext;
 
     if (!productId || !viewId) {
       return null;
@@ -51,7 +61,7 @@ const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = rout
 
     return (
       <MinHeight isOnLoad>
-        <ProductViewContext.Provider value={firstMatch}>
+        <ProductViewContext.Provider value={productContext}>
           <ProductViewOnload>
             <PageMessages className="curiosity-page-section__messages">
               <BannerMessages />
@@ -90,7 +100,7 @@ const ProductView = ({ t = translate, useRouteDetail: useAliasRouteDetail = rout
         </ProductViewContext.Provider>
       </MinHeight>
     );
-  }, [firstMatch, t]);
+  }, [productContext, t]);
 
   if (disableIsClosestMatch) {
     return <ProductViewMissing />;

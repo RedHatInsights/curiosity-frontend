@@ -1,3 +1,10 @@
+.curiosity-toolbar__separate-filters {
+  .curiosity-toolbar__filter-select {
+    flex-shrink: 0;
+    width: 11rem;
+  }
+}
+
 .curiosity-card {
   .curiosity-toolbar {
     padding-bottom: inherit;

@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
+  Button,
   Toolbar as PfToolbar,
+  ToolbarContext as PfToolbarContext,
   ToolbarContent,
   ToolbarGroup,
   ToolbarItem,
+  ToolbarItemVariant,
   ToolbarFilter,
   ToolbarToggleGroup
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
 import { useProductToolbarQuery, useProduct } from '../productView/productViewContext';
-import { useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFields } from './toolbarContext';
+import {
+  useToolbarFieldClear,
+  useToolbarFieldClearAll,
+  useToolbarFields,
+  useSeparateSlaTypeUsageFiltersEnabled
+} from './toolbarContext';
 import { ToolbarFieldGroupVariant } from './toolbarFieldGroupVariant';
 import { ToolbarFieldSelectCategory, useSelectCategoryOptions } from './toolbarFieldSelectCategory';
+import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -32,6 +41,33 @@ import { translate } from '../i18n/i18n';
  * @property {module} ToolbarFieldVariant
  */
 
+const separateFilterTypes = [
+  RHSM_API_QUERY_SET_TYPES.SLA,
+  RHSM_API_QUERY_SET_TYPES.USAGE,
+  RHSM_API_QUERY_SET_TYPES.CATEGORY
+];
+
+/**
+ * Register a split filter with PatternFly's applied-filter summary without rendering labels.
+ *
+ * @private
+ * @param {object} props
+ * @param {string} props.categoryName
+ * @param {number} props.count
+ * @returns {null}
+ */
+const ToolbarFilterCount = ({ categoryName, count }) => {
+  const { updateNumberFilters } = useContext(PfToolbarContext);
+
+  useEffect(() => {
+    updateNumberFilters(categoryName, count);
+  }, [categoryName, count, updateNumberFilters]);
+
+  useEffect(() => () => updateNumberFilters(categoryName, 0), [categoryName, updateNumberFilters]);
+
+  return null;
+};
+
 /**
  * Application filter toolbar.
  *
@@ -43,6 +79,7 @@ import { translate } from '../i18n/i18n';
  * @param {useProduct} [props.useProduct=useProduct]
  * @param {useProductToolbarQuery} [props.useProductToolbarQuery=useProductToolbarQuery]
  * @param {useSelectCategoryOptions} [props.useSelectCategoryOptions=useSelectCategoryOptions]
+ * @param {Function} [props.useSeparateSlaTypeUsageFiltersEnabled=useSeparateSlaTypeUsageFiltersEnabled]
  * @param {useToolbarFieldClear} [props.useToolbarFieldClear=useToolbarFieldClear]
  * @param {useToolbarFieldClearAll} [props.useToolbarFieldClearAll=useToolbarFieldClearAll]
  * @param {useToolbarFields} [props.useToolbarFields=useToolbarFields]
@@ -58,16 +95,27 @@ const Toolbar = ({
   useProduct: useAliasProduct = useProduct,
   useProductToolbarQuery: useAliasProductToolbarQuery = useProductToolbarQuery,
   useSelectCategoryOptions: useAliasSelectCategoryOptions = useSelectCategoryOptions,
+  useSeparateSlaTypeUsageFiltersEnabled:
+    useAliasSeparateSlaTypeUsageFiltersEnabled = useSeparateSlaTypeUsageFiltersEnabled,
   useToolbarFieldClear: useAliasToolbarFieldClear = useToolbarFieldClear,
   useToolbarFieldClearAll: useAliasToolbarFieldClearAll = useToolbarFieldClearAll,
   useToolbarFields: useAliasToolbarFields = useToolbarFields
 }) => {
   const { productId } = useAliasProduct();
   const toolbarFieldQueries = useAliasProductToolbarQuery();
-  const { currentCategory, options } = useAliasSelectCategoryOptions();
+  const { currentCategory, initialCategory, options } = useAliasSelectCategoryOptions();
+  const separateFiltersEnabled = useAliasSeparateSlaTypeUsageFiltersEnabled();
   const clearField = useAliasToolbarFieldClear();
   const clearAllFields = useAliasToolbarFieldClearAll();
   const { itemFields, secondaryFields } = useAliasToolbarFields();
+  const separateOptions = separateFiltersEnabled
+    ? separateFilterTypes.map(filter => options.find(({ value }) => value === filter)).filter(Boolean)
+    : [];
+  const combinedOptions = options.filter(option => !separateOptions.includes(option));
+  const combinedCategory =
+    separateOptions.length > 0 && !combinedOptions.some(({ value }) => value === currentCategory)
+      ? combinedOptions[0]?.value
+      : currentCategory;
 
   if (isDisabled || (isGroupVariantDisabled && !options?.length && !secondaryFields?.length)) {
     return null;
@@ -155,6 +203,22 @@ const Toolbar = ({
       );
   };
 
+  const clearFiltersButtonText = t('curiosity-toolbar.clearFilters');
+  const numberOfAppliedFilters = separateOptions.length
+    ? options.reduce(
+        (count, { dynamicValue, value, isClearable }) =>
+          count + (isClearable === false ? 0 : setSelectedOptions({ value: dynamicValue || value }).length),
+        0
+      )
+    : 0;
+  const resetFiltersButton = (
+    <ToolbarItem className="curiosity-toolbar__reset-filters">
+      <Button variant="link" isInline onClick={onClearAll}>
+        {clearFiltersButtonText}
+      </Button>
+    </ToolbarItem>
+  );
+
   return (
     <PfToolbar
       id="curiosity-toolbar"
@@ -162,41 +226,71 @@ const Toolbar = ({
       className="curiosity-toolbar"
       collapseListedFiltersBreakpoint="md"
       clearAllFilters={onClearAll}
-      clearFiltersButtonText={t('curiosity-toolbar.clearFilters')}
+      clearFiltersButtonText={clearFiltersButtonText}
+      {...(separateOptions.length > 0 && { customLabelGroupContent: resetFiltersButton })}
     >
       {!isGroupVariantDisabled && <ToolbarFieldGroupVariant />}
       <ToolbarContent className="curiosity-toolbar__content">
         {options.length > 0 && (
           <ToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
-            <ToolbarGroup variant="filter-group">
-              {options.length > 1 && (
-                <ToolbarItem>
-                  <ToolbarFieldSelectCategory />
-                </ToolbarItem>
-              )}
-              {options.map(({ title, dynamicValue, value: filterName, component: OptionComponent, isClearable }) => {
-                const labelProps = {
-                  categoryName: title
-                };
+            {separateOptions.length > 0 && (
+              <ToolbarGroup className="curiosity-toolbar__separate-filters" rowWrap={{ default: 'nowrap' }}>
+                {separateOptions.map(({ title, value, component: OptionComponent, isClearable }) => (
+                  <ToolbarGroup key={value} rowWrap={{ default: 'nowrap' }}>
+                    <ToolbarFilterCount
+                      categoryName={title}
+                      count={isClearable === false ? 0 : setSelectedOptions({ value }).length}
+                    />
+                    <ToolbarItem variant={ToolbarItemVariant.label}>{title}:</ToolbarItem>
+                    <ToolbarItem className="curiosity-toolbar__filter-select">
+                      <OptionComponent isFilter isInline={false} />
+                    </ToolbarItem>
+                    <ToolbarItem variant={ToolbarItemVariant.separator} />
+                  </ToolbarGroup>
+                ))}
+              </ToolbarGroup>
+            )}
+            {combinedOptions.length > 0 && (
+              <ToolbarGroup variant="filter-group">
+                {combinedOptions.length > 1 && (
+                  <ToolbarItem>
+                    <ToolbarFieldSelectCategory
+                      {...(separateOptions.length > 0 && {
+                        useSelectCategoryOptions: () => ({
+                          currentCategory: combinedCategory,
+                          initialCategory: combinedCategory !== currentCategory ? combinedCategory : initialCategory,
+                          options: combinedOptions
+                        })
+                      })}
+                    />
+                  </ToolbarItem>
+                )}
+                {combinedOptions.map(
+                  ({ title, dynamicValue, value: filterName, component: OptionComponent, isClearable }) => {
+                    const labelProps = {
+                      categoryName: title
+                    };
 
-                const updatedValue = dynamicValue || filterName;
+                    const updatedValue = dynamicValue || filterName;
 
-                if (isClearable !== false) {
-                  labelProps.labels = setSelectedOptions({ value: updatedValue });
-                  labelProps.deleteLabel = () => onClearFilter({ value: updatedValue });
-                }
+                    if (isClearable !== false) {
+                      labelProps.labels = setSelectedOptions({ value: updatedValue });
+                      labelProps.deleteLabel = () => onClearFilter({ value: updatedValue });
+                    }
 
-                return (
-                  <ToolbarFilter
-                    key={helpers.generateHash(updatedValue)}
-                    showToolbarItem={currentCategory === updatedValue || options.length === 1}
-                    {...labelProps}
-                  >
-                    <OptionComponent isFilter />
-                  </ToolbarFilter>
-                );
-              })}
-            </ToolbarGroup>
+                    return (
+                      <ToolbarFilter
+                        key={helpers.generateHash(updatedValue)}
+                        showToolbarItem={combinedCategory === updatedValue || combinedOptions.length === 1}
+                        {...labelProps}
+                      >
+                        <OptionComponent isFilter />
+                      </ToolbarFilter>
+                    );
+                  }
+                )}
+              </ToolbarGroup>
+            )}
           </ToolbarToggleGroup>
         )}
         <ToolbarGroup key="itemFields">{itemFields}</ToolbarGroup>
@@ -204,6 +298,9 @@ const Toolbar = ({
           {secondaryFields}
         </ToolbarGroup>
       </ToolbarContent>
+      {separateOptions.length > 0 && numberOfAppliedFilters === 0 && (
+        <ToolbarContent className="curiosity-toolbar__content">{resetFiltersButton}</ToolbarContent>
+      )}
     </PfToolbar>
   );
 };

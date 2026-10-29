@@ -1,5 +1,12 @@
 import React from 'react';
 import { ToolbarFieldExport, toolbarFieldOptions, useOnSelect } from '../toolbarFieldExport';
+import { useProductExportQuery } from '../../productView/productViewContext';
+import {
+  RHSM_API_QUERY_SET_TYPES as QUERY_TYPES,
+  RHSM_API_QUERY_SLA_TYPES as SLA_TYPES,
+  RHSM_API_QUERY_USAGE_TYPES as USAGE_TYPES
+} from '../../../services/rhsm/rhsmConstants';
+import { config as rhelConfig } from '../../../config/product.rhel';
 
 describe('ToolbarFieldExport Component', () => {
   it('should render a basic component', async () => {
@@ -46,5 +53,39 @@ describe('ToolbarFieldExport Component', () => {
       value: 'dolor sit'
     });
     expect(mockExport.mock.calls).toMatchSnapshot('dispatch, hook');
+  });
+
+  it('should include resolved SLA and Usage values in export requests', () => {
+    const mockExport = jest.fn();
+    const useResolvedExportQuery = () =>
+      useProductExportQuery({
+        useProduct: () => ({ productId: 'rhel' }),
+        useProductViewContext: () => ({ ...rhelConfig, defaultFilteringEnabled: true }),
+        useProductToolbarQuery: () => ({
+          [QUERY_TYPES.SLA]: null,
+          [QUERY_TYPES.USAGE]: ''
+        })
+      });
+    const onSelect = useOnSelect({
+      useExport: () => mockExport,
+      useProduct: () => ({ productId: 'rhel' }),
+      useProductExportQuery: useResolvedExportQuery
+    });
+
+    onSelect({ value: 'csv' });
+
+    const [, exportRequest] = mockExport.mock.calls[0];
+    expect(exportRequest.sources.map(({ filters }) => filters)).toEqual([
+      {
+        product_id: 'rhel',
+        [QUERY_TYPES.SLA]: SLA_TYPES.PREMIUM,
+        [QUERY_TYPES.USAGE]: USAGE_TYPES.PRODUCTION
+      },
+      {
+        product_id: 'rhel',
+        [QUERY_TYPES.SLA]: SLA_TYPES.PREMIUM,
+        [QUERY_TYPES.USAGE]: USAGE_TYPES.PRODUCTION
+      }
+    ]);
   });
 });

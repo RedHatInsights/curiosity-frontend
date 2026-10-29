@@ -233,6 +233,119 @@ exports[`Toolbar Component should hide categories when a single filter is availa
 </Toolbar>
 `;
 
+exports[`Toolbar Component should keep separate and combined filters inside the same toggle group: separate and combined filters 1`] = `
+<Toolbar
+  className="curiosity-toolbar"
+  clearAllFilters={[Function]}
+  clearFiltersButtonText="t(curiosity-toolbar.clearFilters)"
+  collapseListedFiltersBreakpoint="md"
+  customLabelGroupContent={
+    <ToolbarItem
+      className="curiosity-toolbar__reset-filters"
+    >
+      <Button
+        isInline={true}
+        onClick={[Function]}
+        variant="link"
+      >
+        t(curiosity-toolbar.clearFilters)
+      </Button>
+    </ToolbarItem>
+  }
+  id="curiosity-toolbar"
+>
+  <ToolbarContent
+    className="curiosity-toolbar__content"
+    isExpanded={false}
+    showClearFiltersButton={false}
+  >
+    <ToolbarToggleGroup
+      breakpoint="md"
+      toggleIcon={
+        <FilterIcon
+          noDefaultStyle={false}
+        />
+      }
+    >
+      <ForwardRef
+        className="curiosity-toolbar__separate-filters"
+        rowWrap={
+          {
+            "default": "nowrap",
+          }
+        }
+      >
+        <ForwardRef
+          rowWrap={
+            {
+              "default": "nowrap",
+            }
+          }
+        >
+          <ToolbarFilterCount
+            categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
+            count={1}
+          />
+          <ToolbarItem
+            variant="label"
+          >
+            t(curiosity-toolbar.label_filter, {"context":"sla"})
+            :
+          </ToolbarItem>
+          <ToolbarItem
+            className="curiosity-toolbar__filter-select"
+          >
+            <Sla
+              isFilter={true}
+              isInline={false}
+            />
+          </ToolbarItem>
+          <ToolbarItem
+            variant="separator"
+          />
+        </ForwardRef>
+      </ForwardRef>
+      <ForwardRef
+        variant="filter-group"
+      >
+        <ToolbarItem>
+          <ToolbarFieldSelectCategory
+            useSelectCategoryOptions={[Function]}
+          />
+        </ToolbarItem>
+        <ToolbarFilter
+          categoryName="t(curiosity-toolbar.label_filter, {"context":"granularity"})"
+          labels={[]}
+          showToolbarItem={true}
+        >
+          <Granularity
+            isFilter={true}
+          />
+        </ToolbarFilter>
+        <ToolbarFilter
+          categoryName="t(curiosity-toolbar.label_filter_display_name, {"context":"contains"})"
+          deleteLabel={[Function]}
+          labels={[]}
+          showToolbarItem={false}
+        >
+          <DisplayName
+            isFilter={true}
+          />
+        </ToolbarFilter>
+      </ForwardRef>
+    </ToolbarToggleGroup>
+    <ForwardRef />
+    <ForwardRef
+      align={
+        {
+          "default": "alignEnd",
+        }
+      }
+    />
+  </ToolbarContent>
+</Toolbar>
+`;
+
 exports[`Toolbar Component should render a basic component: basic 1`] = `
 <Toolbar
   className="curiosity-toolbar"
@@ -281,6 +394,149 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
             isFilter={true}
           />
         </ToolbarFilter>
+      </ForwardRef>
+    </ToolbarToggleGroup>
+    <ForwardRef />
+    <ForwardRef
+      align={
+        {
+          "default": "alignEnd",
+        }
+      }
+    />
+  </ToolbarContent>
+</Toolbar>
+`;
+
+exports[`Toolbar Component should render separate SLA, Usage and Type filters inside the existing toggle group: separate filters 1`] = `
+<Toolbar
+  className="curiosity-toolbar"
+  clearAllFilters={[Function]}
+  clearFiltersButtonText="t(curiosity-toolbar.clearFilters)"
+  collapseListedFiltersBreakpoint="md"
+  customLabelGroupContent={
+    <ToolbarItem
+      className="curiosity-toolbar__reset-filters"
+    >
+      <Button
+        isInline={true}
+        onClick={[Function]}
+        variant="link"
+      >
+        t(curiosity-toolbar.clearFilters)
+      </Button>
+    </ToolbarItem>
+  }
+  id="curiosity-toolbar"
+>
+  <ToolbarContent
+    className="curiosity-toolbar__content"
+    isExpanded={false}
+    showClearFiltersButton={false}
+  >
+    <ToolbarToggleGroup
+      breakpoint="md"
+      toggleIcon={
+        <FilterIcon
+          noDefaultStyle={false}
+        />
+      }
+    >
+      <ForwardRef
+        className="curiosity-toolbar__separate-filters"
+        rowWrap={
+          {
+            "default": "nowrap",
+          }
+        }
+      >
+        <ForwardRef
+          rowWrap={
+            {
+              "default": "nowrap",
+            }
+          }
+        >
+          <ToolbarFilterCount
+            categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
+            count={1}
+          />
+          <ToolbarItem
+            variant="label"
+          >
+            t(curiosity-toolbar.label_filter, {"context":"sla"})
+            :
+          </ToolbarItem>
+          <ToolbarItem
+            className="curiosity-toolbar__filter-select"
+          >
+            <Sla
+              isFilter={true}
+              isInline={false}
+            />
+          </ToolbarItem>
+          <ToolbarItem
+            variant="separator"
+          />
+        </ForwardRef>
+        <ForwardRef
+          rowWrap={
+            {
+              "default": "nowrap",
+            }
+          }
+        >
+          <ToolbarFilterCount
+            categoryName="t(curiosity-toolbar.label_filter, {"context":"usage"})"
+            count={1}
+          />
+          <ToolbarItem
+            variant="label"
+          >
+            t(curiosity-toolbar.label_filter, {"context":"usage"})
+            :
+          </ToolbarItem>
+          <ToolbarItem
+            className="curiosity-toolbar__filter-select"
+          >
+            <Usage
+              isFilter={true}
+              isInline={false}
+            />
+          </ToolbarItem>
+          <ToolbarItem
+            variant="separator"
+          />
+        </ForwardRef>
+        <ForwardRef
+          rowWrap={
+            {
+              "default": "nowrap",
+            }
+          }
+        >
+          <ToolbarFilterCount
+            categoryName="t(curiosity-toolbar.label_filter, {"context":"category"})"
+            count={1}
+          />
+          <ToolbarItem
+            variant="label"
+          >
+            t(curiosity-toolbar.label_filter, {"context":"category"})
+            :
+          </ToolbarItem>
+          <ToolbarItem
+            className="curiosity-toolbar__filter-select"
+          >
+            <Variant
+              isFilter={true}
+              isInline={false}
+            />
+          </ToolbarItem>
+          <ToolbarItem
+            variant="separator"
+          />
+        </ForwardRef>
       </ForwardRef>
     </ToolbarToggleGroup>
     <ForwardRef />

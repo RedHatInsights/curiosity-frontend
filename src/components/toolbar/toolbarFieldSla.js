@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxTypes, storeHooks } from '../../redux';
-import { useProduct, useProductQuery } from '../productView/productViewContext';
+import { useProduct, useProductQuery, useProductViewContext } from '../productView/productViewContext';
 import { Select, SelectPosition } from '../form/select';
 import { RHSM_API_QUERY_SLA_TYPES as FIELD_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
@@ -65,6 +65,7 @@ const useOnSelect = ({
  * @param {translate} [props.t=translate]
  * @param {useOnSelect} [props.useOnSelect=useOnSelect]
  * @param {useProductQuery} [props.useProductQuery=useProductQuery]
+ * @param {useProductViewContext} [props.useProductViewContext=useProductViewContext]
  * @fires onSelect
  * @returns {JSX.Element}
  */
@@ -75,12 +76,17 @@ const ToolbarFieldSla = ({
   position = SelectPosition.left,
   t = translate,
   useOnSelect: useAliasOnSelect = useOnSelect,
-  useProductQuery: useAliasProductQuery = useProductQuery
+  useProductQuery: useAliasProductQuery = useProductQuery,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext
 }) => {
   const { [RHSM_API_QUERY_SET_TYPES.SLA]: updatedValue } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
+  const { defaultFilteringEnabled = false } = useAliasProductViewContext();
 
-  const updatedOptions = options.map(option => ({ ...option, isSelected: option.value === updatedValue }));
+  const availableOptions = defaultFilteringEnabled
+    ? options.filter(({ value }) => typeof value === 'string' && value.trim() !== '')
+    : options;
+  const updatedOptions = availableOptions.map(option => ({ ...option, isSelected: option.value === updatedValue }));
 
   return (
     <Select

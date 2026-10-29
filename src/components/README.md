@@ -207,6 +207,14 @@ recreate the core component.
 </dd>
 </dl>
 
+## Functions
+
+<dl>
+<dt><a href="#normalizeSlaUsageQuery">normalizeSlaUsageQuery(query, [availableFilters], [isEnabled])</a> ⇒ <code>object</code></dt>
+<dd><p>Apply the Curiosity SLA and Usage defaults.</p>
+</dd>
+</dl>
+
 <a name="Components.module_Authentication"></a>
 
 ## Authentication
@@ -2218,6 +2226,8 @@ Get graph metrics from Tally or Capacity.
     <td>params.useProduct</td><td><code>function</code></td>
     </tr><tr>
     <td>params.useProductGraphTallyQuery</td><td><code>function</code></td>
+    </tr><tr>
+    <td>params.useProductViewContext</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4585,6 +4595,8 @@ Display products.
     <td>[props.t]</td><td><code>translate</code></td><td><code>translate</code></td>
     </tr><tr>
     <td>[props.useRouteDetail]</td><td><code>routerContext.useRouteDetail</code></td><td><code>routerContext.useRouteDetail</code></td>
+    </tr><tr>
+    <td>[props.useResolvedSlaUsageFilteringEnabled]</td><td><code>function</code></td><td><code>useResolvedSlaUsageFilteringEnabled</code></td>
     </tr>  </tbody>
 </table>
 
@@ -4597,6 +4609,7 @@ Product view hooks for configuration and query management.
 * [ProductViewContext](#ProductView.module_ProductViewContext)
     * [~DEFAULT_CONTEXT](#ProductView.module_ProductViewContext..DEFAULT_CONTEXT) : <code>React.Context.&lt;{}&gt;</code>
     * [~useProductViewContext()](#ProductView.module_ProductViewContext..useProductViewContext) ⇒ <code>React.Context.&lt;{}&gt;</code>
+    * [~useResolvedSlaUsageFilteringEnabled(options)](#ProductView.module_ProductViewContext..useResolvedSlaUsageFilteringEnabled) ⇒ <code>boolean</code>
     * [~useProductQueryFactory(queryType, options)](#ProductView.module_ProductViewContext..useProductQueryFactory) ⇒ <code>object</code>
     * [~useProductBillingAccountsQuery(options)](#ProductView.module_ProductViewContext..useProductBillingAccountsQuery) ⇒ <code>object</code>
     * [~useProductQueryConditional(options)](#ProductView.module_ProductViewContext..useProductQueryConditional) ⇒ <code>object</code>
@@ -4627,6 +4640,27 @@ Route context.
 Get an updated product view context.
 
 **Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
+<a name="ProductView.module_ProductViewContext..useResolvedSlaUsageFilteringEnabled"></a>
+
+### ProductViewContext~useResolvedSlaUsageFilteringEnabled(options) ⇒ <code>boolean</code>
+Resolve the SLA/Usage feature flag at the product view boundary.
+Explicit true/false dotenv values override Chrome only during development.
+
+**Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.useChrome]</td><td><code>function</code></td><td><code>useChrome</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="ProductView.module_ProductViewContext..useProductQueryFactory"></a>
 
 ### ProductViewContext~useProductQueryFactory(queryType, options) ⇒ <code>object</code>
@@ -4727,6 +4761,8 @@ Return a base product query
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
@@ -4754,6 +4790,8 @@ Return the graph query based off of tally and capacity.
     <td>[options.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
@@ -4783,6 +4821,8 @@ Return the inventory query for guests. Use fallback/defaults for guests offset, 
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
@@ -4811,6 +4851,8 @@ Return an inventory query for hosts.
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
     </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
@@ -4838,6 +4880,8 @@ Return an inventory query for subscriptions.
     <td>[options.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
     </tr><tr>
     <td>[options.useProductQueryFactory]</td><td><code>useProductQueryFactory</code></td><td><code>useProductQueryFactory</code></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr><tr>
     <td>options.options</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
@@ -5028,6 +5072,8 @@ Return an export query for subscriptions.
     <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
     <td>[options.useProduct]</td><td><code>useProduct</code></td><td><code>useProduct</code></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr><tr>
     <td>[options.schemaCheck]</td><td><code>object</code></td><td><code>platformConstants.PLATFORM_API_EXPORT_POST_SUBSCRIPTIONS_FILTER_TYPES</code></td>
     </tr><tr>
@@ -6072,6 +6118,8 @@ Application filter toolbar.
     </tr><tr>
     <td>[props.useSelectCategoryOptions]</td><td><code>useSelectCategoryOptions</code></td><td><code>useSelectCategoryOptions</code></td><td></td>
     </tr><tr>
+    <td>[props.useSeparateSlaTypeUsageFiltersEnabled]</td><td><code>function</code></td><td><code>useSeparateSlaTypeUsageFiltersEnabled</code></td><td></td>
+    </tr><tr>
     <td>[props.useToolbarFieldClear]</td><td><code>useToolbarFieldClear</code></td><td><code>useToolbarFieldClear</code></td><td></td>
     </tr><tr>
     <td>[props.useToolbarFieldClearAll]</td><td><code>useToolbarFieldClearAll</code></td><td><code>useToolbarFieldClearAll</code></td><td></td>
@@ -6131,9 +6179,33 @@ Clear all active filters.
 ## ToolbarContext
 
 * [ToolbarContext](#Toolbar.module_ToolbarContext)
+    * [~useSeparateSlaTypeUsageFiltersEnabled(options)](#Toolbar.module_ToolbarContext..useSeparateSlaTypeUsageFiltersEnabled) ⇒ <code>boolean</code>
     * [~useToolbarFieldClear(options)](#Toolbar.module_ToolbarContext..useToolbarFieldClear) ⇒ <code>function</code>
     * [~useToolbarFieldClearAll(options)](#Toolbar.module_ToolbarContext..useToolbarFieldClearAll) ⇒ <code>function</code>
     * [~useToolbarFields(options)](#Toolbar.module_ToolbarContext..useToolbarFields) ⇒ <code>Array</code>
+
+<a name="Toolbar.module_ToolbarContext..useSeparateSlaTypeUsageFiltersEnabled"></a>
+
+### ToolbarContext~useSeparateSlaTypeUsageFiltersEnabled(options) ⇒ <code>boolean</code>
+Enable separate toolbar filters only when resolved SLA/Usage filtering is also enabled.
+Explicit true/false dotenv values override Chrome only during development.
+
+**Kind**: inner method of [<code>ToolbarContext</code>](#Toolbar.module_ToolbarContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>[options.useChrome]</td><td><code>function</code></td><td><code>useChrome</code></td>
+    </tr><tr>
+    <td>[options.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
+    </tr>  </tbody>
+</table>
 
 <a name="Toolbar.module_ToolbarContext..useToolbarFieldClear"></a>
 
@@ -7194,6 +7266,8 @@ Display a sla field with options.
     <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
     <td>[props.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
+    </tr><tr>
+    <td>[props.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -7266,6 +7340,8 @@ Display a usage field with options.
     <td>[props.useOnSelect]</td><td><code>useOnSelect</code></td><td><code>useOnSelect</code></td>
     </tr><tr>
     <td>[props.useProductQuery]</td><td><code>useProductQuery</code></td><td><code>useProductQuery</code></td>
+    </tr><tr>
+    <td>[props.useProductViewContext]</td><td><code>useProductViewContext</code></td><td><code>useProductViewContext</code></td>
     </tr>  </tbody>
 </table>
 
@@ -7305,6 +7381,30 @@ PF tooltip wrapper component.
     <td>[props.exitDelay]</td><td><code>number</code></td><td><code>0</code></td>
     </tr><tr>
     <td>[props.position]</td><td><code>TooltipPosition</code></td><td><code>TooltipPosition.top</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="normalizeSlaUsageQuery"></a>
+
+## normalizeSlaUsageQuery(query, [availableFilters], [isEnabled]) ⇒ <code>object</code>
+Apply the Curiosity SLA and Usage defaults.
+
+**Kind**: global function  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>query</td><td><code>object</code></td><td></td><td></td>
+    </tr><tr>
+    <td>[availableFilters]</td><td><code>Array.&lt;{id: string}&gt;</code></td><td></td><td><p>Toolbar filters supported by the current product config.</p>
+</td>
+    </tr><tr>
+    <td>[isEnabled]</td><td><code>boolean</code></td><td><code>false</code></td><td><p>Whether resolved SLA/Usage filtering is enabled.</p>
+</td>
     </tr>  </tbody>
 </table>
 

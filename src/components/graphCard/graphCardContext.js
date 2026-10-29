@@ -2,10 +2,17 @@ import React, { useContext, useMemo } from 'react';
 import { useShallowCompareEffect } from 'react-use';
 import { ToolbarItem } from '@patternfly/react-core';
 import { reduxActions, storeHooks } from '../../redux';
-import { useProduct, useProductGraphConfig, useProductGraphTallyQuery } from '../productView/productViewContext';
+import {
+  useProduct,
+  useProductGraphConfig,
+  useProductGraphTallyQuery,
+  useProductViewContext
+} from '../productView/productViewContext';
 import { toolbarFieldOptions } from '../toolbar/toolbarFieldSelectCategory';
 import { helpers } from '../../common/helpers';
 import { graphCardHelpers } from './graphCardHelpers';
+import { normalizeSlaUsageQuery } from '../productView/slaUsageHelpers';
+import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 
 /**
  * @memberof GraphCard
@@ -117,6 +124,7 @@ const useMetricsSelector = ({
  * @param {Function} params.useMetricsSelector
  * @param {Function} params.useProduct
  * @param {Function} params.useProductGraphTallyQuery
+ * @param {Function} params.useProductViewContext
  * @returns {{data: {}, pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
  *     id: {}, list: Array}, cancelled: boolean, dataSets: Array, message: null, error: boolean}}
  */
@@ -126,7 +134,8 @@ const useGetMetrics = ({
   useGraphCardContext: useAliasGraphCardContext = useGraphCardContext,
   useMetricsSelector: useAliasMetricsSelector = useMetricsSelector,
   useProduct: useAliasProduct = useProduct,
-  useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery
+  useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext
 } = {}) => {
   const { productId } = useAliasProduct();
   const query = useAliasProductGraphTallyQuery();
@@ -134,16 +143,28 @@ const useGetMetrics = ({
   const response = useAliasMetricsSelector();
   const { settings = {} } = useAliasGraphCardContext();
   const { metrics = [] } = settings;
+  const { initialToolbarFilters, defaultFilteringEnabled = false } = useAliasProductViewContext();
 
   useShallowCompareEffect(() => {
     const updatedMetrics = metrics.map(({ metric: metricId, isCapacity, query: metricQuery }) => ({
       id: productId,
       metric: metricId,
       isCapacity,
-      query: metricQuery
+      // Keep shared category filters out of the per-metric query: they affect chart identity.
+      query: defaultFilteringEnabled
+        ? normalizeSlaUsageQuery(
+            {
+              [RHSM_API_QUERY_SET_TYPES.SLA]: query[RHSM_API_QUERY_SET_TYPES.SLA],
+              [RHSM_API_QUERY_SET_TYPES.USAGE]: query[RHSM_API_QUERY_SET_TYPES.USAGE],
+              ...metricQuery
+            },
+            initialToolbarFilters,
+            true
+          )
+        : metricQuery
     }));
     getGraphMetrics(updatedMetrics, query)(dispatch);
-  }, [metrics, productId, query]);
+  }, [initialToolbarFilters, metrics, productId, query, defaultFilteringEnabled]);
 
   return response;
 };

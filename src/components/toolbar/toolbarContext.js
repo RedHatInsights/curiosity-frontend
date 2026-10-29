@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { ToolbarItem } from '@patternfly/react-core';
-import { useProductQuery, useProductToolbarConfig } from '../productView/productViewContext';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import { useProductQuery, useProductToolbarConfig, useProductViewContext } from '../productView/productViewContext';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { useOnSelect as useSelectCategoryOnSelect, toolbarFieldOptions } from './toolbarFieldSelectCategory';
 import { useOnSelect as useBillingProviderOnSelect } from './toolbarFieldBillingProvider';
@@ -14,6 +15,37 @@ import { helpers } from '../../common/helpers';
  * @memberof Toolbar
  * @module ToolbarContext
  */
+
+const SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG = 'swatch.separate-sla-type-usage-filters';
+
+/**
+ * Enable separate toolbar filters only when resolved SLA/Usage filtering is also enabled.
+ * Explicit true/false dotenv values override Chrome only during development.
+ *
+ * @param {object} options
+ * @param {Function} [options.useChrome=useChrome]
+ * @param {useProductViewContext} [options.useProductViewContext=useProductViewContext]
+ * @returns {boolean}
+ */
+const useSeparateSlaTypeUsageFiltersEnabled = ({
+  useChrome: useAliasChrome = useChrome,
+  useProductViewContext: useAliasProductViewContext = useProductViewContext
+} = {}) => {
+  const { visibilityFunctions } = useAliasChrome();
+  const { defaultFilteringEnabled = false } = useAliasProductViewContext();
+
+  if (process.env.NODE_ENV === 'development') {
+    const override = process.env.REACT_APP_DEBUG_SEPARATE_SLA_TYPE_USAGE_FILTERS;
+    if (override === 'true' || override === 'false') {
+      return defaultFilteringEnabled && override === 'true';
+    }
+  }
+
+  const separateFiltersEnabled =
+    visibilityFunctions?.featureFlag?.(SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG, true) ?? false;
+
+  return defaultFilteringEnabled && separateFiltersEnabled;
+};
 
 /**
  * Clear a specific toolbar category using a select component's OnSelect hook.
@@ -171,4 +203,12 @@ const context = {
   useToolbarFields
 };
 
-export { context as default, context, useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFields };
+export {
+  context as default,
+  context,
+  useToolbarFieldClear,
+  useToolbarFieldClearAll,
+  useToolbarFields,
+  SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG,
+  useSeparateSlaTypeUsageFiltersEnabled
+};
