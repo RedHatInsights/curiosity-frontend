@@ -187,10 +187,11 @@ describe('RouterContext', () => {
       });
 
       expect(firstMatch?.productId).toBe(RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86);
-      expect(restoreVariantPath).toBeUndefined();
+      // the variant is honored, the flat path is canonicalized below its group
+      expect(restoreVariantPath).toBe('/subscriptions/usage/rhel/RHEL%20for%20x86');
     });
 
-    it('should not restore for browser back and forward, the url is exact', () => {
+    it('should not restore the last viewed variant for browser back and forward', () => {
       const { firstMatch, restoreVariantPath } = setRouteProduct({
         productPath: '/subscriptions/usage/rhel',
         productVariant: lastViewed,
@@ -198,7 +199,7 @@ describe('RouterContext', () => {
       });
 
       expect(firstMatch?.productId).toBe(RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86);
-      expect(restoreVariantPath).toBeUndefined();
+      expect(restoreVariantPath).toBe('/subscriptions/usage/rhel/RHEL%20for%20x86');
     });
 
     it('should not restore across product groups', () => {
@@ -209,7 +210,7 @@ describe('RouterContext', () => {
       });
 
       expect(firstMatch?.productGroup).toBe('openshift');
-      expect(restoreVariantPath).toBeUndefined();
+      expect(restoreVariantPath).toBe(`/subscriptions/usage/openshift/${encodeURIComponent(firstMatch?.productId)}`);
     });
 
     it('should use the default variant without a stored selection', () => {
@@ -220,6 +221,74 @@ describe('RouterContext', () => {
       });
 
       expect(firstMatch?.productId).toBe(RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86);
+      expect(restoreVariantPath).toBe('/subscriptions/usage/rhel/RHEL%20for%20x86');
+    });
+
+    it('should canonicalize a group path to its default variant', () => {
+      const { restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/rhel',
+        isRestoreVariant: true
+      });
+
+      expect(restoreVariantPath).toBe('/subscriptions/usage/rhel/RHEL%20for%20x86');
+    });
+
+    it('should canonicalize an alias path to its default variant', () => {
+      const { restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/insights',
+        isRestoreVariant: true
+      });
+
+      expect(restoreVariantPath).toBe('/subscriptions/usage/rhel/RHEL%20for%20x86');
+    });
+
+    it('should leave a path that already names the resolved variant alone', () => {
+      const { restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/rhel/RHEL%20for%20x86',
+        isRestoreVariant: true
+      });
+
+      expect(restoreVariantPath).toBeUndefined();
+    });
+
+    it('should not restore a stored variant on top of a closest match', () => {
+      const { isClosest, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/rhel-for-arm',
+        productVariant: lastViewed,
+        isRestoreVariant: true
+      });
+
+      expect(isClosest).toBe(true);
+      expect(restoreVariantPath).toBeUndefined();
+    });
+
+    it('should not restore a stored variant on the bare mount point', () => {
+      const { isClosest, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage',
+        productVariant: lastViewed,
+        isRestoreVariant: true
+      });
+
+      expect(isClosest).toBe(true);
+      expect(restoreVariantPath).toBeUndefined();
+    });
+
+    it('should not canonicalize a closest match, a fuzzy guess is never written back', () => {
+      const { isClosest, restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage/rhel-for-arm',
+        isRestoreVariant: true
+      });
+
+      expect(isClosest).toBe(true);
+      expect(restoreVariantPath).toBeUndefined();
+    });
+
+    it('should leave the bare mount point alone', () => {
+      const { restoreVariantPath } = setRouteProduct({
+        productPath: '/subscriptions/usage',
+        isRestoreVariant: true
+      });
+
       expect(restoreVariantPath).toBeUndefined();
     });
   });

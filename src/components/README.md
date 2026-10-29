@@ -5277,7 +5277,11 @@ Apply configurable banners per product variant
     * [~useNavigateVariant(options)](#Router.module_RouterContext..useNavigateVariant) ⇒ <code>function</code>
     * [~useSanitizeOidcParams(options)](#Router.module_RouterContext..useSanitizeOidcParams) ⇒ <code>void</code>
     * [~setRouteProduct(params)](#Router.module_RouterContext..setRouteProduct) ⇒ <code>Object</code>
-        * [.memo](#Router.module_RouterContext..setRouteProduct.memo) : <code>function</code>
+        * _static_
+            * [.memo](#Router.module_RouterContext..setRouteProduct.memo) : <code>function</code>
+        * _inner_
+            * [~isExactMatch](#Router.module_RouterContext..setRouteProduct..isExactMatch)
+            * [~canonicalPath](#Router.module_RouterContext..setRouteProduct..canonicalPath)
     * [~useSetRouteProduct(options)](#Router.module_RouterContext..useSetRouteProduct) ⇒ <code>Object</code>
     * [~useRouteDetail(options)](#Router.module_RouterContext..useRouteDetail) ⇒ <code>Object</code>
 
@@ -5309,13 +5313,14 @@ update. Dispatches the same type leveraged by the initialize hook, useSetRouteDe
 ### RouterContext~useNavigateVariant(options) ⇒ <code>function</code>
 Reflect a product variant selection in the browser URL.
 
-The variant is pushed as the trailing path identifier, i.e. "/subscriptions/usage/RHEL%20for%20ARM", instead of
-a search parameter. Variants are already exact, routable identifiers, see sortedProductConfigs
-"byAnythingPathIds", so this introduces no new URL format and every existing format continues to resolve.
+The variant is pushed as a path segment nested below its product group, i.e.
+"/subscriptions/usage/rhel/RHEL%20for%20ARM", instead of a search parameter. Variants are already exact,
+routable identifiers, see sortedProductConfigs "byAnythingPathIds", so every existing URL format continues
+to resolve. For why the group path is kept as a prefix, see routerHelpers.getProductPath.
 
-Chrome's history is preferred when it is available so the platform router stays in sync. It delegates to
-window.history.pushState, which is the method useLocation patches, so either path re-renders without a
-page reload.
+When Chrome history is available, chromeHistory.push() is used to keep the platform router in sync.
+Otherwise, windowHistory.pushState() is used as a fallback; useLocation patches windowHistory.pushState()
+so fallback navigation re-renders without a page reload.
 
 Note: re-selecting the variant already in the URL is a no-op, avoiding duplicate history entries that would
 otherwise require multiple back presses to escape.
@@ -5374,8 +5379,10 @@ path, i.e. the platform left navigation links to "/subscriptions/usage/rhel", so
 groups returns to the variant last viewed in each. That restore is skipped for "popstate" so the back and
 forward buttons always land on exactly what the URL describes.
 
-When a variant is restored, "restoreVariantPath" carries the canonical path for the view, see
-useRouteDetail, so a bookmark captures the variant rather than the group.
+"restoreVariantPath" carries the canonical path for whatever resolved, see useRouteDetail, so the URL
+always names the variant on display. When productVariant restoration is enabled, a group or alias path
+resolves to its remembered variant when one exists; otherwise it resolves to the group's default variant.
+The URL is rewritten accordingly, which keeps the address bar copyable without using the dropdown first.
 
 **Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
 <table>
@@ -5399,12 +5406,40 @@ useRouteDetail, so a bookmark captures the variant rather than the group.
     </tr>  </tbody>
 </table>
 
+
+* [~setRouteProduct(params)](#Router.module_RouterContext..setRouteProduct) ⇒ <code>Object</code>
+    * _static_
+        * [.memo](#Router.module_RouterContext..setRouteProduct.memo) : <code>function</code>
+    * _inner_
+        * [~isExactMatch](#Router.module_RouterContext..setRouteProduct..isExactMatch)
+        * [~canonicalPath](#Router.module_RouterContext..setRouteProduct..canonicalPath)
+
 <a name="Router.module_RouterContext..setRouteProduct.memo"></a>
 
 #### setRouteProduct.memo : <code>function</code>
 A memoized response for the setProductRoute function. Assigned to a property for testing function.
 
 **Kind**: static property of [<code>setRouteProduct</code>](#Router.module_RouterContext..setRouteProduct)  
+<a name="Router.module_RouterContext..setRouteProduct..isExactMatch"></a>
+
+#### setRouteProduct~isExactMatch
+Only an exact group or alias match is a restore point. A "closest match" is a Levenshtein guess, so
+layering stored state on top of one would mask a bad URL, leave the address bar disagreeing with the
+view, since canonicalPath below skips closest matches, and in DEV_MODE suppress ProductViewMissing by
+swapping in an exact config.
+
+**Kind**: inner constant of [<code>setRouteProduct</code>](#Router.module_RouterContext..setRouteProduct)  
+<a name="Router.module_RouterContext..setRouteProduct..canonicalPath"></a>
+
+#### setRouteProduct~canonicalPath
+The canonical path for whatever product resolved, i.e. a group or alias path settles on its default
+variant. Returned whenever it differs from the current path so the URL always names the variant on
+display, see useRouteDetail, making the address bar copyable without touching the dropdown first.
+
+Skipped for a "closest match" so a Levenshtein guess is never written back as though it were exact,
+and so the bare mount point is left alone.
+
+**Kind**: inner constant of [<code>setRouteProduct</code>](#Router.module_RouterContext..setRouteProduct)  
 <a name="Router.module_RouterContext..useSetRouteProduct"></a>
 
 ### RouterContext~useSetRouteProduct(options) ⇒ <code>Object</code>
