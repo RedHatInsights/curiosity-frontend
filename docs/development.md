@@ -69,8 +69,8 @@ REACT_APP_DEBUG_RESOLVED_SLA_USAGE_FILTERING=true
 REACT_APP_DEBUG_SEPARATE_SLA_TYPE_USAGE_FILTERS=true
 ```
 
-These override the Unleash flags `swatch.resolved-sla-usage-filtering` and
-`swatch.separate-sla-type-usage-filters`, respectively. Both flags must be enabled for the separate dropdowns.
+These override the Unleash flags `swatch.ui.resolved-sla-usage-filtering` and
+`swatch.ui.separate-sla-type-usage-filters`, respectively. Both flags must be enabled for the separate dropdowns.
 Existing default SLA and Usage behavior is preserved.
 
 Only the exact values `true` and `false` override a flag. Set `false` to force it off; unset, empty, or invalid

@@ -30,7 +30,7 @@ const ProductViewContext = React.createContext(DEFAULT_CONTEXT);
  */
 const useProductViewContext = () => useContext(ProductViewContext);
 
-const RESOLVED_SLA_USAGE_FILTERING_FLAG = 'swatch.resolved-sla-usage-filtering';
+const RESOLVED_SLA_USAGE_FILTERING_FLAG = 'swatch.ui.resolved-sla-usage-filtering';
 
 /**
  * Resolve the SLA/Usage feature flag at the product view boundary.
