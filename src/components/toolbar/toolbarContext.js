@@ -16,7 +16,7 @@ import { helpers } from '../../common/helpers';
  * @module ToolbarContext
  */
 
-const SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG = 'swatch.separate-sla-type-usage-filters';
+const SEPARATE_SLA_TYPE_USAGE_FILTERS_FLAG = 'swatch.ui.separate-sla-type-usage-filters';
 
 /**
  * Enable separate toolbar filters only when resolved SLA/Usage filtering is also enabled.
