@@ -54,13 +54,14 @@ const useNavigate = ({
 /**
  * Reflect a product variant selection in the browser URL.
  *
- * The variant is pushed as the trailing path identifier, i.e. "/subscriptions/usage/RHEL%20for%20ARM", instead of
- * a search parameter. Variants are already exact, routable identifiers, see sortedProductConfigs
- * "byAnythingPathIds", so this introduces no new URL format and every existing format continues to resolve.
+ * The variant is pushed as a path segment nested below its product group, i.e.
+ * "/subscriptions/usage/rhel/RHEL%20for%20ARM", instead of a search parameter. Variants are already exact,
+ * routable identifiers, see sortedProductConfigs "byAnythingPathIds", so every existing URL format continues
+ * to resolve. For why the group path is kept as a prefix, see routerHelpers.getProductPath.
  *
- * Chrome's history is preferred when it is available so the platform router stays in sync. It delegates to
- * window.history.pushState, which is the method useLocation patches, so either path re-renders without a
- * page reload.
+ * When Chrome history is available, chromeHistory.push() is used to keep the platform router in sync.
+ * Otherwise, windowHistory.pushState() is used as a fallback; useLocation patches windowHistory.pushState()
+ * so fallback navigation re-renders without a page reload.
  *
  * Note: re-selecting the variant already in the URL is a no-op, avoiding duplicate history entries that would
  * otherwise require multiple back presses to escape.
@@ -136,8 +137,10 @@ const useSanitizeOidcParams = ({
  * groups returns to the variant last viewed in each. That restore is skipped for "popstate" so the back and
  * forward buttons always land on exactly what the URL describes.
  *
- * When a variant is restored, "restoreVariantPath" carries the canonical path for the view, see
- * useRouteDetail, so a bookmark captures the variant rather than the group.
+ * "restoreVariantPath" carries the canonical path for whatever resolved, see useRouteDetail, so the URL
+ * always names the variant on display. When productVariant restoration is enabled, a group or alias path
+ * resolves to its remembered variant when one exists; otherwise it resolves to the group's default variant.
+ * The URL is rewritten accordingly, which keeps the address bar copyable without using the dropdown first.
  *
  * @param {object} params
  * @param {string} params.productPath
@@ -170,9 +173,15 @@ const setRouteProduct = ({
   const isVariantInPath =
     routeConfig?.availableVariants?.some(variant => variant.toLowerCase() === trailingPathId) || false;
 
-  let restoreVariantPath;
+  /**
+   * Only an exact group or alias match is a restore point. A "closest match" is a Levenshtein guess, so
+   * layering stored state on top of one would mask a bad URL, leave the address bar disagreeing with the
+   * view, since canonicalPath below skips closest matches, and in DEV_MODE suppress ProductViewMissing by
+   * swapping in an exact config.
+   */
+  const isExactMatch = routeConfig?.isClosest === false;
 
-  if (!isVariantInPath && isRestoreVariant) {
+  if (isExactMatch && !isVariantInPath && isRestoreVariant) {
     const lastViewedVariant = productVariant?.[routeConfig?.firstMatch?.productGroup];
 
     if (lastViewedVariant) {
@@ -180,11 +189,25 @@ const setRouteProduct = ({
         pathName: lastViewedVariant,
         isIgnoreClosest: disableIsClosestMatch
       });
-      restoreVariantPath = routerHelpers.getProductPath({ pathName: productPath, productId: lastViewedVariant });
     }
   }
 
   const { configs, firstMatch, isClosest, ...config } = routeConfig;
+
+  /**
+   * The canonical path for whatever product resolved, i.e. a group or alias path settles on its default
+   * variant. Returned whenever it differs from the current path so the URL always names the variant on
+   * display, see useRouteDetail, making the address bar copyable without touching the dropdown first.
+   *
+   * Skipped for a "closest match" so a Levenshtein guess is never written back as though it were exact,
+   * and so the bare mount point is left alone.
+   */
+  const canonicalPath =
+    (!isClosest &&
+      firstMatch?.productId &&
+      routerHelpers.getProductPath({ pathName: productPath, productId: firstMatch.productId })) ||
+    undefined;
+  const restoreVariantPath = (canonicalPath !== productPath && canonicalPath) || undefined;
 
   return {
     ...config,
@@ -246,7 +269,7 @@ const useSetRouteProduct = ({
  * @param {useSetRouteProduct} [options.useSetRouteProduct=useSetRouteProduct]
  * @param {*} [options.windowHistory=window.history]
  * @returns {{firstMatch: *, isClosest: boolean, productGroup: string, productConfig: Array, productPath: string,
- *     productVariant: string, disableIsClosestMatch: boolean}}}
+ *     productVariant: string, restoreVariantPath: string|undefined, disableIsClosestMatch: boolean}}}
  */
 const useRouteDetail = ({
   t = translate,
