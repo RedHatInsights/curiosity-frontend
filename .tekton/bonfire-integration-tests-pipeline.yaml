@@ -83,7 +83,6 @@ spec:
       description: Extra arguments for the deployment
       default: >-
         --no-remove-resources app:rhsm
-        --exclude-components unleash-proxy
     - name: DEPLOY_FRONTENDS
       type: string
       description: Deploy frontend in the env or not
