@@ -49,9 +49,7 @@ exports[`PageLayout Component should render header and section children: multipl
     <div
       class="pf-v6-l-flex pf-m-justify-content-space-between-on-sm"
     >
-      <div
-        class=""
-      >
+      <div>
         <div
           class="pf-v6-l-flex pf-m-justify-content-space-between"
         >

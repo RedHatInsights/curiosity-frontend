@@ -139,6 +139,9 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
 exports[`OptinView Component should render an API state driven view: 4XX view 1`] = `
 <form
   class="pf-v6-c-form"
+  data-ouia-component-id="OUIA-Generated-Form-:r16:"
+  data-ouia-component-type="PF6/Form"
+  data-ouia-safe="true"
   novalidate=""
 >
   <div
@@ -152,7 +155,7 @@ exports[`OptinView Component should render an API state driven view: 4XX view 1`
       >
         <button
           class="pf-v6-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-:r13:"
+          data-ouia-component-id="OUIA-Generated-Button-primary-:r17:"
           data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
@@ -174,6 +177,9 @@ exports[`OptinView Component should render an API state driven view: 4XX view 1`
 exports[`OptinView Component should render an API state driven view: 200 view 1`] = `
 <form
   class="pf-v6-c-form"
+  data-ouia-component-id="OUIA-Generated-Form-:r5:"
+  data-ouia-component-type="PF6/Form"
+  data-ouia-safe="true"
   novalidate=""
 >
   <div
@@ -187,7 +193,7 @@ exports[`OptinView Component should render an API state driven view: 200 view 1`
       >
         <button
           class="pf-v6-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-:r5:"
+          data-ouia-component-id="OUIA-Generated-Button-primary-:r6:"
           data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
@@ -209,6 +215,9 @@ exports[`OptinView Component should render an API state driven view: 200 view 1`
 exports[`OptinView Component should render an API state driven view: 401 view 1`] = `
 <form
   class="pf-v6-c-form"
+  data-ouia-component-id="OUIA-Generated-Form-:rg:"
+  data-ouia-component-type="PF6/Form"
+  data-ouia-safe="true"
   novalidate=""
 >
   <div
@@ -222,7 +231,7 @@ exports[`OptinView Component should render an API state driven view: 401 view 1`
       >
         <button
           class="pf-v6-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-:rf:"
+          data-ouia-component-id="OUIA-Generated-Button-primary-:rh:"
           data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
@@ -244,6 +253,9 @@ exports[`OptinView Component should render an API state driven view: 401 view 1`
 exports[`OptinView Component should render an API state driven view: 403 view 1`] = `
 <form
   class="pf-v6-c-form"
+  data-ouia-component-id="OUIA-Generated-Form-:rr:"
+  data-ouia-component-type="PF6/Form"
+  data-ouia-safe="true"
   novalidate=""
 >
   <div
@@ -257,7 +269,7 @@ exports[`OptinView Component should render an API state driven view: 403 view 1`
       >
         <button
           class="pf-v6-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-:rp:"
+          data-ouia-component-id="OUIA-Generated-Button-primary-:rs:"
           data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmit"
@@ -278,6 +290,9 @@ exports[`OptinView Component should render an API state driven view: 403 view 1`
 exports[`OptinView Component should render an API state driven view: 500 view 1`] = `
 <form
   class="pf-v6-c-form"
+  data-ouia-component-id="OUIA-Generated-Form-:r1h:"
+  data-ouia-component-type="PF6/Form"
+  data-ouia-safe="true"
   novalidate=""
 >
   <div
@@ -291,7 +306,7 @@ exports[`OptinView Component should render an API state driven view: 500 view 1`
       >
         <button
           class="pf-v6-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-:r1d:"
+          data-ouia-component-id="OUIA-Generated-Button-primary-:r1i:"
           data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
@@ -315,6 +330,9 @@ exports[`OptinView Component should render an API state driven view: error view 
 exports[`OptinView Component should render an API state driven view: fulfilled view 1`] = `
 <form
   class="pf-v6-c-form"
+  data-ouia-component-id="OUIA-Generated-Form-:r2r:"
+  data-ouia-component-type="PF6/Form"
+  data-ouia-safe="true"
   novalidate=""
 >
   <div
@@ -328,7 +346,7 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
       >
         <button
           class="pf-v6-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-:r2k:"
+          data-ouia-component-id="OUIA-Generated-Button-primary-:r2s:"
           data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
@@ -353,6 +371,9 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
 exports[`OptinView Component should render an API state driven view: null or undefined status view 1`] = `
 <form
   class="pf-v6-c-form"
+  data-ouia-component-id="OUIA-Generated-Form-:r1s:"
+  data-ouia-component-type="PF6/Form"
+  data-ouia-safe="true"
   novalidate=""
 >
   <div
@@ -366,7 +387,7 @@ exports[`OptinView Component should render an API state driven view: null or und
       >
         <button
           class="pf-v6-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-:r1n:"
+          data-ouia-component-id="OUIA-Generated-Button-primary-:r1t:"
           data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
@@ -388,6 +409,9 @@ exports[`OptinView Component should render an API state driven view: null or und
 exports[`OptinView Component should render an API state driven view: pending view 1`] = `
 <form
   class="pf-v6-c-form"
+  data-ouia-component-id="OUIA-Generated-Form-:r27:"
+  data-ouia-component-type="PF6/Form"
+  data-ouia-safe="true"
   novalidate=""
 >
   <div
@@ -401,7 +425,7 @@ exports[`OptinView Component should render an API state driven view: pending vie
       >
         <button
           class="pf-v6-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-:r21:"
+          data-ouia-component-id="OUIA-Generated-Button-primary-:r28:"
           data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           disabled=""
