@@ -56,6 +56,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
         "transitional": {
           "advertiseZstdAcceptEncoding": false,
           "clarifyTimeoutError": false,
+          "encodeBasicAuthUsername": false,
           "forcedJSONParsing": true,
           "legacyInterceptorReqResOrdering": true,
           "silentJSONParsing": true,
@@ -67,6 +68,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
         "xsrfHeaderName": "X-XSRF-TOKEN",
       },
       "data": "success",
+      "duration": 7,
       "headers": {},
       "request": Request {
         "config": {
@@ -98,6 +100,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
           "transitional": {
             "advertiseZstdAcceptEncoding": false,
             "clarifyTimeoutError": false,
+            "encodeBasicAuthUsername": false,
             "forcedJSONParsing": true,
             "legacyInterceptorReqResOrdering": true,
             "silentJSONParsing": true,
@@ -155,6 +158,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
         "transitional": {
           "advertiseZstdAcceptEncoding": false,
           "clarifyTimeoutError": false,
+          "encodeBasicAuthUsername": false,
           "forcedJSONParsing": true,
           "legacyInterceptorReqResOrdering": true,
           "silentJSONParsing": true,
@@ -166,6 +170,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
         "xsrfHeaderName": "X-XSRF-TOKEN",
       },
       "data": "success",
+      "duration": 6,
       "headers": {},
       "request": Request {
         "config": {
@@ -196,6 +201,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
           "transitional": {
             "advertiseZstdAcceptEncoding": false,
             "clarifyTimeoutError": false,
+            "encodeBasicAuthUsername": false,
             "forcedJSONParsing": true,
             "legacyInterceptorReqResOrdering": true,
             "silentJSONParsing": true,
@@ -252,6 +258,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
         "transitional": {
           "advertiseZstdAcceptEncoding": false,
           "clarifyTimeoutError": false,
+          "encodeBasicAuthUsername": false,
           "forcedJSONParsing": true,
           "legacyInterceptorReqResOrdering": true,
           "silentJSONParsing": true,
@@ -263,6 +270,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
         "xsrfHeaderName": "X-XSRF-TOKEN",
       },
       "data": "success",
+      "duration": 2,
       "headers": {},
       "request": Request {
         "config": {
@@ -293,6 +301,7 @@ exports[`Cancel service calls should handle cancelling service calls: cancelled 
           "transitional": {
             "advertiseZstdAcceptEncoding": false,
             "clarifyTimeoutError": false,
+            "encodeBasicAuthUsername": false,
             "forcedJSONParsing": true,
             "legacyInterceptorReqResOrdering": true,
             "silentJSONParsing": true,
@@ -687,7 +696,7 @@ exports[`Poll service calls should handle polling with a validate callback: call
 }
 `;
 
-exports[`ServiceConfig should handle producing a consistent service call configuration: response config hash 1`] = `"c-1153352713"`;
+exports[`ServiceConfig should handle producing a consistent service call configuration: response config hash 1`] = `"c-1237406248"`;
 
 exports[`ServiceConfig should have specific properties and methods: specific props and methods 1`] = `
 [
