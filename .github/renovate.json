@@ -33,15 +33,9 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchUpdateTypes": ["major"],
-      "dependencyDashboardApproval": true
-    },
-    {
-      "matchManagers": ["npm"],
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["minor"],
-      "groupName": "prod",
-      "dependencyDashboardApproval": true
+      "groupName": "prod"
     },
     {
       "matchManagers": ["npm"],
