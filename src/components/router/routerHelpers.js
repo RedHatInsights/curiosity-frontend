@@ -220,9 +220,22 @@ const getProductPath = ({
 
   const segments = `${pathName}`.replace(/\/+$/, '').split('/');
 
-  // Rewind past any product identifiers, back to the application mount point
-  while (segments.length > 1 && aliasIsProductPathId({ pathId: segments[segments.length - 1] })) {
-    segments.pop();
+  const applicationIndex = segments.findIndex(segment => segment.toLowerCase() === appName?.toLowerCase());
+  const firstProductIndex = segments.findIndex(
+    (segment, index) => index > applicationIndex && aliasIsProductPathId({ pathId: segment })
+  );
+
+  if (applicationIndex !== -1 && firstProductIndex !== -1) {
+    /*
+     * The first product identifier and everything after it belong to the product route, including edited
+     * variant identifiers that only resolve by closest match and any previously accumulated segments.
+     */
+    segments.splice(firstProductIndex);
+  } else {
+    // Also support paths without the application name, such as "/rhel".
+    while (segments.length > 1 && aliasIsProductPathId({ pathId: segments[segments.length - 1] })) {
+      segments.pop();
+    }
   }
 
   const productPath = aliasGetRouteConfigByPath({ pathName: productId })?.firstMatch?.productPath;

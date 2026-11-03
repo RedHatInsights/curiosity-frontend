@@ -389,6 +389,40 @@ describe('getProductPath', () => {
     ).toBe('/subscriptions/usage/rhel/rhel-for-x86-els-payg');
   });
 
+  it.each(['/subscriptions/usage', '/beta/insights/subscriptions'])(
+    'should replace a variant segment that only resolves by closest match below %s',
+    mountPath => {
+      expect(
+        getProductPath({
+          pathName: `${mountPath}/rhel/rhel-for-x86-els-payg-addon-asdf`,
+          productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86
+        })
+      ).toBe(`${mountPath}/rhel/RHEL%20for%20x86`);
+    }
+  );
+
+  it('should remove previously accumulated variant segments', () => {
+    expect(
+      getProductPath({
+        pathName:
+          '/subscriptions/usage/rhel/rhel-for-x86-els-payg-addon-asdf/rhel/RHEL%20for%20x86asdf/rhel/rhel-for-sap-x86asdf/rhel/RHEL%20for%20x86',
+        productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM
+      })
+    ).toBe('/subscriptions/usage/rhel/RHEL%20for%20ARM');
+  });
+
+  it.each([
+    '/subscriptions/usage',
+    '/insights/subscriptions',
+    '/openshift/subscriptions',
+    '/application-services/subscriptions',
+    '/beta/insights/subscriptions'
+  ])('should preserve the bare mount point %s when selecting a variant', pathName => {
+    expect(getProductPath({ pathName, productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM })).toBe(
+      `${pathName}/rhel/RHEL%20for%20ARM`
+    );
+  });
+
   it('should nest an openshift group variant below its own group', () => {
     expect(
       getProductPath({
