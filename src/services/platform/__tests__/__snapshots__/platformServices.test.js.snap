@@ -45,6 +45,7 @@ exports[`PlatformServices should return a failed getUser: failed authorized user
     "transitional": {
       "advertiseZstdAcceptEncoding": false,
       "clarifyTimeoutError": false,
+      "encodeBasicAuthUsername": false,
       "forcedJSONParsing": true,
       "legacyInterceptorReqResOrdering": true,
       "silentJSONParsing": true,
@@ -94,6 +95,7 @@ exports[`PlatformServices should return a failed getUserPermissions: failed user
     "transitional": {
       "advertiseZstdAcceptEncoding": false,
       "clarifyTimeoutError": false,
+      "encodeBasicAuthUsername": false,
       "forcedJSONParsing": true,
       "legacyInterceptorReqResOrdering": true,
       "silentJSONParsing": true,

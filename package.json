@@ -93,7 +93,7 @@
     "@redhat-cloud-services/frontend-components": "7.10.15",
     "@redhat-cloud-services/frontend-components-notifications": "6.11.15",
     "@redhat-cloud-services/frontend-components-utilities": "7.5.11",
-    "axios": "1.18.1",
+    "axios": "1.21.0",
     "classnames": "^2.5.1",
     "fastest-levenshtein": "^1.0.16",
     "i18next": "^25.6.3",
