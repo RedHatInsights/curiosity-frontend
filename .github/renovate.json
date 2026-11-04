@@ -29,7 +29,15 @@
         "@patternfly/*",
         "@redhat-cloud-services/frontend*"
       ],
-      "enabled": false
+      "enabled": true,
+      "postUpgradeTasks": {
+        "commands": [
+          "npm ci",
+          "npm run test:ci -- --updateSnapshot"
+        ],
+        "fileFilters": ["**/*.snap"],
+        "executionMode": "branch"
+      }
     },
     {
       "matchManagers": ["npm"],
