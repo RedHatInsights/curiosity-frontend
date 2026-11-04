@@ -88,15 +88,41 @@ describe('ToolbarFieldGroupVariant Component', () => {
   });
 
   it('should handle updating through redux state with hook', () => {
-    const options = {
+    const onSelect = useOnSelect({
+      useNavigateVariant: () => jest.fn(),
       useProduct: () => ({ productGroup: 'loremIpsum' })
-    };
-
-    const onSelect = useOnSelect(options);
+    });
     onSelect({
       value: 'dolor sit'
     });
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
+  });
+
+  it('should reflect a selected variant in the browser url', () => {
+    const mockNavigateVariant = jest.fn();
+
+    const onSelect = useOnSelect({
+      useNavigateVariant: () => mockNavigateVariant,
+      useProduct: () => ({ productGroup: 'loremIpsum' })
+    });
+    onSelect({
+      value: 'dolor sit'
+    });
+
+    expect(mockNavigateVariant).toHaveBeenCalledWith('dolor sit');
+  });
+
+  it('should ignore an empty selection', () => {
+    const mockNavigateVariant = jest.fn();
+
+    const onSelect = useOnSelect({
+      useNavigateVariant: () => mockNavigateVariant,
+      useProduct: () => ({ productGroup: 'loremIpsum' })
+    });
+    onSelect({});
+
+    expect(mockNavigateVariant).not.toHaveBeenCalled();
+    expect(mockDispatch).not.toHaveBeenCalled();
   });
 });

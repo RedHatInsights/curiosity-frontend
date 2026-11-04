@@ -128,7 +128,6 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
           ]
         }
         placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-        selectedOptions={null}
       />
     </ToolbarItem>
   </ForwardRef>
@@ -180,7 +179,6 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
             ]
           }
           placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
-          selectedOptions={null}
         />
       </ToolbarItem>
     </ForwardRef>
