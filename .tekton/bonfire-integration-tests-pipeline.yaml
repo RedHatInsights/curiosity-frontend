@@ -267,7 +267,7 @@ spec:
             description: Updated EXTRA_DEPLOY_ARGS with template ref for the frontend component
         steps:
           - name: build-args
-            image: quay.io/konflux-ci/task-runner:v3
+            image: quay.io/konflux-ci/task-runner:v4
             script: |
               #!/usr/bin/env bash
               set -euo pipefail
@@ -334,7 +334,7 @@ spec:
             description: Comma-separated env vars for deploy-iqe-cji
         steps:
           - name: build
-            image: quay.io/konflux-ci/task-runner:v3
+            image: quay.io/konflux-ci/task-runner:v4
             script: |
               #!/usr/bin/env bash
               set -euo pipefail
@@ -1010,7 +1010,7 @@ spec:
             type: string
         steps:
           - name: check
-            image: quay.io/konflux-ci/task-runner:v3
+            image: quay.io/konflux-ci/task-runner:v4
             script: |
               #!/bin/bash
               FAILED=false
