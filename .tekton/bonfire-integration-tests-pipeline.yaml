@@ -83,6 +83,7 @@ spec:
       description: Extra arguments for the deployment
       default: >-
         --no-remove-resources app:rhsm
+        --exclude-components unleash-proxy
     - name: DEPLOY_FRONTENDS
       type: string
       description: Deploy frontend in the env or not
@@ -140,7 +141,7 @@ spec:
     - name: IQE_ENV_VARS
       type: string
       description: Optional extra IQE env vars prepended for deploy-iqe-cji (comma-separated)
-      default: ""
+      default: "DYNACONF_FEATURE_FLAGS__USE_BACKEND=unleash"
     - name: IQE_TEST_RESULTS_AWS_S3_SECRET
       type: string
       description: Secret name in the ephemeral namespace with S3 credentials for test-results upload

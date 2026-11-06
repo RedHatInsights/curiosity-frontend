@@ -113,6 +113,8 @@ spec:
       value: "false"
     - name: IQE_LOG_LEVEL
       value: "debug"
+    - name: IQE_ENV_VARS
+      value: "DYNACONF_FEATURE_FLAGS__USE_BACKEND=unleash"
   workspaces:
     - name: artifacts
       volumeClaimTemplate:
