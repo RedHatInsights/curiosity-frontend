@@ -2,7 +2,17 @@ import { serviceHelpers } from '../helpers';
 
 describe('Service Helpers', () => {
   it('should have specific functions', () => {
-    expect(serviceHelpers).toMatchSnapshot('serviceHelpers');
+    expect(Object.keys(serviceHelpers)).toEqual([
+      'camelCase',
+      'generateHash',
+      'memoClone',
+      'passDataToCallback',
+      'schemaResponse',
+      'timeoutFunctionCancel'
+    ]);
+    Object.values(serviceHelpers).forEach(helper => {
+      expect(helper).toEqual(expect.any(Function));
+    });
   });
 
   it('should support cancelling function calls', async () => {
@@ -29,7 +39,8 @@ describe('Service Helpers', () => {
     const success = await mockTimeout('lorem ipsum success', 'dolor sit error', 50, 100);
     const error = await mockTimeout('lorem ipsum success', 'dolor sit error', 100, 50);
 
-    expect({ success, error }).toMatchSnapshot('timeout error');
+    expect(success).toBe('lorem ipsum success');
+    expect(error).toBe('dolor sit error');
   });
 
   it('should support camel casing obj keys', () => {
@@ -45,7 +56,17 @@ describe('Service Helpers', () => {
           }
         ]
       })
-    ).toMatchSnapshot('camelCase');
+    ).toEqual({
+      loremIpsum: [
+        {
+          dolorSit: [
+            {
+              helloWorld: 1
+            }
+          ]
+        }
+      ]
+    });
   });
 
   it('should support applying data to a supplied callback', () => {
@@ -53,37 +74,39 @@ describe('Service Helpers', () => {
 
     serviceHelpers.passDataToCallback(mockSchema, { hello: 'world' }, 'lorem ipsum');
 
-    expect(mockSchema.mock.calls).toMatchSnapshot('passDataToCallback, success');
+    expect(mockSchema).toHaveBeenCalledTimes(1);
+    expect(mockSchema).toHaveBeenCalledWith({ hello: 'world' }, 'lorem ipsum');
 
-    mockSchema.mockClear();
+    const failed = serviceHelpers.passDataToCallback(
+      () => {
+        throw new Error('hello world');
+      },
+      { dolor: 'sit' }
+    );
 
-    expect(
-      serviceHelpers.passDataToCallback(
-        () => {
-          throw new Error('hello world');
-        },
-        { dolor: 'sit' }
-      )
-    ).toMatchSnapshot('passDataToCallback, error');
+    expect(failed.data).toEqual([{ dolor: 'sit' }]);
+    expect(failed.error).toBeInstanceOf(Error);
+    expect(failed.error.message).toBe('hello world');
   });
 
   it('should attempt to apply a Joi schema to a response', () => {
     const mockValidate = jest.fn().mockImplementation(response => ({ value: response }));
+    const response = { lorem_ipsum: 'dolor_sit' };
 
     serviceHelpers.schemaResponse({
       schema: { validate: mockValidate },
-      response: { lorem_ipsum: 'dolor_sit' }
+      response
     });
-    expect(mockValidate.mock.calls).toMatchSnapshot('schemaResponse, parameters');
+
+    expect(mockValidate).toHaveBeenCalledTimes(1);
+    expect(mockValidate).toHaveBeenCalledWith(response, { convert: true });
 
     expect(
       serviceHelpers.schemaResponse({
         schema: { validate: mockValidate },
-        response: { lorem_ipsum: 'dolor_sit' },
+        response,
         casing: 'camel'
       })
-    ).toMatchSnapshot('schemaResponse, camelCasing');
-
-    mockValidate.mockClear();
+    ).toEqual({ loremIpsum: 'dolor_sit' });
   });
 });
