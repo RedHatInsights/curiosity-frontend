@@ -36,7 +36,9 @@ describe('Services Configuration', () => {
   });
 
   it('should have specific properties and methods', () => {
-    expect(Object.keys(config)).toMatchSnapshot('specific props and methods');
+    expect(Object.keys(config)).toEqual(['serviceCall', 'serviceConfig']);
+    expect(config.serviceCall).toEqual(expect.any(Function));
+    expect(config.serviceConfig).toEqual(expect.any(Function));
   });
 
   it('should export a default and customized services config', () => {
@@ -52,14 +54,10 @@ describe('Services Configuration', () => {
   });
 
   it('should handle a bundled authentication and service call', async () => {
-    const responses = [];
+    const success = await returnPromiseAsync(async () => config.serviceCall({ url: '/test/' }));
+    const failure = await returnPromiseAsync(async () => config.serviceCall({ url: '/error/' }));
 
-    const { data: responseOneData } = await returnPromiseAsync(async () => config.serviceCall({ url: '/test/' }));
-    responses.push({ data: responseOneData });
-
-    const { data: responseTwoData } = await returnPromiseAsync(async () => config.serviceCall({ url: '/error/' }));
-    responses.push({ data: responseTwoData });
-
-    expect(responses).toMatchSnapshot('responses');
+    expect({ status: success.status, data: success.data }).toEqual({ status: 200, data: 'success' });
+    expect({ status: failure.status, data: failure.data }).toEqual({ status: 404, data: 'error' });
   });
 });

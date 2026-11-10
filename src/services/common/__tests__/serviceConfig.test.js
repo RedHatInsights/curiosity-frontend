@@ -1,6 +1,171 @@
+import { waitFor } from '@testing-library/dom';
 import moxios from 'moxios';
 import { serviceConfig } from '../serviceConfig';
-import { generateHash } from '../helpers';
+
+/**
+ * Describe poll configuration with stable fields.
+ * Function identity and Axios timing stay out of the comparison.
+ *
+ * @param {Function|object} pollConfig Poll callback or normalized poll configuration.
+ * @returns {string|object|undefined}
+ */
+const describePoll = pollConfig => {
+  if (typeof pollConfig === 'function') {
+    return 'callback';
+  }
+
+  if (pollConfig == null) {
+    return undefined;
+  }
+
+  const { location } = pollConfig;
+  let describedLocation;
+
+  if (typeof location === 'function') {
+    describedLocation = 'callback';
+  } else if (location == null) {
+    describedLocation = undefined;
+  } else {
+    describedLocation = {
+      url: typeof location.url === 'function' ? 'callback' : location.url,
+      config: location.config
+    };
+  }
+
+  return {
+    retryCount: pollConfig.__retryCount,
+    pollInterval: pollConfig.pollInterval,
+    location: describedLocation,
+    hasValidate: typeof pollConfig.validate === 'function',
+    hasStatusCallback: typeof pollConfig.status === 'function'
+  };
+};
+
+/**
+ * Stable fields from one poll validator or status callback invocation.
+ * The callback receives a cloned response, so function identity on that clone is not compared.
+ *
+ * @param {Array} call Arguments passed to the callback, `[response, count]`.
+ * @returns {object}
+ */
+const describePollCall = call => {
+  const [response, count] = call;
+  const pollConfig = response?.config?.poll;
+  const location = pollConfig?.location;
+  let locationUrl;
+
+  if (location && typeof location === 'object') {
+    locationUrl = typeof location.url === 'function' ? 'callback' : location.url;
+  }
+
+  return {
+    count,
+    data: response?.data,
+    error: response?.error,
+    url: response?.request?.url,
+    retryCount: pollConfig?.__retryCount,
+    pollInterval: pollConfig && typeof pollConfig === 'object' ? pollConfig.pollInterval : undefined,
+    locationUrl
+  };
+};
+
+/**
+ * Stable fields from a fulfilled or cancelled service call.
+ * Elapsed duration and the rest of the Axios object stay out of the comparison.
+ *
+ * @param {PromiseSettledResult} result One `Promise.allSettled` entry.
+ * @returns {object}
+ */
+const describeSettledCall = result => {
+  if (result.status === 'rejected') {
+    return {
+      status: 'rejected',
+      message: result.reason?.message
+    };
+  }
+
+  return {
+    status: 'fulfilled',
+    httpStatus: result.value?.status,
+    data: result.value?.data,
+    method: result.value?.config?.method,
+    url: result.value?.config?.url
+  };
+};
+
+/**
+ * The poll interval a callback observes for a given retry count when the call passes `pollInterval: 0`.
+ * A poll interval of `0` is treated as missing, so every retry after the first falls back to the
+ * global interval.
+ *
+ * @param {number} count Internal retry count, `-1` for the initial, pre-poll invocation.
+ * @returns {number|undefined}
+ */
+const expectedPollInterval = count => {
+  if (count < 0) {
+    return undefined;
+  }
+
+  return count === 0 ? 0 : serviceConfig.globalPollInterval;
+};
+
+/**
+ * Expected `describePollCall` summary for a single poll callback invocation.
+ * Defaults describe the initial, pre-poll invocation, i.e. no response and no location, override per test.
+ *
+ * @param {number} count Internal retry count, `-1` for the initial, pre-poll invocation.
+ * @param {object} overrides Fields that differ for the test under comparison.
+ * @returns {object}
+ */
+const expectedPollCall = (count, overrides = {}) => ({
+  count,
+  data: undefined,
+  error: undefined,
+  url: undefined,
+  retryCount: count < 0 ? undefined : count,
+  pollInterval: expectedPollInterval(count),
+  locationUrl: undefined,
+  ...overrides
+});
+
+/**
+ * Expected `describePollCall` summaries for a validate callback polling a single, successful url.
+ *
+ * @param {string} url
+ * @returns {Array<object>}
+ */
+const expectedValidatePollCalls = (url = '/test/') => [
+  expectedPollCall(-1, { data: 'success', url }),
+  expectedPollCall(0, { data: 'success', url, locationUrl: url }),
+  expectedPollCall(1, { data: 'success', url, locationUrl: url })
+];
+
+/**
+ * Expected `describePollCall` summaries for a status callback that only observes an errored poll.
+ *
+ * @param {string} locationUrl
+ * @returns {Array<object>}
+ */
+const expectedErrorStatusPollCalls = (locationUrl = '/pollError') => [
+  expectedPollCall(-1),
+  expectedPollCall(0, { error: true, locationUrl })
+];
+
+/**
+ * Expected `describePoll` summary for the poll configuration left on a resolved response.
+ * Defaults describe a validate callback that polled its original url, override per test.
+ *
+ * @param {object} overrides Fields that differ for the test under comparison.
+ * @returns {object}
+ */
+const expectedPollConfig = (overrides = {}) => ({
+  retryCount: 1,
+  pollInterval: serviceConfig.globalPollInterval,
+  location: { url: '/test/', config: undefined },
+  hasValidate: true,
+  hasStatusCallback: false,
+  ...overrides
+});
 
 describe('ServiceConfig', () => {
   beforeEach(() => {
@@ -18,20 +183,53 @@ describe('ServiceConfig', () => {
   });
 
   it('should have specific properties and methods', () => {
-    expect(Object.keys(serviceConfig)).toMatchSnapshot('specific props and methods');
+    expect(Object.keys(serviceConfig)).toEqual([
+      'axiosServiceCall',
+      'globalXhrTimeout',
+      'globalPollInterval',
+      'globalCancelTokens',
+      'globalResponseCache'
+    ]);
+    expect(serviceConfig.axiosServiceCall).toEqual(expect.any(Function));
+    expect(serviceConfig.globalXhrTimeout).toEqual(expect.any(Number));
+    expect(serviceConfig.globalPollInterval).toEqual(expect.any(Number));
+    expect(serviceConfig.globalCancelTokens).toEqual(expect.any(Object));
+    expect(serviceConfig.globalResponseCache).toBeDefined();
   });
 
   it('should handle producing a consistent service call configuration', async () => {
-    const response = await serviceConfig.axiosServiceCall({
+    const callConfig = {
       cache: false,
       exposeCacheId: true,
       url: '/test/',
       params: { lorem: 'ipsum', dolor: 'sit' },
       schema: [successResponse => `${successResponse}-schema-transform`],
       transform: [successResponse => `${successResponse}-transform`]
+    };
+    const response = await serviceConfig.axiosServiceCall(callConfig);
+    const repeated = await serviceConfig.axiosServiceCall(callConfig);
+
+    const stableConfig = ({ method, url, params, timeout, cacheResponse, cacheId }) => ({
+      method,
+      url,
+      params,
+      timeout,
+      cacheResponse,
+      cacheId
     });
 
-    expect(generateHash(response.request.config)).toMatchSnapshot('response config hash');
+    expect(response.status).toBe(200);
+    expect(response.data).toBe('success-schema-transform-transform');
+    expect(stableConfig(response.config)).toEqual({
+      method: 'get',
+      url: '/test/',
+      params: { lorem: 'ipsum', dolor: 'sit' },
+      timeout: serviceConfig.globalXhrTimeout,
+      cacheResponse: false,
+      cacheId: null
+    });
+    expect(stableConfig(repeated.config)).toEqual(stableConfig(response.config));
+    expect(repeated.data).toBe(response.data);
   });
 });
 
@@ -51,7 +249,7 @@ describe('Cancel service calls', () => {
   });
 
   it('should handle cancelling service calls', async () => {
-    // Highlight cancel takes into account url and method
+    // Cancel takes url and method into account, so the grouped call rejects on the cancelled request.
     await expect(
       Promise.all([
         serviceConfig.axiosServiceCall({ url: '/test/all', cancel: true }),
@@ -60,18 +258,28 @@ describe('Cancel service calls', () => {
         serviceConfig.axiosServiceCall({ url: '/test/all', cancel: true }),
         serviceConfig.axiosServiceCall({ url: '/test/all', cancel: true })
       ])
-    ).rejects.toMatchSnapshot('cancelled request, Promise.all');
+    ).rejects.toMatchObject({
+      message: 'cancelled request'
+    });
 
-    // Highlight cancel takes into account url and method
-    await expect(
-      Promise.allSettled([
-        serviceConfig.axiosServiceCall({ url: '/test/allsettled', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/allsettled', method: 'post', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/allsettled', method: 'post', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/allsettled', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/allsettled', cancel: true })
-      ])
-    ).resolves.toMatchSnapshot('cancelled request, Promise.allSettled');
+    const settled = await Promise.allSettled([
+      serviceConfig.axiosServiceCall({ url: '/test/allsettled', cancel: true }),
+      serviceConfig.axiosServiceCall({ url: '/test/allsettled', method: 'post', cancel: true }),
+      serviceConfig.axiosServiceCall({ url: '/test/allsettled', method: 'post', cancel: true }),
+      serviceConfig.axiosServiceCall({ url: '/test/allsettled', cancel: true }),
+      serviceConfig.axiosServiceCall({ url: '/test/allsettled', cancel: true })
+    ]);
+    const summarized = settled.map(describeSettledCall);
+
+    expect(summarized.filter(result => result.status === 'rejected')).toEqual([
+      { status: 'rejected', message: 'cancelled request' },
+      { status: 'rejected', message: 'cancelled request' }
+    ]);
+    expect(summarized.filter(result => result.status === 'fulfilled')).toEqual([
+      { status: 'fulfilled', httpStatus: 200, data: 'success', method: 'post', url: '/test/allsettled' },
+      { status: 'fulfilled', httpStatus: 200, data: 'success', method: 'get', url: '/test/allsettled' },
+      { status: 'fulfilled', httpStatus: 200, data: 'success', method: 'get', url: '/test/allsettled' }
+    ]);
   });
 });
 
@@ -91,76 +299,70 @@ describe('Cache service calls', () => {
   });
 
   it('should handle caching service calls', async () => {
-    const responses = [];
+    const call = config =>
+      serviceConfig.axiosServiceCall({
+        cache: true,
+        exposeCacheId: true,
+        url: '/test/',
+        ...config
+      });
 
-    // First, call an endpoint with set params
-    const responseOne = await serviceConfig.axiosServiceCall({
-      cache: true,
-      url: '/test/',
-      params: { lorem: 'ipsum', dolor: 'sit' },
-      exposeCacheId: true
-    });
-    responses.push(
-      `1. method=get, status=${responseOne.status}, cacheId=${responseOne.request.config.cacheId}, desc=initial call`
-    );
-
-    // Second, call the same endpoint with same params, expect a cached response, emulated 304
-    const responseTwo = await serviceConfig.axiosServiceCall({
-      cache: true,
-      url: '/test/',
-      params: { lorem: 'ipsum', dolor: 'sit' },
-      exposeCacheId: true
-    });
-    responses.push(
-      `2. method=get, status=${responseTwo.status}, cacheId=${responseTwo.request.config.cacheId}, desc=repeat 1st call and config`
-    );
-
-    // Third, updating config creates a new cache
-    const responseThree = await serviceConfig.axiosServiceCall({
-      cache: true,
-      url: '/test/',
-      params: { lorem: 'ipsum' },
-      exposeCacheId: true
-    });
-    responses.push(
-      `3. method=get, status=${responseThree.status}, cacheId=${responseThree.request.config.cacheId}, desc=updated config`
-    );
-
-    // Fourth, confirm cache isn't created for other methods, i.e. post
-    const responseFour = await serviceConfig.axiosServiceCall({
-      cache: true,
-      method: 'post',
-      url: '/test/',
-      params: { lorem: 'ipsum' },
-      exposeCacheId: true
-    });
-    responses.push(
-      `4. method=post, status=${responseFour.status}, cacheId=${responseFour.request.config.cacheId}, desc=attempt post method`
-    );
-
-    // Fifth, confirm cache exists from responseThree
-    const responseFive = await serviceConfig.axiosServiceCall({
-      cache: true,
-      url: '/test/',
-      params: { lorem: 'ipsum' },
-      exposeCacheId: true
-    });
-    responses.push(
-      `5. method=get, status=${responseFive.status}, cacheId=${responseFive.request.config.cacheId}, desc=repeat 3rd call and config`
-    );
-
-    // Six, don't use a cache
-    const responseSix = await serviceConfig.axiosServiceCall({
+    const initial = await call({ params: { lorem: 'ipsum', dolor: 'sit' } });
+    const repeated = await call({ params: { lorem: 'ipsum', dolor: 'sit' } });
+    const updated = await call({ params: { lorem: 'ipsum' } });
+    const posted = await call({ method: 'post', params: { lorem: 'ipsum' } });
+    const repeatedUpdate = await call({ params: { lorem: 'ipsum' } });
+    const uncached = await serviceConfig.axiosServiceCall({
       cache: false,
+      exposeCacheId: true,
       url: '/test/',
-      params: { lorem: 'ipsum' },
-      exposeCacheId: true
+      params: { lorem: 'ipsum' }
     });
-    responses.push(
-      `6. method=get, status=${responseSix.status}, cacheId=${responseSix.request.config.cacheId}, desc=no caching`
-    );
 
-    expect(responses).toMatchSnapshot('cached responses, emulated 304');
+    const summary = response => ({
+      method: response.config.method,
+      status: response.status,
+      data: response.data,
+      cacheId: response.config.cacheId
+    });
+
+    expect(summary(initial)).toEqual({
+      method: 'get',
+      status: 200,
+      data: 'success',
+      cacheId: expect.any(String)
+    });
+    expect(summary(repeated)).toEqual({
+      method: 'get',
+      status: 304,
+      data: 'success',
+      cacheId: initial.config.cacheId
+    });
+    expect(summary(updated)).toEqual({
+      method: 'get',
+      status: 200,
+      data: 'success',
+      cacheId: expect.any(String)
+    });
+    expect(updated.config.cacheId).not.toBe(initial.config.cacheId);
+    expect(summary(posted)).toEqual({
+      method: 'post',
+      status: 200,
+      data: 'success',
+      cacheId: null
+    });
+    expect(summary(repeatedUpdate)).toEqual({
+      method: 'get',
+      status: 304,
+      data: 'success',
+      cacheId: updated.config.cacheId
+    });
+    expect(summary(uncached)).toEqual({
+      method: 'get',
+      status: 200,
+      data: 'success',
+      cacheId: null
+    });
   });
 });
 
@@ -193,19 +395,16 @@ describe('Transform service call responses', () => {
       })
     ]);
 
-    expect(responses.map(response => response.value.data)).toMatchSnapshot('schema');
+    expect(responses.map(response => response.value.data)).toEqual(['success-schema-transform']);
   });
 
   it('should handle transforming success responses and errors', async () => {
     const responses = await Promise.allSettled([
-      // success response and transform
       serviceConfig.axiosServiceCall({
         cache: true,
         url: '/test/',
         transform: [successResponse => `${successResponse}-transform`]
       }),
-
-      // throw an error pass original API response
       serviceConfig.axiosServiceCall({
         cache: true,
         url: '/test/',
@@ -217,12 +416,11 @@ describe('Transform service call responses', () => {
       })
     ]);
 
-    expect(responses.map(response => response.value.data)).toMatchSnapshot('transformed success');
+    expect(responses.map(response => response.value.data)).toEqual(['success-transform', 'success']);
   });
 
   it('should handle transforming error responses and errors', async () => {
     const responses = await Promise.allSettled([
-      // error response and transform
       serviceConfig.axiosServiceCall({
         cache: true,
         url: '/error/',
@@ -231,8 +429,6 @@ describe('Transform service call responses', () => {
           errorResponse => `${errorResponse}-error-transform`
         ]
       }),
-
-      // throw an error pass original API response
       serviceConfig.axiosServiceCall({
         cache: true,
         url: '/error/',
@@ -245,7 +441,10 @@ describe('Transform service call responses', () => {
       })
     ]);
 
-    expect(responses.map(({ reason }) => reason?.response?.data || reason.data)).toMatchSnapshot('transformed error');
+    expect(responses.map(({ reason }) => reason?.response?.data || reason.data)).toEqual([
+      'error-error-transform',
+      'error'
+    ]);
   });
 
   it('should handle transforming responses with a cancel', async () => {
@@ -268,9 +467,10 @@ describe('Transform service call responses', () => {
       })
     ]);
 
-    expect(responses.map(({ reason }) => reason?.response?.data || reason.message)).toMatchSnapshot(
-      'transformed cancel'
-    );
+    expect(responses.map(({ reason }) => reason?.response?.data || reason.message)).toEqual([
+      'cancelled request',
+      'error-cancel-transform'
+    ]);
   });
 });
 
@@ -309,19 +509,9 @@ describe('Poll service calls', () => {
     );
 
     expect(basicPollValidator).toHaveBeenCalledTimes(3);
-    expect({
-      validator: basicPollValidator.mock.calls.map(([response, count]) => ({
-        success: {
-          data: response.data,
-          pollConfig: response.config.poll
-        },
-        count
-      })),
-      output: {
-        pollConfig: basicOutput.config.poll,
-        data: basicOutput.data
-      }
-    }).toMatchSnapshot('basic');
+    expect(basicPollValidator.mock.calls.map(describePollCall)).toEqual(expectedValidatePollCalls());
+    expect(basicOutput.data).toBe('success');
+    expect(describePoll(basicOutput.config.poll)).toEqual(expectedPollConfig());
   });
 
   it('should handle basic polling error', async () => {
@@ -338,7 +528,7 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    expect(consoleSpyError.mock.calls).toMatchSnapshot('callback error');
+    expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual(['basic error']);
     consoleSpyError.mockClear();
   });
 
@@ -359,19 +549,9 @@ describe('Poll service calls', () => {
     );
 
     expect(specificPollValidator).toHaveBeenCalledTimes(3);
-    expect({
-      validator: specificPollValidator.mock.calls.map(([response, count]) => ({
-        success: {
-          data: response.data,
-          pollConfig: response.config.poll
-        },
-        count
-      })),
-      output: {
-        pollConfig: specificOutput.config.poll,
-        data: specificOutput.data
-      }
-    }).toMatchSnapshot('callback');
+    expect(specificPollValidator.mock.calls.map(describePollCall)).toEqual(expectedValidatePollCalls());
+    expect(specificOutput.data).toBe('success');
+    expect(describePoll(specificOutput.config.poll)).toEqual(expectedPollConfig());
   });
 
   it('should handle polling with a validate callback error', async () => {
@@ -390,7 +570,7 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    expect(consoleSpyError.mock.calls).toMatchSnapshot('callback error');
+    expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual(['validate error']);
     consoleSpyError.mockClear();
   });
 
@@ -408,26 +588,21 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // Note: The status callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(statusPoll).toHaveBeenCalledTimes(3);
-    expect({
-      status: statusPoll.mock.calls.map(([response, count]) => ({
-        response: {
-          error: response?.error,
-          data: response?.data,
-          pollConfig: response?.config.poll
-        },
-        count
-      })),
-      output: {
-        data: statusOutput.data,
-        pollConfig: statusOutput.config.poll
-      }
-    }).toMatchSnapshot('callback');
+    await waitFor(() => expect(statusPoll).toHaveBeenCalledTimes(3));
+    expect(statusPoll.mock.calls.map(describePollCall)).toEqual([
+      expectedPollCall(-1),
+      expectedPollCall(0, { data: 'success', error: false, url: '/test/', locationUrl: '/test/' }),
+      expectedPollCall(1, { data: 'success', error: false, url: '/test/', locationUrl: '/test/' })
+    ]);
+    expect(statusOutput.data).toBe('success');
+    expect(describePoll(statusOutput.config.poll)).toEqual(
+      expectedPollConfig({
+        retryCount: undefined,
+        pollInterval: undefined,
+        location: undefined,
+        hasStatusCallback: true
+      })
+    );
   });
 
   it('should handle polling with a status callback error', async () => {
@@ -447,12 +622,15 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // Note: The status callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(consoleSpyError.mock.calls).toMatchSnapshot('callback error');
+    await waitFor(() =>
+      expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual([
+        'status error',
+        'status error',
+        'status error',
+        'status error',
+        'status error'
+      ])
+    );
     consoleSpyError.mockClear();
   });
 
@@ -471,20 +649,15 @@ describe('Poll service calls', () => {
     );
 
     expect(mockLocation).toHaveBeenCalledTimes(3);
-    expect({
-      validator: mockLocation.mock.calls.map(([success, count]) => ({
-        success: {
-          data: success.data,
-          url: success.request.url,
-          pollConfig: { ...success.config.poll, location: Function.prototype }
-        },
-        count
-      })),
-      output: {
-        pollConfig: { ...locationOutput.config.poll, location: Function.prototype },
-        data: locationOutput.data
-      }
-    }).toMatchSnapshot('different service call');
+    expect(mockLocation.mock.calls.map(describePollCall)).toEqual([
+      expectedPollCall(-1, { data: 'success', url: '/test/' }),
+      expectedPollCall(0, { data: 'success', url: '/pollSuccess/', locationUrl: 'callback' }),
+      expectedPollCall(1, { data: 'success', url: '/pollSuccess/', locationUrl: 'callback' })
+    ]);
+    expect(locationOutput.data).toBe('success');
+    expect(describePoll(locationOutput.config.poll)).toEqual(
+      expectedPollConfig({ retryCount: 2, location: { url: 'callback', config: undefined } })
+    );
   });
 
   it('should handle polling against a different service call path error and status callback', async () => {
@@ -502,22 +675,8 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // Note: The status callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(statusErrorPoll).toHaveBeenCalledTimes(2);
-    expect({
-      status: statusErrorPoll.mock.calls.map(([response, count]) => ({
-        response: {
-          error: response?.error,
-          data: response?.data,
-          pollConfig: response?.config.poll
-        },
-        count
-      }))
-    }).toMatchSnapshot('different service call error with status callback');
+    await waitFor(() => expect(statusErrorPoll).toHaveBeenCalledTimes(2));
+    expect(statusErrorPoll.mock.calls.map(describePollCall)).toEqual(expectedErrorStatusPollCalls());
   });
 
   it('should handle polling against a different service call path but with a callback error', async () => {
@@ -537,12 +696,9 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // Note: The location callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(consoleSpyError.mock.calls).toMatchSnapshot('callback error');
+    await waitFor(() =>
+      expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual(['location error', 'location error'])
+    );
     consoleSpyError.mockClear();
   });
 
@@ -566,23 +722,9 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // Note: The status callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(statusStatusErrorPoll).toHaveBeenCalledTimes(2);
-    expect({
-      status: statusStatusErrorPoll.mock.calls.map(([response, count]) => ({
-        response: {
-          error: response?.error,
-          data: response?.data,
-          pollConfig: response?.config.poll
-        },
-        count
-      }))
-    }).toMatchSnapshot('status of a status error polling');
-    expect(consoleSpyError.mock.calls).toMatchSnapshot('status of a status error');
+    await waitFor(() => expect(statusStatusErrorPoll).toHaveBeenCalledTimes(2));
+    expect(statusStatusErrorPoll.mock.calls.map(describePollCall)).toEqual(expectedErrorStatusPollCalls());
+    expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual(['status error', 'status error']);
     consoleSpyError.mockClear();
   });
 });
@@ -615,7 +757,7 @@ describe('Emulate a service call with a function', () => {
       schema: [successResponse => `${successResponse}-function-schema-transform`]
     });
 
-    expect(response.data).toMatchSnapshot('transform');
+    expect(response.data).toBe('lorem.ipsum-function-schema-transform');
   });
 
   it('should allow transforming a function call response', async () => {
@@ -625,7 +767,7 @@ describe('Emulate a service call with a function', () => {
       transform: [successResponse => `${successResponse}-function-transform`]
     });
 
-    expect(response.data).toMatchSnapshot('transform');
+    expect(response.data).toBe('lorem.ipsum-function-transform');
   });
 
   it('should handle function call response errors', async () => {
@@ -635,7 +777,7 @@ describe('Emulate a service call with a function', () => {
       })
     ]);
 
-    expect(responses.map(({ reason }) => reason.message)).toMatchSnapshot('error');
+    expect(responses.map(({ reason }) => reason.message)).toEqual(['dolor.sit']);
   });
 
   it('should handle function call response error with transformations', async () => {
@@ -649,7 +791,7 @@ describe('Emulate a service call with a function', () => {
       })
     ]);
 
-    expect(responses.map(({ reason }) => reason.response.data)).toMatchSnapshot('error transformation');
+    expect(responses.map(({ reason }) => reason.response.data)).toEqual(['Error: dolor.sit-error-transform']);
   });
 
   it('should handle function call response error string with transformations', async () => {
@@ -663,13 +805,13 @@ describe('Emulate a service call with a function', () => {
       })
     ]);
 
-    expect(responses.map(({ reason }) => reason.response.data)).toMatchSnapshot('error transformation');
+    expect(responses.map(({ reason }) => reason.response.data)).toEqual(['dolor.sit-error-transform']);
   });
 
   it('should handle passed http status with emulated, grouped service calls', async () => {
     const responses = await Promise.allSettled([
       serviceConfig.axiosServiceCall({
-        url: () => Promise.reject({ status: 403, statusText: 'Forbidden', message: 'dolor.sit' }), // eslint-disable-line
+        url: () => Promise.reject({ status: 403, statusText: 'Forbidden', message: 'dolor.sit' }) // eslint-disable-line
       })
     ]);
 
