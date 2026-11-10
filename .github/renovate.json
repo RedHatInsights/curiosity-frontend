@@ -29,7 +29,7 @@
         "@patternfly/*",
         "@redhat-cloud-services/frontend*"
       ],
-      "enabled": false
+      "enabled": true
     },
     {
       "matchManagers": ["npm"],
