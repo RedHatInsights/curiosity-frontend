@@ -1,3 +1,4 @@
+import { waitFor } from '@testing-library/dom';
 import moxios from 'moxios';
 import { serviceConfig } from '../serviceConfig';
 
@@ -587,12 +588,7 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // The status callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(statusPoll).toHaveBeenCalledTimes(3);
+    await waitFor(() => expect(statusPoll).toHaveBeenCalledTimes(3));
     expect(statusPoll.mock.calls.map(describePollCall)).toEqual([
       expectedPollCall(-1),
       expectedPollCall(0, { data: 'success', error: false, url: '/test/', locationUrl: '/test/' }),
@@ -626,18 +622,15 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // The status callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual([
-      'status error',
-      'status error',
-      'status error',
-      'status error',
-      'status error'
-    ]);
+    await waitFor(() =>
+      expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual([
+        'status error',
+        'status error',
+        'status error',
+        'status error',
+        'status error'
+      ])
+    );
     consoleSpyError.mockClear();
   });
 
@@ -682,12 +675,7 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // The status callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(statusErrorPoll).toHaveBeenCalledTimes(2);
+    await waitFor(() => expect(statusErrorPoll).toHaveBeenCalledTimes(2));
     expect(statusErrorPoll.mock.calls.map(describePollCall)).toEqual(expectedErrorStatusPollCalls());
   });
 
@@ -708,12 +696,9 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // The location callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual(['location error', 'location error']);
+    await waitFor(() =>
+      expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual(['location error', 'location error'])
+    );
     consoleSpyError.mockClear();
   });
 
@@ -737,12 +722,7 @@ describe('Poll service calls', () => {
       { pollInterval: 0 }
     );
 
-    // The status callback is an independent async func fired out of sequence, we wait for it to resolve.
-    await new Promise(resolve => {
-      window.setTimeout(() => resolve(), 100);
-    });
-
-    expect(statusStatusErrorPoll).toHaveBeenCalledTimes(2);
+    await waitFor(() => expect(statusStatusErrorPoll).toHaveBeenCalledTimes(2));
     expect(statusStatusErrorPoll.mock.calls.map(describePollCall)).toEqual(expectedErrorStatusPollCalls());
     expect(consoleSpyError.mock.calls.map(([error]) => error.message)).toEqual(['status error', 'status error']);
     consoleSpyError.mockClear();
