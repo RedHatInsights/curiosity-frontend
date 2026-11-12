@@ -416,11 +416,41 @@ describe('useOnSelect', () => {
     const { result } = await renderHook(() => useOnSelect({ options: ['hello', 'world'], selectedOptions: ['hello'] }));
 
     expect(summarizeOptions(result.options)).toEqual([
-      { title: 'hello', value: 'hello', index: 0, isSelected: false },
+      { title: 'hello', value: 'hello', index: 0, isSelected: true },
       { title: 'world', value: 'world', index: 1, isSelected: false }
     ]);
     expect(result.selectedOption).toEqual(
       expect.objectContaining({ title: 'hello', value: 'hello', index: 0, isSelected: true })
+    );
+  });
+
+  it('preserves selectedOptions when another checkbox option is selected', () => {
+    const onSelect = jest.fn();
+    const { result } = renderReactHook(() =>
+      useOnSelect({
+        options: ['hello', 'world'],
+        selectedOptions: ['hello'],
+        variant: SelectVariant.checkbox,
+        onSelect
+      })
+    );
+
+    expect(result.current.options.map(({ isSelected }) => isSelected)).toEqual([true, false]);
+
+    act(() => result.current.onSelect(undefined, result.current.options[1].key));
+
+    expect(result.current.options.map(({ isSelected }) => isSelected)).toEqual([true, true]);
+    expect(onSelect).toHaveBeenCalledTimes(1);
+    expect(onSelect).toHaveBeenCalledWith(
+      expect.objectContaining({
+        selected: [
+          expect.objectContaining({ title: 'hello', value: 'hello', index: 0, isSelected: true }),
+          expect.objectContaining({ title: 'world', value: 'world', index: 1, isSelected: true })
+        ],
+        selectedIndex: [0, 1],
+        type: 'select-multiple',
+        value: ['hello', 'world']
+      })
     );
   });
 });
