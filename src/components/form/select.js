@@ -274,6 +274,10 @@ const useOnSelect = ({ options: baseOptions, onSelect, selectedOptions, variant 
       variant
     });
 
+    [].concat(updatedSelected || []).forEach(({ index }) => {
+      updatedOptions[index].isSelected = true;
+    });
+
     setOptions(updatedOptions);
     setSelectedOption(updatedSelected);
   }, [baseOptions, selectedOptions]);
