@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.22.0](https://github.com/RedHatInsights/curiosity-frontend/compare/ee21a09250682567a7e8ce88b6604a702cb1b3f5...1c068b2e1d498e097edf079a7699a301b683932a) (2026-11-17)
+
+
+### Tests
+*  SWATCH-5778 Replace select snapshots with explicit asserts ([#2126](https://github.com/RedHatInsights/curiosity-frontend/pull/2126)) ([85c8e37](https://github.com/RedHatInsights/curiosity-frontend/commit/85c8e37bd12c378361f2c7e7f1edd45b316743a7))
+*  replace checkbox and textinput snapshots with assertions. ([#2118](https://github.com/RedHatInsights/curiosity-frontend/pull/2118)) ([930bee7](https://github.com/RedHatInsights/curiosity-frontend/commit/930bee72f0dfdc1775915cab142700803a156327))
+*  SWATCH-5783 assert service responses instead of Axios snapshots ([#2117](https://github.com/RedHatInsights/curiosity-frontend/pull/2117)) ([d8cc6c5](https://github.com/RedHatInsights/curiosity-frontend/commit/d8cc6c58fecbfadd16fa321eedacb0c0f2965786))
+
+### General
+*  SWATCH-4866:  reflect selected variant in the url ([#2096](https://github.com/RedHatInsights/curiosity-frontend/pull/2096)) ([c087c4d](https://github.com/RedHatInsights/curiosity-frontend/commit/c087c4d3e60fe5b2ebc49ffe864e5b23de183f34))
+
+### Continuous Integrations
+*  SWATCH-5662 iqe pipeline set feature flag env variable ([#2116](https://github.com/RedHatInsights/curiosity-frontend/pull/2116)) ([2765d6e](https://github.com/RedHatInsights/curiosity-frontend/commit/2765d6e6b6c719baac26b353f6c1e0cf28b65ecd))
+
+### Chores
+* **renovate** enable patternfly updates. ([#2111](https://github.com/RedHatInsights/curiosity-frontend/pull/2111)) ([9739044](https://github.com/RedHatInsights/curiosity-frontend/commit/9739044bba11b3f6a3efad97adc22ecd6cf4b1f4))
+
+### Builds
+* **deps** Update Konflux references to 864f90a ([#2131](https://github.com/RedHatInsights/curiosity-frontend/pull/2131)) ([1c068b2](https://github.com/RedHatInsights/curiosity-frontend/commit/1c068b2e1d498e097edf079a7699a301b683932a))
+* **deps** Lock file maintenance ([#2130](https://github.com/RedHatInsights/curiosity-frontend/pull/2130)) ([f8f7955](https://github.com/RedHatInsights/curiosity-frontend/commit/f8f795528979aa8ab5fb8f1364a27327976bc808))
+* **deps** Update Konflux references to v0.11.1 ([#2129](https://github.com/RedHatInsights/curiosity-frontend/pull/2129)) ([d6eb23b](https://github.com/RedHatInsights/curiosity-frontend/commit/d6eb23b0fac57d5ae58d7d3ef3bb03ce27122951))
+* **deps** Update build-tools digest to ef06e64 ([#2124](https://github.com/RedHatInsights/curiosity-frontend/pull/2124)) ([c792ea7](https://github.com/RedHatInsights/curiosity-frontend/commit/c792ea7d76c50add8d88a432708e4e5e94c66d64))
+* **deps** Update joi to v18.3.1 [SECURITY] ([#2127](https://github.com/RedHatInsights/curiosity-frontend/pull/2127)) ([c691af6](https://github.com/RedHatInsights/curiosity-frontend/commit/c691af69c231668d5caa0a08182f5fc849fbbcc8))
+* **deps** Update dev ([#2125](https://github.com/RedHatInsights/curiosity-frontend/pull/2125)) ([ed04880](https://github.com/RedHatInsights/curiosity-frontend/commit/ed04880953f1e45256b0e3d450dda5727650a09e))
+* **deps** Update Konflux references ([#2123](https://github.com/RedHatInsights/curiosity-frontend/pull/2123)) ([b4d01ca](https://github.com/RedHatInsights/curiosity-frontend/commit/b4d01ca3f46e73c161bc3daae9df5bc552ac4343))
+* **deps** bump i18next-http-backend from 3.0.6 to 4.0.4 ([#2121](https://github.com/RedHatInsights/curiosity-frontend/pull/2121)) ([c5f1090](https://github.com/RedHatInsights/curiosity-frontend/commit/c5f109010c6b3b348bc7911d36465b2483a41e6f))
+* **deps-dev** bump serialize-javascript from 7.1.2 to 7.1.4 ([#2122](https://github.com/RedHatInsights/curiosity-frontend/pull/2122)) ([0f8e1f6](https://github.com/RedHatInsights/curiosity-frontend/commit/0f8e1f64cb62ed2d362163a9aaad160505f9bfef))
+* **deps** bump axios from 1.18.1 to 1.21.0 ([#2108](https://github.com/RedHatInsights/curiosity-frontend/pull/2108)) ([2e1bd44](https://github.com/RedHatInsights/curiosity-frontend/commit/2e1bd44dec8eee2c25604219023a90b51243e9a6))
+* **deps** bump handlebars and apidoc-mock ([#2119](https://github.com/RedHatInsights/curiosity-frontend/pull/2119)) ([8d9041d](https://github.com/RedHatInsights/curiosity-frontend/commit/8d9041d99ca8bb2781498c077db199ed1df6faa6))
+* **deps** Lock file maintenance ([#2115](https://github.com/RedHatInsights/curiosity-frontend/pull/2115)) ([5daf1b1](https://github.com/RedHatInsights/curiosity-frontend/commit/5daf1b138c8e5824dbeb77e939f71cf5262f22be))
+* **deps** Update quay.io/konflux-ci/task-runner Docker tag v4 ([#2114](https://github.com/RedHatInsights/curiosity-frontend/pull/2114)) ([15420e2](https://github.com/RedHatInsights/curiosity-frontend/commit/15420e2f4a076bd975ec91c33a205121cd503bb3))
+* **deps** Update Konflux references ([#2113](https://github.com/RedHatInsights/curiosity-frontend/pull/2113)) ([37c0a8b](https://github.com/RedHatInsights/curiosity-frontend/commit/37c0a8b2633b54993c8d0dc52e3360f05f9808a3))
+* **deps** bump follow-redirects from 1.16.1 to 1.16.2 ([#2112](https://github.com/RedHatInsights/curiosity-frontend/pull/2112)) ([0586554](https://github.com/RedHatInsights/curiosity-frontend/commit/05865545c9b7008709c35495625f34ae06a6479f))
+* **deps** Lock file maintenance ([#2109](https://github.com/RedHatInsights/curiosity-frontend/pull/2109)) ([4601f6d](https://github.com/RedHatInsights/curiosity-frontend/commit/4601f6d940b21a3a08eea4e5a06489478270e21b))
+* **deps** Update dev to ^8.72.0 ([#2106](https://github.com/RedHatInsights/curiosity-frontend/pull/2106)) ([2913b27](https://github.com/RedHatInsights/curiosity-frontend/commit/2913b27803cf4faad61f2d7b86caf2071e3b20c3))
+* **deps** Update Node.js to >=22.23.4 ([#2105](https://github.com/RedHatInsights/curiosity-frontend/pull/2105)) ([c1b16b7](https://github.com/RedHatInsights/curiosity-frontend/commit/c1b16b7dd59fd5b9232966b395854bdee6aeaddf))
+
 ## [4.21.0](https://github.com/RedHatInsights/curiosity-frontend/compare/98e896cfc8af1c981156e54019daf218be88b27b...89eecbf8c3d8babd8abf1fcfeab0cdcefbc1eacc) (2026-11-03)
 
 
