@@ -70,10 +70,11 @@ Our process follows the standard GitHub fork and pull request workflow.
 - Submit a pull request towards the main repository default branch (`main`)
 
 ##### Main repository branches
-- `main` branch is a representation of development and `stage`.
-- `stable` branch is a representation of the `prod` environment.
+- `main` is the development branch.
+- `stable` is the source for the `stage` environment. [Sync Stable with Main](./.github/workflows/sync-stage.yaml) resets `stable` to `main` on every push to `main`.
+- Production is the AppSRE commit hash updated in the [production release](#production-release).
 
-> Note: The only PRs ever merged into the `stable` branch are those from `main` and a pull request to merge a release commit, see [release process](#release-process)
+> `stable` moves through [Sync Stable with Main](./.github/workflows/sync-stage.yaml) and [Sync Stable (Manual)](./.github/workflows/sync-stable-manual.yaml). See [Staging release](#staging-release).
 
 #### Pull requests
 Development pull requests (PRs) should be opened against the `main` branch.
@@ -143,7 +144,22 @@ The codebase makes use of linear Git commit history to ensure sequentially relea
 and providing a straightforward history for tracking changes.
 
 #### Staging release
-Staging code is automatically released to the `stage` environment on merge into the `main` branch.
+[Sync Stable with Main](./.github/workflows/sync-stage.yaml) resets `stable` to `main` on every push to `main`. The `stage` environment deploys `stable` once the AppSRE stage targets use that ref. With the workflow enabled, stage follows `main`.
+
+To freeze stage:
+
+1. On GitHub, open **Actions**, select **Sync Stable with Main**, and choose **Disable workflow**.
+2. Merges to `main` leave `stable` on its current commit, so stage stays there once AppSRE deploys `stable`. A release version commit merged during the freeze stays on `main` until it is promoted.
+
+Enable **Sync Stable with Main** again to remove the freeze. The next push to `main` restores promotion.
+
+To promote a release version commit to stage:
+
+1. Enable **Sync Stable with Main**.
+2. Merge the release version pull request into `main`.
+3. Disable **Sync Stable with Main** again.
+
+To publish only the release commit, leave **Sync Stable with Main** disabled and run **Sync Stable (Manual)** with the release commit hash.
 
 #### Production release
 The releases are created from the `main` branch.
@@ -159,7 +175,7 @@ The releases are created from the `main` branch.
       ```
       Three updated files are included: `CHANGELOG.md`, `package.json`, and `package-lock.json`. An added benefit is that the version displayed in `package.json` is broadcast in the application display for debugging purposes (and currently located at the bottom left of the application display)
    2. Open a PR to the `main` branch with this release commit
-   3. Let CI pass and then merge the PR. (It is now encouraged to add a PR number to the release commit since it improves transparency and traceability.)
+   3. Let CI pass and then merge the PR. (It is now encouraged to add a PR number to the release commit since it improves transparency and traceability.) Stage follows [Staging release](#staging-release). During a freeze, enable **Sync Stable with Main** before this merge and disable it after `stable` updates.
    4. Go to GitHub and create a release after the Release PR is merged and before more commits are pushed to `main`. This will create a tag in the format `v` followed by the version number (e.g., `v4.20.0`). If other commits have been merged since the release commit, create the tag manually on the release commit hash first, then create the release from that tag. Tagging provides known points in time that can be rolled back in an emergency.
    5. Finally, update the AppSRE hash associated with the release commit hash. The application display should be released to production within a variable timeframe. 
 
