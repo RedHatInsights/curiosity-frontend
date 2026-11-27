@@ -26,7 +26,7 @@ spec:
     value: quay.io/redhat-user-workloads/rh-subs-watch-tenant/curiosity-frontend/curiosity-frontend:on-pr-{{revision}}
   # Noble image supplies OS libraries. Chromium is installed from the lockfile.
   - name: e2e-playwright-image
-    value: "mcr.microsoft.com/playwright:v1.65.0-noble"
+    value: "mcr.microsoft.com/playwright:v1.65.1-noble"
   - name: e2e-proxy-image
     value: quay.io/redhat-user-workloads/hcc-platex-services-tenant/frontend-development-proxy@sha256:27e1fd5bc48ac531398eaba37891ccb2f368a0e8d08850966e78dc1996a46409
   - name: run-app-script
